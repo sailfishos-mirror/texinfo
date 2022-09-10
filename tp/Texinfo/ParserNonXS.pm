@@ -3277,7 +3277,7 @@ sub _end_line($$$)
           my $line = $text;
           if ($line =~ s/^([[:alnum:]][[:alnum:]-]+)//) {
             $end_command = $1;
-           
+
             if (!exists $block_commands{$end_command}) {
               $self->_command_warn($current, $source_info,
                                    __("unknown \@end %s"), $end_command);
@@ -3903,6 +3903,1874 @@ sub _setup_document_root_and_before_node_section()
   return ($document_root, $before_node_section);
 }
 
+my $STILL_MORE_TO_PROCESS = 0;
+my $GET_A_NEW_LINE = 1;
+my $FINISHED_TOTALLY = -1;
+
+# return values:
+#     $STILL_MORE_TO_PROCESS: when there is more to process on the line
+#     $GET_A_NEW_LINE: when we need to read a new line
+#     $FINISHED_TOTALLY: found @bye, end of processing
+sub _process_remaining_on_line($$$$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $line = shift;
+  my $source_info = shift;
+
+  my $retval = $STILL_MORE_TO_PROCESS;
+
+  # in a 'raw' (verbatim, ignore, (r)macro)
+  if ($current->{'cmdname'}
+      and $block_commands{$current->{'cmdname'}}
+      and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
+    # r?macro may be nested
+    if (($current->{'cmdname'} eq 'macro'
+         or $current->{'cmdname'} eq 'rmacro')
+        and $line =~ /^\s*\@r?macro\s+/) {
+      $line =~ s/\s*\@(r?macro)//;
+      push @{$current->{'contents'}}, { 'cmdname' => $1,
+                                        'parent' => $current,
+                                        'contents' => [],
+                                        'extra' => {'arg_line' => $line }};
+      $current = $current->{'contents'}->[-1];
+      $retval = $GET_A_NEW_LINE;
+      goto funexit;
+    } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
+             and ($2 eq $current->{'cmdname'})) {
+      if ($line =~ s/^(\s+)//) {
+        push @{$current->{'contents'}},
+          { 'text' => $1,
+            'type' => 'raw', 'parent' => $current };
+        $self->_line_warn(sprintf(
+              __("\@end %s should only appear at the beginning of a line"),
+                                 $current->{'cmdname'}), $source_info);
+      }
+      # store toplevel macro specification
+      if (($current->{'cmdname'} eq 'macro' or $current->{'cmdname'} eq 'rmacro')
+           and (! $current->{'parent'}
+                or !$current->{'parent'}->{'cmdname'}
+                or ($current->{'parent'}->{'cmdname'} ne 'macro'
+                    and $current->{'parent'}->{'cmdname'} ne 'rmacro'))) {
+        my $macrobody =
+           Texinfo::Convert::Texinfo::convert_to_texinfo(
+                               { 'contents' => $current->{'contents'} });
+        if ($current->{'args'} and $current->{'args'}->[0]) {
+          my $name = $current->{'args'}->[0]->{'text'};
+          if (exists($self->{'macros'}->{$name})) {
+            $self->_line_warn(sprintf(__("macro `%s' previously defined"),
+                                      $name), $current->{'source_info'});
+            $self->_line_warn(sprintf(__(
+                               "here is the previous definition of `%s'"),
+           $name), $self->{'macros'}->{$name}->{'element'}->{'source_info'});
+          }
+          if ($all_commands{$name}
+              or ($name eq 'txiinternalvalue'
+                  and $self->{'accept_internalvalue'})) {
+            $self->_line_warn(sprintf(__(
+                              "redefining Texinfo language command: \@%s"),
+                                      $name), $current->{'source_info'});
+          }
+          if (!$current->{'extra'}->{'invalid_syntax'}) {
+            $self->{'macros'}->{$name} = {
+              'element' => $current,
+              'macrobody' => $macrobody
+            };
+          }
+        }
+      }
+      print STDERR "CLOSED raw $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+      # start a new line for the @end line (without the first spaces on
+      # the line that have already been put in a raw container).
+      # This is normally done at the beginning of a line, but not here,
+      # as we directly got the line.  As the @end is processed just below,
+      # an empty line will not appear in the output, but it is needed to
+      # avoid a duplicate warning on @end not appearing at the beginning
+      # of the line
+      push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                        'text' => '',
+                                        'parent' => $current };
+    } else {
+      push @{$current->{'contents'}},
+        { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+      $retval = $GET_A_NEW_LINE;
+      goto funexit;
+    }
+  # in ignored conditional block command
+  } elsif ($current->{'cmdname'}
+      and $block_commands{$current->{'cmdname'}}
+      and ($block_commands{$current->{'cmdname'}} eq 'conditional')) {
+    # check for nested @ifset (so that @end ifset doesn't end the
+    # outermost @ifset).  It is discarded when the outermost is.
+    if (($current->{'cmdname'} eq 'ifclear'
+              or $current->{'cmdname'} eq 'ifset'
+              or $current->{'cmdname'} eq 'ifcommanddefined'
+              or $current->{'cmdname'} eq 'ifcommandnotdefined')
+            and $line =~ /^\s*\@$current->{'cmdname'}/) {
+      push @{$current->{'contents'}}, { 'cmdname' => $current->{'cmdname'},
+                                        'parent' => $current,
+                                        'contents' => [],
+                                      };
+      $current = $current->{'contents'}->[-1];
+    } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
+             and ($2 eq $current->{'cmdname'})) {
+      my $end_command = $current->{'cmdname'};
+      $line =~ s/^(\s*?)\@end\s+$end_command//;
+      if ($1 ne '') {
+        $self->_line_warn(sprintf(
+              __("\@end %s should only appear at the beginning of a line"),
+                                 $end_command), $source_info);
+      }
+      $self->_line_warn(sprintf(
+           __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
+                              $line), $source_info)
+        if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
+      $current = $current->{'parent'};
+      # don't store ignored @if*
+      my $conditional = pop @{$current->{'contents'}};
+      if (!defined($conditional->{'cmdname'}
+          or $conditional->{'cmdname'} ne $end_command)) {
+        $self->_bug_message(
+                "Ignored command is not the conditional $end_command",
+                             $source_info, $conditional);
+        die;
+      }
+      print STDERR "CLOSED conditional $end_command\n" if ($self->{'DEBUG'});
+      # Ignore until end of line
+      # FIXME this is not the same as for other commands.  Change?
+      if ($line !~ /\n/) {
+        ($line, $source_info) = _new_line($self, $source_info);
+        print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
+      }
+    }
+    # anything remaining on the line and any other line is ignored here
+    $retval = $GET_A_NEW_LINE;
+    goto funexit;
+  # in @verb. type should be 'brace_command_arg'
+  } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
+         and $current->{'parent'}->{'cmdname'} eq 'verb') {
+    # collect the first character if not already done
+    if (!defined($current->{'parent'}->{'extra'}->{'delimiter'})) {
+      if ($line =~ /^$/) {
+        $current->{'parent'}->{'extra'}->{'delimiter'} = '';
+        $self->_line_error(sprintf(
+            __("\@%s without associated character"), 'verb'), $source_info);
+      } else {
+        $line =~ s/^(.)//;
+        $current->{'parent'}->{'extra'}->{'delimiter'} = $1;
+      }
+    }
+    my $char = quotemeta($current->{'parent'}->{'extra'}->{'delimiter'});
+    if ($line =~ s/^(.*?)$char\}/\}/) {
+      push @{$current->{'contents'}},
+          { 'text' => $1, 'type' => 'raw', 'parent' => $current }
+            if ($1 ne '');
+      print STDERR "END VERB\n" if ($self->{'DEBUG'});
+    } else {
+      push @{$current->{'contents'}},
+         { 'text' => $line, 'type' => 'raw', 'parent' => $current };
+      print STDERR "LINE VERB: $line" if ($self->{'DEBUG'});
+      $retval = $GET_A_NEW_LINE;
+      goto funexit;
+    }
+  } elsif ($current->{'cmdname'}
+           and $format_raw_commands{$current->{'cmdname'}}
+           and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
+    push @{$current->{'contents'}}, { 'type' => 'elided_block',
+                                      'contents' => [],
+                                      'parent' => $current };
+    while (not $line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
+      ($line, $source_info) = _new_line($self, $source_info);
+      if (!$line) {
+        # unclosed block
+        $line = '';
+        last;
+      }
+    }
+    # start a new line for the @end line, this is normally done
+    # at the beginning of a line, but not here, as we directly
+    # got the lines.
+    $line =~ s/^([^\S\r\n]*)//;
+    push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                      'text' => $1,
+                                      'parent' => $current };
+    # It is important to let the processing continue from here, such that
+    # the @end is catched and handled below, as the condition has not changed
+  }
+  # this mostly happens in the following cases:
+  #   after expansion of user defined macro that doesn't end with EOL
+  #   after a protection of @\n in @def* line
+  #   at the end of an expanded Texinfo fragment
+  while ($line eq '') {
+    print STDERR "EMPTY TEXT\n"
+      if ($self->{'DEBUG'});
+    ($line, $source_info) = _next_text($self, $source_info);
+    if (!defined($line)) {
+      # end of the file or of a text fragment.
+      $current = _end_line($self, $current, $source_info);
+      # It may happen that there is an @include file on the line, it
+      # will be picked up at NEXT_LINE, beginning a new line
+      $retval = $GET_A_NEW_LINE;
+      goto funexit;
+    }
+  }
+
+  my $at_command_length;
+  my @line_parsing = _parse_texi_regex($line);
+  my ($at_command, $open_brace, $asterisk, $single_letter_command,
+    $separator_match, $misc_text) = @line_parsing;
+    print STDERR "PARSED: ".join(', ', map {!defined($_) ? 'UNDEF' : "'$_'"} @line_parsing)."\n"
+    if ($self->{'DEBUG'} and $self->{'DEBUG'} > 3);
+
+  my $command;
+  if ($single_letter_command) {
+    $command = $single_letter_command;
+  } elsif ($at_command) {
+    $at_command_length = length($at_command) + 1;
+    $command = $at_command;
+
+    my $alias_command;
+    if (exists($self->{'aliases'}->{$command})) {
+      $alias_command = $command;
+      $command = $self->{'aliases'}->{$command};
+    }
+
+
+    # handle user defined macros before anything else since
+    # their expansion may lead to changes in the line
+    if ($self->{'macros'}->{$command}) {
+      substr($line, 0, $at_command_length) = '';
+
+      my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
+      my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
+      my $arguments = [];
+      if ($line =~ s/^\s*{\s*//) { # macro with args
+        ($arguments, $line, $source_info)
+         = _expand_macro_arguments($self, $expanded_macro, $line, $source_info);
+      } elsif (($args_number >= 2) or ($args_number <1)) {
+      # as agreed on the bug-texinfo mailing list, no warn when zero
+      # arg and not called with {}.
+        $self->_line_warn(sprintf(__(
+ "\@%s defined with zero or more than one argument should be invoked with {}"),
+                                  $command), $source_info)
+           if ($args_number >= 2);
+      } else {
+        if ($line !~ /\n/) {
+          ($line, $source_info) = _new_line($self, $source_info);
+          $line = '' if (!defined($line));
+        }
+        $line =~ s/^\s*// if ($line =~ /\S/);
+        my $has_end_of_line = chomp $line;
+        $arguments = [$line];
+        $line = "\n" if ($has_end_of_line);
+      }
+      my $expanded = _expand_macro_body($self,
+                                 $self->{'macros'}->{$command},
+                                 $arguments, $source_info);
+      print STDERR "MACROBODY: $expanded".'||||||'."\n"
+         if ($self->{'DEBUG'});
+      # empty result.  It is ignored here.
+      if ($expanded eq '') {
+        goto funexit;
+      }
+      if ($self->{'MAX_MACRO_CALL_NESTING'}
+          and scalar(@{$self->{'macro_stack'}}) > $self->{'MAX_MACRO_CALL_NESTING'}) {
+        $self->_line_warn(sprintf(__(
+  "macro call nested too deeply (set MAX_NESTED_MACROS to override; current value %d)"),
+                              $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
+        goto funexit;
+      }
+      if ($expanded_macro->{'cmdname'} eq 'macro') {
+        my $found = 0;
+        foreach my $macro (@{$self->{'macro_stack'}}) {
+          if ($macro->{'args'}->[0]->{'text'} eq $command) {
+            $self->_line_error(sprintf(__(
+           "recursive call of macro %s is not allowed; use \@rmacro if needed"),
+                                       $command), $source_info);
+            $found = 1;
+            last;
+          }
+        }
+        goto funexit if ($found);
+      }
+
+      my $expanded_lines = _text_to_lines($expanded);
+      goto funexit if (!@$expanded_lines);
+      chomp ($expanded_lines->[-1]);
+      pop @$expanded_lines if ($expanded_lines->[-1] eq '');
+      print STDERR "MACRO EXPANSION LINES: ".join('|', @$expanded_lines)
+                                   ."|\nEND LINES MACRO EXPANSION\n" if ($self->{'DEBUG'});
+      goto funexit if (!@$expanded_lines);
+      unshift @{$self->{'macro_stack'}}, $expanded_macro;
+      print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
+        if ($self->{'DEBUG'});
+      my $new_lines = _complete_line_nr($expanded_lines,
+                       $source_info->{'line_nr'}, $source_info->{'file_name'},
+                       $expanded_macro->{'args'}->[0]->{'text'}, 1);
+      $source_info->{'end_macro'} = 1;
+      # first put the line that was interrupted by the macro call
+      # on the input pending text with information stack
+      unshift @{$self->{'input'}->[0]->{'pending'}}, [$line, $source_info];
+      # current line is the first from macro expansion
+      my $new_text = shift @$new_lines;
+      ($line, $source_info) = ($new_text->[0], $new_text->[1]);
+      # then put the following macro expansion lines with information on the
+      # pending text with information stack
+      unshift @{$self->{'input'}->[0]->{'pending'}}, @$new_lines;
+      goto funexit;
+    }
+    # expand value if it can change the line.  It considered again
+    # together with other commands below for all the other cases
+    # which may need a well formed tree, which is not needed here, and
+    # early value expansion may be needed to provide with an argument.
+    if ($command eq 'value') {
+      my $expanded_line = $line;
+      substr($expanded_line, 0, $at_command_length) = '';
+      $expanded_line =~ s/^\s*//
+         if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
+      # REVALUE
+      if ($expanded_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
+        my $value = $1;
+        if (exists($self->{'values'}->{$value})) {
+          $line = $self->{'values'}->{$value} . $expanded_line;
+          goto funexit;
+        }
+      }
+    }
+      #substr($line, 0, $at_command_length) = '';
+  }
+
+  # special case for @-command as argument of @itemize or @*table.
+  # The normal case for those are to be identifier only, not a true command
+  # with argument, so can be followed by anything.  If followed by
+  # braces, will be handled as a normal brace command.
+  #
+  # Need to be done as early as possible such that no other condition
+  # prevail and lead to a missed command
+  if ($current->{'cmdname'}
+      and defined($brace_commands{$current->{'cmdname'}})
+      and !$open_brace
+      and _command_with_command_as_argument($current->{'parent'})) {
+    print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} ".
+           "command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+    $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
+    $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
+      = $current;
+    if ($current->{'cmdname'} eq 'kbd'
+        and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
+      $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+    }
+    $current = $current->{'parent'};
+  }
+
+  # command but before an opening brace, otherwise $current
+  # would be an argument type and not the command, and a new
+  # @-command was found.  This means that the $current->{'cmdname'}
+  # argument (an opening brace, or a character after spaces for
+  # accent commands) was not found and there is already a new command.
+  #
+  # It would have been nice to allow for comments, but there is no
+  # container in the tree to put them when after command and before brace
+  # or argument for accent commands.
+  if ($command
+      and $current->{'cmdname'}
+      and defined($brace_commands{$current->{'cmdname'}})) {
+    $self->_line_error(sprintf(__("\@%s expected braces"),
+                       $current->{'cmdname'}), $source_info);
+    $current = $current->{'parent'};
+  }
+
+  # handle unknown @-command
+  if ($command and !$all_commands{$command}
+      and !$self->{'definfoenclose'}->{$command}
+      and !$self->{'command_index'}->{$command}
+      # @txiinternalvalue is invalid unless accept_internalvalue is set
+      and !($command eq 'txiinternalvalue'
+            and $self->{'accept_internalvalue'})) {
+    $self->_line_error(sprintf(__("unknown command `%s'"),
+                                  $command), $source_info);
+    substr($line, 0, $at_command_length) = '';
+    _abort_empty_line($self, $current);
+    my $paragraph = _begin_paragraph($self, $current, $source_info);
+    $current = $paragraph if ($paragraph);
+    goto funexit;
+  }
+
+  # this situation arises when after the $current->{'cmdname'}
+  # Brace commands not followed immediately by a brace
+  # opening.  In particular cases that may lead to "command closing"
+  # or following character association with an @-command, for accent
+  # commands.
+
+  # This condition can only happen immediately after the command opening,
+  # otherwise the current element is in the 'args' and not right in the
+  # command container.
+  if ($current->{'cmdname'}
+        and defined($brace_commands{$current->{'cmdname'}})
+        and !$open_brace) {
+    print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: $line"
+      if $self->{'DEBUG'};
+    # Note that non ascii spaces do not count as spaces
+    if ($line =~ /^(\s+)/
+        and ($accent_commands{$current->{'cmdname'}}
+             or $self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})) {
+      my $added_space = $1;
+      my $additional_newline;
+      if ($added_space =~ /\n/) {
+        $self->_line_warn(sprintf(
+           __("command `\@%s' must not be followed by new line"),
+           $current->{'cmdname'}), $source_info);
+        $additional_newline = 1;
+      }
+      if (!defined($current->{'extra'}->{'spaces'})) {
+        $line =~ s/^(\s+)//;
+        $current->{'extra'}->{'spaces'} = $added_space;
+        print STDERR "BRACE CMD before brace init spaces '$added_space'\n"
+          if $self->{'DEBUG'};
+      # only ignore spaces and one newline, two newlines lead to
+      # an empty line before the brace or argument which is incorrect.
+      } elsif ($additional_newline
+               and $current->{'extra'}->{'spaces'} =~ /\n/) {
+        print STDERR "BRACE CMD before brace second newline stops spaces\n"
+          if $self->{'DEBUG'};
+        $self->_line_error(sprintf(__("\@%s expected braces"),
+                           $current->{'cmdname'}), $source_info);
+        $current = $current->{'parent'};
+      } else {
+        $line =~ s/^(\s+)//;
+        $current->{'extra'}->{'spaces'} .= $added_space;
+        print STDERR "BRACE CMD before brace add spaces '$added_space'\n"
+          if $self->{'DEBUG'};
+      }
+    # special case for accent commands, use following character except @
+    # as argument.  Note that since we checked before that there isn't
+    # an @-command opening, there should not be an @ anyway.  The line
+    # may possibly be empty in some specific case, without end of line.
+    } elsif ($accent_commands{$current->{'cmdname'}}
+             and $line =~ s/^([^@])//) {
+      print STDERR "ACCENT following_arg \@$current->{'cmdname'}\n"
+        if ($self->{'DEBUG'});
+      my $following_arg = {'type' => 'following_arg',
+                           'parent' => $current};
+      $following_arg->{'contents'} = [{ 'text' => $1,
+                                       'parent' => $following_arg } ];
+      $current->{'args'} = [ $following_arg ];
+      if ($current->{'cmdname'} eq 'dotless' and $1 ne 'i' and $1 ne 'j') {
+        $self->_line_error(sprintf(
+           __("%c%s expects `i' or `j' as argument, not `%s'"),
+                                   ord('@'), $current->{'cmdname'}, $1),
+                           $source_info);
+      }
+      $current = $current->{'parent'};
+    } else {
+      $self->_line_error(sprintf(__("\@%s expected braces"),
+                         $current->{'cmdname'}), $source_info);
+      $current = $current->{'parent'};
+    }
+  # maybe a menu entry beginning: a * at the beginning of a menu line
+  } elsif ($current->{'type'}
+            and $current->{'type'} eq 'preformatted'
+            and $current->{'parent'}->{'type'}
+            and ($current->{'parent'}->{'type'} eq 'menu_comment'
+                 or $current->{'parent'}->{'type'} eq 'menu_entry_description')
+            and $asterisk
+            and @{$current->{'contents'}}
+            and $current->{'contents'}->[-1]->{'type'}
+            and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
+            and $current->{'contents'}->[-1]->{'text'} eq '') {
+    print STDERR "MENU STAR\n" if ($self->{'DEBUG'});
+    _abort_empty_line($self, $current);
+    $line =~ s/^\*//;
+    push @{$current->{'contents'}}, { 'parent' => $current,
+                                      'type' => 'menu_star',
+                                      'text' => '*' };
+  # a space after a * at the beginning of a menu line
+  } elsif ($current->{'contents'} and @{$current->{'contents'}}
+           and $current->{'contents'}->[-1]->{'type'}
+           and $current->{'contents'}->[-1]->{'type'} eq 'menu_star') {
+    if ($line !~ /^\s+/) {
+      print STDERR "ABORT MENU STAR ($line)\n" if ($self->{'DEBUG'});
+      delete $current->{'contents'}->[-1]->{'type'};
+    } else {
+      print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
+      # this is the menu star collected previously
+      pop @{$current->{'contents'}};
+      $line =~ s/^(\s+)//;
+      my $leading_text = '*' . $1;
+      if ($current->{'type'} eq 'preformatted'
+          and $current->{'parent'}->{'type'}
+          and $current->{'parent'}->{'type'} eq 'menu_comment') {
+        my $menu = $current->{'parent'}->{'parent'};
+        if (!@{$current->{'contents'}}) {
+          pop @{$current->{'parent'}->{'contents'}};
+          if (!scalar(@{$current->{'parent'}->{'contents'}})) {
+            pop @{$menu->{'contents'}};
+          }
+        }
+        $current = $menu;
+      } else {
+        # first parent preformatted, third is menu_entry
+        if ($current->{'type'} ne 'preformatted'
+            or $current->{'parent'}->{'type'} ne 'menu_entry_description'
+            or $current->{'parent'}->{'parent'}->{'type'} ne 'menu_entry'
+            or !$menu_commands{$current->{'parent'}->{'parent'}->{'parent'}->{'cmdname'}}) {
+          $self->_bug_message("Not in menu comment nor description",
+                               $source_info, $current);
+        }
+        $current = $current->{'parent'}->{'parent'}->{'parent'};
+      }
+      push @{$current->{'contents'}}, { 'type' => 'menu_entry',
+                                        'parent' => $current,
+                                      };
+      $current = $current->{'contents'}->[-1];
+      $current->{'args'} = [ { 'type' => 'menu_entry_leading_text',
+                               'text' => $leading_text,
+                               'parent' => $current },
+                             { 'type' => 'menu_entry_name',
+                               'contents' => [],
+                               'parent' => $current } ];
+      $current = $current->{'args'}->[-1];
+    }
+  # after a separator in menu
+  } elsif ($current->{'args'} and @{$current->{'args'}}
+           and $current->{'args'}->[-1]->{'type'}
+           and $current->{'args'}->[-1]->{'type'} eq 'menu_entry_separator') {
+    print STDERR "AFTER menu_entry_separator\n" if ($self->{'DEBUG'});
+    my $separator = $current->{'args'}->[-1]->{'text'};
+    # separator is ::, we concatenate and let the while restart
+    # in order to collect spaces below
+    if ($separator eq ':' and $line =~ s/^(:)//) {
+      $current->{'args'}->[-1]->{'text'} .= $1;
+    # a . not followed by a space.  Not a separator.
+    } elsif ($separator eq '.' and $line =~ /^\S/) {
+      pop @{$current->{'args'}};
+      $current = $current->{'args'}->[-1];
+      $current = _merge_text($self, $current, $separator);
+    # here we collect spaces following separators.
+    } elsif ($line =~ s/^([^\S\r\n]+)//) {
+      # FIXME a trailing end of line could be considered to be part
+      # of the separator. Right now it is part of the description,
+      # since it is catched (in the next while) as one of the case below
+      $current->{'args'}->[-1]->{'text'} .= $1;
+    # now handle the menu part that was closed
+    } elsif ($separator =~ /^::/) {
+      print STDERR "MENU NODE no entry $separator\n" if ($self->{'DEBUG'});
+      # it was previously registered as menu_entry_name, it is
+      # changed to node
+      $current->{'args'}->[-2]->{'type'} = 'menu_entry_node';
+      $current = _enter_menu_entry_node($self, $current, $source_info);
+    # end of the menu entry name
+    } elsif ($separator =~ /^:/) {
+      print STDERR "MENU ENTRY $separator\n" if ($self->{'DEBUG'});
+      push @{$current->{'args'}}, { 'type' => 'menu_entry_node',
+                                    'contents' => [],
+                                    'parent' => $current };
+      $current = $current->{'args'}->[-1];
+    # anything else is the end of the menu node following a menu_entry_name
+    } else {
+      print STDERR "MENU NODE $separator\n" if ($self->{'DEBUG'});
+      $current = _enter_menu_entry_node($self, $current, $source_info);
+    }
+  # Any other @-command.
+  } elsif ($command) {
+    if (!$at_command) {
+      substr($line, 0, 2) = '';
+    } else {
+      substr($line, 0, $at_command_length) = '';
+    }
+
+    print STDERR "COMMAND $command\n" if ($self->{'DEBUG'});
+
+    # @value not expanded (expansion is done above), and @txiinternalvalue
+    if ($command eq 'value' or $command eq 'txiinternalvalue') {
+      $line =~ s/^\s*//
+         if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
+      # REVALUE
+      if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
+        my $value = $1;
+        if ($command eq 'value') {
+          if (not exists($self->{'values'}->{$value})) {
+            _abort_empty_line($self, $current);
+            # caller should expand something along
+            # gdt('@{No value for `{value}\'@}', {'value' => $value}, {'keep_texi'=> 1});
+            push @{$current->{'contents'}}, { 'cmdname' => $command,
+                                              'type' => $value,
+                                              'contents' => [],
+                                              'parent' => $current };
+            $self->_line_warn(
+               sprintf(__("undefined flag: %s"), $value), $source_info);
+          # expansion of value already done above
+          #} else {
+          }
+        } else {
+          # txiinternalvalue
+          _abort_empty_line($self, $current);
+          my $new_element = { 'cmdname' => $command,
+                              'args' => [],
+                              'parent' => $current };
+          # type misc_arg?
+          push @{$new_element->{'args'}}, {'text' => $value,
+                                           'parent' => $new_element};
+          push @{$current->{'contents'}}, $new_element;
+        }
+      } else {
+        $self->_line_error(sprintf(__("bad syntax for %c%s"), ord('@'),
+                             $command), $source_info);
+      }
+      goto funexit;
+    }
+
+    if (defined($deprecated_commands{$command})) {
+      if ($deprecated_commands{$command} eq '') {
+        $self->_line_warn(sprintf(__("%c%s is obsolete"),
+                            ord('@'), $command), $source_info);
+      } else {
+        $self->_line_warn(sprintf(__("%c%s is obsolete; %s"),
+                                  ord('@'), $command,
+                                  __($deprecated_commands{$command})),
+                          $source_info);
+      }
+    }
+
+    # special case with @ followed by a newline protecting end of lines
+    # in @def*
+    my $def_line_continuation
+      = ($self->_top_context() eq 'ct_def' and $command eq "\n");
+
+    if (not $def_line_continuation
+           and not _abort_empty_line($self, $current)
+           and $begin_line_commands{$command}) {
+      $self->_line_warn(
+          sprintf(__("\@%s should only appear at the beginning of a line"),
+                  $command), $source_info);
+    }
+
+    _check_valid_nesting ($self, $current, $command, $source_info);
+
+    if ($def_line_continuation) {
+      $retval = $GET_A_NEW_LINE;
+      goto funexit;
+    }
+
+    unless ($self->{'no_paragraph_commands'}->{$command}) {
+      my $paragraph = _begin_paragraph($self, $current, $source_info);
+      $current = $paragraph if ($paragraph);
+    }
+
+    if ($self->{'close_paragraph_commands'}->{$command}) {
+      $current = _end_paragraph($self, $current, $source_info);
+    }
+    if ($self->{'close_preformatted_commands'}->{$command}) {
+      $current = _end_preformatted($self, $current, $source_info);
+    }
+
+    if ($in_index_commands{$command}
+        and $current->{'contents'}
+        and $current->{'contents'}->[-1]
+        and $current->{'contents'}->[-1]->{'text'}
+        # it is important to check if in an index command, as otherwise
+        # the internal space type is not processed and remains as is in
+        # the final tree.
+        and _is_index_element($self, $current->{'parent'})) {
+      $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
+      # an internal and temporary space type that is converted to
+      # a normal space without type if followed by text or a
+      # "spaces_at_end" if followed by spaces only when the
+      # index or subentry command is done.
+      my $space_type = 'spaces_before_brace_in_index';
+      if ($command eq 'subentry') {
+        $space_type = 'spaces_at_end';
+      }
+      if ($1 ne '') {
+        if ($current->{'contents'}->[-1]->{'text'} eq '') {
+          $current->{'contents'}->[-1]->{'text'} = $1;
+          $current->{'contents'}->[-1]->{'type'} = $space_type;
+        } else {
+          my $new_spaces = { 'text' => $1, 'parent' => $current,
+            'type' => $space_type };
+          push @{$current->{'contents'}}, $new_spaces;
+        }
+      }
+    }
+
+    if (defined($other_commands{$command})
+        and ($command ne 'item' or !_item_line_parent($current))) {
+      # noarg skipspace
+      my $arg_spec = $other_commands{$command};
+      my $misc;
+
+      if ($arg_spec eq 'noarg') {
+        if ($in_heading_commands{$command}) {
+          # TODO use a more generic system for check of @-command nesting
+          # in command on context stack
+          my $top_context_command = $self->_top_context_command();
+          if (not defined($top_context_command)
+              or not $headings_specification_commands{$top_context_command}) {
+            $self->_line_error(
+              sprintf(__("\@%s should only appear in heading or footing"),
+                    $command), $source_info);
+          }
+        }
+        $misc = {'cmdname' => $command, 'parent' => $current};
+        push @{$current->{'contents'}}, $misc;
+        _register_global_command($self, $misc, $source_info);
+        $current = _begin_preformatted($self, $current)
+          if ($close_preformatted_commands{$command});
+      } else {
+        if ($command eq 'item'
+            or $command eq 'headitem' or $command eq 'tab') {
+          my $parent;
+          # @itemize or @enumerate
+          if ($parent = _item_container_parent($current)) {
+            if ($command eq 'item') {
+              print STDERR "ITEM_CONTAINER\n" if ($self->{'DEBUG'});
+              $parent->{'items_count'}++;
+              $misc = { 'cmdname' => $command, 'parent' => $parent,
+                        'contents' => [],
+                        'extra' =>
+                          {'item_number' => $parent->{'items_count'}} };
+              push @{$parent->{'contents'}}, $misc;
+              $current = $parent->{'contents'}->[-1];
+            } else {
+              $self->_line_error(sprintf(__(
+                            "\@%s not meaningful inside `\@%s' block"),
+                               $command, $parent->{'cmdname'}), $source_info);
+            }
+            $current = _begin_preformatted($self, $current);
+          # @*table
+          } elsif ($parent = _item_line_parent($current)) {
+            # @item and _item_line_parent is explicitely avoided in the if above
+            $self->_line_error(sprintf(__(
+                  "\@%s not meaningful inside `\@%s' block"),
+                $command, $parent->{'cmdname'}), $source_info);
+            $current = _begin_preformatted($self, $current);
+          # @multitable
+          } elsif ($parent = _item_multitable_parent($current)) {
+            if (!$parent->{'extra'}->{'max_columns'}) {
+              $self->_line_warn(
+                 sprintf(__("\@%s in empty multitable"),
+                         $command), $source_info);
+            } elsif ($command eq 'tab') {
+              my $row = $parent->{'contents'}->[-1];
+              die if (!$row->{'type'});
+              if ($row->{'type'} eq 'before_item') {
+                $self->_line_error(__("\@tab before \@item"), $source_info);
+              } elsif ($row->{'cells_count'} >= $parent->{'extra'}->{'max_columns'}) {
+                $self->_line_error(sprintf(__(
+                        "too many columns in multitable item (max %d)"),
+                       $parent->{'extra'}->{'max_columns'}), $source_info);
+              } else {
+                $row->{'cells_count'}++;
+                $misc = { 'cmdname' => $command,
+                          'parent' => $row,
+                          'contents' => [],
+                          'extra' =>
+                      {'cell_number' => $row->{'cells_count'}} };
+                push @{$row->{'contents'}}, $misc;
+                $current = $row->{'contents'}->[-1];
+                print STDERR "TAB\n" if ($self->{'DEBUG'});
+              }
+            } else {
+              print STDERR "ROW\n" if ($self->{'DEBUG'});
+              $parent->{'rows_count'}++;
+              my $row = { 'type' => 'row', 'contents' => [],
+                          'cells_count' => 1,
+                          'extra' => {'row_number' => $parent->{'rows_count'} },
+                          'parent' => $parent };
+              push @{$parent->{'contents'}}, $row;
+              $misc =  { 'cmdname' => $command,
+                         'parent' => $row,
+                         'contents' => [],
+                         'extra' => {'cell_number' => 1}};
+              push @{$row->{'contents'}}, $misc;
+              $current = $row->{'contents'}->[-1];
+            }
+            $current = _begin_preformatted($self, $current);
+          } elsif ($command eq 'tab') {
+            $self->_line_error(__(
+                       "ignoring \@tab outside of multitable"), $source_info);
+            $current = _begin_preformatted($self, $current);
+          } else {
+            $self->_line_error(sprintf(__(
+               "\@%s outside of table or list"), $command), $source_info);
+            $current = _begin_preformatted($self, $current);
+          }
+          $misc->{'source_info'} = $source_info if (defined($misc));
+        } else {
+          $misc = { 'cmdname' => $command, 'parent' => $current,
+              'source_info' => $source_info };
+          push @{$current->{'contents'}}, $misc;
+        }
+        $line = _start_empty_line_after_command($line, $current, $misc, $command);
+      }
+    # line commands
+    } elsif (defined($self->{'line_commands'}->{$command})) {
+      if ($root_commands{$command} or $command eq 'bye') {
+        $current = _close_commands($self, $current, $source_info, undef,
+                                   $command);
+        if (!defined($current->{'parent'})) {
+          # if parse_texi_line is called on a line with a node/section then
+          # it will directly be in the root_line, otherwise it is not directly
+          # in the root, but in another container
+          #
+          # FIXME warn/error with a root command in parse_texi_line?
+          if ($current->{'type'} ne 'root_line') {
+            $self->_bug_message("no parent element", $source_info, $current);
+            die;
+          }
+        } else {
+          $current = $current->{'parent'};
+        }
+      }
+
+      # skipline text line lineraw /^\d$/
+      my $arg_spec = $self->{'line_commands'}->{$command};
+      my $misc;
+
+      # all the cases using the raw line
+      if ($arg_spec eq 'skipline' or $arg_spec eq 'lineraw'
+               or $arg_spec eq 'special') {
+        my $ignored = 0;
+        if ($command eq 'insertcopying') {
+          my $parent = $current;
+          while ($parent) {
+            if ($parent->{'cmdname'} and $parent->{'cmdname'} eq 'copying') {
+              $self->_line_error(
+                 sprintf(__("\@%s not allowed inside `\@%s' block"),
+                         $command, $parent->{'cmdname'}), $source_info);
+              $ignored = 1;
+              last;
+            }
+            $parent = $parent->{'parent'};
+          }
+        }
+
+        # complete the line if there was a user macro expansion
+        if ($line !~ /\n/) {
+          my ($new_line, $new_line_source_info)
+                     = _new_line($self, $source_info);
+          $line .= $new_line if (defined($new_line));
+        }
+        $misc = {'cmdname' => $command,
+                 'parent' => $current};
+        my $args = [];
+        my $has_comment;
+        if ($arg_spec eq 'lineraw' or $arg_spec eq 'skipline') {
+          $args = [ $line ];
+        } elsif ($arg_spec eq 'special') {
+          ($args, $has_comment)
+           = _parse_special_misc_command($self, $line, $command, $source_info);
+          $misc->{'extra'}->{'arg_line'} = $line;
+        }
+
+        # if using the @set txi* instead of a proper @-command, replace
+        # by the tree obtained with the @-command.  Even though
+        # _end_line is called below, as $current is not line_arg
+        # there should not be anything done in addition than what is
+        # done for @clear or @set.
+        if (($command eq 'set' or $command eq 'clear')
+             and scalar(@$args) >= 1
+             and $set_flag_command_equivalent{$args->[0]}) {
+          my $arg;
+          if ($command eq 'set') {
+            $arg = 'on';
+          } else {
+            $arg = 'off';
+          }
+          $command = $set_flag_command_equivalent{$args->[0]};
+          $misc = {'cmdname' => $command,
+                   'parent' => $current,
+                   'source_info' => $source_info,
+                   'extra' => {'misc_args' => [$arg]}};
+          my $misc_line_args = {'type' => 'line_arg',
+                 'parent' => $misc};
+          $misc->{'args'} = [$misc_line_args];
+          $misc->{'extra'}->{'spaces_before_argument'} = ' ';
+          $misc_line_args->{'contents'} = [
+            { 'text' => $arg,
+              'parent' => $misc_line_args, },
+            { 'text' => "\n",
+              'parent' => $misc_line_args,
+              'type' => 'spaces_at_end', } ];
+          push @{$current->{'contents'}}, $misc;
+        } else {
+          if (!$ignored) {
+            push @{$current->{'contents'}}, $misc;
+            foreach my $arg (@$args) {
+              push @{$misc->{'args'}},
+                { 'type' => 'misc_arg', 'text' => $arg,
+                  'parent' => $current->{'contents'}->[-1] };
+            }
+            $misc->{'extra'}->{'misc_args'} = $args
+              if (scalar(@$args) and $arg_spec ne 'skipline');
+          } else {
+            $misc = undef;
+          }
+        }
+        if ($command eq 'raisesections') {
+          $self->{'sections_level'}++;
+        } elsif ($command eq 'lowersections') {
+          $self->{'sections_level'}--;
+        }
+        _register_global_command($self, $misc, $source_info)
+          if $misc;
+        # the end of line is ignored for special commands
+        if ($arg_spec ne 'special' or !$has_comment) {
+          $current = _end_line($self, $current, $source_info);
+        }
+
+        if ($command eq 'bye') {
+          $retval = $FINISHED_TOTALLY;
+          goto funexit;
+        }
+        # Even if _end_line is called, it is not done since there is
+        # no line_arg
+        $current = _begin_preformatted($self, $current)
+          if ($close_preformatted_commands{$command});
+        $retval = $GET_A_NEW_LINE;
+        goto funexit;
+      } else {
+        # $arg_spec is text, line or a number
+        # @item or @itemx in @table
+        if ($command eq 'item' or $command eq 'itemx') {
+          my $parent;
+          print STDERR "ITEM_LINE\n" if ($self->{'DEBUG'});
+          if ($parent = _item_line_parent($current)) {
+            $current = $parent;
+            _gather_previous_item($self, $current, $command, $source_info);
+          } else {
+            $self->_line_error(sprintf(__(
+               "\@%s outside of table or list"), $command), $source_info);
+            $current = _begin_preformatted($self, $current);
+          }
+          $misc = { 'cmdname' => $command, 'parent' => $current };
+          push @{$current->{'contents'}}, $misc;
+          $misc->{'source_info'} = $source_info;
+        } else {
+          $misc = { 'cmdname' => $command, 'source_info' => $source_info };
+          if ($command eq 'subentry') {
+            my $parent = $current->{'parent'};
+            if (!_is_index_element($self, $parent)) {
+              $self->_line_warn(
+                sprintf(__("\@%s should only appear in an index entry"),
+                        $command), $source_info);
+            }
+            $parent->{'extra'}->{'subentry'} = $misc;
+            my $subentry_level = 1;
+            if ($parent->{'cmdname'} eq 'subentry') {
+              $subentry_level = $parent->{'extra'}->{'level'} + 1;
+            }
+            $misc->{'extra'}->{'level'} = $subentry_level;
+            if ($subentry_level > 2) {
+              $self->_line_error(__(
+          "no more than two levels of index subentry are allowed"),
+                       $source_info);
+            }
+            # Do not make the @subentry element a child of the index
+            # command.  This means that spaces are preserved properly
+            # when converting back to Texinfo.
+            $current = _end_line($self, $current, $source_info);
+          }
+          push @{$current->{'contents'}}, $misc;
+          $misc->{'parent'} = $current;
+          if ($sectioning_heading_commands{$command}) {
+            if ($self->{'sections_level'}) {
+              $current->{'contents'}->[-1]->{'extra'}->{'sections_level'}
+                = $self->{'sections_level'};
+            }
+          }
+          if ($root_commands{$command}) {
+            $misc->{'contents'} = [];
+          }
+          # def*x
+          if ($def_commands{$command}) {
+            my $base_command = $command;
+            $base_command =~ s/x$//;
+            # check that the def*x is first after @def*, no paragraph
+            # in-between.
+            my $after_paragraph = _check_no_text($current);
+            $self->_push_context('ct_def', $command);
+            $current->{'contents'}->[-1]->{'type'} = 'def_line';
+            $current->{'contents'}->[-1]->{'extra'}
+              = {'def_command' => $base_command,
+                 'original_def_cmdname' => $command};
+            if (defined($self->{'values'}->{'txidefnamenospace'})) {
+              $current->{'contents'}->[-1]{'extra'}
+                                  ->{'omit_def_name_space'} = 1;
+            }
+            if ($current->{'cmdname'}
+                and $current->{'cmdname'} eq $base_command) {
+              pop @{$current->{'contents'}};
+              _gather_def_item($current, $command);
+              push @{$current->{'contents'}}, $misc;
+            }
+            if (!$current->{'cmdname'}
+                 or $current->{'cmdname'} ne $base_command
+                 or $after_paragraph) {
+              $self->_line_error(sprintf(__(
+                                   "must be after `\@%s' to use `\@%s'"),
+                                      $base_command, $command), $source_info);
+              $current->{'contents'}->[-1]->{'extra'}->{'not_after_command'} = 1;
+            }
+          }
+        }
+        $current = $current->{'contents'}->[-1];
+        $current->{'args'} = [{ 'type' => 'line_arg',
+                                'contents' => [],
+                                'parent' => $current }];
+        # @node is the only misc command with args separated with comma
+        # FIXME a 3 lingering here deep into the code may not
+        # be very wise...  However having a hash only for one @-command
+        # is not very appealing either...
+        if ($command eq 'node') {
+          $current->{'remaining_args'} = 3;
+        } elsif ($command eq 'author') {
+          my $parent = $current;
+          my $found;
+          while ($parent->{'parent'}) {
+            $parent = $parent->{'parent'};
+            last if ($parent->{'type'}
+                    and $parent->{'type'} eq 'brace_command_context');
+            if ($parent->{'cmdname'}) {
+              if ($parent->{'cmdname'} eq 'titlepage') {
+                $current->{'extra'}->{'titlepage'} = $parent;
+                $found = 1;
+              } elsif ($parent->{'cmdname'} eq 'quotation' or
+                  $parent->{'cmdname'} eq 'smallquotation') {
+                push @{$parent->{'extra'}->{'authors'}}, $current;
+                $current->{'extra'}->{'quotation'} = $parent;
+                $found = 1;
+              }
+              last if ($found);
+            }
+          }
+          if (!$found) {
+            $self->_line_warn(sprintf(__(
+         "\@%s not meaningful outside `\@titlepage' and `\@quotation' environments"),
+                           $command), $current->{'source_info'});
+          }
+        } elsif ($command eq 'dircategory' and $self->{'current_node'}) {
+            $self->_line_warn(__("\@dircategory after first node"),
+                         $source_info);
+        } elsif ($command eq 'printindex') {
+          # Record that @printindex occurs in this node so we know it
+          # is an index node.
+          if ($self->{'current_node'}) {
+            $self->{'current_node'}->{'extra'}->{'isindex'} = 1;
+          }
+        }
+
+        $current = $current->{'args'}->[-1];
+        $self->_push_context('ct_line', $command)
+          unless ($def_commands{$command});
+        $line = _start_empty_line_after_command($line, $current, $misc,
+                                                $command);
+      }
+      _register_global_command($self, $misc, $source_info)
+        if $misc;
+      if ($command eq 'dircategory') {
+        push @{$self->{'info'}->{'dircategory_direntry'}}, $misc;
+      }
+    # @-command with matching @end opening
+    } elsif (exists($block_commands{$command})) {
+      if ($command eq 'macro' or $command eq 'rmacro') {
+        my $macro = _parse_macro_command_line($self, $command, $line,
+                                              $current, $source_info);
+        push @{$current->{'contents'}}, $macro;
+        $current = $current->{'contents'}->[-1];
+        $retval = $GET_A_NEW_LINE;
+        goto funexit;
+      } elsif ($block_commands{$command} eq 'conditional') {
+        my $ifvalue_true = 0;
+        if ($command eq 'ifclear' or $command eq 'ifset') {
+          # REVALUE
+          if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
+            my $name = $1;
+            if ((exists($self->{'values'}->{$name}) and $command eq 'ifset')
+                or (!exists($self->{'values'}->{$name})
+                     and $command eq 'ifclear')) {
+              $ifvalue_true = 1;
+            }
+            print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
+                                                        if ($self->{'DEBUG'});
+          } elsif ($line !~ /\S/) {
+              $self->_line_error(sprintf(
+                __("%c%s requires a name"), ord('@'), $command), $source_info);
+          } else {
+            $self->_line_error(sprintf(
+                __("bad name for \@%s"), $command), $source_info);
+          }
+        } elsif ($command eq 'ifcommanddefined'
+                 or $command eq 'ifcommandnotdefined') {
+          # REMACRO
+          if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
+            my $name = $1;
+            my $command_is_defined = (
+              exists($Texinfo::Common::all_commands{$name})
+              or $self->{'macros'}->{$name}
+              or $self->{'definfoenclose'}->{$name}
+              or $self->{'aliases'}->{$name}
+              or $self->{'command_index'}->{$name}
+            );
+            if (($command_is_defined
+                 and $command eq 'ifcommanddefined')
+                or (! $command_is_defined
+                     and $command eq 'ifcommandnotdefined')) {
+              $ifvalue_true = 1;
+            }
+            print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
+                                                        if ($self->{'DEBUG'});
+          } elsif ($line !~ /\S/) {
+              $self->_line_error(sprintf(
+                __("%c%s requires a name"), ord('@'), $command), $source_info);
+          } else {
+            $self->_line_error(sprintf(
+                __("bad name for \@%s"), $command), $source_info);
+          }
+        } elsif ($command =~ /^ifnot(.*)/) {
+          $ifvalue_true = 1 if !($self->{'expanded_formats_hash'}->{$1}
+                # exception as explained in the texinfo manual
+                or ($1 eq 'info'
+                    and $self->{'expanded_formats_hash'}->{'plaintext'}));
+          print STDERR "CONDITIONAL \@$command format $1: $ifvalue_true\n"
+                                                         if ($self->{'DEBUG'});
+        } else {
+          die unless ($command =~ /^if(.*)/);
+          $ifvalue_true = 1 if ($self->{'expanded_formats_hash'}->{$1}
+                  or ($1 eq 'info'
+                      and $self->{'expanded_formats_hash'}->{'plaintext'}));
+          print STDERR "CONDITIONAL \@$command format $1: $ifvalue_true\n"
+                                                         if ($self->{'DEBUG'});
+        }
+        if ($ifvalue_true) {
+          push @{$self->{'conditionals_stack'}}, $command;
+        } else {
+          push @{$current->{'contents'}}, { 'cmdname' => $command,
+                                            'parent' => $current,
+                                            'contents' => [] };
+          $current = $current->{'contents'}->[-1];
+        }
+        # FIXME(Karl) ignore what is remaining on the line, to eat
+        # the end of line?
+        $retval = $GET_A_NEW_LINE;
+        goto funexit;
+      } else {
+        my $block;
+        # a menu command closes a menu_comment, but not the other
+        # block commands. This won't catch menu commands buried in
+        # other formats (that are incorrect anyway).
+        if ($menu_commands{$command} and $current->{'type'}
+            and ($current->{'type'} eq 'menu_comment'
+                 or $current->{'type'} eq 'menu_entry_description')) {
+
+          my $menu;
+
+          $menu = $current->{'parent'};
+          pop @{$menu->{'contents'}}
+            if (!@{$current->{'contents'}});
+
+          if ($menu->{'type'} and $menu->{'type'} eq 'menu_entry') {
+            $menu = $menu->{'parent'};
+          }
+
+          $current = $menu;
+        }
+        # the def command holds a line_def* which corresponds with the
+        # definition line.  This allows to have a treatement similar
+        # with def*x.
+        if ($def_commands{$command}) {
+          $self->_push_context('ct_def', $command);
+          $block = { 'parent' => $current,
+                     'cmdname' => $command,
+                     'contents' => [] };
+          push @{$current->{'contents'}}, $block;
+          $current = $current->{'contents'}->[-1];
+          push @{$current->{'contents'}}, {
+                                            'type' => 'def_line',
+                                            'parent' => $current,
+                                            'source_info' => $source_info,
+                                            'extra' =>
+                                             {'def_command' => $command,
+                                              'original_def_cmdname' => $command}
+                                            };
+          if (defined($self->{'values'}->{'txidefnamenospace'})) {
+            $current->{'contents'}->[-1]->{'extra'}
+                                        ->{'omit_def_name_space'} = 1;
+          }
+        } else {
+          $block = { 'cmdname' => $command,
+                     'parent' => $current,
+                     'contents' => [] };
+          push @{$current->{'contents'}}, $block;
+        }
+        $current = $current->{'contents'}->[-1];
+
+        if ($preformatted_commands{$command}) {
+          $self->_push_context('ct_preformatted', $command);
+        } elsif ($math_commands{$command}) {
+          $self->_push_context('ct_math', $command);
+        } elsif ($format_raw_commands{$command}) {
+          $self->_push_context('ct_rawpreformatted', $command);
+        }
+        if ($region_commands{$command}) {
+          if (@{$self->{'regions_stack'}}) {
+            $self->_line_error(
+        sprintf(__("region %s inside region %s is not allowed"),
+                $command, $self->{'regions_stack'}->[-1]->{'cmdname'}),
+                              $source_info);
+          }
+          push @{$self->{'regions_stack'}}, $block;
+        }
+        if ($menu_commands{$command}) {
+          $self->_push_context('ct_preformatted', $command);
+          push @{$self->{'info'}->{'dircategory_direntry'}}, $block
+            if ($command eq 'direntry');
+          if ($self->{'current_node'}) {
+            if ($command eq 'direntry') {
+              if ($self->{'FORMAT_MENU'} eq 'menu') {
+                $self->_line_warn(__("\@direntry after first node"),
+                          $source_info);
+              }
+            } elsif ($command eq 'menu') {
+              if (!(defined $current->{'parent'}->{'cmdname'})
+                  or $root_commands{$current->{'parent'}->{'cmdname'}}) {
+                push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $current;
+              } else {
+                $self->_line_warn(__("\@menu in invalid context"),
+                                  $source_info);
+              }
+            }
+          }
+        }
+        $current->{'args'} = [ {
+           'type' => 'block_line_arg',
+           'contents' => [],
+           'parent' => $current } ];
+
+        if ($block_commands{$command} =~ /^\d+$/
+            and $block_commands{$command} - 1 > 0) {
+          $current->{'remaining_args'} = $block_commands{$command} - 1;
+        } elsif ($block_commands{$command} eq 'variadic') {
+          $current->{'remaining_args'} = -1; # unlimited args
+        }
+        $current = $current->{'args'}->[-1];
+        $self->_push_context('ct_line', $command)
+          unless ($def_commands{$command});
+        $block->{'source_info'} = $source_info;
+        _register_global_command($self, $block, $source_info);
+        $line = _start_empty_line_after_command($line, $current, $block,
+                                                $command);
+      }
+    } elsif (defined($brace_commands{$command})) {
+      push @{$current->{'contents'}}, { 'cmdname' => $command,
+                                        'parent' => $current,
+                                        'contents' => [] };
+      $current->{'contents'}->[-1]->{'source_info'} = $source_info
+        if ($keep_line_nr_brace_commands{$command}
+            and !$self->{'definfoenclose'}->{$command});
+      if ($in_index_commands{$command}
+          and !_is_index_element($self, $current->{'parent'})) {
+        $self->_line_warn(
+          sprintf(__("\@%s should only appear in an index entry"),
+                  $command), $source_info);
+      }
+      $current = $current->{'contents'}->[-1];
+      if ($command eq 'click') {
+        $current->{'extra'}->{'clickstyle'} = $self->{'clickstyle'};
+      } elsif ($command eq 'kbd'
+               and _kbd_formatted_as_code($self, $current)) {
+        $current->{'extra'}->{'code'} = 1;
+      }
+      if ($self->{'definfoenclose'}->{$command}) {
+        $current->{'type'} = 'definfoenclose_command';
+        $current->{'extra'}->{'begin'}
+          = $self->{'definfoenclose'}->{$command}->[0];
+        $current->{'extra'}->{'end'}
+          = $self->{'definfoenclose'}->{$command}->[1];
+      }
+    } elsif (exists ($no_brace_commands{$command})) {
+      push @{$current->{'contents'}},
+             { 'cmdname' => $command, 'parent' => $current };
+      # FIXME generalize?
+      if ($command eq '\\' and $self->_top_context() ne 'ct_math') {
+        $self->_line_warn(sprintf(
+                       __("\@%s should only appear in math context"),
+                                  $command), $source_info);
+      }
+      if ($command eq "\n") {
+        $current = _end_line($self, $current, $source_info);
+        $retval = $GET_A_NEW_LINE;
+        goto funexit;
+      }
+    }
+  } elsif ($separator_match) {
+    my $separator = $separator_match;
+    substr ($line, 0, 1) = '';
+    print STDERR "SEPARATOR: $separator\n" if ($self->{'DEBUG'});
+    if ($separator eq '@') {
+      # this may happen with a @ at the very end of a file, therefore
+      # not followed by anything.
+      $self->_line_error(__("unexpected \@"), $source_info);
+    } elsif ($separator eq '{') {
+      _abort_empty_line($self, $current);
+      if ($current->{'cmdname'}
+           and defined($brace_commands{$current->{'cmdname'}})) {
+        my $command = $current->{'cmdname'};
+        $current->{'args'} = [ { 'parent' => $current,
+                               'contents' => [] } ];
+
+        if ($brace_commands{$command}
+            and $brace_commands{$command} =~ /^\d$/
+            and $brace_commands{$command} > 1) {
+          $current->{'remaining_args'} = $brace_commands{$command} - 1;
+        }
+
+        $current = $current->{'args'}->[-1];
+        if ($context_brace_commands{$command}) {
+          if ($command eq 'caption' or $command eq 'shortcaption') {
+            my $float;
+            if (!$current->{'parent'}->{'parent'}
+                or !$current->{'parent'}->{'parent'}->{'cmdname'}
+                or $current->{'parent'}->{'parent'}->{'cmdname'} ne 'float') {
+              $float = $current->{'parent'};
+              while ($float->{'parent'} and !($float->{'cmdname'}
+                                              and $float->{'cmdname'} eq 'float')) {
+                $float = $float->{'parent'};
+              }
+              if (!($float->{'cmdname'} and $float->{'cmdname'} eq 'float')) {
+                $self->_line_error(sprintf(__(
+                   "\@%s is not meaningful outside `\@float' environment"),
+                                           $command), $source_info);
+                $float = undef;
+              } else {
+                $self->_line_warn(sprintf(__(
+                                   "\@%s should be right below `\@float'"),
+                                           $command), $source_info);
+              }
+            } else {
+              $float = $current->{'parent'}->{'parent'};
+            }
+            if ($float) {
+              if ($float->{'extra'}->{$command}) {
+                $self->_line_warn(sprintf(__("ignoring multiple \@%s"),
+                                          $command), $source_info);
+              } else {
+                $current->{'parent'}->{'extra'}->{'float'} = $float;
+                $float->{'extra'}->{$command} = $current->{'parent'};
+              }
+            }
+          }
+          if ($math_commands{$command}) {
+            $self->_push_context('ct_math', $command);
+          } else {
+            $self->_push_context('ct_brace_command', $command);
+          }
+          $line =~ s/([^\S\f\n]*)//;
+          $current->{'type'} = 'brace_command_context';
+          # empty_spaces_before_argument is a transient internal type,
+          # which should end up in extra spaces_before_argument.
+          push @{$current->{'contents'}}, {
+            'type' => 'empty_spaces_before_argument',
+            'text' => $1,
+            'parent' => $current,
+            'extra' => {'spaces_associated_command' => $current->{'parent'}}
+          };
+        } else {
+          $current->{'type'} = 'brace_command_arg';
+          # only put spaces in spaces_before_argument if the @-command
+          # has an explicit positive number of arguments.
+          if ($brace_commands{$command}
+              and $brace_commands{$command} =~ /^\d$/
+              and $brace_commands{$command} > 0) {
+            # empty_spaces_before_argument is a transient internal type,
+            # which should end up in extra spaces_before_argument.
+            push @{$current->{'contents'}}, {
+                        'type' => 'empty_spaces_before_argument',
+                        'text' => '',
+                        'parent' => $current,
+                        'extra' => {'spaces_associated_command' => $current}
+                      };
+          }
+          $self->_push_context('ct_inlineraw', $command)
+            if ($command eq 'inlineraw');
+        }
+        print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "
+          .(defined($current->{'parent'}->{'remaining_args'}) ? "remaining: $current->{'parent'}->{'remaining_args'}, " : '')
+          .($current->{'type'} ? "type: $current->{'type'}" : '')."\n"
+           if ($self->{'DEBUG'});
+      } elsif ($current->{'parent'}
+                and (($current->{'parent'}->{'cmdname'}
+                      and $current->{'parent'}->{'cmdname'} eq 'multitable')
+                     or ($current->{'parent'}->{'type'}
+                         and $current->{'parent'}->{'type'} eq 'def_line'))) {
+        push @{$current->{'contents'}},
+             { 'type' => 'bracketed', 'contents' => [],
+               'parent' => $current };
+        $current = $current->{'contents'}->[-1];
+        # we need the line number here in case @ protects end of line
+        $current->{'source_info'} = $source_info
+          if ($current->{'parent'}->{'parent'}->{'type'}
+              and $current->{'parent'}->{'parent'}->{'type'} eq 'def_line');
+        # empty_spaces_before_argument is a transient internal type,
+        # which should end up in extra spaces_before_argument.
+        push @{$current->{'contents'}},
+            {'type' => 'empty_spaces_before_argument',
+             'text' => '',
+             'parent' => $current,
+             'extra' => {'spaces_associated_command' => $current}
+           };
+        print STDERR "BRACKETED in def/multitable\n" if ($self->{'DEBUG'});
+      # lone braces accepted right in a rawpreformatted
+      } elsif ($current->{'type'}
+               and $current->{'type'} eq 'rawpreformatted') {
+        push @{$current->{'contents'}}, {'text' => '{',
+                                         'parent' => $current };
+      # matching braces accepted in a rawpreformatted or math or ignored
+      # code
+      } elsif ($self->_top_context() eq 'ct_math'
+               or $self->_top_context() eq 'ct_rawpreformatted'
+               or $self->_top_context() eq 'ct_inlineraw') {
+        push @{$current->{'contents'}},
+             { 'type' => 'bracketed', 'contents' => [],
+               'parent' => $current, 'source_info' => $source_info };
+        $current = $current->{'contents'}->[-1];
+        print STDERR "BRACKETED in math/rawpreformatted/inlineraw\n"
+           if ($self->{'DEBUG'});
+      } else {
+        $self->_line_error(sprintf(__("misplaced %c"),
+                                         ord('{')), $source_info);
+      }
+
+    } elsif ($separator eq '}') {
+      _abort_empty_line($self, $current);
+      if ($current->{'type'} and ($current->{'type'} eq 'bracketed')) {
+        $current = $current->{'parent'};
+       # the following will not happen for footnote if there is
+       # a paragraph withing the footnote
+      } elsif ($current->{'parent'}
+          and $current->{'parent'}->{'cmdname'}
+          and exists $brace_commands{$current->{'parent'}->{'cmdname'}}) {
+        # for math and footnote out of paragraph
+        if ($context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
+          my $command_context = 'ct_brace_command';
+          if ($math_commands{$current->{'parent'}->{'cmdname'}}) {
+            $command_context = 'ct_math';
+          }
+          my ($error) = $self->_pop_context([$command_context],
+                   $source_info, $current,
+                   "for brace command $current->{'parent'}->{'cmdname'}");
+          die if ($error);
+        }
+        # first is the arg.
+        if ($brace_commands{$current->{'parent'}->{'cmdname'}}
+            and $brace_commands{$current->{'parent'}{'cmdname'}} =~ /^\d$/
+            and $brace_commands{$current->{'parent'}->{'cmdname'}} > 0
+            and $current->{'parent'}->{'cmdname'} ne 'math') {
+          # @inline* always have end spaces considered as normal text
+          _isolate_last_space($self, $current)
+            unless ($inline_commands{$current->{'parent'}->{'cmdname'}});
+        }
+        my $closed_command = $current->{'parent'}->{'cmdname'};
+        print STDERR "CLOSING(brace) \@$current->{'parent'}->{'cmdname'}\n"
+          if ($self->{'DEBUG'});
+        delete $current->{'parent'}->{'remaining_args'};
+        if (defined($brace_commands{$closed_command})
+             and $brace_commands{$closed_command} eq '0'
+             and @{$current->{'contents'}}) {
+          $self->_line_warn(sprintf(__(
+                             "command \@%s does not accept arguments"),
+                                   $closed_command), $source_info);
+        }
+        if ($current->{'parent'}->{'cmdname'} eq 'anchor') {
+          $current->{'parent'}->{'source_info'} = $source_info;
+          my $parsed_anchor = _parse_node_manual($current);
+          if (_check_node_label($self, $parsed_anchor,
+                            $current->{'parent'}->{'cmdname'}, $source_info)) {
+            _register_label($self->{'targets'}, $current->{'parent'},
+                            $parsed_anchor);
+            if (@{$self->{'regions_stack'}}) {
+              $current->{'extra'}->{'region'} = $self->{'regions_stack'}->[-1];
+            }
+          }
+        } elsif ($ref_commands{$current->{'parent'}->{'cmdname'}}) {
+          my $ref = $current->{'parent'};
+          if (@{$ref->{'args'}}) {
+            my @args;
+            for $a (@{$ref->{'args'}}) {
+              if (@{$a->{'contents'}}) {
+                push @args, $a->{'contents'};
+              } else {
+                push @args, undef;
+              }
+            }
+            if (($closed_command eq 'inforef'
+                 and !defined($args[0]) and !defined($args[2]))
+                or ($closed_command ne 'inforef'
+                 and !defined($args[0]) and !defined($args[3])
+                 and !defined($args[4]))) {
+              $self->_line_warn(sprintf(__(
+                 "command \@%s missing a node or external manual argument"),
+                                    $closed_command), $source_info);
+            } else {
+              my $parsed_ref_node = _parse_node_manual($ref->{'args'}->[0]);
+              if (defined $parsed_ref_node) {
+                if ($closed_command ne 'inforef'
+                    and !defined($args[3]) and !defined($args[4])
+                    and !$parsed_ref_node->{'manual_content'}) {
+                  push @{$self->{'internal_references'}}, $ref;
+                }
+                $ref->{'extra'}->{'node_argument'} = $parsed_ref_node
+              }
+            }
+            if (defined($args[1])) {
+              if (_check_empty_expansion($args[1])) {
+                $self->_line_warn(sprintf(__(
+                "in \@%s empty cross reference name after expansion `%s'"),
+                      $closed_command,
+                      Texinfo::Convert::Texinfo::convert_to_texinfo(
+                                                {'contents' => $args[1]})),
+                        $source_info);
+              }
+            }
+            if ($closed_command ne 'inforef' and defined($args[2])) {
+              if (_check_empty_expansion($args[2])) {
+                $self->_line_warn(sprintf(__(
+                 "in \@%s empty cross reference title after expansion `%s'"),
+                      $closed_command,
+                      Texinfo::Convert::Texinfo::convert_to_texinfo(
+                                              {'contents' => $args[2]})),
+                        $source_info);
+              }
+            }
+          }
+        } elsif ($current->{'parent'}->{'cmdname'} eq 'image') {
+          my $image = $current->{'parent'};
+          if (!@{$image->{'args'}}
+              or !defined($image->{'args'}->[0])
+              or scalar(@{$image->{'args'}->[0]->{'contents'}}) == 0) {
+            $self->_line_error(
+               __("\@image missing filename argument"), $source_info);
+          }
+          $image->{'extra'}->{'input_perl_encoding'}
+               = $self->{'info'}->{'input_perl_encoding'}
+                    if defined $self->{'info'}->{'input_perl_encoding'};
+        } elsif($current->{'parent'}->{'cmdname'} eq 'dotless') {
+          my $dotless = $current->{'parent'};
+          if (@{$current->{'contents'}}) {
+            my $text = $current->{'contents'}->[0]->{'text'};
+            if (!defined ($text)
+              or ($text ne 'i' and $text ne 'j')) {
+              $self->_line_error(sprintf(
+                    __("%c%s expects `i' or `j' as argument, not `%s'"),
+                    ord('@'), $dotless->{'cmdname'},
+                    Texinfo::Convert::Texinfo::convert_to_texinfo($current)),
+                  $source_info);
+            }
+          }
+        } elsif ($explained_commands{$current->{'parent'}->{'cmdname'}}
+                 or $inline_commands{$current->{'parent'}->{'cmdname'}}) {
+          my $current_command = $current->{'parent'};
+          if ($inline_commands{$current_command->{'cmdname'}}) {
+            if ($current_command->{'cmdname'} eq 'inlineraw') {
+              my ($error) = $self->_pop_context(['ct_inlineraw'],
+                                    $source_info, $current, ' inlineraw');
+              die if ($error);
+            }
+          }
+          if (!@{$current_command->{'args'}}
+              or !defined($current_command->{'args'}->[0])
+              or scalar(@{$current_command->{'args'}->[0]->{'contents'}}) == 0) {
+            $self->_line_warn(
+               sprintf(__("\@%s missing first argument"),
+                       $current_command->{'cmdname'}), $source_info);
+          }
+        } elsif ($current->{'parent'}->{'cmdname'} eq 'errormsg') {
+          my $error_message_text = $current->{'contents'}->[0]->{'text'};
+          $self->_line_error($error_message_text, $source_info)
+            if $error_message_text;
+        } elsif ($current->{'parent'}->{'cmdname'} eq 'U') {
+          my $arg;
+          if ($current->{'contents'}->[0]) {
+            $arg = $current->{'contents'}->[0]->{'text'};
+          }
+          if (!defined($arg) || !$arg) {
+            $self->_line_warn(__("no argument specified for \@U"),
+              $source_info);
+
+          } elsif ($arg !~ /^[0-9A-Fa-f]+$/) {
+            $self->_line_error(
+        sprintf(__("non-hex digits in argument for \@U: %s"), $arg),
+              $source_info);
+
+          } elsif (length ($arg) < 4) {
+            # Perl doesn't mind, but too much trouble to do in TeX.
+            $self->_line_warn(sprintf(__(
+              "fewer than four hex digits in argument for \@U: %s"), $arg),
+             $source_info);
+
+          } else {
+            # we don't want to call hex at all if the value isn't
+            # going to fit; so first use eval to check.
+            # Since integer overflow is only a warning, have to make
+            # warnings fatal for the eval to be effective.
+            eval qq!use warnings FATAL => qw(all); hex("$arg")!;
+            if ($@) {
+              # leave clue in case something else went wrong.
+              warn "\@U hex($arg) eval failed: $@\n" if ($self->{'DEBUG'});
+              # argument likely exceeds size of integer
+            }
+            # ok, value can be given to hex(), so try it.
+            if ($@ or hex($arg) > 0x10FFFF) {
+              $self->_line_error(sprintf(__(
+                 "argument for \@U exceeds Unicode maximum 0x10FFFF: %s"),
+                 $arg),
+                $source_info);
+            }
+          }
+
+        } elsif (_command_with_command_as_argument($current->{'parent'}->{'parent'})
+             and scalar(@{$current->{'contents'}}) == 0) {
+           print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'parent'}->{'cmdname'} command_as_argument braces $current->{'parent'}->{'cmdname'}\n" if ($self->{'DEBUG'});
+           $current->{'parent'}->{'type'} = 'command_as_argument'
+              if (!$current->{'parent'}->{'type'});
+           $current->{'parent'}->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
+              = $current->{'parent'};
+           if ($current->{'parent'}->{'cmdname'} eq 'kbd'
+               and _kbd_formatted_as_code($self,
+                                          $current->{'parent'}->{'parent'}->{'parent'})) {
+             $current->{'parent'}->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+           }
+        } elsif ($in_index_commands{$current->{'parent'}->{'cmdname'}}) {
+          my $command = $current->{'parent'}->{'cmdname'};
+
+          my $index_element = $current->{'parent'}->{'parent'}->{'parent'};
+          if ($index_element
+              and _is_index_element($self, $index_element)) {
+            if ($command eq 'sortas') {
+              my ($arg, $superfluous_arg) = _convert_to_text($current);
+              if (defined($arg)) {
+                $index_element->{'extra'}->{$command} = $arg;
+              }
+            } else {
+              $index_element->{'extra'}->{$command} = $current->{'parent'};
+            }
+          }
+        }
+        _register_global_command($self, $current->{'parent'}, $source_info);
+        if ($command_ignore_space_after{$current->{'parent'}->{'cmdname'}}) {
+          push @{$current->{'parent'}->{'parent'}->{'contents'}},
+             {'type' => 'empty_spaces_after_close_brace',
+              'text' => '',
+              'parent' => $current->{'parent'}->{'parent'}
+             };
+        }
+        $current = $current->{'parent'}->{'parent'};
+        $current = _begin_preformatted($self, $current)
+           if ($close_preformatted_commands{$closed_command});
+      # lone braces accepted right in a rawpreformatted
+      } elsif ($current->{'type'}
+               and $current->{'type'} eq 'rawpreformatted') {
+        push @{$current->{'contents'}}, {'text' => '}',
+                                         'parent' => $current };
+      # footnote caption closing, when there is a paragraph inside.
+      } elsif ($self->_top_context() eq 'ct_brace_command') {
+         # closing the context under broader situations
+         $current = _end_paragraph($self, $current, $source_info);
+         if ($current->{'parent'}
+             and $current->{'parent'}->{'cmdname'}
+             and $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
+          my ($error) = $self->_pop_context(['ct_brace_command'],
+                   $source_info, $current,
+                   "for brace isolated $current->{'parent'}->{'cmdname'}");
+          die if ($error);
+          print STDERR "CLOSING(context command) \@$current->{'parent'}->{'cmdname'}\n"
+                                      if ($self->{'DEBUG'});
+          my $closed_command = $current->{'parent'}->{'cmdname'};
+          _register_global_command($self, $current->{'parent'}, $source_info);
+          $current = $current->{'parent'}->{'parent'};
+          $current = _begin_preformatted($self, $current)
+             if ($close_preformatted_commands{$closed_command});
+        }
+      } else {
+        $self->_line_error(sprintf(__("misplaced %c"),
+                                 ord('}')), $source_info);
+      }
+    } elsif ($separator eq ','
+             and $current->{'parent'}->{'remaining_args'}) {
+      _abort_empty_line ($self, $current);
+      _isolate_last_space($self, $current);
+      my $type = $current->{'type'};
+      $current = $current->{'parent'};
+      if ($inline_commands{$current->{'cmdname'}}) {
+        my $expandp = 0;
+        if (! $current->{'extra'}->{'format'}) {
+          my $inline_type;
+          if (defined $current->{'args'}->[0]
+              and @{$current->{'args'}->[0]->{'contents'}}) {
+            $inline_type = $current->{'args'}->[0]->{'contents'}->[0]->{'text'};
+          }
+
+          if (!$inline_type) {
+            # condition is missing for some reason
+            print STDERR "INLINE COND MISSING\n"
+              if ($self->{'DEBUG'});
+          } elsif ($inline_format_commands{$current->{'cmdname'}}) {
+            if ($self->{'expanded_formats_hash'}->{$inline_type}) {
+              $expandp = 1;
+              $current->{'extra'}->{'expand_index'} = 1;
+            } else {
+              $expandp = 0;
+            }
+          } elsif (($current->{'cmdname'} eq 'inlineifset'
+                    and exists($self->{'values'}->{$inline_type}))
+                   or ($current->{'cmdname'} eq 'inlineifclear'
+                       and ! exists($self->{'values'}->{$inline_type}))) {
+            $expandp = 1;
+            $current->{'extra'}->{'expand_index'} = 1;
+          } else {
+            $expandp = 0;
+          }
+          $current->{'extra'}->{'format'} = $inline_type;
+
+          # Skip first argument for a false @inlinefmtifelse
+          if (!$expandp and $current->{'cmdname'} eq 'inlinefmtifelse') {
+            $current->{'extra'}->{'expand_index'} = 2;
+
+            # Add a dummy argument for the first argument.
+            push @{$current->{'args'}}, {'type' => 'elided',
+                                         'parent' => $current,
+                                         'contents' => []};
+
+            # Scan forward to get the next argument.
+            my $brace_count = 1;
+            while ($brace_count > 0) {
+              # Forward to next comma or brace
+              if ($line =~ s/[^{,}]*([,{}])//) {
+                if ($1 eq ',' and $brace_count == 1) {
+                  last;
+                } elsif ($1 eq '{') {
+                  $brace_count++;
+                } elsif ($1 eq '}') {
+                  $brace_count--;
+                }
+              } else {
+                my $new_text;
+                ($new_text, $source_info) = _next_text($self, $source_info);
+                if (!$new_text) {
+                  $retval = $GET_A_NEW_LINE; # error - unbalanced brace
+                  goto funexit;
+                }
+                $line .= $new_text;
+              }
+            }
+            if ($brace_count == 0) {
+              # second arg missing
+              $line = '}' . $line;
+            }
+            $current->{'remaining_args'}--;
+            $expandp = 1;
+          }
+        } elsif ($current->{'cmdname'} eq 'inlinefmtifelse') {
+          # Second arg of @inlinefmtifelse when condition is true.
+          # Discard second argument.
+          $expandp = 0;
+        }
+        # If this command is not being expanded, add a dummy argument,
+        # and scan forward to the closing brace.
+        if (!$expandp) {
+          push @{$current->{'args'}}, {'type' => 'elided',
+                                       'parent' => $current,
+                                       'contents' => []};
+          my $brace_count = 1;
+          while ($brace_count > 0) {
+            if ($line =~ s/[^{}]*([{}])//) {
+              if ($1 eq '{') {
+                $brace_count++;
+              } else {
+                $brace_count--;
+              }
+            } else {
+              my $new_text;
+              ($new_text, $source_info) = _next_text($self, $source_info);
+              if (!$new_text) {
+                $retval = $GET_A_NEW_LINE; # error - unbalanced brace
+                goto funexit;
+              }
+              $line .= $new_text;
+            }
+          }
+          $current = $current->{'args'}->[-1];
+          $line = '}' . $line;
+          goto funexit;
+        }
+      }
+      $current->{'remaining_args'}--;
+      push @{$current->{'args'}},
+           { 'type' => $type, 'parent' => $current, 'contents' => [] };
+      $current = $current->{'args'}->[-1];
+      # empty_spaces_before_argument is a transient internal type,
+      # which should end up in extra spaces_before_argument.
+      push @{$current->{'contents'}},
+             {'type' => 'empty_spaces_before_argument',
+              'text' => '',
+              'parent' => $current,
+              'extra' => {'spaces_associated_command' => $current}
+            };
+    } elsif ($separator eq ',' and $current->{'type'}
+        and $current->{'type'} eq 'line_arg'
+        and $current->{'parent'}->{'cmdname'}
+        and $current->{'parent'}->{'cmdname'} eq 'node') {
+      $self->_line_warn(__("superfluous arguments for node"), $source_info);
+    # end of menu node (. must be followed by a space to stop the node).
+    } elsif (($separator =~ /[,\t.]/ and $current->{'type'}
+           and $current->{'type'} eq 'menu_entry_node')
+           or ($separator eq ':' and $current->{'type'}
+             and $current->{'type'} eq 'menu_entry_name')) {
+      $current = $current->{'parent'};
+      push @{$current->{'args'}}, { 'type' => 'menu_entry_separator',
+                             'text' => $separator,
+                             'parent' => $current };
+    } elsif ($separator eq "\f" and $current->{'type'}
+             and $current->{'type'} eq 'paragraph') {
+      # form feed stops and restart a paragraph.
+      $current = $self->_end_paragraph($current);
+      push @{$current->{'contents'}}, {'text' => $separator,
+                                       'type' => 'empty_line',
+                                        'parent' => $current };
+      push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                        'text' => '',
+                                        'parent' => $current };
+    } else {
+      $current = _merge_text($self, $current, $separator);
+    }
+  # Misc text except end of line
+  } elsif (defined $misc_text) {
+    print STDERR "MISC TEXT: $misc_text\n" if ($self->{'DEBUG'});
+    my $new_text = $misc_text;
+    substr ($line, 0, length ($misc_text)) = '';
+    $current = _merge_text($self, $current, $new_text);
+  # end of line
+  } else {
+    print STDERR "END LINE: ". _print_current($current)."\n"
+      if ($self->{'DEBUG'});
+    if ($line =~ s/^(\n)//) {
+      $current = _merge_text($self, $current, $1);
+    } else {
+      if (scalar(@{$self->{'input'}})) {
+        $self->_bug_message("Text remaining without normal text but `$line'",
+                            $source_info, $current);
+        die;
+      }
+    }
+    $current = _end_line($self, $current, $source_info);
+    $retval = $GET_A_NEW_LINE;
+    goto funexit;
+  }
+
+ funexit:
+  return ($current, $line, $source_info, $retval);
+}
+
 # the main subroutine
 sub _parse_texi($$$)
 {
@@ -3963,1838 +5831,17 @@ sub _parse_texi($$$)
     }
 
     while (1) {
-      # in a 'raw' (verbatim, ignore, (r)macro)
-      if ($current->{'cmdname'}
-          and $block_commands{$current->{'cmdname'}}
-          and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
-        # r?macro may be nested
-        if (($current->{'cmdname'} eq 'macro'
-             or $current->{'cmdname'} eq 'rmacro')
-            and $line =~ /^\s*\@r?macro\s+/) {
-          $line =~ s/\s*\@(r?macro)//;
-          push @{$current->{'contents'}}, { 'cmdname' => $1,
-                                            'parent' => $current,
-                                            'contents' => [],
-                                            'extra' => {'arg_line' => $line }};
-          $current = $current->{'contents'}->[-1];
-          last;
-        } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
-                 and ($2 eq $current->{'cmdname'})) {
-          if ($line =~ s/^(\s+)//) {
-            push @{$current->{'contents'}},
-              { 'text' => $1,
-                'type' => 'raw', 'parent' => $current };
-            $self->_line_warn(sprintf(
-                  __("\@end %s should only appear at the beginning of a line"),
-                                     $current->{'cmdname'}), $source_info);
-          }
-          # store toplevel macro specification
-          if (($current->{'cmdname'} eq 'macro' or $current->{'cmdname'} eq 'rmacro')
-               and (! $current->{'parent'}
-                    or !$current->{'parent'}->{'cmdname'}
-                    or ($current->{'parent'}->{'cmdname'} ne 'macro'
-                        and $current->{'parent'}->{'cmdname'} ne 'rmacro'))) {
-            my $macrobody =
-               Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                   { 'contents' => $current->{'contents'} });
-            if ($current->{'args'} and $current->{'args'}->[0]) {
-              my $name = $current->{'args'}->[0]->{'text'};
-              if (exists($self->{'macros'}->{$name})) {
-                $self->_line_warn(sprintf(__("macro `%s' previously defined"),
-                                          $name), $current->{'source_info'});
-                $self->_line_warn(sprintf(__(
-                                   "here is the previous definition of `%s'"),
-               $name), $self->{'macros'}->{$name}->{'element'}->{'source_info'});
-              }
-              if ($all_commands{$name}
-                  or ($name eq 'txiinternalvalue'
-                      and $self->{'accept_internalvalue'})) {
-                $self->_line_warn(sprintf(__(
-                                  "redefining Texinfo language command: \@%s"),
-                                          $name), $current->{'source_info'});
-              }
-              if (!$current->{'extra'}->{'invalid_syntax'}) {
-                $self->{'macros'}->{$name} = {
-                  'element' => $current,
-                  'macrobody' => $macrobody
-                };
-              }
-            }
-          }
-          print STDERR "CLOSED raw $current->{'cmdname'}\n" if ($self->{'DEBUG'});
-          # start a new line for the @end line (without the first spaces on
-          # the line that have already been put in a raw container).
-          # This is normally done at the beginning of a line, but not here,
-          # as we directly got the line.  As the @end is processed just below,
-          # an empty line will not appear in the output, but it is needed to
-          # avoid a duplicate warning on @end not appearing at the beginning
-          # of the line
-          push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                            'text' => '',
-                                            'parent' => $current };
-        } else {
-          push @{$current->{'contents'}},
-            { 'text' => $line, 'type' => 'raw', 'parent' => $current };
-          last;
-        }
-      # in ignored conditional block command
-      } elsif ($current->{'cmdname'}
-          and $block_commands{$current->{'cmdname'}}
-          and ($block_commands{$current->{'cmdname'}} eq 'conditional')) {
-        # check for nested @ifset (so that @end ifset doesn't end the
-        # outermost @ifset).  It is discarded when the outermost is.
-        if (($current->{'cmdname'} eq 'ifclear'
-                  or $current->{'cmdname'} eq 'ifset'
-                  or $current->{'cmdname'} eq 'ifcommanddefined'
-                  or $current->{'cmdname'} eq 'ifcommandnotdefined')
-                and $line =~ /^\s*\@$current->{'cmdname'}/) {
-          push @{$current->{'contents'}}, { 'cmdname' => $current->{'cmdname'},
-                                            'parent' => $current,
-                                            'contents' => [],
-                                          };
-          $current = $current->{'contents'}->[-1];
-        } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
-                 and ($2 eq $current->{'cmdname'})) {
-          my $end_command = $current->{'cmdname'};
-          $line =~ s/^(\s*?)\@end\s+$end_command//;
-          if ($1 ne '') {
-            $self->_line_warn(sprintf(
-                  __("\@end %s should only appear at the beginning of a line"),
-                                     $end_command), $source_info);
-          }
-          $self->_line_warn(sprintf(
-               __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
-                                  $line), $source_info)
-            if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
-          $current = $current->{'parent'};
-          # don't store ignored @if*
-          my $conditional = pop @{$current->{'contents'}};
-          if (!defined($conditional->{'cmdname'}
-              or $conditional->{'cmdname'} ne $end_command)) {
-            $self->_bug_message(
-                    "Ignored command is not the conditional $end_command",
-                                 $source_info, $conditional);
-            die;
-          }
-          print STDERR "CLOSED conditional $end_command\n" if ($self->{'DEBUG'});
-          # Ignore until end of line
-          # FIXME this is not the same as for other commands.  Change?
-          if ($line !~ /\n/) {
-            ($line, $source_info) = _new_line($self, $source_info);
-            print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
-          }
-        }
-        # anything remaining on the line and any other line is ignored here
+      my $status;
+      ($current, $line, $source_info, $status)
+         = _process_remaining_on_line($self, $current, $line, $source_info);
+      if ($status == $GET_A_NEW_LINE) {
         last;
-      # in @verb. type should be 'brace_command_arg'
-      } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-             and $current->{'parent'}->{'cmdname'} eq 'verb') {
-        # collect the first character if not already done
-        if (!defined($current->{'parent'}->{'extra'}->{'delimiter'})) {
-          if ($line =~ /^$/) {
-            $current->{'parent'}->{'extra'}->{'delimiter'} = '';
-            $self->_line_error(sprintf(
-                __("\@%s without associated character"), 'verb'), $source_info);
-          } else {
-            $line =~ s/^(.)//;
-            $current->{'parent'}->{'extra'}->{'delimiter'} = $1;
-          }
-        }
-        my $char = quotemeta($current->{'parent'}->{'extra'}->{'delimiter'});
-        if ($line =~ s/^(.*?)$char\}/\}/) {
-          push @{$current->{'contents'}},
-              { 'text' => $1, 'type' => 'raw', 'parent' => $current }
-                if ($1 ne '');
-          print STDERR "END VERB\n" if ($self->{'DEBUG'});
-        } else {
-          push @{$current->{'contents'}},
-             { 'text' => $line, 'type' => 'raw', 'parent' => $current };
-          print STDERR "LINE VERB: $line" if ($self->{'DEBUG'});
-          last;
-        }
-      } elsif ($current->{'cmdname'}
-               and $format_raw_commands{$current->{'cmdname'}}
-               and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
-        push @{$current->{'contents'}}, { 'type' => 'elided_block',
-                                          'contents' => [],
-                                          'parent' => $current };
-        while (not $line =~ /^\s*\@end\s+$current->{'cmdname'}/) {
-          ($line, $source_info) = _new_line($self, $source_info);
-          if (!$line) {
-            # unclosed block
-            $line = '';
-            last;
-          }
-        }
-        # start a new line for the @end line, this is normally done
-        # at the beginning of a line, but not here, as we directly
-        # got the lines.
-        $line =~ s/^([^\S\r\n]*)//;
-        push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                          'text' => $1,
-                                          'parent' => $current };
-        # It is important to let the processing continue from here, such that
-        # the @end is catched and handled below, as the condition has not changed
-      }
-      # this mostly happens in the following cases:
-      #   after expansion of user defined macro that doesn't end with EOL
-      #   after a protection of @\n in @def* line
-      #   at the end of an expanded Texinfo fragment
-      while ($line eq '') {
-        print STDERR "EMPTY TEXT\n"
-          if ($self->{'DEBUG'});
-        ($line, $source_info) = _next_text($self, $source_info);
-        if (!defined($line)) {
-          # end of the file or of a text fragment.
-          $current = _end_line($self, $current, $source_info);
-          # It may happen that there is an @include file on the line, it
-          # will be picked up at NEXT_LINE, beginning a new line
-          next NEXT_LINE;
-        }
-      }
-
-      my $at_command_length;
-      my @line_parsing = _parse_texi_regex($line);
-      my ($at_command, $open_brace, $asterisk, $single_letter_command,
-        $separator_match, $misc_text) = @line_parsing;
-      print STDERR "PARSED: ".join(', ', map {!defined($_) ? 'UNDEF' : "'$_'"} @line_parsing)."\n"
-        if ($self->{'DEBUG'} and $self->{'DEBUG'} > 3);
-
-      my $command;
-      if ($single_letter_command) {
-        $command = $single_letter_command;
-      } elsif ($at_command) {
-        $at_command_length = length($at_command) + 1;
-        $command = $at_command;
-
-        my $alias_command;
-        if (exists($self->{'aliases'}->{$command})) {
-          $alias_command = $command;
-          $command = $self->{'aliases'}->{$command};
-        }
-
-
-        # handle user defined macros before anything else since
-        # their expansion may lead to changes in the line
-        if ($self->{'macros'}->{$command}) {
-          substr($line, 0, $at_command_length) = '';
-
-          my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
-          my $args_number = scalar(@{$expanded_macro->{'args'}}) -1;
-          my $arguments = [];
-          if ($line =~ s/^\s*{\s*//) { # macro with args
-            ($arguments, $line, $source_info)
-             = _expand_macro_arguments($self, $expanded_macro, $line, $source_info);
-          } elsif (($args_number >= 2) or ($args_number <1)) {
-          # as agreed on the bug-texinfo mailing list, no warn when zero
-          # arg and not called with {}.
-            $self->_line_warn(sprintf(__(
-     "\@%s defined with zero or more than one argument should be invoked with {}"),
-                                      $command), $source_info)
-               if ($args_number >= 2);
-          } else {
-            if ($line !~ /\n/) {
-              ($line, $source_info) = _new_line($self, $source_info);
-              $line = '' if (!defined($line));
-            }
-            $line =~ s/^\s*// if ($line =~ /\S/);
-            my $has_end_of_line = chomp $line;
-            $arguments = [$line];
-            $line = "\n" if ($has_end_of_line);
-          }
-          my $expanded = _expand_macro_body($self,
-                                     $self->{'macros'}->{$command},
-                                     $arguments, $source_info);
-          print STDERR "MACROBODY: $expanded".'||||||'."\n"
-             if ($self->{'DEBUG'});
-          # empty result.  It is ignored here.
-          if ($expanded eq '') {
-            next;
-          }
-          if ($self->{'MAX_MACRO_CALL_NESTING'}
-              and scalar(@{$self->{'macro_stack'}}) > $self->{'MAX_MACRO_CALL_NESTING'}) {
-            $self->_line_warn(sprintf(__(
-  "macro call nested too deeply (set MAX_NESTED_MACROS to override; current value %d)"),
-                                  $self->{'MAX_MACRO_CALL_NESTING'}), $source_info);
-            next;
-          }
-          if ($expanded_macro->{'cmdname'} eq 'macro') {
-            my $found = 0;
-            foreach my $macro (@{$self->{'macro_stack'}}) {
-              if ($macro->{'args'}->[0]->{'text'} eq $command) {
-                $self->_line_error(sprintf(__(
-               "recursive call of macro %s is not allowed; use \@rmacro if needed"),
-                                           $command), $source_info);
-                $found = 1;
-                last;
-              }
-            }
-            next if ($found);
-          }
-
-          my $expanded_lines = _text_to_lines($expanded);
-          next if (!@$expanded_lines);
-          chomp ($expanded_lines->[-1]);
-          pop @$expanded_lines if ($expanded_lines->[-1] eq '');
-          print STDERR "MACRO EXPANSION LINES: ".join('|', @$expanded_lines)
-                                       ."|\nEND LINES MACRO EXPANSION\n" if ($self->{'DEBUG'});
-          next if (!@$expanded_lines);
-          unshift @{$self->{'macro_stack'}}, $expanded_macro;
-          print STDERR "UNSHIFT MACRO_STACK: $expanded_macro->{'args'}->[0]->{'text'}\n"
-            if ($self->{'DEBUG'});
-          my $new_lines = _complete_line_nr($expanded_lines,
-                           $source_info->{'line_nr'}, $source_info->{'file_name'},
-                           $expanded_macro->{'args'}->[0]->{'text'}, 1);
-          $source_info->{'end_macro'} = 1;
-          # first put the line that was interrupted by the macro call
-          # on the input pending text with information stack
-          unshift @{$self->{'input'}->[0]->{'pending'}}, [$line, $source_info];
-          # current line is the first from macro expansion
-          my $new_text = shift @$new_lines;
-          ($line, $source_info) = ($new_text->[0], $new_text->[1]);
-          # then put the following macro expansion lines with information on the
-          # pending text with information stack
-          unshift @{$self->{'input'}->[0]->{'pending'}}, @$new_lines;
-          next;
-        }
-        # expand value if it can change the line.  It considered again
-        # together with other commands below for all the other cases
-        # which may need a well formed tree, which is not needed here, and
-        # early value expansion may be needed to provide with an argument.
-        if ($command eq 'value') {
-          my $expanded_line = $line;
-          substr($expanded_line, 0, $at_command_length) = '';
-          $expanded_line =~ s/^\s*//
-             if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
-          # REVALUE
-          if ($expanded_line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
-            my $value = $1;
-            if (exists($self->{'values'}->{$value})) {
-              $line = $self->{'values'}->{$value} . $expanded_line;
-              next;
-            }
-          }
-        }
-          #substr($line, 0, $at_command_length) = '';
-      }
-
-      # special case for @-command as argument of @itemize or @*table.
-      # The normal case for those are to be identifier only, not a true command
-      # with argument, so can be followed by anything.  If followed by
-      # braces, will be handled as a normal brace command.
-      #
-      # Need to be done as early as possible such that no other condition
-      # prevail and lead to a missed command
-      if ($current->{'cmdname'}
-          and defined($brace_commands{$current->{'cmdname'}})
-          and !$open_brace
-          and _command_with_command_as_argument($current->{'parent'})) {
-        print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} ".
-               "command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
-        $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
-        $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
-          = $current;
-        if ($current->{'cmdname'} eq 'kbd'
-            and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
-          $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
-        }
-        $current = $current->{'parent'};
-      }
-
-      # command but before an opening brace, otherwise $current
-      # would be an argument type and not the command, and a new
-      # @-command was found.  This means that the $current->{'cmdname'}
-      # argument (an opening brace, or a character after spaces for
-      # accent commands) was not found and there is already a new command.
-      #
-      # It would have been nice to allow for comments, but there is no
-      # container in the tree to put them when after command and before brace
-      # or argument for accent commands.
-      if ($command
-          and $current->{'cmdname'}
-          and defined($brace_commands{$current->{'cmdname'}})) {
-        $self->_line_error(sprintf(__("\@%s expected braces"),
-                           $current->{'cmdname'}), $source_info);
-        $current = $current->{'parent'};
-      }
-
-      # handle unknown @-command
-      if ($command and !$all_commands{$command}
-          and !$self->{'definfoenclose'}->{$command}
-          and !$self->{'command_index'}->{$command}
-          # @txiinternalvalue is invalid unless accept_internalvalue is set
-          and !($command eq 'txiinternalvalue'
-                and $self->{'accept_internalvalue'})) {
-        $self->_line_error(sprintf(__("unknown command `%s'"),
-                                      $command), $source_info);
-        substr($line, 0, $at_command_length) = '';
-        _abort_empty_line($self, $current);
-        my $paragraph = _begin_paragraph($self, $current, $source_info);
-        $current = $paragraph if ($paragraph);
-        next;
-      }
-
-      # this situation arises when after the $current->{'cmdname'}
-      # Brace commands not followed immediately by a brace
-      # opening.  In particular cases that may lead to "command closing"
-      # or following character association with an @-command, for accent
-      # commands.
-
-      # This condition can only happen immediately after the command opening,
-      # otherwise the current element is in the 'args' and not right in the
-      # command container.
-      if ($current->{'cmdname'}
-            and defined($brace_commands{$current->{'cmdname'}})
-            and !$open_brace) {
-        print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: $line"
-          if $self->{'DEBUG'};
-        # Note that non ascii spaces do not count as spaces
-        if ($line =~ /^(\s+)/
-            and ($accent_commands{$current->{'cmdname'}}
-                 or $self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'})) {
-          my $added_space = $1;
-          my $additional_newline;
-          if ($added_space =~ /\n/) {
-            $self->_line_warn(sprintf(
-               __("command `\@%s' must not be followed by new line"),
-               $current->{'cmdname'}), $source_info);
-            $additional_newline = 1;
-          }
-          if (!defined($current->{'extra'}->{'spaces'})) {
-            $line =~ s/^(\s+)//;
-            $current->{'extra'}->{'spaces'} = $added_space;
-            print STDERR "BRACE CMD before brace init spaces '$added_space'\n"
-              if $self->{'DEBUG'};
-          # only ignore spaces and one newline, two newlines lead to
-          # an empty line before the brace or argument which is incorrect.
-          } elsif ($additional_newline
-                   and $current->{'extra'}->{'spaces'} =~ /\n/) {
-            print STDERR "BRACE CMD before brace second newline stops spaces\n"
-              if $self->{'DEBUG'};
-            $self->_line_error(sprintf(__("\@%s expected braces"),
-                               $current->{'cmdname'}), $source_info);
-            $current = $current->{'parent'};
-          } else {
-            $line =~ s/^(\s+)//;
-            $current->{'extra'}->{'spaces'} .= $added_space;
-            print STDERR "BRACE CMD before brace add spaces '$added_space'\n"
-              if $self->{'DEBUG'};
-          }
-        # special case for accent commands, use following character except @
-        # as argument.  Note that since we checked before that there isn't
-        # an @-command opening, there should not be an @ anyway.  The line
-        # may possibly be empty in some specific case, without end of line.
-        } elsif ($accent_commands{$current->{'cmdname'}}
-                 and $line =~ s/^([^@])//) {
-          print STDERR "ACCENT following_arg \@$current->{'cmdname'}\n"
-            if ($self->{'DEBUG'});
-          my $following_arg = {'type' => 'following_arg',
-                               'parent' => $current};
-          $following_arg->{'contents'} = [{ 'text' => $1,
-                                           'parent' => $following_arg } ];
-          $current->{'args'} = [ $following_arg ];
-          if ($current->{'cmdname'} eq 'dotless' and $1 ne 'i' and $1 ne 'j') {
-            $self->_line_error(sprintf(
-               __("%c%s expects `i' or `j' as argument, not `%s'"),
-                                       ord('@'), $current->{'cmdname'}, $1),
-                               $source_info);
-          }
-          $current = $current->{'parent'};
-        } else {
-          $self->_line_error(sprintf(__("\@%s expected braces"),
-                             $current->{'cmdname'}), $source_info);
-          $current = $current->{'parent'};
-        }
-      # maybe a menu entry beginning: a * at the beginning of a menu line
-      } elsif ($current->{'type'}
-                and $current->{'type'} eq 'preformatted'
-                and $current->{'parent'}->{'type'}
-                and ($current->{'parent'}->{'type'} eq 'menu_comment'
-                     or $current->{'parent'}->{'type'} eq 'menu_entry_description')
-                and $asterisk
-                and @{$current->{'contents'}}
-                and $current->{'contents'}->[-1]->{'type'}
-                and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
-                and $current->{'contents'}->[-1]->{'text'} eq '') {
-        print STDERR "MENU STAR\n" if ($self->{'DEBUG'});
-        _abort_empty_line($self, $current);
-        $line =~ s/^\*//;
-        push @{$current->{'contents'}}, { 'parent' => $current,
-                                          'type' => 'menu_star',
-                                          'text' => '*' };
-      # a space after a * at the beginning of a menu line
-      } elsif ($current->{'contents'} and @{$current->{'contents'}}
-               and $current->{'contents'}->[-1]->{'type'}
-               and $current->{'contents'}->[-1]->{'type'} eq 'menu_star') {
-        if ($line !~ /^\s+/) {
-          print STDERR "ABORT MENU STAR ($line)\n" if ($self->{'DEBUG'});
-          delete $current->{'contents'}->[-1]->{'type'};
-        } else {
-          print STDERR "MENU ENTRY (certainly)\n" if ($self->{'DEBUG'});
-          # this is the menu star collected previously
-          pop @{$current->{'contents'}};
-          $line =~ s/^(\s+)//;
-          my $leading_text = '*' . $1;
-          if ($current->{'type'} eq 'preformatted'
-              and $current->{'parent'}->{'type'}
-              and $current->{'parent'}->{'type'} eq 'menu_comment') {
-            my $menu = $current->{'parent'}->{'parent'};
-            if (!@{$current->{'contents'}}) {
-              pop @{$current->{'parent'}->{'contents'}};
-              if (!scalar(@{$current->{'parent'}->{'contents'}})) {
-                pop @{$menu->{'contents'}};
-              }
-            }
-            $current = $menu;
-          } else {
-            # first parent preformatted, third is menu_entry
-            if ($current->{'type'} ne 'preformatted'
-                or $current->{'parent'}->{'type'} ne 'menu_entry_description'
-                or $current->{'parent'}->{'parent'}->{'type'} ne 'menu_entry'
-                or !$menu_commands{$current->{'parent'}->{'parent'}->{'parent'}->{'cmdname'}}) {
-              $self->_bug_message("Not in menu comment nor description",
-                                   $source_info, $current);
-            }
-            $current = $current->{'parent'}->{'parent'}->{'parent'};
-          }
-          push @{$current->{'contents'}}, { 'type' => 'menu_entry',
-                                            'parent' => $current,
-                                          };
-          $current = $current->{'contents'}->[-1];
-          $current->{'args'} = [ { 'type' => 'menu_entry_leading_text',
-                                   'text' => $leading_text,
-                                   'parent' => $current },
-                                 { 'type' => 'menu_entry_name',
-                                   'contents' => [],
-                                   'parent' => $current } ];
-          $current = $current->{'args'}->[-1];
-        }
-      # after a separator in menu
-      } elsif ($current->{'args'} and @{$current->{'args'}}
-               and $current->{'args'}->[-1]->{'type'}
-               and $current->{'args'}->[-1]->{'type'} eq 'menu_entry_separator') {
-        print STDERR "AFTER menu_entry_separator\n" if ($self->{'DEBUG'});
-        my $separator = $current->{'args'}->[-1]->{'text'};
-        # separator is ::, we concatenate and let the while restart
-        # in order to collect spaces below
-        if ($separator eq ':' and $line =~ s/^(:)//) {
-          $current->{'args'}->[-1]->{'text'} .= $1;
-        # a . not followed by a space.  Not a separator.
-        } elsif ($separator eq '.' and $line =~ /^\S/) {
-          pop @{$current->{'args'}};
-          $current = $current->{'args'}->[-1];
-          $current = _merge_text($self, $current, $separator);
-        # here we collect spaces following separators.
-        } elsif ($line =~ s/^([^\S\r\n]+)//) {
-          # FIXME a trailing end of line could be considered to be part
-          # of the separator. Right now it is part of the description,
-          # since it is catched (in the next while) as one of the case below
-          $current->{'args'}->[-1]->{'text'} .= $1;
-        # now handle the menu part that was closed
-        } elsif ($separator =~ /^::/) {
-          print STDERR "MENU NODE no entry $separator\n" if ($self->{'DEBUG'});
-          # it was previously registered as menu_entry_name, it is
-          # changed to node
-          $current->{'args'}->[-2]->{'type'} = 'menu_entry_node';
-          $current = _enter_menu_entry_node($self, $current, $source_info);
-        # end of the menu entry name
-        } elsif ($separator =~ /^:/) {
-          print STDERR "MENU ENTRY $separator\n" if ($self->{'DEBUG'});
-          push @{$current->{'args'}}, { 'type' => 'menu_entry_node',
-                                        'contents' => [],
-                                        'parent' => $current };
-          $current = $current->{'args'}->[-1];
-        # anything else is the end of the menu node following a menu_entry_name
-        } else {
-          print STDERR "MENU NODE $separator\n" if ($self->{'DEBUG'});
-          $current = _enter_menu_entry_node($self, $current, $source_info);
-        }
-      # Any other @-command.
-      } elsif ($command) {
-        if (!$at_command) {
-          substr($line, 0, 2) = '';
-        } else {
-          substr($line, 0, $at_command_length) = '';
-        }
-
-        print STDERR "COMMAND $command\n" if ($self->{'DEBUG'});
-
-        # @value not expanded (expansion is done above), and @txiinternalvalue
-        if ($command eq 'value' or $command eq 'txiinternalvalue') {
-          $line =~ s/^\s*//
-             if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
-          # REVALUE
-          if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
-            my $value = $1;
-            if ($command eq 'value') {
-              if (not exists($self->{'values'}->{$value})) {
-                _abort_empty_line($self, $current);
-                # caller should expand something along
-                # gdt('@{No value for `{value}\'@}', {'value' => $value}, {'keep_texi'=> 1});
-                push @{$current->{'contents'}}, { 'cmdname' => $command,
-                                                  'type' => $value,
-                                                  'contents' => [],
-                                                  'parent' => $current };
-                $self->_line_warn(
-                   sprintf(__("undefined flag: %s"), $value), $source_info);
-              # expansion of value already done above
-              #} else {
-              }
-            } else {
-              # txiinternalvalue
-              _abort_empty_line($self, $current);
-              my $new_element = { 'cmdname' => $command,
-                                  'args' => [],
-                                  'parent' => $current };
-              # type misc_arg?
-              push @{$new_element->{'args'}}, {'text' => $value,
-                                               'parent' => $new_element};
-              push @{$current->{'contents'}}, $new_element;
-            }
-          } else {
-            $self->_line_error(sprintf(__("bad syntax for %c%s"), ord('@'),
-                                 $command), $source_info);
-          }
-          next;
-        }
-
-        if (defined($deprecated_commands{$command})) {
-          if ($deprecated_commands{$command} eq '') {
-            $self->_line_warn(sprintf(__("%c%s is obsolete"),
-                                ord('@'), $command), $source_info);
-          } else {
-            $self->_line_warn(sprintf(__("%c%s is obsolete; %s"),
-                                      ord('@'), $command,
-                                      __($deprecated_commands{$command})),
-                              $source_info);
-          }
-        }
-
-        # special case with @ followed by a newline protecting end of lines
-        # in @def*
-        my $def_line_continuation
-          = ($self->_top_context() eq 'ct_def' and $command eq "\n");
-
-        if (not $def_line_continuation
-               and not _abort_empty_line($self, $current)
-               and $begin_line_commands{$command}) {
-          $self->_line_warn(
-              sprintf(__("\@%s should only appear at the beginning of a line"),
-                      $command), $source_info);
-        }
-
-        _check_valid_nesting ($self, $current, $command, $source_info);
-
-        last if ($def_line_continuation);
-
-        unless ($self->{'no_paragraph_commands'}->{$command}) {
-          my $paragraph = _begin_paragraph($self, $current, $source_info);
-          $current = $paragraph if ($paragraph);
-        }
-
-        if ($self->{'close_paragraph_commands'}->{$command}) {
-          $current = _end_paragraph($self, $current, $source_info);
-        }
-        if ($self->{'close_preformatted_commands'}->{$command}) {
-          $current = _end_preformatted($self, $current, $source_info);
-        }
-
-        if ($in_index_commands{$command}
-            and $current->{'contents'}
-            and $current->{'contents'}->[-1]
-            and $current->{'contents'}->[-1]->{'text'}
-            # it is important to check if in an index command, as otherwise
-            # the internal space type is not processed and remains as is in
-            # the final tree.
-            and _is_index_element($self, $current->{'parent'})) {
-          $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
-          # an internal and temporary space type that is converted to
-          # a normal space without type if followed by text or a
-          # "spaces_at_end" if followed by spaces only when the
-          # index or subentry command is done.
-          my $space_type = 'spaces_before_brace_in_index';
-          if ($command eq 'subentry') {
-            $space_type = 'spaces_at_end';
-          }
-          if ($1 ne '') {
-            if ($current->{'contents'}->[-1]->{'text'} eq '') {
-              $current->{'contents'}->[-1]->{'text'} = $1;
-              $current->{'contents'}->[-1]->{'type'} = $space_type;
-            } else {
-              my $new_spaces = { 'text' => $1, 'parent' => $current,
-                'type' => $space_type };
-              push @{$current->{'contents'}}, $new_spaces;
-            }
-          }
-        }
-
-        if (defined($other_commands{$command})
-            and ($command ne 'item' or !_item_line_parent($current))) {
-          # noarg skipspace
-          my $arg_spec = $other_commands{$command};
-          my $misc;
-
-          if ($arg_spec eq 'noarg') {
-            if ($in_heading_commands{$command}) {
-              # TODO use a more generic system for check of @-command nesting
-              # in command on context stack
-              my $top_context_command = $self->_top_context_command();
-              if (not defined($top_context_command)
-                  or not $headings_specification_commands{$top_context_command}) {
-                $self->_line_error(
-                  sprintf(__("\@%s should only appear in heading or footing"),
-                        $command), $source_info);
-              }
-            }
-            $misc = {'cmdname' => $command, 'parent' => $current};
-            push @{$current->{'contents'}}, $misc;
-            _register_global_command($self, $misc, $source_info);
-            $current = _begin_preformatted($self, $current)
-              if ($close_preformatted_commands{$command});
-          } else {
-            if ($command eq 'item'
-                or $command eq 'headitem' or $command eq 'tab') {
-              my $parent;
-              # @itemize or @enumerate
-              if ($parent = _item_container_parent($current)) {
-                if ($command eq 'item') {
-                  print STDERR "ITEM_CONTAINER\n" if ($self->{'DEBUG'});
-                  $parent->{'items_count'}++;
-                  $misc = { 'cmdname' => $command, 'parent' => $parent,
-                            'contents' => [],
-                            'extra' =>
-                              {'item_number' => $parent->{'items_count'}} };
-                  push @{$parent->{'contents'}}, $misc;
-                  $current = $parent->{'contents'}->[-1];
-                } else {
-                  $self->_line_error(sprintf(__(
-                                "\@%s not meaningful inside `\@%s' block"),
-                                   $command, $parent->{'cmdname'}), $source_info);
-                }
-                $current = _begin_preformatted($self, $current);
-              # @*table
-              } elsif ($parent = _item_line_parent($current)) {
-                # @item and _item_line_parent is explicitely avoided in the if above
-                $self->_line_error(sprintf(__(
-                      "\@%s not meaningful inside `\@%s' block"),
-                    $command, $parent->{'cmdname'}), $source_info);
-                $current = _begin_preformatted($self, $current);
-              # @multitable
-              } elsif ($parent = _item_multitable_parent($current)) {
-                if (!$parent->{'extra'}->{'max_columns'}) {
-                  $self->_line_warn(
-                     sprintf(__("\@%s in empty multitable"),
-                             $command), $source_info);
-                } elsif ($command eq 'tab') {
-                  my $row = $parent->{'contents'}->[-1];
-                  die if (!$row->{'type'});
-                  if ($row->{'type'} eq 'before_item') {
-                    $self->_line_error(__("\@tab before \@item"), $source_info);
-                  } elsif ($row->{'cells_count'} >= $parent->{'extra'}->{'max_columns'}) {
-                    $self->_line_error(sprintf(__(
-                            "too many columns in multitable item (max %d)"),
-                           $parent->{'extra'}->{'max_columns'}), $source_info);
-                  } else {
-                    $row->{'cells_count'}++;
-                    $misc = { 'cmdname' => $command,
-                              'parent' => $row,
-                              'contents' => [],
-                              'extra' =>
-                          {'cell_number' => $row->{'cells_count'}} };
-                    push @{$row->{'contents'}}, $misc;
-                    $current = $row->{'contents'}->[-1];
-                    print STDERR "TAB\n" if ($self->{'DEBUG'});
-                  }
-                } else {
-                  print STDERR "ROW\n" if ($self->{'DEBUG'});
-                  $parent->{'rows_count'}++;
-                  my $row = { 'type' => 'row', 'contents' => [],
-                              'cells_count' => 1,
-                              'extra' => {'row_number' => $parent->{'rows_count'} },
-                              'parent' => $parent };
-                  push @{$parent->{'contents'}}, $row;
-                  $misc =  { 'cmdname' => $command,
-                             'parent' => $row,
-                             'contents' => [],
-                             'extra' => {'cell_number' => 1}};
-                  push @{$row->{'contents'}}, $misc;
-                  $current = $row->{'contents'}->[-1];
-                }
-                $current = _begin_preformatted($self, $current);
-              } elsif ($command eq 'tab') {
-                $self->_line_error(__(
-                           "ignoring \@tab outside of multitable"), $source_info);
-                $current = _begin_preformatted($self, $current);
-              } else {
-                $self->_line_error(sprintf(__(
-                   "\@%s outside of table or list"), $command), $source_info);
-                $current = _begin_preformatted($self, $current);
-              }
-              $misc->{'source_info'} = $source_info if (defined($misc));
-            } else {
-              $misc = { 'cmdname' => $command, 'parent' => $current,
-                  'source_info' => $source_info };
-              push @{$current->{'contents'}}, $misc;
-            }
-            $line = _start_empty_line_after_command($line, $current, $misc, $command);
-          }
-        # line commands
-        } elsif (defined($self->{'line_commands'}->{$command})) {
-          if ($root_commands{$command} or $command eq 'bye') {
-            $current = _close_commands($self, $current, $source_info, undef,
-                                       $command);
-            if (!defined($current->{'parent'})) {
-              # if parse_texi_line is called on a line with a node/section then
-              # it will directly be in the root_line, otherwise it is not directly
-              # in the root, but in another container
-              #
-              # FIXME warn/error with a root command in parse_texi_line?
-              if ($current->{'type'} ne 'root_line') {
-                $self->_bug_message("no parent element", $source_info, $current);
-                die;
-              }
-            } else {
-              $current = $current->{'parent'};
-            }
-          }
-
-          # skipline text line lineraw /^\d$/
-          my $arg_spec = $self->{'line_commands'}->{$command};
-          my $misc;
-
-          # all the cases using the raw line
-          if ($arg_spec eq 'skipline' or $arg_spec eq 'lineraw'
-                   or $arg_spec eq 'special') {
-            my $ignored = 0;
-            if ($command eq 'insertcopying') {
-              my $parent = $current;
-              while ($parent) {
-                if ($parent->{'cmdname'} and $parent->{'cmdname'} eq 'copying') {
-                  $self->_line_error(
-                     sprintf(__("\@%s not allowed inside `\@%s' block"),
-                             $command, $parent->{'cmdname'}), $source_info);
-                  $ignored = 1;
-                  last;
-                }
-                $parent = $parent->{'parent'};
-              }
-            }
-
-            # complete the line if there was a user macro expansion
-            if ($line !~ /\n/) {
-              my ($new_line, $new_line_source_info)
-                         = _new_line($self, $source_info);
-              $line .= $new_line if (defined($new_line));
-            }
-            $misc = {'cmdname' => $command,
-                     'parent' => $current};
-            my $args = [];
-            my $has_comment;
-            if ($arg_spec eq 'lineraw' or $arg_spec eq 'skipline') {
-              $args = [ $line ];
-            } elsif ($arg_spec eq 'special') {
-              ($args, $has_comment)
-               = _parse_special_misc_command($self, $line, $command, $source_info);
-              $misc->{'extra'}->{'arg_line'} = $line;
-            }
-
-            # if using the @set txi* instead of a proper @-command, replace
-            # by the tree obtained with the @-command.  Even though
-            # _end_line is called below, as $current is not line_arg
-            # there should not be anything done in addition than what is
-            # done for @clear or @set.
-            if (($command eq 'set' or $command eq 'clear')
-                 and scalar(@$args) >= 1
-                 and $set_flag_command_equivalent{$args->[0]}) {
-              my $arg;
-              if ($command eq 'set') {
-                $arg = 'on';
-              } else {
-                $arg = 'off';
-              }
-              $command = $set_flag_command_equivalent{$args->[0]};
-              $misc = {'cmdname' => $command,
-                       'parent' => $current,
-                       'source_info' => $source_info,
-                       'extra' => {'misc_args' => [$arg]}};
-              my $misc_line_args = {'type' => 'line_arg',
-                     'parent' => $misc};
-              $misc->{'args'} = [$misc_line_args];
-              $misc->{'extra'}->{'spaces_before_argument'} = ' ';
-              $misc_line_args->{'contents'} = [
-                { 'text' => $arg,
-                  'parent' => $misc_line_args, },
-                { 'text' => "\n",
-                  'parent' => $misc_line_args,
-                  'type' => 'spaces_at_end', } ];
-              push @{$current->{'contents'}}, $misc;
-            } else {
-              if (!$ignored) {
-                push @{$current->{'contents'}}, $misc;
-                foreach my $arg (@$args) {
-                  push @{$misc->{'args'}},
-                    { 'type' => 'misc_arg', 'text' => $arg,
-                      'parent' => $current->{'contents'}->[-1] };
-                }
-                $misc->{'extra'}->{'misc_args'} = $args
-                  if (scalar(@$args) and $arg_spec ne 'skipline');
-              } else {
-                $misc = undef;
-              }
-            }
-            if ($command eq 'raisesections') {
-              $self->{'sections_level'}++;
-            } elsif ($command eq 'lowersections') {
-              $self->{'sections_level'}--;
-            }
-            _register_global_command($self, $misc, $source_info)
-              if $misc;
-            # the end of line is ignored for special commands
-            if ($arg_spec ne 'special' or !$has_comment) {
-              $current = _end_line($self, $current, $source_info);
-            }
-
-            last NEXT_LINE if ($command eq 'bye');
-            # Even if _end_line is called, it is not done since there is
-            # no line_arg
-            $current = _begin_preformatted($self, $current)
-              if ($close_preformatted_commands{$command});
-            last;
-          } else {
-            # $arg_spec is text, line or a number
-            # @item or @itemx in @table
-            if ($command eq 'item' or $command eq 'itemx') {
-              my $parent;
-              print STDERR "ITEM_LINE\n" if ($self->{'DEBUG'});
-              if ($parent = _item_line_parent($current)) {
-                $current = $parent;
-                _gather_previous_item($self, $current, $command, $source_info);
-              } else {
-                $self->_line_error(sprintf(__(
-                   "\@%s outside of table or list"), $command), $source_info);
-                $current = _begin_preformatted($self, $current);
-              }
-              $misc = { 'cmdname' => $command, 'parent' => $current };
-              push @{$current->{'contents'}}, $misc;
-              $misc->{'source_info'} = $source_info;
-            } else {
-              $misc = { 'cmdname' => $command, 'source_info' => $source_info };
-              if ($command eq 'subentry') {
-                my $parent = $current->{'parent'};
-                if (!_is_index_element($self, $parent)) {
-                  $self->_line_warn(
-                    sprintf(__("\@%s should only appear in an index entry"),
-                            $command), $source_info);
-                }
-                $parent->{'extra'}->{'subentry'} = $misc;
-                my $subentry_level = 1;
-                if ($parent->{'cmdname'} eq 'subentry') {
-                  $subentry_level = $parent->{'extra'}->{'level'} + 1;
-                }
-                $misc->{'extra'}->{'level'} = $subentry_level;
-                if ($subentry_level > 2) {
-                  $self->_line_error(__(
-              "no more than two levels of index subentry are allowed"),
-                           $source_info);
-                }
-                # Do not make the @subentry element a child of the index
-                # command.  This means that spaces are preserved properly
-                # when converting back to Texinfo.
-                $current = _end_line($self, $current, $source_info);
-              }
-              push @{$current->{'contents'}}, $misc;
-              $misc->{'parent'} = $current;
-              if ($sectioning_heading_commands{$command}) {
-                if ($self->{'sections_level'}) {
-                  $current->{'contents'}->[-1]->{'extra'}->{'sections_level'}
-                    = $self->{'sections_level'};
-                }
-              }
-              if ($root_commands{$command}) {
-                $misc->{'contents'} = [];
-              }
-              # def*x
-              if ($def_commands{$command}) {
-                my $base_command = $command;
-                $base_command =~ s/x$//;
-                # check that the def*x is first after @def*, no paragraph
-                # in-between.
-                my $after_paragraph = _check_no_text($current);
-                $self->_push_context('ct_def', $command);
-                $current->{'contents'}->[-1]->{'type'} = 'def_line';
-                $current->{'contents'}->[-1]->{'extra'}
-                  = {'def_command' => $base_command,
-                     'original_def_cmdname' => $command};
-                if (defined($self->{'values'}->{'txidefnamenospace'})) {
-                  $current->{'contents'}->[-1]{'extra'}
-                                      ->{'omit_def_name_space'} = 1;
-                }
-                if ($current->{'cmdname'}
-                    and $current->{'cmdname'} eq $base_command) {
-                  pop @{$current->{'contents'}};
-                  _gather_def_item($current, $command);
-                  push @{$current->{'contents'}}, $misc;
-                }
-                if (!$current->{'cmdname'}
-                     or $current->{'cmdname'} ne $base_command
-                     or $after_paragraph) {
-                  $self->_line_error(sprintf(__(
-                                       "must be after `\@%s' to use `\@%s'"),
-                                          $base_command, $command), $source_info);
-                  $current->{'contents'}->[-1]->{'extra'}->{'not_after_command'} = 1;
-                }
-              }
-            }
-            $current = $current->{'contents'}->[-1];
-            $current->{'args'} = [{ 'type' => 'line_arg',
-                                    'contents' => [],
-                                    'parent' => $current }];
-            # @node is the only misc command with args separated with comma
-            # FIXME a 3 lingering here deep into the code may not
-            # be very wise...  However having a hash only for one @-command
-            # is not very appealing either...
-            if ($command eq 'node') {
-              $current->{'remaining_args'} = 3;
-            } elsif ($command eq 'author') {
-              my $parent = $current;
-              my $found;
-              while ($parent->{'parent'}) {
-                $parent = $parent->{'parent'};
-                last if ($parent->{'type'}
-                        and $parent->{'type'} eq 'brace_command_context');
-                if ($parent->{'cmdname'}) {
-                  if ($parent->{'cmdname'} eq 'titlepage') {
-                    $current->{'extra'}->{'titlepage'} = $parent;
-                    $found = 1;
-                  } elsif ($parent->{'cmdname'} eq 'quotation' or
-                      $parent->{'cmdname'} eq 'smallquotation') {
-                    push @{$parent->{'extra'}->{'authors'}}, $current;
-                    $current->{'extra'}->{'quotation'} = $parent;
-                    $found = 1;
-                  }
-                  last if ($found);
-                }
-              }
-              if (!$found) {
-                $self->_line_warn(sprintf(__(
-             "\@%s not meaningful outside `\@titlepage' and `\@quotation' environments"),
-                               $command), $current->{'source_info'});
-              }
-            } elsif ($command eq 'dircategory' and $self->{'current_node'}) {
-                $self->_line_warn(__("\@dircategory after first node"),
-                             $source_info);
-            } elsif ($command eq 'printindex') {
-              # Record that @printindex occurs in this node so we know it
-              # is an index node.
-              if ($self->{'current_node'}) {
-                $self->{'current_node'}->{'extra'}->{'isindex'} = 1;
-              }
-            }
-
-            $current = $current->{'args'}->[-1];
-            $self->_push_context('ct_line', $command)
-              unless ($def_commands{$command});
-            $line = _start_empty_line_after_command($line, $current, $misc,
-                                                    $command);
-          }
-          _register_global_command($self, $misc, $source_info)
-            if $misc;
-          if ($command eq 'dircategory') {
-            push @{$self->{'info'}->{'dircategory_direntry'}}, $misc;
-          }
-        # @-command with matching @end opening
-        } elsif (exists($block_commands{$command})) {
-          if ($command eq 'macro' or $command eq 'rmacro') {
-            my $macro = _parse_macro_command_line($self, $command, $line,
-                                                  $current, $source_info);
-            push @{$current->{'contents'}}, $macro;
-            $current = $current->{'contents'}->[-1];
-            last;
-          } elsif ($block_commands{$command} eq 'conditional') {
-            my $ifvalue_true = 0;
-            if ($command eq 'ifclear' or $command eq 'ifset') {
-              # REVALUE
-              if ($line =~ /^\s+([\w\-][^\s{\\}~`\^+"<>|@]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
-                my $name = $1;
-                if ((exists($self->{'values'}->{$name}) and $command eq 'ifset')
-                    or (!exists($self->{'values'}->{$name})
-                         and $command eq 'ifclear')) {
-                  $ifvalue_true = 1;
-                }
-                print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
-                                                            if ($self->{'DEBUG'});
-              } elsif ($line !~ /\S/) {
-                  $self->_line_error(sprintf(
-                    __("%c%s requires a name"), ord('@'), $command), $source_info);
-              } else {
-                $self->_line_error(sprintf(
-                    __("bad name for \@%s"), $command), $source_info);
-              }
-            } elsif ($command eq 'ifcommanddefined'
-                     or $command eq 'ifcommandnotdefined') {
-              # REMACRO
-              if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
-                my $name = $1;
-                my $command_is_defined = (
-                  exists($Texinfo::Common::all_commands{$name})
-                  or $self->{'macros'}->{$name}
-                  or $self->{'definfoenclose'}->{$name}
-                  or $self->{'aliases'}->{$name}
-                  or $self->{'command_index'}->{$name}
-                );
-                if (($command_is_defined
-                     and $command eq 'ifcommanddefined')
-                    or (! $command_is_defined
-                         and $command eq 'ifcommandnotdefined')) {
-                  $ifvalue_true = 1;
-                }
-                print STDERR "CONDITIONAL \@$command $name: $ifvalue_true\n"
-                                                            if ($self->{'DEBUG'});
-              } elsif ($line !~ /\S/) {
-                  $self->_line_error(sprintf(
-                    __("%c%s requires a name"), ord('@'), $command), $source_info);
-              } else {
-                $self->_line_error(sprintf(
-                    __("bad name for \@%s"), $command), $source_info);
-              }
-            } elsif ($command =~ /^ifnot(.*)/) {
-              $ifvalue_true = 1 if !($self->{'expanded_formats_hash'}->{$1}
-                    # exception as explained in the texinfo manual
-                    or ($1 eq 'info'
-                        and $self->{'expanded_formats_hash'}->{'plaintext'}));
-              print STDERR "CONDITIONAL \@$command format $1: $ifvalue_true\n"
-                                                             if ($self->{'DEBUG'});
-            } else {
-              die unless ($command =~ /^if(.*)/);
-              $ifvalue_true = 1 if ($self->{'expanded_formats_hash'}->{$1}
-                      or ($1 eq 'info'
-                          and $self->{'expanded_formats_hash'}->{'plaintext'}));
-              print STDERR "CONDITIONAL \@$command format $1: $ifvalue_true\n"
-                                                             if ($self->{'DEBUG'});
-            }
-            if ($ifvalue_true) {
-              push @{$self->{'conditionals_stack'}}, $command;
-            } else {
-              push @{$current->{'contents'}}, { 'cmdname' => $command,
-                                                'parent' => $current,
-                                                'contents' => [] };
-              $current = $current->{'contents'}->[-1];
-            }
-            # FIXME(Karl) ignore what is remaining on the line, to eat
-            # the end of line?
-            last;
-          } else {
-            my $block;
-            # a menu command closes a menu_comment, but not the other
-            # block commands. This won't catch menu commands buried in
-            # other formats (that are incorrect anyway).
-            if ($menu_commands{$command} and $current->{'type'}
-                and ($current->{'type'} eq 'menu_comment'
-                     or $current->{'type'} eq 'menu_entry_description')) {
-
-              my $menu;
-
-              $menu = $current->{'parent'};
-              pop @{$menu->{'contents'}}
-                if (!@{$current->{'contents'}});
-
-              if ($menu->{'type'} and $menu->{'type'} eq 'menu_entry') {
-                $menu = $menu->{'parent'};
-              }
-
-              $current = $menu;
-            }
-            # the def command holds a line_def* which corresponds with the
-            # definition line.  This allows to have a treatement similar
-            # with def*x.
-            if ($def_commands{$command}) {
-              $self->_push_context('ct_def', $command);
-              $block = { 'parent' => $current,
-                         'cmdname' => $command,
-                         'contents' => [] };
-              push @{$current->{'contents'}}, $block;
-              $current = $current->{'contents'}->[-1];
-              push @{$current->{'contents'}}, {
-                                                'type' => 'def_line',
-                                                'parent' => $current,
-                                                'source_info' => $source_info,
-                                                'extra' =>
-                                                 {'def_command' => $command,
-                                                  'original_def_cmdname' => $command}
-                                                };
-              if (defined($self->{'values'}->{'txidefnamenospace'})) {
-                $current->{'contents'}->[-1]->{'extra'}
-                                            ->{'omit_def_name_space'} = 1;
-              }
-            } else {
-              $block = { 'cmdname' => $command,
-                         'parent' => $current,
-                         'contents' => [] };
-              push @{$current->{'contents'}}, $block;
-            }
-            $current = $current->{'contents'}->[-1];
-
-            if ($preformatted_commands{$command}) {
-              $self->_push_context('ct_preformatted', $command);
-            } elsif ($math_commands{$command}) {
-              $self->_push_context('ct_math', $command);
-            } elsif ($format_raw_commands{$command}) {
-              $self->_push_context('ct_rawpreformatted', $command);
-            }
-            if ($region_commands{$command}) {
-              if (@{$self->{'regions_stack'}}) {
-                $self->_line_error(
-            sprintf(__("region %s inside region %s is not allowed"),
-                    $command, $self->{'regions_stack'}->[-1]->{'cmdname'}),
-                                  $source_info);
-              }
-              push @{$self->{'regions_stack'}}, $block;
-            }
-            if ($menu_commands{$command}) {
-              $self->_push_context('ct_preformatted', $command);
-              push @{$self->{'info'}->{'dircategory_direntry'}}, $block
-                if ($command eq 'direntry');
-              if ($self->{'current_node'}) {
-                if ($command eq 'direntry') {
-                  if ($self->{'FORMAT_MENU'} eq 'menu') {
-                    $self->_line_warn(__("\@direntry after first node"),
-                              $source_info);
-                  }
-                } elsif ($command eq 'menu') {
-                  if (!(defined $current->{'parent'}->{'cmdname'})
-                      or $root_commands{$current->{'parent'}->{'cmdname'}}) {
-                    push @{$self->{'current_node'}->{'extra'}->{'menus'}}, $current;
-                  } else {
-                    $self->_line_warn(__("\@menu in invalid context"),
-                                      $source_info);
-                  }
-                }
-              }
-            }
-            $current->{'args'} = [ {
-               'type' => 'block_line_arg',
-               'contents' => [],
-               'parent' => $current } ];
-
-            if ($block_commands{$command} =~ /^\d+$/
-                and $block_commands{$command} - 1 > 0) {
-              $current->{'remaining_args'} = $block_commands{$command} - 1;
-            } elsif ($block_commands{$command} eq 'variadic') {
-              $current->{'remaining_args'} = -1; # unlimited args
-            }
-            $current = $current->{'args'}->[-1];
-            $self->_push_context('ct_line', $command)
-              unless ($def_commands{$command});
-            $block->{'source_info'} = $source_info;
-            _register_global_command($self, $block, $source_info);
-            $line = _start_empty_line_after_command($line, $current, $block,
-                                                    $command);
-          }
-        } elsif (defined($brace_commands{$command})) {
-          push @{$current->{'contents'}}, { 'cmdname' => $command,
-                                            'parent' => $current,
-                                            'contents' => [] };
-          $current->{'contents'}->[-1]->{'source_info'} = $source_info
-            if ($keep_line_nr_brace_commands{$command}
-                and !$self->{'definfoenclose'}->{$command});
-          if ($in_index_commands{$command}
-              and !_is_index_element($self, $current->{'parent'})) {
-            $self->_line_warn(
-              sprintf(__("\@%s should only appear in an index entry"),
-                      $command), $source_info);
-          }
-          
-          $current = $current->{'contents'}->[-1];
-          if ($command eq 'click') {
-            $current->{'extra'}->{'clickstyle'} = $self->{'clickstyle'};
-          } elsif ($command eq 'kbd'
-                   and _kbd_formatted_as_code($self, $current)) {
-            $current->{'extra'}->{'code'} = 1;
-          }
-          if ($self->{'definfoenclose'}->{$command}) {
-            $current->{'type'} = 'definfoenclose_command';
-            $current->{'extra'}->{'begin'}
-              = $self->{'definfoenclose'}->{$command}->[0];
-            $current->{'extra'}->{'end'}
-              = $self->{'definfoenclose'}->{$command}->[1];
-          }
-        } elsif (exists ($no_brace_commands{$command})) {
-          push @{$current->{'contents'}},
-                 { 'cmdname' => $command, 'parent' => $current };
-          # FIXME generalize?
-          if ($command eq '\\' and $self->_top_context() ne 'ct_math') {
-            $self->_line_warn(sprintf(
-                           __("\@%s should only appear in math context"),
-                                      $command), $source_info);
-          }
-          if ($command eq "\n") {
-            $current = _end_line($self, $current, $source_info);
-            last;
-          }
-        }
-      } elsif ($separator_match) {
-        my $separator = $separator_match;
-        substr ($line, 0, 1) = '';
-        print STDERR "SEPARATOR: $separator\n" if ($self->{'DEBUG'});
-        if ($separator eq '@') {
-          # this may happen with a @ at the very end of a file, therefore
-          # not followed by anything.
-          $self->_line_error(__("unexpected \@"), $source_info);
-        } elsif ($separator eq '{') {
-          _abort_empty_line($self, $current);
-          if ($current->{'cmdname'}
-               and defined($brace_commands{$current->{'cmdname'}})) {
-            my $command = $current->{'cmdname'};
-            $current->{'args'} = [ { 'parent' => $current,
-                                   'contents' => [] } ];
-
-            if ($brace_commands{$command}
-                and $brace_commands{$command} =~ /^\d$/
-                and $brace_commands{$command} > 1) {
-              $current->{'remaining_args'} = $brace_commands{$command} - 1;
-            }
-
-            $current = $current->{'args'}->[-1];
-            if ($context_brace_commands{$command}) {
-              if ($command eq 'caption' or $command eq 'shortcaption') {
-                my $float;
-                if (!$current->{'parent'}->{'parent'}
-                    or !$current->{'parent'}->{'parent'}->{'cmdname'}
-                    or $current->{'parent'}->{'parent'}->{'cmdname'} ne 'float') {
-                  $float = $current->{'parent'};
-                  while ($float->{'parent'} and !($float->{'cmdname'}
-                                                  and $float->{'cmdname'} eq 'float')) {
-                    $float = $float->{'parent'};
-                  }
-                  if (!($float->{'cmdname'} and $float->{'cmdname'} eq 'float')) {
-                    $self->_line_error(sprintf(__(
-                       "\@%s is not meaningful outside `\@float' environment"),
-                                               $command), $source_info);
-                    $float = undef;
-                  } else {
-                    $self->_line_warn(sprintf(__(
-                                       "\@%s should be right below `\@float'"),
-                                               $command), $source_info);
-                  }
-                } else {
-                  $float = $current->{'parent'}->{'parent'};
-                }
-                if ($float) {
-                  if ($float->{'extra'}->{$command}) {
-                    $self->_line_warn(sprintf(__("ignoring multiple \@%s"),
-                                              $command), $source_info);
-                  } else {
-                    $current->{'parent'}->{'extra'}->{'float'} = $float;
-                    $float->{'extra'}->{$command} = $current->{'parent'};
-                  }
-                }
-              }
-              if ($math_commands{$command}) {
-                $self->_push_context('ct_math', $command);
-              } else {
-                $self->_push_context('ct_brace_command', $command);
-              }
-              $line =~ s/([^\S\f\n]*)//;
-              $current->{'type'} = 'brace_command_context';
-              # empty_spaces_before_argument is a transient internal type,
-              # which should end up in extra spaces_before_argument.
-              push @{$current->{'contents'}}, {
-                'type' => 'empty_spaces_before_argument',
-                'text' => $1,
-                'parent' => $current,
-                'extra' => {'spaces_associated_command' => $current->{'parent'}}
-              };
-            } else {
-              $current->{'type'} = 'brace_command_arg';
-              # only put spaces in spaces_before_argument if the @-command
-              # has an explicit positive number of arguments.
-              if ($brace_commands{$command}
-                  and $brace_commands{$command} =~ /^\d$/
-                  and $brace_commands{$command} > 0) {
-                # empty_spaces_before_argument is a transient internal type,
-                # which should end up in extra spaces_before_argument.
-                push @{$current->{'contents'}}, {
-                            'type' => 'empty_spaces_before_argument',
-                            'text' => '',
-                            'parent' => $current,
-                            'extra' => {'spaces_associated_command' => $current}
-                          };
-              }
-              $self->_push_context('ct_inlineraw', $command)
-                if ($command eq 'inlineraw');
-            }
-            print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "
-              .(defined($current->{'parent'}->{'remaining_args'}) ? "remaining: $current->{'parent'}->{'remaining_args'}, " : '')
-              .($current->{'type'} ? "type: $current->{'type'}" : '')."\n"
-               if ($self->{'DEBUG'});
-          } elsif ($current->{'parent'}
-                    and (($current->{'parent'}->{'cmdname'}
-                          and $current->{'parent'}->{'cmdname'} eq 'multitable')
-                         or ($current->{'parent'}->{'type'}
-                             and $current->{'parent'}->{'type'} eq 'def_line'))) {
-            push @{$current->{'contents'}},
-                 { 'type' => 'bracketed', 'contents' => [],
-                   'parent' => $current };
-            $current = $current->{'contents'}->[-1];
-            # we need the line number here in case @ protects end of line
-            $current->{'source_info'} = $source_info
-              if ($current->{'parent'}->{'parent'}->{'type'}
-                  and $current->{'parent'}->{'parent'}->{'type'} eq 'def_line');
-            # empty_spaces_before_argument is a transient internal type,
-            # which should end up in extra spaces_before_argument.
-            push @{$current->{'contents'}},
-                {'type' => 'empty_spaces_before_argument',
-                 'text' => '',
-                 'parent' => $current,
-                 'extra' => {'spaces_associated_command' => $current}
-               };
-            print STDERR "BRACKETED in def/multitable\n" if ($self->{'DEBUG'});
-          # lone braces accepted right in a rawpreformatted
-          } elsif ($current->{'type'}
-                   and $current->{'type'} eq 'rawpreformatted') {
-            push @{$current->{'contents'}}, {'text' => '{',
-                                             'parent' => $current };
-          # matching braces accepted in a rawpreformatted or math or ignored
-          # code
-          } elsif ($self->_top_context() eq 'ct_math'
-                   or $self->_top_context() eq 'ct_rawpreformatted'
-                   or $self->_top_context() eq 'ct_inlineraw') {
-            push @{$current->{'contents'}},
-                 { 'type' => 'bracketed', 'contents' => [],
-                   'parent' => $current, 'source_info' => $source_info };
-            $current = $current->{'contents'}->[-1];
-            print STDERR "BRACKETED in math/rawpreformatted/inlineraw\n"
-               if ($self->{'DEBUG'});
-          } else {
-            $self->_line_error(sprintf(__("misplaced %c"),
-                                             ord('{')), $source_info);
-          }
-
-        } elsif ($separator eq '}') {
-          _abort_empty_line($self, $current);
-          if ($current->{'type'} and ($current->{'type'} eq 'bracketed')) {
-            $current = $current->{'parent'};
-           # the following will not happen for footnote if there is
-           # a paragraph withing the footnote
-          } elsif ($current->{'parent'}
-              and $current->{'parent'}->{'cmdname'}
-              and exists $brace_commands{$current->{'parent'}->{'cmdname'}}) {
-            # for math and footnote out of paragraph
-            if ($context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
-              my $command_context = 'ct_brace_command';
-              if ($math_commands{$current->{'parent'}->{'cmdname'}}) {
-                $command_context = 'ct_math';
-              }
-              my ($error) = $self->_pop_context([$command_context],
-                       $source_info, $current,
-                       "for brace command $current->{'parent'}->{'cmdname'}");
-              die if ($error);
-            }
-            # first is the arg.
-            
-            if ($brace_commands{$current->{'parent'}->{'cmdname'}}
-                and $brace_commands{$current->{'parent'}{'cmdname'}} =~ /^\d$/
-                and $brace_commands{$current->{'parent'}->{'cmdname'}} > 0
-                and $current->{'parent'}->{'cmdname'} ne 'math') {
-              # @inline* always have end spaces considered as normal text
-              _isolate_last_space($self, $current)
-                unless ($inline_commands{$current->{'parent'}->{'cmdname'}});
-            }
-            my $closed_command = $current->{'parent'}->{'cmdname'};
-            print STDERR "CLOSING(brace) \@$current->{'parent'}->{'cmdname'}\n"
-              if ($self->{'DEBUG'});
-            delete $current->{'parent'}->{'remaining_args'};
-            if (defined($brace_commands{$closed_command})
-                 and $brace_commands{$closed_command} eq '0'
-                 and @{$current->{'contents'}}) {
-              $self->_line_warn(sprintf(__(
-                                 "command \@%s does not accept arguments"),
-                                       $closed_command), $source_info);
-            }
-            if ($current->{'parent'}->{'cmdname'} eq 'anchor') {
-              $current->{'parent'}->{'source_info'} = $source_info;
-              my $parsed_anchor = _parse_node_manual($current);
-              if (_check_node_label($self, $parsed_anchor,
-                                $current->{'parent'}->{'cmdname'}, $source_info)) {
-                _register_label($self->{'targets'}, $current->{'parent'},
-                                $parsed_anchor);
-                if (@{$self->{'regions_stack'}}) {
-                  $current->{'extra'}->{'region'} = $self->{'regions_stack'}->[-1];
-                }
-              }
-            } elsif ($ref_commands{$current->{'parent'}->{'cmdname'}}) {
-              my $ref = $current->{'parent'};
-              if (@{$ref->{'args'}}) {
-                my @args;
-                for $a (@{$ref->{'args'}}) {
-                  if (@{$a->{'contents'}}) {
-                    push @args, $a->{'contents'};
-                  } else {
-                    push @args, undef;
-                  }
-                }
-                if (($closed_command eq 'inforef'
-                     and !defined($args[0]) and !defined($args[2]))
-                    or ($closed_command ne 'inforef'
-                     and !defined($args[0]) and !defined($args[3])
-                     and !defined($args[4]))) {
-                  $self->_line_warn(sprintf(__(
-                     "command \@%s missing a node or external manual argument"),
-                                        $closed_command), $source_info);
-                } else {
-                  my $parsed_ref_node = _parse_node_manual($ref->{'args'}->[0]);
-                  if (defined $parsed_ref_node) {
-                    if ($closed_command ne 'inforef'
-                        and !defined($args[3]) and !defined($args[4])
-                        and !$parsed_ref_node->{'manual_content'}) {
-                      push @{$self->{'internal_references'}}, $ref;
-                    }
-                    $ref->{'extra'}->{'node_argument'} = $parsed_ref_node
-                  }
-                }
-                if (defined($args[1])) {
-                  if (_check_empty_expansion($args[1])) {
-                    $self->_line_warn(sprintf(__(
-                    "in \@%s empty cross reference name after expansion `%s'"),
-                          $closed_command,
-                          Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                                    {'contents' => $args[1]})),
-                            $source_info);
-                  }
-                }
-                if ($closed_command ne 'inforef' and defined($args[2])) {
-                  if (_check_empty_expansion($args[2])) {
-                    $self->_line_warn(sprintf(__(
-                     "in \@%s empty cross reference title after expansion `%s'"),
-                          $closed_command,
-                          Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                                  {'contents' => $args[2]})),
-                            $source_info);
-                  }
-                }
-              }
-            } elsif ($current->{'parent'}->{'cmdname'} eq 'image') {
-              my $image = $current->{'parent'};
-              if (!@{$image->{'args'}}
-                  or !defined($image->{'args'}->[0])
-                  or scalar(@{$image->{'args'}->[0]->{'contents'}}) == 0) {
-                $self->_line_error(
-                   __("\@image missing filename argument"), $source_info);
-              }
-              $image->{'extra'}->{'input_perl_encoding'}
-                   = $self->{'info'}->{'input_perl_encoding'}
-                        if defined $self->{'info'}->{'input_perl_encoding'};
-            } elsif($current->{'parent'}->{'cmdname'} eq 'dotless') {
-              my $dotless = $current->{'parent'};
-              if (@{$current->{'contents'}}) {
-                my $text = $current->{'contents'}->[0]->{'text'};
-                if (!defined ($text)
-                  or ($text ne 'i' and $text ne 'j')) {
-                  $self->_line_error(sprintf(
-                        __("%c%s expects `i' or `j' as argument, not `%s'"),
-                        ord('@'), $dotless->{'cmdname'},
-                        Texinfo::Convert::Texinfo::convert_to_texinfo($current)),
-                      $source_info);
-                }
-              }
-            } elsif ($explained_commands{$current->{'parent'}->{'cmdname'}}
-                     or $inline_commands{$current->{'parent'}->{'cmdname'}}) {
-              my $current_command = $current->{'parent'};
-              if ($inline_commands{$current_command->{'cmdname'}}) {
-                if ($current_command->{'cmdname'} eq 'inlineraw') {
-                  my ($error) = $self->_pop_context(['ct_inlineraw'],
-                                        $source_info, $current, ' inlineraw');
-                  die if ($error);
-                }
-              }
-              if (!@{$current_command->{'args'}}
-                  or !defined($current_command->{'args'}->[0])
-                  or scalar(@{$current_command->{'args'}->[0]->{'contents'}}) == 0) {
-                $self->_line_warn(
-                   sprintf(__("\@%s missing first argument"),
-                           $current_command->{'cmdname'}), $source_info);
-              }
-            } elsif ($current->{'parent'}->{'cmdname'} eq 'errormsg') {
-              my $error_message_text = $current->{'contents'}->[0]->{'text'};
-              $self->_line_error($error_message_text, $source_info)
-                if $error_message_text;
-            } elsif ($current->{'parent'}->{'cmdname'} eq 'U') {
-              my $arg;
-              if ($current->{'contents'}->[0]) {
-                $arg = $current->{'contents'}->[0]->{'text'};
-              }
-              if (!defined($arg) || !$arg) {
-                $self->_line_warn(__("no argument specified for \@U"),
-                  $source_info);
-
-              } elsif ($arg !~ /^[0-9A-Fa-f]+$/) {
-                $self->_line_error(
-            sprintf(__("non-hex digits in argument for \@U: %s"), $arg),
-                  $source_info);
-
-              } elsif (length ($arg) < 4) {
-                # Perl doesn't mind, but too much trouble to do in TeX.
-                $self->_line_warn(sprintf(__(
-                  "fewer than four hex digits in argument for \@U: %s"), $arg),
-                 $source_info);
-
-              } else {
-                # we don't want to call hex at all if the value isn't
-                # going to fit; so first use eval to check.
-                # Since integer overflow is only a warning, have to make
-                # warnings fatal for the eval to be effective.
-                eval qq!use warnings FATAL => qw(all); hex("$arg")!;
-                if ($@) {
-                  # leave clue in case something else went wrong.
-                  warn "\@U hex($arg) eval failed: $@\n" if ($self->{'DEBUG'});
-                  # argument likely exceeds size of integer
-                }
-                # ok, value can be given to hex(), so try it.
-                if ($@ or hex($arg) > 0x10FFFF) {
-                  $self->_line_error(sprintf(__(
-                     "argument for \@U exceeds Unicode maximum 0x10FFFF: %s"),
-                     $arg),
-                    $source_info);
-                }
-              }
-
-            } elsif (_command_with_command_as_argument($current->{'parent'}->{'parent'})
-                 and scalar(@{$current->{'contents'}}) == 0) {
-               print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'parent'}->{'cmdname'} command_as_argument braces $current->{'parent'}->{'cmdname'}\n" if ($self->{'DEBUG'});
-               $current->{'parent'}->{'type'} = 'command_as_argument'
-                  if (!$current->{'parent'}->{'type'});
-               $current->{'parent'}->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
-                  = $current->{'parent'};
-               if ($current->{'parent'}->{'cmdname'} eq 'kbd'
-                   and _kbd_formatted_as_code($self,
-                                              $current->{'parent'}->{'parent'}->{'parent'})) {
-                 $current->{'parent'}->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
-               }
-            } elsif ($in_index_commands{$current->{'parent'}->{'cmdname'}}) {
-              my $command = $current->{'parent'}->{'cmdname'};
-
-              my $index_element = $current->{'parent'}->{'parent'}->{'parent'};
-              if ($index_element
-                  and _is_index_element($self, $index_element)) {
-                if ($command eq 'sortas') {
-                  my ($arg, $superfluous_arg) = _convert_to_text($current);
-                  if (defined($arg)) {
-                    $index_element->{'extra'}->{$command} = $arg;
-                  }
-                } else {
-                  $index_element->{'extra'}->{$command} = $current->{'parent'};
-                }
-              }
-            }
-            _register_global_command($self, $current->{'parent'}, $source_info);
-            if ($command_ignore_space_after{$current->{'parent'}->{'cmdname'}}) {
-              push @{$current->{'parent'}->{'parent'}->{'contents'}},
-                 {'type' => 'empty_spaces_after_close_brace',
-                  'text' => '',
-                  'parent' => $current->{'parent'}->{'parent'}
-                 };
-            }
-            $current = $current->{'parent'}->{'parent'};
-            $current = _begin_preformatted($self, $current)
-               if ($close_preformatted_commands{$closed_command});
-          # lone braces accepted right in a rawpreformatted
-          } elsif ($current->{'type'}
-                   and $current->{'type'} eq 'rawpreformatted') {
-            push @{$current->{'contents'}}, {'text' => '}',
-                                             'parent' => $current };
-          # footnote caption closing, when there is a paragraph inside.
-          } elsif ($self->_top_context() eq 'ct_brace_command') {
-             # closing the context under broader situations
-             $current = _end_paragraph($self, $current, $source_info);
-             if ($current->{'parent'}
-                 and $current->{'parent'}->{'cmdname'}
-                 and $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
-              my ($error) = $self->_pop_context(['ct_brace_command'],
-                       $source_info, $current,
-                       "for brace isolated $current->{'parent'}->{'cmdname'}");
-              die if ($error);
-              print STDERR "CLOSING(context command) \@$current->{'parent'}->{'cmdname'}\n"
-                                          if ($self->{'DEBUG'});
-              my $closed_command = $current->{'parent'}->{'cmdname'};
-              _register_global_command($self, $current->{'parent'}, $source_info);
-              $current = $current->{'parent'}->{'parent'};
-              $current = _begin_preformatted($self, $current)
-                 if ($close_preformatted_commands{$closed_command});
-            }
-          } else {
-            $self->_line_error(sprintf(__("misplaced %c"),
-                                     ord('}')), $source_info);
-          }
-        } elsif ($separator eq ','
-                 and $current->{'parent'}->{'remaining_args'}) {
-          _abort_empty_line ($self, $current);
-          _isolate_last_space($self, $current);
-          my $type = $current->{'type'};
-          $current = $current->{'parent'};
-          if ($inline_commands{$current->{'cmdname'}}) {
-            my $expandp = 0;
-            if (! $current->{'extra'}->{'format'}) {
-              my $inline_type;
-              if (defined $current->{'args'}->[0]
-                  and @{$current->{'args'}->[0]->{'contents'}}) {
-                $inline_type = $current->{'args'}->[0]->{'contents'}->[0]->{'text'};
-              }
-
-              if (!$inline_type) {
-                # condition is missing for some reason
-                print STDERR "INLINE COND MISSING\n"
-                  if ($self->{'DEBUG'});
-              } elsif ($inline_format_commands{$current->{'cmdname'}}) {
-                if ($self->{'expanded_formats_hash'}->{$inline_type}) {
-                  $expandp = 1;
-                  $current->{'extra'}->{'expand_index'} = 1;
-                } else {
-                  $expandp = 0;
-                }
-              } elsif (($current->{'cmdname'} eq 'inlineifset'
-                        and exists($self->{'values'}->{$inline_type}))
-                       or ($current->{'cmdname'} eq 'inlineifclear'
-                           and ! exists($self->{'values'}->{$inline_type}))) {
-                $expandp = 1;
-                $current->{'extra'}->{'expand_index'} = 1;
-              } else {
-                $expandp = 0;
-              }
-              $current->{'extra'}->{'format'} = $inline_type;
-
-              # Skip first argument for a false @inlinefmtifelse
-              if (!$expandp and $current->{'cmdname'} eq 'inlinefmtifelse') {
-                $current->{'extra'}->{'expand_index'} = 2;
-
-                # Add a dummy argument for the first argument.
-                push @{$current->{'args'}}, {'type' => 'elided',
-                                             'parent' => $current,
-                                             'contents' => []};
-
-                # Scan forward to get the next argument.
-                my $brace_count = 1;
-                while ($brace_count > 0) {
-                  # Forward to next comma or brace
-                  if ($line =~ s/[^{,}]*([,{}])//) {
-                    if ($1 eq ',' and $brace_count == 1) {
-                      last;
-                    } elsif ($1 eq '{') {
-                      $brace_count++;
-                    } elsif ($1 eq '}') {
-                      $brace_count--;
-                    }
-                  } else {
-                    my $new_text;
-                    ($new_text, $source_info) = _next_text($self, $source_info);
-                    if (!$new_text) {
-                      next NEXT_LINE; # error - unbalanced brace
-                    }
-                    $line .= $new_text;
-                  }
-                }
-                if ($brace_count == 0) {
-                  # second arg missing
-                  $line = '}' . $line;
-                }
-                $current->{'remaining_args'}--;
-                $expandp = 1;
-              }
-            } elsif ($current->{'cmdname'} eq 'inlinefmtifelse') {
-              # Second arg of @inlinefmtifelse when condition is true.
-              # Discard second argument.
-              $expandp = 0;
-            }
-            # If this command is not being expanded, add a dummy argument,
-            # and scan forward to the closing brace.
-            if (!$expandp) {
-              push @{$current->{'args'}}, {'type' => 'elided',
-                                           'parent' => $current,
-                                           'contents' => []};
-              my $brace_count = 1;
-              while ($brace_count > 0) {
-                if ($line =~ s/[^{}]*([{}])//) {
-                  if ($1 eq '{') {
-                    $brace_count++;
-                  } else {
-                    $brace_count--;
-                  }
-                } else {
-                  my $new_text;
-                  ($new_text, $source_info) = _next_text($self, $source_info);
-                  if (!$new_text) {
-                    next NEXT_LINE; # error - unbalanced brace
-                  }
-                  $line .= $new_text;
-                }
-              }
-              $current = $current->{'args'}->[-1];
-              $line = '}' . $line;
-              next;
-            }
-          }
-          $current->{'remaining_args'}--;
-          push @{$current->{'args'}},
-               { 'type' => $type, 'parent' => $current, 'contents' => [] };
-          $current = $current->{'args'}->[-1];
-          # empty_spaces_before_argument is a transient internal type,
-          # which should end up in extra spaces_before_argument.
-          push @{$current->{'contents'}},
-                 {'type' => 'empty_spaces_before_argument',
-                  'text' => '',
-                  'parent' => $current,
-                  'extra' => {'spaces_associated_command' => $current}
-                };
-        } elsif ($separator eq ',' and $current->{'type'}
-            and $current->{'type'} eq 'line_arg'
-            and $current->{'parent'}->{'cmdname'}
-            and $current->{'parent'}->{'cmdname'} eq 'node') {
-          $self->_line_warn(__("superfluous arguments for node"), $source_info);
-        # end of menu node (. must be followed by a space to stop the node).
-        } elsif (($separator =~ /[,\t.]/ and $current->{'type'}
-               and $current->{'type'} eq 'menu_entry_node')
-               or ($separator eq ':' and $current->{'type'}
-                 and $current->{'type'} eq 'menu_entry_name')) {
-          $current = $current->{'parent'};
-          push @{$current->{'args'}}, { 'type' => 'menu_entry_separator',
-                                 'text' => $separator,
-                                 'parent' => $current };
-        } elsif ($separator eq "\f" and $current->{'type'}
-                 and $current->{'type'} eq 'paragraph') {
-          # form feed stops and restart a paragraph.
-          $current = $self->_end_paragraph($current);
-          push @{$current->{'contents'}}, {'text' => $separator,
-                                           'type' => 'empty_line',
-                                            'parent' => $current };
-          push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                            'text' => '',
-                                            'parent' => $current };
-        } else {
-          $current = _merge_text($self, $current, $separator);
-        }
-      # Misc text except end of line
-      } elsif (defined $misc_text) {
-        print STDERR "MISC TEXT: $misc_text\n" if ($self->{'DEBUG'});
-        my $new_text = $misc_text;
-        substr ($line, 0, length ($misc_text)) = '';
-        $current = _merge_text($self, $current, $new_text);
-      # end of line
-      } else {
-        print STDERR "END LINE: ". _print_current($current)."\n"
-          if ($self->{'DEBUG'});
-        if ($line =~ s/^(\n)//) {
-          $current = _merge_text($self, $current, $1);
-        } else {
-          if (scalar(@{$self->{'input'}})) {
-            $self->_bug_message("Text remaining without normal text but `$line'",
-                                $source_info, $current);
-            die;
-          }
-        }
-        $current = _end_line($self, $current, $source_info);
-        last;
+      } elsif ($status == $FINISHED_TOTALLY) {
+        goto finished_totally;
       }
     }
   }
+ finished_totally:
   while (@{$self->{'conditionals_stack'}}) {
     my $end_conditional = pop @{$self->{'conditionals_stack'}};
     $self->_line_error(sprintf(__("expected \@end %s"), $end_conditional),

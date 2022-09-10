@@ -1067,7 +1067,10 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 }
 
 /* *LINEP is a pointer into the line being processed.  It is advanced past any
-   bytes processed.  Return 0 when we need to read a new line. */
+   bytes processed.
+   Return STILL_MORE_TO_PROCESS when there is more to process on the line
+          GET_A_NEW_LINE when we need to read a new line
+          FINISHED_TOTALLY when @bye was found */
 int
 process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 {

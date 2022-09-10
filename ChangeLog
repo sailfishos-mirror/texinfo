@@ -1,5 +1,10 @@
 2022-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi, _process_remaining_on_line):
+	add _process_remaining_on_line to match better with the XS parser.
+
+2022-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	Remove last_raw_newline
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
