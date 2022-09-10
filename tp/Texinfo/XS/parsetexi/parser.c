@@ -1154,11 +1154,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           if (strchr (whitespace_chars, *p))
             {
               ELEMENT *e;
-              int n = strspn (line, whitespace_chars);
+              int n = strspn (p, whitespace_chars);
               e = new_element (ET_raw);
-              text_append_n (&e->text, line, n);
+              text_append_n (&e->text, p, n);
               add_to_element_contents (current, e);
-              line += n;
               line_warn ("@end %s should only appear at the "
                          "beginning of a line", command_name(end_cmd));
             }

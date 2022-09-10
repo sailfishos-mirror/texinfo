@@ -411,6 +411,21 @@ in html
 ',
 {'EXPANDED_FORMATS' => ['tex']}
 ],
+['space_before_end',
+'@tex
+in tex
+    @end  tex
+
+@verbatim
+in verbatim
+    @end  verbatim
+
+@html
+in html
+   @end html
+',
+{'EXPANDED_FORMATS' => ['tex']}
+],
 );
 
 my %html_tests = (

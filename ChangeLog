@@ -1,3 +1,9 @@
+2022-09-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	collect spaces at the beginning of the line to put in the last
+	raw element, not at the end of the line.
+
 2022-09-09  Patrice Dumas  <pertusus@free.fr>
 
 	Parse ignored raw format line like other block commands
