@@ -389,15 +389,12 @@ handle_line_command (ELEMENT *current, char **line_inout,
           line_args = new_element (ET_line_arg);
           add_to_element_args (misc, line_args);
           add_extra_misc_args (misc, "misc_args", args);
-
           add_extra_string_dup (misc, "spaces_before_argument", " ");
+
+          add_extra_string_dup (line_args, "spaces_after_argument", "\n");
 
           e = new_element (ET_NONE);
           text_append (&e->text, arg);
-          add_to_element_contents (line_args, e);
-
-          e = new_element (ET_spaces_at_end);
-          text_append_n (&e->text, "\n", 1);
           add_to_element_contents (line_args, e);
 
           add_to_element_contents (current, misc);

@@ -1,5 +1,12 @@
 2022-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	use extra "spaces_after_argument" instead of type spaces_at_end
+	for an equivalent command replacing a @set.
+
+2022-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	Remove empty_spaces_after_command. Remove empty_spaces_before_argument
 	from converters
 

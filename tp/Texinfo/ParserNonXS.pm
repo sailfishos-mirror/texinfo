@@ -4731,17 +4731,16 @@ sub _process_remaining_on_line($$$$)
           $misc = {'cmdname' => $command,
                    'parent' => $current,
                    'source_info' => $source_info,
-                   'extra' => {'misc_args' => [$arg]}};
+                   'extra' => {'misc_args' => [$arg],
+                               'spaces_before_argument' => ' '}};
           my $misc_line_args = {'type' => 'line_arg',
-                 'parent' => $misc};
+                 'parent' => $misc,
+                 'extra' => {'spaces_after_argument' => "\n"}};
           $misc->{'args'} = [$misc_line_args];
-          $misc->{'extra'}->{'spaces_before_argument'} = ' ';
           $misc_line_args->{'contents'} = [
             { 'text' => $arg,
               'parent' => $misc_line_args, },
-            { 'text' => "\n",
-              'parent' => $misc_line_args,
-              'type' => 'spaces_at_end', } ];
+          ];
           push @{$current->{'contents'}}, $misc;
         } else {
           if (!$ignored) {
