@@ -1,5 +1,13 @@
 2022-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	Use array references on pairs [name, value] for attributes
+
+	* tp/Texinfo/Convert/TexinfoXML.pm (_xml_attributes, _convert),
+	tp/Texinfo/Convert/TexinfoSXML.pm (sxml_attributes):
+	use array references on pairs [name, value] for attributes.
+
+2022-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoXML.pm (_trailing_spaces_arg)
 	(_leading_spaces_arg): simplify _trailing_spaces_arg,
 	remove _collect_leading_trailing_spaces_arg.  Rename

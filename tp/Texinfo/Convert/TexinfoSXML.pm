@@ -73,8 +73,13 @@ sub sxml_attributes($$)
     cluck "attributes not an array($attributes).";
   }
   my $result = '(@';
-  for (my $i = 0; $i < scalar(@$attributes); $i += 2) {
-    $result .= " ($attributes->[$i] \"".$self->protect_text($attributes->[$i+1])."\")";
+  foreach my $attribute_spec (@$attributes) {
+    if (ref($attribute_spec) ne 'ARRAY') {
+      cluck "attribute_spec not an array($attribute_spec).";
+    }
+
+    $result .= " ($attribute_spec->[0] \"".
+          $self->protect_text($attribute_spec->[1])."\")";
   }
   return $result . ')';
 }
