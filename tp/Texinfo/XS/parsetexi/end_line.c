@@ -1076,18 +1076,6 @@ end_line_starting_block (ELEMENT *current)
   if (counter_value (&count_remaining_args, current) != -1)
     counter_pop (&count_remaining_args);
 
-  /* Don't consider empty argument of block @-command as argument,
-     reparent them as contents. */
-  /* FIXME probably cannot happen anymore */
-  if (current->args.list[0]->contents.number > 0
-      && current->args.list[0]->contents.list[0]->type
-         == ET_empty_line_after_command)
-    {
-      ELEMENT *e = remove_from_contents (current->args.list[0], 0);
-      insert_into_contents (current, e, 0);
-      destroy_element (pop_element_from_args (current));
-    }
-
   if (current->cmd == CM_float)
     {
       char *type = "";

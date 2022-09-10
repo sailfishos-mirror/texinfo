@@ -3083,19 +3083,7 @@ sub _end_line($$$)
     _isolate_last_space($self, $current);
     $current = $current->{'parent'};
     delete $current->{'remaining_args'};
-    # don't consider empty argument of block @-commands as argument,
-    # reparent them as contents
-    # TODO does not happen, likely because all the block commands empty_line_after_command
-    # are directly put in extra space_*_command.
-    if ($current->{'args'}->[0]->{'contents'}->[0]
-         and $current->{'args'}->[0]->{'contents'}->[0]->{'type'}
-         and $current->{'args'}->[0]->{'contents'}->[0]->{'type'} eq 'empty_line_after_command')
-    {
-      my $empty_text = $current->{'args'}->[0]->{'contents'}->[0];
-      $empty_text->{'parent'} = $current;
-      unshift @{$current->{'contents'}}, $empty_text;
-      delete $current->{'args'};
-    }
+
     # this is in particular to have the same output as the XS parser
     if (scalar(@{$current->{'contents'}}) == 0) {
       delete $current->{'contents'};
