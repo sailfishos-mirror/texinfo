@@ -185,7 +185,12 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                     'spaces_before_argument' => ' ',
                                     'text_arg' => 'verbatim'
                                   },
-                                  'parent' => {}
+                                  'parent' => {},
+                                  'source_info' => {
+                                    'file_name' => '',
+                                    'line_nr' => 8,
+                                    'macro' => ''
+                                  }
                                 }
                               ],
                               'parent' => {},

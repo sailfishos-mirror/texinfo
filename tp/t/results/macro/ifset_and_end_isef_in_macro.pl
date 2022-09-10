@@ -52,7 +52,12 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -115,7 +120,12 @@ $result_trees{'ifset_and_end_isef_in_macro'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

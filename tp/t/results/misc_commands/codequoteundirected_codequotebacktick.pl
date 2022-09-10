@@ -84,7 +84,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 8,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -243,7 +248,12 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 28,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {

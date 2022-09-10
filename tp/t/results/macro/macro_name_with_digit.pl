@@ -52,7 +52,12 @@ $result_trees{'macro_name_with_digit'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -120,7 +125,12 @@ $result_trees{'macro_name_with_digit'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

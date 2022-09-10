@@ -87,7 +87,12 @@ $result_trees{'value_in_macro_body'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 5,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

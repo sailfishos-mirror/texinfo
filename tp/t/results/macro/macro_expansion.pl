@@ -86,7 +86,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -159,7 +164,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 9,
+                'macro' => 'macroone'
+              }
             }
           ],
           'parent' => {},
@@ -254,7 +264,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 11,
+                'macro' => 'macroone'
+              }
             }
           ],
           'parent' => {},
@@ -323,7 +338,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim my arg.'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 13,
+                'macro' => 'macroone'
+              }
             }
           ],
           'parent' => {},
@@ -392,7 +412,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 15,
+                'macro' => 'macroone'
+              }
             }
           ],
           'parent' => {},
@@ -461,7 +486,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 17,
+                'macro' => 'macroone'
+              }
             }
           ],
           'parent' => {},
@@ -555,7 +585,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 23,
+                'macro' => 'macroone'
+              }
             }
           ],
           'parent' => {},
@@ -720,20 +755,20 @@ arg3
 
 $result_errors{'macro_expansion'} = [
   {
-    'error_line' => 'superfluous argument to @end verbatim: .
+    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 9,
-    'macro' => '',
+    'macro' => 'macroone',
     'text' => 'superfluous argument to @end verbatim: .',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: .
+    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 11,
-    'macro' => '',
+    'macro' => 'macroone',
     'text' => 'superfluous argument to @end verbatim: .',
     'type' => 'error'
   },
@@ -747,38 +782,38 @@ $result_errors{'macro_expansion'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim:  my arg.
+    'error_line' => 'superfluous argument to @end verbatim:  my arg. (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 13,
-    'macro' => '',
+    'macro' => 'macroone',
     'text' => 'superfluous argument to @end verbatim:  my arg.',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: .
+    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 15,
-    'macro' => '',
+    'macro' => 'macroone',
     'text' => 'superfluous argument to @end verbatim: .',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: .
+    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 17,
-    'macro' => '',
+    'macro' => 'macroone',
     'text' => 'superfluous argument to @end verbatim: .',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: .
+    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 23,
-    'macro' => '',
+    'macro' => 'macroone',
     'text' => 'superfluous argument to @end verbatim: .',
     'type' => 'error'
   }

@@ -247,7 +247,12 @@ $result_trees{'misc_raw_comments'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 11,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},

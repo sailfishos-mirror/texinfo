@@ -1,5 +1,15 @@
 2022-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	Handle @end macro, verbatim and ignore line like other block commands
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
+	do not add explicitely an end command after a macro, verbatim or
+	ignore @end, but let it be done by the code handling all the @end
+	commands.
+
+2022-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
 	collect spaces at the beginning of the line to put in the last
 	raw element, not at the end of the line.

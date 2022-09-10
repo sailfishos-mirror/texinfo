@@ -212,7 +212,12 @@ $result_trees{'cpp_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'g_f',
+                'line_nr' => 51,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -271,7 +276,12 @@ $result_trees{'cpp_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'g_f',
+                'line_nr' => 55,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -435,7 +445,12 @@ $result_trees{'cpp_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'g_f',
+                'line_nr' => 66,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

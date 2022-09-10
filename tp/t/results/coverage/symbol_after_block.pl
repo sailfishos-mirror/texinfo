@@ -212,7 +212,12 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim;'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 13,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -274,7 +279,12 @@ $result_trees{'symbol_after_block'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim@'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 17,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},

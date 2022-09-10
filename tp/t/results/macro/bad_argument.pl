@@ -45,7 +45,12 @@ $result_trees{'bad_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -109,7 +114,12 @@ $result_trees{'bad_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'rmacro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -178,7 +188,12 @@ $result_trees{'bad_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 11,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -235,7 +250,12 @@ $result_trees{'bad_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 15,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

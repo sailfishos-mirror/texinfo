@@ -113,7 +113,12 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'glossary.texi',
+                    'line_nr' => 7,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -188,7 +193,12 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'glossary.texi',
+                    'line_nr' => 13,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -332,7 +342,12 @@ $result_trees{'texi_glossary'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'macro'
                           },
-                          'parent' => {}
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => 'glossary.texi',
+                            'line_nr' => 29,
+                            'macro' => ''
+                          }
                         }
                       ],
                       'extra' => {
@@ -363,7 +378,12 @@ $result_trees{'texi_glossary'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
                       },
-                      'parent' => {}
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => 'glossary.texi',
+                        'line_nr' => 30,
+                        'macro' => ''
+                      }
                     }
                   ],
                   'extra' => {
@@ -411,7 +431,12 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'glossary.texi',
+                    'line_nr' => 33,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -757,7 +782,12 @@ $result_trees{'texi_glossary'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
                       },
-                      'parent' => {}
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => 'glossary.texi',
+                        'line_nr' => 42,
+                        'macro' => 'gentry'
+                      }
                     }
                   ],
                   'extra' => {
@@ -788,7 +818,12 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'glossary.texi',
+                    'line_nr' => 42,
+                    'macro' => 'gentry'
+                  }
                 }
               ],
               'extra' => {
@@ -875,7 +910,12 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'glossary.texi',
+                    'line_nr' => 42,
+                    'macro' => 'expandglossary'
+                  }
                 }
               ],
               'extra' => {
@@ -1131,7 +1171,12 @@ $result_trees{'texi_glossary'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
                       },
-                      'parent' => {}
+                      'parent' => {},
+                      'source_info' => {
+                        'file_name' => 'glossary.texi',
+                        'line_nr' => 43,
+                        'macro' => 'gentry'
+                      }
                     }
                   ],
                   'extra' => {
@@ -1162,7 +1207,12 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'glossary.texi',
+                    'line_nr' => 43,
+                    'macro' => 'gentry'
+                  }
                 }
               ],
               'extra' => {
@@ -1249,7 +1299,12 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'glossary.texi',
+                    'line_nr' => 43,
+                    'macro' => 'expandglossary'
+                  }
                 }
               ],
               'extra' => {

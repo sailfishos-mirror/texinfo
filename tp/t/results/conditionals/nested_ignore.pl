@@ -62,7 +62,12 @@ $result_trees{'nested_ignore'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ignore'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -131,7 +136,12 @@ $result_trees{'nested_ignore'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ignore'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 9,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -200,7 +210,12 @@ $result_trees{'nested_ignore'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ignore'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 14,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},

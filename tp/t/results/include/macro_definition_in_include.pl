@@ -52,7 +52,12 @@ $result_trees{'macro_definition_in_include'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'macro_included.texi',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

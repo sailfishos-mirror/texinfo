@@ -1115,7 +1115,12 @@ $result_trees{'commands_and_spaces'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 44,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},

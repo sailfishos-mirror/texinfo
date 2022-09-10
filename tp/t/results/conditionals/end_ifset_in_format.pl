@@ -92,7 +92,12 @@ $result_trees{'end_ifset_in_format'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ignore'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -161,7 +166,12 @@ $result_trees{'end_ifset_in_format'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 14,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},

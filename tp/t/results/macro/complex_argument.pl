@@ -57,7 +57,12 @@ $result_trees{'complex_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -138,7 +143,12 @@ $result_trees{'complex_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -217,7 +227,12 @@ $result_trees{'complex_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 15,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -420,7 +435,12 @@ $result_trees{'complex_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 38,
+                'macro' => 'macrothree'
+              }
             }
           ],
           'parent' => {},
@@ -477,7 +497,12 @@ $result_trees{'complex_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ignore'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 38,
+                'macro' => 'macrothree'
+              }
             }
           ],
           'parent' => {},
@@ -535,7 +560,12 @@ $result_trees{'complex_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 38,
+                'macro' => 'macrothree'
+              }
             }
           ],
           'extra' => {

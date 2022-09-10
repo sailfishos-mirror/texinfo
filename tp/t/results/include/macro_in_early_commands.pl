@@ -52,7 +52,12 @@ $result_trees{'macro_in_early_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -114,7 +119,12 @@ $result_trees{'macro_in_early_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -212,7 +222,12 @@ $result_trees{'macro_in_early_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 12,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -275,7 +290,12 @@ $result_trees{'macro_in_early_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 16,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -381,7 +401,12 @@ $result_trees{'macro_in_early_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 23,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -514,7 +539,12 @@ $result_trees{'macro_in_early_commands'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => 'macro_included.texi',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

@@ -1010,7 +1010,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 61,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -1079,7 +1084,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 66,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -1158,7 +1168,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 71,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -1237,7 +1252,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim after the closing command.'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 76,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -1305,7 +1325,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 80,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -1384,7 +1409,12 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim. A symbol after the closing command.'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 85,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},

@@ -3995,9 +3995,8 @@ sub _parse_texi($$$)
         } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
                  and ($2 eq $current->{'cmdname'})) {
           my $end_command = $2;
-          $line =~ s/^(\s*?)(\@end(\s+)$current->{'cmdname'})//;
           my $spaces_before_end = $1;
-          my $space_after_end = $3;
+          $line =~ s/^\s*//;
           if ($spaces_before_end eq '') {
             # FIXME exclude other formats, like @macro, @ifset, @ignore?
             if ($current->{'cmdname'} ne 'verbatim'
@@ -4050,8 +4049,8 @@ sub _parse_texi($$$)
               }
             }
           }
-          $current = $current->{'parent'};
           if ($block_commands{$end_command} eq 'conditional') {
+            $current = $current->{'parent'};
             # don't store ignored @if*
             my $conditional = pop @{$current->{'contents'}};
             if (!defined($conditional->{'cmdname'}
@@ -4061,6 +4060,7 @@ sub _parse_texi($$$)
                                    $source_info, $conditional);
               die;
             }
+            $line =~ s/^(\@end(\s+)$end_command)//;
             $self->_line_warn(sprintf(
                  __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
                                     $line), $source_info)
@@ -4074,19 +4074,16 @@ sub _parse_texi($$$)
             last;
           } else {
             print STDERR "CLOSED raw $end_command\n" if ($self->{'DEBUG'});
-            # code similar to code in Texinfo::Structuring::new_block_command
-            my $end = {'cmdname' => 'end', 'parent' => $current->{'contents'}->[-1],
-                       'extra' => {'spaces_before_argument' => $space_after_end,
-                                   'text_arg' => $end_command}};
-            $end->{'args'} = [{'type' => 'line_arg', 'parent' => $end}];
-
-            $self->_push_context('ct_line', 'end');
-
-            push @{$end->{'args'}->[0]->{'contents'}},
-                    {'text' => $end_command, 'parent' => $end->{'args'}->[0]};
-            push @{$current->{'contents'}->[-1]->{'contents'}}, $end;
-
-            $current = $end->{'args'}->[0];
+            # start a new line for the @end line (without the first spaces on
+            # the line that have already been put in a raw container).
+            # This is normally done at the beginning of a line, but not here,
+            # as we directly got the line.  As the @end is processed just below,
+            # an empty line will not appear in the output, but it is needed to
+            # avoid a duplicate warning on @end not appearing at the beginning
+            # of the line
+            push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                              'text' => '',
+                                              'parent' => $current };
           }
         } else {
           push @{$current->{'contents'}},

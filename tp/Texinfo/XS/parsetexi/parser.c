@@ -1150,7 +1150,8 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
           char *tmp = 0;
 
           last_child = last_contents_child (current);
-           
+
+          /* collect whitespaces at the beginning of the line and advance p */
           if (strchr (whitespace_chars, *p))
             {
               ELEMENT *e;
@@ -1158,6 +1159,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               e = new_element (ET_raw);
               text_append_n (&e->text, p, n);
               add_to_element_contents (current, e);
+              p += n;
               line_warn ("@end %s should only appear at the "
                          "beginning of a line", command_name(end_cmd));
             }
@@ -1215,12 +1217,12 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
                 }
             }
 
-          current = current->parent;
 
           /* Check for conditionals. */
           if (command_data(end_cmd).flags & CF_block
               && command_data(end_cmd).data == BLOCK_conditional)
             {
+              current = current->parent;
               /* Remove an ignored block. */
               ELEMENT *popped;
               popped = pop_element_from_contents (current);
@@ -1262,32 +1264,20 @@ superfluous_arg:
             }
           else
             {
-              ELEMENT *e_cmd;
-              ELEMENT *e_cmd_text;
               ELEMENT *e;
-              ELEMENT *last = last_contents_child (current);
-              ELEMENT *line_arg;
-              char *end_command_name = command_name(end_cmd);
-              int n;
 
-              debug ("CLOSED raw %s", end_command_name);
-              e_cmd = new_element (ET_NONE);
-              e_cmd->cmd = CM_end;
-              add_extra_string_dup (e_cmd, "spaces_before_argument",
-                                    spaces_after_end);
-              add_extra_string_dup (e_cmd, "text_arg",
-                                    end_command_name);
-              line_arg = new_element (ET_line_arg);
-              add_to_element_args (e_cmd, line_arg);
-
-              push_context (ct_line, CM_end);
-
-              e_cmd_text = new_element (ET_NONE);
-              text_append (&e_cmd_text->text, end_command_name);
-              add_to_element_contents (line_arg, e_cmd_text);
-              add_to_element_contents (last, e_cmd);
-
-              current = line_arg;
+              /* go back to the position of the @end */
+              line = p;
+              debug ("CLOSED raw %s", command_name(end_cmd));
+         /* start a new line for the @end line (without the first spaces on
+            the line that have already been put in a raw container).
+            This is normally done at the beginning of a line, but not here,
+            as we directly got the line.  As the @end is processed just below,
+            an empty line will not appear in the output, but it is needed to
+            avoid a duplicate warning on @end not appearing at the beginning
+            of the line */
+              e = new_element (ET_empty_line);
+              add_to_element_contents (current, e);
             }
           free (spaces_after_end);
         }

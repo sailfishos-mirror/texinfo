@@ -2996,7 +2996,12 @@ $result_trees{'texi_bib_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'my-bib-macros.texi',
+                    'line_nr' => 164,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -3101,7 +3106,12 @@ $result_trees{'texi_bib_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'my-bib-macros.texi',
+                    'line_nr' => 171,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -3235,7 +3245,12 @@ $result_trees{'texi_bib_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'my-bib-macros.texi',
+                    'line_nr' => 182,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -3369,7 +3384,12 @@ $result_trees{'texi_bib_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'my-bib-macros.texi',
+                    'line_nr' => 193,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -3509,7 +3529,12 @@ $result_trees{'texi_bib_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'my-bib-macros.texi',
+                    'line_nr' => 207,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -3582,7 +3607,12 @@ $result_trees{'texi_bib_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'my-bib-macros.texi',
+                    'line_nr' => 211,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -3752,7 +3782,12 @@ $result_trees{'texi_bib_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => 'my-bib-macros.texi',
+                    'line_nr' => 230,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {

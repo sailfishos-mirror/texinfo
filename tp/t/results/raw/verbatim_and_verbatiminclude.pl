@@ -51,7 +51,12 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -120,7 +125,12 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 8,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -220,7 +230,12 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'verbatim'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 16,
+                    'macro' => ''
+                  }
                 }
               ],
               'parent' => {},
@@ -326,7 +341,12 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 22,
+                'macro' => ''
+              }
             }
           ],
           'parent' => {},
@@ -624,7 +644,12 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'verbatim'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 42,
+                    'macro' => ''
+                  }
                 }
               ],
               'parent' => {},
@@ -768,7 +793,12 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'verbatim'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 52,
+                    'macro' => ''
+                  }
                 }
               ],
               'parent' => {},
@@ -900,7 +930,12 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'verbatim'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 61,
+                    'macro' => ''
+                  }
                 }
               ],
               'parent' => {},

@@ -58,7 +58,12 @@ $result_trees{'text_before_after'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro after'
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 3,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {

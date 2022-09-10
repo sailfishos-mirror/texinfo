@@ -62,7 +62,12 @@ $result_trees{'implicit_quoting_recursion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'rmacro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

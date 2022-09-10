@@ -121,7 +121,12 @@ $result_trees{'test_allowcodebreaks'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {
@@ -202,7 +207,12 @@ $result_trees{'test_allowcodebreaks'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {}
+              'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 17,
+                'macro' => ''
+              }
             }
           ],
           'extra' => {

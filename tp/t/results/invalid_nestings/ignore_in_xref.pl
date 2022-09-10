@@ -100,7 +100,12 @@ $result_trees{'ignore_in_xref'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'ignore'
                           },
-                          'parent' => {}
+                          'parent' => {},
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 6,
+                            'macro' => ''
+                          }
                         }
                       ],
                       'parent' => {},
