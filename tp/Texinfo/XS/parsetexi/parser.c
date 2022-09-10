@@ -850,6 +850,7 @@ command_with_command_as_argument (ELEMENT *current)
 
 /* Check if line is "@end ..." for current command.  If so, advance LINE. */
 /* the caller should free *spaces if the function returns 1 */
+/* FIXME **spaces is not used anywhere anymore, could be removed */
 int
 is_end_current_command (ELEMENT *current, char **line, char **spaces,
                         enum command_id *end_cmd)
@@ -1081,18 +1082,16 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   /* remains set only if command is unknown, otherwise cmd is used */
   char *command;
 
-  /********* BLOCK_raw or (ignored) BLOCK_conditional ******************/
-  /* If in raw block, or ignored conditional block. */
+  /********* BLOCK_raw ******************/
   if (command_flags(current) & CF_block
-      && (command_data(current->cmd).data == BLOCK_raw
-          || command_data(current->cmd).data == BLOCK_conditional))
+      && (command_data(current->cmd).data == BLOCK_raw))
     {
       char *spaces_after_end;
+      char *p = line;
       /* Check if we are using a macro within a macro. */
       if (current->cmd == CM_macro || current->cmd == CM_rmacro)
         {
           enum command_id cmd = 0;
-          char *p = line;
           p += strspn (p, whitespace_chars);
           if (!strncmp (p, "@macro", strlen ("@macro")))
             {
@@ -1116,65 +1115,39 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               goto funexit;
             }
         }
-
-      /* Else check for nested @ifset (so that @end ifset doesn't
-         end the outermost @ifset). */
-      if (current->cmd == CM_ifclear || current->cmd == CM_ifset
-          || current->cmd == CM_ifcommanddefined
-          || current->cmd == CM_ifcommandnotdefined)
+      /* Else check if line is "@end ..." for current command. */
+      if (is_end_current_command (current, &p, &spaces_after_end, &end_cmd))
         {
           ELEMENT *e;
-          char *p = line;
-          p += strspn (p, whitespace_chars);
-          if (*p == '@'
-              && !strncmp (p + 1, command_name(current->cmd),
-                           strlen (command_name(current->cmd))))
-            {
-              line = p + 1;
-              p += strlen (command_name(current->cmd));
-              e = new_element (ET_NONE);
-              e->cmd = current->cmd;
-              add_extra_string (e, "line", strdup (line));
-              add_to_element_contents (current, e);
-              current = e;
-              retval = GET_A_NEW_LINE;
-              goto funexit;
-            }
-        }
 
-      /* Else check if line is "@end ..." for current command. */
-      p = line;
-      if (is_end_current_command (current, &line, &spaces_after_end, &end_cmd))
-        {
-          ELEMENT *last_child;
-          char *tmp = 0;
-
-          last_child = last_contents_child (current);
-
-          /* collect whitespaces at the beginning of the line and advance p */
-          if (strchr (whitespace_chars, *p))
+          free (spaces_after_end);
+          if (strchr (whitespace_chars, *line))
             {
               ELEMENT *e;
-              int n = strspn (p, whitespace_chars);
+              int n = strspn (line, whitespace_chars);
               e = new_element (ET_raw);
-              text_append_n (&e->text, p, n);
+              text_append_n (&e->text, line, n);
               add_to_element_contents (current, e);
-              p += n;
+              line += n;
               line_warn ("@end %s should only appear at the "
                          "beginning of a line", command_name(end_cmd));
             }
-          else if (last_child
+          else
+            {
+              ELEMENT *last_child = last_contents_child (current);
+              if (last_child
                    && last_child->type == ET_raw
                    && current->cmd != CM_verbatim)
-            {
-              if (last_child->text.end > 0
-                  && last_child->text.text[last_child->text.end - 1] == '\n')
                 {
-                  ELEMENT *lrn;
-                  last_child->text.text[--last_child->text.end] = '\0';
-                  lrn = new_element (ET_last_raw_newline);
-                  text_append (&lrn->text, "\n");
-                  add_to_element_contents (current, lrn);
+                  if (last_child->text.end > 0
+                      && last_child->text.text[last_child->text.end - 1] == '\n')
+                    {
+                      ELEMENT *lrn;
+                      last_child->text.text[--last_child->text.end] = '\0';
+                      lrn = new_element (ET_last_raw_newline);
+                      text_append (&lrn->text, "\n");
+                      add_to_element_contents (current, lrn);
+                    }
                 }
             }
 
@@ -1218,57 +1191,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             }
 
 
-          /* Check for conditionals. */
-          if (command_data(end_cmd).flags & CF_block
-              && command_data(end_cmd).data == BLOCK_conditional)
-            {
-              current = current->parent;
-              /* Remove an ignored block. */
-              ELEMENT *popped;
-              popped = pop_element_from_contents (current);
-              if (popped->cmd != end_cmd)
-                fatal ("command mismatch for ignored block");
-
-              /* 'line' is now advanced past the "@end ...".  Check if
-                 there's anything after it. */
-              p = line + strspn (line, whitespace_chars);
-              if (*p && *p != '@')
-                goto superfluous_arg;
-              if (*p)
-                {
-                  p++;
-                  tmp = read_command_name (&p);
-                  if (tmp && (!strcmp (tmp, "c") || !strcmp (tmp, "comment")))
-                    {
-                   }
-                  else if (*p && p[strspn (p, whitespace_chars)])
-                    {
-superfluous_arg:
-                      line_warn ("superfluous argument to @end %s: %s",
-                                 command_name(end_cmd), line);
-                    }
-                  free (tmp);
-                }
-
-              /* Ignore until end of line */
-              if (!strchr (line, '\n'))
-                {
-                  line = new_line ();
-                  debug ("IGNORE CLOSE LINE");
-                }
-              destroy_element_and_children (popped);
-
-              debug ("CLOSED conditional %s", command_name(end_cmd));
-              retval = GET_A_NEW_LINE;
-              goto funexit;
-            }
-          else
-            {
-              ELEMENT *e;
-
-              /* go back to the position of the @end */
-              line = p;
-              debug ("CLOSED raw %s", command_name(end_cmd));
+          debug ("CLOSED raw %s", command_name(end_cmd));
          /* start a new line for the @end line (without the first spaces on
             the line that have already been put in a raw container).
             This is normally done at the beginning of a line, but not here,
@@ -1276,10 +1199,8 @@ superfluous_arg:
             an empty line will not appear in the output, but it is needed to
             avoid a duplicate warning on @end not appearing at the beginning
             of the line */
-              e = new_element (ET_empty_line);
-              add_to_element_contents (current, e);
-            }
-          free (spaces_after_end);
+          e = new_element (ET_empty_line);
+          add_to_element_contents (current, e);
         }
       else /* save the line verbatim */
         {
@@ -1291,7 +1212,91 @@ superfluous_arg:
           retval = GET_A_NEW_LINE;
           goto funexit;
         }
-    } /********* BLOCK_raw or (ignored) BLOCK_conditional *************/
+    } /********* BLOCK_raw *************/
+  /********* (ignored) BLOCK_conditional ******************/
+  else if (command_flags(current) & CF_block
+      && (command_data(current->cmd).data == BLOCK_conditional))
+    {
+      char *spaces_after_end;
+      char *p = line;
+
+      /* check for nested @ifset (so that @end ifset doesn't end the
+         the outermost @ifset).  It is discarded when the outermost is.*/
+      if (current->cmd == CM_ifclear || current->cmd == CM_ifset
+          || current->cmd == CM_ifcommanddefined
+          || current->cmd == CM_ifcommandnotdefined)
+        {
+          ELEMENT *e;
+          p += strspn (p, whitespace_chars);
+          if (*p == '@'
+              && !strncmp (p + 1, command_name(current->cmd),
+                           strlen (command_name(current->cmd))))
+            {
+              e = new_element (ET_NONE);
+              e->cmd = current->cmd;
+              add_to_element_contents (current, e);
+              current = e;
+              retval = GET_A_NEW_LINE;
+              goto funexit;
+            }
+        }
+
+      /* Else check if line is "@end ..." for current command. */
+      if (is_end_current_command (current, &line, &spaces_after_end, &end_cmd))
+        {
+          char *tmp = 0;
+
+          free (spaces_after_end);
+          /* check whitespaces at the beginning of the line */
+          if (strchr (whitespace_chars, *p))
+            {
+              ELEMENT *e;
+              line_warn ("@end %s should only appear at the "
+                         "beginning of a line", command_name(end_cmd));
+            }
+
+          current = current->parent;
+          /* Remove an ignored block. */
+          ELEMENT *popped;
+          popped = pop_element_from_contents (current);
+          if (popped->cmd != end_cmd)
+            fatal ("command mismatch for ignored block");
+
+          /* 'line' is now advanced past the "@end ...".  Check if
+             there's anything after it. */
+          p = line + strspn (line, whitespace_chars);
+          if (*p && *p != '@')
+            goto superfluous_arg;
+          if (*p)
+            {
+              p++;
+              tmp = read_command_name (&p);
+              if (tmp && (!strcmp (tmp, "c") || !strcmp (tmp, "comment")))
+                {
+                }
+              else if (*p && p[strspn (p, whitespace_chars)])
+                {
+superfluous_arg:
+                  line_warn ("superfluous argument to @end %s: %s",
+                             command_name(end_cmd), line);
+                }
+              free (tmp);
+            }
+
+          /* Ignore until end of line */
+          if (!strchr (line, '\n'))
+            {
+              line = new_line ();
+              debug ("IGNORE CLOSE LINE");
+            }
+          destroy_element_and_children (popped);
+
+          debug ("CLOSED conditional %s", command_name(end_cmd));
+        }
+      /* anything remaining on the line and any other line is ignored here */
+      retval = GET_A_NEW_LINE;
+      goto funexit;
+    } /********* (ignored) BLOCK_conditional *************/
 
   /* Check if parent element is 'verb' */
   else if (current->parent && current->parent->cmd == CM_verb)

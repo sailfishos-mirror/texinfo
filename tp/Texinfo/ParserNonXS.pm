@@ -3929,7 +3929,7 @@ sub _parse_texi($$$)
 
     if (not
         # all the format handled early that have specific containers
-        # 'raw' format or verb or ignored raw format
+        # 'raw' command or ignored conditional or verb or ignored raw format
           (($current->{'cmdname'}
            and $block_commands{$current->{'cmdname'}}
             and ($block_commands{$current->{'cmdname'}} eq 'raw'
@@ -3963,11 +3963,10 @@ sub _parse_texi($$$)
     }
 
     while (1) {
-      # in a 'raw' (verbatim, ignore, (r)macro) or ignored conditional block command
+      # in a 'raw' (verbatim, ignore, (r)macro)
       if ($current->{'cmdname'}
           and $block_commands{$current->{'cmdname'}}
-          and ($block_commands{$current->{'cmdname'}} eq 'raw'
-               or $block_commands{$current->{'cmdname'}} eq 'conditional')) {
+          and ($block_commands{$current->{'cmdname'}} eq 'raw')) {
         # r?macro may be nested
         if (($current->{'cmdname'} eq 'macro'
              or $current->{'cmdname'} eq 'rmacro')
@@ -3979,25 +3978,16 @@ sub _parse_texi($$$)
                                             'extra' => {'arg_line' => $line }};
           $current = $current->{'contents'}->[-1];
           last;
-        # ifclear/ifset may be nested
-        } elsif (($current->{'cmdname'} eq 'ifclear'
-                  or $current->{'cmdname'} eq 'ifset'
-                  or $current->{'cmdname'} eq 'ifcommanddefined'
-                  or $current->{'cmdname'} eq 'ifcommandnotdefined')
-                and $line =~ /^\s*\@$current->{'cmdname'}/) {
-          $line =~ s/\s*\@($current->{'cmdname'})//;
-          push @{$current->{'contents'}}, { 'cmdname' => $1,
-                                            'parent' => $current,
-                                            'contents' => [],
-                                            'extra' => {'line' => $line }};
-          $current = $current->{'contents'}->[-1];
-          last;
         } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
                  and ($2 eq $current->{'cmdname'})) {
-          my $end_command = $2;
-          my $spaces_before_end = $1;
-          $line =~ s/^\s*//;
-          if ($spaces_before_end eq '') {
+          if ($line =~ s/^(\s+)//) {
+            push @{$current->{'contents'}},
+              { 'text' => $1,
+                'type' => 'raw', 'parent' => $current };
+            $self->_line_warn(sprintf(
+                  __("\@end %s should only appear at the beginning of a line"),
+                                     $current->{'cmdname'}), $source_info);
+          } else {
             # FIXME exclude other formats, like @macro, @ifset, @ignore?
             if ($current->{'cmdname'} ne 'verbatim'
                 and @{$current->{'contents'}}
@@ -4008,16 +3998,9 @@ sub _parse_texi($$$)
                              'text' => $1, 'parent' => $current};
               }
             }
-          } else {
-            push @{$current->{'contents'}},
-              { 'text' => $spaces_before_end,
-                'type' => 'raw', 'parent' => $current };
-            $self->_line_warn(sprintf(
-                  __("\@end %s should only appear at the beginning of a line"),
-                                     $end_command), $source_info);
           }
           # store toplevel macro specification
-          if (($end_command eq 'macro' or $end_command eq 'rmacro')
+          if (($current->{'cmdname'} eq 'macro' or $current->{'cmdname'} eq 'rmacro')
                and (! $current->{'parent'}
                     or !$current->{'parent'}->{'cmdname'}
                     or ($current->{'parent'}->{'cmdname'} ne 'macro'
@@ -4049,47 +4032,71 @@ sub _parse_texi($$$)
               }
             }
           }
-          if ($block_commands{$end_command} eq 'conditional') {
-            $current = $current->{'parent'};
-            # don't store ignored @if*
-            my $conditional = pop @{$current->{'contents'}};
-            if (!defined($conditional->{'cmdname'}
-                or $conditional->{'cmdname'} ne $end_command)) {
-              $self->_bug_message(
-                      "Ignored command is not the conditional $end_command",
-                                   $source_info, $conditional);
-              die;
-            }
-            $line =~ s/^(\@end(\s+)$end_command)//;
-            $self->_line_warn(sprintf(
-                 __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
-                                    $line), $source_info)
-              if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
-            # Ignore until end of line
-            if ($line !~ /\n/) {
-              ($line, $source_info) = _new_line($self, $source_info);
-              print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
-            }
-            print STDERR "CLOSED conditional $end_command\n" if ($self->{'DEBUG'});
-            last;
-          } else {
-            print STDERR "CLOSED raw $end_command\n" if ($self->{'DEBUG'});
-            # start a new line for the @end line (without the first spaces on
-            # the line that have already been put in a raw container).
-            # This is normally done at the beginning of a line, but not here,
-            # as we directly got the line.  As the @end is processed just below,
-            # an empty line will not appear in the output, but it is needed to
-            # avoid a duplicate warning on @end not appearing at the beginning
-            # of the line
-            push @{$current->{'contents'}}, { 'type' => 'empty_line',
-                                              'text' => '',
-                                              'parent' => $current };
-          }
+          print STDERR "CLOSED raw $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+          # start a new line for the @end line (without the first spaces on
+          # the line that have already been put in a raw container).
+          # This is normally done at the beginning of a line, but not here,
+          # as we directly got the line.  As the @end is processed just below,
+          # an empty line will not appear in the output, but it is needed to
+          # avoid a duplicate warning on @end not appearing at the beginning
+          # of the line
+          push @{$current->{'contents'}}, { 'type' => 'empty_line',
+                                            'text' => '',
+                                            'parent' => $current };
         } else {
           push @{$current->{'contents'}},
             { 'text' => $line, 'type' => 'raw', 'parent' => $current };
           last;
         }
+      # in ignored conditional block command
+      } elsif ($current->{'cmdname'}
+          and $block_commands{$current->{'cmdname'}}
+          and ($block_commands{$current->{'cmdname'}} eq 'conditional')) {
+        # check for nested @ifset (so that @end ifset doesn't end the
+        # outermost @ifset).  It is discarded when the outermost is.
+        if (($current->{'cmdname'} eq 'ifclear'
+                  or $current->{'cmdname'} eq 'ifset'
+                  or $current->{'cmdname'} eq 'ifcommanddefined'
+                  or $current->{'cmdname'} eq 'ifcommandnotdefined')
+                and $line =~ /^\s*\@$current->{'cmdname'}/) {
+          push @{$current->{'contents'}}, { 'cmdname' => $current->{'cmdname'},
+                                            'parent' => $current,
+                                            'contents' => [],
+                                          };
+          $current = $current->{'contents'}->[-1];
+        } elsif ($line =~ /^(\s*?)\@end\s+([a-zA-Z][\w-]*)/
+                 and ($2 eq $current->{'cmdname'})) {
+          my $end_command = $current->{'cmdname'};
+          $line =~ s/^(\s*?)\@end\s+$end_command//;
+          if ($1 ne '') {
+            $self->_line_warn(sprintf(
+                  __("\@end %s should only appear at the beginning of a line"),
+                                     $end_command), $source_info);
+          }
+          $self->_line_warn(sprintf(
+               __("superfluous argument to \@%s %s: %s"), 'end', $end_command,
+                                  $line), $source_info)
+            if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
+          $current = $current->{'parent'};
+          # don't store ignored @if*
+          my $conditional = pop @{$current->{'contents'}};
+          if (!defined($conditional->{'cmdname'}
+              or $conditional->{'cmdname'} ne $end_command)) {
+            $self->_bug_message(
+                    "Ignored command is not the conditional $end_command",
+                                 $source_info, $conditional);
+            die;
+          }
+          print STDERR "CLOSED conditional $end_command\n" if ($self->{'DEBUG'});
+          # Ignore until end of line
+          # FIXME this is not the same as for other commands.  Change?
+          if ($line !~ /\n/) {
+            ($line, $source_info) = _new_line($self, $source_info);
+            print STDERR "IGNORE CLOSE line: $line" if ($self->{'DEBUG'});
+          }
+        }
+        # anything remaining on the line and any other line is ignored here
+        last;
       # in @verb. type should be 'brace_command_arg'
       } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
              and $current->{'parent'}->{'cmdname'} eq 'verb') {
