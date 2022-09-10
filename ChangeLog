@@ -1,5 +1,10 @@
 2022-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoXML.pm (_convert): no empty_line_after_command
+	nor last_raw_newline in raw format comand/rawpreformatted anymore.
+
+2022-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
 	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
 	handle separately 'raw' verbatim, ignore, (r)macro commands

@@ -757,13 +757,7 @@ sub _convert($$;$)
   return '' if ($element->{'type'} and $ignored_types{$element->{'type'}});
   if (defined($element->{'text'})) {
     if ($self->{'document_context'}->[-1]->{'raw'}) {
-      # ignore the newline at the end of the @xml line, and the last in xml
-      if ($element->{'type'} and ($element->{'type'} eq 'empty_line_after_command'
-                               or $element->{'type'} eq 'last_raw_newline')) {
-        return '';
-      } else {
-        return $element->{'text'};
-      }
+      return $element->{'text'};
     }
     return $self->format_text($element);
   }
