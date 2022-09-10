@@ -2591,15 +2591,18 @@ sub move_index_entries_after_items($)
           foreach my $entry(@gathered_index_entries) {
             $entry->{'parent'} = $item_container;
           }
+          # TODO remove
           if ($item->{'extra'}
               and $item->{'extra'}->{'spaces_before_argument'}
        and $item->{'extra'}->{'spaces_before_argument'} !~ /\n$/) {
             $item->{'extra'}->{'spaces_before_argument'} .= "\n";
-          # TODO: could we delete all these cases down here?
+          # TODO: could we delete some cases down here?
           } elsif ($item_container->{'contents'}
               and $item_container->{'contents'}->[0]
               and $item_container->{'contents'}->[0]->{'type'}) {
             if ($item_container->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
+              $item_container->{'contents'}->[0]->{'text'} .= "\n"
+                if ($item_container->{'contents'}->[0]->{'text'} !~ /\n$/);
               unshift @gathered_index_entries, shift @{$item_container->{'contents'}};
             } elsif ($item_container->{'contents'}->[0]->{'type'} eq 'empty_spaces_after_command') {
                unshift @gathered_index_entries, shift @{$item_container->{'contents'}};

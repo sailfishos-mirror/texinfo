@@ -4429,9 +4429,6 @@ $result_trees{'texi_bib_example'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'extra' => {
-                    'spaces_associated_command' => {}
-                  },
                   'parent' => {},
                   'text' => '
 ',
@@ -5134,7 +5131,6 @@ $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'cont
 $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[0];
 $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1];
-$result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
 $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[6]{'contents'}[1]{'contents'}[1]{'contents'}[1];

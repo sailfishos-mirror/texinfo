@@ -1940,6 +1940,7 @@ sub _merge_text {
     if ($current->{'contents'} and @{$current->{'contents'}}
       and $current->{'contents'}->[-1]->{'type'}
       and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
+         or $current->{'contents'}->[-1]->{'type'} eq 'internal_empty_line_after_command'
          or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_command'
          or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_before_argument'
          or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_close_brace')) {
@@ -2317,6 +2318,7 @@ sub _abort_empty_line {
        and $current->{'contents'}->[-1]->{'type'}
        and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line'
            or $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
+           or $current->{'contents'}->[-1]->{'type'} eq 'internal_empty_line_after_command'
            or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_before_argument'
            or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_close_brace')) {
 
@@ -2346,7 +2348,7 @@ sub _abort_empty_line {
       } else {
         delete $spaces_element->{'type'};
       }
-    } elsif ($spaces_element->{'type'} eq 'empty_line_after_command'
+    } elsif ($spaces_element->{'type'} eq 'internal_empty_line_after_command'
              or $spaces_element->{'type'} eq 'empty_spaces_before_argument') {
       if ($owning_element) {
         # Remove element from main tree. It will still be referenced in
@@ -3587,14 +3589,14 @@ sub _end_line($$$)
       $current->{'contents'}
       and (scalar(@{$current->{'contents'}}) == 1
            and (($current->{'contents'}->[-1]->{'type'}
-               and $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'))
+               and $current->{'contents'}->[-1]->{'type'} eq 'internal_empty_line_after_command'))
           or (scalar(@{$current->{'contents'}}) == 2
                and $current->{'contents'}->[-1]->{'cmdname'}
                and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
                     or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')
                and $current->{'contents'}->[-2]
                and $current->{'contents'}->[-2]->{'type'}
-               and $current->{'contents'}->[-2]->{'type'} eq 'empty_line_after_command'))) {
+               and $current->{'contents'}->[-2]->{'type'} eq 'internal_empty_line_after_command'))) {
     # empty line after a @menu or before a preformatted. Reparent to the menu
     # or other format
     if ($current->{'type'} and $current->{'type'} eq 'preformatted') {
@@ -3655,21 +3657,18 @@ sub _end_line($$$)
 
 # $command may be undef if we are after a wrong other command such as
 # a buggy @tab.
-sub _start_empty_line_after_command($$$$) {
-  my ($line, $current, $command, $command_name) = @_;
+sub _start_empty_line_after_command($$$) {
+  my ($line, $current, $command) = @_;
 
   $line =~ s/^([^\S\r\n]*)//;
   push @{$current->{'contents'}}, { 'type' => 'empty_line_after_command',
                                     'text' => $1,
                                     'parent' => $current,
-                                    'extra' => {},
                                   };
   if (defined($command)) {
     $current->{'contents'}->[-1]->{'extra'}->{'spaces_associated_command'}
       = $command;
-  } else {
-    $current->{'contents'}->[-1]->{'extra'}->{'associated_missing_cmdname'}
-      = $command_name;
+    $current->{'contents'}->[-1]->{'type'} = 'internal_empty_line_after_command';
   }
   return $line;
 }
@@ -4701,7 +4700,7 @@ sub _process_remaining_on_line($$$$)
               'source_info' => $source_info };
           push @{$current->{'contents'}}, $misc;
         }
-        $line = _start_empty_line_after_command($line, $current, $misc, $command);
+        $line = _start_empty_line_after_command($line, $current, undef);
       }
     # line commands
     } elsif (defined($self->{'line_commands'}->{$command})) {
@@ -4963,8 +4962,7 @@ sub _process_remaining_on_line($$$$)
         $current = $current->{'args'}->[-1];
         $self->_push_context('ct_line', $command)
           unless ($def_commands{$command});
-        $line = _start_empty_line_after_command($line, $current, $misc,
-                                                $command);
+        $line = _start_empty_line_after_command($line, $current, $misc);
       }
       _register_global_command($self, $misc, $source_info)
         if $misc;
@@ -5158,8 +5156,7 @@ sub _process_remaining_on_line($$$$)
           unless ($def_commands{$command});
         $block->{'source_info'} = $source_info;
         _register_global_command($self, $block, $source_info);
-        $line = _start_empty_line_after_command($line, $current, $block,
-                                                $command);
+        $line = _start_empty_line_after_command($line, $current, $block);
       }
     } elsif (defined($brace_commands{$command})) {
       push @{$current->{'contents'}}, { 'cmdname' => $command,

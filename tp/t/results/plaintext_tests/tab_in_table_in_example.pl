@@ -54,12 +54,9 @@ $result_trees{'tab_in_table_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'extra' => {
-                            'associated_missing_cmdname' => 'tab'
-                          },
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_spaces_after_command'
+                          'type' => 'empty_line_after_command'
                         },
                         {
                           'parent' => {},
@@ -126,12 +123,9 @@ $result_trees{'tab_in_table_in_example'} = {
                         {
                           'contents' => [
                             {
-                              'extra' => {
-                                'associated_missing_cmdname' => 'tab'
-                              },
                               'parent' => {},
                               'text' => ' ',
-                              'type' => 'empty_spaces_after_command'
+                              'type' => 'empty_line_after_command'
                             },
                             {
                               'parent' => {},

@@ -26,12 +26,9 @@ $result_trees{'empty_multitable_with_cells'} = {
             {
               'contents' => [
                 {
-                  'extra' => {
-                    'associated_missing_cmdname' => 'item'
-                  },
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_after_command'
+                  'type' => 'empty_line_after_command'
                 },
                 {
                   'contents' => [
@@ -44,12 +41,9 @@ $result_trees{'empty_multitable_with_cells'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'extra' => {
-                    'associated_missing_cmdname' => 'tab'
-                  },
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_after_command'
+                  'type' => 'empty_line_after_command'
                 },
                 {
                   'contents' => [
@@ -62,12 +56,9 @@ $result_trees{'empty_multitable_with_cells'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'extra' => {
-                    'associated_missing_cmdname' => 'tab'
-                  },
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_after_command'
+                  'type' => 'empty_line_after_command'
                 },
                 {
                   'contents' => [
@@ -81,12 +72,9 @@ $result_trees{'empty_multitable_with_cells'} = {
                   'type' => 'paragraph'
                 },
                 {
-                  'extra' => {
-                    'associated_missing_cmdname' => 'item'
-                  },
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_after_command'
+                  'type' => 'empty_line_after_command'
                 },
                 {
                   'contents' => [

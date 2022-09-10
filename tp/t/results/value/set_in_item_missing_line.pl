@@ -245,12 +245,9 @@ $result_trees{'set_in_item_missing_line'} = {
                               'parent' => {}
                             },
                             {
-                              'extra' => {
-                                'associated_missing_cmdname' => 'item'
-                              },
                               'parent' => {},
                               'text' => ' ',
-                              'type' => 'empty_spaces_after_command'
+                              'type' => 'empty_line_after_command'
                             },
                             {
                               'parent' => {},

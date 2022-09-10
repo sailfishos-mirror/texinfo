@@ -34,9 +34,6 @@ $result_trees{'long_uref_after_item'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'extra' => {
-                    'spaces_associated_command' => {}
-                  },
                   'parent' => {},
                   'text' => '
 ',
@@ -135,7 +132,6 @@ $result_trees{'long_uref_after_item'} = {
 };
 $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'spaces_associated_command'} = $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
 $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'long_uref_after_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];

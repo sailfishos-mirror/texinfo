@@ -101,6 +101,7 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
   /* Must be one of these types to continue. */
   if (strcmp (type, "empty_line")
        && strcmp (type, "empty_line_after_command")
+       && strcmp (type, "internal_empty_line_after_command")
        && strcmp (type, "empty_spaces_before_argument")
        && strcmp (type, "empty_spaces_after_close_brace"))
     {
@@ -193,7 +194,7 @@ delete_type:
           hv_delete (spaces_elt, "type", strlen ("type"), G_DISCARD);
         }
     }
-  else if (!strcmp (type, "empty_line_after_command")
+  else if (!strcmp (type, "internal_empty_line_after_command")
            || !strcmp (type, "empty_spaces_before_argument"))
     {
       STRLEN len;
@@ -293,6 +294,7 @@ xs_merge_text (HV *self, HV *current, SV *text_in)
                 type = SvPV_nolen (*svp);
               if (type
                   && (!strcmp (type, "empty_line_after_command")
+                      || !strcmp (type, "internal_empty_line_after_command")
                       || !strcmp (type, "empty_spaces_after_command")
                       || !strcmp (type, "empty_spaces_before_argument")
                       || !strcmp (type, "empty_spaces_after_close_brace")))

@@ -460,6 +460,11 @@ $result_trees{'submenu_in_example'} = {
                               'contents' => [
                                 {
                                   'parent' => {},
+                                  'text' => ' ',
+                                  'type' => 'empty_line_after_command'
+                                },
+                                {
+                                  'parent' => {},
                                   'text' => 'e--numerate
 '
                                 }
@@ -469,8 +474,7 @@ $result_trees{'submenu_in_example'} = {
                             }
                           ],
                           'extra' => {
-                            'item_number' => 1,
-                            'spaces_before_argument' => ' '
+                            'item_number' => 1
                           },
                           'parent' => {},
                           'source_info' => {
@@ -690,6 +694,7 @@ $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]
 $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6];
 $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3];
 $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0];
+$result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0];
 $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[0];
 $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3];
 $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'submenu_in_example'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'contents'}[1]{'args'}[0];
@@ -949,7 +954,7 @@ in example
 </pre><subheading spaces=" ">subheading in menu</subheading>
 <pre xml:space="preserve">
 </pre><enumerate first="1" endspaces=" ">
-<listitem spaces=" "><pre xml:space="preserve">e--numerate
+<listitem><pre xml:space="preserve"> e--numerate
 </pre></listitem></enumerate>
 <pre xml:space="preserve">
 </pre></menucomment></menu>

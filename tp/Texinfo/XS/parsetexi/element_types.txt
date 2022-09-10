@@ -65,6 +65,7 @@ menu_entry_description
 menu_comment
 # Used internally
 menu_star
+internal_empty_line_after_command
 
 macro_name
 macro_arg

@@ -161,7 +161,7 @@ char *read_command_name (char **ptr);
 char *read_flag_name (char **ptr);
 ELEMENT *merge_text (ELEMENT *current, char *text);
 void start_empty_line_after_command (ELEMENT *current, char **line_inout,
-                                     ELEMENT *command, char *command_name);
+                                     ELEMENT *command);
 ELEMENT *begin_paragraph (ELEMENT *current);
 int format_expanded_p (char *format);
 int is_end_current_command (ELEMENT *current, char **line, char **spaces,

@@ -243,7 +243,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
           misc->source_info = current_source_info;
           add_to_element_contents (current, misc);
         }
-      start_empty_line_after_command (current, &line, misc, command_name(cmd));
+      start_empty_line_after_command (current, &line, 0);
     }
 
 funexit:
@@ -644,7 +644,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
          case while we read the argument on this line. */
       if (!(command_data(cmd).flags & CF_def))
         push_context (ct_line, cmd);
-      start_empty_line_after_command (current, &line, misc, command_name(cmd));
+      start_empty_line_after_command (current, &line, misc);
     }
 
   if (misc)
@@ -965,7 +965,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
         }
       block->source_info = current_source_info;
       register_global_command (block);
-      start_empty_line_after_command (current, &line, block, command_name(cmd));
+      start_empty_line_after_command (current, &line, block);
     }
 
 funexit:

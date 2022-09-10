@@ -38,12 +38,9 @@ $result_trees{'headitem_in_table'} = {
             {
               'contents' => [
                 {
-                  'extra' => {
-                    'associated_missing_cmdname' => 'headitem'
-                  },
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_after_command'
+                  'type' => 'empty_line_after_command'
                 },
                 {
                   'contents' => [

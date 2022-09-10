@@ -543,6 +543,7 @@ merge_text (ELEMENT *current, char *text)
 
       if (last_child
           && (last_child->type == ET_empty_line_after_command
+              || last_child->type == ET_internal_empty_line_after_command
               || last_child->type == ET_empty_spaces_after_command
               || last_child->type == ET_empty_spaces_before_argument
               || last_child->type == ET_empty_spaces_after_close_brace))
@@ -614,6 +615,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
   if (last_child
       && (last_child->type == ET_empty_line
           || last_child->type == ET_empty_line_after_command
+          || last_child->type == ET_internal_empty_line_after_command
           || last_child->type == ET_empty_spaces_before_argument
           || last_child->type == ET_empty_spaces_after_close_brace))
     {
@@ -644,7 +646,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
           last_child->type = begin_paragraph_p (current)
                              ? ET_empty_spaces_before_paragraph : ET_NONE;
         }
-      else if (last_child->type == ET_empty_line_after_command
+      else if (last_child->type == ET_internal_empty_line_after_command
                || last_child->type == ET_empty_spaces_before_argument)
         {
           if (owning_element)
@@ -797,7 +799,7 @@ isolate_last_space (ELEMENT *current)
    a block. */
 void
 start_empty_line_after_command (ELEMENT *current, char **line_inout,
-                                ELEMENT *command, char *command_name)
+                                ELEMENT *command)
 {
   char *line = *line_inout;
   ELEMENT *e;
@@ -810,9 +812,10 @@ start_empty_line_after_command (ELEMENT *current, char **line_inout,
   line += len;
 
   if (command)
-    add_extra_element (e, "spaces_associated_command", command);
-  else
-    add_extra_string (e, "associated_missing_cmdname", strdup (command_name));
+    {
+      add_extra_element (e, "spaces_associated_command", command);
+      e->type = ET_internal_empty_line_after_command;
+    }
 
   *line_inout = line;
 }

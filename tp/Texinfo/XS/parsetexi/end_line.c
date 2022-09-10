@@ -1078,6 +1078,7 @@ end_line_starting_block (ELEMENT *current)
 
   /* Don't consider empty argument of block @-command as argument,
      reparent them as contents. */
+  /* FIXME probably cannot happen anymore */
   if (current->args.list[0]->contents.number > 0
       && current->args.list[0]->contents.list[0]->type
          == ET_empty_line_after_command)
@@ -2249,9 +2250,9 @@ end_line (ELEMENT *current)
       current = end_line_misc_line (current);
     }
   else if (current->contents.number == 1
-           && current->contents.list[0]->type == ET_empty_line_after_command
+           && current->contents.list[0]->type == ET_internal_empty_line_after_command
            || current->contents.number == 2
-           && current->contents.list[0]->type == ET_empty_line_after_command
+           && current->contents.list[0]->type == ET_internal_empty_line_after_command
            && (current->contents.list[1]->cmd == CM_c
                || current->contents.list[1]->cmd == CM_comment))
     {

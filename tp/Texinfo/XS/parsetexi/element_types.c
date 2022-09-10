@@ -43,6 +43,7 @@ char *element_type_names[] = {
 "menu_entry_description",
 "menu_comment",
 "menu_star",
+"internal_empty_line_after_command",
 "macro_name",
 "macro_arg",
 "before_item",

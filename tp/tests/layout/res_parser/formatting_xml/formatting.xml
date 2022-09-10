@@ -1624,71 +1624,71 @@ quotation
 </para></smallquotation>
 
 <itemize commandarg="bullet" endspaces=" "><itemprepend>&bullet;</itemprepend>
-<listitem spaces=" "><prepend>&bullet;</prepend><para>i&textndash;temize
+<listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend>+</itemprepend>
-<listitem spaces=" "><prepend>+</prepend><para>i&textndash;tem +
+<listitem><prepend>+</prepend> <para>i&textndash;tem +
 </para></listitem></itemize>
 
 <itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
-<listitem spaces=" "><prepend>&bullet;</prepend><para>b&textndash;ullet
+<listitem><prepend>&bullet;</prepend> <para>b&textndash;ullet
 </para></listitem></itemize>
 
 <itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
-<listitem spaces=" "><prepend>&minus;</prepend><para>minu&textndash;s
+<listitem><prepend>&minus;</prepend> <para>minu&textndash;s
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend><emph>after emph</emph></itemprepend>
 <beforefirstitem><!-- c comment in itemize -->
-</beforefirstitem><listitem spaces=" "><prepend><emph>after emph</emph></prepend><para>e&textndash;mph item
+</beforefirstitem><listitem><prepend><emph>after emph</emph></prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend>&bullet; a&textndash;n itemize line</itemprepend>
 <beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="3">index entry within itemize</indexterm></cindex>
-</beforefirstitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 1
-</para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
+</beforefirstitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 1
+</para></listitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 2
 </para></listitem></itemize>
 
 <itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
-<listitem spaces=" "><prepend><w></w></prepend><para>with w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend><w></w></prepend><para>with w c&textndash;d
+<listitem><prepend><w></w></prepend> <para>with w a&textndash;b
+</para></listitem><listitem><prepend><w></w></prepend> <para>with w c&textndash;d
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend><w></w> on a line</itemprepend>
-<listitem spaces=" "><prepend><w></w> on a line</prepend><para>line w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend><w></w> on a line</prepend><para>line with w c&textndash;d
+<listitem><prepend><w></w> on a line</prepend> <para>line w a&textndash;b
+</para></listitem><listitem><prepend><w></w> on a line</prepend> <para>line with w c&textndash;d
 </para></listitem></itemize>
 
 <enumerate first="1" endspaces=" ">
-<listitem spaces=" "><para>e&textndash;numerate
+<listitem> <para>e&textndash;numerate
 </para></listitem></enumerate>
 
 <enumerate first="3" spaces=" " endspaces=" "><enumeratefirst>3</enumeratefirst>
-<listitem spaces=" "><para>first third
-</para></listitem><listitem spaces=" "><para>second third
+<listitem> <para>first third
+</para></listitem><listitem> <para>second third
 </para></listitem></enumerate>
 
 <enumerate first="a" spaces=" " endspaces=" "><enumeratefirst>a</enumeratefirst>
-<listitem spaces=" "><para>e&textndash;numerate
+<listitem> <para>e&textndash;numerate
 </para></listitem></enumerate>
 
 <enumerate first="c" spaces=" " endspaces=" "><enumeratefirst>c</enumeratefirst>
-<listitem spaces=" "><para>first c
-</para></listitem><listitem spaces=" "><para>second c
+<listitem> <para>first c
+</para></listitem><listitem> <para>second c
 </para></listitem></enumerate>
 
 <multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
-<thead><row><entry command="headitem" spaces=" "><para>mu&textndash;ltitable headitem </para></entry><entry command="tab" spaces=" "><para>another tab
-</para></entry></row></thead><tbody><row><entry command="item" spaces=" "><para>mu&textndash;ltitable item </para></entry><entry command="tab" spaces=" "><para>multitable tab
+<thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
+</para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
-</para></entry></row><row><entry command="item" spaces=" "><para>mu&textndash;ltitable item 2 </para></entry><entry command="tab" spaces=" "><para>multitable tab 2
+</para></entry></row><row><entry command="item"> <para>mu&textndash;ltitable item 2 </para></entry><entry command="tab"> <para>multitable tab 2
 <cindex index="cp" spaces=" "><indexterm index="cp" number="4">index entry within multitable</indexterm></cindex>
-</para></entry></row><row><entry command="item" spaces=" "><para>lone mu&textndash;ltitable item
+</para></entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
 </para></entry></row></tbody></multitable>
 
 <multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
-<tbody><row><entry command="item" spaces=" "><para>truc </para></entry><entry command="tab" spaces=" "><para>bidule
+<tbody><row><entry command="item"> <para>truc </para></entry><entry command="tab"> <para>bidule
 </para></entry></row></tbody></multitable>
 
 <example endspaces=" ">
@@ -2237,25 +2237,25 @@ in verbatim ''
 
 <!-- c style command in itemize -->
 <itemize commandarg="emph" spaces=" " endspaces=" ">
-<listitem spaces=" "><prepend></prepend><para>e&textndash;mph item
+<listitem><prepend></prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <itemize spaces=" " endspaces=" "><itemprepend> after emph</itemprepend>
-<listitem spaces=" "><prepend> after emph</prepend><para>e&textndash;mph item
+<listitem><prepend> after emph</prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <itemize spaces=" " endspaces=" "><itemprepend>&bullet; a&textndash;n itemize line</itemprepend>
-<listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 1
-</para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
+<listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 1
+</para></listitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 2
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <!-- c  Argument of @w has an extra } -->
 <itemize commandarg="w" spaces=" " endspaces=" ">
-<listitem spaces=" "><prepend></prepend><para>without brace w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend></prepend><para>without brace w c&textndash;d
+<listitem><prepend></prepend> <para>without brace w a&textndash;b
+</para></listitem><listitem><prepend></prepend> <para>without brace w c&textndash;d
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
@@ -2763,71 +2763,71 @@ quotation
 </para></smallquotation>
 
 <itemize commandarg="bullet" endspaces=" "><itemprepend>&bullet;</itemprepend>
-<listitem spaces=" "><prepend>&bullet;</prepend><para>i&textndash;temize
+<listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend>+</itemprepend>
-<listitem spaces=" "><prepend>+</prepend><para>i&textndash;tem +
+<listitem><prepend>+</prepend> <para>i&textndash;tem +
 </para></listitem></itemize>
 
 <itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
-<listitem spaces=" "><prepend>&bullet;</prepend><para>b&textndash;ullet
+<listitem><prepend>&bullet;</prepend> <para>b&textndash;ullet
 </para></listitem></itemize>
 
 <itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
-<listitem spaces=" "><prepend>&minus;</prepend><para>minu&textndash;s
+<listitem><prepend>&minus;</prepend> <para>minu&textndash;s
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend><emph>after emph</emph></itemprepend>
 <beforefirstitem><!-- c comment in itemize -->
-</beforefirstitem><listitem spaces=" "><prepend><emph>after emph</emph></prepend><para>e&textndash;mph item
+</beforefirstitem><listitem><prepend><emph>after emph</emph></prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend>&bullet; a&textndash;n itemize line</itemprepend>
 <beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="10">index entry within itemize</indexterm></cindex>
-</beforefirstitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 1
-</para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
+</beforefirstitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 1
+</para></listitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 2
 </para></listitem></itemize>
 
 <itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
-<listitem spaces=" "><prepend><w></w></prepend><para>with w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend><w></w></prepend><para>with w c&textndash;d
+<listitem><prepend><w></w></prepend> <para>with w a&textndash;b
+</para></listitem><listitem><prepend><w></w></prepend> <para>with w c&textndash;d
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend><w></w> on a line</itemprepend>
-<listitem spaces=" "><prepend><w></w> on a line</prepend><para>line w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend><w></w> on a line</prepend><para>line with w c&textndash;d
+<listitem><prepend><w></w> on a line</prepend> <para>line w a&textndash;b
+</para></listitem><listitem><prepend><w></w> on a line</prepend> <para>line with w c&textndash;d
 </para></listitem></itemize>
 
 <enumerate first="1" endspaces=" ">
-<listitem spaces=" "><para>e&textndash;numerate
+<listitem> <para>e&textndash;numerate
 </para></listitem></enumerate>
 
 <enumerate first="3" spaces=" " endspaces=" "><enumeratefirst>3</enumeratefirst>
-<listitem spaces=" "><para>first third
-</para></listitem><listitem spaces=" "><para>second third
+<listitem> <para>first third
+</para></listitem><listitem> <para>second third
 </para></listitem></enumerate>
 
 <enumerate first="a" spaces=" " endspaces=" "><enumeratefirst>a</enumeratefirst>
-<listitem spaces=" "><para>e&textndash;numerate
+<listitem> <para>e&textndash;numerate
 </para></listitem></enumerate>
 
 <enumerate first="c" spaces=" " endspaces=" "><enumeratefirst>c</enumeratefirst>
-<listitem spaces=" "><para>first c
-</para></listitem><listitem spaces=" "><para>second c
+<listitem> <para>first c
+</para></listitem><listitem> <para>second c
 </para></listitem></enumerate>
 
 <multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
-<thead><row><entry command="headitem" spaces=" "><para>mu&textndash;ltitable headitem </para></entry><entry command="tab" spaces=" "><para>another tab
-</para></entry></row></thead><tbody><row><entry command="item" spaces=" "><para>mu&textndash;ltitable item </para></entry><entry command="tab" spaces=" "><para>multitable tab
+<thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
+</para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
-</para></entry></row><row><entry command="item" spaces=" "><para>mu&textndash;ltitable item 2 </para></entry><entry command="tab" spaces=" "><para>multitable tab 2
+</para></entry></row><row><entry command="item"> <para>mu&textndash;ltitable item 2 </para></entry><entry command="tab"> <para>multitable tab 2
 <cindex index="cp" spaces=" "><indexterm index="cp" number="11">index entry within multitable</indexterm></cindex>
-</para></entry></row><row><entry command="item" spaces=" "><para>lone mu&textndash;ltitable item
+</para></entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
 </para></entry></row></tbody></multitable>
 
 <multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
-<tbody><row><entry command="item" spaces=" "><para>truc </para></entry><entry command="tab" spaces=" "><para>bidule
+<tbody><row><entry command="item"> <para>truc </para></entry><entry command="tab"> <para>bidule
 </para></entry></row></tbody></multitable>
 
 <example endspaces=" ">
@@ -3376,25 +3376,25 @@ in verbatim ''
 
 <!-- c style command in itemize -->
 <itemize commandarg="emph" spaces=" " endspaces=" ">
-<listitem spaces=" "><prepend></prepend><para>e&textndash;mph item
+<listitem><prepend></prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <itemize spaces=" " endspaces=" "><itemprepend> after emph</itemprepend>
-<listitem spaces=" "><prepend> after emph</prepend><para>e&textndash;mph item
+<listitem><prepend> after emph</prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <itemize spaces=" " endspaces=" "><itemprepend>&bullet; a&textndash;n itemize line</itemprepend>
-<listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 1
-</para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
+<listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 1
+</para></listitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 2
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <!-- c  Argument of @w has an extra } -->
 <itemize commandarg="w" spaces=" " endspaces=" ">
-<listitem spaces=" "><prepend></prepend><para>without brace w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend></prepend><para>without brace w c&textndash;d
+<listitem><prepend></prepend> <para>without brace w a&textndash;b
+</para></listitem><listitem><prepend></prepend> <para>without brace w c&textndash;d
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
@@ -3514,9 +3514,9 @@ Menu comment
 <para>qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
 qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
 </para>
-<noindent></noindent><para>noindent in para.
+<noindent></noindent> <para>noindent in para.
 </para>
-<indent></indent><para>unneeded indent
+<indent></indent> <para>unneeded indent
 </para>
 <para>Insertcopying in normal text
 </para><insertcopying></insertcopying>
@@ -3929,71 +3929,71 @@ quotation
 </para></smallquotation>
 
 <itemize commandarg="bullet" endspaces=" "><itemprepend>&bullet;</itemprepend>
-<listitem spaces=" "><prepend>&bullet;</prepend><para>i&textndash;temize
+<listitem><prepend>&bullet;</prepend> <para>i&textndash;temize
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend>+</itemprepend>
-<listitem spaces=" "><prepend>+</prepend><para>i&textndash;tem +
+<listitem><prepend>+</prepend> <para>i&textndash;tem +
 </para></listitem></itemize>
 
 <itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
-<listitem spaces=" "><prepend>&bullet;</prepend><para>b&textndash;ullet
+<listitem><prepend>&bullet;</prepend> <para>b&textndash;ullet
 </para></listitem></itemize>
 
 <itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
-<listitem spaces=" "><prepend>&minus;</prepend><para>minu&textndash;s
+<listitem><prepend>&minus;</prepend> <para>minu&textndash;s
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend><emph>after emph</emph></itemprepend>
 <beforefirstitem><!-- c comment in itemize -->
-</beforefirstitem><listitem spaces=" "><prepend><emph>after emph</emph></prepend><para>e&textndash;mph item
+</beforefirstitem><listitem><prepend><emph>after emph</emph></prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend>&bullet; a&textndash;n itemize line</itemprepend>
 <beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="17">index entry within itemize</indexterm></cindex>
-</beforefirstitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 1
-</para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
+</beforefirstitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 1
+</para></listitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 2
 </para></listitem></itemize>
 
 <itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
-<listitem spaces=" "><prepend><w></w></prepend><para>with w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend><w></w></prepend><para>with w c&textndash;d
+<listitem><prepend><w></w></prepend> <para>with w a&textndash;b
+</para></listitem><listitem><prepend><w></w></prepend> <para>with w c&textndash;d
 </para></listitem></itemize>
 
 <itemize spaces=" " endspaces=" "><itemprepend><w></w> on a line</itemprepend>
-<listitem spaces=" "><prepend><w></w> on a line</prepend><para>line w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend><w></w> on a line</prepend><para>line with w c&textndash;d
+<listitem><prepend><w></w> on a line</prepend> <para>line w a&textndash;b
+</para></listitem><listitem><prepend><w></w> on a line</prepend> <para>line with w c&textndash;d
 </para></listitem></itemize>
 
 <enumerate first="1" endspaces=" ">
-<listitem spaces=" "><para>e&textndash;numerate
+<listitem> <para>e&textndash;numerate
 </para></listitem></enumerate>
 
 <enumerate first="3" spaces=" " endspaces=" "><enumeratefirst>3</enumeratefirst>
-<listitem spaces=" "><para>first third
-</para></listitem><listitem spaces=" "><para>second third
+<listitem> <para>first third
+</para></listitem><listitem> <para>second third
 </para></listitem></enumerate>
 
 <enumerate first="a" spaces=" " endspaces=" "><enumeratefirst>a</enumeratefirst>
-<listitem spaces=" "><para>e&textndash;numerate
+<listitem> <para>e&textndash;numerate
 </para></listitem></enumerate>
 
 <enumerate first="c" spaces=" " endspaces=" "><enumeratefirst>c</enumeratefirst>
-<listitem spaces=" "><para>first c
-</para></listitem><listitem spaces=" "><para>second c
+<listitem> <para>first c
+</para></listitem><listitem> <para>second c
 </para></listitem></enumerate>
 
 <multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
-<thead><row><entry command="headitem" spaces=" "><para>mu&textndash;ltitable headitem </para></entry><entry command="tab" spaces=" "><para>another tab
-</para></entry></row></thead><tbody><row><entry command="item" spaces=" "><para>mu&textndash;ltitable item </para></entry><entry command="tab" spaces=" "><para>multitable tab
+<thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
+</para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
-</para></entry></row><row><entry command="item" spaces=" "><para>mu&textndash;ltitable item 2 </para></entry><entry command="tab" spaces=" "><para>multitable tab 2
+</para></entry></row><row><entry command="item"> <para>mu&textndash;ltitable item 2 </para></entry><entry command="tab"> <para>multitable tab 2
 <cindex index="cp" spaces=" "><indexterm index="cp" number="18">index entry within multitable</indexterm></cindex>
-</para></entry></row><row><entry command="item" spaces=" "><para>lone mu&textndash;ltitable item
+</para></entry></row><row><entry command="item"> <para>lone mu&textndash;ltitable item
 </para></entry></row></tbody></multitable>
 
 <multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
-<tbody><row><entry command="item" spaces=" "><para>truc </para></entry><entry command="tab" spaces=" "><para>bidule
+<tbody><row><entry command="item"> <para>truc </para></entry><entry command="tab"> <para>bidule
 </para></entry></row></tbody></multitable>
 
 <example endspaces=" ">
@@ -4542,25 +4542,25 @@ in verbatim ''
 
 <!-- c style command in itemize -->
 <itemize commandarg="emph" spaces=" " endspaces=" ">
-<listitem spaces=" "><prepend></prepend><para>e&textndash;mph item
+<listitem><prepend></prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <itemize spaces=" " endspaces=" "><itemprepend> after emph</itemprepend>
-<listitem spaces=" "><prepend> after emph</prepend><para>e&textndash;mph item
+<listitem><prepend> after emph</prepend> <para>e&textndash;mph item
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <itemize spaces=" " endspaces=" "><itemprepend>&bullet; a&textndash;n itemize line</itemprepend>
-<listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 1
-</para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
+<listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 1
+</para></listitem><listitem><prepend>&bullet; a&textndash;n itemize line</prepend> <para>i&textndash;tem 2
 </para></listitem></itemize>
 
 <!-- c braces missing -->
 <!-- c  Argument of @w has an extra } -->
 <itemize commandarg="w" spaces=" " endspaces=" ">
-<listitem spaces=" "><prepend></prepend><para>without brace w a&textndash;b
-</para></listitem><listitem spaces=" "><prepend></prepend><para>without brace w c&textndash;d
+<listitem><prepend></prepend> <para>without brace w a&textndash;b
+</para></listitem><listitem><prepend></prepend> <para>without brace w c&textndash;d
 </para></listitem></itemize>
 
 <!-- c not style formatting -->
@@ -5063,71 +5063,71 @@ indent in quotation
 </pre></smallquotation>
 <pre xml:space="preserve">
 </pre><itemize commandarg="bullet" endspaces=" "><itemprepend>&bullet;</itemprepend>
-<listitem spaces=" "><prepend>&bullet;</prepend><pre xml:space="preserve">i--temize
+<listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> i--temize
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><itemize spaces=" " endspaces=" "><itemprepend>+</itemprepend>
-<listitem spaces=" "><prepend>+</prepend><pre xml:space="preserve">i--tem +
+<listitem><prepend>+</prepend><pre xml:space="preserve"> i--tem +
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet"/></itemprepend>
-<listitem spaces=" "><prepend>&bullet;</prepend><pre xml:space="preserve">b--ullet
+<listitem><prepend>&bullet;</prepend><pre xml:space="preserve"> b--ullet
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><itemize commandarg="minus" spaces=" " endspaces=" "><itemprepend><formattingcommand command="minus"/></itemprepend>
-<listitem spaces=" "><prepend>&minus;</prepend><pre xml:space="preserve">minu--s
+<listitem><prepend>&minus;</prepend><pre xml:space="preserve"> minu--s
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><itemize spaces=" " endspaces=" "><itemprepend><emph>after emph</emph></itemprepend>
 <beforefirstitem><pre xml:space="preserve"><!-- c comment in itemize -->
-</pre></beforefirstitem><listitem spaces=" "><prepend><emph>after emph</emph></prepend><pre xml:space="preserve">e--mph item
+</pre></beforefirstitem><listitem><prepend><emph>after emph</emph></prepend><pre xml:space="preserve"> e--mph item
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><itemize spaces=" " endspaces=" "><itemprepend>&bullet; a--n itemize line</itemprepend>
 <beforefirstitem><pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="24">index entry within itemize</indexterm></cindex>
-</pre></beforefirstitem><listitem spaces=" "><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve">i--tem 1
-</pre></listitem><listitem spaces=" "><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve">i--tem 2
+</pre></beforefirstitem><listitem><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve"> i--tem 1
+</pre></listitem><listitem><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve"> i--tem 2
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
-<listitem spaces=" "><prepend><w></w></prepend><pre xml:space="preserve">with w a--b
-</pre></listitem><listitem spaces=" "><prepend><w></w></prepend><pre xml:space="preserve">with w c--d
+<listitem><prepend><w></w></prepend><pre xml:space="preserve"> with w a--b
+</pre></listitem><listitem><prepend><w></w></prepend><pre xml:space="preserve"> with w c--d
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><itemize spaces=" " endspaces=" "><itemprepend><w></w> on a line</itemprepend>
-<listitem spaces=" "><prepend><w></w> on a line</prepend><pre xml:space="preserve">line w a--b
-</pre></listitem><listitem spaces=" "><prepend><w></w> on a line</prepend><pre xml:space="preserve">line with w c--d
+<listitem><prepend><w></w> on a line</prepend><pre xml:space="preserve"> line w a--b
+</pre></listitem><listitem><prepend><w></w> on a line</prepend><pre xml:space="preserve"> line with w c--d
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><enumerate first="1" endspaces=" ">
-<listitem spaces=" "><pre xml:space="preserve">e--numerate
+<listitem><pre xml:space="preserve"> e--numerate
 </pre></listitem></enumerate>
 <pre xml:space="preserve">
 </pre><enumerate first="3" spaces=" " endspaces=" "><enumeratefirst>3</enumeratefirst>
-<listitem spaces=" "><pre xml:space="preserve">first third
-</pre></listitem><listitem spaces=" "><pre xml:space="preserve">second third
+<listitem><pre xml:space="preserve"> first third
+</pre></listitem><listitem><pre xml:space="preserve"> second third
 </pre></listitem></enumerate>
 <pre xml:space="preserve">
 </pre><enumerate first="a" spaces=" " endspaces=" "><enumeratefirst>a</enumeratefirst>
-<listitem spaces=" "><pre xml:space="preserve">e--numerate
+<listitem><pre xml:space="preserve"> e--numerate
 </pre></listitem></enumerate>
 <pre xml:space="preserve">
 </pre><enumerate first="c" spaces=" " endspaces=" "><enumeratefirst>c</enumeratefirst>
-<listitem spaces=" "><pre xml:space="preserve">first c
-</pre></listitem><listitem spaces=" "><pre xml:space="preserve">second c
+<listitem><pre xml:space="preserve"> first c
+</pre></listitem><listitem><pre xml:space="preserve"> second c
 </pre></listitem></enumerate>
 <pre xml:space="preserve">
 </pre><multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
-<thead><row><entry command="headitem" spaces=" "><pre xml:space="preserve">mu--ltitable headitem </pre></entry><entry command="tab" spaces=" "><pre xml:space="preserve">another tab
-</pre></entry></row></thead><tbody><row><entry command="item" spaces=" "><pre xml:space="preserve">mu--ltitable item </pre></entry><entry command="tab" spaces=" "><pre xml:space="preserve">multitable tab
+<thead><row><entry command="headitem"><pre xml:space="preserve"> mu--ltitable headitem </pre></entry><entry command="tab"><pre xml:space="preserve"> another tab
+</pre></entry></row></thead><tbody><row><entry command="item"><pre xml:space="preserve"> mu--ltitable item </pre></entry><entry command="tab"><pre xml:space="preserve"> multitable tab
 <!-- c comment in multitable -->
-</pre></entry></row><row><entry command="item" spaces=" "><pre xml:space="preserve">mu--ltitable item 2 </pre></entry><entry command="tab" spaces=" "><pre xml:space="preserve">multitable tab 2
+</pre></entry></row><row><entry command="item"><pre xml:space="preserve"> mu--ltitable item 2 </pre></entry><entry command="tab"><pre xml:space="preserve"> multitable tab 2
 <cindex index="cp" spaces=" "><indexterm index="cp" number="25">index entry within multitable</indexterm></cindex>
-</pre></entry></row><row><entry command="item" spaces=" "><pre xml:space="preserve">lone mu--ltitable item
+</pre></entry></row><row><entry command="item"><pre xml:space="preserve"> lone mu--ltitable item
 </pre></entry></row></tbody></multitable>
 <pre xml:space="preserve">
 </pre><multitable spaces=" " endspaces=" "><columnprototypes><columnprototype bracketed="on">truc</columnprototype> <columnprototype bracketed="on">bidule</columnprototype></columnprototypes>
-<tbody><row><entry command="item" spaces=" "><pre xml:space="preserve">truc </pre></entry><entry command="tab" spaces=" "><pre xml:space="preserve">bidule
+<tbody><row><entry command="item"><pre xml:space="preserve"> truc </pre></entry><entry command="tab"><pre xml:space="preserve"> bidule
 </pre></entry></row></tbody></multitable>
 <pre xml:space="preserve">
 </pre><example endspaces=" ">
@@ -5676,25 +5676,25 @@ Invalid use of &arobase;':&linebreak;
 <pre xml:space="preserve">
 <!-- c style command in itemize -->
 </pre><itemize commandarg="emph" spaces=" " endspaces=" ">
-<listitem spaces=" "><prepend></prepend><pre xml:space="preserve">e--mph item
+<listitem><prepend></prepend><pre xml:space="preserve"> e--mph item
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 <!-- c braces missing -->
 </pre><itemize spaces=" " endspaces=" "><itemprepend> after emph</itemprepend>
-<listitem spaces=" "><prepend> after emph</prepend><pre xml:space="preserve">e--mph item
+<listitem><prepend> after emph</prepend><pre xml:space="preserve"> e--mph item
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 <!-- c braces missing -->
 </pre><itemize spaces=" " endspaces=" "><itemprepend>&bullet; a--n itemize line</itemprepend>
-<listitem spaces=" "><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve">i--tem 1
-</pre></listitem><listitem spaces=" "><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve">i--tem 2
+<listitem><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve"> i--tem 1
+</pre></listitem><listitem><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve"> i--tem 2
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 <!-- c braces missing -->
 <!-- c  Argument of @w has an extra } -->
 </pre><itemize commandarg="w" spaces=" " endspaces=" ">
-<listitem spaces=" "><prepend></prepend><pre xml:space="preserve">without brace w a--b
-</pre></listitem><listitem spaces=" "><prepend></prepend><pre xml:space="preserve">without brace w c--d
+<listitem><prepend></prepend><pre xml:space="preserve"> without brace w a--b
+</pre></listitem><listitem><prepend></prepend><pre xml:space="preserve"> without brace w c--d
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 <!-- c not style formatting -->
