@@ -576,7 +576,7 @@ sub _protect_in_spaces($)
   return $text;
 }
 
-sub _leading_spaces_before_argument($)
+sub _leading_spaces_arg($)
 {
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'spaces_before_argument'}
@@ -621,79 +621,29 @@ sub _arg_line($)
   return ();
 }
 
-# more generic than what is actually used, as the leading spaces
-# are never used.  But it is relevant to collect them here in case
-# there are only spaces.
-sub _collect_leading_trailing_spaces_arg($$)
+# without the end of line.  The end of line is usually returned by
+# format_comment_or_return_end_line
+sub _trailing_spaces_arg($)
 {
-  my $self = shift;
-  my $arg = shift;
-  #print STDERR "$arg->{'type'}: @{$arg->{'contents'}}\n";
-  my @result;
-  if ($arg->{'extra'} and
-      $arg->{'extra'}->{'spaces_before_argument'}) {
-    $result[0] = $arg->{'extra'}->{'spaces_before_argument'};
-  } elsif ($arg->{'contents'} and $arg->{'contents'}->[0]
-      and defined($arg->{'contents'}->[0]->{'text'})
-      and $arg->{'contents'}->[0]->{'text'} !~ /\S/
-      and defined($arg->{'contents'}->[0]->{'type'})) {
-    #print STDERR "$arg->{'contents'}->[0]->{'type'}\n";
-    warn "Unknown leading space type $arg->{'contents'}->[0]->{'type'}\n"
-      if (# FIXME should we really catch this too?
-          $arg->{'contents'}->[0]->{'type'} ne 'empty_line_after_command'
-         );
-    $result[0] = $arg->{'contents'}->[0]->{'text'};
-    return @result if (scalar(@{$arg->{'contents'}}) == 1);
-  }
-
-  if ($arg->{'extra'} and
-      $arg->{'extra'}->{'spaces_after_argument'}) {
-    $result[1] = $arg->{'extra'}->{'spaces_after_argument'};
-  } elsif ($arg->{'contents'}) {
-    my $index = -1;
-    $index-- if ($arg->{'contents'}->[-1]
-                 and $arg->{'contents'}->[-1]->{'cmdname'}
-                 and ($arg->{'contents'}->[-1]->{'cmdname'} eq 'c'
-                      or $arg->{'contents'}->[-1]->{'cmdname'} eq 'comment'));
-    if (scalar(@{$arg->{'contents'}}) + $index > 0) {
-      if ($arg->{'contents'}->[$index]
-          and defined($arg->{'contents'}->[$index]->{'text'})
-          and $arg->{'contents'}->[$index]->{'text'} !~ /\S/
-          and defined($arg->{'contents'}->[$index]->{'type'})) {
-      #print STDERR "$arg->{'contents'}->[$index]->{'type'}\n";
-        warn "Unknown trailing space type $arg->{'contents'}->[$index]->{'type'}\n"
-          if ($arg->{'contents'}->[$index]->{'type'} ne 'spaces_at_end'
-              and $arg->{'contents'}->[$index]->{'type'} ne 'space_at_end_block_command'
-             );
-        $result[1] = $arg->{'contents'}->[$index]->{'text'};
-      }
-    }
-  }
-  return @result;
-}
-
-sub _trailing_spaces_arg($$)
-{
-  my $self = shift;
   my $element = shift;
   
-  my @spaces = $self->_collect_leading_trailing_spaces_arg($element);
-  if (defined($spaces[1])) {
-    chomp($spaces[1]);
-    if ($spaces[1] ne '') {
-      return ('trailingspaces', _protect_in_spaces($spaces[1]));
+  if ($element->{'extra'} and
+      $element->{'extra'}->{'spaces_after_argument'}) {
+    my $spaces = $element->{'extra'}->{'spaces_after_argument'};
+    chomp($spaces);
+    if ($spaces ne '') {
+      return ('trailingspaces', _protect_in_spaces($spaces));
     }
   }
   return ();
 }
 
-sub _leading_trailing_spaces_arg($$)
+sub _leading_trailing_spaces_arg($)
 {
-  my $self = shift;
   my $element = shift;
 
-  my @result = _leading_spaces_before_argument($element);
-  push @result, $self->_trailing_spaces_arg($element);
+  my @result = _leading_spaces_arg($element);
+  push @result, _trailing_spaces_arg($element);
   return @result;
 }
 
@@ -800,7 +750,7 @@ sub _convert($$;$)
           and ($element->{'parent'}->{'cmdname'} eq 'itemize'
                or $element->{'parent'}->{'cmdname'} eq 'enumerate')) {
         $result .= $self->open_element('listitem',
-                                [_leading_spaces_before_argument($element)]);
+                                [_leading_spaces_arg($element)]);
         if ($element->{'parent'}->{'cmdname'} eq 'itemize'
             and $element->{'parent'}->{'args'}
             and @{$element->{'parent'}->{'args'}}) {
@@ -823,7 +773,7 @@ sub _convert($$;$)
            = [$self->_infoenclose_attribute($table_command->{'extra'}->{'command_as_argument'})];
         }
         my $line_item_result = $self->open_element($element->{'cmdname'},
-                                     [_leading_spaces_before_argument($element)]);
+                                     [_leading_spaces_arg($element)]);
         if ($format_item_command) {
           $line_item_result .= $self->open_element('itemformat',
                                    ['command', $format_item_command, @$attribute]);
@@ -870,7 +820,7 @@ sub _convert($$;$)
         }
         
         $result .= $self->open_element('entry', ['command',
-               $element->{'cmdname'}, _leading_spaces_before_argument($element)]);
+               $element->{'cmdname'}, _leading_spaces_arg($element)]);
         unshift @close_format_elements, 'entry';
       }
     } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
@@ -883,7 +833,7 @@ sub _convert($$;$)
         $attribute = ['command', $element->{'cmdname'}];
       }
       push @$attribute, ('index', $element->{'extra'}->{'index_entry'}->{'index_name'});
-      push @$attribute, _leading_spaces_before_argument($element);
+      push @$attribute, _leading_spaces_arg($element);
 
       my $end_line = $self->format_comment_or_return_end_line($element);
 
@@ -904,7 +854,7 @@ sub _convert($$;$)
         }
         my ($arg, $end_space, $end_line)
               = $self->_convert_argument_and_end_line($element);
-        push @$attribute, _leading_spaces_before_argument($element);
+        push @$attribute, _leading_spaces_arg($element);
         return $self->open_element($cmdname, $attribute).$arg.$end_space
                 .$self->close_element($cmdname).${end_line};
       } elsif ($type eq 'line') {
@@ -917,10 +867,10 @@ sub _convert($$;$)
           }
           # FIXME avoid protection, here?
           $result .= $self->open_element('node', ['name', $nodename,
-                                         _leading_spaces_before_argument($element)]);
+                                         _leading_spaces_arg($element)]);
           push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
           $result .= $self->open_element('nodename',
-            [$self->_trailing_spaces_arg($element->{'args'}->[0])])
+            [_trailing_spaces_arg($element->{'args'}->[0])])
              .$self->_convert({'contents' => $element->{'extra'}->{'node_content'}})
              .$self->close_element('nodename');
           # first arg is the node name.
@@ -936,7 +886,7 @@ sub _convert($$;$)
                 push @$attribute, ('automatic', 'on');
               }
               if ($element->{'args'}->[$direction_index]) {
-                push @$attribute, $self->_leading_trailing_spaces_arg(
+                push @$attribute, _leading_trailing_spaces_arg(
                                  $element->{'args'}->[$direction_index]);
               }
               if ($node_direction->{'extra'}->{'manual_content'}) {
@@ -956,7 +906,7 @@ sub _convert($$;$)
             } else {
               if ($element->{'args'}->[$direction_index]) {
                 $pending_empty_directions .= $self->open_element($format_element,
-                    [$self->_leading_trailing_spaces_arg(
+                    [_leading_trailing_spaces_arg(
                                  $element->{'args'}->[$direction_index])])
                             .$self->close_element($format_element);
               }
@@ -969,7 +919,7 @@ sub _convert($$;$)
           $result .= $self->format_comment_or_return_end_line($element);
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
         } elsif ($Texinfo::Common::root_commands{$cmdname}) {
-          my $attribute = [_leading_spaces_before_argument($element)];
+          my $attribute = [_leading_spaces_arg($element)];
           my $level_adjusted_cmdname
             = Texinfo::Structuring::section_level_adjusted_command_name($element);
           if ($level_adjusted_cmdname ne $cmdname) {
@@ -993,7 +943,7 @@ sub _convert($$;$)
             $result .= $closed_section_element;
           }
         } else {
-          my $attribute = [_leading_spaces_before_argument($element)];
+          my $attribute = [_leading_spaces_arg($element)];
           if ($cmdname eq 'listoffloats' and $element->{'extra'}
               and $element->{'extra'}->{'type'}
               and defined($element->{'extra'}->{'type'}->{'normalized'})) {
@@ -1179,7 +1129,7 @@ sub _convert($$;$)
         @format_elements = ($element->{'cmdname'});
         # leading spaces are directly associated to the @-command for @-command
         # in context_brace_commands
-        push @$attribute, _leading_spaces_before_argument($element);
+        push @$attribute, _leading_spaces_arg($element);
       }
 
       if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
@@ -1192,7 +1142,7 @@ sub _convert($$;$)
           # Leading spaces are gathered here except for context_brace_commands
           # (gathered just above).
           push @$attribute,
-            _leading_spaces_before_argument($element->{'args'}->[$arg_index]);
+            _leading_spaces_arg($element->{'args'}->[$arg_index]);
           my $in_monospace_not_normal;
           if (defined($default_args_code_style{$element->{'cmdname'}})
               and $default_args_code_style{$element->{'cmdname'}}->[$arg_index]) {
@@ -1285,7 +1235,7 @@ sub _convert($$;$)
       # argument that is also a context_brace_commands.  Leading spaces
       # after the command brace opening are only associated with command
       # if a context_brace_commands, therefore they are with the first argument.
-      push @$attribute, _leading_spaces_before_argument($element);
+      push @$attribute, _leading_spaces_arg($element);
       return $self->open_element($main_cmdname, $attribute).$args_or_one_arg_cmd
                .$self->close_element($main_cmdname);
     } elsif (exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
@@ -1348,12 +1298,12 @@ sub _convert($$;$)
             and $element->{'contents'}->[-1]->{'cmdname'} eq 'end') {
           $end_command = $element->{'contents'}->[-1];
         }
-        my $end_command_space = [_leading_spaces_before_argument($end_command)];
+        my $end_command_space = [_leading_spaces_arg($end_command)];
         if (scalar(@$end_command_space)) {
           $end_command_space->[0] = 'endspaces';
         }
         $result .= $self->open_element($element->{'cmdname'}, [@$attribute,
-                                     _leading_spaces_before_argument($element),
+                                     _leading_spaces_arg($element),
                                                            @$end_command_space])
                    .${prepended_elements};
         if ($element->{'args'}) {
@@ -1399,7 +1349,7 @@ sub _convert($$;$)
                 }
                 my $spaces = [];
                 if ($arg_index != 0) {
-                  push @$spaces, _leading_spaces_before_argument(
+                  push @$spaces, _leading_spaces_arg(
                                               $element->{'args'}->[$arg_index]);
                 }
                 if ($arg ne '' or scalar(@$spaces)) {
@@ -1476,7 +1426,7 @@ sub _convert($$;$)
                         and $prototype->{'type'} eq 'bracketed') {
                       push @$attribute, ('bracketed', 'on');
                       push @$attribute,
-                                  _leading_spaces_before_argument($prototype);
+                                  _leading_spaces_arg($prototype);
                     }
                     $result .= $self->open_element('columnprototype',
                                                    $attribute)
@@ -1598,7 +1548,7 @@ sub _convert($$;$)
                 and ($arg->{'type'} eq 'bracketed_def_content'
                   or ($arg->{'type'} eq 'bracketed_inserted'))) {
               push @$attribute, ('bracketed', 'on');
-              push @$attribute, _leading_spaces_before_argument($arg);
+              push @$attribute, _leading_spaces_arg($arg);
             }
             $result .= $self->open_element("def$format_element", $attribute).$content
                       .$self->close_element("def$format_element");
