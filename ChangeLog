@@ -1,8 +1,16 @@
 2022-09-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line):
+	remove reparenting of empty_line_after_command space container
+	that cannot happen anymore as it is not left when at the end
+	of the line.
+
+2022-09-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block):
-	remove code never used that is not relevan since there is no
+	remove code never used that is not relevant since there is no
 	empty_line_after_command space container left in block command
 	argument.
 

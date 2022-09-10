@@ -3571,38 +3571,6 @@ sub _end_line($$$)
         }
       }
     }
-   # do that last in order to have the line processed if one of the above
-   # case is also set.
-  } elsif (
-      $current->{'contents'}
-      and (scalar(@{$current->{'contents'}}) == 1
-           and (($current->{'contents'}->[-1]->{'type'}
-               and $current->{'contents'}->[-1]->{'type'} eq 'internal_empty_line_after_command'))
-          or (scalar(@{$current->{'contents'}}) == 2
-               and $current->{'contents'}->[-1]->{'cmdname'}
-               and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
-                    or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')
-               and $current->{'contents'}->[-2]
-               and $current->{'contents'}->[-2]->{'type'}
-               and $current->{'contents'}->[-2]->{'type'} eq 'internal_empty_line_after_command'))) {
-    # empty line after a @menu or before a preformatted. Reparent to the menu
-    # or other format
-    if ($current->{'type'} and $current->{'type'} eq 'preformatted') {
-      my $parent = $current->{'parent'};
-      if ($parent->{'type'} and $parent->{'type'} eq 'menu_comment'
-          and scalar(@{$parent->{'contents'}}) == 1) {
-        $parent = $parent->{'parent'};
-      }
-      my $to_reparent = pop @{$parent->{'contents'}};
-      print STDERR "LINE AFTER COMMAND IN PREFORMATTED ($to_reparent->{'type'})\n"
-              if ($self->{'DEBUG'});
-      while (@{$current->{'contents'}}) {
-        my $content = shift @{$current->{'contents'}};
-        $content->{'parent'} = $parent;
-        push @{$parent->{'contents'}}, $content;
-      }
-      push @{$parent->{'contents'}}, $to_reparent;
-    }
   }
 
   # this happens if there is a nesting of line @-commands on a line.
