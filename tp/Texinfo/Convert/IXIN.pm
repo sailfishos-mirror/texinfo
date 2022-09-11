@@ -351,7 +351,7 @@ sub output_ixin($$)
   my %end_of_nodes_setting_commands;
   my %setting_commands_defaults;
   # FIXME this code is unclear and probably needs to be fixed if developemnt
-  # resumes.
+  # resumes.  Maybe could be replaced by set_global_document_commands.
   foreach my $global_command (keys(%{$self->{'global_commands'}})) {
     if ((($Texinfo::Common::misc_commands{$global_command}
           and $Texinfo::Common::misc_commands{$global_command} =~ /^\d/)
@@ -390,7 +390,7 @@ sub output_ixin($$)
     my $setting_command = $setting_commands{$setting_command_name};
     $setting_command_name = 'shortcontents'
         if ($setting_command_name eq 'summarycontents');
-    # FIXME should use set_informative_command_value and get_conf instead
+    # FIXME should use get_conf instead?
     my $value = Texinfo::Common::_informative_command_value($setting_command);
     #print STDERR "$setting_command_name $value\n";
     # do not register settings if sete at the default value.
@@ -465,7 +465,7 @@ sub output_ixin($$)
       # update current settings
       if (defined($end_of_nodes_setting_commands{$normalized_node_name})) {
         foreach my $setting_command_name (keys(%{$end_of_nodes_setting_commands{$normalized_node_name}})) {
-          # FIXME should use Texinfo::Common::set_informative_command_value and get_conf
+          # FIXME should use get_conf instead?
           my $value = Texinfo::Common::_informative_command_value_informative_command_value(
             $end_of_nodes_setting_commands{$normalized_node_name}->{$setting_command_name});
           if ((defined($settings{$setting_command_name})

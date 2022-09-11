@@ -199,7 +199,7 @@ sub find_innermost_accent_contents($)
 sub expand_verbatiminclude($$$)
 {
   my $registrar = shift;
-  my $configuration_information = shift;
+  my $customization_information = shift;
   my $current = shift;
 
   my $input_encoding;
@@ -211,21 +211,21 @@ sub expand_verbatiminclude($$$)
         if (defined($current->{'extra'}->{'input_perl_encoding'}));
 
   my $encoding;
-  my $input_file_name_encoding = $configuration_information->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $input_file_name_encoding = $customization_information->get_conf('INPUT_FILE_NAME_ENCODING');
   if ($input_file_name_encoding) {
     $encoding = $input_file_name_encoding;
-  } elsif ($configuration_information->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
+  } elsif ($customization_information->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
     $encoding = $input_encoding;
   } else {
-    $encoding = $configuration_information->get_conf('LOCALE_ENCODING');
+    $encoding = $customization_information->get_conf('LOCALE_ENCODING');
   }
 
   my ($file_name, $file_name_encoding)
-      = Texinfo::Common::encode_file_name($configuration_information,
+      = Texinfo::Common::encode_file_name($customization_information,
                                                     $file_name_text,
                                                     $encoding);
 
-  my $file = Texinfo::Common::locate_include_file($configuration_information,
+  my $file = Texinfo::Common::locate_include_file($customization_information,
                                                   $file_name);
 
   my $verbatiminclude;
@@ -237,7 +237,7 @@ sub expand_verbatiminclude($$$)
         # need to decode to the internal perl codepoints for error message
         $decoded_file = Encode::decode($file_name_encoding, $file)
            if (defined($file_name_encoding));
-        $registrar->line_error($configuration_information,
+        $registrar->line_error($customization_information,
                       sprintf(__("could not read %s: %s"), $decoded_file, $!),
                       $current->{'source_info'});
       }
@@ -260,14 +260,14 @@ sub expand_verbatiminclude($$$)
           $decoded_file = Encode::decode($file_name_encoding, $file)
              if (defined($file_name_encoding));
           $registrar->document_warn(
-                 $configuration_information, sprintf(__(
+                 $customization_information, sprintf(__(
                       "error on closing \@verbatiminclude file %s: %s"),
                           $decoded_file, $!));
         }
       }
     }
   } elsif ($registrar) {
-    $registrar->line_error($configuration_information,
+    $registrar->line_error($customization_information,
                            sprintf(__("\@%s: could not find %s"),
                                        $current->{'cmdname'}, $file_name_text),
                            $current->{'source_info'});
@@ -426,7 +426,7 @@ X<C<expand_today>>
 
 Expand today's date, as a texinfo tree with translations.
 
-=item $tree = expand_verbatiminclude($registrar, $configuration_information, $verbatiminclude)
+=item $tree = expand_verbatiminclude($registrar, $customization_information, $verbatiminclude)
 X<C<expand_verbatiminclude>>
 
 The I<$registrar> argument may be undef.  I<$verbatiminclude> is a

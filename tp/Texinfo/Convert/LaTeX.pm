@@ -94,7 +94,9 @@
 #
 # CAN WAIT
 #
-# Use texinfo.cnf?  Here?  in texi2any.pl?
+# Use texinfo.cnf?  Here?  in texi2any.pl?  What about customization of
+# LaTeX output?  Some customization would be relevant, for example the
+# document type, fonts, packages...
 #
 # @need is implemented in a specific way, maybe there could be a definition of
 # \mil instead.
@@ -752,6 +754,12 @@ my %defaults = (
 
   'converted_format'     => 'latex',
 
+  # FIXME this sets an option that is not a customization variable
+  # and will not be documented anywhere.  It should probably be better
+  # to add and document a customization in the Texinfo manual if needed.
+  # For LaTeX in general, it could make sense to have some customization,
+  # for example of packages, fonts, document type, to be discussed/though
+  # about how to setup this customization.
   # FIXME any idea what could be used?
   'floats_extension'     => 'tfl',
 );

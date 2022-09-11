@@ -250,7 +250,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Convert::Texinfo converts a Texinfo tree (described in
+C<Texinfo::Convert::Texinfo> converts a Texinfo tree (described in
 L<Texinfo::Parser>) to Texinfo code.  If the Texinfo tree results from
 parsing some Texinfo document, The converted Texinfo code should be
 exactly the same as the initial document, except that user defined @-macros

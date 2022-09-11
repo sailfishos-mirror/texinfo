@@ -1624,7 +1624,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Convert::Unicode provides methods dealing with Unicode representation
+C<Texinfo::Convert::Unicode> provides methods dealing with Unicode representation
 and conversion of Unicode code points, to be used in converters.
 
 When an encoding supported in Texinfo is given as argument of a method of the
@@ -1674,7 +1674,7 @@ innermost accent.
 I<$format_accent> is a function reference that is used to format the accent
 commands if there is no encoded character available at some point of the
 conversion of the I<$stack>.  I<$converter> is a converter object optionaly
-used by I<$format_accent>.  It may be undef if there is no need of
+used by I<$format_accent>.  It may be C<undef> if there is no need of
 converter object in I<$format_accent>.
 
 If I<$set_case> is positive, the result is upper-cased, while if it is negative,

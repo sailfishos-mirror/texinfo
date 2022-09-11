@@ -6261,7 +6261,7 @@ C<Texinfo::Parser> will parse Texinfo text into a Perl tree.  In one pass
 it expands user-defined @-commands, conditionals (C<@ifset>, C<@ifinfo>...)
 and C<@value> and constructs the tree.  Some extra information is gathered
 while doing the tree: for example, the C<@quotation> associated to an C<@author>
-command, the number of cilumns in a multitable, or the node associated with a
+command, the number of columns in a multitable, or the node associated with a
 section.
 
 =head1 METHODS
@@ -6281,7 +6281,8 @@ X<C<Texinfo::Parser::parser>>
 X<Parser initialization>
 
 This method creates a new parser.  The options may be provided as a hash
-reference.
+reference.  Most of those options correspond to Texinfo customization options
+described in the Texinfo manual.
 
 =over
 
@@ -6296,8 +6297,8 @@ conditional blocks should be expanded.  Default is empty.
 
 =item FORMAT_MENU
 
-Possible values are 'nomenu', 'menu' and 'sectiontoc'.  Only report
-menu-related errors for 'menu'.
+Possible values are C<nomenu>, C<menu> and C<sectiontoc>.  Only report
+menu-related errors for C<menu>.
 
 =item INCLUDE_DIRECTORIES
 
@@ -6482,7 +6483,7 @@ X<C<registered_errors>>
 
 I<$registrar> is a L<Texinfo::Report> object in which the errors
 and warnings encountered while parsing are registered.  If a I<registrar>
-passed to the parser initialization options, it is reused, otherwise
+is passed to the parser initialization options, it is reused, otherwise
 a new one is created.
 
 =back
@@ -6492,7 +6493,7 @@ a new one is created.
 After parsing some information about the Texinfo code that was processed
 is available from the parser.
 
-Some global information is available through C<global_information>
+Some global information is available through C<global_information>:
 
 =over
 
@@ -6521,9 +6522,9 @@ C<input_perl_encoding> string is a corresponding Perl encoding name.
 =item input_directory
 
 The name of the main Texinfo input file and the associated directory.
-Binary strings.  They should come from the command line and can
-be decoded with the encoding in the customization variable
-C<COMMAND_LINE_ENCODING>.
+Binary strings.  In C<texi2any>, they should come from the command line
+(and can be decoded with the encoding in the customization variable
+C<COMMAND_LINE_ENCODING>).
 
 =back
 
@@ -6531,7 +6532,7 @@ C<COMMAND_LINE_ENCODING>.
 
 Some command lists are available, such that it is possible to go through
 the corresponding tree elements without walking the tree.  They are
-available through C<global_commands_information>
+available through C<global_commands_information>:
 
 =over
 
@@ -6545,9 +6546,9 @@ tree elements.
 =back
 
 All the @-commands that have an associated label (so can be the
-target of cross references) - C<@node>, C<@anchor> and C<@float> with
-label - have a normalized name associated, constructed as described in the
-I<HTML Xref> node in the Texinfo documenation.  Those normalized labels and
+target of cross references) -- C<@node>, C<@anchor> and C<@float> with
+label -- have a normalized name associated, constructed as described in the
+I<HTML Xref> node in the Texinfo documentation.  Those normalized labels and
 the association with @-commands is available through C<labels_information>:
 
 =over
@@ -6842,17 +6843,18 @@ contents, I<line_arg> and I<block_line_arg> contain the arguments
 appearing on the line of @-commands.  Text fragments may have a type to
 give an information of the kind of text fragment, for example
 I<empty_spaces_before_paragraph> is associated to spaces appearing
-before a paragraph beginning.  Many @-commands elements do not have
+before a paragraph beginning.  Most @-commands elements do not have
 a type associated.
 
 =item args
 
 Arguments in braces or on @-command line, and the elements of a menu entry.
+An array reference.
 
 =item contents
 
 The Texinfo appearing in the element.  For block commands, other
-containers, C<@node> and sectioning commands.
+containers, C<@node> and sectioning commands. An array reference.
 
 =item parent
 
@@ -6886,7 +6888,7 @@ The user macro name the @-command is expanded from.
 
 =item extra
 
-A hash reference holding any additional information.
+A hash reference holding any other information.
 See L</Information available in the extra key>.
 
 =back
@@ -6895,19 +6897,11 @@ See L</Information available in the extra key>.
 
 =head3 Types for command elements
 
-Some types can be associated with @-commands (in addition to the element
-being described by C<cmdname>), although usually there will be no type
-at all.  The following are the possible values of C<type> for tree elements
-for @-commands.
+Some types can be associated with @-commands (in addition to C<cmdname>),
+although usually there will be no type at all.  The following are the
+possible values of C<type> for tree elements for @-commands.
 
 =over
-
-=item def_line
-
-This type may be associated with a definition command with a x form,
-like C<@defunx>, C<@defvrx>.  For the form without x, the associated
-I<def_line> is the first C<contents> element.  It is described in more
-details below.
 
 =item command_as_argument
 
@@ -6923,11 +6917,32 @@ the element corresponding with bullet has the following keys:
   'cmdname' => 'bullet'
   'type' => 'command_as_argument'
 
-The parent @-command has an entry in extra for the I<command_as_argument>
+The parent @-command has an entry in C<extra> for the I<command_as_argument>
 element:
 
   'cmdname' => 'itemize'
-  'extra => {'command_as_argument' => $command_element_as_argument}
+  'extra' => {'command_as_argument' => $command_element_as_argument}
+
+=item def_line
+
+This type may be associated with a definition command with a x form,
+like C<@defunx>, C<@defvrx>.  For the form without x, the associated
+I<def_line> is the first C<contents> element.  It is described in more
+details below.
+
+=item definfoenclose_command
+
+This type is set for an @-command that is redefined by C<@definfoenclose>.
+The beginning is in C<< {'extra'}->{'begin'} >> and the end in
+C<< {'extra'}->{'end'} >>.
+
+=item following_arg
+
+This type is set for accent @-commands that don't use braces but instead
+have their argument after them, as
+
+  @~n
+  @ringaccent A
 
 =item index_entry_command
 
@@ -6942,20 +6957,6 @@ is:
 
 the C<@fooindex> @-command element will have the I<index_entry_command>
 type.
-
-=item following_arg
-
-This type is set for accent @-commands that don't use braces but instead
-have their argument after them, as
-
-  @~n
-  @ringaccent A
-
-=item definfoenclose_command
-
-This type is set for an @-command that is redefined by C<@definfoenclose>.
-The beginning is in C<< {'extra'}->{'begin'} >> and the end in
-C<< {'extra'}->{'end'} >>.
 
 =back
 
@@ -7017,7 +7018,7 @@ Text appearing before real content, including the C<\input texinfo.tex>.
 =item untranslated
 
 English text added by the parser that may need to be translated
-during conversion.  Happens for @def* @-commands aliases that
+during conversion.  Happens for C<@def*> @-commands aliases that
 leads to prepending text such as 'Function'.
 
 =back
@@ -7063,8 +7064,15 @@ corresponding to the I<preamble> in the Texinfo documentation.
 
 =head3 Types of container elements
 
-The other types of element are the following.  These are containers with
-other elements appearing in their C<contents>.
+The other types of element are containers with other elements appearing in
+their C<contents>.  The C<paragraph> container holds normal text from the Texinfo
+manual outside of any @-commands, and within @-commands with blocks of text
+(C<@footnote>, C<@itemize> C<@item>, C<@quotation> for example).  The C<preformatted>
+container holds the content appearing in @-commands like C<@example> and
+the C<rawpreformatted> container holds the content appearing in format commands
+such as C<@html>.  The other containers are more specific.
+
+The types of container element are the following:
 
 =over
 
@@ -7219,6 +7227,11 @@ Texinfo code within a format that is not filled.  Happens within some
 block commands like C<@example>, but also in menu (in menu descriptions,
 menu comments...).
 
+=item rawpreformatted
+
+Texinfo code within raw output format block commands such as C<@tex>
+or C<@html>.
+
 =item table_entry
 
 =item table_term
@@ -7240,7 +7253,7 @@ and C<@itemx>, in a I<table_term>.
 
 =back
 
-=head2 Information available in the extra key
+=head2 Information available in the C<extra> key
 X<Texinfo tree element extra key>
 
 =head3 Extra keys available for more than one @-command
@@ -7352,9 +7365,9 @@ I<original_def_cmdname> is the original def command.
 If it is an x form, it has I<not_after_command> set if not
 appearing after the definition command without x.
 
-=item def_line
+=item C<def_line>
 
-For each element in a def_line, the key I<def_role> holds a string
+For each element in a C<def_line>, the key I<def_role> holds a string
 describing the meaning of the element.  It is one of
 I<category>, I<name>, I<class>, I<type>, I<arg>, I<typearg>,
 I<spaces> or I<delimiter>, depending on the definition.
@@ -7363,27 +7376,22 @@ The I<def_parsed_hash> hash reference has these strings as keys,
 and the values are the corresponding elements.
 
 The I<omit_def_name_space> key value is set and true if the Texinfo variable
-@code{txidefnamenospace} was set for the def_line, signaling that the
+C<txidefnamenospace> was set for the C<def_line>, signaling that the
 space between function definition name and arguments should be omitted.
 
-=item definfoenclose defined commands
+=item C<@definfoenclose> defined commands
 
-I<begin> holds the string beginning the definfoenclose,
-I<end> holds the string ending the definfoenclose.
+I<begin> holds the string beginning the C<@definfoenclose>,
+I<end> holds the string ending the C<@definfoenclose>.
 
 =item C<@documentencoding>
 
 The argument, normalized is in I<input_encoding_name> if it is recognized.
 The corresponding Perl encoding name is in I<input_perl_encoding>.
 
-=item empty_line_after_command
-
-The corresponding command is in I<spaces_associated_command>.
-
 =item C<@enumerate>
 
-The extra key I<enumerate_specification> contains the enumerate
-argument.
+The I<enumerate_specification> C<extra> key contains the enumerate argument.
 
 =item C<@float>
 
@@ -7422,7 +7430,7 @@ C<@inlinefmtifelse>, and 1 for other commands.
 
 =item C<@item> in C<@enumerate> or C<@itemize>
 
-The I<item_number> extra key holds the number of this item.
+The I<item_number> C<extra> key holds the number of this item.
 
 =item C<@item> and C<@tab> in C<@multitable>
 
@@ -7437,13 +7445,13 @@ the cell.
 
 =item C<@ftable>
 
-The I<command_as_argument> extra key points to the @-command on
+The I<command_as_argument> C<extra> key points to the @-command on
 as argument on the @-command line.
 
 If the command in argument for C<@table>, C<@vtable> or C<@ftable>
 is C<@kbd> and the context and C<@kbdinputstyle> is such that C<@kbd>
 should be formatted as code, the I<command_as_argument_kbd_code>
-extra key is set to 1.
+C<extra> key is set to 1.
 
 =item C<@kbd>
 
@@ -7454,7 +7462,7 @@ I<code> is set depending on the context and C<@kbdinputstyle>.
 I<invalid_syntax> is set if there was an error on the C<@macro>
 line.  I<arg_line> holds the line after C<@macro>.
 
-=item menu_entry
+=item <menu_entry>
 
 The I<menu_entry_description> and I<menu_entry_name> keys
 are associated with the corresponding tree elements. The
@@ -7490,7 +7498,7 @@ references to menu elements occuring in the node.
 The first node containing a C<@printindex> @-command has the I<isindex>
 key set.
 
-=item paragraph
+=item C<paragraph>
 
 The I<indent> or I<noindent> key value is set if the corresponding
 @-commands are associated with that paragraph.
@@ -7512,7 +7520,7 @@ no sectioning command between the C<@part> and the node.
 The I<node_argument> entry holds a parsed node entry, like
 the one appearing in the I<nodes_manuals> array for C<@node>.
 
-=item row
+=item C<row>
 
 The I<row_number> index key holds the index of the row in
 the C<@multitable>.

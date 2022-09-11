@@ -229,7 +229,7 @@ sub gdt($$;$$$)
   # relevant information (if any).  It could also mess with the parser
   # state, though this has not been checked for a long time.
 
-  # configuration only found in parser, not available through get_conf().
+  # information only found in parser, not available through get_conf().
   # Note that it is only available for the NonXS parser.
   my $parser_conf;
   if ($current_parser) {
@@ -238,7 +238,7 @@ sub gdt($$;$$$)
         if (defined($current_parser->{$duplicated_conf}));
     }
   }
-  # general configuration relevant for parser
+  # general customization relevant for parser
   if ($self) {
     foreach my $conf_variable ('DEBUG') {
       if (defined($self->get_conf($conf_variable))) {
@@ -420,7 +420,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-The Texinfo::Translations module helps with translations
+The C<Texinfo::Translations> module helps with translations
 in output documents.
 
 Translation of error messages uses another interface which
@@ -449,9 +449,9 @@ some string, texinfo tree or array content that is substituted in
 the resulting texinfo tree.  In the string to be translated word
 in brace matching keys of I<$replaced_substrings> are replaced.
 The I<$object> is typically a converter, but can be any object that implements
-C<get_conf()>, or undefined (C<undef>).  If not undefined, the information in the
+C<get_conf>, or undefined (C<undef>).  If not undefined, the information in the
 I<$object> is used to determine the encoding, the documentlanguage and get some
-configuration information. I<$lang> is optional. If set, it overrides the
+customization information. I<$lang> is optional. If set, it overrides the
 documentlanguage.
 
 =begin comment
@@ -464,7 +464,7 @@ documentation.
 =end comment
 
 For example, in the following call, the string
-I<See {reference} in @cite{{book}}> is translated, then
+C<See {reference} in @cite{{book}}> is translated, then
 parsed as a Texinfo string, with I<{reference}> substituted by
 I<$tree_reference> in the resulting tree, and I<{book}>
 replaced by the associated texinfo tree text element:

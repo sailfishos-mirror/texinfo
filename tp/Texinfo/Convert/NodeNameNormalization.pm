@@ -422,11 +422,11 @@ Texinfo to other formats.  There is no promise of API stability.
 
 C<Texinfo::Convert::NodeNameNormalization> allows to normalize node names,
 with C<normalize_node> following the specification described in the 
-Texinfo manual for HTML Xref.  This is usefull each time one want a 
+Texinfo manual I<HTML Xref> node.  This is usefull each time one want a 
 unique identifier for Texinfo content that is only composed of letter,
 digits, C<-> and C<_>.  In L<Texinfo::Parser>, C<normalize_node> is used 
-for node, floats and anchor names normalization, but also float 
-types C<@acronym> and C<@abbr> first argument.
+for C<@node>, C<@float> and C<@anchor> names normalization, but also C<@float> 
+types and C<@acronym> and C<@abbr> first argument.
 
 It is also possible to transliterate non ascii letters, instead of mangling 
 them, with C<transliterate_texinfo>, losing the uniqueness feature of 
@@ -443,7 +443,7 @@ letters and protect characters that should not appear on file names.
 X<C<normalize_node>>
 
 The Texinfo I<$tree> is returned as a string, normalized as described in the
-Texinfo manual for HTML Xref.
+Texinfo manual I<HTML Xref> node.
 
 The result will be poor for Texinfo trees which are not @-command arguments 
 (on an @-command line or in braces), for instance if the tree contains 

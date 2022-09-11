@@ -795,7 +795,7 @@ sub _protect_hashchar_at_line_beginning($$$)
   my $current = shift;
   my $argument = shift;
 
-  my ($registrar, $configuration_information) = @$argument;
+  my ($registrar, $customization_information) = @$argument;
 
   #print STDERR "$type $current ".debug_print_element($current)."\n";
   # if the next is a hash character at line beginning, mark it
@@ -839,7 +839,7 @@ sub _protect_hashchar_at_line_beginning($$$)
       while ($parent) {
         if ($parent->{'cmdname'} and $parent->{'source_info'}) {
           if ($registrar) {
-            $registrar->line_warn($configuration_information, sprintf(__(
+            $registrar->line_warn($customization_information, sprintf(__(
                 "could not protect hash character in \@%s"),
                            $parent->{'cmdname'}), $parent->{'source_info'});
           }
@@ -865,11 +865,11 @@ sub _protect_hashchar_at_line_beginning($$$)
 sub protect_hashchar_at_line_beginning($$$)
 {
   my $registrar = shift;
-  my $configuration_information = shift;
+  my $customization_information = shift;
   my $tree = shift;
 
   return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
-                                       [$registrar, $configuration_information]);
+                                       [$registrar, $customization_information]);
 }
 
 1;
@@ -907,7 +907,7 @@ Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional
 C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $configuration_information, $tree)>.
+called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $customization_information, $tree)>.
 
 =item complete_tree_nodes_missing_menu($tree, $use_section_names_in_entries)
 X<C<complete_tree_nodes_missing_menu>>
@@ -916,7 +916,7 @@ Add whole menus for nodes associated with sections and without menu,
 based on the sectioning tree.  If the optional
 C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
-called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $configuration_information, $tree)>.
+called after L<sectioning_structure|Texinfo::Structuring/$sections_root, $sections_list = sectioning_structure($registrar, $customization_information, $tree)>.
 
 =item ($root_content, $added_sections) = fill_gaps_in_sectioning($tree)
 X<C<fill_gaps_in_sectioning>>
@@ -962,18 +962,18 @@ X<C<new_master_menu>>
 
 Returns a detailmenu tree element formatted as a master node.
 I<$translations>, if defined, should be a L<Texinfo::Translations> object and
-should also hold configuration information.
+should also hold customization information.
 
-=item protect_hashchar_at_line_beginning($registrar, $configuration_information, $tree)
+=item protect_hashchar_at_line_beginning($registrar, $customization_information, $tree)
 X<C<protect_hashchar_at_line_beginning>>
 
 Protect hash (#) character at the beginning of line such that they would not be
 considered as lines to be processed by the CPP processor.  The I<$registrar>
-and I<$configuration_information> arguments may be undef.  If defined, the
+and I<$customization_information> arguments may be undef.  If defined, the
 I<$registrar> argument should be a L<Texinfo::Report> object in which the
 errors and warnings encountered while parsing are registered.  If defined,
-I<$configuration_information> should give access to configuration through
-C<get_conf()>.  If both I<$registrar> and I<$configuration_information> are
+I<$customization_information> should give access to customization through
+C<get_conf>.  If both I<$registrar> and I<$customization_information> are
 defined they are used for error reporting in case an hash character could not
 be protected because it appeared in a raw environment.
 
@@ -992,7 +992,7 @@ X<C<regenerate_master_menu>>
 Regenerate the Top node master menu, replacing the first detailmenu
 in Top node menus or appending at the end of the Top node menu.
 I<$translations>, if defined, should be a L<Texinfo::Translations> object and
-should also hold configuration information.
+should also hold customization information.
 
 =back
 

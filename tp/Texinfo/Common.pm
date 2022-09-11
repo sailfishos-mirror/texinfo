@@ -261,7 +261,7 @@ our %default_converter_customization = (
   # only used in HTML
   'HANDLER_FATAL_ERROR_LEVEL' => 100,
   'TEST'                  => 0,
-  'TEXTCONTENT_COMMENT',  => undef,  # in textcontent format
+  'TEXTCONTENT_COMMENT'   => undef,  # in textcontent format
 );
 
 # Some are for all converters, EXTENSION for instance, some for
@@ -1228,7 +1228,7 @@ sub locate_init_file($$$)
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;
-  my $configuration_information = shift;
+  my $customization_information = shift;
   my $file_path = shift;
   my $use_binmode = shift;
   my $output_encoding = shift;
@@ -1236,8 +1236,8 @@ sub output_files_open_out($$$;$$)
   my $encoding;
   if (defined($output_encoding)) {
     $encoding = $output_encoding;
-  } elsif (defined($configuration_information->get_conf('OUTPUT_PERL_ENCODING'))) {
-    $encoding = $configuration_information->get_conf('OUTPUT_PERL_ENCODING');
+  } elsif (defined($customization_information->get_conf('OUTPUT_PERL_ENCODING'))) {
+    $encoding = $customization_information->get_conf('OUTPUT_PERL_ENCODING');
   }
 
   if ($file_path eq '-') {
@@ -1561,10 +1561,10 @@ sub parse_node_manual($)
 # ASCII, as the name of the directory it is located within may contain
 # non-ASCII characters.
 #   Otherwise, the -e operator and similar may not work correctly.
-# TODO Really use configuration_information?  Document when the API is final
+# TODO Really use customization_information?  Document when the API is final
 sub encode_file_name($$;$)
 {
-  my $configuration_information = shift;
+  my $customization_information = shift;
   my $file_name = shift;
   my $input_encoding = shift;
 
@@ -1583,7 +1583,7 @@ sub encode_file_name($$;$)
 
 sub locate_include_file($$)
 {
-  my $configuration_information = shift;
+  my $customization_information = shift;
   my $input_file_path = shift;
 
   my $ignore_include_directories = 0;
@@ -1592,8 +1592,8 @@ sub locate_include_file($$)
      = File::Spec->splitpath($input_file_path);
   my @directories = File::Spec->splitdir($directories);
 
-  #print STDERR "$configuration_information $input_file_path ".
-  # @{$configuration_information->get_conf('INCLUDE_DIRECTORIES')}\n";
+  #print STDERR "$customization_information $input_file_path ".
+  # @{$customization_information->get_conf('INCLUDE_DIRECTORIES')}\n";
   # If the path is absolute or begins with . or .., do not search in
   # include directories.
   if (File::Spec->file_name_is_absolute($input_file_path)) {
@@ -1614,14 +1614,14 @@ sub locate_include_file($$)
     $found_file = $input_file_path if (-e $input_file_path and -r $input_file_path);
   } else {
     my @dirs;
-    if ($configuration_information
-        and $configuration_information->get_conf('INCLUDE_DIRECTORIES')) {
-      @dirs = @{$configuration_information->get_conf('INCLUDE_DIRECTORIES')};
+    if ($customization_information
+        and $customization_information->get_conf('INCLUDE_DIRECTORIES')) {
+      @dirs = @{$customization_information->get_conf('INCLUDE_DIRECTORIES')};
     } else {
       # no object with directory list and not an absolute path, never succeed
       return undef;
     }
-    foreach my $include_dir (@{$configuration_information->get_conf('INCLUDE_DIRECTORIES')}) {
+    foreach my $include_dir (@{$customization_information->get_conf('INCLUDE_DIRECTORIES')}) {
       my ($include_volume, $include_directories, $include_filename)
          = File::Spec->splitpath($include_dir, 1);
       
@@ -1704,7 +1704,7 @@ sub set_global_document_command($$$$)
 
   if ($command_location ne 'last' and $command_location ne 'preamble_or_first'
       and $command_location ne 'preamble') {
-    warn "BUG: set_global_document_commands: unknown command_location: $command_location";
+    warn "BUG: set_global_document_command: unknown command_location: $command_location";
   }
 
   my $element;
@@ -1741,18 +1741,18 @@ sub set_global_document_command($$$$)
 
 sub set_output_encodings($$)
 {
-  my $configuration_information = shift;
+  my $customization_information = shift;
   my $parser_information = shift;
 
-  $configuration_information->set_conf('OUTPUT_ENCODING_NAME',
+  $customization_information->set_conf('OUTPUT_ENCODING_NAME',
                $parser_information->{'input_encoding_name'})
      if ($parser_information->{'input_encoding_name'});
-  if (!$configuration_information->get_conf('OUTPUT_PERL_ENCODING')
-       and $configuration_information->get_conf('OUTPUT_ENCODING_NAME')) {
+  if (!$customization_information->get_conf('OUTPUT_PERL_ENCODING')
+       and $customization_information->get_conf('OUTPUT_ENCODING_NAME')) {
     my $perl_encoding
-      = Encode::resolve_alias($configuration_information->get_conf('OUTPUT_ENCODING_NAME'));
+      = Encode::resolve_alias($customization_information->get_conf('OUTPUT_ENCODING_NAME'));
     if ($perl_encoding) {
-      $configuration_information->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
+      $customization_information->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
     }
   }
 }
@@ -2930,7 +2930,7 @@ All the @-commands.
 =item %accent_commands
 X<C<%accent_commands>>
 
-Accent @-commands taking an argument, like C<@'> or C<@ringaccent>
+Accent @-commands taking an argument, like C<@'> or C<@ringaccent>,
 including C<@dotless> and C<@tieaccent>.
 
 =item %align_commands
@@ -2944,7 +2944,8 @@ X<C<%block_commands>>
 Commands delimiting a block with a closing C<@end>.  The value
 is I<conditional> for C<@if> commands, I<def> for definition
 commands like C<@deffn>, I<raw> for @-commands that have no expansion
-of @-commands in their bodies and I<multitable> for C<@multitable>.
+of @-commands in their bodies (C<@macro>, C<@verbatim> and C<@ignore>),
+and I<multitable> for C<@multitable>.
 Otherwise it is set to the number of arguments separated by commas
 that may appear on the @-command line, or to I<variadic> if there is
 an unlimited number of arguments. That means 0 in most cases,
@@ -3105,7 +3106,8 @@ I<style_commands> that have their argument in regular font, C<@r>.
 X<C<%root_commands>>
 
 Commands that are at the root of a Texinfo document, namely
-C<@node> and sectioning commands, except heading commands.
+C<@node> and sectioning commands, except heading commands
+like C<@heading>.
 
 =item %sectioning_heading_commands
 X<C<%sectioning_heading_commands>>
@@ -3128,7 +3130,12 @@ C<@cite>, C<@code> or C<@asis>.
 
 =head1 METHODS
 
-No method is exported in the default case.
+No method is exported in the default case.  The Texinfo tree
+and Texinfo tree elements are documented in L<Texinfo::Parser/TEXINFO TREE>.
+When customization information is needed, an object that defines
+C<set_conf> and/or C<get_conf> is expected, for example
+a converter inheriting from C<Texinfo::Convert::Converter>, see
+L<Texinfo::Convert::Converter/Getting and setting customization variables>.
 
 =over
 
@@ -3169,7 +3176,7 @@ is C<e>.
 =item $command = find_parent_root_command($object, $tree_element)
 X<C<find_parent_root_command>>
 
-Find the parent root command of a tree element (sectioning command or node).
+Find the parent root command (sectioning command or node) of a tree element.
 The I<$object> argument is optional, its C<global_commands> field is used
 to continue through C<@insertcopying> if in a C<@copying>.
 
@@ -3180,7 +3187,7 @@ Return true if the I<$tree> has content that could be formatted.
 I<$do_not_ignore_index_entries> is optional.  If set, index entries
 are considered to be formatted.
 
-=item $file = $converter->locate_include_file($file_path)
+=item $file = locate_include_file($customization_information, file_path)
 X<C<locate_include_file>>
 
 Locate I<$file_path>.  If I<$file_path> is an absolute path or has C<.>
@@ -3243,16 +3250,16 @@ and C<move_index_entries_after_items> together.
 =item $level = section_level($section)
 X<C<section_level>>
 
-Return numbered level of the tree sectioning I<$section>, as modified by
+Return numbered level of the tree sectioning element I<$section>, as modified by
 raise/lowersections.
 
-=item $element = set_global_document_command($configuration_information, $global_commands_information, $cmdname, $command_location)
+=item $element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)
 X<C<set_global_document_command>>
 
 Set the Texinfo configuration option corresponding to I<$cmdname> in
-I<$configuration_information>.  The I<$global_commands_information> should
+I<$customization_information>.  The I<$global_commands_information> should
 contain information about global commands in a Texinfo document, typically obtained
-from a parser, like L<Texinfo::Parser/$commands = global_commands_information($parser)>.
+from a parser, like L<< $parser->global_commands_information()|Texinfo::Parser/$commands = global_commands_information($parser) >>.
 I<$command_location> specifies where in the document the value should be taken from,
 for commands that may appear more than once. The possibilities are:
 
@@ -3277,7 +3284,11 @@ sequentially to the values in the Texinfo preamble.
 The I<$element> returned is the last element that was used to set the
 configuration value, or C<undef> if no configuration value was found.
 
-=item set_informative_command_value($configuration_information, $element)
+Notice that the only effect of this function is to set a customization
+variable value, no @-command side effects are run, no associated customization
+variables are set.
+
+=item set_informative_command_value($customization_information, $element)
 X<C<set_informative_command_value>>
 
 Set the Texinfo configuration option corresponding to the tree element
@@ -3285,7 +3296,7 @@ I<$element>.  The command associated to the tree element should be
 a command that sets some information, such as C<@documentlanguage>,
 C<@contents> or C<@footnotestyle> for example.
 
-=item set_output_encodings($configuration_information, $parser_information)
+=item set_output_encodings($customization_information, $parser_information)
 X<C<set_output_encodings>>
 
 If not already set, set C<OUTPUT_ENCODING_NAME> based on input file

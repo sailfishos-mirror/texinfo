@@ -68,6 +68,9 @@ my %defaults = (
 # but is available directly in the converter as a hash key.
 # FIXME separate the two types of information and check that those
 # items are not valid customization options?
+# NOTE converters for now do not add more, and, in general set only
+# output_format.  It would be good to keep it that way and add
+# customization options instead.
 my %common_converters_defaults = (
   'language_config_dirs' => undef,
   'converted_format'     => undef,
@@ -76,8 +79,11 @@ my %common_converters_defaults = (
   'output_format'        => undef,
   'structuring'          => undef,
   'translated_commands'  => {'error' => 'error@arrow{}',},
+
 # This is the default, mainly for tests; the caller should set them.  These
-# values are what is used in tests of the Converters.
+# values are what is used in tests of the Converters.  These variables are
+# customization options, set in the main program when a converter is
+# called from the main program.
   'PACKAGE_AND_VERSION'  => 'texinfo',
   'PACKAGE_VERSION'      => '',
   'PACKAGE_URL'          => 'http://www.gnu.org/software/texinfo/',
@@ -223,9 +229,9 @@ sub converter(;$)
       $converter->{'set'}->{$key} = 1;
     }
   }
-  # set $converter->{'converter_init_conf'} to the configuration
+  # set $converter->{'converter_init_conf'} to the customization
   # options obtained after setting the defaults and applying
-  # the configuration passed as argument.
+  # the customization passed as argument.
   $converter->{'converter_init_conf'} = { %{$converter->{'conf'}} };
   foreach my $key (keys (%defaults)) {
     if (defined($converter->{$key})) {
@@ -461,7 +467,7 @@ sub output($$)
 
 
 ###############################################################
-# Implementation of the configuration API that is used in many
+# Implementation of the customization API that is used in many
 # Texinfo modules
 
 sub get_conf($$)
@@ -975,7 +981,7 @@ sub set_global_document_commands($$;$)
 
   my $init_conf;
   if (defined($self->{'output_init_conf'})) {
-    # use in priority the initial configuration per output
+    # use in priority the initial customization per output
     $init_conf = $self->{'output_init_conf'};
   } else {
     $init_conf = $self->{'converter_init_conf'};
@@ -995,7 +1001,7 @@ sub set_global_document_commands($$;$)
       # in $self->get_conf(), but what is available from $self->get_conf() could
       # also be a value set by a previous call of set_global_document_commands.
       # There is no easy way to deal with this issue, other than making sure that
-      # a configuration value that is expected to be set early is set in $init_conf.
+      # a customization value that is expected to be set early is set in $init_conf.
     }
   } else {
     foreach my $global_command (@{$selected_commands}) {
@@ -1677,7 +1683,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Convert::Converter is a super class that can be used to
+C<Texinfo::Convert::Converter> is a super class that can be used to
 simplify converters initialization.  The class also provide some
 useful methods.
 
@@ -1726,10 +1732,16 @@ C<Texinfo::Convert::Converter>.
 The I<$options> hash reference holds options for the converter.  In
 this option hash reference a L<parser object|Texinfo::Parser>
 may be associated with the I<parser> key.  The other options
-should be configuration options described in the Texinfo manual.
-Those options, when appropriate, override the document content.  The parser
-should not be available directly anymore after getting the associated
-information.
+are Texinfo customization options and a few other options that can
+be passed to the converter. Most of the customization options
+are described in the Texinfo manual.
+Those customization options, when appropriate, override the document content.
+B<TODO what about the other options (all are used in converters;
+'structuring' is available in HTML $converter-E<gt>get_info()?>
+The parser should not be available directly anymore after getting the
+associated information. B<TODO document this associated information
+('parser_info', 'indices_information', 'floats'..., most available
+in HTML converter, either through $converter-E<gt>get_info() or label_command())>
 
 The C<converter> function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations,
@@ -1738,21 +1750,99 @@ also initialized as a L<Texinfo::Report>.
 
 =back
 
-To help with these initializations, the modules subclassing C<Texinfo::Convert::Converter> can define two methods:
+To help with these initializations, the modules subclassing C<Texinfo::Convert::Converter>
+can define two methods:
 
 =over
 
 =item %defaults = $converter->converter_defaults($options)
 X<C<converter_defaults>>
 
-The module can provide a defaults hash for converter configuration options.
+The module can provide a defaults hash for converter customization options.
 The I<$options> hash reference holds options for the converter.
 
 =item converter_initialize
 X<C<converter_initialize>>
 
-This method is called at the end of the Texinfo::Convert::Converter
+This method is called at the end of the C<Texinfo::Convert::Converter>
 converter initialization.
+
+=back
+
+=head2 Getting and setting customization variables
+
+C<Texinfo::Convert::Converter> implements a simple interface to
+set and retrieve Texinfo customization variables.  Helper
+functions from diverse Texinfo modules needing customization
+information expect an object implementing C<get_conf> and/or
+C<set_conf>.  The converter itself can therefore be used in
+such cases.
+
+=over
+
+=item $converter->force_conf($variable_name, $variable_value)
+X<C<force_conf>>
+
+Set the Texinfo customization option I<$variable_name> to I<$variable_value>.
+This should rarely be used, but the purpose of this method is to be able
+to revert a customization that is always wrong for a given output
+format, like the splitting for example.
+
+=item $converter->get_conf($variable_name)
+X<C<get_conf>>
+
+Returns the value of the Texinfo customization variable I<$variable_name>.
+
+=item $converter->set_conf($variable_name, $variable_value)
+X<C<set_conf>>
+
+Set the Texinfo customization option I<$variable_name> to I<$variable_value> if
+not set as a converter option.
+
+=back
+
+=head2 Conversion to XML
+
+Some C<Texinfo::Convert::Converter> methods target conversion to XML.
+Most methods take a I<$converter> as argument to get some
+information and use methods for error reporting.
+
+=over
+
+=item $formatted_text = $converter->xml_format_text_with_numeric_entities($text)
+X<C<xml_format_text_with_numeric_entities>>
+
+Replace quotation marks and hyphens used to represent dash in
+Texinfo text with numeric XML entities.
+
+=item $protected_text = $converter->xml_protect_text($text)
+X<C<xml_protect_text>>
+
+Protect special XML characters (&, E<lt>, E<gt>, ") of I<$text>.
+
+=item $comment = $converter->xml_comment($text)
+X<C<xml_comment>>
+
+Returns an XML comment for I<$text>.
+
+=item $result = xml_accent($text, $accent_command, $in_upper_case, $use_numeric_entities)
+X<C<xml_accent>>
+
+I<$text> is the text appearing within an accent command.  I<$accent_command>
+should be a Texinfo tree element corresponding to an accent command taking
+an argument.  I<$in_upper_case> is optional, and, if set, the text is put
+in upper case.  The function returns the accented letter as XML named entity
+if possible, falling back to numeric entities if there is no named entity
+and to an ASCII transliteration as last resort.  I<$use_numeric_entities>
+is optional.  If set, numerical entities are used instead of named entities
+if possible.
+
+=item $result = $converter->xml_accents($accent_command, $in_upper_case)
+X<C<xml_accents>>
+
+I<$accent_command> is an accent command, which may have other accent
+commands nested.  If I<$in_upper_case> is set, the result should be
+upper cased.  The function returns the accents formatted as XML.
 
 =back
 
@@ -1763,7 +1853,7 @@ Most methods take a I<$converter> as argument to get some
 information and use methods for error reporting, see L<Texinfo::Report>.  Also
 to translate strings, see L<Texinfo::Translations>.  For
 useful methods that need a converter optionally and can be used
-in converters that do not inherit from Texinfo::Convert::Converter,
+in converters that do not inherit from C<Texinfo::Convert::Converter>,
 see L<Texinfo::Convert::Utils>.
 
 =over
@@ -1806,10 +1896,10 @@ X<C<determine_files_and_directory>>
 
 Determine output file and directory, as well as names related to files.  The
 result depends on the presence of C<@setfilename>, on the Texinfo input file
-name, and on customization options such as OUTPUT, SUBDIR or SPLIT, as described
-in the Texinfo manual.  I<$output_format> is optional.  If it is not set the
-current output format, if defined, is used instead.  If not an empty string,
-C<_$output_format> is prepended to the default directory name.
+name, and on customization options such as C<OUTPUT>, C<SUBDIR> or C<SPLIT>,
+as described in the Texinfo manual.  I<$output_format> is optional.  If it is
+not set the current output format, if defined, is used instead.  If not an
+empty string, C<_$output_format> is prepended to the default directory name.
 
 I<$output_file> is mainly relevant when not split and should be used as the
 output file name.  In general, if not split and I<$output_file> is an empty
@@ -1819,7 +1909,7 @@ I<$destination_directory> is either the directory I<$output_file> is in, or if
 split, the directory where the files should be created.  I<$output_filename>
 is, in general, the file name portion of I<$output_file> (without directory)
 but can also be set based on C<@setfilename>, in particular when
-C<$output_file> is an empty string. I<$document_name> is C<$output_filename>
+I<$output_file> is an empty string. I<$document_name> is I<$output_filename>
 without extension.  I<$input_basefile> is based on the input texinfo file name,
 with the file name portion only (without directory).
 
@@ -1855,14 +1945,6 @@ I<$float> is a texinfo tree C<@float> element.  This function
 returns the type and number of the float as a texinfo tree with
 translations.
 
-=item $converter->force_conf($option_string, $value)
-X<C<force_conf>>
-
-Set the Texinfo configuration option I<$option_string> to I<$value>.
-This should rarely be used, but the purpose of this method is to be able
-to revert a configuration that is always wrong for a given output
-format, like the splitting for example.
-
 =item $end_line = $converter->format_comment_or_return_end_line($element)
 X<C<format_comment_or_return_end_line>>
 
@@ -1871,11 +1953,6 @@ the element.  In many cases, converters ignore comments and output is
 better formatted with new lines added independently of the presence
 of newline or comment in the initial Texinfo line, so most converters
 are better off not using this method.
-
-=item $converter->get_conf($option_string)
-X<C<get_conf>>
-
-Returns the value of the Texinfo configuration option I<$option_string>.
 
 =item $filename = sub $converter->node_information_filename($node_info)
 X<C<node_information_filename>>
@@ -1898,16 +1975,10 @@ X<C<present_bug_message>>
 Show a bug message using I<$message> text.  Use information on
 I<$element> tree element if given in argument.
 
-=item $converter->set_conf($option_string, $value)
-X<C<set_conf>>
-
-Set the Texinfo configuration option I<$option_string> to I<$value> if
-not set as a converter option.
-
 =item $converter->set_global_document_commands($commands_location, $selected_commands)
 X<C<set_global_document_commands>>
 
-Set the Texinfo configuration options for @-commands.  I<$selected_commands>
+Set the Texinfo customization options for @-commands.  I<$selected_commands>
 is an optional array reference containing the @-commands set, if not given
 all the global informative @-commands are set.  I<$commands_location> specifies
 where in the document the value should be taken from. The possibilities are:
@@ -1938,60 +2009,22 @@ Notice that the only effect of this function is to set a customization
 variable value, no @-command side effects are run, no associated customization
 variables are set.
 
+For more information on the function used to set the value for each of the command, see
+L<Texinfo::Common set_global_document_command|Texinfo::Common/$element = set_global_document_command($customization_information, $global_commands_information, $cmdname, $command_location)>.
+
 =item $table_item_tree = $converter->table_item_content_tree($element, $contents)
 X<C<table_item_content_tree>>
 
 I<$element> should be an C<@item> or C<@itemx> tree element,
 I<$contents> should be corresponding texinfo tree contents.
-Returns a tree in which the @-command in argument of @*table
+Returns a tree in which the @-command in argument of C<@*table>
 of the I<$element> has been applied to I<$contents>.
 
 =item $result = $converter->top_node_filename($document_name)
 X<C<top_node_filename>>
 
-Returns a file name for the Top node file using either TOP_FILE
-customization value, or EXTENSION customization value and I<$document_name>.
-
-=back
-
-Other C<Texinfo::Convert::Converter> methods target conversion to XML:
-
-=over
-
-=item $formatted_text = $converter->xml_format_text_with_numeric_entities($text)
-X<C<xml_format_text_with_numeric_entities>>
-
-Replace quotation marks and hyphens used to represent dash in
-Texinfo text with numeric XML entities.
-
-=item $protected_text = $converter->xml_protect_text($text)
-X<C<xml_protect_text>>
-
-Protect special XML characters (&, E<lt>, E<gt>, ") of I<$text>.
-
-=item $comment = $converter->xml_comment($text)
-X<C<xml_comment>>
-
-Returns an XML comment for I<$text>.
-
-=item $result = xml_accent($text, $accent_command, $in_upper_case, $use_numeric_entities)
-X<C<xml_accent>>
-
-I<$text> is the text appearing within an accent command.  I<$accent_command>
-should be a Texinfo tree element corresponding to an accent command taking
-an argument.  I<$in_upper_case> is optional, and, if set, the text is put
-in upper case.  The function returns the accented letter as XML named entity
-if possible, falling back to numeric entities if there is no named entity
-and to an ASCII transliteration as last resort.  I<$use_numeric_entities>
-is optional.  If set, numerical entities are used instead of named entities
-if possible.
-
-=item $result = $converter->xml_accents($accent_command, $in_upper_case)
-X<C<xml_accents>>
-
-I<$accent_command> is an accent command, which may have other accent
-commands nested.  If I<$in_upper_case> is set, the result should be
-upper cased.  The function returns the accents formatted as XML.
+Returns a file name for the Top node file using either C<TOP_FILE>
+customization value, or C<EXTENSION> customization value and I<$document_name>.
 
 =back
 
@@ -2000,9 +2033,10 @@ Finally, there is:
 =over
 
 =item $result = $converter->output_internal_links()
+X<C<output_internal_links>>
 
 At this level, the method just returns undef.  It is used in the HTML
-output, following the C<--internal-links> option of texi2any/makeinfo
+output, following the C<--internal-links> option of C<texi2any>
 specification.
 
 =back

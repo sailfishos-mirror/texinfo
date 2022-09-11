@@ -895,10 +895,8 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Convert::Text is a simple backend that converts a Texinfo tree
-to simple text.  It is used for some command argument expansion in
-C<Texinfo::Parser>, for instance the file names, or encoding names.
-It is also used in some converters, especially for file names.
+C<Texinfo::Convert::Text> is a simple backend that converts a Texinfo tree
+to simple text.  It is used in converters, especially for file names.
 The converter is very simple, and, in the default case, cannot handle
 output strings translation or error handling.
 
@@ -974,7 +972,7 @@ character.
 X<C<ascii_accent_fallback>>
 
 Same as C<ascii_accent> but  with an additional first argument
-converter, which is in ignored, but needed if this function is to
+converter, which is ignored, but needed if this function is to
 be in argument of functions that need a fallback for accents
 conversion.
 

@@ -195,11 +195,11 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-The Texinfo::Report module helps with error handling.  It is
+The C<Texinfo::Report> module helps with error handling.  It is
 used by the Texinfo modules L<Texinfo::Parser> and
 L<Texinfo::Convert::Converter>.  To use this module, either create
-a new Texinfo::Report object or initialize another object
-such as to be able to call Texinfo::Report methods.  In any
+a new C<Texinfo::Report> object or initialize another object
+such as to be able to call C<Texinfo::Report> methods.  In any
 case, C<Texinfo::Report::new()> is called to setup the module.
 
 Besides the C<new> method, C<errors> is used for reporting errors, and the
@@ -209,7 +209,7 @@ other methods to store errors (and warnings).
 
 No method is exported in the default case.
 
-The C<new> method initializes Texinfo::Report related fields.
+The C<new> method initializes C<Texinfo::Report> related fields.
 The errors collected are available through the C<errors> method, the other
 methods allow registering errors and warnings.
 
@@ -220,12 +220,12 @@ methods allow registering errors and warnings.
 =item $converter->Texinfo::Report::new()
 X<C<Texinfo::Report::new>>
 
-If called without argument, a Texinfo::Report object is initialized and
+If called without argument, a C<Texinfo::Report> object is initialized and
 returned.  This is how the module is used in the Texinfo Parsers, as
 a separate object.
 
 If called on a C<$converter>, the C<$converter> is initialized itself
-such as to be able to call Texinfo::Report methods.  It is how it is
+such as to be able to call C<Texinfo::Report> methods.  It is how it is
 used in the Converters.
 
 =item ($error_warnings_list, $error_count) = errors($registrar)

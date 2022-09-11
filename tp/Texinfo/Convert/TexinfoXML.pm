@@ -43,6 +43,8 @@ my %defaults = (
   'EXTENSION'            => 'xml',
   #'output_perl_encoding' => 'utf8',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
+  # the TEXINFO_DTD_VERSION is reset by the main program
+  # so this would only be used in tests
   'TEXINFO_DTD_VERSION'  => '5.0',
   'OUTFILE'              => undef,
   'SUBDIR'               => undef,
@@ -1739,11 +1741,13 @@ Texinfo::Convert::TexinfoXML converts a Texinfo tree to TexinfoXML.
 Initialize converter from Texinfo to TexinfoXML.
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a parser object may be associated with the
-I<parser> key.  The other options should be configuration options
-described in the Texinfo manual.  Those options, when appropriate,
-override the document content.  The parser should not be available
-directly anymore after getting the associated information.
+this option hash reference a L<parser object|Texinfo::Parser>
+may be associated with the I<parser> key.  The other options
+are Texinfo customization options and a few other options that can
+be passed to the converter. Most of the customization options are described in
+the Texinfo manual.  Those customization options, when appropriate, override
+the document content.  The parser should not be available directly anymore
+after getting the associated information.
 
 See L<Texinfo::Convert::Converter> for more information.
 

@@ -16,12 +16,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
-#
-# This module implements abstract functions that output the IXIN format
-# using lower level formatting funtions, here adapted to lisp like 
-# output.  For other output, the output specific functions should be
-# redefined.  This module is not enough to output IXIN format, a module
-# inheriting both from a converter module and this module is required.
 
 package Texinfo::Convert::IXINSXML;
 
