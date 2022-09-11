@@ -1,3 +1,16 @@
+2022-09-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm(_check_empty_expansion),
+	tp/Texinfo/XS/parsetexi/parser.c (check_space_element):
+	do not check especially space container types, they are
+	unlikely to happen where expansion is checked and should only
+	contain spaces anyway.
+
+	* tp/Texinfo/ParserNonXS.pm (_abort_empty_line),
+	tp/Texinfo/XS/misc.c (xs_abort_empty_line),
+	tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line):
+	setup associated element where needed and simplify.
+
 2022-09-10  Patrice Dumas  <pertusus@free.fr>
 
 	Use array references on pairs [name, value] for attributes

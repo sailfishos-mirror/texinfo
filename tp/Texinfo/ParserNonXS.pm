@@ -2297,7 +2297,7 @@ sub _set_non_ignored_space_in_index_before_command($)
                        and $in_index_commands{$content->{'cmdname'}}
                        and defined($brace_commands{$content->{'cmdname'}}))
                       or ($content->{'type'}
-              and $content->{'type'} eq 'empty_spaces_after_close_brace'))
+                   and $content->{'type'} eq 'empty_spaces_after_close_brace'))
              and (! _check_empty_expansion([$content]))) {
       delete $pending_spaces_element->{'type'};
       $pending_spaces_element = 0;
@@ -2323,12 +2323,6 @@ sub _abort_empty_line {
 
     my $spaces_element = $current->{'contents'}->[-1];
 
-    my $owning_element;
-    if ($spaces_element->{'extra'}
-        and $spaces_element->{'extra'}->{'spaces_associated_command'}) {
-      $owning_element = $spaces_element->{'extra'}->{'spaces_associated_command'};
-    }
-
     print STDERR "ABORT EMPTY "
       .$spaces_element->{'type'}
       ." additional text |$additional_spaces|,"
@@ -2336,6 +2330,7 @@ sub _abort_empty_line {
         if ($self->{'DEBUG'});
 
     $spaces_element->{'text'} .= $additional_spaces;
+
     # remove empty 'empty*before'.
     if ($spaces_element->{'text'} eq '') {
       pop @{$current->{'contents'}};
@@ -2353,6 +2348,8 @@ sub _abort_empty_line {
       # the 'extra' hash as 'spaces_before_argument'.
       pop @{$current->{'contents'}};
 
+      my $owning_element
+        = $spaces_element->{'extra'}->{'spaces_associated_command'};
       $owning_element->{'extra'}->{'spaces_before_argument'}
         = $spaces_element->{'text'};
     }
@@ -3670,12 +3667,7 @@ sub _check_empty_expansion($)
                 or $content->{'cmdname'} eq 'c'
                 or $content->{'cmdname'} eq 'comment'
                 or $content->{'cmdname'} eq ':'))
-           or ($content->{'type'}
-               and ($content->{'type'} eq 'empty_spaces_before_argument'
-                    or $content->{'type'} eq 'spaces_at_end'))
            or (defined($content->{'text'}) and $content->{'text'} !~ /\S/))) {
-        #or (not $content->{'cmdname'} and not $content->{'type'}
-        #    and defined($content->{'text'}) and $content->{'text'} eq '')
       return 0;
     }
   }

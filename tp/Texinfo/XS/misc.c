@@ -53,11 +53,7 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
   SV **svp;
   int contents_num;
   HV *spaces_elt;
-  //char *key;
-  HV *test_extra = 0;
-  HV *command_extra = 0;
 
-  HV *owning_elt = 0;
   char *type;
   SV *existing_text_sv;
 
@@ -109,21 +105,6 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
     }
   
   //fprintf (stderr, "ABORT EMPTY\n");
-
-  svp = hv_fetch (spaces_elt, "extra", strlen ("extra"), 0);
-  if (svp)
-    {
-      test_extra = (HV *) SvRV (*svp);
-      svp = hv_fetch (test_extra, "spaces_associated_command",
-                      strlen ("spaces_associated_command"), 0);
-      if (svp)
-        {
-          owning_elt = (HV *) SvRV (*svp);
-          svp = hv_fetch (owning_elt, "extra", strlen ("extra"), 0);
-          if (svp)
-            command_extra = (HV *) SvRV (*svp);
-        }
-    }
 
   svp = hv_fetch (spaces_elt, "text", strlen ("text"), 0);
   if (!svp)
@@ -198,19 +179,32 @@ delete_type:
            || !strcmp (type, "empty_spaces_before_argument"))
     {
       STRLEN len;
+      HV *owning_elt = 0;
+      HV *command_extra = 0;
+      HV *test_extra = 0;
       char *ptr;
 
       /* Remove spaces_elt */
       av_pop (contents_array);
 
-      ptr = SvPV(existing_text_sv, len);
-      /* Replace element reference with a simple string. */
-      if (!command_extra)
+      /* add spaces to associated element extra "spaces_before_argument" */
+      svp = hv_fetch (spaces_elt, "extra", strlen ("extra"), 0);
+      test_extra = (HV *) SvRV (*svp);
+      svp = hv_fetch (test_extra, "spaces_associated_command",
+                      strlen ("spaces_associated_command"), 0);
+      owning_elt = (HV *) SvRV (*svp);
+
+      svp = hv_fetch (owning_elt, "extra", strlen ("extra"), 0);
+      if (svp)
+        command_extra = (HV *) SvRV (*svp);
+      else
         {
           command_extra = newHV ();
           hv_store (owning_elt, "extra", strlen ("extra"),
                     newRV_inc((SV *)command_extra), 0);
         }
+
+      ptr = SvPV(existing_text_sv, len);
       hv_store (command_extra,
                 "spaces_before_argument",
                 strlen ("spaces_before_argument"),

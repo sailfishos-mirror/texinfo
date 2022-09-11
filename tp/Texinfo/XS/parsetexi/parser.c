@@ -98,8 +98,6 @@ check_space_element (ELEMENT *e)
         || e->cmd == CM_c
         || e->cmd == CM_comment
         || e->cmd == CM_COLON
-        || e->type == ET_empty_spaces_before_argument
-        || e->type == ET_spaces_at_end
         || (!e->cmd && !e->type && e->text.end == 0)
         || (e->text.end > 0
             && !*(e->text.text + strspn (e->text.text, whitespace_chars)))
@@ -618,14 +616,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
           || last_child->type == ET_empty_spaces_before_argument
           || last_child->type == ET_empty_spaces_after_close_brace))
     {
-      ELEMENT *owning_element = 0, *e;
-      KEY_PAIR *k;
-
       retval = 1;
-
-      k = lookup_extra (last_child, "spaces_associated_command");
-      if (k)
-        owning_element = (ELEMENT *) k->value;
 
       debug ("ABORT EMPTY %s additional text |%s| "
              "current |%s|",
@@ -637,7 +628,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       /* Remove element altogether if it's empty. */
       if (last_child->text.end == 0)
         {
-          e = pop_element_from_contents (current);
+          ELEMENT *e = pop_element_from_contents (current);
           destroy_element (e);
         }
       else if (last_child->type == ET_empty_line)
@@ -650,7 +641,12 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
         {
           /* Remove element from main tree. It will still be referenced in
              the 'extra' hash as 'spaces_before_argument'. */
+          ELEMENT *owning_element;
+          KEY_PAIR *k;
           ELEMENT *e = pop_element_from_contents (current);
+
+          k = lookup_extra (last_child, "spaces_associated_command");
+          owning_element = (ELEMENT *) k->value;
           add_extra_string_dup (owning_element, "spaces_before_argument",
                                 e->text.text);
           destroy_element (e);
