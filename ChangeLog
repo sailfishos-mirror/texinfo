@@ -1,5 +1,11 @@
 2022-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (is_end_current_command):
+	remove spaces after @end argument, as it is not used anywhere
+	anymore.
+
+2022-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	Put non expanded @value flag name in extra flag
 
 	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),

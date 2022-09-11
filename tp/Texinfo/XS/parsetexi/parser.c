@@ -835,16 +835,12 @@ command_with_command_as_argument (ELEMENT *current)
 }
 
 /* Check if line is "@end ..." for current command.  If so, advance LINE. */
-/* the caller should free *spaces if the function returns 1 */
-/* FIXME **spaces is not used anywhere anymore, could be removed */
 int
-is_end_current_command (ELEMENT *current, char **line, char **spaces,
+is_end_current_command (ELEMENT *current, char **line,
                         enum command_id *end_cmd)
 {
   char *linep;
   char *cmdname;
-  char *begin_spaces;
-  char *end_spaces;
 
   linep = *line;
 
@@ -856,13 +852,9 @@ is_end_current_command (ELEMENT *current, char **line, char **spaces,
   if (!strchr (whitespace_chars, *linep))
     return 0;
 
-  begin_spaces = linep;
-
   linep += strspn (linep, whitespace_chars);
   if (!*linep)
     return 0;
-
-  end_spaces = linep;
 
   cmdname = read_command_name (&linep);
   if (!cmdname)
@@ -874,7 +866,6 @@ is_end_current_command (ELEMENT *current, char **line, char **spaces,
     return 0;
 
   *line = linep;
-  *spaces = strndup (begin_spaces, end_spaces - begin_spaces);
   return 1;
 }
 
@@ -1075,7 +1066,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   if (command_flags(current) & CF_block
       && (command_data(current->cmd).data == BLOCK_raw))
     {
-      char *spaces_after_end;
       char *p = line;
       /* Check if we are using a macro within a macro. */
       if (current->cmd == CM_macro || current->cmd == CM_rmacro)
@@ -1105,11 +1095,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
             }
         }
       /* Else check if line is "@end ..." for current command. */
-      if (is_end_current_command (current, &p, &spaces_after_end, &end_cmd))
+      if (is_end_current_command (current, &p, &end_cmd))
         {
           ELEMENT *e;
 
-          free (spaces_after_end);
           if (strchr (whitespace_chars, *line))
             {
               ELEMENT *e;
@@ -1188,7 +1177,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   else if (command_flags(current) & CF_block
       && (command_data(current->cmd).data == BLOCK_conditional))
     {
-      char *spaces_after_end;
       char *p = line;
 
       /* check for nested @ifset (so that @end ifset doesn't end the
@@ -1213,11 +1201,10 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
         }
 
       /* Else check if line is "@end ..." for current command. */
-      if (is_end_current_command (current, &line, &spaces_after_end, &end_cmd))
+      if (is_end_current_command (current, &line, &end_cmd))
         {
           char *tmp = 0;
 
-          free (spaces_after_end);
           /* check whitespaces at the beginning of the line */
           if (strchr (whitespace_chars, *p))
             {
@@ -1331,7 +1318,6 @@ superfluous_arg:
     {
       ELEMENT *e;
       enum command_id dummy;
-      char *spaces_after_end;
       char *line_dummy;
       int n;
 
@@ -1339,7 +1325,7 @@ superfluous_arg:
       add_to_element_contents (current, e);
       line_dummy = line;
       while (!is_end_current_command (current, &line_dummy,
-                                      &spaces_after_end, &dummy))
+                                      &dummy))
         {
           line = new_line ();
           if (!line)
@@ -1349,8 +1335,6 @@ superfluous_arg:
             }
           line_dummy = line;
         }
-      if (strlen(line) > 0)
-        free (spaces_after_end);
 
       /* start a new line for the @end line, this is normally done
          at the beginning of a line, but not here, as we directly
