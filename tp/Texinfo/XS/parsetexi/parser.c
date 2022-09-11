@@ -392,7 +392,7 @@ parse_texi_document (void)
       if (!line)
         break;
 
-      linep = line; 
+      linep = line;
       linep += strspn (linep, whitespace_chars);
       if (*linep && !looking_at (linep, "\\input"))
         {
@@ -541,8 +541,8 @@ merge_text (ELEMENT *current, char *text)
 
       if (last_child
           && (last_child->type == ET_empty_line_after_command
-              || last_child->type == ET_internal_empty_line_after_command
-              || last_child->type == ET_empty_spaces_before_argument
+              || last_child->type == ET_internal_spaces_after_command
+              || last_child->type == ET_internal_spaces_before_argument
               || last_child->type == ET_empty_spaces_after_close_brace))
         {
           no_merge_with_following_text = 1;
@@ -569,15 +569,15 @@ merge_text (ELEMENT *current, char *text)
   if (last_child
       /* There is a difference between the text being defined and empty,
          and not defined at all.  The latter is true for 'brace_command_arg'
-         elements.  We need either to make sure that we initialize all elements 
+         elements.  We need either to make sure that we initialize all elements
          with text_append (&e->text, "") where we want merging with following
          text, or treat as a special case here.
-         Unfortunately we can't make a special case for 
-         ET_empty_spaces_before_argument, because abort_empty_line above 
+         Unfortunately we can't make a special case for
+         ET_internal_spaces_before_argument, because abort_empty_line above
          produces such an element that shouldn't be merged with. */
       && (last_child->text.space > 0
             && !strchr (last_child->text.text, '\n')
-             ) /* || last_child->type == ET_empty_spaces_before_argument) */
+             ) /* || last_child->type == ET_internal_spaces_before_argument) */
       && last_child->cmd != CM_value
       && !no_merge_with_following_text)
     {
@@ -612,8 +612,8 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
   if (last_child
       && (last_child->type == ET_empty_line
           || last_child->type == ET_empty_line_after_command
-          || last_child->type == ET_internal_empty_line_after_command
-          || last_child->type == ET_empty_spaces_before_argument
+          || last_child->type == ET_internal_spaces_after_command
+          || last_child->type == ET_internal_spaces_before_argument
           || last_child->type == ET_empty_spaces_after_close_brace))
     {
       retval = 1;
@@ -636,8 +636,8 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
           last_child->type = begin_paragraph_p (current)
                              ? ET_empty_spaces_before_paragraph : ET_NONE;
         }
-      else if (last_child->type == ET_internal_empty_line_after_command
-               || last_child->type == ET_empty_spaces_before_argument)
+      else if (last_child->type == ET_internal_spaces_after_command
+               || last_child->type == ET_internal_spaces_before_argument)
         {
           /* Remove element from main tree. It will still be referenced in
              the 'extra' hash as 'spaces_before_argument'. */
@@ -782,7 +782,7 @@ isolate_last_space (ELEMENT *current)
 
 /* Add an "ET_empty_line_after_command" element containing the whitespace at 
    the beginning of the rest of the line after skipspaces commands,
-   if COMMAND is 0.  Otherwise add an "ET_internal_empty_line_after_command",
+   if COMMAND is 0.  Otherwise add an "ET_internal_spaces_after_command",
    container, after line commands or commands starting
    a block, that will end up in COMMAND extra spaces value. */
 void
@@ -802,7 +802,7 @@ start_empty_line_after_command (ELEMENT *current, char **line_inout,
   if (command)
     {
       add_extra_element (e, "spaces_associated_command", command);
-      e->type = ET_internal_empty_line_after_command;
+      e->type = ET_internal_spaces_after_command;
     }
 
   *line_inout = line;
@@ -1850,7 +1850,7 @@ value_invalid:
               "spaces_at_end" if followed by spaces only when the
               index or subentry command is done. */
             {
-              isolate_trailing_space (current, ET_spaces_before_brace_in_index);
+              isolate_trailing_space (current, ET_internal_spaces_before_brace_in_index);
             }
         }
 
@@ -2087,7 +2087,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
           if (current->contents.number > 0
               && last_contents_child(current)->type
-                 == ET_empty_spaces_before_argument)
+                 == ET_internal_spaces_before_argument)
             {
               /* Remove this element and update 'extra' values. */
               abort_empty_line (&current, 0);

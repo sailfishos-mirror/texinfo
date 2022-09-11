@@ -1767,7 +1767,7 @@ end_line_misc_line (ELEMENT *current)
               current->type = ET_index_entry_command;
             }
           /* if there is a brace command interrupting an index or subentry
-             command, replace the internal spaces_before_brace_in_index
+             command, replace the internal internal_spaces_before_brace_in_index
              text type with its final type depending on whether there is
              text after the brace command. */
           if ((command_flags(current) & CF_index_entry_command

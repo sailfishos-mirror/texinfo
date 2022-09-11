@@ -310,7 +310,7 @@ close_current (ELEMENT *current,
           command_error (current, "misplaced {");
           if (current->contents.number > 0
               && current->contents.list[0]->type
-                 == ET_empty_spaces_before_argument)
+                 == ET_internal_spaces_before_argument)
             {
               /* remove spaces element from tree and update extra values */
               abort_empty_line (&current, 0);

@@ -111,16 +111,16 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
       abort_empty_line (&current, 0);
       line++; /* Past the '*'. */
 
-      star = new_element (ET_menu_star);
+      star = new_element (ET_internal_menu_star);
       text_append (&star->text, "*");
       add_to_element_contents (current, star);
 
-      /* The ET_menu_star element won't appear in the final tree. */
+      /* The ET_internal_menu_star element won't appear in the final tree. */
     }
   /* A space after a "*" at the beginning of a line. */
   else if (strchr (whitespace_chars, *line)
            && current->contents.number > 0
-           && last_contents_child(current)->type == ET_menu_star)
+           && last_contents_child(current)->type == ET_internal_menu_star)
     {
       ELEMENT *menu_entry, *leading_text, *entry_name;
       int leading_spaces;
@@ -172,7 +172,7 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
     }
   /* A "*" followed by anything other than a space. */
   else if (current->contents.number > 0
-           && last_contents_child(current)->type == ET_menu_star)
+           && last_contents_child(current)->type == ET_internal_menu_star)
     {
       debug ("ABORT MENU STAR");
       last_contents_child(current)->type = ET_NONE;

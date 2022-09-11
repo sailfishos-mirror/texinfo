@@ -124,7 +124,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
             ELEMENT *e;
             int n;
             n = strspn (line, whitespace_chars_except_newline);
-            e = new_element (ET_empty_spaces_before_argument);
+            e = new_element (ET_internal_spaces_before_argument);
             text_append_n (&e->text, line, n);
             add_to_element_contents (current, e);
             add_extra_element (e, "spaces_associated_command", current->parent);
@@ -141,7 +141,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
           if (command_data(command).data > 0)
             {
               ELEMENT *e;
-              e = new_element (ET_empty_spaces_before_argument);
+              e = new_element (ET_internal_spaces_before_argument);
               /* See comment in parser.c:merge_text */
               text_append (&e->text, "");
               add_to_element_contents (current, e);
@@ -166,7 +166,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       if (current->parent->parent->type == ET_def_line)
         current->source_info = current_source_info;
 
-      e = new_element (ET_empty_spaces_before_argument);
+      e = new_element (ET_internal_spaces_before_argument);
       text_append (&e->text, ""); /* See comment in parser.c:merge_text */
       add_to_element_contents (current, e);
       debug ("BRACKETED in def/multitable");
@@ -193,7 +193,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
       line_error ("misplaced {");
       if (current->contents.number > 0
           && last_contents_child(current)->type
-               == ET_empty_spaces_before_argument)
+               == ET_internal_spaces_before_argument)
         {
           /* FIXME: Is this right? */
           remove_from_contents (current, 0);
@@ -716,7 +716,7 @@ inlinefmtifelse_done:
   new_arg = new_element (type);
   add_to_element_args (current, new_arg);
   current = new_arg;
-  e = new_element (ET_empty_spaces_before_argument);
+  e = new_element (ET_internal_spaces_before_argument);
   text_append (&e->text, ""); /* See comment in parser.c:merge_text */
   add_to_element_contents (current, e);
   add_extra_element (e, "spaces_associated_command", current);

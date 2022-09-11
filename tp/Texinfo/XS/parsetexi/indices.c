@@ -339,7 +339,7 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
       /* could also be, but it does not seems to be needed here:
          e = contents_child_by_index (content, i); */
       e = content->contents.list[i];
-      if (e->type == ET_spaces_before_brace_in_index)
+      if (e->type == ET_internal_spaces_before_brace_in_index)
         {
           pending_spaces_element = e;
           /* set to "spaces_at_end" in case there are only spaces after */

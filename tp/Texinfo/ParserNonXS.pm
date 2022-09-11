@@ -1834,7 +1834,7 @@ sub _close_current($$$;$$)
           and @{$current->{'contents'}}
           and $current->{'contents'}->[0]->{'type'}
           and $current->{'contents'}->[0]->{'type'}
-                eq 'empty_spaces_before_argument') {
+                eq 'internal_spaces_before_argument') {
         # remove spaces element from tree and update extra values
         _abort_empty_line($self, $current);
       }
@@ -1940,8 +1940,8 @@ sub _merge_text {
     if ($current->{'contents'} and @{$current->{'contents'}}
       and $current->{'contents'}->[-1]->{'type'}
       and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
-         or $current->{'contents'}->[-1]->{'type'} eq 'internal_empty_line_after_command'
-         or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_before_argument'
+         or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_after_command'
+         or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_before_argument'
          or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_close_brace')) {
       $no_merge_with_following_text = 1;
     }
@@ -2317,8 +2317,8 @@ sub _abort_empty_line {
        and $current->{'contents'}->[-1]->{'type'}
        and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line'
            or $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
-           or $current->{'contents'}->[-1]->{'type'} eq 'internal_empty_line_after_command'
-           or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_before_argument'
+           or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_after_command'
+           or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_before_argument'
            or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_close_brace')) {
 
     my $spaces_element = $current->{'contents'}->[-1];
@@ -2342,8 +2342,8 @@ sub _abort_empty_line {
       } else {
         delete $spaces_element->{'type'};
       }
-    } elsif ($spaces_element->{'type'} eq 'internal_empty_line_after_command'
-             or $spaces_element->{'type'} eq 'empty_spaces_before_argument') {
+    } elsif ($spaces_element->{'type'} eq 'internal_spaces_after_command'
+             or $spaces_element->{'type'} eq 'internal_spaces_before_argument') {
       # Remove element from main tree. It will still be referenced in
       # the 'extra' hash as 'spaces_before_argument'.
       pop @{$current->{'contents'}};
@@ -3616,7 +3616,7 @@ sub _start_empty_line_after_command($$$) {
   if (defined($command)) {
     $current->{'contents'}->[-1]->{'extra'}->{'spaces_associated_command'}
       = $command;
-    $current->{'contents'}->[-1]->{'type'} = 'internal_empty_line_after_command';
+    $current->{'contents'}->[-1]->{'type'} = 'internal_spaces_after_command';
   }
   return $line;
 }
@@ -4324,12 +4324,12 @@ sub _process_remaining_on_line($$$$)
     _abort_empty_line($self, $current);
     $line =~ s/^\*//;
     push @{$current->{'contents'}}, { 'parent' => $current,
-                                      'type' => 'menu_star',
+                                      'type' => 'internal_menu_star',
                                       'text' => '*' };
   # a space after a * at the beginning of a menu line
   } elsif ($current->{'contents'} and @{$current->{'contents'}}
            and $current->{'contents'}->[-1]->{'type'}
-           and $current->{'contents'}->[-1]->{'type'} eq 'menu_star') {
+           and $current->{'contents'}->[-1]->{'type'} eq 'internal_menu_star') {
     if ($line !~ /^\s+/) {
       print STDERR "ABORT MENU STAR ($line)\n" if ($self->{'DEBUG'});
       delete $current->{'contents'}->[-1]->{'type'};
@@ -5206,10 +5206,10 @@ sub _process_remaining_on_line($$$$)
           }
           $line =~ s/([^\S\f\n]*)//;
           $current->{'type'} = 'brace_command_context';
-          # empty_spaces_before_argument is a transient internal type,
+          # internal_spaces_before_argument is a transient internal type,
           # which should end up in extra spaces_before_argument.
           push @{$current->{'contents'}}, {
-            'type' => 'empty_spaces_before_argument',
+            'type' => 'internal_spaces_before_argument',
             'text' => $1,
             'parent' => $current,
             'extra' => {'spaces_associated_command' => $current->{'parent'}}
@@ -5221,10 +5221,10 @@ sub _process_remaining_on_line($$$$)
           if ($brace_commands{$command}
               and $brace_commands{$command} =~ /^\d$/
               and $brace_commands{$command} > 0) {
-            # empty_spaces_before_argument is a transient internal type,
+            # internal_spaces_before_argument is a transient internal type,
             # which should end up in extra spaces_before_argument.
             push @{$current->{'contents'}}, {
-                        'type' => 'empty_spaces_before_argument',
+                        'type' => 'internal_spaces_before_argument',
                         'text' => '',
                         'parent' => $current,
                         'extra' => {'spaces_associated_command' => $current}
@@ -5250,10 +5250,10 @@ sub _process_remaining_on_line($$$$)
         $current->{'source_info'} = $source_info
           if ($current->{'parent'}->{'parent'}->{'type'}
               and $current->{'parent'}->{'parent'}->{'type'} eq 'def_line');
-        # empty_spaces_before_argument is a transient internal type,
+        # internal_spaces_before_argument is a transient internal type,
         # which should end up in extra spaces_before_argument.
         push @{$current->{'contents'}},
-            {'type' => 'empty_spaces_before_argument',
+            {'type' => 'internal_spaces_before_argument',
              'text' => '',
              'parent' => $current,
              'extra' => {'spaces_associated_command' => $current}
@@ -5647,10 +5647,10 @@ sub _process_remaining_on_line($$$$)
       push @{$current->{'args'}},
            { 'type' => $type, 'parent' => $current, 'contents' => [] };
       $current = $current->{'args'}->[-1];
-      # empty_spaces_before_argument is a transient internal type,
+      # internal_spaces_before_argument is a transient internal type,
       # which should end up in extra spaces_before_argument.
       push @{$current->{'contents'}},
-             {'type' => 'empty_spaces_before_argument',
+             {'type' => 'internal_spaces_before_argument',
               'text' => '',
               'parent' => $current,
               'extra' => {'spaces_associated_command' => $current}
@@ -5758,7 +5758,7 @@ sub _parse_texi($$$)
           and $current->{'contents'}->[-1]
           and $current->{'contents'}->[-1]->{'type'}
           and $current->{'contents'}->[-1]->{'type'}
-               eq 'empty_spaces_before_argument') {
+               eq 'internal_spaces_before_argument') {
         # Empty spaces after brace or comma till the end of line.
         # Remove this element and update 'extra' values.
         _abort_empty_line($self, $current);
