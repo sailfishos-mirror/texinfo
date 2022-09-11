@@ -6260,8 +6260,9 @@ Texinfo to other formats.  There is no promise of API stability.
 C<Texinfo::Parser> will parse Texinfo text into a Perl tree.  In one pass
 it expands user-defined @-commands, conditionals (C<@ifset>, C<@ifinfo>...)
 and C<@value> and constructs the tree.  Some extra information is gathered
-while doing the tree: for example, the block command associated with C<@end>,
-the number of rows in a multitable, or the node associated with a section.
+while doing the tree: for example, the C<@quotation> associated to an C<@author>
+command, the number of cilumns in a multitable, or the node associated with a
+section.
 
 =head1 METHODS
 
@@ -6546,7 +6547,7 @@ tree elements.
 All the @-commands that have an associated label (so can be the
 target of cross references) - C<@node>, C<@anchor> and C<@float> with
 label - have a normalized name associated, constructed as described in the
-B<HTML Xref> node in the Texinfo manual.  Those normalized labels and
+I<HTML Xref> node in the Texinfo documenation.  Those normalized labels and
 the association with @-commands is available through C<labels_information>:
 
 =over
@@ -6746,7 +6747,7 @@ entered as
 =item labels
 
 A hash reference.  Keys are normalized node names as described in the
-B<HTML Xref> node in the Texinfo manual.  Instead of a node, it may also
+I<HTML Xref> node in the Texinfo manual.  Instead of a node, it may also
 be a float label or an anchor name.  The value is the corresponding
 @-command element in the tree.
 
@@ -7029,6 +7030,10 @@ and sectioning commands.
 
 =over
 
+=item before_node_section
+
+Content before nodes and sectioning commands at the beginning of C<document_root>.
+
 =item document_root
 
 =item root_line
@@ -7039,10 +7044,6 @@ root otherwise.
 
 C<document_root> first content should be C<before_node_section>, then nodes and
 sections @-commands elements, and also C<@bye> element.
-
-=item before_node_section
-
-Content before nodes and sectioning commands at the beginning of C<document_root>.
 
 =item preamble_before_beginning
 
@@ -7056,7 +7057,7 @@ This container holds everything that appears before C<@setfilename>.
 =item preamble_before_content
 
 This container holds everything appearing before the first formatted content,
-corresponding to the I<preamble> in the Texinfo manual.
+corresponding to the I<preamble> in the Texinfo documentation.
 
 =back
 
@@ -7067,19 +7068,10 @@ other elements appearing in their C<contents>.
 
 =over
 
-=item paragraph
+=item before_item
 
-A paragraph.  The C<contents> of a paragraph (like other container
-elements for Texinfo content) are elements representing the contents of
-the paragraph in the order they occur, such as simple text elements
-without a C<cmdname> or C<type>, or @-command elements for commands
-appearing in the paragraph.
-
-=item preformatted
-
-Texinfo code within a format that is not filled.  Happens within some
-block commands like C<@example>, but also in menu (in menu descriptions,
-menu comments...).
+A container for content before the first C<@item> of block @-commands
+with items (C<@table>, C<@multitable>, C<@enumerate>...).
 
 =item brace_command_arg
 
@@ -7110,30 +7102,48 @@ leads to
   'args' => [{'type' => 'brace_command_arg',
               'contents' => [{'text' => 'in code'}]}]}
 
-=item menu_entry
+=item bracketed
 
-=item menu_entry_leading_text
+This a special type containing content in brackets in the context
+where they are valid, in C<@math>.
 
-=item menu_entry_name
+=item bracketed_def_content
 
-=item menu_entry_separator
+Content in brackets on definition command lines.
 
-=item menu_entry_node
+=item bracketed_multitable_prototype
 
-=item menu_entry_description
+=item row_prototype
 
-A I<menu_entry> holds a full menu entry, like
+On C<@multitable> line, content in brackets is in
+I<bracketed_multitable_prototype>, text not in brackets
+is in I<row_prototype>.
 
-  * node::    description.
+=item def_aggregate
 
-The different elements of the menu entry are directly in the
-I<menu_entry> C<args> array reference.
+Contains several elements that together are a single unit on a @def* line.
 
-I<menu_entry_leading_text> holds the star and following spaces.
-I<menu_entry_name> is the menu entry name (if present), I<menu_entry_node>
-corresponds to the node in the menu entry, I<menu_entry_separator> holds
-the text after the node and before the description, in most cases
-C<::   >.  Lastly, I<menu_entry_description> is for the description.
+=item def_line
+
+=item def_item
+
+=item inter_def_item
+
+The I<def_line> type is either associated with a container within a
+definition command, or is the type of a definition command with a x
+form, like C<@deffnx>.  It holds the definition line arguments.
+The container with type I<def_item> holds the definition text content.
+Content appearing before a definition command with a x form is in
+an I<inter_def_item> container.
+
+=item macro_name
+
+=item macro_arg
+
+Taken from C<@macro> definition and put in the C<args> key array of
+the macro, I<macro_name> is the type of the text fragment corresponding
+to the macro name, I<macro_arg> is the type of the text fragments
+corresponding to macro formal arguments.
 
 =item menu_comment
 
@@ -7159,19 +7169,55 @@ and
 
 will be in a I<menu_comment>.
 
-=item macro_name
+=item menu_entry
 
-=item macro_arg
+=item menu_entry_leading_text
 
-Taken from C<@macro> definition and put in the C<args> key array of
-the macro, I<macro_name> is the type of the text fragment corresponding
-to the macro name, I<macro_arg> is the type of the text fragments
-corresponding to macro formal arguments.
+=item menu_entry_name
 
-=item before_item
+=item menu_entry_separator
 
-A container for content before the first C<@item> of block @-commands
-with items (C<@table>, C<@multitable>, C<@enumerate>...).
+=item menu_entry_node
+
+=item menu_entry_description
+
+A I<menu_entry> holds a full menu entry, like
+
+  * node::    description.
+
+The different elements of the menu entry are directly in the
+I<menu_entry> C<args> array reference.
+
+I<menu_entry_leading_text> holds the star and following spaces.
+I<menu_entry_name> is the menu entry name (if present), I<menu_entry_node>
+corresponds to the node in the menu entry, I<menu_entry_separator> holds
+the text after the node and before the description, in most cases
+C<::   >.  Lastly, I<menu_entry_description> is for the description.
+
+=item multitable_head
+
+=item multitable_body
+
+=item row
+
+In C<@multitable>, a I<multitable_head> container contains all the rows
+with C<@headitem>, while I<multitable_body> contains the rows associated
+with C<@item>.  A I<row> container contains the C<@item> and C<@tab>
+forming a row.
+
+=item paragraph
+
+A paragraph.  The C<contents> of a paragraph (like other container
+elements for Texinfo content) are elements representing the contents of
+the paragraph in the order they occur, such as simple text elements
+without a C<cmdname> or C<type>, or @-command elements for commands
+appearing in the paragraph.
+
+=item preformatted
+
+Texinfo code within a format that is not filled.  Happens within some
+block commands like C<@example>, but also in menu (in menu descriptions,
+menu comments...).
 
 =item table_entry
 
@@ -7191,51 +7237,6 @@ If there is any content before an C<@itemx> (normally only comments,
 empty lines or maybe index entries are allowed), it will be in
 a container with type I<inter_item> at the same level of C<@item>
 and C<@itemx>, in a I<table_term>.
-
-=item def_line
-
-=item def_item
-
-=item inter_def_item
-
-The I<def_line> type is either associated with a container within a
-definition command, or is the type of a definition command with a x
-form, like C<@deffnx>.  It holds the definition line arguments.
-The container with type I<def_item> holds the definition text content.
-Content appearing before a definition command with a x form is in
-an I<inter_def_item> container.
-
-=item multitable_head
-
-=item multitable_body
-
-=item row
-
-In C<@multitable>, a I<multitable_head> container contains all the rows
-with C<@headitem>, while I<multitable_body> contains the rows associated
-with C<@item>.  A I<row> container contains the C<@item> and C<@tab>
-forming a row.
-
-=item bracketed
-
-This a special type containing content in brackets in the context
-where they are valid, in C<@math>.
-
-=item bracketed_def_content
-
-Content in brackets on definition command lines.
-
-=item def_aggregate
-
-Contains several elements that together are a single unit on a @def* line.
-
-=item bracketed_multitable_prototype
-
-=item row_prototype
-
-On C<@multitable> line, content in brackets is in
-I<bracketed_multitable_prototype>, text not in brackets
-is in I<row_prototype>.
 
 =back
 
@@ -7322,8 +7323,8 @@ The first argument normalized is in I<normalized>.
 =item C<@float>
 
 @-commands that are targets for cross-references have a I<normalized>
-key for the normalized label, built as specified in the Texinfo manual
-in the B<HTML Xref> node.  There is also a I<node_content> key for
+key for the normalized label, built as specified in the Texinfo
+documentation in the I<HTML Xref> node.  There is also a I<node_content> key for
 an array holding the corresponding content.
 
 C<@anchor> also has I<region> set to the special region name if
@@ -7475,8 +7476,8 @@ The arguments are in the I<nodes_manuals> array. Each
 of the entries is a hash with a I<node_content> key for
 an array holding the corresponding content, a I<manual_content> key
 if there is an associated external manual name, and a I<normalized>
-key for the normalized label, built as specified in the Texinfo manual
-in the B<HTML Xref> node.
+key for the normalized label, built as specified in the I<HTML Xref>
+Texinfo documentation node.
 
 An I<associated_section> key holds the tree element of the
 sectioning command that follows the node.  An I<node_preceding_part>
