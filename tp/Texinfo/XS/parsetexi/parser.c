@@ -571,14 +571,9 @@ merge_text (ELEMENT *current, char *text)
          and not defined at all.  The latter is true for 'brace_command_arg'
          elements.  We need either to make sure that we initialize all elements
          with text_append (&e->text, "") where we want merging with following
-         text, or treat as a special case here.
-         Unfortunately we can't make a special case for
-         ET_internal_spaces_before_argument, because abort_empty_line above
-         produces such an element that shouldn't be merged with. */
+         text, or treat as a special case here. */
       && (last_child->text.space > 0
-            && !strchr (last_child->text.text, '\n')
-             ) /* || last_child->type == ET_internal_spaces_before_argument) */
-      && last_child->cmd != CM_value
+            && !strchr (last_child->text.text, '\n'))
       && !no_merge_with_following_text)
     {
       /* Append text to contents */
@@ -1696,12 +1691,7 @@ value_valid:
                       abort_empty_line (&current, NULL);
                       value_elt = new_element (ET_NONE);
                       value_elt->cmd = CM_value;
-                      text_append (&value_elt->text, flag);
-
-                      /* In the Perl code, the name of the flag is stored in
-                         the "type" field.  We need to store in 'text' instead
-                         and then output it as the type in
-                         dump_perl.c / api.c. */
+                      add_extra_string_dup (value_elt, "flag", flag);
 
                       add_to_element_contents (current, value_elt);
 

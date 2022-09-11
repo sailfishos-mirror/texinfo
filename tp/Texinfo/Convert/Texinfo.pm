@@ -226,7 +226,7 @@ sub _expand_cmd_args_to_texi($;$) {
     $result .= $cmd->{'extra'}->{'spaces_before_argument'}
       if $cmd->{'extra'} and $cmd->{'extra'}->{'spaces_before_argument'};
   }
-  $result .= '{'.$cmd->{'type'}.'}' if ($cmdname eq 'value');
+  $result .= '{'.$cmd->{'extra'}->{'flag'}.'}' if ($cmdname eq 'value');
   return $result;
 }
 

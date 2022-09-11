@@ -1,5 +1,17 @@
 2022-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	Put non expanded @value flag name in extra flag
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash),
+	tp/Texinfo/XS/parsetexi/parser.c (merge_text)
+	(process_remaining_on_line), tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/Texinfo.pm: use an extra flag for non
+	expandeed @value flag name.
+
+2022-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	Prepend internal_ to internal text containers names used only for parsing
 
 	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/misc.c,

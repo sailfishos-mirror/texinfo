@@ -2288,7 +2288,7 @@ sub _set_non_ignored_space_in_index_before_command($)
   my $pending_spaces_element = 0;
   foreach my $content (@$contents) {
     if ($content->{'type'}
-        and $content->{'type'} eq 'spaces_before_brace_in_index') {
+        and $content->{'type'} eq 'internal_spaces_before_brace_in_index') {
       # set to "spaces_at_end" in case there are only spaces after
       $content->{'type'} = 'spaces_at_end';
       $pending_spaces_element = $content;
@@ -3436,7 +3436,7 @@ sub _end_line($$$)
           $current->{'type'} = 'index_entry_command';
         }
         # if there is a brace command interrupting an index or subentry
-        # command, replace the internal spaces_before_brace_in_index
+        # command, replace the internal internal_spaces_before_brace_in_index
         # text type with its final type depending on whether there is
         # text after the brace command.
         if (_is_index_element($self, $current)) {
@@ -4434,9 +4434,9 @@ sub _process_remaining_on_line($$$$)
           if (not exists($self->{'values'}->{$value})) {
             _abort_empty_line($self, $current);
             # caller should expand something along
-            # gdt('@{No value for `{value}\'@}', {'value' => $value}, {'keep_texi'=> 1});
+            # gdt('@{No value for `{value}\'@}', {'value' => $value});
             push @{$current->{'contents'}}, { 'cmdname' => $command,
-                                              'type' => $value,
+                                              'extra' => {'flag' => $value},
                                               'contents' => [],
                                               'parent' => $current };
             $self->_line_warn(
@@ -4519,7 +4519,7 @@ sub _process_remaining_on_line($$$$)
       # a normal space without type if followed by text or a
       # "spaces_at_end" if followed by spaces only when the
       # index or subentry command is done.
-      my $space_type = 'spaces_before_brace_in_index';
+      my $space_type = 'internal_spaces_before_brace_in_index';
       if ($command eq 'subentry') {
         $space_type = 'spaces_at_end';
       }
@@ -6896,10 +6896,7 @@ See L</Information available in the extra key>.
 
 Some types can be associated with @-commands (in addition to the element
 being described by C<cmdname>), although usually there will be no type
-at all.  For a C<@value> command that is not expanded because there is
-no corresponding value set, the type is the value argument string.
-
-The following are the other possible values of C<type> for tree elements
+at all.  The following are the possible values of C<type> for tree elements
 for @-commands.
 
 =over
@@ -7004,13 +7001,13 @@ the I<text> key.
 =item raw
 
 Text in an environment where it should be kept as is (in C<@verbatim>,
-C<@verb>, C<@html>, C<@macro> body).
+C<@verb>, C<@macro> body).
 
 =item spaces_at_end
 
-Space at the end of an argument to a line command, within an index @-command
-before an @-command interrupting the index command, or at the end of
-bracketed content on a C<@multitable> line or definition line.
+Space within an index @-command before an @-command interrupting the
+index command, or at the end of line and end of bracketed content
+on a definition line.
 
 =item text_before_beginning
 
@@ -7294,12 +7291,13 @@ with each argument element.
 
 =item spaces_before_argument
 
-A reference to spaces following some @-commands and bracketed content type
-with opening brace, line commands and block command lines taking Texinfo
-as argument and comma delimited arguments.  For context brace commands,
-line commands and block commands, I<spaces_before_argument> is associated with
-the @-command element, for other brace commands and for spaces after comma,
-it is associated with each argument element.
+A reference to spaces following the opening brace of some @-commands with braces
+and bracketed content type, spaces following @-commands for line commands and
+block command taking Texinfo as argument, and spaces following comma delimited
+arguments.  For context brace commands, line commands and block commands,
+I<spaces_before_argument> is associated with the @-command element, for other
+brace commands and for spaces after comma, it is associated with each argument
+element.
 
 =item text_arg
 
@@ -7524,6 +7522,12 @@ The node preceding the command is in I<associated_node>.
 The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<sections_level>.
+
+=item C<@value>
+
+The value argument string is in I<flag>.  Only for a C<@value> command
+that is not expanded because there is no corresponding value set, as
+only those are present in the tree.
 
 =item C<@verb>
 

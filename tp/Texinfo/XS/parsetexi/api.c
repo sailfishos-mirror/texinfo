@@ -425,10 +425,7 @@ element_to_perl_hash (ELEMENT *e)
   if (e->text.space > 0)
     {
       sv = newSVpv_utf8 (e->text.text, e->text.end);
-      if (e->cmd != CM_value)
-        hv_store (e->hv, "text", strlen ("text"), sv, 0);
-      else
-        hv_store (e->hv, "type", strlen ("type"), sv, 0);
+      hv_store (e->hv, "text", strlen ("text"), sv, 0);
     }
 
   if (e->extra_number > 0)

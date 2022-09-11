@@ -491,8 +491,10 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'cmdname' => 'value',
           'contents' => [],
-          'parent' => {},
-          'type' => 'flag'
+          'extra' => {
+            'flag' => 'flag'
+          },
+          'parent' => {}
         },
         {
           'contents' => [

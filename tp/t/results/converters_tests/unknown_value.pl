@@ -12,8 +12,10 @@ $result_trees{'unknown_value'} = {
         {
           'cmdname' => 'value',
           'contents' => [],
-          'parent' => {},
-          'type' => 'unknown'
+          'extra' => {
+            'flag' => 'unknown'
+          },
+          'parent' => {}
         }
       ],
       'parent' => {},
