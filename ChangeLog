@@ -1,5 +1,16 @@
 2022-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%default_converter_customization),
+	tp/Texinfo/Convert/TexinfoXML.pm (%defaults),
+	tp/Texinfo/Convert/TexinfoSXML.pm (%defaults),
+	tp/Texinfo/Convert/IXINSXML.pm (%defaults):
+	set 'TEXINFO_DTD_VERSION' in tp/Texinfo/Common.pm.
+
+	* tp/Texinfo/Convert/TexinfoXML.pm (format_header): correct
+	typo in DOCTYPE.
+
+2022-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/parser.c (is_end_current_command):
 	remove spaces after @end argument, as it is not used anywhere
 	anymore.

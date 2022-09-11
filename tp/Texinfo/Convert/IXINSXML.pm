@@ -37,10 +37,7 @@ my %defaults = (
   'ENABLE_ENCODING'      => 0,
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'ixin',
-  #'output_perl_encoding' => 'utf8',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  # useful?
-  'TEXINFO_DTD_VERSION'  => '5.0',
   'OUTFILE'              => undef,
   'SUBDIR'               => undef,
   'converted_format'     => 'ixinsxml',

@@ -36,16 +36,12 @@ use vars qw($VERSION @ISA);
 $VERSION = '6.8dev';
 
 
-# XML specific
+# TexinfoXML specific
 my %defaults = (
   'ENABLE_ENCODING'      => 0,
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'xml',
-  #'output_perl_encoding' => 'utf8',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  # the TEXINFO_DTD_VERSION is reset by the main program
-  # so this would only be used in tests
-  'TEXINFO_DTD_VERSION'  => '5.0',
   'OUTFILE'              => undef,
   'SUBDIR'               => undef,
   'converted_format'     => 'xml',
@@ -269,7 +265,7 @@ sub format_header($$$)
   }
 
   my $header =  "<?xml version=\"1.0\"${encoding}?>".'
-<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V'.$texinfo_dtd_version.'//EN" "http://www.gnu.org/software/texinfo/dtd/'.$texinfo_dtd_version.'/texinfo.dtd">
+<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoXML V'.$texinfo_dtd_version.'//EN" "http://www.gnu.org/software/texinfo/dtd/'.$texinfo_dtd_version.'/texinfo.dtd">
 '. $self->open_element('texinfo')."\n";
   if ($output_file ne '') {
     $header .= $self->open_element('filename', [['file', $output_filename]])

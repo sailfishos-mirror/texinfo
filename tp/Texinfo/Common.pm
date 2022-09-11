@@ -262,6 +262,16 @@ our %default_converter_customization = (
   'HANDLER_FATAL_ERROR_LEVEL' => 100,
   'TEST'                  => 0,
   'TEXTCONTENT_COMMENT'   => undef,  # in textcontent format
+  # used in TexinfoXML/SXML
+  # Reset by the main program, therefore this value is only used
+  # in converter tests.  Does not need to be updated every time a DTD
+  # is released, but it should be good to update from time to time
+  # to avoid test results that are not valid against their reported DTD.
+  'TEXINFO_DTD_VERSION'   => '6.8',  # this is not the value documented,
+                                     # but it is better for tests to have a
+                                     # value that never changes.
+                                     # The main program sets the
+                                     # variable to the documented value.
 );
 
 # Some are for all converters, EXTENSION for instance, some for
