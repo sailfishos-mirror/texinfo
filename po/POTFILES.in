@@ -45,6 +45,7 @@ tp/Texinfo/Convert/LaTeX.pm
 tp/Texinfo/Convert/NodeNameNormalization.pm
 tp/Texinfo/Convert/Plaintext.pm
 tp/Texinfo/Convert/Text.pm
+tp/Texinfo/Convert/TexinfoMarkup.pm
 tp/Texinfo/Convert/TexinfoXML.pm
 tp/Texinfo/Convert/Utils.pm
 tp/Texinfo/ParserNonXS.pm

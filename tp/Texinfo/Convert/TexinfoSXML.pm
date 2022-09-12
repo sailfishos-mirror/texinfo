@@ -17,19 +17,19 @@
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# This is a simple subclass of Texinfo::Convert::TexinfoXML that overrides
-# format specific functions.
+# A simple subclass of the Texinfo::Convert::TexinfoMarkup abstract
+# class.  Defines format specific functions.
 
 package Texinfo::Convert::TexinfoSXML;
 
 use 5.00405;
 use strict;
 
-use Texinfo::Convert::TexinfoXML;
+use Texinfo::Convert::TexinfoMarkup;
 use Carp qw(cluck);
 
 use vars qw($VERSION @ISA);
-@ISA = qw(Texinfo::Convert::TexinfoXML);
+@ISA = qw(Texinfo::Convert::TexinfoMarkup);
 
 $VERSION = '6.8dev';
 
@@ -51,6 +51,7 @@ sub converter_defaults($$)
 {
   return %defaults;
 }
+
 
 # format specific.  Used in few places where plain text is used outside
 # of attributes.
@@ -168,14 +169,11 @@ sub format_header($$$)
   my $output_filename = shift;
 
   my $header = '';
-  my $encoding = '';
-  if ($self->get_conf('OUTPUT_ENCODING_NAME')
-      and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
-    $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
-  }
-  if ($output_file ne '') {
-    my $output_filename = $output_filename;
-  }
+  #my $encoding = '';
+  #if ($self->get_conf('OUTPUT_ENCODING_NAME')
+  #    and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
+  #  $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+  #}
   return $header;
 }
 

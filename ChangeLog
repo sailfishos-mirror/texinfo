@@ -1,5 +1,20 @@
 2022-09-12  Patrice Dumas  <pertusus@free.fr>
 
+	Separate generic Texinfo Markup from XML formatting
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/TexinfoSXML.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm, util/txixml2texi.pl,
+	doc/tp_api/Makefile.am (tp_api_dependencies),
+	po/POTFILES.in, tp/Makefile.am (dist_converters_DATA):
+	split TexinfoXML.pm in two, the generic Markup to
+	Texinfo/Convert/TexinfoMarkup.pm, the specific XML formatting
+	remaining in Texinfo/Convert/TexinfoXML.pm.
+
+	* util/txixml2texi.pl: change in spacing.
+
+2022-09-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/IXINSXML.pm (converter_initialize):
 	reset 'converted_format' to be 'texinfosxml', as when called
 	from the main program it is (rightly) set to 'ixinsxml'.

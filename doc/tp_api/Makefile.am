@@ -60,10 +60,11 @@ tp_api_dependencies = \
   $(top_srcdir)/tp/Texinfo/Convert/Text.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Converter.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Info.pm \
+  $(top_srcdir)/tp/Texinfo/Convert/HTML.pm \
   $(top_srcdir)/tp/Texinfo/Convert/DocBook.pm \
+  $(top_srcdir)/tp/Texinfo/Convert/TexinfoMarkup.pm \
   $(top_srcdir)/tp/Texinfo/Convert/TexinfoXML.pm \
-  $(top_srcdir)/tp/Texinfo/Convert/Plaintext.pm \
-  $(top_srcdir)/tp/Texinfo/Convert/HTML.pm
+  $(top_srcdir)/tp/Texinfo/Convert/Plaintext.pm
 
 tp_api.texi: $(tp_api_dependencies) tp_api_indices.texi
 	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --setfilename tp_api.info --top 'Texinfo modules documentation' --subdir=api_includes $(tp_api_dependencies) | sed -e 's/^@bye/@__bye/' | sed -e '/^@__bye/r $(srcdir)/tp_api_indices.texi' | sed -e 's/^@__bye//' > $@

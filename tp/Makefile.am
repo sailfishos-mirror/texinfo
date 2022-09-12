@@ -98,6 +98,7 @@ dist_converters_DATA = \
  Texinfo/Convert/PlainTexinfo.pm \
  Texinfo/Convert/Plaintext.pm \
  Texinfo/Convert/Texinfo.pm \
+ Texinfo/Convert/TexinfoMarkup.pm \
  Texinfo/Convert/TexinfoSXML.pm \
  Texinfo/Convert/TexinfoXML.pm \
  Texinfo/Convert/Text.pm \
