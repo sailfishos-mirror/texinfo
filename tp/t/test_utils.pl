@@ -162,9 +162,11 @@ my %extensions = (
   'latex_text' => 'tex',
 );
 
-my %xml_converter_defaults
-    = Texinfo::Convert::TexinfoXML::converter_defaults(undef, undef);
-my $XML_DTD_VERSION = $xml_converter_defaults{'TEXINFO_DTD_VERSION'};
+#my %xml_converter_defaults
+#    = Texinfo::Convert::TexinfoXML::converter_defaults(undef, undef);
+#my $XML_DTD_VERSION = $xml_converter_defaults{'TEXINFO_DTD_VERSION'};
+my $XML_DTD_VERSION
+  = $Texinfo::Common::default_converter_customization{'TEXINFO_DTD_VERSION'};
 
 my %outfile_preamble = (
   'docbook' => ['<?xml version="1.0"?>
