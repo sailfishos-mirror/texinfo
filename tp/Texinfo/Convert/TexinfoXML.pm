@@ -61,17 +61,25 @@ sub converter_defaults($$)
 
 # format specific.  Used in few places where plain text is used outside
 # of attributes.
-sub protect_text($$)
+sub txi_markup_protect_text($$)
 {
   my $self = shift;
   my $string = shift;
   return $self->_protect_text($string);
 }
 
+my %special_xml_attributes = (
+  'documentlanguage' => {'lang' => 'xml:lang'},
+  # for preformatted type
+  'pre' => {'space' => 'xml:space'},
+  'verbatim' => {'space' => 'xml:space'},
+);
+
 sub _xml_attributes($$)
 {
   my $self = shift;
   my $attributes = shift;
+  my $format_element = shift;
   if (ref($attributes) ne 'ARRAY') {
     cluck "attributes not an array($attributes).";
   }
@@ -94,37 +102,45 @@ sub _xml_attributes($$)
       # &attrformfeed; resolves to \f so \ are doubled
       $text =~ s/\\/\\\\/g;
     }
-    $result .= " $attribute_spec->[0]=\"".$text."\"";
+    my $attribute_name = $attribute_spec->[0];
+    if ($special_xml_attributes{$format_element}
+        and $special_xml_attributes{$format_element}->{$attribute_spec->[0]}) {
+      $attribute_name
+        = $special_xml_attributes{$format_element}->{$attribute_spec->[0]};
+    }
+    $result .= " $attribute_name=\"".$text."\"";
   }
   return $result;
 }
 
 # format specific
-sub element($$$)
+sub txi_markup_element($$$)
 {
   my $self = shift;
   my $format_element = shift;
   my $attributes = shift;
   my $result= '<'.$format_element;
-  $result .= $self->_xml_attributes($attributes) if ($attributes);
+  $result .= $self->_xml_attributes($attributes, $format_element)
+        if ($attributes);
   $result .= '/>';
   return $result;
 }
 
 # format specific
-sub open_element($$$)
+sub txi_markup_open_element($$$)
 {
   my $self = shift;
   my $format_element = shift;
   my $attributes = shift;
   my $result= '<'."$format_element";
-  $result .= $self->_xml_attributes($attributes) if ($attributes);
+  $result .= $self->_xml_attributes($attributes, $format_element)
+      if ($attributes);
   $result .= '>';
   return $result;
 }
 
 # format specific
-sub close_element($$)
+sub txi_markup_close_element($$)
 {
   my $self = shift;
   my $format_element = shift;
@@ -136,7 +152,7 @@ my %no_arg_commands_formatting
    = %Texinfo::Convert::TexinfoMarkup::no_arg_commands_formatting;
 
 # format specific
-sub format_atom($$)
+sub txi_markup_atom($$)
 {
   my $self = shift;
   my $atom = shift;
@@ -148,7 +164,7 @@ sub format_atom($$)
 }
 
 # format specific
-sub format_comment($$)
+sub txi_markup_comment($$)
 {
   my $self = shift;
   my $string = shift;
@@ -167,14 +183,14 @@ sub _protect_text($$)
 }
 
 # format specific
-sub format_text($$)
+sub txi_markup_text($$)
 {
   my $self = shift;
   my $element = shift;
   my $result = $self->_protect_text($element->{'text'});
   if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
     # FIXME API
-    if (!$self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
+    if (!$self->in_monospace()) {
       $result =~ s/``/&textldquo;/g;
       $result =~ s/\'\'/&textrdquo;/g;
       $result =~ s/---/&textmdash;/g;
@@ -187,7 +203,7 @@ sub format_text($$)
 }
 
 # output format specific
-sub format_header($$$)
+sub txi_markup_header($$$)
 {
   my $self = shift;
   my $output_file = shift;

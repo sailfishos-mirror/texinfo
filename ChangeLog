@@ -1,5 +1,24 @@
 2022-09-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/TexinfoSXML.pm, tp/Texinfo/Convert/TexinfoXML.pm:
+	use txi_markup as prefix for the functions defined in modules
+	subclassing Texinfo::Convert::TexinfoMarkup.
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm (%special_xml_attributes,
+	_xml_attributes): do not use xml: prefix for attribute
+	names in Texinfo::Convert::TexinfoMarkup, set them in
+	Texinfo::Convert::TexinfoXML.
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (in_monospace),
+	tp/Texinfo/Convert/TexinfoSXML.pm (txi_markup_text),
+	tp/Texinfo/Convert/TexinfoXML.pm (txi_markup_text): add in_monospace()
+	to have this information in modules subclassing
+	Texinfo::Convert::TexinfoMarkup.
+
+2022-09-12  Patrice Dumas  <pertusus@free.fr>
+
 	Separate generic Texinfo Markup from XML formatting
 
 	* tp/Texinfo/Convert/TexinfoMarkup.pm,

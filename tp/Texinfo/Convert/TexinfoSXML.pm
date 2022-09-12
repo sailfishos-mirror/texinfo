@@ -55,7 +55,7 @@ sub converter_defaults($$)
 
 # format specific.  Used in few places where plain text is used outside
 # of attributes.
-sub protect_text($$)
+sub txi_markup_protect_text($$)
 {
   my $self = shift;
   my $string = shift;
@@ -78,13 +78,13 @@ sub _sxml_attributes($$)
     }
 
     $result .= " ($attribute_spec->[0] \"".
-          $self->protect_text($attribute_spec->[1])."\")";
+          $self->txi_markup_protect_text($attribute_spec->[1])."\")";
   }
   return $result . ')';
 }
 
 # format specific
-sub element($$$)
+sub txi_markup_element($$$)
 {
   my $self = shift;
   my $element_name = shift;
@@ -97,7 +97,7 @@ sub element($$$)
 }
 
 # format specific
-sub open_element($$$)
+sub txi_markup_open_element($$$)
 {
   my $self = shift;
   my $element_name = shift;
@@ -110,7 +110,7 @@ sub open_element($$$)
 }
 
 # format specific
-sub close_element($$)
+sub txi_markup_close_element($$)
 {
   my $self = shift;
   my $element_name = shift;
@@ -118,10 +118,11 @@ sub close_element($$)
   return $result;
 }
 
-my %no_arg_commands_formatting = %Texinfo::Convert::TexinfoXML::no_arg_commands_formatting;
+my %no_arg_commands_formatting
+  = %Texinfo::Convert::TexinfoMarkup::no_arg_commands_formatting;
 
 # format specific
-sub format_atom($$)
+sub txi_markup_atom($$)
 {
   my $self = shift;
   my $atom = shift;
@@ -134,7 +135,7 @@ sub format_atom($$)
 
 # format specific
 #FIXME
-sub format_comment($$)
+sub txi_markup_comment($$)
 {
   my $self = shift;
   my $string = shift;
@@ -143,13 +144,13 @@ sub format_comment($$)
 }
 
 # format specific
-sub format_text($$)
+sub txi_markup_text($$)
 {
   my $self = shift;
   my $element = shift;
-  my $result = $self->protect_text($element->{'text'});
+  my $result = $self->txi_markup_protect_text($element->{'text'});
   if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
-    if (!$self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
+    if (!$self->in_monospace()) {
       $result =~ s/``/" (textldquo (@)) "/g;
       $result =~ s/\'\'/" (textrdquo (@)) "/g;
       $result =~ s/---/" (textmdash (@)) "/g;
@@ -162,7 +163,7 @@ sub format_text($$)
 }
 
 # output format specific
-sub format_header($$$)
+sub txi_markup_header($$$)
 {
   my $self = shift;
   my $output_file = shift;
