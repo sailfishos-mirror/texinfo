@@ -1,6 +1,6 @@
-# IXIN.pm: output tree as IXIN.
+# IXIN.pm: output IXIN format.
 #
-# Copyright 2013-2020 Free Software Foundation, Inc.
+# Copyright 2013-2022 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,11 +17,48 @@
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# This module implements abstract functions that output the IXIN format
-# using lower level formatting funtions, here adapted to lisp like
-# output.  For other output, the output specific functions should be
-# redefined.  This module is not enough to output IXIN format, a module
-# inheriting both from a converter module and this module is required.
+#
+# The IXIN format "indexed Texinfo", contains both a representation of
+# a Texinfo manual contents, and additional information, using a specific
+# markup vocabulary to have a direct access to nodes, sections, labels,
+# indices, title...  It is designed to allow to render flexibly Texinfo.
+# The IXIN project is at https://savannah.nongnu.org/projects/ixin/.
+#
+#
+# This module alone is not sufficient to output the IXIN format, as it
+# calls convert_tree() but does not implement the conversion of Texinfo
+# (of the Texinfo tree) nor inherit from a module that does so.  A module
+# inheriting both from a converter module, for convert_tree(), and this module
+# should be used.  A functional implementation of IXIN is available as the
+# Texinfo::Convert::IXINSXML module which uses Texinfo::Convert::TexinfoSXML
+# for the Texinfo tree conversion.  Using a Texinfo tree converter that does
+# not lose information for Texinfo tree conversion in IXIN is in line with the
+# IXIN philosophy, so conversion modules like Texinfo::Convert::TexinfoXML or
+# Texinfo::Convert::TexinfoSXML are the best candidates.
+#
+# This module implements output of the IXIN format using lower level formatting
+# functions for the additional information markup, adapted to lisp-like
+# output.  To output the IXIN elements with another format, for example XML,
+# the abstract output specific functions ixin_* should be redefined in
+# another module a functional implementation would inherit from.  (This
+# approach is the same as the one used for Texinfo::Convert::TexinfoXML
+# and Texinfo::Convert::TexinfoSXML).
+#
+# This setup allows to cleanly separate the modules used for IXIN additional
+# information formatting and the modules used for Texinfo tree conversion.
+#
+#
+# This module is still work in progress, as is the IXIN project as a whole.
+# The IXIN project is inactive since 2015, this code is not actively
+# maintained either.  It is kept, in case the IXIN project resumes, and also
+# as an example of code adding additional information mixed with Texinfo
+# tree conversion.
+#
+# There are pending issues, in particular related to blobs, as can be seen
+# in the thread of
+#  https://lists.gnu.org/archive/html/help-texinfo/2013-01/msg00005.html
+# and
+#  https://lists.gnu.org/archive/html/help-texinfo/2015-02/msg00004.html
 
 package Texinfo::Convert::IXIN;
 
@@ -57,7 +94,7 @@ foreach my $command ('pagesizes', 'everyheading', 'everyfooting',
 }
 
 # Here are all the commands that are misc_commands with type matching \d
-# and are also global_unique_commands/global_multiple_commands in Parser.pm
+# and are also global_unique_commands/global_multiple_commands
 # but are not setting commands.
 my %global_misc_not_setting_commands = (
   'printindex' => 1,
@@ -82,6 +119,8 @@ my %extension_mime_mapping = (
 sub ixin_header($)
 {
   my $self = shift;
+  # FIXME _ixin_version() should be public to be usable in other implementation
+  # of output specific functions.
   my $header = 'ixin '.$self->_ixin_version().';';
   if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
     $header .= ' -*- coding: '. $self->get_conf('OUTPUT_ENCODING_NAME') .'-*-;';
@@ -183,6 +222,11 @@ sub ixin_none_element($$)
 # end output specific subs
 
 # FIXME this is rather non specific. Move to Converter?
+# FIXME need to be changed for {'structure'}->{'associated_unit'}.
+# There is a version HTML specific, _html_get_tree_root_element
+# which is up to date and handles better content in @insertcopying
+# or @titlepage, but has specific HTML code related to separate
+# elements, it could be used to update if needed.
 sub _get_element($$);
 sub _get_element($$)
 {
@@ -322,7 +366,8 @@ sub output_ixin($$)
   if ($self->{'parser_info'}->{'dircategory_direntry'}) {
     my $current_category;
     foreach my $dircategory_direntry (@{$self->{'parser_info'}->{'dircategory_direntry'}}) {
-      if ($dircategory_direntry->{'cmdname'} and $dircategory_direntry->{'cmdname'} eq 'dircategory') {
+      if ($dircategory_direntry->{'cmdname'}
+          and $dircategory_direntry->{'cmdname'} eq 'dircategory') {
         if ($current_category) {
           $result .= $self->ixin_close_element('category');
         }

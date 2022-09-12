@@ -586,9 +586,13 @@ my %formats_table = (
              'module' => 'Texinfo::Convert::TexinfoSXML',
              'floats' => 1,
            },
-  'ixinsxml' => {
+  'ixinsxml' => { # note that the Texinfo tree is converted to
+                  # 'texinfosxml', but the conversion as a whole
+                  # is 'ixinsxml', as Texinfo tree conversion is done
+                  # from within Texinfo::Convert::IXINSXML
              'nodes_tree' => 1,
-             'module' => 'Texinfo::Convert::IXINSXML'
+             'module' => 'Texinfo::Convert::IXINSXML',
+             'floats' => 1,
            },
   'docbook' => {
              'move_index_entries_after_items' => 1,
