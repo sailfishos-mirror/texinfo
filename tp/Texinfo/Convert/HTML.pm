@@ -910,7 +910,7 @@ sub command_contents_href($$$;$)
   return $href;
 }
 
-sub footnote_location_href($$;$$)
+sub footnote_location_href($$;$$$)
 {
   my $self = shift;
   my $command = shift;
@@ -928,9 +928,10 @@ sub footnote_location_href($$;$$)
   } elsif (defined($special_target)) {
     $target = $special_target->{'target'};
   }
-  # $target_filename node defined does not happen in the default footnote
-  # formatting functions, the file is always known as the footnote in the
-  # document appears before the footnote text formatting.  It is a good thing
+  # In the default footnote formatting functions, which calls
+  # footnote_location_href, the target file is always known as the
+  # footnote in the document appears before the footnote text formatting.
+  # $target_filename is therefore always defined.  It is a good thing
   # for the case of @footnote being formatted more than once (in multiple
   # @insertcopying for instance) as the file found just below may not be the
   # correct one in such a case.
@@ -7603,8 +7604,8 @@ sub _html_get_tree_root_element($$;$);
 # If $find_container is set, the element that holds the command output
 # is found, otherwise the element that holds the command is found.  This is
 # mostly relevant for footnote only.
-# If no known root element type is found, the returned root element is undef, and not
-# set to the element at the tree root
+# If no known root element type is found, the returned root element is undef,
+# and not set to the element at the tree root
 sub _html_get_tree_root_element($$;$)
 {
   my $self = shift;

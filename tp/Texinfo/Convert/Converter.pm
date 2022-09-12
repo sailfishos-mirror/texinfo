@@ -68,8 +68,8 @@ my %defaults = (
 # but is available directly in the converter as a hash key.
 # FIXME separate the two types of information and check that those
 # items are not valid customization options?
-# NOTE converters for now do not add more, and, in general set only
-# output_format.  It would be good to keep it that way and add
+# NOTE converters for now do not add more, set converted_format, and,
+# rarely, output_format.  It would be good to keep it that way and add
 # customization options instead.
 my %common_converters_defaults = (
   'language_config_dirs' => undef,

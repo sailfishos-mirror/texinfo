@@ -268,8 +268,8 @@ our %default_converter_customization = (
   # is released, but it should be good to update from time to time
   # to avoid test results that are not valid against their reported DTD.
   'TEXINFO_DTD_VERSION'   => '6.8',  # this is not the value documented,
-                                     # but it is better for tests to have a
-                                     # value that never changes.
+                                     # but it is better for the tests to
+                                     # have a fix value.
                                      # The main program sets the
                                      # variable to the documented value.
 );
