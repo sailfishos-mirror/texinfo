@@ -63,7 +63,7 @@ sub protect_text($$)
   return $string;
 }
 
-sub sxml_attributes($$)
+sub _sxml_attributes($$)
 {
   my $self = shift;
   my $attributes = shift;
@@ -90,7 +90,7 @@ sub element($$$)
   my $attributes = shift;
   my $result = '('.$element_name." ";
   $attributes = [] if (!defined($attributes));
-  $result .= $self->sxml_attributes($attributes);
+  $result .= $self->_sxml_attributes($attributes);
   $result .= ')';
   return $result;
 }
@@ -103,7 +103,7 @@ sub open_element($$$)
   my $attributes = shift;
   my $result = '('.$element_name." ";
   $attributes = [] if (!defined($attributes));
-  $result .= $self->sxml_attributes($attributes);
+  $result .= $self->_sxml_attributes($attributes);
   $result .= " ";
   return $result;
 }

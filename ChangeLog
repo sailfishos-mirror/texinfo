@@ -1,5 +1,10 @@
 2022-09-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoSXML.pm (_sxml_attributes): rename
+	sxml_attributes as _sxml_attributes, it is an internal function.
+
+2022-09-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoXML.pm (format_header): revert
 	previous change, the TexinfoML is not a typo, the 'X' of XML is
 	replaced by 'Texinfo' on purpose to obtain TexinfoML.
