@@ -264,8 +264,9 @@ sub format_header($$$)
     $texinfo_dtd_version = '1.00';
   }
 
+  # In the TexinfoML name, the X of XML is replaced by Texinfo.
   my $header =  "<?xml version=\"1.0\"${encoding}?>".'
-<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoXML V'.$texinfo_dtd_version.'//EN" "http://www.gnu.org/software/texinfo/dtd/'.$texinfo_dtd_version.'/texinfo.dtd">
+<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V'.$texinfo_dtd_version.'//EN" "http://www.gnu.org/software/texinfo/dtd/'.$texinfo_dtd_version.'/texinfo.dtd">
 '. $self->open_element('texinfo')."\n";
   if ($output_file ne '') {
     $header .= $self->open_element('filename', [['file', $output_filename]])
