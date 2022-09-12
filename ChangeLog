@@ -1,5 +1,15 @@
 2022-09-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (txi_markup_convert_text),
+	tp/Texinfo/Convert/TexinfoSXML.pm, tp/Texinfo/Convert/TexinfoXML.pm:
+	rename txi_markup_text as txi_markup_convert_text.
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (txi_markup_header),
+	tp/Texinfo/Convert/TexinfoSXML.pm, tp/Texinfo/Convert/TexinfoXML.pm:
+	remove the txi_markup_header() arguments.
+
+2022-09-12  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm,
 	tp/Texinfo/Convert/TexinfoSXML.pm, tp/Texinfo/Convert/TexinfoXML.pm:
 	use txi_markup as prefix for the functions defined in modules

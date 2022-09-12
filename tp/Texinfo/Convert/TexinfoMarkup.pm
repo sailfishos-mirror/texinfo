@@ -299,8 +299,7 @@ sub output($$)
   }
 
   my $result = '';
-  $result .= $self->write_or_return(
-       $self->txi_markup_header($output_file, $output_filename), $fh);
+  $result .= $self->write_or_return($self->txi_markup_header(), $fh);
   $result
     .= $self->write_or_return($self->txi_markup_open_element('texinfo')."\n", $fh);
   if ($output_file ne '') {
@@ -568,7 +567,7 @@ sub _convert($$;$)
     if ($self->{'document_context'}->[-1]->{'raw'}) {
       return $element->{'text'};
     }
-    return $self->txi_markup_text($element);
+    return $self->txi_markup_convert_text($element);
   }
 
   my @close_format_elements;
@@ -1633,7 +1632,43 @@ from C<Texinfo::Convert::TexinfoMarkup>:
 
 =over
 
-=item $text_result = $converter->txi_markup_protect_text($string)
+=item $result = $converter->txi_markup_atom($atom)
+
+Format the I<$atom> symbol string in a simpler way than with an element.  For
+example in XML the formatting of the symbol is achieved with an entity.
+
+=item $result = $converter->txi_markup_comment($comment_string)
+
+Format I<$comment_string> as a comment.
+
+=item $result = $converter->txi_markup_convert_text($element)
+
+Called to format the Texinfo tree I<$element> text, which is a
+reference on a hash.  The I<$element> text is in the C<text> key.
+The C<type> key value may also be set to distinguish the type of text
+(L<Texinfo::Parser/Types for text elements>).
+Elements are described in details in L<Texinfo::Parser/TEXINFO TREE>.
+
+=item $result = $converter->txi_markup_element($format_element, $attributes)
+
+=item $result = $converter->txi_markup_open_element($format_element, $attributes)
+
+=item $result = $converter->txi_markup_close_element($format_element, $attributes)
+
+C<txi_markup_element> is called for the formatting of empty elements that do
+not contain other elements nor text.  For other elements,
+C<txi_markup_open_element> is called when an element is opened, and
+C<txi_markup_close_element> is called when an element is closed.
+I<$format_element> is the element name, I<$attributes> is a reference on an
+array containing references on arrays of pairs, one pair for each attribute, with
+the attribute name as the first item of the pair and the attribute text as the
+second item of the pair.
+
+=item $result = $converter->txi_markup_header()
+
+Called to format a header at the beginning of output files.
+
+=item $result = $converter->txi_markup_protect_text($string)
 
 Protect special character in text for text fragments out of text
 texinfo tree elements.  For example, for spaces at end of line that
@@ -1644,7 +1679,7 @@ arguments.
 
 =head2 Formatting state information
 
-Some methods are available for subclasses to gather information on the
+A method is available for subclasses to gather information on the
 formatting state:
 
 =over
@@ -1653,6 +1688,8 @@ formatting state:
 
 Return 1 if in a context where spacing should be kept
 and C<---> or C<''> left as is, for example in C<@code>, C<@example>.
+
+=back
 
 =head1 AUTHOR
 

@@ -183,7 +183,7 @@ sub _protect_text($$)
 }
 
 # format specific
-sub txi_markup_text($$)
+sub txi_markup_convert_text($$)
 {
   my $self = shift;
   my $element = shift;
@@ -203,11 +203,9 @@ sub txi_markup_text($$)
 }
 
 # output format specific
-sub txi_markup_header($$$)
+sub txi_markup_header($)
 {
   my $self = shift;
-  my $output_file = shift;
-  my $output_filename = shift;
 
   my $encoding = '';
   if ($self->get_conf('OUTPUT_ENCODING_NAME')
