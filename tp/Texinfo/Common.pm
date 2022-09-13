@@ -31,6 +31,8 @@ use File::Spec;
 # for find_encoding, resolve_alias and maybe utf8 related functions
 use Encode;
 
+use Locale::Messages;
+
 use Texinfo::Documentlanguages;
 
 # debugging
@@ -64,25 +66,8 @@ __ __p print_tree
 
 $VERSION = '6.8dev';
 
+
 # i18n
-sub N__($)
-{
-  return $_[0];
-}
-
-# determine the null devices
-my $default_null_device = File::Spec->devnull();
-our %null_device_file = (
-  $default_null_device => 1
-);
-# special case, djgpp recognizes both null devices
-if ($Config{osname} eq 'dos' and $Config{osvers} eq 'djgpp') {
-  $null_device_file{'/dev/null'} = 1;
-  $null_device_file{'NUL'} = 1;
-}
-
-use Locale::Messages;
-
 my $messages_textdomain = 'texinfo';
 
 sub __($) {
@@ -96,9 +81,24 @@ sub __p($$) {
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
 }
 
-# not specific of Parser, used in other contexts.  Spread over the different
-# categories set below.  The default values are in general the same as
-# elsewheere, but occasionally may be specific of the Parser.
+
+# determine the null devices
+my $default_null_device = File::Spec->devnull();
+our %null_device_file = (
+  $default_null_device => 1
+);
+# special case, djgpp recognizes both null devices
+if ($Config{osname} eq 'dos' and $Config{osvers} eq 'djgpp') {
+  $null_device_file{'/dev/null'} = 1;
+  $null_device_file{'NUL'} = 1;
+}
+
+
+# Customization options
+
+# variables not specific of Parser, used in other contexts.  Spread over
+# the different categories set below.  The default values are in general
+# the same as elsewhere, but occasionally may be specific of the Parser.
 my %default_parser_common_customization = (
   'INCLUDE_DIRECTORIES' => [ '.' ],
   'documentlanguage' => undef,  # not 'en' as it is better to specify that there is no
@@ -136,7 +136,8 @@ our %document_settable_multiple_at_commands = (
   'contents' => 0,
   'deftypefnnewline' => 'off',
   'documentencoding' => 'us-ascii',
-  'documentlanguage' => 'en', # or undef?  Documented as en. Also --document-language
+  'documentlanguage' => 'en', # or undef?  Documented as en.
+                              # --document-language
   # is N ems in TeX, 0.4 in.
   'exampleindent' => 5,
   'firstparagraphindent' => 'none',
@@ -168,11 +169,10 @@ our %document_settable_unique_at_commands = (
   'everyfootingmarks' => 'bottom',
   'everyheadingmarks' => 'bottom',
   'fonttextsize' => 11,
-  'footnotestyle' => 'end',    # also --footnote-style
-  'novalidate' => 0,
+  'footnotestyle' => 'end',    # --footnote-style
+  'novalidate' => 0,           # --no-validate
   'oddfootingmarks' => undef,
   'oddheadingmarks' => undef,
-  # FIXME not clear here.
   'pagesizes' => undef,
   'setchapternewpage' => 'on',
   'setfilename' => undef,
@@ -269,7 +269,7 @@ our %default_converter_customization = (
   # to avoid test results that are not valid against their reported DTD.
   'TEXINFO_DTD_VERSION'   => '6.8',  # this is not the value documented,
                                      # but it is better for the tests to
-                                     # have a fix value.
+                                     # have a fixed value.
                                      # The main program sets the
                                      # variable to the documented value.
 );
@@ -420,7 +420,7 @@ my @variable_other_settables = (
 our %document_settable_at_commands = (%document_settable_multiple_at_commands,
    %document_settable_unique_at_commands);
 
-my %valid_options;
+my %valid_customization_options;
 foreach my $var (keys(%document_settable_at_commands),
          keys(%default_main_program_command_line_options),
          keys(%default_converter_command_line_options),
@@ -429,13 +429,13 @@ foreach my $var (keys(%document_settable_at_commands),
          keys(%default_converter_customization),
          @variable_string_settables,
          @variable_other_settables) {
-  $valid_options{$var} = 1;
+  $valid_customization_options{$var} = 1;
 }
 
-sub valid_option($)
+sub valid_customization_option($)
 {
   my $option = shift;
-  return $valid_options{$option};
+  return $valid_customization_options{$option};
 }
 
 # not documented on purpose, should not be called in user-defined
@@ -444,22 +444,14 @@ sub add_valid_customization_option($)
 {
   my $option = shift;
   if ($option =~ /^[A-Z][A-Z_]{2,}$/) {
-    $valid_options{$option} = 1;
+    $valid_customization_options{$option} = 1;
     return 1;
   }
   return 0;
 }
 
-my %customization_variable_classes = (
-  'document_settable_multiple_at_commands' => [ sort(keys(%document_settable_multiple_at_commands)) ],
-  'document_settable_unique_at_commands' => [ sort(keys(%document_settable_unique_at_commands)) ],
-  'command_line_settables' => [ sort((keys(%default_converter_command_line_options),
-                                      keys(%default_main_program_command_line_options))) ],
-  'variable_string_settables' => [ @variable_string_settables, sort(
-    (keys(%default_parser_specific_customization), keys(%default_main_program_customization),
-     keys(%default_converter_customization))) ],
-  'variable_other_settables' => \@variable_other_settables,
-);
+
+# Tree transformations
 
 my %valid_tree_transformations;
 foreach my $valid_transformation ('simple_menus',
@@ -477,6 +469,9 @@ sub valid_tree_transformation ($)
                and $valid_tree_transformations{$transformation});
   return 0;
 }
+
+
+# @-commands classifications
 
 our %no_brace_commands;             # commands never taking braces
 %no_brace_commands = (
@@ -497,7 +492,6 @@ our %no_brace_commands;             # commands never taking braces
            '&', '&',
            '\\', '\\',  # should only appear in math
 );
-
 
 # commands taking a line as argument or no argument.
 # sectioning commands and def* commands are added below.
@@ -771,7 +765,8 @@ $code_style_commands{'key'} = 1;
 $code_style_commands{'verb'} = 1;
 $code_style_commands{'indicateurl'} = 1;
 
-# Commands that enclose full texts, that can contain multiple paragraphs.
+# Commands that enclose full texts not in the main document context.
+# They can contain multiple paragraphs.
 our %context_brace_commands;
 foreach my $context_brace_command ('footnote', 'caption',
     'shortcaption') {
@@ -780,8 +775,8 @@ foreach my $context_brace_command ('footnote', 'caption',
 }
 
 our %math_commands;
-# Commands that enclose full texts, that can contain multiple paragraphs
-# and contain maths
+# Commands that enclose math content, and, because of that, are not in the
+# main document context.
 foreach my $math_brace_command ('math') {
   $context_brace_commands{$math_brace_command} = $math_brace_command;
   $brace_commands{$math_brace_command} = 'context';
@@ -837,7 +832,6 @@ foreach my $unformatted_brace_command ('anchor', 'shortcaption',
     'caption', 'hyphenation', 'errormsg') {
   $unformatted_brace_commands{$unformatted_brace_command} = 1;
 }
-
 
 # commands delimiting blocks, with an @end.
 # Value is either the number of arguments on the line separated by
@@ -1402,22 +1396,6 @@ sub warn_unknown_language($) {
   return @messages;
 }
 
-my %possible_split = (
-  'chapter' => 1,
-  'section' => 1,
-  'node' => 1,
-);
-
-# main program
-sub warn_unknown_split($) {
-  my $split = shift;
-
-  my @messages = ();
-  if ($split and !$possible_split{$split}) {
-    push @messages, sprintf(__("%s is not a valid split possibility"), $split);
-  }
-  return @messages;
-}
 
 sub _find_end_brace($$)
 {
@@ -1571,20 +1549,20 @@ sub parse_node_manual($)
 # ASCII, as the name of the directory it is located within may contain
 # non-ASCII characters.
 #   Otherwise, the -e operator and similar may not work correctly.
-# TODO Really use customization_information?  Document when the API is final
-sub encode_file_name($$;$)
+sub encode_file_name($$)
 {
-  my $customization_information = shift;
   my $file_name = shift;
   my $input_encoding = shift;
 
   my $encoding;
 
-  if ($input_encoding and ($input_encoding eq 'utf-8'
-                           or $input_encoding eq 'utf-8-strict')) {
+  return ($file_name, $encoding)
+    if (not defined($input_encoding));
+
+  if ($input_encoding eq 'utf-8' or $input_encoding eq 'utf-8-strict') {
     utf8::encode($file_name);
     $encoding = 'utf-8';
-  } elsif (defined($input_encoding)) {
+  } else {
     $file_name = Encode::encode($input_encoding, $file_name);
     $encoding = $input_encoding;
   }
@@ -3172,6 +3150,14 @@ Return true if the element passed in argument is in running text
 context.  If the optional I<$check_current> argument is set,
 check the element itself, in addition to the parent context.
 
+=item ($encoded_file_name, $encoding) = encode_file_name($file_name, $input_encoding)
+
+Encode the I<$file_name> text string to a binary string I<$encoded_file_name>
+based on I<$input_encoding>.  Also returns the I<$encoding> name actually
+used which may have undergone some normalization.  This function is mostly
+a wrapper around L<Encode::encode> which avoids calling the module if not
+needed.  Do nothing if I<$input_encoding> is C<undef>.
+
 =item $text = enumerate_item_representation($specification, $number)
 X<C<enumerate_item_representation>>
 
@@ -3329,7 +3315,7 @@ X<C<trim_spaces_comment_from_content>>
 Remove empty spaces after commands or braces at begin and
 spaces and comments at end from a content array, modifying it.
 
-=item valid_option($name)
+=item valid_customization_option($name)
 X<C<valid_option>>
 
 Return true if the I<$name> is a known customization option.

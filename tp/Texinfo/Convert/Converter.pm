@@ -193,7 +193,7 @@ sub converter(;$)
                           if (!exists($defaults{$key}));
   }
   foreach my $key (keys(%defaults)) {
-    if (Texinfo::Common::valid_option($key)) {
+    if (Texinfo::Common::valid_customization_option($key)) {
       $converter->{'conf'}->{$key} = $defaults{$key};
     } else {
       $converter->{$key} = $defaults{$key};
@@ -217,7 +217,7 @@ sub converter(;$)
       delete $conf->{'parser'};
     }
     foreach my $key (keys(%$conf)) {
-      if (Texinfo::Common::valid_option($key)) {
+      if (Texinfo::Common::valid_customization_option($key)) {
         $converter->{'conf'}->{$key} = $conf->{$key};
       } elsif (!exists($defaults{$key})) {
         warn "$key not a possible configuration in $name\n";
@@ -474,7 +474,7 @@ sub get_conf($$)
 {
   my $self = shift;
   my $conf = shift;
-  if (!Texinfo::Common::valid_option($conf)) {
+  if (!Texinfo::Common::valid_customization_option($conf)) {
     confess("CBUG: unknown option $conf\n");
     #return undef;
   }
@@ -486,7 +486,7 @@ sub set_conf($$$)
   my $self = shift;
   my $conf = shift;
   my $value = shift;
-  if (!Texinfo::Common::valid_option($conf)) {
+  if (!Texinfo::Common::valid_customization_option($conf)) {
     die "BBUG: unknown option $conf\n";
     return undef;
   }
@@ -503,7 +503,7 @@ sub force_conf($$$)
   my $self = shift;
   my $conf = shift;
   my $value = shift;
-  if (!Texinfo::Common::valid_option($conf)) {
+  if (!Texinfo::Common::valid_customization_option($conf)) {
     die "ABUG: unknown option $conf\n";
     return undef;
   }
@@ -1071,7 +1071,7 @@ sub encoded_input_file_name($$)
     $encoding = $self->get_conf('LOCALE_ENCODING');
   }
 
-  return Texinfo::Common::encode_file_name($self, $file_name, $encoding);
+  return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
 # A wrapper around Texinfo::Utils::encoded_output_file_name() that

@@ -95,7 +95,8 @@ sub _get_language($$$)
   if ($cmdname eq 'example') {
     if ($command->{'args'} and scalar(@{$command->{'args'}}) > 0) {
       $converted_language
-        = Texinfo::Convert::NodeNameNormalization::convert($command->{'args'}->[0]);
+        = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
+                                                     $command->{'args'}->[0]);
       if ($converted_language eq '') {
         $converted_language = undef;
       }
@@ -402,7 +403,8 @@ sub highlight_preformatted_command($$$$$)
               # convert or remove all @-commands, using simple ascii and unicode
               # characters
               my $converted_arg
-                 = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
+               = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
+                                                                   $example_arg);
               if ($converted_arg ne '') {
                 push @classes, $converted_arg;
               }

@@ -211,7 +211,8 @@ sub expand_verbatiminclude($$$)
         if (defined($current->{'extra'}->{'input_perl_encoding'}));
 
   my $encoding;
-  my $input_file_name_encoding = $customization_information->get_conf('INPUT_FILE_NAME_ENCODING');
+  my $input_file_name_encoding
+     = $customization_information->get_conf('INPUT_FILE_NAME_ENCODING');
   if ($input_file_name_encoding) {
     $encoding = $input_file_name_encoding;
   } elsif ($customization_information->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME')) {
@@ -221,9 +222,7 @@ sub expand_verbatiminclude($$$)
   }
 
   my ($file_name, $file_name_encoding)
-      = Texinfo::Common::encode_file_name($customization_information,
-                                                    $file_name_text,
-                                                    $encoding);
+      = Texinfo::Common::encode_file_name($file_name_text, $encoding);
 
   my $file = Texinfo::Common::locate_include_file($customization_information,
                                                   $file_name);
@@ -334,7 +333,7 @@ sub encoded_output_file_name($$)
     $encoding = $self->get_conf('LOCALE_ENCODING');
   }
 
-  return Texinfo::Common::encode_file_name($self, $file_name, $encoding);
+  return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
 # this requires a converter argument.  It is defined here, in order

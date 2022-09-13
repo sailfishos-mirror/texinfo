@@ -112,11 +112,6 @@ sub import {
 $VERSION = '6.8dev';
 
 
-sub N__($)
-{
-  return $_[0];
-}
-
 # these are the default values for the parser state
 # some could become configurable if moved to the next hash, but they
 # are not configurable/implemented in the XS parser, so they are best
@@ -2033,7 +2028,7 @@ sub _encode_file_name($$)
     $encoding = $self->get_conf('LOCALE_ENCODING');
   }
 
-  return Texinfo::Common::encode_file_name($self, $file_name, $encoding);
+  return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
 sub _save_line_directive

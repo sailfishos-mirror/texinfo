@@ -3952,7 +3952,8 @@ sub _convert_preformatted_command($$$$$)
         # convert or remove all @-commands, using simple ascii and unicode
         # characters
         my $converted_arg
-          = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
+          = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
+                                                                 $example_arg);
         if ($converted_arg ne '') {
           push @classes, 'user-' . $converted_arg;
         }
@@ -7843,7 +7844,8 @@ sub _prepare_conversion_tree_units($$$$)
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
-  my @contents_elements_options = grep {Texinfo::Common::valid_option($_)}
+  my @contents_elements_options
+                  = grep {Texinfo::Common::valid_customization_option($_)}
                                keys(%contents_command_special_element_variety);
   $self->set_global_document_commands('last', \@contents_elements_options);
 

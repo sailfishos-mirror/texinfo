@@ -18,7 +18,7 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 # the rules for conversion are decribed in the Texinfo manual, for
-# HTML crossrefs.
+# HTML crossrefs in the 'HTML Xref' node.
 
 package Texinfo::Convert::NodeNameNormalization;
 
@@ -46,6 +46,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 %EXPORT_TAGS = ( 'all' => [ qw(
   normalize_node
   transliterate_texinfo
+  transliterate_protect_file_name
 ) ] );
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -85,7 +86,7 @@ foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
 sub normalize_node($)
 {
   my $root = shift;
-  my $result = convert($root);
+  my $result = _convert($root);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected($result);
   $result = 'Top' if ($result =~ /^Top$/i);
@@ -96,7 +97,7 @@ sub transliterate_texinfo($;$)
 {
   my $root = shift;
   my $no_unidecode = shift;
-  my $result = convert($root);
+  my $result = _convert($root);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected(
                 _unicode_to_transliterate($result, $no_unidecode));
@@ -113,7 +114,7 @@ sub transliterate_protect_file_name($;$)
   return $result;
 }
 
-sub convert($)
+sub convert_to_normalized($)
 {
   my $root = shift;
   my $result = _convert($root);
@@ -227,7 +228,6 @@ sub _unicode_to_transliterate($;$)
   }
   return $result;
 }
-
 
 
 sub _convert($;$);
@@ -421,23 +421,31 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 C<Texinfo::Convert::NodeNameNormalization> allows to normalize node names,
-with C<normalize_node> following the specification described in the 
-Texinfo manual I<HTML Xref> node.  This is usefull each time one want a 
+with C<normalize_node> following the specification described in the
+Texinfo manual I<HTML Xref> node.  This is usefull each time one want a
 unique identifier for Texinfo content that is only composed of letter,
-digits, C<-> and C<_>.  In L<Texinfo::Parser>, C<normalize_node> is used 
-for C<@node>, C<@float> and C<@anchor> names normalization, but also C<@float> 
+digits, C<-> and C<_>.  In L<Texinfo::Parser>, C<normalize_node> is used
+for C<@node>, C<@float> and C<@anchor> names normalization, but also C<@float>
 types and C<@acronym> and C<@abbr> first argument.
 
-It is also possible to transliterate non ascii letters, instead of mangling 
-them, with C<transliterate_texinfo>, losing the uniqueness feature of 
+It is also possible to transliterate non-ASCII letters, instead of mangling
+them, with C<transliterate_texinfo>, losing the uniqueness feature of
 normalized node names.
 
-Another method, C<transliterate_protect_file_name> transliterates non ascii
+Another method, C<transliterate_protect_file_name> transliterates non-ASCII
 letters and protect characters that should not appear on file names.
 
 =head1 METHODS
 
 =over
+
+=item $partially_normalized = convert_to_normalized($tree)
+X<C<convert_to_normalized>>
+
+The Texinfo I<$tree> is returned as a string, with @-commands and spaces
+normalized as described in the Texinfo manual I<HTML Xref> node.  ASCII
+7-bit characters other than spaces and non-ASCII characters are left as
+is in the resulting string.
 
 =item $normalized = normalize_node($tree)
 X<C<normalize_node>>
@@ -445,23 +453,23 @@ X<C<normalize_node>>
 The Texinfo I<$tree> is returned as a string, normalized as described in the
 Texinfo manual I<HTML Xref> node.
 
-The result will be poor for Texinfo trees which are not @-command arguments 
-(on an @-command line or in braces), for instance if the tree contains 
+The result will be poor for Texinfo trees which are not @-command arguments
+(on an @-command line or in braces), for instance if the tree contains
 C<@node> or block commands.
 
 =item $transliterated = transliterate_texinfo($tree, $no_unidecode)
 X<C<transliterate_texinfo>>
 
-The Texinfo I<$tree> is returned as a string, with non ascii letters
-transliterated as ascii, but otherwise similar with C<normalize_node>
+The Texinfo I<$tree> is returned as a string, with non-ASCII letters
+transliterated as ASCII, but otherwise similar with C<normalize_node>
 output.  If the optional I<$no_unidecode> argument is set, C<Text::Unidecode>
 is not used for characters whose transliteration is not built-in.
 
 =item $file_name = transliterate_protect_file_name($string, $no_unidecode)
 X<C<transliterate_protect_file_name>>
 
-The string I<$string> is returned with non ascii letters transliterated as
-ascii, and ascii characters non safe in file names are protected as in
+The string I<$string> is returned with non-ASCII letters transliterated as
+ASCII, and ASCII characters not safe in file names protected as in
 node normalization.  If the optional I<$no_unidecode> argument is set,
 C<Text::Unidecode> is not used for characters whose transliteration is not
 built-in.

@@ -208,7 +208,7 @@ sub texinfo_set_from_init_file($$) {
   if (!defined($var)) {
     return 1;
   }
-  if (!Texinfo::Common::valid_option($var)) {
+  if (!Texinfo::Common::valid_customization_option($var)) {
     # carp may be better, but infortunately, it points to the routine
     # that loads the file, and not to the init file.
     _GNUT_document_warn(sprintf(__("%s: unknown variable %s"),
@@ -235,7 +235,7 @@ sub GNUT_set_from_cmdline($$)
 
   delete $init_files_options->{$var};
   delete $main_program_default_options->{$var};
-  if (!Texinfo::Common::valid_option($var)) {
+  if (!Texinfo::Common::valid_customization_option($var)) {
     _GNUT_document_warn(sprintf(__("unknown variable from command line: %s\n"),
                                $var));
     return 0;

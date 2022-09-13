@@ -467,6 +467,12 @@ my @input_file_suffixes = ('.txi','.texinfo','.texi','.txinfo','');
 
 my @texi2dvi_args = ();
 
+my %possible_split = (
+  'chapter' => 1,
+  'section' => 1,
+  'node' => 1,
+);
+
 # this associates the command line options to the arrays set during
 # command line parsing.
 my @css_files = ();
@@ -961,12 +967,10 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
     }
   },
  'split=s' => sub {  my $split = _decode_input($_[1]);
-                     my @messages 
-                       = Texinfo::Common::warn_unknown_split($split);
-                     if (@messages) {
-                       foreach my $message (@messages) {
-                         document_warn($message);
-                       }
+                     if (!$possible_split{$split}) {
+                       document_warn(
+                         sprintf(__("%s is not a valid split possibility"),
+                                 $split));
                        $split = 'node';
                      }
                      set_from_cmdline('SPLIT', $split); },
@@ -1668,8 +1672,7 @@ while(@input_files) {
 
     my $sort_element_count_file_name = get_conf('SORT_ELEMENT_COUNT');
     my ($encoded_sort_element_count_file_name, $path_encoding)
-       = Texinfo::Common::encode_file_name($main_configuration,
-                                           $sort_element_count_file_name,
+       = Texinfo::Common::encode_file_name($sort_element_count_file_name,
                                            $input_perl_encoding);
     my $sort_elem_files_information = {};
     # FIXME using $converter here for the configuration is

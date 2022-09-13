@@ -1,5 +1,30 @@
 2022-09-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (encode_file_name),
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/Utils.pm,
+	tp/Texinfo/ParserNonXS.pm, tp/texi2any.pl: remove encode_file_name()
+	$customization_information argument, customization should be taken
+	into account in caller.
+
+	* tp/Texinfo/Common.pm (valid_customization_option),
+	tp/Texinfo/Config.pm, tp/Texinfo/Convert/Converter.pm,
+	tp/Texinfo/Convert/HTML.pm: rename valid_option() as
+	valid_customization_option().
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm (convert_to_normalized),
+	tp/Texinfo/Convert/HTML.pm, tp/init/highlight_syntax.pm: rename
+	convert() as convert_to_normalized().
+
+	* tp/Texinfo/Common.pm, tp/texi2any.pl: inline warn_unknown_split() in
+	main program.
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/ParserNonXS.pm: remove N__ it is
+	not used anywhere.
+
+	* tp/Texinfo/Common.pm: remove unused %customization_variable_classes.
+
+2022-09-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): do not modify
 	the tree when preparing a modified multitable prototype line.
 
