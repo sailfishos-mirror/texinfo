@@ -1620,9 +1620,9 @@ called by C<Texinfo::Convert::TexinfoMarkup>.
 The Texinfo Markup Language elements and attributes are not documented,
 but the Texinfo XML output by the C<Texinfo::Convert::TexinfoXML> subclass
 (L<Texinfo::Convert::TexinfoXML>) is a straightforward formatting as XML,
-and is described by the texinfo DTD, therefore the texinfo DTD can be
-used as a specification of both Texinfo XML and of the more abstract
-Texinfo Markup Language.
+and is described by the texinfo DTD.  Therefore the texinfo DTD can be
+used as a description of the structure of both Texinfo XML and of the
+more abstract Texinfo Markup Language.
 
 =head1 METHODS
 
@@ -1648,7 +1648,7 @@ Called to format the Texinfo tree I<$element> text, which is a
 reference on a hash.  The I<$element> text is in the C<text> key.
 The C<type> key value may also be set to distinguish the type of text
 (L<Texinfo::Parser/Types for text elements>).
-Elements are described in details in L<Texinfo::Parser/TEXINFO TREE>.
+Texinfo tree elements are described in details in L<Texinfo::Parser/TEXINFO TREE>.
 
 =item $result = $converter->txi_markup_element($format_element, $attributes)
 
@@ -1656,8 +1656,7 @@ Elements are described in details in L<Texinfo::Parser/TEXINFO TREE>.
 
 =item $result = $converter->txi_markup_close_element($format_element, $attributes)
 
-C<txi_markup_element> is called for the formatting of empty elements that do
-not contain other elements nor text.  For other elements,
+C<txi_markup_element> is called for the formatting of empty elements.  Otherwise,
 C<txi_markup_open_element> is called when an element is opened, and
 C<txi_markup_close_element> is called when an element is closed.
 I<$format_element> is the element name, I<$attributes> is a reference on an
