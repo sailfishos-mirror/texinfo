@@ -44,8 +44,6 @@ my %defaults = (
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'xml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'OUTFILE'              => undef,
-  'SUBDIR'               => undef,
   'converted_format'     => 'xml',
   'SPLIT'                => 0,
   'documentlanguage'     => 'en',
@@ -59,8 +57,6 @@ sub converter_defaults($$)
 
 # Following are XML specific formatting functions.
 
-# format specific.  Used in few places where plain text is used outside
-# of attributes.
 sub txi_markup_protect_text($$)
 {
   my $self = shift;
@@ -113,7 +109,6 @@ sub _xml_attributes($$)
   return $result;
 }
 
-# format specific
 sub txi_markup_element($$$)
 {
   my $self = shift;
@@ -126,7 +121,6 @@ sub txi_markup_element($$$)
   return $result;
 }
 
-# format specific
 sub txi_markup_open_element($$$)
 {
   my $self = shift;
@@ -139,7 +133,6 @@ sub txi_markup_open_element($$$)
   return $result;
 }
 
-# format specific
 sub txi_markup_close_element($$)
 {
   my $self = shift;
@@ -151,7 +144,6 @@ sub txi_markup_close_element($$)
 my %no_arg_commands_formatting
    = %Texinfo::Convert::TexinfoMarkup::no_arg_commands_formatting;
 
-# format specific
 sub txi_markup_atom($$)
 {
   my $self = shift;
@@ -163,7 +155,6 @@ sub txi_markup_atom($$)
   }
 }
 
-# format specific
 sub txi_markup_comment($$)
 {
   my $self = shift;
@@ -182,7 +173,6 @@ sub _protect_text($$)
   return $result;
 }
 
-# format specific
 sub txi_markup_convert_text($$)
 {
   my $self = shift;
@@ -202,7 +192,6 @@ sub txi_markup_convert_text($$)
   return $result;
 }
 
-# output format specific
 sub txi_markup_header($)
 {
   my $self = shift;

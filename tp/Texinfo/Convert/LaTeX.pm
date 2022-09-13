@@ -748,8 +748,6 @@ my %defaults = (
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'tex',
 
-  'OUTFILE'              => undef,
-  'SUBDIR'               => undef,
   'documentlanguage'     => undef,
 
   'converted_format'     => 'latex',

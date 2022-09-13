@@ -1775,9 +1775,7 @@ my %defaults = (
 # if set, no css is used.
   'NO_CSS'               => 0,
   'OUTPUT_ENCODING_NAME'  => 'utf-8',
-  'OUTFILE'              => undef,
   'SPLIT'                => 'node',
-  'SUBDIR'               => undef,
   'USE_NODES'            => 1,
   'USE_NODE_DIRECTIONS'  => undef,
   'OPEN_QUOTE_SYMBOL'    => undef,

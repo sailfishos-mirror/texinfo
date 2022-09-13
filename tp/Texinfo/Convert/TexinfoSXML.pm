@@ -40,8 +40,6 @@ my %defaults = (
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'sxml',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'OUTFILE'              => undef,
-  'SUBDIR'               => undef,
   'converted_format'     => 'texinfosxml',
   'SPLIT'                => 0,
   'documentlanguage'     => 'en',
@@ -53,8 +51,6 @@ sub converter_defaults($$)
 }
 
 
-# format specific.  Used in few places where plain text is used outside
-# of attributes.
 sub txi_markup_protect_text($$)
 {
   my $self = shift;
@@ -83,7 +79,6 @@ sub _sxml_attributes($$)
   return $result . ')';
 }
 
-# format specific
 sub txi_markup_element($$$)
 {
   my $self = shift;
@@ -96,7 +91,6 @@ sub txi_markup_element($$$)
   return $result;
 }
 
-# format specific
 sub txi_markup_open_element($$$)
 {
   my $self = shift;
@@ -109,7 +103,6 @@ sub txi_markup_open_element($$$)
   return $result;
 }
 
-# format specific
 sub txi_markup_close_element($$)
 {
   my $self = shift;
@@ -133,8 +126,7 @@ sub txi_markup_atom($$)
   }
 }
 
-# format specific
-#FIXME
+# TODO is there a way to mark comments in SXML?
 sub txi_markup_comment($$)
 {
   my $self = shift;
@@ -143,7 +135,6 @@ sub txi_markup_comment($$)
   return '';
 }
 
-# format specific
 sub txi_markup_convert_text($$)
 {
   my $self = shift;
@@ -162,7 +153,6 @@ sub txi_markup_convert_text($$)
   return '"'.$result.'" ';
 }
 
-# output format specific
 sub txi_markup_header($)
 {
   my $self = shift;

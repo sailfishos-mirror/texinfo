@@ -2005,14 +2005,6 @@ $result_trees{'comments_on_block_command_lines'} = {
                 'type' => 'bracketed_multitable_prototype'
               }
             ],
-            'prototypes_line' => [
-              {},
-              {
-                'text' => ' ',
-                'type' => 'prototype_space'
-              },
-              {}
-            ],
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -2563,8 +2555,6 @@ $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'contents'}[1]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'extra'}{'prototypes_line'}[0] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'contents'}[0];
-$result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'extra'}{'prototypes_line'}[2] = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'contents'}[2];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[32]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[33]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0];
 $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_on_block_command_lines'}{'contents'}[0]{'contents'}[34]{'args'}[0];

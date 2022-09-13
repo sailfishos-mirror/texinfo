@@ -49,8 +49,6 @@ my %defaults = (
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'xml', # dbk?
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'OUTFILE'              => undef,
-  'SUBDIR'               => undef,
   'converted_format'     => 'docbook',
   'SPLIT'                => 0,
   'documentlanguage'     => undef,
@@ -300,8 +298,9 @@ sub convert_tree($$)
   return $self->_convert($root);
 }
 
-# not the same as a default for @documentlanguage as it appears
-# as an empty string on the lang_stack.
+# not the same as a default for @documentlanguage.  $DEFAULT_LANG
+# is used in the lang attribute, but if there is no @documentlanguag,
+# the lang_stack will start with an empty string, not with $DEFAULT_LANG.
 my $DEFAULT_LANG = 'en';
 sub output($$)
 {

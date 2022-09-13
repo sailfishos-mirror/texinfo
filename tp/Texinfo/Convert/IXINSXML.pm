@@ -47,8 +47,6 @@ my %defaults = (
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'ixin',
   'OUTPUT_ENCODING_NAME' => 'utf-8',
-  'OUTFILE'              => undef,
-  'SUBDIR'               => undef,
   # next two are replaced by the main program value if called from
   # the main program.  'output_format' is also 'ixinsxml' when set by
   # the main program, but 'converted_format' is set to 'ixinsxml'.

@@ -53,6 +53,7 @@ foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
 
 my %defaults = (
   'FORMAT_MENU'          => 'menu',
+  # different from the default, which is undef
   'OUTFILE'              => '-',
 );
 

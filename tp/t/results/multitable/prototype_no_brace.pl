@@ -100,29 +100,6 @@ $result_trees{'prototype_no_brace'} = {
                 'type' => 'row_prototype'
               }
             ],
-            'prototypes_line' => [
-              {
-                'text' => 'aa',
-                'type' => 'row_prototype'
-              },
-              {},
-              {
-                'text' => ' ',
-                'type' => 'prototype_space'
-              },
-              {
-                'text' => 'b',
-                'type' => 'row_prototype'
-              },
-              {
-                'text' => '    ',
-                'type' => 'prototype_space'
-              },
-              {
-                'text' => 'cc',
-                'type' => 'row_prototype'
-              }
-            ],
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -148,7 +125,6 @@ $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'pa
 $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes_line'}[1] = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
 $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0];
 $result_trees{'prototype_no_brace'}{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'};
 

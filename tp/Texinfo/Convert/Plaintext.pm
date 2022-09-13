@@ -342,10 +342,8 @@ my %defaults = (
   'EXTENSION'            => 'txt',
   #'USE_SETFILENAME_EXTENSION' => 1,
   'INFO_SPECIAL_CHARS_WARNING' => undef,
-
-  #'OUTFILE'              => undef,
+  # different from the default, which is undef
   'OUTFILE'              => '-',
-  'SUBDIR'               => undef,
   'documentlanguage'     => undef,
 
   'converted_format'     => '',

@@ -144,20 +144,6 @@ $result_trees{'not_letters_in_prototype'} = {
                 'type' => 'row_prototype'
               }
             ],
-            'prototypes_line' => [
-              {
-                'text' => '1.3',
-                'type' => 'row_prototype'
-              },
-              {
-                'text' => '  ',
-                'type' => 'prototype_space'
-              },
-              {
-                'text' => '5-6',
-                'type' => 'row_prototype'
-              }
-            ],
             'spaces_before_argument' => '  '
           },
           'parent' => {},

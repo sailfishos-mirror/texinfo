@@ -36,8 +36,9 @@ $VERSION = '6.8dev';
 
 
 my %defaults = (
-  'OUTFILE'              => '-',
   'EXTENSION'            => 'texi',
+  # different from the default, which is undef
+  'OUTFILE'              => '-',
 );
 
 sub converter_defaults($$)

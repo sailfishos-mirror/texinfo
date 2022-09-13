@@ -314,7 +314,7 @@ sub output($$)
     $result .= $self->convert_document_sections($root, $fh);
   }
   $result .= $self->write_or_return($self->txi_markup_close_element('texinfo')."\n", $fh);
-  # FIXME add format_footer?
+  # FIXME add txi_markup_footer() to format a footer for the file?
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);
@@ -429,8 +429,8 @@ sub convert_tree($$)
   return $self->_convert($root);
 }
 
-# FIXME is that function markup format specific or abstract?
-sub _protect_in_spaces($)
+# FIXME is that function markup format specific or not?
+sub _protect_in_spaces_attribute_text($)
 {
   my $text = shift;
   $text =~ s/\n/\\n/g;
@@ -443,8 +443,8 @@ sub _leading_spaces_arg($)
   my $element = shift;
   if ($element->{'extra'} and $element->{'extra'}->{'spaces_before_argument'}
       and $element->{'extra'}->{'spaces_before_argument'} ne '') {
-    return ['spaces', _protect_in_spaces(
-                 $element->{'extra'}->{'spaces_before_argument'})];
+    return ['spaces', _protect_in_spaces_attribute_text(
+                            $element->{'extra'}->{'spaces_before_argument'})];
   } else {
     return ();
   }
@@ -494,7 +494,7 @@ sub _trailing_spaces_arg($)
     my $spaces = $element->{'extra'}->{'spaces_after_argument'};
     chomp($spaces);
     if ($spaces ne '') {
-      return ['trailingspaces', _protect_in_spaces($spaces)];
+      return ['trailingspaces', _protect_in_spaces_attribute_text($spaces)];
     }
   }
   return ();
@@ -732,7 +732,6 @@ sub _convert($$;$)
           } else {
             $nodename = '';
           }
-          # FIXME avoid protection, here?
           $result .= $self->txi_markup_open_element('node', [['name', $nodename],
                                          _leading_spaces_arg($element)]);
           push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
@@ -740,7 +739,7 @@ sub _convert($$;$)
                                     [_trailing_spaces_arg($element->{'args'}->[0])])
              .$self->_convert({'contents' => $element->{'extra'}->{'node_content'}})
              .$self->txi_markup_close_element('nodename');
-          # first arg is the node name.
+          # first arg is the node name, directions start at 1.
           my $direction_index = 1;
           my $pending_empty_directions = '';
           foreach my $direction(@node_directions) {
@@ -748,12 +747,12 @@ sub _convert($$;$)
             if ($element->{'structure'}->{'node_'.lc($direction)}) {
               my $node_direction = $element->{'structure'}->{'node_'.lc($direction)};
               my $node_name = '';
-              my $attribute = [];
+              my $attributes = [];
               if (! defined($element->{'extra'}->{'nodes_manuals'}->[$direction_index])) {
-                push @$attribute, ['automatic', 'on'];
+                push @$attributes, ['automatic', 'on'];
               }
               if ($element->{'args'}->[$direction_index]) {
-                push @$attribute, _leading_trailing_spaces_arg(
+                push @$attributes, _leading_trailing_spaces_arg(
                                  $element->{'args'}->[$direction_index]);
               }
               if ($node_direction->{'extra'}->{'manual_content'}) {
@@ -767,7 +766,7 @@ sub _convert($$;$)
                   'contents' => $node_direction->{'extra'}->{'node_content'}}));
               }
               $result .= "$pending_empty_directions".
-                $self->txi_markup_open_element($format_element, $attribute).$node_name.
+                $self->txi_markup_open_element($format_element, $attributes).$node_name.
                 $self->txi_markup_close_element($format_element);
               $pending_empty_directions = '';
             } else {
@@ -1071,7 +1070,9 @@ sub _convert($$;$)
             if (defined($element->{'extra'}->{'node_argument'}->{'normalized'})) {
               $normalized = $element->{'extra'}->{'node_argument'}->{'normalized'};
             } else {
-              $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node( {'contents' => $element->{'extra'}->{'node_argument'}->{'node_content'} } );
+              $normalized
+               = Texinfo::Convert::NodeNameNormalization::normalize_node(
+              {'contents' => $element->{'extra'}->{'node_argument'}->{'node_content'}});
             }
             if ($normalized) {
               push @$attribute, ['label', $normalized];
@@ -1245,13 +1246,13 @@ sub _convert($$;$)
             # in that case the end of line is in the columnfractions line
             # or in the columnprototypes.
             if ($element->{'cmdname'} eq 'multitable') {
+              my @prototype_line;
               if (not $element->{'extra'}->{'columnfractions'}) {
                 # Like 'prototypes' extra value, but keeping spaces information
-                my @prototype_line;
-                if (defined $element->{'args'}[0]
-                    and defined $element->{'args'}[0]->{'type'}
-                    and $element->{'args'}[0]->{'type'} eq 'block_line_arg') {
-                  foreach my $content (@{$element->{'args'}[0]{'contents'}}) {
+                if (defined $element->{'args'}->[0]
+                    and defined $element->{'args'}->[0]->{'type'}
+                    and $element->{'args'}->[0]->{'type'} eq 'block_line_arg') {
+                  foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
                     if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
                       push @prototype_line, $content;
                     } elsif ($content->{'text'}) {
@@ -1268,25 +1269,25 @@ sub _convert($$;$)
                             'type' => 'prototype_space' };
                         }
                       }
-                    } else {
-                      # FIXME could this happen?  Should be a debug message?
-                      if (!$content->{'cmdname'}) {
-                      } elsif ($content->{'cmdname'} eq 'c'
-                          or $content->{'cmdname'} eq 'comment') {
-                      } else {
-                        push @prototype_line, $content;
-                      }
+                    # $content->{'cmdname'} should be defined at this point, if not,
+                    # there should be a perl warning
+                    } elsif ($content->{'cmdname'} eq 'c'
+                             or $content->{'cmdname'} eq 'comment') {
+                      # NOTE it does not happen right now, because a comment
+                      # will be in extra comment_at_end.  If comments are back
+                      # in the tree, they should be ignored here, as they would
+                      # better be handled in format_comment_or_return_end_line
+                    } else { # a command
+                      push @prototype_line, $content;
                     }
                   }
-                  $element->{'extra'}->{'prototypes_line'} = \@prototype_line;
                 }
               }
 
-              if ($element->{'extra'}
-                    and $element->{'extra'}->{'prototypes_line'}) {
+              if (scalar(@prototype_line) > 0) {
                 $result .= $self->txi_markup_open_element('columnprototypes');
                 my $first_proto = 1;
-                foreach my $prototype (@{$element->{'extra'}->{'prototypes_line'}}) {
+                foreach my $prototype (@prototype_line) {
                   if ($prototype->{'text'} and $prototype->{'text'} !~ /\S/) {
                     if (!$first_proto) {
                       my $spaces = $prototype->{'text'};
@@ -1294,15 +1295,15 @@ sub _convert($$;$)
                       $result .= $spaces;
                     }
                   } else {
-                    my $attribute = [];
+                    my $attributes = [];
                     if ($prototype->{'type'}
                         and $prototype->{'type'} eq 'bracketed') {
-                      push @$attribute, ['bracketed', 'on'];
-                      push @$attribute,
+                      push @$attributes, ['bracketed', 'on'];
+                      push @$attributes,
                                   _leading_spaces_arg($prototype);
                     }
                     $result .= $self->txi_markup_open_element('columnprototype',
-                                                   $attribute)
+                                                              $attributes)
                            .$self->_convert($prototype)
                            .$self->txi_markup_close_element('columnprototype');
                   }
@@ -1374,8 +1375,8 @@ sub _convert($$;$)
           my $leading_spaces = $element->{'extra'}->{'spaces_before_argument'};
           # may happen without any argument, remove as a \n is added below
           $leading_spaces =~ s/\n//;
-          $leading_spaces_attribute_spec = [['spaces', _protect_in_spaces(
-                                                          $leading_spaces)]]
+          $leading_spaces_attribute_spec = [['spaces',
+                          _protect_in_spaces_attribute_text($leading_spaces)]]
             if ($leading_spaces ne '');
         }
         $result .= $self->txi_markup_open_element($element->{'cmdname'},
