@@ -222,7 +222,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_spaces_after_close_brace'
+          'type' => 'spaces_after_close_brace'
         },
         {
           'parent' => {},

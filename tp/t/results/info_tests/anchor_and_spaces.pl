@@ -104,7 +104,7 @@ $result_trees{'anchor_and_spaces'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_spaces_after_close_brace'
+          'type' => 'spaces_after_close_brace'
         },
         {
           'parent' => {},

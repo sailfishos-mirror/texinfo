@@ -163,7 +163,7 @@ close_command_cleanup (ELEMENT *current)
       int have_leading_spaces = 0;
       ELEMENT *before_item = 0;
       if (current->contents.number >= 2
-          && current->contents.list[0]->type == ET_empty_line_after_command
+          && current->contents.list[0]->type == ET_ignorable_spaces_after_command
           && current->contents.list[1]->type == ET_before_item)
         {
           have_leading_spaces = 1;
@@ -219,7 +219,7 @@ close_command_cleanup (ELEMENT *current)
                           && (e->cmd != CM_c && e->cmd != CM_comment
                               && e->cmd != CM_end)
                           || e->type != ET_NONE
-                          && e->type != ET_empty_line_after_command)
+                          && e->type != ET_ignorable_spaces_after_command)
                         {
                           empty_format = 0;
                           break;

@@ -115,7 +115,7 @@ $result_trees{'table_on_item_line'} = {
                     {
                       'parent' => {},
                       'text' => '   ',
-                      'type' => 'empty_spaces_before_paragraph'
+                      'type' => 'spaces_before_paragraph'
                     }
                   ],
                   'parent' => {},
@@ -166,7 +166,7 @@ $result_trees{'table_on_item_line'} = {
                     {
                       'parent' => {},
                       'text' => '   ',
-                      'type' => 'empty_spaces_before_paragraph'
+                      'type' => 'spaces_before_paragraph'
                     },
                     {
                       'contents' => [

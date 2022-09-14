@@ -29,7 +29,7 @@ $result_trees{'paragraphindent'} = {
         {
           'parent' => {},
           'text' => '           ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [
@@ -88,7 +88,7 @@ $result_trees{'paragraphindent'} = {
         {
           'parent' => {},
           'text' => '           ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [
@@ -147,7 +147,7 @@ $result_trees{'paragraphindent'} = {
         {
           'parent' => {},
           'text' => '           ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [
@@ -206,7 +206,7 @@ $result_trees{'paragraphindent'} = {
         {
           'parent' => {},
           'text' => '           ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [

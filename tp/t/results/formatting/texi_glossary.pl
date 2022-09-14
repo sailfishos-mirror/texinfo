@@ -962,7 +962,7 @@ $result_trees{'texi_glossary'} = {
                         'parent' => {},
                         'text' => '
 ',
-                        'type' => 'empty_spaces_after_close_brace'
+                        'type' => 'spaces_after_close_brace'
                       },
                       {
                         'parent' => {},
@@ -998,7 +998,7 @@ $result_trees{'texi_glossary'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {},
                         {

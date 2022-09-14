@@ -260,10 +260,10 @@ my %upper_case_commands = (
 );
 
 my %ignorable_space_types;
-foreach my $type ('empty_line_after_command',
+foreach my $type ('ignorable_spaces_after_command',
             'spaces_at_end',
-            'empty_spaces_before_paragraph',
-            'empty_spaces_after_close_brace') {
+            'spaces_before_paragraph',
+            'spaces_after_close_brace') {
   $ignorable_space_types{$type} = 1;
 }
 
@@ -1576,11 +1576,11 @@ sub _convert($$)
 
   # in ignorable spaces, keep only form feeds.
   if ($type and $self->{'ignorable_space_types'}->{$type}
-      and ($type ne 'empty_spaces_before_paragraph'
+      and ($type ne 'spaces_before_paragraph'
            or $self->get_conf('paragraphindent') ne 'asis')) {
-    if ($type eq 'empty_spaces_after_close_brace'
+    if ($type eq 'spaces_after_close_brace'
         and $element->{'text'} =~ /\f/) {
-      # FIXME also in empty_spaces_before_paragraph?  Does not seems to be
+      # FIXME also in spaces_before_paragraph?  Does not seems to be
       # relevant to keep form feeds in other ignorable spaces.
       $result = _get_form_feeds($element->{'text'});
     }
@@ -1624,7 +1624,7 @@ sub _convert($$)
         }
         return $result;
       # the following is only possible if paragraphindent is set to asis
-      } elsif ($type and $type eq 'empty_spaces_before_paragraph') {
+      } elsif ($type and $type eq 'spaces_before_paragraph') {
         add_text_count($self, $element->{'text'});
         return $element->{'text'};
       # ignore text outside of any format, but warn if ignored text not empty

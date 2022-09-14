@@ -52,7 +52,7 @@ $result_trees{'comment_first_on_itemize_line'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [

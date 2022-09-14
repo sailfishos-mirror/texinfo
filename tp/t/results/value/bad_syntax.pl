@@ -97,7 +97,7 @@ $result_trees{'bad_syntax'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [

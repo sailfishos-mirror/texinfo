@@ -956,8 +956,8 @@ handle_block_command (ELEMENT *current, char **line_inout,
           if (!(command_data(cmd).flags & CF_def))
             push_context (ct_line, cmd);
 
-          /* Note that an ET_empty_line_after_command gets reparented in the 
-             contents in 'end_line'. */
+          /* Note that an ET_ignorable_spaces_after_command gets reparented
+             in the contents in 'end_line'. */
 
         }
       block->source_info = current_source_info;

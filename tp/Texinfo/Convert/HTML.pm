@@ -5363,11 +5363,11 @@ sub default_type_open($$)
 
 
 # Ignored commands
-foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
+foreach my $type ('ignorable_spaces_after_command', 'preamble_before_beginning',
             'preamble_before_setfilename',
             'spaces_at_end',
-            'empty_spaces_before_paragraph',
-            'empty_spaces_after_close_brace') {
+            'spaces_before_paragraph',
+            'spaces_after_close_brace') {
   $default_types_conversion{$type} = undef;
 }
 

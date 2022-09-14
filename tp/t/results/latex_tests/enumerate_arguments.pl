@@ -39,7 +39,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -69,7 +69,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -165,7 +165,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -195,7 +195,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -291,7 +291,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -321,7 +321,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -417,7 +417,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -447,7 +447,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -543,7 +543,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -573,7 +573,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -669,7 +669,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -699,7 +699,7 @@ $result_trees{'enumerate_arguments'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [

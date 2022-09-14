@@ -163,7 +163,7 @@ $result_trees{'center_flush'} = {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'empty_spaces_after_close_brace'
+                  'type' => 'spaces_after_close_brace'
                 },
                 {
                   'parent' => {},
@@ -337,7 +337,7 @@ $result_trees{'center_flush'} = {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'empty_spaces_after_close_brace'
+                  'type' => 'spaces_after_close_brace'
                 },
                 {
                   'parent' => {},
@@ -379,7 +379,7 @@ $result_trees{'center_flush'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_spaces_after_close_brace'
+                  'type' => 'spaces_after_close_brace'
                 },
                 {
                   'parent' => {},

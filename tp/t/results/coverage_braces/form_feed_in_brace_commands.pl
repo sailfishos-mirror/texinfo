@@ -68,7 +68,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
             {
               'parent' => {},
               'text' => '',
-              'type' => 'empty_spaces_after_close_brace'
+              'type' => 'spaces_after_close_brace'
             }
           ],
           'parent' => {},
@@ -130,7 +130,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                     {
                       'parent' => {},
                       'text' => ' ',
-                      'type' => 'empty_spaces_before_paragraph'
+                      'type' => 'spaces_before_paragraph'
                     },
                     {
                       'contents' => [

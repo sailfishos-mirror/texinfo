@@ -145,7 +145,7 @@ $result_trees{'float_copying'} = {
                                               'parent' => {},
                                               'text' => '
 ',
-                                              'type' => 'empty_spaces_after_close_brace'
+                                              'type' => 'spaces_after_close_brace'
                                             }
                                           ],
                                           'parent' => {},
@@ -406,7 +406,7 @@ $result_trees{'float_copying'} = {
                               'parent' => {},
                               'text' => '
 ',
-                              'type' => 'empty_spaces_after_close_brace'
+                              'type' => 'spaces_after_close_brace'
                             },
                             {
                               'args' => [
@@ -511,7 +511,7 @@ $result_trees{'float_copying'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'empty_spaces_after_close_brace'
+                      'type' => 'spaces_after_close_brace'
                     },
                     {
                       'args' => [

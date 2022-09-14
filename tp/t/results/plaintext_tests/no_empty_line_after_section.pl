@@ -286,7 +286,7 @@ $result_trees{'no_empty_line_after_section'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'ignorable_spaces_after_command'
         },
         {
           'contents' => [

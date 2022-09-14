@@ -37,7 +37,7 @@ $result_trees{'long_uref_after_item'} = {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [

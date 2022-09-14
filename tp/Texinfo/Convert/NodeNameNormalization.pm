@@ -74,11 +74,11 @@ foreach my $ignored_brace_command ('anchor', 'footnote', 'shortcaption',
 }
 
 my %ignored_types;
-foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
+foreach my $type ('ignorable_spaces_after_command', 'preamble_before_beginning',
             'spaces_at_end',
-            'empty_spaces_before_paragraph',
+            'spaces_before_paragraph',
             'space_at_end_menu_node',
-            'empty_spaces_after_close_brace') {
+            'spaces_after_close_brace') {
   $ignored_types{$type} = 1;
 }
 

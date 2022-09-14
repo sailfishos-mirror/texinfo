@@ -41,7 +41,7 @@ $result_trees{'placed_things_before_node'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_spaces_after_close_brace'
+          'type' => 'spaces_after_close_brace'
         },
         {
           'parent' => {},
@@ -170,7 +170,7 @@ $result_trees{'placed_things_before_node'} = {
                         'parent' => {},
                         'text' => '
 ',
-                        'type' => 'empty_spaces_after_close_brace'
+                        'type' => 'spaces_after_close_brace'
                       },
                       {
                         'parent' => {},

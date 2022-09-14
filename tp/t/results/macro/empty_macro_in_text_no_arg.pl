@@ -69,7 +69,7 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
         {
           'parent' => {},
           'text' => ' ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [

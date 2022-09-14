@@ -1783,8 +1783,8 @@ sub trim_spaces_comment_from_content($)
 
   shift @$contents
     if ($contents->[0] and $contents->[0]->{'type'}
-       and ($contents->[0]->{'type'} eq 'empty_line_after_command'
-            or $contents->[0]->{'type'} eq 'empty_spaces_after_close_brace'));
+       and ($contents->[0]->{'type'} eq 'ignorable_spaces_after_command'
+            or $contents->[0]->{'type'} eq 'spaces_after_close_brace'));
 
   while (@$contents
          and (($contents->[-1]->{'cmdname'}
@@ -2568,7 +2568,7 @@ sub move_index_entries_after_items($)
           if ($item_container->{'contents'}
               and $item_container->{'contents'}->[0]
               and $item_container->{'contents'}->[0]->{'type'}
-              and $item_container->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
+              and $item_container->{'contents'}->[0]->{'type'} eq 'ignorable_spaces_after_command') {
             $item_container->{'contents'}->[0]->{'text'} .= "\n"
               if ($item_container->{'contents'}->[0]->{'text'} !~ /\n$/);
             unshift @gathered_index_entries, shift @{$item_container->{'contents'}};

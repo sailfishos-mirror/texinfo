@@ -135,7 +135,7 @@ $result_trees{'verbatim_in_ref'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [

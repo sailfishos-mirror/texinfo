@@ -500,7 +500,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           || current->parent->cmd == CM_seealso)
         {
           ELEMENT *e;
-          e = new_element (ET_empty_spaces_after_close_brace);
+          e = new_element (ET_spaces_after_close_brace);
           text_append (&e->text, "");
           add_to_element_contents (current->parent->parent, e);
         }

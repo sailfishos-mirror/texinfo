@@ -51,7 +51,7 @@ $result_trees{'enumerate_in_example'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'parent' => {},
@@ -81,7 +81,7 @@ $result_trees{'enumerate_in_example'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'parent' => {},

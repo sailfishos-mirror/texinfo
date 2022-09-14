@@ -528,9 +528,9 @@ foreach my $environment_command (@LaTeX_same_block_commands) {
 }
 
 my %ignorable_space_types;
-foreach my $type ('empty_line_after_command',
+foreach my $type ('ignorable_spaces_after_command',
             'spaces_at_end',
-            'empty_spaces_after_close_brace') {
+            'spaces_after_close_brace') {
   $ignorable_space_types{$type} = 1;
 }
 
@@ -2221,7 +2221,7 @@ sub _convert($$)
 
   # in ignorable spaces, keep only form feeds.
   if ($type and $self->{'ignorable_space_types'}->{$type}) {
-    if ($type eq 'empty_spaces_after_close_brace') {
+    if ($type eq 'spaces_after_close_brace') {
       if ($element->{'text'} =~ /\f/) {
         $result = '\par{}';
       }

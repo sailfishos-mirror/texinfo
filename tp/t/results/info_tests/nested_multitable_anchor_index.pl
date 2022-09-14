@@ -87,7 +87,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                           'parent' => {},
                           'text' => '
 ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'args' => [
@@ -138,7 +138,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                         {
                                           'parent' => {},
                                           'text' => ' ',
-                                          'type' => 'empty_line_after_command'
+                                          'type' => 'ignorable_spaces_after_command'
                                         },
                                         {
                                           'contents' => [
@@ -167,7 +167,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                         {
                                           'parent' => {},
                                           'text' => ' ',
-                                          'type' => 'empty_line_after_command'
+                                          'type' => 'ignorable_spaces_after_command'
                                         },
                                         {
                                           'contents' => [
@@ -207,7 +207,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                               'parent' => {},
                                               'text' => '
 ',
-                                              'type' => 'empty_spaces_after_close_brace'
+                                              'type' => 'spaces_after_close_brace'
                                             },
                                             {
                                               'args' => [
@@ -334,7 +334,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_spaces_before_paragraph'
+                          'type' => 'spaces_before_paragraph'
                         }
                       ],
                       'extra' => {
@@ -353,7 +353,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -392,7 +392,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -421,7 +421,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -461,7 +461,7 @@ $result_trees{'nested_multitable_anchor_index'} = {
                               'parent' => {},
                               'text' => '
 ',
-                              'type' => 'empty_spaces_after_close_brace'
+                              'type' => 'spaces_after_close_brace'
                             },
                             {
                               'args' => [

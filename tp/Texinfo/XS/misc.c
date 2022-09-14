@@ -96,10 +96,10 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
 
   /* Must be one of these types to continue. */
   if (strcmp (type, "empty_line")
-       && strcmp (type, "empty_line_after_command")
+       && strcmp (type, "ignorable_spaces_after_command")
        && strcmp (type, "internal_spaces_after_command")
        && strcmp (type, "internal_spaces_before_argument")
-       && strcmp (type, "empty_spaces_after_close_brace"))
+       && strcmp (type, "spaces_after_close_brace"))
     {
       return 0;
     }
@@ -157,7 +157,7 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
       top_context_sv = *svp;
       top_context = SvPV_nolen (top_context_sv);
 
-      /* Change type to "empty_spaces_before_paragraph" unless we are in
+      /* Change type to "spaces_before_paragraph" unless we are in
          one of these contexts. */
       if (strcmp (top_context, "ct_math")
           && strcmp (top_context, "ct_menu")
@@ -167,7 +167,7 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
           && strcmp (top_context, "ct_inlineraw"))
         {
           hv_store (spaces_elt, "type", strlen ("type"),
-                    newSVpv ("empty_spaces_before_paragraph", 0), 0);
+                    newSVpv ("spaces_before_paragraph", 0), 0);
         }
       else
         {
@@ -278,10 +278,10 @@ xs_merge_text (HV *self, HV *current, SV *text_in)
               if (svp)
                 type = SvPV_nolen (*svp);
               if (type
-                  && (!strcmp (type, "empty_line_after_command")
+                  && (!strcmp (type, "ignorable_spaces_after_command")
                       || !strcmp (type, "internal_spaces_after_command")
                       || !strcmp (type, "internal_spaces_before_argument")
-                      || !strcmp (type, "empty_spaces_after_close_brace")))
+                      || !strcmp (type, "spaces_after_close_brace")))
                 {
                   no_merge_with_following_text = 1;
                 }

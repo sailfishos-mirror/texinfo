@@ -170,7 +170,7 @@ $result_trees{'simple_menu'} = {
                                     {
                                       'parent' => {},
                                       'text' => ' ',
-                                      'type' => 'empty_line_after_command'
+                                      'type' => 'ignorable_spaces_after_command'
                                     },
                                     {
                                       'parent' => {},
@@ -376,7 +376,7 @@ $result_trees{'simple_menu'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'parent' => {},
@@ -558,7 +558,7 @@ $result_trees{'simple_menu'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'parent' => {},
@@ -937,7 +937,7 @@ $result_trees{'simple_menu'} = {
                                         {
                                           'parent' => {},
                                           'text' => ' ',
-                                          'type' => 'empty_line_after_command'
+                                          'type' => 'ignorable_spaces_after_command'
                                         },
                                         {
                                           'parent' => {},
@@ -1143,7 +1143,7 @@ $result_trees{'simple_menu'} = {
                             {
                               'parent' => {},
                               'text' => ' ',
-                              'type' => 'empty_line_after_command'
+                              'type' => 'ignorable_spaces_after_command'
                             },
                             {
                               'parent' => {},
@@ -1325,7 +1325,7 @@ $result_trees{'simple_menu'} = {
                             {
                               'parent' => {},
                               'text' => ' ',
-                              'type' => 'empty_line_after_command'
+                              'type' => 'ignorable_spaces_after_command'
                             },
                             {
                               'parent' => {},

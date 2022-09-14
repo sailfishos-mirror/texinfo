@@ -209,7 +209,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage'} = {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'empty_spaces_after_close_brace'
+                  'type' => 'spaces_after_close_brace'
                 },
                 {
                   'args' => [

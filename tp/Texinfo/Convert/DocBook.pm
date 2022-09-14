@@ -209,9 +209,9 @@ foreach my $block_command ('copying', 'titlepage', 'documentdescription') {
 
 my %ignored_types;
 foreach my $type (
-            'empty_line_after_command',
-            'empty_spaces_after_close_brace', 
-            'empty_spaces_before_paragraph',
+            'ignorable_spaces_after_command',
+            'spaces_after_close_brace',
+            'spaces_before_paragraph',
             'menu_entry_leading_text',
             'menu_entry_separator',
             'preamble_before_beginning',

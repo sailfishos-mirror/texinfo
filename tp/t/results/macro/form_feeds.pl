@@ -168,7 +168,7 @@ $result_trees{'form_feeds'} = {
         {
           'parent' => {},
           'text' => ' ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [

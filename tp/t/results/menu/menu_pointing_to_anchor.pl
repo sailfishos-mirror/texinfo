@@ -127,7 +127,7 @@ $result_trees{'menu_pointing_to_anchor'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_spaces_after_close_brace'
+          'type' => 'spaces_after_close_brace'
         },
         {
           'parent' => {},

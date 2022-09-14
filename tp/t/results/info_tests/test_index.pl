@@ -235,7 +235,7 @@ $result_trees{'test_index'} = {
                         'parent' => {},
                         'text' => '
 ',
-                        'type' => 'empty_spaces_after_close_brace'
+                        'type' => 'spaces_after_close_brace'
                       },
                       {
                         'parent' => {},

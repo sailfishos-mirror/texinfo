@@ -90,7 +90,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -119,7 +119,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -164,7 +164,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -193,7 +193,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -250,7 +250,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -279,7 +279,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -361,7 +361,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                               'parent' => {},
                               'text' => '
 ',
-                              'type' => 'empty_spaces_after_close_brace'
+                              'type' => 'spaces_after_close_brace'
                             }
                           ],
                           'parent' => {},
@@ -393,7 +393,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -525,7 +525,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -577,7 +577,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -616,7 +616,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -701,7 +701,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -736,7 +736,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -781,7 +781,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                               'parent' => {},
                               'text' => '
 ',
-                              'type' => 'empty_spaces_after_close_brace'
+                              'type' => 'spaces_after_close_brace'
                             }
                           ],
                           'parent' => {},

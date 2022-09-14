@@ -61,7 +61,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_spaces_after_close_brace'
+              'type' => 'spaces_after_close_brace'
             },
             {
               'parent' => {},
@@ -190,7 +190,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                             'parent' => {},
                             'text' => '
 ',
-                            'type' => 'empty_spaces_after_close_brace'
+                            'type' => 'spaces_after_close_brace'
                           },
                           {
                             'parent' => {},

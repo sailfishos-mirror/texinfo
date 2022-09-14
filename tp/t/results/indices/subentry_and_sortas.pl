@@ -244,7 +244,7 @@ $result_trees{'subentry_and_sortas'} = {
                     {
                       'parent' => {},
                       'text' => ' ',
-                      'type' => 'empty_spaces_after_close_brace'
+                      'type' => 'spaces_after_close_brace'
                     },
                     {
                       'parent' => {},
@@ -377,7 +377,7 @@ $result_trees{'subentry_and_sortas'} = {
                     {
                       'parent' => {},
                       'text' => ' ',
-                      'type' => 'empty_spaces_after_close_brace'
+                      'type' => 'spaces_after_close_brace'
                     },
                     {
                       'parent' => {},

@@ -540,10 +540,10 @@ merge_text (ELEMENT *current, char *text)
       char *additional = 0;
 
       if (last_child
-          && (last_child->type == ET_empty_line_after_command
+          && (last_child->type == ET_ignorable_spaces_after_command
               || last_child->type == ET_internal_spaces_after_command
               || last_child->type == ET_internal_spaces_before_argument
-              || last_child->type == ET_empty_spaces_after_close_brace))
+              || last_child->type == ET_spaces_after_close_brace))
         {
           no_merge_with_following_text = 1;
         }
@@ -606,10 +606,10 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
 
   if (last_child
       && (last_child->type == ET_empty_line
-          || last_child->type == ET_empty_line_after_command
+          || last_child->type == ET_ignorable_spaces_after_command
           || last_child->type == ET_internal_spaces_after_command
           || last_child->type == ET_internal_spaces_before_argument
-          || last_child->type == ET_empty_spaces_after_close_brace))
+          || last_child->type == ET_spaces_after_close_brace))
     {
       retval = 1;
 
@@ -629,7 +629,7 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
       else if (last_child->type == ET_empty_line)
         {
           last_child->type = begin_paragraph_p (current)
-                             ? ET_empty_spaces_before_paragraph : ET_NONE;
+                             ? ET_spaces_before_paragraph : ET_NONE;
         }
       else if (last_child->type == ET_internal_spaces_after_command
                || last_child->type == ET_internal_spaces_before_argument)
@@ -775,11 +775,12 @@ isolate_last_space (ELEMENT *current)
 }
 
 
-/* Add an "ET_empty_line_after_command" element containing the whitespace at 
-   the beginning of the rest of the line after skipspaces commands,
-   if COMMAND is 0.  Otherwise add an "ET_internal_spaces_after_command",
-   container, after line commands or commands starting
-   a block, that will end up in COMMAND extra spaces value. */
+/* Add an "ET_ignorable_spaces_after_command" element containing the
+   whitespace at the beginning of the rest of the line after skipspaces
+   commands, if COMMAND is 0.  Otherwise add an
+   "ET_internal_spaces_after_command",  container, after line commands
+   or commands starting a block, that will end up in COMMAND extra spaces
+   value. */
 void
 start_empty_line_after_command (ELEMENT *current, char **line_inout,
                                 ELEMENT *command)
@@ -789,7 +790,7 @@ start_empty_line_after_command (ELEMENT *current, char **line_inout,
   int len;
 
   len = strspn (line, whitespace_chars_except_newline);
-  e = new_element (ET_empty_line_after_command);
+  e = new_element (ET_ignorable_spaces_after_command);
   add_to_element_contents (current, e);
   text_append_n (&e->text, line, len);
   line += len;

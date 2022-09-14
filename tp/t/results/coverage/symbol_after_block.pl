@@ -630,7 +630,7 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -733,7 +733,7 @@ $result_trees{'symbol_after_block'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -878,7 +878,7 @@ $result_trees{'symbol_after_block'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -907,7 +907,7 @@ $result_trees{'symbol_after_block'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -952,7 +952,7 @@ $result_trees{'symbol_after_block'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -981,7 +981,7 @@ $result_trees{'symbol_after_block'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -1117,7 +1117,7 @@ $result_trees{'symbol_after_block'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -1146,7 +1146,7 @@ $result_trees{'symbol_after_block'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -1191,7 +1191,7 @@ $result_trees{'symbol_after_block'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -1220,7 +1220,7 @@ $result_trees{'symbol_after_block'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [

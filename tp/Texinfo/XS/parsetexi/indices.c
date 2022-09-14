@@ -349,7 +349,7 @@ set_non_ignored_space_in_index_before_command (ELEMENT *content)
                 && ! (e->cmd == CM_sortas
                        || e->cmd == CM_seeentry
                        || e->cmd == CM_seealso
-                       || e->type == ET_empty_spaces_after_close_brace)
+                       || e->type == ET_spaces_after_close_brace)
                 && (! check_space_element(e)))
         {
           pending_spaces_element->type = ET_NONE;

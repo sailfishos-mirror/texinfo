@@ -1689,7 +1689,7 @@ sub _close_command_cleanup($$) {
       my $leading_spaces = 0;
       my $before_item;
       if ($current->{'contents'}->[0]->{'type'}
-          and $current->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'
+          and $current->{'contents'}->[0]->{'type'} eq 'ignorable_spaces_after_command'
           and $current->{'contents'}->[1]
           and $current->{'contents'}->[1]->{'type'}
           and $current->{'contents'}->[1]->{'type'} eq 'before_item') {
@@ -1738,7 +1738,7 @@ sub _close_command_cleanup($$) {
                         and $format_content->{'cmdname'} ne 'comment'
                         and $format_content->{'cmdname'} ne 'end'))
                   or ($format_content->{'type'} and
-                   ($format_content->{'type'} ne 'empty_line_after_command'))) {
+                   ($format_content->{'type'} ne 'ignorable_spaces_after_command'))) {
                 $empty_format = 0;
                 last;
               }
@@ -1926,10 +1926,10 @@ sub _merge_text {
     }
     if ($current->{'contents'} and @{$current->{'contents'}}
       and $current->{'contents'}->[-1]->{'type'}
-      and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
+      and ($current->{'contents'}->[-1]->{'type'} eq 'ignorable_spaces_after_command'
          or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_after_command'
          or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_before_argument'
-         or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_close_brace')) {
+         or $current->{'contents'}->[-1]->{'type'} eq 'spaces_after_close_brace')) {
       $no_merge_with_following_text = 1;
     }
     if (_abort_empty_line($self, $current, $leading_spaces)) {
@@ -2284,7 +2284,7 @@ sub _set_non_ignored_space_in_index_before_command($)
                        and $in_index_commands{$content->{'cmdname'}}
                        and defined($brace_commands{$content->{'cmdname'}}))
                       or ($content->{'type'}
-                   and $content->{'type'} eq 'empty_spaces_after_close_brace'))
+                   and $content->{'type'} eq 'spaces_after_close_brace'))
              and (! _check_empty_expansion([$content]))) {
       delete $pending_spaces_element->{'type'};
       $pending_spaces_element = 0;
@@ -2303,10 +2303,10 @@ sub _abort_empty_line {
   if ($current->{'contents'} and @{$current->{'contents'}}
        and $current->{'contents'}->[-1]->{'type'}
        and ($current->{'contents'}->[-1]->{'type'} eq 'empty_line'
-           or $current->{'contents'}->[-1]->{'type'} eq 'empty_line_after_command'
+           or $current->{'contents'}->[-1]->{'type'} eq 'ignorable_spaces_after_command'
            or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_after_command'
            or $current->{'contents'}->[-1]->{'type'} eq 'internal_spaces_before_argument'
-           or $current->{'contents'}->[-1]->{'type'} eq 'empty_spaces_after_close_brace')) {
+           or $current->{'contents'}->[-1]->{'type'} eq 'spaces_after_close_brace')) {
 
     my $spaces_element = $current->{'contents'}->[-1];
 
@@ -2325,7 +2325,7 @@ sub _abort_empty_line {
       # exactly the same condition as to begin a paragraph
       if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
          and !$no_paragraph_contexts{$self->_top_context()}) {
-        $spaces_element->{'type'} = 'empty_spaces_before_paragraph';
+        $spaces_element->{'type'} = 'spaces_before_paragraph';
       } else {
         delete $spaces_element->{'type'};
       }
@@ -3596,7 +3596,7 @@ sub _start_empty_line_after_command($$$) {
   my ($line, $current, $command) = @_;
 
   $line =~ s/^([^\S\r\n]*)//;
-  push @{$current->{'contents'}}, { 'type' => 'empty_line_after_command',
+  push @{$current->{'contents'}}, { 'type' => 'ignorable_spaces_after_command',
                                     'text' => $1,
                                     'parent' => $current,
                                   };
@@ -5485,7 +5485,7 @@ sub _process_remaining_on_line($$$$)
         _register_global_command($self, $current->{'parent'}, $source_info);
         if ($command_ignore_space_after{$current->{'parent'}->{'cmdname'}}) {
           push @{$current->{'parent'}->{'parent'}->{'contents'}},
-             {'type' => 'empty_spaces_after_close_brace',
+             {'type' => 'spaces_after_close_brace',
               'text' => '',
               'parent' => $current->{'parent'}->{'parent'}
              };
@@ -6829,7 +6829,7 @@ I<brace_command_arg> for the container holding the brace @-commands
 contents, I<line_arg> and I<block_line_arg> contain the arguments
 appearing on the line of @-commands.  Text fragments may have a type to
 give an information of the kind of text fragment, for example
-I<empty_spaces_before_paragraph> is associated to spaces appearing
+I<spaces_before_paragraph> is associated to spaces appearing
 before a paragraph beginning.  Most @-commands elements do not have
 a type associated.
 
@@ -6965,18 +6965,18 @@ and space appearing after the description line.
 
 An empty line (possibly containing whitespace characters only).
 
-=item empty_line_after_command
+=item ignorable_spaces_after_command
 
 spaces appearing after an @-command without braces that does not
 take takes argument on the line, but which is followed by ignorable
 spaces, such as C<@item> in C<@itemize> of C<@multitable>, or C<@noindent>.
 
-=item empty_spaces_after_close_brace
+=item spaces_after_close_brace
 
 Spaces appearing after a closing brace, for some rare commands for which
 this space should be ignorable (like C<@caption> or C<@sortas>).
 
-=item empty_spaces_before_paragraph
+=item spaces_before_paragraph
 
 Space appearing before a paragraph beginning.
 

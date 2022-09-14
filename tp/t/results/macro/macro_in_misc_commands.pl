@@ -3122,7 +3122,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'parent' => {},
               'text' => ' ',
-              'type' => 'empty_line_after_command'
+              'type' => 'ignorable_spaces_after_command'
             },
             {
               'cmdname' => '@',
@@ -3163,7 +3163,7 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'parent' => {},
           'text' => '     ',
-          'type' => 'empty_line_after_command'
+          'type' => 'ignorable_spaces_after_command'
         },
         {
           'contents' => [
@@ -3185,7 +3185,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_line_after_command'
+              'type' => 'ignorable_spaces_after_command'
             },
             {
               'parent' => {},
@@ -3208,7 +3208,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'parent' => {},
               'text' => '    ',
-              'type' => 'empty_line_after_command'
+              'type' => 'ignorable_spaces_after_command'
             },
             {
               'parent' => {},
@@ -3315,7 +3315,7 @@ $result_trees{'macro_in_misc_commands'} = {
             {
               'parent' => {},
               'text' => '    ',
-              'type' => 'empty_line_after_command'
+              'type' => 'ignorable_spaces_after_command'
             },
             {
               'cmdname' => '@',

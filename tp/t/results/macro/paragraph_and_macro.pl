@@ -219,7 +219,7 @@ $result_trees{'paragraph_and_macro'} = {
         {
           'parent' => {},
           'text' => ' ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [
@@ -265,7 +265,7 @@ $result_trees{'paragraph_and_macro'} = {
         {
           'parent' => {},
           'text' => '    ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [

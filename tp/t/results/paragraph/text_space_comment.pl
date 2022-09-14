@@ -12,7 +12,7 @@ $result_trees{'text_space_comment'} = {
         {
           'parent' => {},
           'text' => ' ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [

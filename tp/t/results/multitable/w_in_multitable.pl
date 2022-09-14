@@ -58,7 +58,7 @@ $result_trees{'w_in_multitable'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -115,7 +115,7 @@ $result_trees{'w_in_multitable'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [

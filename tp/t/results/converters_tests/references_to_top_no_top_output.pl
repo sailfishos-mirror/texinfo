@@ -120,7 +120,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                       'parent' => {},
                       'text' => '
 ',
-                      'type' => 'empty_spaces_after_close_brace'
+                      'type' => 'spaces_after_close_brace'
                     }
                   ],
                   'parent' => {},
@@ -292,7 +292,7 @@ $result_trees{'references_to_top_no_top_output'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_spaces_after_close_brace'
+          'type' => 'spaces_after_close_brace'
         },
         {
           'parent' => {},

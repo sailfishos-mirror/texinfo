@@ -146,7 +146,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_spaces_after_close_brace'
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [

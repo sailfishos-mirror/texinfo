@@ -1,5 +1,24 @@
 2022-09-14  Patrice Dumas  <pertusus@free.fr>
 
+	Rename empty_* types, removing empty and adding if needed
+
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/misc.c,
+	tp/Texinfo/XS/parsetexi/close.c,
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/indices.c,
+	tp/Texinfo/XS/parsetexi/parser.c,
+	tp/Texinfo/XS/parsetexi/separator.c,
+	tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/NodeNameNormalization.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/Text.pm,
+	tp/Texinfo/Convert/TextContent.pm:
+	rename empty_line_after_command as ignorable_spaces_after_command,
+	empty_spaces_before_paragraph as spaces_before_paragraph and
+	empty_spaces_after_close_brace as spaces_after_close_brace.
+
+2022-09-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm: more consistent export ok.  Do not
 	export print_tree.  Rename print_tree() as debug_print_tree().
 	Rename add_preamble_before_content as _add_preamble_before_content.

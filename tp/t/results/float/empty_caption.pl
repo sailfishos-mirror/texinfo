@@ -79,7 +79,7 @@ $result_trees{'empty_caption'} = {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_spaces_after_close_brace'
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -198,7 +198,7 @@ $result_trees{'empty_caption'} = {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_spaces_after_close_brace'
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -303,7 +303,7 @@ $result_trees{'empty_caption'} = {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_spaces_after_close_brace'
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [
@@ -329,7 +329,7 @@ $result_trees{'empty_caption'} = {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_spaces_after_close_brace'
+              'type' => 'spaces_after_close_brace'
             },
             {
               'args' => [

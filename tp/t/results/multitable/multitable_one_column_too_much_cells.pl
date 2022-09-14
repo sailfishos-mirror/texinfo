@@ -44,7 +44,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -59,7 +59,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -74,7 +74,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -89,7 +89,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -128,7 +128,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -167,7 +167,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -182,7 +182,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -197,7 +197,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -212,7 +212,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -251,7 +251,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -266,7 +266,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [

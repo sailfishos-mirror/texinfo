@@ -94,7 +94,7 @@ $result_trees{'on_block_command_line'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'args' => [
@@ -216,7 +216,7 @@ $result_trees{'on_block_command_line'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'args' => [

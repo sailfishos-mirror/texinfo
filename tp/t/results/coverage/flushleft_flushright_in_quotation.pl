@@ -46,7 +46,7 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                 {
                   'parent' => {},
                   'text' => '   ',
-                  'type' => 'empty_spaces_before_paragraph'
+                  'type' => 'spaces_before_paragraph'
                 },
                 {
                   'contents' => [
@@ -119,7 +119,7 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
                 {
                   'parent' => {},
                   'text' => '  ',
-                  'type' => 'empty_spaces_before_paragraph'
+                  'type' => 'spaces_before_paragraph'
                 },
                 {
                   'contents' => [

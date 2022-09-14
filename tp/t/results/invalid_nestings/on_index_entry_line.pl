@@ -25,7 +25,7 @@ $result_trees{'on_index_entry_line'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'args' => [

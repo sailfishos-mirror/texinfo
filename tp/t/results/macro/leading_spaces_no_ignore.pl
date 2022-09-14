@@ -81,7 +81,7 @@ $result_trees{'leading_spaces_no_ignore'} = {
         {
           'parent' => {},
           'text' => '  ',
-          'type' => 'empty_spaces_before_paragraph'
+          'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [

@@ -47,7 +47,7 @@ $result_trees{'end_line_in_anchor'} = {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_spaces_after_close_brace'
+          'type' => 'spaces_after_close_brace'
         }
       ],
       'parent' => {},

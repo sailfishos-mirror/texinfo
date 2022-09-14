@@ -182,7 +182,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                                 {
                                   'parent' => {},
                                   'text' => ' ',
-                                  'type' => 'empty_line_after_command'
+                                  'type' => 'ignorable_spaces_after_command'
                                 },
                                 {
                                   'parent' => {},

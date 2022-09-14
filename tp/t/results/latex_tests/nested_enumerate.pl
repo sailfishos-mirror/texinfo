@@ -33,7 +33,7 @@ $result_trees{'nested_enumerate'} = {
                 {
                   'parent' => {},
                   'text' => '   ',
-                  'type' => 'empty_spaces_before_paragraph'
+                  'type' => 'spaces_before_paragraph'
                 }
               ],
               'parent' => {},
@@ -45,7 +45,7 @@ $result_trees{'nested_enumerate'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -79,7 +79,7 @@ $result_trees{'nested_enumerate'} = {
                 {
                   'parent' => {},
                   'text' => ' ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
@@ -111,7 +111,7 @@ $result_trees{'nested_enumerate'} = {
                         {
                           'parent' => {},
                           'text' => '     ',
-                          'type' => 'empty_spaces_before_paragraph'
+                          'type' => 'spaces_before_paragraph'
                         }
                       ],
                       'parent' => {},
@@ -123,7 +123,7 @@ $result_trees{'nested_enumerate'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -157,7 +157,7 @@ $result_trees{'nested_enumerate'} = {
                         {
                           'parent' => {},
                           'text' => ' ',
-                          'type' => 'empty_line_after_command'
+                          'type' => 'ignorable_spaces_after_command'
                         },
                         {
                           'contents' => [
@@ -189,7 +189,7 @@ $result_trees{'nested_enumerate'} = {
                                 {
                                   'parent' => {},
                                   'text' => '       ',
-                                  'type' => 'empty_spaces_before_paragraph'
+                                  'type' => 'spaces_before_paragraph'
                                 }
                               ],
                               'parent' => {},
@@ -201,7 +201,7 @@ $result_trees{'nested_enumerate'} = {
                                 {
                                   'parent' => {},
                                   'text' => ' ',
-                                  'type' => 'empty_line_after_command'
+                                  'type' => 'ignorable_spaces_after_command'
                                 },
                                 {
                                   'contents' => [
@@ -235,7 +235,7 @@ $result_trees{'nested_enumerate'} = {
                                 {
                                   'parent' => {},
                                   'text' => ' ',
-                                  'type' => 'empty_line_after_command'
+                                  'type' => 'ignorable_spaces_after_command'
                                 },
                                 {
                                   'contents' => [
@@ -267,7 +267,7 @@ $result_trees{'nested_enumerate'} = {
                                         {
                                           'parent' => {},
                                           'text' => '         ',
-                                          'type' => 'empty_spaces_before_paragraph'
+                                          'type' => 'spaces_before_paragraph'
                                         }
                                       ],
                                       'parent' => {},
@@ -279,7 +279,7 @@ $result_trees{'nested_enumerate'} = {
                                         {
                                           'parent' => {},
                                           'text' => ' ',
-                                          'type' => 'empty_line_after_command'
+                                          'type' => 'ignorable_spaces_after_command'
                                         },
                                         {
                                           'contents' => [
@@ -313,7 +313,7 @@ $result_trees{'nested_enumerate'} = {
                                         {
                                           'parent' => {},
                                           'text' => ' ',
-                                          'type' => 'empty_line_after_command'
+                                          'type' => 'ignorable_spaces_after_command'
                                         },
                                         {
                                           'contents' => [

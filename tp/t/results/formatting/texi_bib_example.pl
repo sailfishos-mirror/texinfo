@@ -4432,7 +4432,7 @@ $result_trees{'texi_bib_example'} = {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'empty_line_after_command'
+                  'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'args' => [
