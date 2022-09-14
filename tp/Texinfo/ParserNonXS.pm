@@ -5069,6 +5069,11 @@ sub _process_remaining_on_line($$$$)
             }
           }
         }
+        # cleaner, and more similar to XS parser, but not required, would have
+        # been initialized automatically.
+        $current->{'items_count'} = 0
+           if ($item_container_commands{$command});
+
         $current->{'args'} = [ {
            'type' => 'block_line_arg',
            'contents' => [],

@@ -841,6 +841,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
   else
     {
       ELEMENT *block = 0;
+      ELEMENT *bla;   /* block line arg element */
       if (flags & CF_menu
           && (current->type == ET_menu_comment
               || current->type == ET_menu_entry_description))
@@ -932,34 +933,27 @@ handle_block_command (ELEMENT *current, char **line_inout,
 
       if (cmd == CM_itemize || cmd == CM_enumerate)
         counter_push (&count_items, current, 0);
-      /* Note that no equivalent thing is done in the Perl code, because
-         'item_count' is assumed to start at 0. */
 
+      bla = new_element (ET_block_line_arg);
+      add_to_element_args (current, bla);
+
+      if (command_data (current->cmd).data > 1)
         {
-          ELEMENT *bla = new_element (ET_block_line_arg);
-          add_to_element_args (current, bla);
-
-          if (command_data (current->cmd).data > 1)
-            {
-              counter_push (&count_remaining_args,
-                            current,
-                            command_data (current->cmd).data - 1);
-            }
-          else if (command_data (current->cmd).data == BLOCK_variadic)
-            {
-              /* Unlimited args */
-              counter_push (&count_remaining_args, current,
-                            COUNTER_VARIADIC);
-            }
-
-          current = bla;
-          if (!(command_data(cmd).flags & CF_def))
-            push_context (ct_line, cmd);
-
-          /* Note that an ET_ignorable_spaces_after_command gets reparented
-             in the contents in 'end_line'. */
-
+          counter_push (&count_remaining_args,
+                        current,
+                        command_data (current->cmd).data - 1);
         }
+      else if (command_data (current->cmd).data == BLOCK_variadic)
+        {
+          /* Unlimited args */
+          counter_push (&count_remaining_args, current,
+                        COUNTER_VARIADIC);
+        }
+
+      current = bla;
+      if (!(command_data(cmd).flags & CF_def))
+        push_context (ct_line, cmd);
+
       block->source_info = current_source_info;
       register_global_command (block);
       start_empty_line_after_command (current, &line, block);
