@@ -23,7 +23,8 @@ package Texinfo::Common;
 use strict;
 
 # for unicode/layer support in binmode
-use 5.006;
+# for binmode documented as pushing :utf8 on top of :encoding
+use 5.008001;
 
 # to determine the null file
 use Config;
@@ -1219,11 +1220,13 @@ sub locate_init_file($$$)
 # internal API to open, set encoding and register files.
 # In general $SELF is stored as $converter->{'output_files'}
 # and should be accessed through $converter->output_files_information();
+#
 # All the opened files are registered, except for stdout,
 # and the closing of files should be registered too with
 # output_files_register_closed() below.  This makes possible to
 # unlink all the opened files and close the files not already
 # closed.
+#
 # $FILE_PATH is the file path, it should be a binary string.
 # If $USE_BINMODE is set, call binmode() to set binary mode.
 # $OUTPUT_ENCODING argument overrides the output encoding.
@@ -1257,18 +1260,11 @@ sub output_files_open_out($$$;$$)
     my $error_message = $!;
     return undef, $error_message;
   }
-  # We run binmode to turn off outputting LF as CR LF under MS-Windows,
-  # so that Info tag tables will have correct offsets.  This must be done
-  # before setting the encoding filters with binmode.
+  # If $use_binmode is true, we run binmode to turn off outputting LF as CR LF
+  # under MS-Windows, so that Info tag tables will have correct offsets.  This
+  # must be done before setting the encoding filters with binmode.
   binmode($filehandle) if $use_binmode;
   if ($encoding) {
-    if ($encoding eq 'utf8'
-        or $encoding eq 'utf-8'
-        or $encoding eq 'utf-8-strict') {
-      binmode($filehandle, ':utf8');
-    } else { # FIXME also right for shiftijs or similar encodings?
-      binmode($filehandle, ':bytes');
-    }
     binmode($filehandle, ":encoding($encoding)");
   }
   if ($self) {
@@ -1278,9 +1274,9 @@ sub output_files_open_out($$$;$$)
   return $filehandle, undef;
 }
 
-# see the description of $SELF in output_files_open_out
-# comment above.
-# $FILE is the file path, it should be a binary string.
+# see the description of $SELF in comment above output_files_open_out.
+#
+# $FILE_PATH is the file path, it should be a binary string.
 sub output_files_register_closed($$)
 {
   my $self = shift;

@@ -1,5 +1,15 @@
 2022-09-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (output_files_open_out): do not set
+	explicitly the :utf8 layer with binmode  as it is documented that
+	binmode puts :utf8 on top of :encoding.  Also do not set the
+	:bytes layer, it is documented to be incorrect with :encoding.
+
+	* tp/Texinfo/Common.pm, configure.ac: require perl above 5.8.1
+	to have binmode documented as putting :utf8 on top of :encoding.
+
+2022-09-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (locate_include_file): avoid a call to
 	get_conf.  Reindent, change variable names.
 
