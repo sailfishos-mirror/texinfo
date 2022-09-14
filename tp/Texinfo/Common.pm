@@ -1599,24 +1599,27 @@ sub locate_include_file($$)
 
   my $found_file;
   if ($ignore_include_directories) {
-    $found_file = $input_file_path if (-e $input_file_path and -r $input_file_path);
+    $found_file = $input_file_path
+         if (-e $input_file_path and -r $input_file_path);
   } else {
-    my @dirs;
+    my @include_directories;
     if ($customization_information
         and $customization_information->get_conf('INCLUDE_DIRECTORIES')) {
-      @dirs = @{$customization_information->get_conf('INCLUDE_DIRECTORIES')};
+      @include_directories
+         = @{$customization_information->get_conf('INCLUDE_DIRECTORIES')};
     } else {
       # no object with directory list and not an absolute path, never succeed
       return undef;
     }
-    foreach my $include_dir (@{$customization_information->get_conf('INCLUDE_DIRECTORIES')}) {
-      my ($include_volume, $include_directories, $include_filename)
+    foreach my $include_dir (@include_directories) {
+      my ($include_volume, $include_dir_path, $include_filename)
          = File::Spec->splitpath($include_dir, 1);
       
       my $possible_file = File::Spec->catpath($include_volume,
-        File::Spec->catdir(File::Spec->splitdir($include_directories),
+        File::Spec->catdir(File::Spec->splitdir($include_dir_path),
                            @directories), $filename);
-      $found_file = "$possible_file" if (-e "$possible_file" and -r "$possible_file");
+      $found_file = $possible_file
+           if (-e $possible_file and -r $possible_file);
       last if (defined($found_file));
     }
   }
@@ -1974,12 +1977,6 @@ sub count_bytes($$;$)
     #print STDERR "Count($length): $string\n";
     #return $length;
   }
-  # FIXME is the following required for correct count of end of lines?
-  #if ($encoding) {
-  #  return length(Encode::encode($encoding, $string));
-  #} else {
-  #  return length(Encode::encode('ascii', $string));
-  #}
 }
 
 # custom heading command line is split at @|
