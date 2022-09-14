@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-09-05.20}
+\def\texinfoversion{2022-09-14.01}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2806,12 +2806,11 @@ end
 \def\var#1{%
   \let\saveaftersmartic = \aftersmartic
   \def\aftersmartic{\null\let\aftersmartic=\saveaftersmartic}%
-  \ifusingtt{%
-    \ifflagclear{txicodevaristt}%
-       {{\sl #1}}%
-       {{\ttsl #1}}%
-  }{{\sl #1}}%
-  \smartitaliccorrection
+  %
+  \ifflagclear{txicodevaristt}%
+    {\def\varnext{{{\sl #1}}\smartitaliccorrection}}%
+    {\def\varnext{\smartslanted{#1}}}%
+  \varnext
 }
 
 % To be removed after next release

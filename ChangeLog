@@ -1,3 +1,11 @@
+2022-09-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	No italic correction for code @var
+
+	* doc/texinfo.tex (\var) <@set txicodevaristt>:
+	Call \smartslanted to avoid italic correction in fixed width font
+	context.  Report from Vincent Lefèvre.
+
 2022-09-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (encode_file_name),
