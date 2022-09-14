@@ -1466,7 +1466,7 @@ while(@input_files) {
 
   # move_index_entries_after_items + relate_index_entries_to_table_entries
   if ($formats_table{$converted_format}->{'joint_transformation'}) {
-    Texinfo::Common::html_joint_transformation($tree);
+    Texinfo::Common::texinfo_special_joint_transformation($tree);
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {

@@ -15,7 +15,7 @@ sub my_sp_formatting($$$$$)
 user internalvalue
 @end macro
 {myarg} @TeX{}', {'myarg' => {'contents' => [{'text' => $sp_nr}]}});
-    #print STDERR "T ".Texinfo::Common::print_tree($translated_tree)."\n";
+    #print STDERR "T ".Texinfo::Common::debug_print_tree($translated_tree)."\n";
     $result = $self->convert_tree($translated_tree);
     return $result;
   }

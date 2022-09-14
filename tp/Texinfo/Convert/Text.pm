@@ -179,7 +179,7 @@ sub ascii_accent($$)
 }
 
 # format a stack of accents as ascii
-sub ascii_accents($$;$)
+sub _ascii_accents($$;$)
 {
   my $result = shift;
   my $stack = shift;
@@ -230,7 +230,7 @@ sub text_accents($;$$)
   if (defined($result)) {
     return $result;
   } else {
-    return ascii_accents($text, $stack, $set_case);
+    return _ascii_accents($text, $stack, $set_case);
   }
 }
 
@@ -286,8 +286,9 @@ my %underline_symbol = (
   4 => '.'
 );
 
+# TODO not documented, used in other converters
 # Return the text of an underlined heading, possibly indented.
-sub heading($$$;$$)
+sub text_heading($$$;$$)
 {
   my $current = shift;
   my $text = shift;
@@ -295,11 +296,11 @@ sub heading($$$;$$)
   my $numbered = shift;
   my $indent_length = shift;
 
-  # REMARK to get the numbering right in case of an indented text, the
-  # indentation should be given here.  But this should never happen as
-  # the only @-commands allowed in indented context are not numbered.
-  $text = Texinfo::Convert::Utils::numbered_heading($converter, $current, $text,
-                                                     $numbered);
+  # end of lines spaces are ignored in conversion.  However in
+  # rare cases, invalid nestings leave an end of line, so we chomp.
+  chomp($text);
+  $text = Texinfo::Convert::Utils::add_heading_number($converter, $current,
+                                                      $text, $numbered);
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
   if (defined($indent_length)) {
@@ -321,15 +322,15 @@ sub heading($$$;$$)
   return $result;
 }
 
-# TODO not documented
+# TODO not documented, used in many converters
 # $SELF is typically a converter object.
 # Setup options as used by Texinfo::Convert::Text::convert_to_text
 # based on the converter information.
 # if $ENABLE_ENCODING_IF_NOT_ASCII is set, enabled_encoding is set
 # unless the encoding is ascii, even if ENABLE_ENCODING is not set.
-# This is relevant for HTML, where ENABLE_ENCODING unset does not
-# mean that encoding is not supported, but that entities are preferred
-# to encoded characters
+# This is relevant for HTML and XML formats, where ENABLE_ENCODING unset
+# does not mean that encoding is not supported, but that entities are
+# preferred to encoded characters, and also when expanding file names.
 sub copy_options_for_convert_text($;$)
 {
   my $self = shift;
@@ -548,8 +549,8 @@ sub _convert($;$)
           $result = _convert($element->{'args'}->[0], $options);
         }
         if ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
-          $result = heading($element, $result, $options->{'converter'},
-                            $options->{'NUMBER_SECTIONS'});
+          $result = text_heading($element, $result, $options->{'converter'},
+                                 $options->{'NUMBER_SECTIONS'});
         } else {
         # we always want an end of line even if is was eaten by a command
           chomp($result);
@@ -983,7 +984,7 @@ I<$accents> is an accent command that may contain other nested accent
 commands.  The function will format the whole stack of nested accent
 commands and the innermost text.  If I<$encoding> is set, the formatted
 text is converted to this encoding as much as possible instead of being
-converted as simple ascii.  If I<$set_case> is positive, the result
+converted as simple ASCII.  If I<$set_case> is positive, the result
 is meant to be upper-cased, if it is negative, the result is to be
 lower-cased.
 

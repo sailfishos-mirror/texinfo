@@ -1858,7 +1858,7 @@ see L<Texinfo::Convert::Utils>.
 
 =over
 
-=item $contents_array $converter->comma_index_subentries_tree($entry)
+=item $contents_array = $converter->comma_index_subentries_tree($entry)
 X<C<comma_index_subentries_tree>>
 
 I<$entry> is a Texinfo tree index entry element. The function sets up

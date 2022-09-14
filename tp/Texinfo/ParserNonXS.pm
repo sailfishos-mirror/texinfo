@@ -1173,14 +1173,6 @@ sub _print_command_args_texi($)
   return '@'.$current->{'cmdname'} .$args."\n";
 }
 
-# For debugging
-sub _print_tree($)
-{
-  my $tree = shift;
-
-  return Texinfo::Common::print_tree($tree);
-}
-
 sub _register_global_command {
   my ($self, $current, $source_info) = @_;
 

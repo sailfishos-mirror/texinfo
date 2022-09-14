@@ -1,5 +1,29 @@
 2022-09-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm: more consistent export ok.  Do not
+	export print_tree.  Rename print_tree() as debug_print_tree().
+	Rename add_preamble_before_content as _add_preamble_before_content.
+	Remove _collect_references, unused and doing something strange.
+
+	* tp/Texinfo/Common.pm (texinfo_special_joint_transformation),
+	tp/texi2any.pl: rename html_joint_transformation as
+	texinfo_special_joint_transformation.
+
+	* tp/Texinfo/Convert/Text.pm (text_heading),
+	tp/Texinfo/Convert/Plaintext.pm: rename Texinfo::Convert::Text heading
+	as text_heading.
+
+	* tp/Texinfo/Convert/Text.pm: rename ascii_accents as _ascii_accents.
+
+	* tp/Texinfo/Convert/Utils.pm (add_heading_number), tp/ext/epub3.pm,
+	tp/init/chm.pm, tp/Texinfo/Convert/Text.pm: rename
+	Texinfo::Convert::Utils numbered_heading as add_heading_number.  Do
+	not chomp text in add_heading_number().
+
+	* tp/Texinfo/ParserNonXS.pm: remove _print_tree(), unused.
+
+2022-09-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (output_files_open_out): do not set
 	explicitly the :utf8 layer with binmode  as it is documented that
 	binmode puts :utf8 on top of :encoding.  Also do not set the

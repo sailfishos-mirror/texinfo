@@ -678,8 +678,9 @@ EOT
         print $nav_fh "</li>\n";
       }
       my $text = _epub_convert_tree_to_text($self, $section->{'args'}->[0]);
-      $text = Texinfo::Convert::Utils::numbered_heading($self, $section, $text,
-                          $self->get_conf('NUMBER_SECTIONS'));
+      $text
+        = Texinfo::Convert::Utils::add_heading_number($self, $section, $text,
+                                          $self->get_conf('NUMBER_SECTIONS'));
       # the empty string as second argument makes sure that the
       # source file is different from the target file.
       my $origin_href = $self->command_href($section, '');

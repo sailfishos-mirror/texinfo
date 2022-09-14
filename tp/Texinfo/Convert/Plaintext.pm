@@ -2329,10 +2329,11 @@ sub _convert($$)
       $result = $self->convert_line ({'type' => 'frenchspacing',
                'contents' => [$element->{'args'}->[0]]});
       pop @{$self->{'count_context'}};
-      $result = Texinfo::Convert::Text::heading({'structure' => {'section_level' => 0},
-        'cmdname' => 'titlefont'}, $result, $self, 
-        $self->get_conf('NUMBER_SECTIONS'),
-        ($self->{'format_context'}->[-1]->{'indent_level'}) * $indent_length);
+      $result = Texinfo::Convert::Text::text_heading(
+                          {'structure' => {'section_level' => 0},
+                           'cmdname' => 'titlefont'},
+                            $result, $self, $self->get_conf('NUMBER_SECTIONS'),
+          ($self->{'format_context'}->[-1]->{'indent_level'}) * $indent_length);
       $result =~ s/\n$//; # final newline has its own tree element
       $self->{'empty_lines_count'} = 0 unless ($result eq '');
       add_text_count($self, $result);
@@ -2517,7 +2518,7 @@ sub _convert($$)
         # @* leads to an end of line, underlying appears on the line below
         # over one line
         my $heading_underlined = 
-             Texinfo::Convert::Text::heading($element, $heading, $self,
+             Texinfo::Convert::Text::text_heading($element, $heading, $self,
                                              $self->get_conf('NUMBER_SECTIONS'),
                            ($self->{'format_context'}->[-1]->{'indent_level'})
                                            * $indent_length);

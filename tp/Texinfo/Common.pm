@@ -44,16 +44,15 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
-debug_hash
-debug_list
-is_content_empty
+collect_commands_in_tree
+collect_commands_list_in_tree
 move_index_entries_after_items_in_tree
-normalize_top_node_name
+protect_colon_in_tree
 protect_comma_in_tree
 protect_first_parenthesis
-protect_colon_in_tree
 protect_node_after_label_in_tree
-trim_spaces_comment_from_content
+relate_index_entries_to_table_entries_in_tree
+valid_customization_option
 valid_tree_transformation
 ) ] );
 
@@ -62,7 +61,7 @@ valid_tree_transformation
 # This is where the Texinfo modules get access to __( without explicit
 # import.
 @EXPORT = qw(
-__ __p print_tree
+__ __p
 );
 
 $VERSION = '6.8dev';
@@ -472,7 +471,7 @@ sub valid_tree_transformation ($)
 }
 
 
-# @-commands classifications
+# @-commands classifications and other information on @-commands
 
 our %no_brace_commands;             # commands never taking braces
 %no_brace_commands = (
@@ -1184,13 +1183,13 @@ foreach my $formattable_or_formatted_misc_command (
 
 
 # functions for main program.  Should not be called in user-defined code.
-# locate_init_file() is also called in HTML Converter for htmlxref files.
+# FIXME locate_init_file() is also called in HTML Converter for htmlxref files.
 
-# file:        file name to locate. It can be a file path. Binary string.
-# directories: a reference on a array containing a list of directories to
-#              search the file in. Binary strings.
-# all_files:   if true collect all the files with that name, otherwise stop
-#              at first match.
+# $FILE:        file name to locate. It can be a file path. Binary string.
+# $DIRECTORIES: a reference on a array containing a list of directories to
+#               search the file in. Binary strings.
+# $ALL_FILES:   if true collect all the files with that name, otherwise stop
+#               at first match.
 sub locate_init_file($$$)
 {
   my $file = shift;
@@ -1217,7 +1216,7 @@ sub locate_init_file($$$)
 }
 
 
-# internal API to open, set encoding and register files.
+# API to open, set encoding and register files.
 # In general $SELF is stored as $converter->{'output_files'}
 # and should be accessed through $converter->output_files_information();
 #
@@ -1232,6 +1231,9 @@ sub locate_init_file($$$)
 # $OUTPUT_ENCODING argument overrides the output encoding.
 # returns the opened filehandle, or undef if opening failed,
 # and the $! error message or undef if opening succeeded.
+#
+# TODO next two functions not documented anywhere, probably relevant to document
+# both in POD and in HTML Customization API.
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;
@@ -1288,6 +1290,11 @@ sub output_files_register_closed($$)
   }
 }
 
+# The next two functions should not be called from user-defined
+# code, only from the main program.  They are defined here for
+# consistency of the API and clarity of the code.
+#
+# see the description of $SELF in comment above output_files_open_out.
 sub output_files_opened_files($)
 {
   my $self = shift;
@@ -1298,6 +1305,7 @@ sub output_files_opened_files($)
   }
 }
 
+# see the description of $SELF in comment above output_files_open_out.
 sub output_files_unclosed_files($)
 {
   my $self = shift;
@@ -1306,7 +1314,7 @@ sub output_files_unclosed_files($)
 # end of output_files API
 
 
-# functions used in main program, parser and structuring.
+# functions used in main program, Parser and/or Texinfo::Structuring.
 # Not supposed to be called in user-defined code.
 
 # Called both in NonXS and XS parsers
@@ -1334,11 +1342,10 @@ sub rearrange_tree_beginning($$)
       if (@{$before_setfilename->{'contents'}});
   }
   
-  add_preamble_before_content($before_node_section);
+  _add_preamble_before_content($before_node_section);
 }
 
-# TODO document
-sub add_preamble_before_content($)
+sub _add_preamble_before_content($)
 {
   my $before_node_section = shift;
   
@@ -1392,6 +1399,8 @@ sub warn_unknown_language($) {
   return @messages;
 }
 
+# next functions are for code used in Structuring in addition to Parser.
+# also possibly used in Texinfo::Transformations.
 
 sub _find_end_brace($$)
 {
@@ -1434,13 +1443,11 @@ sub _count_opened_tree_braces($$)
   return $braces_count;
 }
 
-# used in Structuring in addition to Parser
-
 # retrieve a leading manual name in parentheses, if there is one.
 # $LABEL_CONTENTS_CONTAINER->{'contents'} is the Texinfo for the specification
 # of a node.  It is relevant in any situation when a label is expected,
 # @node, menu entry, float, anchor...  For the @node command, for instance,
-# it is typically $node->{'args'}->[0].
+# $LABEL_CONTENTS_CONTAINER is typically $node->{'args'}->[0].
 #
 # Returned object is a hash with two fields:
 #
@@ -1452,6 +1459,9 @@ sub _count_opened_tree_braces($$)
 # elements substituted the initial contents is also returned,
 # typically to replace $LABEL_CONTENTS_CONTAINER->{'contents'}
 # for consistency.
+#
+# Could be documented, but only is there is evidence that this function
+# is useful in user-defined code.
 sub parse_node_manual($)
 {
   my $label_contents_container = shift;
@@ -1536,7 +1546,7 @@ sub parse_node_manual($)
 }
 
 
-# misc functions also interesting for converters
+# misc functions used in diverse contexts and useful in converters
 
 # Reverse the decoding of the file name from the input encoding.  When
 # dealing with file names, we want Perl strings representing sequences of
@@ -1724,7 +1734,6 @@ sub set_global_document_command($$$$)
   }
   return $element;
 }
-
 
 sub set_output_encodings($$)
 {
@@ -2016,6 +2025,8 @@ sub split_custom_heading_command_contents($)
   return $result;
 }
 
+# not currently used
+sub find_parent_root_command($$);
 sub find_parent_root_command($$)
 {
   my $self = shift;
@@ -2032,7 +2043,7 @@ sub find_parent_root_command($$)
             and $self->{'global_commands'}->{'insertcopying'}) {
           foreach my $insertcopying(@{$self->{'global_commands'}->{'insertcopying'}}) {
             my $root_command
-              = $self->find_parent_root_command($insertcopying);
+              = find_parent_root_command($self, $insertcopying);
             return $root_command if (defined($root_command));
           }
         } else {
@@ -2050,11 +2061,11 @@ sub find_parent_root_command($$)
   return undef;
 }
 
-
-# functions collecting @-commands in tree, useful
-# for user-defined customization init files code.
-# Only some @-commands (global informative commands) are collected
-# in the default case.
+# In the default case, global informative commands are collected
+# by the parsers.  The following functions allow to collect
+# any @-command.
+# Used in customization init files code and should be useful in
+# particular in user-defined init files.
 
 sub collect_commands_in_tree($$)
 {
@@ -2123,27 +2134,11 @@ sub _collect_commands_list_in_tree($$$)
   }
 }
 
-# Not used.
-sub _collect_references($$);
-sub _collect_references($$)
-{
-  my $current = shift;
-  my $references = shift;
-  foreach my $key ('args', 'contents') {
-    if ($current->{$key}) {
-      $references->{$current->{$key}} = $current->{$key};
-      foreach my $child (@{$current->{$key}}) {
-        $references->{$child} = $child;
-        _collect_references($child, $references);
-      }
-    }
-  }
-}
-
 
 # functions useful for Texinfo tree transformations
 # and some tree transformations functions, mostly those
-# used in conversion to main output formats.
+# used in conversion to main output formats.  In general,
+# tree transformations functions are documented in the POD section.
 
 # Some helper functions defined here are used in other
 # modules but are not generally useful in converters
@@ -2354,7 +2349,6 @@ sub copy_contents($)
   return $copy->{'contents'};
 }
 
-
 sub modify_tree($$;$);
 sub modify_tree($$;$)
 {
@@ -2499,8 +2493,10 @@ sub protect_first_parenthesis($)
       $brace = shift @contents;
       my $brace_text = $brace->{'text'};
       $brace_text =~ s/^\(//;
-      unshift @contents, { 'text' => $brace_text, 'type' => $brace->{'type'},
-                           'parent' => $brace->{'parent'} } if $brace_text ne '';
+      unshift @contents, { 'text' => $brace_text,
+                           'type' => $brace->{'type'},
+                           'parent' => $brace->{'parent'} }
+                                                   if $brace_text ne '';
     } else {
       $brace = shift @contents;
     }
@@ -2659,7 +2655,9 @@ sub relate_index_entries_to_table_entries_in_tree($)
                      \&_relate_index_entries_to_table_entries_in_tree);
 }
 
-sub _html_joint_transformation($)
+
+# Used in the main program, not meant to be used in user-defined code.
+sub _special_joint_transformation($)
 {
   my $type = shift;
   my $current = shift;
@@ -2672,18 +2670,19 @@ sub _html_joint_transformation($)
 # Peform both the 'move_index_entries_after_items' and the
 # 'relate_index_entries_to_table_entries_in_tree' transformations
 # together.  This is faster because the tree is only traversed once.
-sub html_joint_transformation($)
+sub texinfo_special_joint_transformation($)
 {
   my $tree = shift;
-  return modify_tree($tree, \&_html_joint_transformation);
+  return modify_tree($tree, \&_special_joint_transformation);
 }
 
 
+# Common to different module, but not meant to be used in user-defined
+# codes.
+#
 # register a label, that is something that may be the target of a reference
 # and must be unique in the document.  Corresponds to @node, @anchor and
 # @float second arg.
-# This is common to different module, that's why it is here, but it is
-# no meant to be used in other codes.
 sub register_label($$$)
 {
   my ($targets_list, $current, $label) = @_;
@@ -2695,9 +2694,10 @@ sub register_label($$$)
 }
 
 
-# functions used for debugging
+# functions used for debugging.  May be used in other modules.
+# Not documented.
 
-# for debugging.  May be used in other modules.
+# informations on a tree element, short version
 sub debug_print_element_short($)
 {
   my $current = shift;
@@ -2727,7 +2727,7 @@ sub debug_print_element_short($)
   return "$cmd$type$text$args$contents";
 }
 
-# for debugging
+# informations on a tree element, long version
 sub debug_print_element($)
 {
   my $current = shift;
@@ -2784,9 +2784,10 @@ sub debug_print_element_details($)
   return $string;
 }
 
+# format list for debugging messages
 sub debug_list
 {
-  my ($label) = shift;
+  my $label = shift;
   my (@list) = (ref $_[0] && $_[0] =~ /.*ARRAY.*/) ? @{$_[0]} : @_;
 
   my $str = "$label: [";
@@ -2802,6 +2803,7 @@ sub debug_list
   warn "$str\n";
 }
 
+# format hash for debugging messages
 sub debug_hash
 {
   my ($label) = shift;
@@ -2832,7 +2834,7 @@ foreach my $key (@kept_keys) {
   $kept_keys{$key} = 1;
 }
 sub _filter_print_keys { [grep {$kept_keys{$_}} ( sort keys %{$_[0]} )] };
-sub print_tree($)
+sub debug_print_tree($)
 {
   my $tree = shift;
   local $Data::Dumper::Sortkeys = \&_filter_print_keys;
@@ -3049,7 +3051,7 @@ others.
 X<C<%no_brace_commands>>
 
 Commands without brace with a single character as name, like C<*>
-or C<:>.  The value is an ascii representation of the command.  It
+or C<:>.  The value is an ASCII representation of the command.  It
 may be an empty string.
 
 =item %preformatted_commands
@@ -3230,12 +3232,6 @@ In @*table @-commands, reassociate the index entry information from an index
 @-command appearing right after an @item line to the @item first element.
 Remove the index @-command from the tree.
 
-=item html_joint_transformation($tree)
-X<C<html_joint_transformation>>
-
-Do both C<relate_index_entries_to_table_entries_in_tree>
-and C<move_index_entries_after_items> together.
-
 =item $level = section_level($section)
 X<C<section_level>>
 
@@ -3248,7 +3244,7 @@ X<C<set_global_document_command>>
 Set the Texinfo configuration option corresponding to I<$cmdname> in
 I<$customization_information>.  The I<$global_commands_information> should
 contain information about global commands in a Texinfo document, typically obtained
-from a parser, like L<< $parser->global_commands_information()|Texinfo::Parser/$commands = global_commands_information($parser) >>.
+from a parser L<< $parser->global_commands_information()|Texinfo::Parser/$commands = global_commands_information($parser) >>.
 I<$command_location> specifies where in the document the value should be taken from,
 for commands that may appear more than once. The possibilities are:
 

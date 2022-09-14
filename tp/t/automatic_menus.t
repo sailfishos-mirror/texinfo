@@ -37,7 +37,7 @@ sub test($$$;$$)
   if ($complete_missing_menus) {
     Texinfo::Transformations::complete_tree_nodes_missing_menu($tree,
                                                                $use_sections);
-    #print STDERR "".Texinfo::Common::print_tree($tree)."\n";
+    #print STDERR "".Texinfo::Common::debug_print_tree($tree)."\n";
   } else {
     Texinfo::Transformations::complete_tree_nodes_menus($tree, $use_sections);
   }

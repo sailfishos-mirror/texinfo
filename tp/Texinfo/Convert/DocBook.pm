@@ -978,7 +978,7 @@ sub _convert($$;$)
 
     } elsif ($element->{'args'}
              and exists($Texinfo::Common::brace_commands{$element->{'cmdname'}})) {
-      #debug_list (" brace command with args", $element->{'args'});
+      #Texinfo::Common::debug_list(" brace command with args", $element->{'args'});
       if ($style_commands_formatting{$element->{'cmdname'}}) {
         if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
           push (@{$self->{'document_context'}},

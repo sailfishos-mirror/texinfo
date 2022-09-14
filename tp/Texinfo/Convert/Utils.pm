@@ -46,7 +46,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 definition_category
 expand_today
 expand_verbatiminclude
-numbered_heading
+add_heading_number
 ) ] );
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -274,7 +274,7 @@ sub expand_verbatiminclude($$$)
   return $verbatiminclude;
 }
 
-sub numbered_heading($$$;$)
+sub add_heading_number($$$;$)
 {
   my $self = shift;
   my $current = shift;
@@ -311,7 +311,6 @@ sub numbered_heading($$$;$)
       $result = 'Appendix '.$result;
     }
   }
-  chomp ($result);
   return $result;
 }
 
@@ -443,8 +442,8 @@ normally a text element with one or two letter, and an array reference
 containing the accent commands nested in I<$element> (including
 I<$element>).
 
-=item $result = numbered_heading($converter, $heading_element, $heading_text, $do_number)
-X<C<numbered_heading>>
+=item $result = add_heading_number($converter, $heading_element, $heading_text, $do_number)
+X<C<add_heading_number>>
 
 The I<$converter> argument may be undef.  I<$heading_element> is
 a heading command tree element.  I<$heading_text> is the already

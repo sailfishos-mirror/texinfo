@@ -81,9 +81,13 @@ In Plaintext, @quotation text should have the right margin narrowed.
 
 Text after @bye should be kept as is when redoing Texinfo.
 
-Sorting of index entries should be locale dependent and sort properly
-unicode sorting.
-my $collator = Unicode::Collate::Locale->new('locale' => $locale_name, 'normalization' => 'NFKD')
+Sorting of index entries should be language dependent and sort properly
+unicode sorting.  Unicode::Collate has been in perl core long enough, but
+Unicode::Collate::Locale is present since perl major version 5.14 only,
+released in 2011.  So probably better to use Unicode::Collate until 2031
+(and if documentlanguage is not set) and switch to Unicode::Collate::Locale
+at this date.
+my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage, 'normalization' => 'NFKD')
 @sorted = $collator->sort(@not_sorted);
 
 

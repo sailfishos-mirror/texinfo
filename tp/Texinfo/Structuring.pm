@@ -1588,9 +1588,10 @@ sub setup_index_entry_keys_formatting($)
 {
   my $customization_information = shift;
 
-  # FIXME should the encoding be used by setting the
-  # copy_options_for_convert_text optional argument?  The result does
-  # not seem so good.
+  # TODO it would probably be relevant to set the encoding by setting the
+  # copy_options_for_convert_text optional argument when we use
+  # Unicode::Collate to sort.  Otherwise it is better not to as the result
+  # is worse when setting it.
   my $options = {'sort_string' => 1, 'ascii_punctuation' => 1,
    Texinfo::Convert::Text::copy_options_for_convert_text(
                                   $customization_information)};
@@ -1887,10 +1888,6 @@ The up, next and previous node elements.
 
 The up, next and previous section elements.
 
-=item FastForward
-
-The next top level section element.
-
 =item FastBack
 
 For top level elements, the previous top level element.  For other elements
@@ -1900,7 +1897,7 @@ that contains the subsection.
 
 =item FastForward
 
-The next top level element.
+The next top level section element.
 
 =back
 
@@ -1960,14 +1957,14 @@ X<C<new_complete_node_menu>>
 
 Returns a texinfo tree menu for node I<$node>, pointing to the children
 of the node obtained with the sectioning structure.  If I<$use_sections>
-is set, use section names instead of node names in menu.
+is set, use section names for the menu entry names.
 
 =item $entry = new_node_menu_entry($node, $use_sections)
 X<C<new_node_menu_entry>>
 
 Returns the texinfo tree corresponding to a single menu entry pointing to
-I<$node>.  If I<$use_sections> is set, use the section name instead of node name.
-Returns C<undef> if the node argument is missing.
+I<$node>.  If I<$use_sections> is set, use the section name for the menu
+entry name.  Returns C<undef> if the node argument is missing.
 
 =item $top_node = nodes_tree($registrar, $customization_information, $parser_information, $nodes_list, $labels)
 X<C<nodes_tree>>
