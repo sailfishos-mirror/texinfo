@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-09-14.01}
+\def\texinfoversion{2022-09-15.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -6764,6 +6764,11 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % Record where the Roman numerals started.
     \ifnum\romancount=0 \global\romancount=\pagecount \fi
 }
+
+% \raggedbottom in plain.tex hardcodes \topskip so override it
+\catcode`\@=11
+\def\raggedbottom{\advance\topskip by 0pt plus60pt \r@ggedbottomtrue}
+\catcode`\@=\other
 
 % redefined for the two-volume lispref.  We always output on
 % \jobname.toc even if this is redefined.
