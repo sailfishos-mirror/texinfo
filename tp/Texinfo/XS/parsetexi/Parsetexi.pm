@@ -13,12 +13,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# Since there are different parser implementation, XS and NonXS, it is
+# better to have the Texinfo::Parser packages define only the parser
+# API functions.  Constants, functions useful in both parsers, and other
+# functions useful in other codes are better defined in other Texinfo
+# modules.
+
 # File to be loaded in conjunction with Parsetexi.xs module
 #
 # FIXME two customization keys are duplicated from the main parser in
 # gdt(), which are set and used by the NonXS parser, 'kbdinputstyle'
-# and 'clickstyle'.  The XS does not set nor use those keys, so their values
-# are not passed in gdt().
+# and 'clickstyle'.  The XS parser does not set nor use those keys, so
+# their values are not passed to gdt().
 # As long as there is no other code that sets those keys to another value than
 # their default value, and that there are no translated strings containing the
 # @-commands whose output is modified by those customization keys, however,
@@ -429,3 +435,5 @@ sub registered_errors($)
 
 1;
 __END__
+
+The POD documentation of Texinfo::Parser is in Texinfo::ParserNonXS.

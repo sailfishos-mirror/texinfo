@@ -26,8 +26,8 @@
 
 # The organization of the file is the following:
 #  default parser state.  With explanation of the internal structures.
-#  initializations, determination of command types.
-#  user visible subroutines.
+#  determination of command types.
+#  user visible subroutines and subroutines related to input.
 #  internal subroutines, doing the parsing.
 
 # In general, the Parser works with character strings decoded from the
@@ -562,33 +562,6 @@ foreach my $canonical_encoding ('us-ascii', 'utf-8', 'iso-8859-1',
   $canonical_texinfo_encodings{$canonical_encoding} = 1;
 }
 
-# Taking an encoding name $ENCODING as argument, the function returns
-# $canonical_texinfo_encoding: the corresponding canonical Texinfo encoding,
-#                              as described in the Texinfo manual (or undef);
-# $perl_encoding:              an encoding name suitable for perl;
-# $canonical_output_encoding:  an encoding name suitable for most
-#                              output formats, especially HTML.
-sub _encoding_alias($)
-{
-  my $encoding = shift;
-  my $Encode_encoding_object = find_encoding($encoding);
-  my ($perl_encoding, $canonical_output_encoding);
-  if (defined($Encode_encoding_object)) {
-    $perl_encoding = $Encode_encoding_object->name();
-    # mime_name() is upper-case, our keys are lower case, set to lower case
-    $canonical_output_encoding = lc($Encode_encoding_object->mime_name());
-  }
-  my $canonical_texinfo_encoding;
-  foreach my $possible_encoding ($encoding, $canonical_output_encoding,
-                                            $perl_encoding) {
-    if (defined($possible_encoding)
-        and $canonical_texinfo_encodings{lc($possible_encoding)}) {
-      $canonical_texinfo_encoding = $possible_encoding;
-    }
-  }
-  return ($canonical_texinfo_encoding, $perl_encoding, $canonical_output_encoding);
-}
-
 # context_stack stack contexts in which an empty line doesn't trigger
 # a paragraph
 my %no_paragraph_contexts;
@@ -597,142 +570,8 @@ foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
   $no_paragraph_contexts{'ct_'.$no_paragraph_context} = 1;
 };
 
-sub _init_context_stack($)
-{
-  my $self = shift;
-  $self->{'context_stack'} = ['_root'];
-  $self->{'context_command_stack'} = [''];
-}
-
-sub _push_context($$$)
-{
-  my ($self, $context, $command) = @_;
-
-  push @{$self->{'context_stack'}}, $context;
-  push @{$self->{'context_command_stack'}}, $command;
-}
-
-# if needed it could be possible to guard against removing '_root' context
-# but it is unlikely to be useful since the expected context is checked.
-sub _pop_context($$$$;$)
-{
-  my ($self, $expected_contexts, $source_info, $current, $message) = @_;
-
-  my $popped_context = pop @{$self->{'context_stack'}};
-  if (not grep {$_ eq $popped_context} @$expected_contexts) {
-    my $error_message = "context $popped_context instead of "
-         .join(" or ", @$expected_contexts);
-    $error_message .= "; $message" if (defined($message));
-    $self->_bug_message($error_message, $source_info, $current);
-    die;
-  }
-  my $popped_command = pop @{$self->{'context_command_stack'}};
-}
-
-sub _get_context_stack($)
-{
-  my $self = shift;
-  (undef, my @context_stack) = @{$self->{'context_stack'}};
-  return @context_stack;
-}
-
-sub _top_context($)
-{
-  my $self = shift;
-  return $self->{'context_stack'}->[-1];
-}
-
-# find first non undef command
-sub _top_context_command($)
-{
-  my $self = shift;
-  for (my $i = scalar(@{$self->{'context_command_stack'}}) -1; $i > 0; $i--) {
-    if (defined($self->{'context_command_stack'}->[$i])) {
-      return $self->{'context_command_stack'}->[$i];
-    }
-  }
-  return undef;
-}
-
 
-# register warnings and errors
-sub _line_warn
-{
-  my $self = shift;
-  my $registrar = $self->{'registrar'};
-  $registrar->line_warn($self, @_);
-}
-
-sub _line_error
-{
-  my $self = shift;
-  my $registrar = $self->{'registrar'};
-  $registrar->line_error($self, @_);
-}
-
-# Format a bug message
-sub _bug_message($$;$$)
-{
-  my ($self, $message, $source_info, $current) = @_;
-
-  my $line_message = '';
-  if ($source_info) {
-    my $file = $source_info->{'file_name'};
-    $line_message
-      = "last location: $source_info->{'file_name'}:$source_info->{'line_nr'}";
-    if ($source_info->{'macro'} ne '') {
-      $line_message .= " (possibly involving $source_info->{'macro'})";
-    }
-    $line_message .= "\n";
-  }
-  my @context_stack = $self->_get_context_stack;
-  my $message_context_stack = "context_stack: (@context_stack)\n";
-  my $current_element_message = '';
-  if ($current) {
-    $current_element_message = "current: ". _print_current($current);
-  }
-  warn "You found a bug: $message\n\n".
-       "Additional information:\n".
-       $line_message.$message_context_stack.$current_element_message;
-}
-
-# simple deep copy of a structure
-# NOTE: currently not used, dclone is used instead.  But in case dclone
-# happens not to be enough in the future, _deep_copy could be reused.
-sub _deep_copy($)
-{
-  my $struct = shift;
-  my $string = Data::Dumper->Dump([$struct], ['struct']);
-  eval $string;
-  return $struct;
-}
-
-sub _setup_conf($$)
-{
-  my ($parser, $conf) = @_;
-
-  if (defined($conf)) {
-    foreach my $key (keys(%$conf)) {
-      if (exists($parser_settable_configuration{$key})) {
-        #if ($key eq 'info') {
-        #  # merge hashes prefering values from $conf
-        #  $parser->{'info'} = { %{$parser->{'info'}}, %{$conf->{'info'}} };
-        #}
-        # we keep registrar instead of copying on purpose, to reuse the object
-        if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
-          $parser->{$key} = dclone($conf->{$key});
-        } else {
-          $parser->{$key} = $conf->{$key};
-        }
-        if ($initialization_overrides{$key}) {
-          $parser->{'set'}->{$key} = $parser->{$key};
-        }
-      } else {
-        warn "ignoring parser configuration value \"$key\"\n";
-      }
-    }
-  }
-}
+# Interface and internal functions for input management
 
 # initialization entry point.  Set up a parser.
 # The last argument, optional, is a hash provided by the user to change
@@ -1134,12 +973,167 @@ sub registered_errors($)
   return $self->{'registrar'};
 }
 
-# Following are the internal subroutines.  The most important are
-# _parse_texi:  the main parser loop.
-# _end_line:    called at an end of line.  Handling of @include lines is
-#               done here.
-# _next_text:   present the next text fragment, from pending text or line,
-#               as described above.
+sub _setup_conf($$)
+{
+  my ($parser, $conf) = @_;
+
+  if (defined($conf)) {
+    foreach my $key (keys(%$conf)) {
+      if (exists($parser_settable_configuration{$key})) {
+        #if ($key eq 'info') {
+        #  # merge hashes prefering values from $conf
+        #  $parser->{'info'} = { %{$parser->{'info'}}, %{$conf->{'info'}} };
+        #}
+        # we keep registrar instead of copying on purpose, to reuse the object
+        if ($key ne 'values' and $key ne 'registrar' and ref($conf->{$key})) {
+          $parser->{$key} = dclone($conf->{$key});
+        } else {
+          $parser->{$key} = $conf->{$key};
+        }
+        if ($initialization_overrides{$key}) {
+          $parser->{'set'}->{$key} = $parser->{$key};
+        }
+      } else {
+        warn "ignoring parser configuration value \"$key\"\n";
+      }
+    }
+  }
+}
+
+# Following are the internal parsing subroutines.  The most important are
+#
+# _parse_texi:                main entry point, loop on input lines.
+# _process_remaining_on_line: the main parser loop.
+# _end_line:                  called at an end of line.  Handling of
+#                             @include lines is done here.
+# _next_text:                 present the next text fragment, from
+#                             pending text or line.
+
+# Taking an encoding name $ENCODING as argument, the function returns
+# $canonical_texinfo_encoding: the corresponding canonical Texinfo encoding,
+#                              as described in the Texinfo manual (or undef);
+# $perl_encoding:              an encoding name suitable for perl;
+# $canonical_output_encoding:  an encoding name suitable for most
+#                              output formats, especially HTML.
+sub _encoding_alias($)
+{
+  my $encoding = shift;
+  my $Encode_encoding_object = find_encoding($encoding);
+  my ($perl_encoding, $canonical_output_encoding);
+  if (defined($Encode_encoding_object)) {
+    $perl_encoding = $Encode_encoding_object->name();
+    # mime_name() is upper-case, our keys are lower case, set to lower case
+    $canonical_output_encoding = lc($Encode_encoding_object->mime_name());
+  }
+  my $canonical_texinfo_encoding;
+  foreach my $possible_encoding ($encoding, $canonical_output_encoding,
+                                            $perl_encoding) {
+    if (defined($possible_encoding)
+        and $canonical_texinfo_encodings{lc($possible_encoding)}) {
+      $canonical_texinfo_encoding = $possible_encoding;
+    }
+  }
+  return ($canonical_texinfo_encoding, $perl_encoding, $canonical_output_encoding);
+}
+
+# context stack functions
+sub _init_context_stack($)
+{
+  my $self = shift;
+  $self->{'context_stack'} = ['_root'];
+  $self->{'context_command_stack'} = [''];
+}
+
+sub _push_context($$$)
+{
+  my ($self, $context, $command) = @_;
+
+  push @{$self->{'context_stack'}}, $context;
+  push @{$self->{'context_command_stack'}}, $command;
+}
+
+# if needed it could be possible to guard against removing '_root' context
+# but it is unlikely to be useful since the expected context is checked.
+sub _pop_context($$$$;$)
+{
+  my ($self, $expected_contexts, $source_info, $current, $message) = @_;
+
+  my $popped_context = pop @{$self->{'context_stack'}};
+  if (not grep {$_ eq $popped_context} @$expected_contexts) {
+    my $error_message = "context $popped_context instead of "
+         .join(" or ", @$expected_contexts);
+    $error_message .= "; $message" if (defined($message));
+    $self->_bug_message($error_message, $source_info, $current);
+    die;
+  }
+  my $popped_command = pop @{$self->{'context_command_stack'}};
+}
+
+sub _get_context_stack($)
+{
+  my $self = shift;
+  (undef, my @context_stack) = @{$self->{'context_stack'}};
+  return @context_stack;
+}
+
+sub _top_context($)
+{
+  my $self = shift;
+  return $self->{'context_stack'}->[-1];
+}
+
+# find first non undef command
+sub _top_context_command($)
+{
+  my $self = shift;
+  for (my $i = scalar(@{$self->{'context_command_stack'}}) -1; $i > 0; $i--) {
+    if (defined($self->{'context_command_stack'}->[$i])) {
+      return $self->{'context_command_stack'}->[$i];
+    }
+  }
+  return undef;
+}
+
+# register warnings and errors
+sub _line_warn
+{
+  my $self = shift;
+  my $registrar = $self->{'registrar'};
+  $registrar->line_warn($self, @_);
+}
+
+sub _line_error
+{
+  my $self = shift;
+  my $registrar = $self->{'registrar'};
+  $registrar->line_error($self, @_);
+}
+
+# Format a bug message
+sub _bug_message($$;$$)
+{
+  my ($self, $message, $source_info, $current) = @_;
+
+  my $line_message = '';
+  if ($source_info) {
+    my $file = $source_info->{'file_name'};
+    $line_message
+      = "last location: $source_info->{'file_name'}:$source_info->{'line_nr'}";
+    if ($source_info->{'macro'} ne '') {
+      $line_message .= " (possibly involving $source_info->{'macro'})";
+    }
+    $line_message .= "\n";
+  }
+  my @context_stack = $self->_get_context_stack;
+  my $message_context_stack = "context_stack: (@context_stack)\n";
+  my $current_element_message = '';
+  if ($current) {
+    $current_element_message = "current: ". _print_current($current);
+  }
+  warn "You found a bug: $message\n\n".
+       "Additional information:\n".
+       $line_message.$message_context_stack.$current_element_message;
+}
 
 # for debugging
 sub _print_current($)
