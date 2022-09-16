@@ -1000,9 +1000,7 @@ parse_float_type (ELEMENT *current)
 ELEMENT *
 end_line_starting_block (ELEMENT *current)
 {
-  enum context c;
-  c = pop_context ();
-  if (c != ct_line)
+  if (pop_context () != ct_line)
     fatal ("line context expected");
 
   if (current->parent->cmd == CM_multitable)
@@ -1313,9 +1311,7 @@ end_line_misc_line (ELEMENT *current)
 
   arg_type = command_data(cmd).data;
    
-  /* Check 'line' is top of the context stack */
-  c = pop_context ();
-  if (c != ct_line)
+  if (pop_context () != ct_line)
     fatal ("line context expected");
 
   debug ("MISC END %s", command_name(cmd));
@@ -1864,7 +1860,8 @@ end_line_misc_line (ELEMENT *current)
         }
       else
         {
-          pop_context (); /* ct_line */;
+          if (pop_context () != ct_line)
+            fatal ("line context expected");
 
           current = current->parent;
 

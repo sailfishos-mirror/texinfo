@@ -366,6 +366,10 @@ some verbatim @
 @macro
 
 '],
+['displaymath_not_closed',
+'@displaymath
+in displaymath
+'],
 ['inlineraw_with_empty_line',
 'A @inlineraw{plaintext, plaintext ``
 

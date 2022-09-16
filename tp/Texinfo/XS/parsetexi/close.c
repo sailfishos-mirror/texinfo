@@ -247,7 +247,15 @@ close_current (ELEMENT *current,
       if (command_flags(current) & CF_brace)
         {
           if (command_data(current->cmd).data == BRACE_context)
-            pop_context ();
+            {
+              if (current->cmd == CM_math)
+                {
+                  if (pop_context () != ct_math)
+                    fatal ("math context expected");
+                }
+              else if (pop_context () != ct_brace_command)
+                fatal ("context brace command context expected");
+            }
           current = close_brace_command (current,
                                          closed_command, interrupting_command);
         }
@@ -280,11 +288,22 @@ close_current (ELEMENT *current,
                                                           (parent));
                 }
             }
-          if (command_data(cmd).flags
-              & (CF_preformatted | CF_menu | CF_format_raw))
+          if (command_data(cmd).flags & (CF_preformatted | CF_menu))
             {
-              pop_context ();
+              if (pop_context () != ct_preformatted)
+                fatal ("preformatted context expected");
             }
+          else if (command_data(cmd).flags & CF_format_raw)
+            {
+              if (pop_context () != ct_rawpreformatted)
+                fatal ("rawpreformatted context expected");
+            }
+          else if (cmd == CM_displaymath)
+            {
+              if (pop_context () != ct_math)
+                fatal ("math context expected");
+            }
+
           if (command_data(cmd).data == BLOCK_region)
             {
               pop_region ();
@@ -391,13 +410,10 @@ close_commands (ELEMENT *current, enum command_id closed_command,
         {
           if (pop_context () != ct_rawpreformatted)
             fatal ("rawpreformatted context expected");
-          // TODO: pop expanded formats stack
         }
       else if (current->cmd == CM_math || current->cmd == CM_displaymath)
         {
-          enum context c;
-          c = pop_context ();
-          if (c != ct_math)
+          if (pop_context () != ct_math)
             fatal ("math context expected");
         }
 

@@ -18,8 +18,13 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
 
+# Since there are different parser implementation, XS and NonXS, it is
+# better to have the Texinfo::Parser packages define only the parser
+# API functions.  Constants, functions useful in both parsers, and other
+# functions useful in other codes are better defined in other Texinfo
+# modules.
+
 # The organization of the file is the following:
-#  module definitions.
 #  default parser state.  With explanation of the internal structures.
 #  initializations, determination of command types.
 #  user visible subroutines.
@@ -130,7 +135,7 @@ my %parser_state_initialization = (
   'floats' => {},             # key is the normalized float type, value is
                               # an array reference holding all the floats
                               # of that type.
-  'labels'          => {},    # keys are normalized label names, as described
+  'labels' => {},             # keys are normalized label names, as described
                               # in the `HTML Xref' node.  Value should be
                               # a node/anchor or float in the tree.
   'macros' => {},             # the key is the user-defined macro name.  The
@@ -164,6 +169,9 @@ my %parser_state_configuration = (
                               # is implemented
 );
 
+# customization options are in Texinfo::Common because all the
+# customization options informations is gathered here, and also
+# because it is used in other codes, in particular the XS parser.
 my %parser_settable_configuration = (
   %parser_state_configuration,
   %Texinfo::Common::default_parser_customization_values,
@@ -176,9 +184,9 @@ my %parser_default_configuration = (
 
 # the other possible keys for the parser state are:
 #
-# expanded_formats_hash   each key comes from EXPANDED_FORMATS value is 1
+# expanded_formats_hash   each key comes from EXPANDED_FORMATS, value is 1
 # index_names             a structure holding the link between index
-#                         names, merged indices,
+#                         names and merged indices;
 #                         initial value is %index_names in Texinfo::Common.
 # context_stack           stack of the contexts, more recent on top.
 #                         'ct_line' is added when on a line or
@@ -548,7 +556,7 @@ foreach my $other_forbidden_index_name ('info','ps','pdf','htm',
 }
 
 my %canonical_texinfo_encodings;
-# These are the encodings from the texinfo manual
+# Valid encodings as described in the Texinfo manual
 foreach my $canonical_encoding ('us-ascii', 'utf-8', 'iso-8859-1',
                   'iso-8859-15', 'iso-8859-2', 'koi8-r', 'koi8-u') {
   $canonical_texinfo_encodings{$canonical_encoding} = 1;
@@ -581,7 +589,7 @@ sub _encoding_alias($)
   return ($canonical_texinfo_encoding, $perl_encoding, $canonical_output_encoding);
 }
 
-# contexts on the context_stack stack where empty line doesn't trigger
+# context_stack stack contexts in which an empty line doesn't trigger
 # a paragraph
 my %no_paragraph_contexts;
 foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
@@ -589,18 +597,11 @@ foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
   $no_paragraph_contexts{'ct_'.$no_paragraph_context} = 1;
 };
 
-# if $reuse is set, try to reuse the existing array
-# FIXME: is it useful to have $reuse?
-sub _init_context_stack($;$)
+sub _init_context_stack($)
 {
   my $self = shift;
-  my $reuse_existing = shift;
-  if (not ($reuse_existing and exists($self->{'context_stack'}))) {
-    $self->{'context_stack'} = [];
-    $self->{'context_command_stack'} = [];
-  }
-  $self->{'context_stack'}->[0] = '_root';
-  $self->{'context_command_stack'}->[0] = '';
+  $self->{'context_stack'} = ['_root'];
+  $self->{'context_command_stack'} = [''];
 }
 
 sub _push_context($$$)
@@ -612,22 +613,20 @@ sub _push_context($$$)
 }
 
 # if needed it could be possible to guard against removing '_root' context
-sub _pop_context($;$$$$)
+# but it is unlikely to be useful since the expected context is checked.
+sub _pop_context($$$$;$)
 {
   my ($self, $expected_contexts, $source_info, $current, $message) = @_;
 
-  my $error = 0;
   my $popped_context = pop @{$self->{'context_stack'}};
-  if (defined($expected_contexts) and (
-       not grep {$_ eq $popped_context} @$expected_contexts)) {
+  if (not grep {$_ eq $popped_context} @$expected_contexts) {
     my $error_message = "context $popped_context instead of "
          .join(" or ", @$expected_contexts);
     $error_message .= "; $message" if (defined($message));
     $self->_bug_message($error_message, $source_info, $current);
-    $error = 1;
+    die;
   }
   my $popped_command = pop @{$self->{'context_command_stack'}};
-  return $error, $popped_context, $popped_command;
 }
 
 sub _get_context_stack($)
@@ -1426,6 +1425,8 @@ sub _close_all_style_commands($$$;$$)
   while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
           and exists $brace_commands{$current->{'parent'}->{'cmdname'}}
           and !exists $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
+    print STDERR "CLOSING(_close_all_style_commands) \@$current->{'parent'}->{'cmdname'}\n"
+         if ($self->{'DEBUG'});
     $current = _close_brace_command($self, $current->{'parent'}, $source_info,
                                     $closed_command, $interrupting_command);
   }
@@ -1767,8 +1768,15 @@ sub _close_current($$$;$$)
     print STDERR "CLOSING(_close_current) \@$current->{'cmdname'}\n"
          if ($self->{'DEBUG'});
     if (exists($brace_commands{$current->{'cmdname'}})) {
-      $self->_pop_context()
-         if (exists $context_brace_commands{$current->{'cmdname'}});
+      if (exists $context_brace_commands{$current->{'cmdname'}}) {
+        my $expected_context;
+        if ($math_commands{$current->{'cmdname'}}) {
+          $expected_context = 'ct_math';
+        } else {
+          $expected_context = 'ct_brace_command';
+        }
+        $self->_pop_context([$expected_context], $source_info, $current);
+      }
       $current = _close_brace_command($self, $current, $source_info,
                                       $closed_command, $interrupting_command);
     } elsif (exists($block_commands{$current->{'cmdname'}})) {
@@ -1799,10 +1807,12 @@ sub _close_current($$$;$$)
         }
       }
       if ($preformatted_commands{$current->{'cmdname'}}
-          or $menu_commands{$current->{'cmdname'}}
-          or $format_raw_commands{$current->{'cmdname'}}
-          or $math_commands{$current->{'cmdname'}}) {
-        $self->_pop_context();
+          or $menu_commands{$current->{'cmdname'}}) {
+        $self->_pop_context(['ct_preformatted'], $source_info, $current);
+      } elsif ($format_raw_commands{$current->{'cmdname'}}) {
+        $self->_pop_context(['ct_rawpreformatted'], $source_info, $current);
+      } elsif ($math_commands{$current->{'cmdname'}}) {
+        $self->_pop_context(['ct_math'], $source_info, $current);
       }
       pop @{$self->{'regions_stack'}}
          if ($region_commands{$current->{'cmdname'}});
@@ -1835,9 +1845,7 @@ sub _close_current($$$;$$)
       }
     } elsif ($current->{'type'} eq 'line_arg'
              or $current->{'type'} eq 'block_line_arg') {
-      my ($error) = $self->_pop_context(['ct_line', 'ct_def'],
-                                        $source_info, $current);
-      die if ($error);
+      $self->_pop_context(['ct_line', 'ct_def'], $source_info, $current);
     }
     $current = $current->{'parent'};
   } else { # Should never go here.
@@ -1901,7 +1909,6 @@ sub _close_commands($$$;$$)
     pop @{$self->{'regions_stack'}}
        if ($region_commands{$current->{'cmdname'}});
     $closed_element = $current;
-    #$self->_close_command_cleanup($current);
     $current = $current->{'parent'};
   } elsif ($closed_command) {
     $self->_line_error(sprintf(__("unmatched `%c%s'"),
@@ -2937,8 +2944,7 @@ sub _end_line($$$)
   } elsif ($current->{'parent'}
             and $current->{'parent'}->{'type'}
             and $current->{'parent'}->{'type'} eq 'def_line') {
-    my ($error) = $self->_pop_context(['ct_def'], $source_info, $current);
-    die if ($error);
+    $self->_pop_context(['ct_def'], $source_info, $current);
     # in case there are no arguments at all, it needs to be called here.
     _abort_empty_line($self, $current);
     my $def_command = $current->{'parent'}->{'extra'}->{'def_command'};
@@ -5287,10 +5293,8 @@ sub _process_remaining_on_line($$$$)
           if ($math_commands{$current->{'parent'}->{'cmdname'}}) {
             $command_context = 'ct_math';
           }
-          my ($error) = $self->_pop_context([$command_context],
-                   $source_info, $current,
+          $self->_pop_context([$command_context], $source_info, $current,
                    "for brace command $current->{'parent'}->{'cmdname'}");
-          die if ($error);
         }
         # first is the arg.
         if ($brace_commands{$current->{'parent'}->{'cmdname'}}
@@ -5403,9 +5407,8 @@ sub _process_remaining_on_line($$$$)
           my $current_command = $current->{'parent'};
           if ($inline_commands{$current_command->{'cmdname'}}) {
             if ($current_command->{'cmdname'} eq 'inlineraw') {
-              my ($error) = $self->_pop_context(['ct_inlineraw'],
-                                    $source_info, $current, ' inlineraw');
-              die if ($error);
+              $self->_pop_context(['ct_inlineraw'], $source_info, $current,
+                                  ' inlineraw');
             }
           }
           if (!@{$current_command->{'args'}}
@@ -5510,10 +5513,8 @@ sub _process_remaining_on_line($$$$)
          if ($current->{'parent'}
              and $current->{'parent'}->{'cmdname'}
              and $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
-          my ($error) = $self->_pop_context(['ct_brace_command'],
-                   $source_info, $current,
-                   "for brace isolated $current->{'parent'}->{'cmdname'}");
-          die if ($error);
+          $self->_pop_context(['ct_brace_command'], $source_info, $current,
+                     "for brace isolated $current->{'parent'}->{'cmdname'}");
           print STDERR "CLOSING(context command) \@$current->{'parent'}->{'cmdname'}\n"
                                       if ($self->{'DEBUG'});
           my $closed_command = $current->{'parent'}->{'cmdname'};
@@ -5782,13 +5783,8 @@ sub _parse_texi($$$)
 
   my @context_stack = $self->_get_context_stack();
   if (scalar(@context_stack) != 0) {
-    # This happens in 2 cases in the tests:
-    #   @verb not closed on misc commands line
-    #   def line escaped with @ ending the file
-    if ($self->{'DEBUG'}) {
-      print STDERR "CONTEXT_STACK no empty end _parse_texi: ".join('|', @context_stack)."\n";
-    }
-    $self->_init_context_stack(1);
+    die($self->_bug_message("CONTEXT_STACK not empty at _parse_texi end: "
+           .join('|', @context_stack)));
   }
 
   # Setup labels info and nodes list based on 'targets'

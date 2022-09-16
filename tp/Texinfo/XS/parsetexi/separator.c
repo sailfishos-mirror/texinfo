@@ -241,9 +241,13 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       enum command_id closed_command;
       if (command_data(current->parent->cmd).data == BRACE_context)
         {
-          (void) pop_context ();
-          /* The Perl code here checks that the popped context and the
-             parent command match. */
+          if (current->parent->cmd == CM_math)
+            {
+              if (pop_context () != ct_math)
+                fatal ("math context expected");
+            }
+          else if (pop_context () != ct_brace_command)
+            fatal ("context brace command context expected");
         }
       else if (command_data(current->parent->cmd).data > 0)
         {
@@ -390,7 +394,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           if (current->parent->cmd == CM_inlineraw)
             {
               if (ct_inlineraw != pop_context ())
-                fatal ("expected inlineraw context");
+                fatal ("inlineraw context expected");
             }
           if (current->parent->args.number == 0
               || current->parent->args.list[0]->contents.number == 0)
@@ -526,7 +530,8 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           && (command_data(current->parent->cmd).data == BRACE_context))
         {
           enum command_id closed_command;
-          (void) pop_context ();
+          if (pop_context () != ct_brace_command)
+            fatal ("context brace command context expected");
           debug ("CLOSING(context command)");
           closed_command = current->parent->cmd;
           counter_pop (&count_remaining_args);
