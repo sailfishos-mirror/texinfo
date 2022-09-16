@@ -1081,6 +1081,11 @@ $result_trees{'macro_in_misc_commands'} = {
                 'end' => '\\\\'
               },
               'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 60,
+                'macro' => ''
+              },
               'type' => 'definfoenclose_command'
             },
             {
@@ -1216,6 +1221,11 @@ $result_trees{'macro_in_misc_commands'} = {
                 'end' => ':'
               },
               'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 67,
+                'macro' => ''
+              },
               'type' => 'definfoenclose_command'
             },
             {
@@ -1453,6 +1463,11 @@ $result_trees{'macro_in_misc_commands'} = {
                 'end' => ':)'
               },
               'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 80,
+                'macro' => 'strongmacro'
+              },
               'type' => 'definfoenclose_command'
             },
             {

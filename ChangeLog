@@ -1,5 +1,20 @@
 2022-09-16  Patrice Dumas  <pertusus@free.fr>
 
+	Keep definfoenclose defined commands line numbers
+
+	* tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash): keep
+	source info information for definfoenclose commands.
+
+	* tp/Texinfo/ParserNonXS.pm (%keep_line_nr_brace_commands):
+	remove.
+
+	* tp/Texinfo/ParserNonXS.pm (parser, simple_parser)
+	(_parse_line_command_args): add a dynamic 'brace_commands'
+	hash with brace commands and added definfoenclose commands.
+
+2022-09-16  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_pop_context, _close_current)
 	(_end_line, _process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/close.c (close_current),

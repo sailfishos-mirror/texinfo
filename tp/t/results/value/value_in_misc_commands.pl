@@ -616,6 +616,11 @@ $result_trees{'value_in_misc_commands'} = {
                 'end' => '\\\\'
               },
               'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 36,
+                'macro' => ''
+              },
               'type' => 'definfoenclose_command'
             },
             {
@@ -718,6 +723,11 @@ $result_trees{'value_in_misc_commands'} = {
                 'end' => ':'
               },
               'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 42,
+                'macro' => ''
+              },
               'type' => 'definfoenclose_command'
             },
             {
@@ -889,6 +899,11 @@ $result_trees{'value_in_misc_commands'} = {
                 'end' => ':)'
               },
               'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 51,
+                'macro' => ''
+              },
               'type' => 'definfoenclose_command'
             },
             {

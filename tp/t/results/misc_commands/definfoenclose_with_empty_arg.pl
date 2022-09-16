@@ -80,6 +80,11 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
                 'end' => ':'
               },
               'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
               'type' => 'definfoenclose_command'
             },
             {

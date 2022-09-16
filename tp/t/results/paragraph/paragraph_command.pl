@@ -245,6 +245,11 @@ $result_trees{'paragraph_command'} = {
                 'end' => '//'
               },
               'parent' => {},
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 12,
+                'macro' => ''
+              },
               'type' => 'definfoenclose_command'
             },
             {

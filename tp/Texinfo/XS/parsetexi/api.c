@@ -603,8 +603,7 @@ element_to_perl_hash (ELEMENT *e)
                   newRV_inc((SV *)extra), 0);
     }
 
-  if (e->source_info.line_nr
-      && !(command_flags(e) & CF_INFOENCLOSE))
+  if (e->source_info.line_nr)
     {
 #define STORE(key, sv) hv_store (hv, key, strlen (key), sv, 0)
       SOURCE_INFO *source_info = &e->source_info;

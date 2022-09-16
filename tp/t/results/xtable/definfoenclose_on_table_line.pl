@@ -60,6 +60,11 @@ $result_trees{'definfoenclose_on_table_line'} = {
                     'end' => ':'
                   },
                   'parent' => {},
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 3,
+                    'macro' => ''
+                  },
                   'type' => 'definfoenclose_command'
                 }
               ],

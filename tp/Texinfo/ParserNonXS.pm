@@ -305,15 +305,6 @@ my %set_flag_index_char_ignore = (
  'txiindexhyphenignore' => '-',
 );
 
-# keep line information for those commands.
-my %keep_line_nr_brace_commands = %context_brace_commands;
-foreach my $keep_line_nr_brace_command ('titlefont', 'anchor') {
-  $keep_line_nr_brace_commands{$keep_line_nr_brace_command} = 1;
-}
-foreach my $brace_command (keys (%brace_commands)) {
-  $keep_line_nr_brace_commands{$brace_command} = 1;
-}
-
 my %type_with_paragraph;
 foreach my $type ('before_item', 'before_node_section', 'document_root',
                   'brace_command_context') {
@@ -586,8 +577,9 @@ sub parser(;$$)
   _setup_conf($parser, $conf);
 
   # Initialize command hash that are dynamically modified, notably
-  # those for index commands, and lists, based on defaults
+  # those for index commands, and definoenclose, based on defaults
   $parser->{'line_commands'} = dclone(\%line_commands);
+  $parser->{'brace_commands'} = dclone(\%brace_commands);
   $parser->{'valid_nestings'} = dclone(\%default_valid_nestings);
   $parser->{'no_paragraph_commands'} = { %default_no_paragraph_commands };
   $parser->{'index_names'} = dclone(\%index_names);
@@ -663,6 +655,7 @@ sub parser(;$$)
 # and shared among simple parsers.  It is used in gdt() and this has a sizable
 # effect on performance.
 my $simple_parser_line_commands = dclone(\%line_commands);
+my $simple_parser_brace_commands = dclone(\%brace_commands);
 my $simple_parser_valid_nestings = dclone(\%default_valid_nestings);
 my $simple_parser_no_paragraph_commands = { %default_no_paragraph_commands };
 my $simple_parser_index_names = dclone(\%index_names);
@@ -679,6 +672,7 @@ sub simple_parser(;$)
   _setup_conf($parser, $conf);
 
   $parser->{'line_commands'} = $simple_parser_line_commands;
+  $parser->{'brace_commands'} = $simple_parser_brace_commands;
   $parser->{'valid_nestings'} = $simple_parser_valid_nestings;
   $parser->{'no_paragraph_commands'} = $simple_parser_no_paragraph_commands;
   $parser->{'index_names'} = $simple_parser_index_names;
@@ -1417,7 +1411,7 @@ sub _close_all_style_commands($$$;$$)
       $interrupting_command) = @_;
 
   while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-          and exists $brace_commands{$current->{'parent'}->{'cmdname'}}
+          and exists $self->{'brace_commands'}->{$current->{'parent'}->{'cmdname'}}
           and !exists $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
     print STDERR "CLOSING(_close_all_style_commands) \@$current->{'parent'}->{'cmdname'}\n"
          if ($self->{'DEBUG'});
@@ -1761,7 +1755,7 @@ sub _close_current($$$;$$)
   if ($current->{'cmdname'}) {
     print STDERR "CLOSING(_close_current) \@$current->{'cmdname'}\n"
          if ($self->{'DEBUG'});
-    if (exists($brace_commands{$current->{'cmdname'}})) {
+    if (exists($self->{'brace_commands'}->{$current->{'cmdname'}})) {
       if (exists $context_brace_commands{$current->{'cmdname'}}) {
         my $expected_context;
         if ($math_commands{$current->{'cmdname'}}) {
@@ -3114,7 +3108,8 @@ sub _end_line($$$)
           $self->_command_error($current, $source_info,
               __("%s requires an argument: the formatter for %citem"),
               $current->{'cmdname'}, ord('@'));
-        } elsif (!$brace_commands{$current->{'extra'}->{'command_as_argument'}->{'cmdname'}}) {
+        } elsif (!$self->{'brace_commands'}->{
+              $current->{'extra'}->{'command_as_argument'}->{'cmdname'}}) {
           $self->_command_error($current, $source_info,
               __("command \@%s not accepting argument in brace should not be on \@%s line"),
               $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
@@ -4177,7 +4172,7 @@ sub _process_remaining_on_line($$$$)
   # Need to be done as early as possible such that no other condition
   # prevail and lead to a missed command
   if ($current->{'cmdname'}
-      and defined($brace_commands{$current->{'cmdname'}})
+      and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
       and !$open_brace
       and _command_with_command_as_argument($current->{'parent'})) {
     print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} ".
@@ -4203,7 +4198,7 @@ sub _process_remaining_on_line($$$$)
   # or argument for accent commands.
   if ($command
       and $current->{'cmdname'}
-      and defined($brace_commands{$current->{'cmdname'}})) {
+      and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
     $self->_line_error(sprintf(__("\@%s expected braces"),
                        $current->{'cmdname'}), $source_info);
     $current = $current->{'parent'};
@@ -4235,7 +4230,7 @@ sub _process_remaining_on_line($$$$)
   # otherwise the current element is in the 'args' and not right in the
   # command container.
   if ($current->{'cmdname'}
-        and defined($brace_commands{$current->{'cmdname'}})
+        and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
         and !$open_brace) {
     print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}: $line"
       if $self->{'DEBUG'};
@@ -5092,13 +5087,11 @@ sub _process_remaining_on_line($$$$)
         _register_global_command($self, $block, $source_info);
         $line = _start_empty_line_after_command($line, $current, $block);
       }
-    } elsif (defined($brace_commands{$command})) {
+    } elsif (defined($self->{'brace_commands'}->{$command})) {
       push @{$current->{'contents'}}, { 'cmdname' => $command,
                                         'parent' => $current,
                                         'contents' => [] };
-      $current->{'contents'}->[-1]->{'source_info'} = $source_info
-        if ($keep_line_nr_brace_commands{$command}
-            and !$self->{'definfoenclose'}->{$command});
+      $current->{'contents'}->[-1]->{'source_info'} = $source_info;
       if ($in_index_commands{$command}
           and !_is_index_element($self, $current->{'parent'})) {
         $self->_line_warn(
@@ -5145,7 +5138,7 @@ sub _process_remaining_on_line($$$$)
     } elsif ($separator eq '{') {
       _abort_empty_line($self, $current);
       if ($current->{'cmdname'}
-           and defined($brace_commands{$current->{'cmdname'}})) {
+           and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
         my $command = $current->{'cmdname'};
         $current->{'args'} = [ { 'parent' => $current,
                                'contents' => [] } ];
@@ -5280,7 +5273,7 @@ sub _process_remaining_on_line($$$$)
        # a paragraph withing the footnote
       } elsif ($current->{'parent'}
           and $current->{'parent'}->{'cmdname'}
-          and exists $brace_commands{$current->{'parent'}->{'cmdname'}}) {
+          and exists $self->{'brace_commands'}->{$current->{'parent'}->{'cmdname'}}) {
         # for math and footnote out of paragraph
         if ($context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
           my $command_context = 'ct_brace_command';
@@ -5938,20 +5931,16 @@ sub _parse_line_command_args($$$)
     # FIXME not clear if non ascii spaces are ok in the args
     if ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
       $args = [$1, $2, $3 ];
-      $self->{'definfoenclose'}->{$1} = [ $2, $3 ];
-      print STDERR "DEFINFOENCLOSE \@$1: $2, $3\n" if ($self->{'DEBUG'});
-
-      # FIXME it is not propagated outside of the Parser.  It is not
-      # reinitialized between calls of the converter.  It is not
-      # put in %in_full_text_commands.
-      $brace_commands{$1} = 'style_other';
-
-      # Warning: there is a risk of mixing of data between a built-in
-      # command and a user command defined with @definfoenclose.
-      # %keep_line_nr_brace_commands is one example of this.
+      my ($cmd_name, $begin, $end) = ($1, $2, $3);
+      $self->{'definfoenclose'}->{$cmd_name} = [ $begin, $end ];
+      print STDERR "DEFINFOENCLOSE \@$cmd_name: $begin, $end\n"
+               if ($self->{'DEBUG'});
+      $self->{'brace_commands'}->{$cmd_name} = 'definfoenclose';
+      # note that a built-in command previously in a hash classifying the
+      # @-command will remain there, possibly having specific effects.
     } else {
-      $self->_line_error(sprintf(
-                              __("bad argument to \@%s"), $command), $source_info);
+      $self->_line_error(sprintf(__("bad argument to \@%s"), $command),
+                         $source_info);
     }
   } elsif ($command eq 'columnfractions') {
     my @possible_fractions = split (/\s+/, $line);
