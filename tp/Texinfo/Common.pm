@@ -3113,14 +3113,39 @@ C<@cite>, C<@code> or C<@asis>.
 
 =head1 METHODS
 
-No method is exported in the default case.  The Texinfo tree
-and Texinfo tree elements are documented in L<Texinfo::Parser/TEXINFO TREE>.
-When customization information is needed, an object that defines
-C<set_conf> and/or C<get_conf> is expected, for example
-a converter inheriting from C<Texinfo::Convert::Converter>, see
-L<Texinfo::Convert::Converter/Getting and setting customization variables>.
+Two methods are exported in the default case for Texinfo modules messages
+translation in the Uniforum gettext framework, C<__> and C<__p>.
+
+The Texinfo tree and Texinfo tree elements used in argument of some functions
+are documented in L<Texinfo::Parser/TEXINFO TREE>.  When customization
+information is needed, an object that defines C<set_conf> and/or C<get_conf> is
+expected, for example a converter inheriting from
+C<Texinfo::Convert::Converter>, see L<Texinfo::Convert::Converter/Getting and
+setting customization variables>.
 
 =over
+
+=item $translated_string = __($msgid)
+
+=item $translated_string = __p($msgctxt, $msgid)
+
+Returns the I<$msgid> string translated in the Texinfo messages text domain.
+C<__p> can be used instead of C<__> to pass a I<$msgctxt> context string to
+provide translators with information on the string context when the string is
+short or if the translation could depend on the context. C<__> corresponds to
+the C<gettext> function and C<__p> to the C<pgettext> function.
+
+It is not advised to use those functions in user-defined code.  It is not
+practical either, as the translatable strings marked by C<__> or C<__p> need to
+be collected and added to the Texinfo messages domain.  This facility could
+only be used in user-defined code with translatable strings already present in
+the domain anyway.  In fact, these functions are documented mainly because they
+are automatically exported.
+
+See L<libintl-perl>,
+L<C<gettext> C interface|https://www.gnu.org/software/gettext/manual/html_node/gettext.html>,
+L<Perl in GNU Gettext|https://www.gnu.org/software/gettext/manual/html_node/Perl.html>.
+For translation of strings in output, see L<Texinfo::Translations>.
 
 =item collect_commands_in_tree($tree, $commands_list)
 X<C<collect_commands_in_tree>>

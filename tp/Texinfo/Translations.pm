@@ -425,7 +425,8 @@ in output documents.
 
 Translation of error messages uses another interface which
 is the classical gettext based perl interface.  It is not
-described as it is described in details elsewhere.
+described as it is described in details elsewhere, some
+elements are in L<Texinfo::Common C<__> and C<__p>|Texinfo::Common/$translated_string = __($msgid)>.
 
 =head1 METHODS
 
