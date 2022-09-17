@@ -1193,7 +1193,7 @@ sub _parse_macro_command_line($$$$$;$)
 {
   my ($self, $command, $line, $parent, $source_info) = @_;
 
-  my $macro = { 'cmdname' => $command, 'parent' => $parent, 'contents' => [],
+  my $macro = { 'cmdname' => $command, 'parent' => $parent,
                'extra' => {'arg_line' => $line}, 'source_info' => $source_info };
   # REMACRO
   if ($line =~ /^\s+([[:alnum:]][[:alnum:]_-]*)\s*(.*)/) {
@@ -1245,14 +1245,14 @@ sub _begin_paragraph($$;$)
 {
   my ($self, $current, $source_info) = @_;
 
-  # !$current->{'type'} is true for @-commands.  In fact it is unclear
-  # that there may be cases of !$current->{'type'} and !$current->{'cmdname'}
+  # !$current->{'type'} is true for @-commands and for text without
+  # type nor command.
   if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
       and !$no_paragraph_contexts{$self->_top_context()}) {
 
     # find whether an @indent precedes the paragraph
     my $indent;
-    if ($current->{'contents'} and scalar(@{$current->{'contents'}})) {
+    if ($current->{'contents'}) {
       my $index = scalar(@{$current->{'contents'}}) -1;
       while ($index >= 0
             and !($current->{'contents'}->[$index]->{'type'}
@@ -1527,8 +1527,7 @@ sub _gather_previous_item($$;$$)
                     'parent' => $current,
                     'contents' => []};
     my $table_term = {'type' => 'table_term',
-                    'parent' => $table_entry,
-                    'contents' => []};
+                    'parent' => $table_entry, };
     push @{$table_entry->{'contents'}}, $table_term;
     # put everything starting from the end until reaching the previous
     # table entry or beginning of the table in table term.
@@ -1781,10 +1780,7 @@ sub _close_current($$$;$$)
                            $source_info);
         if ($block_commands{$current->{'cmdname'}} eq 'conditional') {
           # in this case we are within an ignored conditional
-          my $conditional = pop @{$current->{'parent'}->{'contents'}};
-          if (scalar(@{$current->{'parent'}->{'contents'}}) == 0) {
-            delete $current->{'parent'}->{'contents'};
-          }
+          _pop_element_from_contents($current->{'parent'});
         }
       }
       if ($preformatted_commands{$current->{'cmdname'}}
@@ -2285,6 +2281,18 @@ sub _set_non_ignored_space_in_index_before_command($)
   }
 }
 
+sub _pop_element_from_contents($)
+{
+  my $parent_element = shift;
+
+  my $popped_element = pop @{$parent_element->{'contents'}};
+
+  delete $parent_element->{'contents'}
+    if (scalar(@{$parent_element->{'contents'}}) == 0);
+
+  return $popped_element;
+}
+
 # each time a new line appeared, a container is opened to hold the text
 # consisting only of spaces.  This container is removed here, typically
 # this is called when non-space happens on a line.
@@ -2313,9 +2321,7 @@ sub _abort_empty_line {
 
     # remove empty 'empty*before'.  Happens in many situations.
     if ($spaces_element->{'text'} eq '') {
-      pop @{$current->{'contents'}};
-      delete $current->{'contents'}
-         if (scalar(@{$current->{'contents'}}) == 0);
+      _pop_element_from_contents($current);
     } elsif ($spaces_element->{'type'} eq 'empty_line') {
       # exactly the same condition as to begin a paragraph
       if ((!$current->{'type'} or $type_with_paragraph{$current->{'type'}})
@@ -2328,9 +2334,7 @@ sub _abort_empty_line {
              or $spaces_element->{'type'} eq 'internal_spaces_before_argument') {
       # Remove element from main tree. It will still be referenced in
       # the 'extra' hash as 'spaces_before_argument'.
-      pop @{$current->{'contents'}};
-      delete $current->{'contents'}
-         if (scalar(@{$current->{'contents'}}) == 0);
+      _pop_element_from_contents($current);
       my $owning_element
         = $spaces_element->{'extra'}->{'spaces_associated_command'};
       $owning_element->{'extra'}->{'spaces_before_argument'}
@@ -2354,9 +2358,8 @@ sub _isolate_last_space
       and $current->{'contents'}->[-1]->{'cmdname'}
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-    $current->{'extra'}->{'comment_at_end'} = pop @{$current->{'contents'}};
-    delete $current->{'contents'}
-      if (scalar(@{$current->{'contents'}}) == 0);
+    $current->{'extra'}->{'comment_at_end'}
+                           = _pop_element_from_contents($current);
     # TODO: @c should probably not be allowed inside most brace commands
     # as this would be difficult to implement properly in TeX.
   }
@@ -2381,11 +2384,9 @@ sub _isolate_last_space
   } else {
     # Store final spaces in 'spaces_after_argument'.
     if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
-      my $end_spaces = $current->{'contents'}->[-1]->{'text'};
-      pop @{$current->{'contents'}};
-      delete $current->{'contents'}
-        if (scalar(@{$current->{'contents'}}) == 0);
-      $current->{'extra'}->{'spaces_after_argument'} = $end_spaces;
+      $current->{'extra'}->{'spaces_after_argument'}
+                 = $current->{'contents'}->[-1]->{'text'};
+      _pop_element_from_contents($current);
     } else {
       $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
       $current->{'extra'}->{'spaces_after_argument'} = $1;
@@ -2811,9 +2812,7 @@ sub _end_line($$$)
       my $preformatted = $current;
       $current = $current->{'parent'};
       if (! scalar(@{$preformatted->{'contents'}})) {
-        pop @{$current->{'contents'}};
-        delete $current->{'contents'}
-          if (!scalar(@{$current->{'contents'}}));
+        _pop_element_from_contents($current);
       }
       
       # first parent is menu_entry
@@ -3447,9 +3446,7 @@ sub _end_line($$$)
     if ($end_command) {
       print STDERR "END COMMAND $end_command\n" if ($self->{'DEBUG'});
       # reparent to block command
-      my $end = pop @{$current->{'contents'}};
-      delete $current->{'contents'}
-        if (scalar(@{$current->{'contents'}}) == 0);
+      my $end = _pop_element_from_contents($current);
       if ($block_commands{$end_command} ne 'conditional') {
         # here close some empty types.  Typically empty preformatted
         # that would have been closed anyway in _close_commands, but
@@ -3965,9 +3962,7 @@ sub _process_remaining_on_line($$$$)
         if ($line =~ /\S/ and $line !~ /^\s*\@c(omment)?\b/);
       $current = $current->{'parent'};
       # don't store ignored @if*
-      my $conditional = pop @{$current->{'contents'}};
-      delete $current->{'contents'}
-        if (scalar(@{$current->{'contents'}}) == 0);
+      my $conditional = _pop_element_from_contents($current);
       if (!defined($conditional->{'cmdname'}
           or $conditional->{'cmdname'} ne $end_command)) {
         $self->_bug_message(
@@ -5725,7 +5720,7 @@ sub _parse_texi($$$)
          .join('|', $self->_get_context_stack())
          .":@{$self->{'conditionals_stack'}}:$line_text): $line";
       #print STDERR "CONTEXT_STACK ".join('|',$self->_get_context_stack())."\n";
-      print STDERR "  $current: ".Texinfo::Common::debug_print_element_short($current)."\n";
+      #print STDERR "  $current: ".Texinfo::Common::debug_print_element_short($current)."\n";
     }
 
     if (not
@@ -5907,7 +5902,7 @@ sub _parse_line_command_args($$$)
     }
   }
 
-  if (!$arg->{'contents'} or !@{$arg->{'contents'}}) {
+  if (!$arg->{'contents'}) {
     $self->_command_error($line_command, $source_info,
                __("\@%s missing argument"), $command);
     $line_command->{'extra'}->{'missing_argument'} = 1;
