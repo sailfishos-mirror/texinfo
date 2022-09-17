@@ -25,7 +25,6 @@ $result_trees{'unmatched_brace'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -59,7 +58,6 @@ $result_trees{'unmatched_brace'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

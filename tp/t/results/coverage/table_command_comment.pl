@@ -15,7 +15,6 @@ $result_trees{'table_command_comment'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

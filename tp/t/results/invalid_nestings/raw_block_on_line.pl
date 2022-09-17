@@ -16,7 +16,6 @@ $result_trees{'raw_block_on_line'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '

@@ -23,7 +23,6 @@ $result_trees{'sole_image'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

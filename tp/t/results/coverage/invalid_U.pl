@@ -13,7 +13,6 @@ $result_trees{'invalid_U'} = {
           'contents' => [
             {
               'cmdname' => 'U',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -27,13 +26,11 @@ $result_trees{'invalid_U'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -59,7 +56,6 @@ $result_trees{'invalid_U'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -85,7 +81,6 @@ $result_trees{'invalid_U'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -111,7 +106,6 @@ $result_trees{'invalid_U'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -137,7 +131,6 @@ $result_trees{'invalid_U'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -163,7 +156,6 @@ $result_trees{'invalid_U'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -194,7 +186,6 @@ $result_trees{'invalid_U'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -220,7 +211,6 @@ $result_trees{'invalid_U'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -250,7 +240,6 @@ $result_trees{'invalid_U'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -18,7 +18,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -90,7 +89,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -162,7 +160,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -234,7 +231,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -284,7 +280,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -347,7 +342,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -397,7 +391,6 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

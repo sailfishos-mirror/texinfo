@@ -25,7 +25,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -51,7 +50,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -77,7 +75,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -103,7 +100,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -164,7 +160,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -211,7 +206,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -237,7 +231,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                         }
                       ],
                       'cmdname' => 'u',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -263,7 +256,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -278,13 +270,11 @@ $result_trees{'characters_and_commands_in_var'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'aa',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -298,7 +288,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -361,7 +350,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -388,7 +376,6 @@ $result_trees{'characters_and_commands_in_var'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

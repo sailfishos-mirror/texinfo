@@ -37,7 +37,6 @@ $result_trees{'protected_node_parentheses'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -88,7 +87,6 @@ $result_trees{'protected_node_parentheses'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -122,7 +120,6 @@ $result_trees{'protected_node_parentheses'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -251,7 +248,6 @@ $result_trees{'protected_node_parentheses'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -298,7 +294,6 @@ $result_trees{'protected_node_parentheses'} = {
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -316,7 +311,6 @@ $result_trees{'protected_node_parentheses'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {},
@@ -363,7 +357,6 @@ $result_trees{'protected_node_parentheses'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -381,7 +374,6 @@ $result_trees{'protected_node_parentheses'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

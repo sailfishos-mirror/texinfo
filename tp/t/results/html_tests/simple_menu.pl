@@ -37,7 +37,6 @@ $result_trees{'simple_menu'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -63,7 +62,6 @@ $result_trees{'simple_menu'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -83,7 +81,6 @@ $result_trees{'simple_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -147,7 +144,6 @@ $result_trees{'simple_menu'} = {
                               'contents' => [
                                 {
                                   'cmdname' => 'bullet',
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'command_as_argument_inserted'
                                 }
@@ -237,7 +233,6 @@ $result_trees{'simple_menu'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'extra' => {
                                     'spaces_after_argument' => '
 '
@@ -353,7 +348,6 @@ $result_trees{'simple_menu'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'command_as_argument_inserted'
                     }
@@ -449,7 +443,6 @@ $result_trees{'simple_menu'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -535,7 +528,6 @@ $result_trees{'simple_menu'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'command_as_argument_inserted'
                     }
@@ -850,7 +842,6 @@ $result_trees{'simple_menu'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -914,7 +905,6 @@ $result_trees{'simple_menu'} = {
                                   'contents' => [
                                     {
                                       'cmdname' => 'bullet',
-                                      'contents' => [],
                                       'parent' => {},
                                       'type' => 'command_as_argument_inserted'
                                     }
@@ -1004,7 +994,6 @@ $result_trees{'simple_menu'} = {
                                 {
                                   'args' => [
                                     {
-                                      'contents' => [],
                                       'extra' => {
                                         'spaces_after_argument' => '
 '
@@ -1120,7 +1109,6 @@ $result_trees{'simple_menu'} = {
                       'contents' => [
                         {
                           'cmdname' => 'bullet',
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'command_as_argument_inserted'
                         }
@@ -1216,7 +1204,6 @@ $result_trees{'simple_menu'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -1302,7 +1289,6 @@ $result_trees{'simple_menu'} = {
                       'contents' => [
                         {
                           'cmdname' => 'bullet',
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'command_as_argument_inserted'
                         }

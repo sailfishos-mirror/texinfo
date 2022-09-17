@@ -31,7 +31,6 @@ $result_trees{'example_at_commands_arguments'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -46,13 +45,11 @@ $result_trees{'example_at_commands_arguments'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'TeX',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -67,13 +64,11 @@ $result_trees{'example_at_commands_arguments'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'exclamdown',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -99,7 +94,6 @@ $result_trees{'example_at_commands_arguments'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -114,13 +108,11 @@ $result_trees{'example_at_commands_arguments'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'enddots',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -139,13 +131,11 @@ $result_trees{'example_at_commands_arguments'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'comma',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

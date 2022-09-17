@@ -12,7 +12,6 @@ $result_trees{'empty_line_in_example_end'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

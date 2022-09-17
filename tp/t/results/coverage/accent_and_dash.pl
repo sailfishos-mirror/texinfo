@@ -25,7 +25,6 @@ $result_trees{'accent_and_dash'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

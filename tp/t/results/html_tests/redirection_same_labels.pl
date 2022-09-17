@@ -9,7 +9,6 @@ $result_trees{'redirection_same_labels'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -31,7 +30,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -82,7 +80,6 @@ $result_trees{'redirection_same_labels'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -345,7 +342,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -396,7 +392,6 @@ $result_trees{'redirection_same_labels'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -430,7 +425,6 @@ $result_trees{'redirection_same_labels'} = [
                                 }
                               ],
                               'cmdname' => '"',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -509,7 +503,6 @@ $result_trees{'redirection_same_labels'} = [
                                         }
                                       ],
                                       'cmdname' => 'dotless',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -523,7 +516,6 @@ $result_trees{'redirection_same_labels'} = [
                                 }
                               ],
                               'cmdname' => '~',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -647,7 +639,6 @@ $result_trees{'redirection_same_labels'} = [
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -717,7 +708,6 @@ $result_trees{'redirection_same_labels'} = [
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -731,7 +721,6 @@ $result_trees{'redirection_same_labels'} = [
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -797,7 +786,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -848,7 +836,6 @@ $result_trees{'redirection_same_labels'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -882,7 +869,6 @@ $result_trees{'redirection_same_labels'} = [
                                 }
                               ],
                               'cmdname' => '^',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1006,7 +992,6 @@ $result_trees{'redirection_same_labels'} = [
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1024,7 +1009,6 @@ $result_trees{'redirection_same_labels'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

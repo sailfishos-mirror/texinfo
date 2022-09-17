@@ -121,7 +121,6 @@ $result_trees{'encoding_index_utf8'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -229,7 +228,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -255,7 +253,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -277,7 +274,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -299,7 +295,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -358,7 +353,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -384,7 +378,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -406,7 +399,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -428,7 +420,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -450,7 +441,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -1646,13 +1636,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'l',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -1700,13 +1688,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'L',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -1765,7 +1751,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => 'dotless',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -1791,7 +1776,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => 'dotless',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -1858,7 +1842,6 @@ $result_trees{'encoding_index_utf8'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'encoding_index_utf8.texi',
@@ -1872,7 +1855,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -1902,7 +1884,6 @@ $result_trees{'encoding_index_utf8'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'encoding_index_utf8.texi',
@@ -1916,7 +1897,6 @@ $result_trees{'encoding_index_utf8'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -1968,13 +1948,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'ss',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2022,13 +2000,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'euro',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2076,13 +2052,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'AE',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2130,13 +2104,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'exclamdown',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2184,13 +2156,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'TH',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2238,13 +2208,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'DH',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2292,13 +2260,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'textdegree',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2428,13 +2394,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'quotedblleft',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2482,13 +2446,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'geq',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',
@@ -2536,13 +2498,11 @@ $result_trees{'encoding_index_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'comma',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_utf8.texi',

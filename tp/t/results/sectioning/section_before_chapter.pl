@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'section_before_chapter'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -66,7 +65,6 @@ $result_trees{'section_before_chapter'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'one_subsection_and_node'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'one_subsection_and_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -71,7 +69,6 @@ $result_trees{'one_subsection_and_node'} = {
         }
       ],
       'cmdname' => 'subsection',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

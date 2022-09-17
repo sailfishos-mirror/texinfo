@@ -103,7 +103,6 @@ $result_trees{'test_deftypefnnewline'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -180,7 +179,6 @@ $result_trees{'test_deftypefnnewline'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

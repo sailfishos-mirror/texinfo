@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'style_not_closed_no_newline_root_commands'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'style_not_closed_no_newline_root_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -81,7 +79,6 @@ $result_trees{'style_not_closed_no_newline_root_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -209,7 +206,6 @@ $result_trees{'style_not_closed_no_newline_root_commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -250,7 +246,6 @@ $result_trees{'style_not_closed_no_newline_root_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -315,7 +310,6 @@ $result_trees{'style_not_closed_no_newline_root_commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

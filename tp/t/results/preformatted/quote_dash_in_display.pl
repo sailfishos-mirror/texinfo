@@ -18,7 +18,6 @@ $result_trees{'quote_dash_in_display'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -104,6 +104,14 @@ Horizontal space
 * a
 @end menu
 '],
+['empty_menu_description',
+'@node Top
+
+@menu
+* a:(f)b
+
+@end menu
+'],
 ['detailmenu',
 '
 @menu

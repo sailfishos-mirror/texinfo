@@ -87,7 +87,6 @@ $result_trees{'code_in_def'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -189,7 +188,6 @@ $result_trees{'code_in_def'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

@@ -437,7 +437,6 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg',
                         'spaces_before_argument' => '
@@ -1168,7 +1167,6 @@ $result_trees{'wrong_braces_simple'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg',
                         'spaces_before_argument' => '

@@ -33,7 +33,6 @@ $result_trees{'nested_code_commands'} = {
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -47,7 +46,6 @@ $result_trees{'nested_code_commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -82,7 +80,6 @@ $result_trees{'nested_code_commands'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -96,7 +93,6 @@ $result_trees{'nested_code_commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -131,7 +127,6 @@ $result_trees{'nested_code_commands'} = {
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -145,7 +140,6 @@ $result_trees{'nested_code_commands'} = {
                 }
               ],
               'cmdname' => 'command',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -180,7 +174,6 @@ $result_trees{'nested_code_commands'} = {
                         }
                       ],
                       'cmdname' => 'command',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -194,7 +187,6 @@ $result_trees{'nested_code_commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -229,7 +221,6 @@ $result_trees{'nested_code_commands'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -243,7 +234,6 @@ $result_trees{'nested_code_commands'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -278,7 +268,6 @@ $result_trees{'nested_code_commands'} = {
                         }
                       ],
                       'cmdname' => 'samp',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -292,7 +281,6 @@ $result_trees{'nested_code_commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -327,7 +315,6 @@ $result_trees{'nested_code_commands'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -341,7 +328,6 @@ $result_trees{'nested_code_commands'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -376,7 +362,6 @@ $result_trees{'nested_code_commands'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -390,7 +375,6 @@ $result_trees{'nested_code_commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -416,7 +400,6 @@ $result_trees{'nested_code_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -443,7 +426,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -478,7 +460,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'kbd',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -492,7 +473,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -519,7 +499,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -554,7 +533,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'kbd',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -568,7 +546,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'command',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -603,7 +580,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'command',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -617,7 +593,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -652,7 +627,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -666,7 +640,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -701,7 +674,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'samp',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -715,7 +687,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -750,7 +721,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -764,7 +734,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'var',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -799,7 +768,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -813,7 +781,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -876,7 +843,6 @@ $result_trees{'nested_code_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -903,7 +869,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -938,7 +903,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'kbd',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -952,7 +916,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -987,7 +950,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'kbd',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1001,7 +963,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'command',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1036,7 +997,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'command',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1050,7 +1010,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1085,7 +1044,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1099,7 +1057,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1134,7 +1091,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'samp',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1148,7 +1104,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1183,7 +1138,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1197,7 +1151,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'var',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1232,7 +1185,6 @@ $result_trees{'nested_code_commands'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1246,7 +1198,6 @@ $result_trees{'nested_code_commands'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

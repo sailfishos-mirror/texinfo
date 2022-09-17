@@ -133,7 +133,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -222,7 +221,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -590,7 +588,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -667,7 +664,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -744,7 +740,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -821,7 +816,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -898,7 +892,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -962,7 +955,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -998,7 +990,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -1034,7 +1025,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -1070,7 +1060,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -1106,7 +1095,6 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

@@ -12,7 +12,6 @@ $result_trees{'insertcopying_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

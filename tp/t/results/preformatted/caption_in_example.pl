@@ -37,7 +37,6 @@ $result_trees{'caption_in_example'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -85,7 +84,6 @@ $result_trees{'caption_in_example'} = {
                     }
                   ],
                   'cmdname' => 'caption',
-                  'contents' => [],
                   'extra' => {
                     'float' => {}
                   },

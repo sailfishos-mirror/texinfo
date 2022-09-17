@@ -65,7 +65,6 @@ $result_trees{'uref_in_ref'} = {
                         }
                       ],
                       'cmdname' => 'uref',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -110,7 +109,6 @@ $result_trees{'uref_in_ref'} = {
                         }
                       ],
                       'cmdname' => 'uref',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -155,7 +153,6 @@ $result_trees{'uref_in_ref'} = {
                         }
                       ],
                       'cmdname' => 'uref',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -200,7 +197,6 @@ $result_trees{'uref_in_ref'} = {
                         }
                       ],
                       'cmdname' => 'uref',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -217,7 +213,6 @@ $result_trees{'uref_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [

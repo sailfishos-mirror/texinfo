@@ -12,7 +12,6 @@ $result_trees{'empty_multitable_with_cells'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

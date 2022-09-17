@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'text_on_conditional_line'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     }

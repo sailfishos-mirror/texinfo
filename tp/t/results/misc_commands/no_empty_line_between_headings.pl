@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'no_empty_line_between_headings'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -88,7 +87,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },
@@ -117,7 +115,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

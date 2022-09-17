@@ -49,7 +49,6 @@ $result_trees{'lone_braces_in_inlineraw'} = {
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'plaintext'

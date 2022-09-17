@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'ignore_in_xref'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -56,7 +55,6 @@ $result_trees{'ignore_in_xref'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -120,7 +118,6 @@ $result_trees{'ignore_in_xref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

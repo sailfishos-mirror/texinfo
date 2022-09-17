@@ -12,7 +12,6 @@ $result_trees{'empty_line_style_command'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -54,7 +53,6 @@ $result_trees{'empty_line_style_command'} = {
                     }
                   ],
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

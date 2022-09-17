@@ -12,7 +12,6 @@ $result_trees{'inline_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -61,13 +60,11 @@ $result_trees{'inline_in_example'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'lbracechar',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -88,7 +85,6 @@ $result_trees{'inline_in_example'} = {
                     }
                   ],
                   'cmdname' => 'inlineraw',
-                  'contents' => [],
                   'extra' => {
                     'expand_index' => 1,
                     'format' => 'plaintext'
@@ -132,7 +128,6 @@ $result_trees{'inline_in_example'} = {
                     }
                   ],
                   'cmdname' => 'inlinefmt',
-                  'contents' => [],
                   'extra' => {
                     'expand_index' => 1,
                     'format' => 'plaintext'
@@ -198,7 +193,6 @@ $result_trees{'inline_in_example'} = {
                             }
                           ],
                           'cmdname' => 'acronym',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -220,7 +214,6 @@ $result_trees{'inline_in_example'} = {
                     }
                   ],
                   'cmdname' => 'inlineraw',
-                  'contents' => [],
                   'extra' => {
                     'expand_index' => 1,
                     'format' => 'html'

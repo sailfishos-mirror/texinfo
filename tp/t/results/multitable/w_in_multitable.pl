@@ -81,7 +81,6 @@ $result_trees{'w_in_multitable'} = {
                                 }
                               ],
                               'cmdname' => 'w',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',

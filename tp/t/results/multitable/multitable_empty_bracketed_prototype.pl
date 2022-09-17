@@ -20,7 +20,6 @@ $result_trees{'multitable_empty_bracketed_prototype'} = {
             {
               'contents' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'bracketed'
                 },

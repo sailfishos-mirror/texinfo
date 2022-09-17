@@ -12,7 +12,6 @@ $result_trees{'style_not_closed_in_block_command'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -44,7 +43,6 @@ $result_trees{'style_not_closed_in_block_command'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

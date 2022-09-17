@@ -18,7 +18,6 @@ $result_trees{'detailmenu_in_description'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -89,7 +88,6 @@ $result_trees{'detailmenu_in_description'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

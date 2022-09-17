@@ -37,7 +37,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -88,7 +87,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -134,7 +132,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => '~',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -149,13 +146,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'aa',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -170,13 +165,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'TeX',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -190,7 +183,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -216,7 +208,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -246,7 +237,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -260,7 +250,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -290,7 +279,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => '=',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -304,7 +292,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -319,13 +306,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'l',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -355,7 +340,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => '\'',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -369,7 +353,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -384,13 +367,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'exclamdown',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -539,7 +520,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -554,13 +534,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'aa',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -575,13 +553,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'TeX',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -595,7 +571,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -621,7 +596,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -651,7 +625,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -665,7 +638,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -695,7 +667,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '=',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -709,7 +680,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -724,13 +694,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'l',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -760,7 +728,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -774,7 +741,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -789,13 +755,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'exclamdown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -813,7 +777,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -884,7 +847,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -910,7 +872,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -940,7 +901,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -954,7 +914,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -984,7 +943,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '=',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -998,7 +956,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1013,13 +970,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'l',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1049,7 +1004,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1063,7 +1017,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1078,13 +1031,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'exclamdown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1137,7 +1088,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => 'strong',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1163,7 +1113,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1174,13 +1123,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1206,7 +1153,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1217,13 +1163,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1253,7 +1197,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1267,7 +1210,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1297,7 +1239,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => '=',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1311,7 +1252,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1326,13 +1266,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'exclamdown',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1345,12 +1283,10 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1366,7 +1302,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1441,7 +1376,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => '~',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1456,13 +1390,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'aa',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1477,13 +1409,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'TeX',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1497,7 +1427,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1523,7 +1452,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1553,7 +1481,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1567,7 +1494,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1597,7 +1523,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => '=',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1611,7 +1536,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1626,13 +1550,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'l',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1662,7 +1584,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                                 }
                               ],
                               'cmdname' => '\'',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1676,7 +1597,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1691,13 +1611,11 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'exclamdown',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1711,7 +1629,6 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

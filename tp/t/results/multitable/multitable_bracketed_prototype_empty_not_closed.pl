@@ -20,7 +20,6 @@ $result_trees{'multitable_bracketed_prototype_empty_not_closed'} = {
             {
               'contents' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => '
 '

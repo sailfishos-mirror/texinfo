@@ -32,7 +32,6 @@ $result_trees{'accent_no_closed_paragraph'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

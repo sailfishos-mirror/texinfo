@@ -17,7 +17,6 @@ $result_trees{'empty_listoffloats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

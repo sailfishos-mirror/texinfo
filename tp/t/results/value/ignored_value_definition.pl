@@ -54,13 +54,11 @@ $result_trees{'ignored_value_definition'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'format' => 'tex'
               },

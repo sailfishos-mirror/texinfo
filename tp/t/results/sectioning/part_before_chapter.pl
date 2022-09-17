@@ -73,7 +73,6 @@ $result_trees{'part_before_chapter'} = [
                 }
               ],
               'cmdname' => 'chapter',
-              'contents' => [],
               'extra' => {
                 'associated_part' => {},
                 'spaces_before_argument' => ' '

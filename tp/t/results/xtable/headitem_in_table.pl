@@ -15,7 +15,6 @@ $result_trees{'headitem_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

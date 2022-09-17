@@ -36,7 +36,6 @@ $result_trees{'subentries'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -62,7 +61,6 @@ $result_trees{'subentries'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -106,7 +104,6 @@ $result_trees{'subentries'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [

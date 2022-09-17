@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'a_comma_after_node'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },

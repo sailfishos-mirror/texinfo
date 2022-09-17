@@ -146,7 +146,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                                     },
                                     {
                                       'cmdname' => 'error',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -164,7 +163,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -182,7 +180,6 @@ $result_trees{'footnote_in_caption_and_error'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

@@ -54,7 +54,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

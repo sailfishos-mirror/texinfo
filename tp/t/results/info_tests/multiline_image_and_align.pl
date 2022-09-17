@@ -27,7 +27,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -86,7 +85,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -145,7 +143,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -204,7 +201,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -248,7 +244,6 @@ $result_trees{'multiline_image_and_align'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -280,7 +275,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -326,7 +320,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -355,7 +348,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -402,7 +394,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -482,7 +473,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -490,7 +480,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -498,7 +487,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -517,7 +505,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -575,7 +562,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -583,7 +569,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -591,7 +576,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -610,7 +594,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -668,7 +651,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -676,7 +658,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -684,7 +665,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -703,7 +683,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -761,7 +740,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -769,7 +747,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -777,7 +754,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -796,7 +772,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -840,7 +815,6 @@ $result_trees{'multiline_image_and_align'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -871,7 +845,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -879,7 +852,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -887,7 +859,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -906,7 +877,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -951,7 +921,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -959,7 +928,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -967,7 +935,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -986,7 +953,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -1014,7 +980,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -1022,7 +987,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -1030,7 +994,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -1049,7 +1012,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
@@ -1095,7 +1057,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -1103,7 +1064,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -1111,7 +1071,6 @@ $result_trees{'multiline_image_and_align'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -1130,7 +1089,6 @@ $result_trees{'multiline_image_and_align'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },

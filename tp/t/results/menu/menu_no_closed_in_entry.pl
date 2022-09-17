@@ -12,7 +12,6 @@ $result_trees{'menu_no_closed_in_entry'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

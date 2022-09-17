@@ -37,7 +37,6 @@ $result_trees{'character_and_spaces_in_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -115,7 +114,6 @@ $result_trees{'character_and_spaces_in_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -211,7 +209,6 @@ $result_trees{'character_and_spaces_in_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -301,7 +298,6 @@ $result_trees{'character_and_spaces_in_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -355,7 +351,6 @@ $result_trees{'character_and_spaces_in_node'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -385,7 +380,6 @@ $result_trees{'character_and_spaces_in_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

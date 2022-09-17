@@ -36,7 +36,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -113,7 +112,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [

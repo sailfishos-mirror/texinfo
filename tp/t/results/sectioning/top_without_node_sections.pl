@@ -9,7 +9,6 @@ $result_trees{'top_without_node_sections'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -73,12 +72,10 @@ $result_trees{'top_without_node_sections'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -106,7 +103,6 @@ $result_trees{'top_without_node_sections'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

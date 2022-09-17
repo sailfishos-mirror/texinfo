@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'node_nested_parentheses'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'node_nested_parentheses'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -214,7 +212,6 @@ $result_trees{'node_nested_parentheses'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -308,7 +305,6 @@ $result_trees{'node_nested_parentheses'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

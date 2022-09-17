@@ -36,7 +36,6 @@ $result_trees{'quote_node_names'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -62,7 +61,6 @@ $result_trees{'quote_node_names'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -108,7 +106,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -135,13 +132,11 @@ $result_trees{'quote_node_names'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'comma',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'nodequote.texi',
@@ -189,13 +184,11 @@ $result_trees{'quote_node_names'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'comma',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'nodequote.texi',
@@ -243,7 +236,6 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'cmdname' => 'node',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -343,7 +335,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -404,7 +395,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -424,7 +414,6 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'cmdname' => 'node',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -493,7 +482,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -554,7 +542,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -574,7 +561,6 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'cmdname' => 'node',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -643,7 +629,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -691,7 +676,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -743,7 +727,6 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
@@ -757,7 +740,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -777,7 +759,6 @@ $result_trees{'quote_node_names'} = {
                             }
                           ],
                           'cmdname' => 'asis',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'nodequote.texi',
@@ -795,7 +776,6 @@ $result_trees{'quote_node_names'} = {
                     }
                   ],
                   'cmdname' => 'node',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -867,7 +847,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -914,12 +893,10 @@ $result_trees{'quote_node_names'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -945,7 +922,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -990,12 +966,10 @@ $result_trees{'quote_node_names'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1021,7 +995,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1066,7 +1039,6 @@ $result_trees{'quote_node_names'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1108,7 +1080,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1153,7 +1124,6 @@ $result_trees{'quote_node_names'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1195,7 +1165,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1240,7 +1209,6 @@ $result_trees{'quote_node_names'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1285,7 +1253,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1330,7 +1297,6 @@ $result_trees{'quote_node_names'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1375,7 +1341,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1420,7 +1385,6 @@ $result_trees{'quote_node_names'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1465,7 +1429,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1498,7 +1461,6 @@ $result_trees{'quote_node_names'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1536,7 +1498,6 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
@@ -1636,7 +1597,6 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
@@ -1779,7 +1739,6 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
@@ -1816,7 +1775,6 @@ $result_trees{'quote_node_names'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'nodequote.texi',
@@ -1908,7 +1866,6 @@ $result_trees{'quote_node_names'} = {
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'menu_entry_description'
                 }
@@ -2149,7 +2106,6 @@ $result_trees{'quote_node_names'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'nodequote.texi',

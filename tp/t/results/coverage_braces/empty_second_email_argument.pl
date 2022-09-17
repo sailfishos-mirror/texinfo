@@ -35,7 +35,6 @@ $result_trees{'empty_second_email_argument'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
@@ -44,7 +43,6 @@ $result_trees{'empty_second_email_argument'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

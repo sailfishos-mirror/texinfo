@@ -1340,6 +1340,8 @@ sub rearrange_tree_beginning($$)
     }
     unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
       if (@{$before_setfilename->{'contents'}});
+    delete $before_node_section->{'contents'}
+      if (scalar(@{$before_node_section->{'contents'}}) == 0);
   }
   
   _add_preamble_before_content($before_node_section);
@@ -1354,20 +1356,22 @@ sub _add_preamble_before_content($)
                                 'parent' => $before_node_section,
                                 'contents' => []};
   my @first_types;
-  while (@{$before_node_section->{'contents'}}) {
-    my $next_content = $before_node_section->{'contents'}->[0];
-    if ($next_content->{'type'}
-        and ($next_content->{'type'} eq 'preamble_before_beginning'
-             or $next_content->{'type'} eq 'preamble_before_setfilename')) {
-      push @first_types, shift @{$before_node_section->{'contents'}};
-    } elsif (($next_content->{'type'} and $next_content->{'type'} eq 'paragraph')
-             or ($next_content->{'cmdname'} and
-                 not $preamble_commands{$next_content->{'cmdname'}})) {
-      last;
-    } else {
-      my $content = shift @{$before_node_section->{'contents'}};
-      $content->{'parent'} = $informational_preamble;
-      push @{$informational_preamble->{'contents'}}, $content;
+  if ($before_node_section->{'contents'}) {
+    while (@{$before_node_section->{'contents'}}) {
+      my $next_content = $before_node_section->{'contents'}->[0];
+      if ($next_content->{'type'}
+          and ($next_content->{'type'} eq 'preamble_before_beginning'
+               or $next_content->{'type'} eq 'preamble_before_setfilename')) {
+        push @first_types, shift @{$before_node_section->{'contents'}};
+      } elsif (($next_content->{'type'} and $next_content->{'type'} eq 'paragraph')
+               or ($next_content->{'cmdname'} and
+                   not $preamble_commands{$next_content->{'cmdname'}})) {
+        last;
+      } else {
+        my $content = shift @{$before_node_section->{'contents'}};
+        $content->{'parent'} = $informational_preamble;
+        push @{$informational_preamble->{'contents'}}, $content;
+      }
     }
   }
   push @first_types, $informational_preamble;
@@ -1462,11 +1466,19 @@ sub _count_opened_tree_braces($$)
 #
 # Could be documented, but only is there is evidence that this function
 # is useful in user-defined code.
+#
+# FIXME need to clean the code, simply returning undef if there are
+# no contents does not work, this is not normal.
 sub parse_node_manual($)
 {
   my $label_contents_container = shift;
 
-  my @contents = @{$label_contents_container->{'contents'}};
+  #return ($label_contents_container, undef)
+  #   if (!$label_contents_container->{'contents'});
+
+  my @contents;
+  @contents = @{$label_contents_container->{'contents'}}
+     if ($label_contents_container->{'contents'});
 
   my $manual;
   my $result;
@@ -1533,9 +1545,11 @@ sub parse_node_manual($)
   if (defined($result) and defined($result->{'manual_content'})) {
     @$new_contents = ({ 'text' => '(', 'parent' => $label_contents_container },
                       @$manual);
-    push @$new_contents, {  'text' => ')', 'parent' => $label_contents_container }
+    push @$new_contents, {  'text' => ')',
+                            'parent' => $label_contents_container }
       if $end_paren;
-    push @$new_contents, { 'text' => $spaces_after, 'parent' => $label_contents_container }
+    push @$new_contents, { 'text' => $spaces_after,
+                           'parent' => $label_contents_container }
       if $spaces_after;
   }
   if (@contents) {

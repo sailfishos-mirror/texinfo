@@ -72,7 +72,6 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -149,7 +148,6 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

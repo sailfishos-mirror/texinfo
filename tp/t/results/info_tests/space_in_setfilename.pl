@@ -32,7 +32,6 @@ $result_trees{'space_in_setfilename'} = {
                     }
                   ],
                   'cmdname' => 'verb',
-                  'contents' => [],
                   'extra' => {
                     'delimiter' => ':'
                   },
@@ -96,7 +95,6 @@ $result_trees{'space_in_setfilename'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

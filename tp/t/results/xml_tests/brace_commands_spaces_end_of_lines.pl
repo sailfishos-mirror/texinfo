@@ -27,7 +27,6 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -67,7 +66,6 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -117,7 +115,6 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -167,7 +164,6 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -217,7 +213,6 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -267,7 +262,6 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

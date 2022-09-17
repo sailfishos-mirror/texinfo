@@ -12,13 +12,11 @@ $result_trees{'empty_images'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -43,7 +41,6 @@ $result_trees{'empty_images'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },
@@ -95,7 +92,6 @@ $result_trees{'empty_images'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -120,17 +116,14 @@ $result_trees{'empty_images'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
@@ -146,7 +139,6 @@ $result_trees{'empty_images'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -165,17 +157,14 @@ $result_trees{'empty_images'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
@@ -191,7 +180,6 @@ $result_trees{'empty_images'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

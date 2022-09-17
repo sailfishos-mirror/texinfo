@@ -36,7 +36,6 @@ $result_trees{'empty_cindex_entry'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -81,7 +80,6 @@ $result_trees{'empty_cindex_entry'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

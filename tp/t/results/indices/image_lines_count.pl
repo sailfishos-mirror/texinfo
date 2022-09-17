@@ -57,7 +57,6 @@ $result_trees{'image_lines_count'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

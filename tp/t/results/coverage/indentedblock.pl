@@ -12,7 +12,6 @@ $result_trees{'indentedblock'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -36,7 +36,6 @@ $result_trees{'subentry_and_sortas'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -62,7 +61,6 @@ $result_trees{'subentry_and_sortas'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -106,7 +104,6 @@ $result_trees{'subentry_and_sortas'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -182,7 +179,6 @@ $result_trees{'subentry_and_sortas'} = {
                     }
                   ],
                   'cmdname' => 'sortas',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -233,7 +229,6 @@ $result_trees{'subentry_and_sortas'} = {
                         }
                       ],
                       'cmdname' => 'sortas',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -315,7 +310,6 @@ $result_trees{'subentry_and_sortas'} = {
                     }
                   ],
                   'cmdname' => 'sortas',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -366,7 +360,6 @@ $result_trees{'subentry_and_sortas'} = {
                         }
                       ],
                       'cmdname' => 'sortas',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

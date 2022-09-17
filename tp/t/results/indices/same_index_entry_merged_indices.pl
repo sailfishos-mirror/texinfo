@@ -75,7 +75,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -102,7 +101,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -187,7 +185,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },

@@ -80,7 +80,6 @@ $result_trees{'nodes_before_top'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },
@@ -121,7 +120,6 @@ $result_trees{'nodes_before_top'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -280,12 +278,10 @@ $result_trees{'nodes_before_top'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -356,7 +352,6 @@ $result_trees{'nodes_before_top'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -376,7 +371,6 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -434,7 +428,6 @@ $result_trees{'nodes_before_top'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -574,7 +567,6 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -615,7 +607,6 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

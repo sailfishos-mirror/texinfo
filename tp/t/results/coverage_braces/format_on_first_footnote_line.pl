@@ -22,7 +22,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -87,7 +86,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -123,7 +121,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -194,7 +191,6 @@ $result_trees{'format_on_first_footnote_line'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

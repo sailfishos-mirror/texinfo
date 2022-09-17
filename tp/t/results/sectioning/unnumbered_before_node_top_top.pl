@@ -9,7 +9,6 @@ $result_trees{'unnumbered_before_node_top_top'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -84,7 +83,6 @@ $result_trees{'unnumbered_before_node_top_top'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

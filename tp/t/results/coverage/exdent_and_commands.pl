@@ -12,7 +12,6 @@ $result_trees{'exdent_and_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -175,7 +174,6 @@ $result_trees{'exdent_and_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

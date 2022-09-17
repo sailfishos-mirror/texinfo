@@ -106,7 +106,6 @@ $result_trees{'protect_in_body_one_arg'} = {
                         }
                       ],
                       'cmdname' => 'samp',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -120,7 +119,6 @@ $result_trees{'protect_in_body_one_arg'} = {
                 }
               ],
               'cmdname' => 'emph',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -135,13 +133,11 @@ $result_trees{'protect_in_body_one_arg'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'emph',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

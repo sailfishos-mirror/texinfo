@@ -36,7 +36,6 @@ $result_trees{'double_seeentry_seealso'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -113,7 +112,6 @@ $result_trees{'double_seeentry_seealso'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -189,7 +187,6 @@ $result_trees{'double_seeentry_seealso'} = {
                     }
                   ],
                   'cmdname' => 'seeentry',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -216,7 +213,6 @@ $result_trees{'double_seeentry_seealso'} = {
                     }
                   ],
                   'cmdname' => 'seeentry',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -275,7 +271,6 @@ $result_trees{'double_seeentry_seealso'} = {
                     }
                   ],
                   'cmdname' => 'seealso',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -311,7 +306,6 @@ $result_trees{'double_seeentry_seealso'} = {
                     }
                   ],
                   'cmdname' => 'seealso',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -379,7 +373,6 @@ $result_trees{'double_seeentry_seealso'} = {
                     }
                   ],
                   'cmdname' => 'seeentry',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -406,7 +399,6 @@ $result_trees{'double_seeentry_seealso'} = {
                     }
                   ],
                   'cmdname' => 'seealso',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -466,7 +458,6 @@ $result_trees{'double_seeentry_seealso'} = {
                     }
                   ],
                   'cmdname' => 'seealso',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -524,7 +515,6 @@ $result_trees{'double_seeentry_seealso'} = {
                         }
                       ],
                       'cmdname' => 'seeentry',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

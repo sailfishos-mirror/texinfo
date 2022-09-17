@@ -12,7 +12,6 @@ $result_trees{'space_before_end'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -84,7 +83,6 @@ $result_trees{'space_before_end'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -152,7 +150,6 @@ $result_trees{'space_before_end'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -164,7 +161,6 @@ $result_trees{'space_before_end'} = {
           'cmdname' => 'html',
           'contents' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'elided_block'
             },

@@ -14,13 +14,11 @@ $result_trees{'test_today'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'today',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

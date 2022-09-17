@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'top_in_ref'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -117,7 +116,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -153,7 +151,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -205,7 +202,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -230,7 +226,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -246,7 +241,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -298,7 +292,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -323,12 +316,10 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -344,7 +335,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -394,7 +384,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -419,17 +408,14 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -445,7 +431,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -495,7 +480,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -540,13 +524,11 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -598,7 +580,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -633,7 +614,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -649,7 +629,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -699,7 +678,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -734,12 +712,10 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -755,7 +731,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -805,7 +780,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -861,7 +835,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -911,7 +884,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -956,7 +928,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -972,7 +943,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1022,7 +992,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1094,7 +1063,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1144,7 +1112,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1169,7 +1136,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1195,7 +1161,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1245,7 +1210,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1270,7 +1234,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1285,7 +1248,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1301,7 +1263,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1351,7 +1312,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1376,7 +1336,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1418,7 +1377,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1468,7 +1426,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1493,12 +1450,10 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1524,7 +1479,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1586,7 +1540,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1634,7 +1587,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -1687,7 +1639,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1724,7 +1675,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1740,7 +1690,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -1793,7 +1742,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1830,12 +1778,10 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1851,7 +1797,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -1904,7 +1849,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1941,17 +1885,14 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1967,7 +1908,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2020,7 +1960,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2077,13 +2016,11 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2136,7 +2073,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2183,7 +2119,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2199,7 +2134,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2252,7 +2186,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2299,12 +2232,10 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2320,7 +2251,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2373,7 +2303,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2441,7 +2370,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2494,7 +2422,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2551,7 +2478,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2567,7 +2493,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2620,7 +2545,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2704,7 +2628,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2757,7 +2680,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2794,7 +2716,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2820,7 +2741,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2873,7 +2793,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2910,7 +2829,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2925,7 +2843,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2941,7 +2858,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -2994,7 +2910,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3031,7 +2946,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -3073,7 +2987,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -3126,7 +3039,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3163,12 +3075,10 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -3194,7 +3104,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -3259,7 +3168,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3311,7 +3219,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -3361,7 +3268,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3387,7 +3293,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -3437,7 +3342,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3476,7 +3380,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -3526,7 +3429,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3551,7 +3453,6 @@ $result_trees{'top_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -3567,7 +3468,6 @@ $result_trees{'top_in_ref'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [

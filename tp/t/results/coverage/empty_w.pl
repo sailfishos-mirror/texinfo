@@ -14,13 +14,11 @@ $result_trees{'empty_w'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -46,7 +44,6 @@ $result_trees{'empty_w'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

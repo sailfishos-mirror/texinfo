@@ -37,7 +37,6 @@ $result_trees{'between_node_and_section'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -114,7 +113,6 @@ $result_trees{'between_node_and_section'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -206,7 +204,6 @@ $result_trees{'between_node_and_section'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}
@@ -267,7 +264,6 @@ $result_trees{'between_node_and_section'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

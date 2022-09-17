@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'note_in_strong'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -57,7 +56,6 @@ $result_trees{'note_in_strong'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -100,7 +98,6 @@ $result_trees{'note_in_strong'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -155,7 +152,6 @@ $result_trees{'note_in_strong'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -198,7 +194,6 @@ $result_trees{'note_in_strong'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -241,7 +236,6 @@ $result_trees{'note_in_strong'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -284,7 +278,6 @@ $result_trees{'note_in_strong'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

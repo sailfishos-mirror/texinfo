@@ -56,7 +56,6 @@ $result_trees{'empty_multitable_in_itemize'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '

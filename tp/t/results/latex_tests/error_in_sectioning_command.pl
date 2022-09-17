@@ -60,7 +60,6 @@ $result_trees{'error_in_sectioning_command'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -149,7 +148,6 @@ $result_trees{'error_in_sectioning_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -164,13 +162,11 @@ $result_trees{'error_in_sectioning_command'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'error',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -192,7 +188,6 @@ $result_trees{'error_in_sectioning_command'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -251,7 +246,6 @@ $result_trees{'error_in_sectioning_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -266,13 +260,11 @@ $result_trees{'error_in_sectioning_command'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'error',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -310,13 +302,11 @@ $result_trees{'error_in_sectioning_command'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'error',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

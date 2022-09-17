@@ -114,7 +114,6 @@ $result_trees{'value_node_directions'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -263,7 +262,6 @@ $result_trees{'value_node_directions'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -352,7 +350,6 @@ $result_trees{'value_node_directions'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },
@@ -397,7 +394,6 @@ $result_trees{'value_node_directions'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -450,7 +446,6 @@ $result_trees{'value_node_directions'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

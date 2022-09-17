@@ -12,7 +12,6 @@ $result_trees{'flushright_example_nested'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -26,7 +25,6 @@ $result_trees{'flushright_example_nested'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -137,7 +135,6 @@ $result_trees{'flushright_example_nested'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -151,7 +148,6 @@ $result_trees{'flushright_example_nested'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

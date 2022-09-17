@@ -33,7 +33,6 @@ $result_trees{'close_paragraph_command'} = {
             }
           ],
           'cmdname' => 'titlefont',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',

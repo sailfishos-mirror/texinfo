@@ -9,7 +9,6 @@ $result_trees{'complex'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -59,7 +58,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -96,7 +94,6 @@ $result_trees{'complex'} = [
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -110,7 +107,6 @@ $result_trees{'complex'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -528,7 +524,6 @@ $result_trees{'complex'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -558,7 +553,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -633,7 +627,6 @@ $result_trees{'complex'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -905,7 +898,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -956,7 +948,6 @@ $result_trees{'complex'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -1267,7 +1258,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1344,7 +1334,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1421,7 +1410,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1498,7 +1486,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1575,7 +1562,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1626,7 +1612,6 @@ $result_trees{'complex'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -1766,7 +1751,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1849,7 +1833,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1921,12 +1904,10 @@ $result_trees{'complex'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -2024,7 +2005,6 @@ $result_trees{'complex'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -2175,7 +2155,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -2306,7 +2285,6 @@ $result_trees{'complex'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -2418,7 +2396,6 @@ $result_trees{'complex'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -6034,25 +6011,25 @@ $result_elements{'complex'}[12] = $result_elements{'complex'}[0]{'structure'}{'d
 
 
 
-$result_directions_text{'complex'} = 'element: @top 
+$result_directions_text{'complex'} = 'element: @top
   FastForward: @chapter first node chapter
   Forward: @chapter first node chapter
   NodeForward: @chapter first node chapter
   NodeNext: @chapter first node chapter
   NodePrev: (dir)
-  This: @top 
+  This: @top
 element: @chapter first node chapter
-  Back: @top 
-  FastBack: @top 
+  Back: @top
+  FastBack: @top
   FastForward: @chapter second node chapter
   Forward: @unnumberedsec unnumbered section
   Next: @chapter second node chapter
-  NodeBack: @top 
+  NodeBack: @top
   NodeForward: @unnumberedsec unnumbered section
-  NodePrev: @top 
-  NodeUp: @top 
+  NodePrev: @top
+  NodeUp: @top
   This: @chapter first node chapter
-  Up: @top 
+  Up: @top
 element: @unnumberedsec unnumbered section
   Back: @chapter first node chapter
   FastBack: @chapter first node chapter
@@ -6160,10 +6137,10 @@ element: @chapter second node chapter
   Next: @unnumbered unnumbered chapter
   NodeForward: @unnumbered unnumbered chapter
   NodeNext: @unnumbered unnumbered chapter
-  NodeUp: @top 
+  NodeUp: @top
   Prev: @chapter first node chapter
   This: @chapter second node chapter
-  Up: @top 
+  Up: @top
 element: @unnumbered unnumbered chapter
   Back: @chapter second node chapter
   FastBack: @chapter second node chapter
@@ -6174,10 +6151,10 @@ element: @unnumbered unnumbered chapter
   NodeForward: @unnumbered unnumbered continuity
   NodeNext: @unnumbered unnumbered continuity
   NodePrev: @chapter second node chapter
-  NodeUp: @top 
+  NodeUp: @top
   Prev: @chapter second node chapter
   This: @unnumbered unnumbered chapter
-  Up: @top 
+  Up: @top
 element: @unnumbered unnumbered continuity
   Back: @unnumbered unnumbered chapter
   FastBack: @unnumbered unnumbered chapter
@@ -6185,10 +6162,10 @@ element: @unnumbered unnumbered continuity
   NodeForward: @unnumbered unnumbered chapter
   NodeNext: @unnumbered unnumbered chapter
   NodePrev: @unnumbered unnumbered continuity
-  NodeUp: @top 
+  NodeUp: @top
   Prev: @unnumbered unnumbered chapter
   This: @unnumbered unnumbered continuity
-  Up: @top 
+  Up: @top
 ';
 
 1;

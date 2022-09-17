@@ -85,13 +85,11 @@ $result_trees{'no_argument_and_contents'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

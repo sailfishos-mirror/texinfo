@@ -12,7 +12,6 @@ $result_trees{'cartouche'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

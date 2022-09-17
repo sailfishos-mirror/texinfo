@@ -31,7 +31,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                     }
                   ],
                   'cmdname' => 'var',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -66,7 +65,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -144,7 +142,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -257,7 +254,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -430,7 +426,6 @@ $result_trees{'direntry_dircategory_and_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

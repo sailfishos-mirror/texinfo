@@ -79,7 +79,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -97,7 +96,6 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -127,7 +125,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -145,7 +142,6 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => '^',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -175,7 +171,6 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -193,7 +188,6 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => 'code',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },

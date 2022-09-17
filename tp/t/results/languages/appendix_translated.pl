@@ -72,7 +72,6 @@ $result_trees{'appendix_translated'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

@@ -25,7 +25,6 @@ $result_trees{'code_commands_and_punctuation'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -51,7 +50,6 @@ $result_trees{'code_commands_and_punctuation'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

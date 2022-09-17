@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'anchor_in_footnote'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'anchor_in_footnote'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -109,7 +107,6 @@ $result_trees{'anchor_in_footnote'} = {
                             }
                           ],
                           'cmdname' => 'anchor',
-                          'contents' => [],
                           'extra' => {
                             'node_content' => [
                               {}
@@ -138,7 +135,6 @@ $result_trees{'anchor_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -164,7 +160,6 @@ $result_trees{'anchor_in_footnote'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -304,7 +299,6 @@ $result_trees{'anchor_in_footnote'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -368,7 +362,6 @@ $result_trees{'anchor_in_footnote'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

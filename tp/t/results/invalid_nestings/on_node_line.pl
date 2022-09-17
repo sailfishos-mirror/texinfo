@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'on_node_line'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -69,7 +68,6 @@ $result_trees{'on_node_line'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -120,7 +118,6 @@ $result_trees{'on_node_line'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -160,7 +157,6 @@ $result_trees{'on_node_line'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -194,7 +190,6 @@ $result_trees{'on_node_line'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -243,7 +238,6 @@ $result_trees{'on_node_line'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

@@ -81,7 +81,6 @@ $result_trees{'simple'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

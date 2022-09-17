@@ -15,7 +15,6 @@ $result_trees{'item_in_ref'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -105,7 +104,6 @@ $result_trees{'item_in_ref'} = {
                               'type' => 'brace_command_arg'
                             },
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             },
@@ -125,7 +123,6 @@ $result_trees{'item_in_ref'} = {
                             }
                           ],
                           'cmdname' => 'ref',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',

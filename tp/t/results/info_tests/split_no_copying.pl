@@ -77,7 +77,6 @@ $result_trees{'split_no_copying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -145,7 +144,6 @@ $result_trees{'split_no_copying'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -285,7 +283,6 @@ $result_trees{'split_no_copying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

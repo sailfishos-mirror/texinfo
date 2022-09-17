@@ -169,7 +169,6 @@ $result_trees{'double_index_entry'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -316,12 +315,10 @@ $result_trees{'double_index_entry'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },

@@ -18,7 +18,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -32,7 +31,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -105,7 +103,6 @@ $result_trees{'flushleft_flushright_in_quotation'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

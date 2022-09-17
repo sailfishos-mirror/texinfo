@@ -48,7 +48,6 @@ $result_trees{'end_ifset_in_format'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -122,7 +121,6 @@ $result_trees{'end_ifset_in_format'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -206,7 +204,6 @@ $result_trees{'end_ifset_in_format'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => '%'
               },

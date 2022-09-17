@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -78,7 +76,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -93,13 +90,11 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -304,7 +299,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -319,13 +313,11 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'comma',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -486,7 +478,6 @@ $result_trees{'colons_in_index_entries_and_node_no_quoting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

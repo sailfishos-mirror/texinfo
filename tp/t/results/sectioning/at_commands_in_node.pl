@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'at_commands_in_node'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -34,7 +33,6 @@ $result_trees{'at_commands_in_node'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -60,7 +58,6 @@ $result_trees{'at_commands_in_node'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -90,7 +87,6 @@ $result_trees{'at_commands_in_node'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -104,7 +100,6 @@ $result_trees{'at_commands_in_node'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -134,7 +129,6 @@ $result_trees{'at_commands_in_node'} = {
                         }
                       ],
                       'cmdname' => '=',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -148,7 +142,6 @@ $result_trees{'at_commands_in_node'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -163,13 +156,11 @@ $result_trees{'at_commands_in_node'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'l',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -199,7 +190,6 @@ $result_trees{'at_commands_in_node'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -213,7 +203,6 @@ $result_trees{'at_commands_in_node'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -228,13 +217,11 @@ $result_trees{'at_commands_in_node'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'exclamdown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -248,7 +235,6 @@ $result_trees{'at_commands_in_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},

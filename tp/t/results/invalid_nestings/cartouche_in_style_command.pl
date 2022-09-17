@@ -26,7 +26,6 @@ $result_trees{'cartouche_in_style_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -41,7 +40,6 @@ $result_trees{'cartouche_in_style_command'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

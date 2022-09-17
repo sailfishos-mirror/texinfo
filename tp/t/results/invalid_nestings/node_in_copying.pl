@@ -12,7 +12,6 @@ $result_trees{'node_in_copying'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

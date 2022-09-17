@@ -9,7 +9,6 @@ $result_trees{'node_and_bye'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},

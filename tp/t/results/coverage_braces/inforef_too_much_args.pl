@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'inforef_too_much_args'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -79,7 +78,6 @@ $result_trees{'inforef_too_much_args'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [

@@ -72,7 +72,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -109,7 +108,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -141,7 +139,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -190,7 +187,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -222,7 +218,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -259,7 +254,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -312,7 +306,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -353,7 +346,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -394,7 +386,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -447,7 +438,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -488,7 +478,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -529,7 +518,6 @@ $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

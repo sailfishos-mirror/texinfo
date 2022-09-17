@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'character_number_leading_toc_stoc'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         }
       ],
       'cmdname' => 'top',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },
@@ -59,7 +57,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },
@@ -88,7 +85,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

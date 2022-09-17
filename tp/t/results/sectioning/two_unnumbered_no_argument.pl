@@ -21,7 +21,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -31,7 +30,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'contents' => [],
       'extra' => {
         'missing_argument' => 1
       },
@@ -45,7 +43,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -55,7 +52,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'contents' => [],
       'extra' => {
         'missing_argument' => 1
       },

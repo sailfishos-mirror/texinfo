@@ -15,7 +15,6 @@ $result_trees{'email_table_command_as_argument'} = {
               'contents' => [
                 {
                   'cmdname' => 'email',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

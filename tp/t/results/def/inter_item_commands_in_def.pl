@@ -45,7 +45,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -208,7 +207,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -354,7 +352,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                                 }
                               ],
                               'cmdname' => 'samp',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -372,7 +369,6 @@ $result_trees{'inter_item_commands_in_def'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },

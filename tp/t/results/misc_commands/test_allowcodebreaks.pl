@@ -248,7 +248,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -274,7 +273,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -300,7 +298,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -326,7 +323,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -353,7 +349,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -379,7 +374,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -405,7 +399,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -431,7 +424,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -458,7 +450,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -482,13 +473,11 @@ $result_trees{'test_allowcodebreaks'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'minus',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -514,7 +503,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -540,7 +528,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -571,7 +558,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -591,7 +577,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -617,7 +602,6 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -644,7 +628,6 @@ $result_trees{'test_allowcodebreaks'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -761,7 +744,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -787,7 +769,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -813,7 +794,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -839,7 +819,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -866,7 +845,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -892,7 +870,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -918,7 +895,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -944,7 +920,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -971,7 +946,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -995,13 +969,11 @@ $result_trees{'test_allowcodebreaks'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'minus',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1027,7 +999,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1053,7 +1024,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1084,7 +1054,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -1104,7 +1073,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1130,7 +1098,6 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1157,7 +1124,6 @@ $result_trees{'test_allowcodebreaks'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1247,7 +1213,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1273,7 +1238,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1299,7 +1263,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1325,7 +1288,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1352,7 +1314,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1378,7 +1339,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1404,7 +1364,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1430,7 +1389,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1457,7 +1415,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1481,13 +1438,11 @@ $result_trees{'test_allowcodebreaks'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'minus',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1513,7 +1468,6 @@ $result_trees{'test_allowcodebreaks'} = {
                                 }
                               ],
                               'cmdname' => '\'',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1539,7 +1493,6 @@ $result_trees{'test_allowcodebreaks'} = {
                                 }
                               ],
                               'cmdname' => 'r',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1570,7 +1523,6 @@ $result_trees{'test_allowcodebreaks'} = {
                                 }
                               ],
                               'cmdname' => 'anchor',
-                              'contents' => [],
                               'extra' => {
                                 'node_content' => [
                                   {}
@@ -1590,7 +1542,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'samp',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1609,7 +1560,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1635,7 +1585,6 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1666,7 +1615,6 @@ $result_trees{'test_allowcodebreaks'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1680,7 +1628,6 @@ $result_trees{'test_allowcodebreaks'} = {
                     }
                   ],
                   'cmdname' => 'w',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1797,7 +1744,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1823,7 +1769,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1849,7 +1794,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1875,7 +1819,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1902,7 +1845,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1928,7 +1870,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1954,7 +1895,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1980,7 +1920,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2007,7 +1946,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2031,13 +1969,11 @@ $result_trees{'test_allowcodebreaks'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'minus',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2063,7 +1999,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2089,7 +2024,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2120,7 +2054,6 @@ $result_trees{'test_allowcodebreaks'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -2140,7 +2073,6 @@ $result_trees{'test_allowcodebreaks'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2166,7 +2098,6 @@ $result_trees{'test_allowcodebreaks'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2193,7 +2124,6 @@ $result_trees{'test_allowcodebreaks'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

@@ -12,7 +12,6 @@ $result_trees{'symbol_after_block'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -80,7 +79,6 @@ $result_trees{'symbol_after_block'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -173,7 +171,6 @@ $result_trees{'symbol_after_block'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -236,7 +233,6 @@ $result_trees{'symbol_after_block'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -323,7 +319,6 @@ $result_trees{'symbol_after_block'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -453,7 +448,6 @@ $result_trees{'symbol_after_block'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -604,7 +598,6 @@ $result_trees{'symbol_after_block'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -707,7 +700,6 @@ $result_trees{'symbol_after_block'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1327,7 +1319,6 @@ $result_trees{'symbol_after_block'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1395,7 +1386,6 @@ $result_trees{'symbol_after_block'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1484,7 +1474,6 @@ $result_trees{'symbol_after_block'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1552,7 +1541,6 @@ $result_trees{'symbol_after_block'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

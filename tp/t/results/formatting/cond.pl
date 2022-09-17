@@ -100,7 +100,6 @@ $result_trees{'cond'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -226,7 +225,6 @@ $result_trees{'cond'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -238,7 +236,6 @@ $result_trees{'cond'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'elided_block'
             },

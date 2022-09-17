@@ -18,7 +18,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -93,7 +92,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -181,7 +179,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -264,7 +261,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -342,7 +338,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -425,7 +420,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -497,7 +491,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -572,7 +565,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -655,7 +647,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -738,7 +729,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -816,7 +806,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -899,7 +888,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -971,7 +959,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1045,7 +1032,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1129,7 +1115,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1213,7 +1198,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1286,7 +1270,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1370,7 +1353,6 @@ $result_trees{'raw_commands_and_end_of_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

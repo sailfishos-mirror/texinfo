@@ -456,7 +456,6 @@ $result_trees{'def'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -588,7 +587,6 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -693,7 +691,6 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -799,7 +796,6 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -905,7 +901,6 @@ $result_trees{'def'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -997,7 +992,6 @@ $result_trees{'def'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -1111,7 +1105,6 @@ $result_trees{'def'} = {
                                 }
                               ],
                               'cmdname' => 'samp',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1129,7 +1122,6 @@ $result_trees{'def'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -1207,7 +1199,6 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -1285,7 +1276,6 @@ $result_trees{'def'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },

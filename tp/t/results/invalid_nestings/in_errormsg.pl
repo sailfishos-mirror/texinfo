@@ -29,7 +29,6 @@ $result_trees{'in_errormsg'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}
@@ -73,7 +72,6 @@ $result_trees{'in_errormsg'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -106,7 +104,6 @@ $result_trees{'in_errormsg'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'label' => {},
                         'node_argument' => {
@@ -129,7 +126,6 @@ $result_trees{'in_errormsg'} = {
                 }
               ],
               'cmdname' => 'errormsg',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -155,7 +151,6 @@ $result_trees{'in_errormsg'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '
 '
@@ -165,7 +160,6 @@ $result_trees{'in_errormsg'} = {
             }
           ],
           'cmdname' => 'errormsg',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -179,7 +173,6 @@ $result_trees{'in_errormsg'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

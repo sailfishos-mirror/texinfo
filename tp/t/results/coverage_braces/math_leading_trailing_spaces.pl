@@ -25,7 +25,6 @@ $result_trees{'math_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },

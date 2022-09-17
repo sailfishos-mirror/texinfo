@@ -12,7 +12,6 @@ $result_trees{'menu_entry_node_comments'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

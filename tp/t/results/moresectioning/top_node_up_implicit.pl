@@ -114,7 +114,6 @@ $result_trees{'top_node_up_implicit'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -182,7 +181,6 @@ $result_trees{'top_node_up_implicit'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -322,7 +320,6 @@ $result_trees{'top_node_up_implicit'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

@@ -16,13 +16,11 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

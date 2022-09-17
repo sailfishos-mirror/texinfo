@@ -18,7 +18,6 @@ $result_trees{'block_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -249,7 +248,6 @@ $result_trees{'block_commands'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

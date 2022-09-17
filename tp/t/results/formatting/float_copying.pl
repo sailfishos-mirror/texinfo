@@ -73,7 +73,6 @@ $result_trees{'float_copying'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => ' 
 '
@@ -186,7 +185,6 @@ $result_trees{'float_copying'} = {
                                                 }
                                               ],
                                               'cmdname' => 'anchor',
-                                              'contents' => [],
                                               'extra' => {
                                                 'node_content' => [
                                                   {}
@@ -324,7 +322,6 @@ $result_trees{'float_copying'} = {
                                                 }
                                               ],
                                               'cmdname' => 'ref',
-                                              'contents' => [],
                                               'extra' => {
                                                 'label' => {
                                                   'args' => [
@@ -344,7 +341,6 @@ $result_trees{'float_copying'} = {
                                                     }
                                                   ],
                                                   'cmdname' => 'node',
-                                                  'contents' => [],
                                                   'extra' => {
                                                     'isindex' => 1,
                                                     'node_content' => [
@@ -403,7 +399,6 @@ $result_trees{'float_copying'} = {
                                     }
                                   ],
                                   'cmdname' => 'footnote',
-                                  'contents' => [],
                                   'extra' => {
                                     'spaces_before_argument' => '
 '
@@ -447,7 +442,6 @@ $result_trees{'float_copying'} = {
                                 }
                               ],
                               'cmdname' => 'anchor',
-                              'contents' => [],
                               'extra' => {
                                 'node_content' => [
                                   {}
@@ -555,7 +549,6 @@ $result_trees{'float_copying'} = {
                         }
                       ],
                       'cmdname' => 'caption',
-                      'contents' => [],
                       'extra' => {
                         'float' => {}
                       },
@@ -692,7 +685,6 @@ $result_trees{'float_copying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -807,7 +799,6 @@ $result_trees{'float_copying'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -859,7 +850,6 @@ $result_trees{'float_copying'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -917,7 +907,6 @@ $result_trees{'float_copying'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1107,7 +1096,6 @@ $result_trees{'float_copying'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -1159,7 +1147,6 @@ $result_trees{'float_copying'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

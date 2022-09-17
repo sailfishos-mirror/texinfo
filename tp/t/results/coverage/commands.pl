@@ -22,13 +22,11 @@ $result_trees{'commands'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'TeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -59,7 +57,6 @@ $result_trees{'commands'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -89,7 +86,6 @@ $result_trees{'commands'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -103,7 +99,6 @@ $result_trees{'commands'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -129,7 +124,6 @@ $result_trees{'commands'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -155,7 +149,6 @@ $result_trees{'commands'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -194,13 +187,11 @@ $result_trees{'commands'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'click',
-                      'contents' => [],
                       'extra' => {
                         'clickstyle' => 'arrow'
                       },
@@ -221,7 +212,6 @@ $result_trees{'commands'} = {
                 }
               ],
               'cmdname' => 'clicksequence',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -265,7 +255,6 @@ $result_trees{'commands'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -291,7 +280,6 @@ $result_trees{'commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -322,7 +310,6 @@ $result_trees{'commands'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -356,13 +343,11 @@ $result_trees{'commands'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'LaTeX',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -430,7 +415,6 @@ $result_trees{'commands'} = {
                     }
                   ],
                   'cmdname' => 'b',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

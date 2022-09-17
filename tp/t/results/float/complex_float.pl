@@ -36,7 +36,6 @@ $result_trees{'complex_float'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -149,7 +148,6 @@ $result_trees{'complex_float'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -299,13 +297,11 @@ $result_trees{'complex_float'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'enddots',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -427,7 +423,6 @@ $result_trees{'complex_float'} = {
                   'contents' => [
                     {
                       'cmdname' => 'emph',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -568,7 +563,6 @@ $result_trees{'complex_float'} = {
                   'contents' => [
                     {
                       'cmdname' => 'minus',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -701,7 +695,6 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'cmdname' => 'xref',
-                  'contents' => [],
                   'extra' => {
                     'label' => {},
                     'node_argument' => {
@@ -748,7 +741,6 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -776,13 +768,11 @@ $result_trees{'complex_float'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'TeX',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -820,7 +810,6 @@ $result_trees{'complex_float'} = {
                                     }
                                   ],
                                   'cmdname' => '\'',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -846,7 +835,6 @@ $result_trees{'complex_float'} = {
                                             }
                                           ],
                                           'cmdname' => 'dotless',
-                                          'contents' => [],
                                           'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
@@ -860,7 +848,6 @@ $result_trees{'complex_float'} = {
                                     }
                                   ],
                                   'cmdname' => '^',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -874,7 +861,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'b',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -896,7 +882,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'url',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -910,7 +895,6 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -936,7 +920,6 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'cmdname' => 'sc',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -963,7 +946,6 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'cmdname' => 'verb',
-                  'contents' => [],
                   'extra' => {
                     'delimiter' => '!'
                   },
@@ -1009,13 +991,11 @@ $result_trees{'complex_float'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'AE',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1051,13 +1031,11 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'enddots',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1082,7 +1060,6 @@ $result_trees{'complex_float'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => ' 
 '
@@ -1161,7 +1138,6 @@ $result_trees{'complex_float'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -1204,7 +1180,6 @@ $result_trees{'complex_float'} = {
                           'contents' => [
                             {
                               'cmdname' => 'emph',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1650,7 +1625,6 @@ $result_trees{'complex_float'} = {
                           'contents' => [
                             {
                               'cmdname' => 'minus',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1783,7 +1757,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'xref',
-                          'contents' => [],
                           'extra' => {
                             'label' => {},
                             'node_argument' => {
@@ -1830,7 +1803,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1858,13 +1830,11 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'TeX',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1902,7 +1872,6 @@ $result_trees{'complex_float'} = {
                                             }
                                           ],
                                           'cmdname' => '\'',
-                                          'contents' => [],
                                           'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
@@ -1928,7 +1897,6 @@ $result_trees{'complex_float'} = {
                                                     }
                                                   ],
                                                   'cmdname' => 'dotless',
-                                                  'contents' => [],
                                                   'parent' => {},
                                                   'source_info' => {
                                                     'file_name' => '',
@@ -1942,7 +1910,6 @@ $result_trees{'complex_float'} = {
                                             }
                                           ],
                                           'cmdname' => '^',
-                                          'contents' => [],
                                           'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
@@ -1956,7 +1923,6 @@ $result_trees{'complex_float'} = {
                                     }
                                   ],
                                   'cmdname' => 'b',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -1978,7 +1944,6 @@ $result_trees{'complex_float'} = {
                                     }
                                   ],
                                   'cmdname' => 'url',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -1992,7 +1957,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'emph',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2018,7 +1982,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2045,7 +2008,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'contents' => [],
                           'extra' => {
                             'delimiter' => '!'
                           },
@@ -2091,13 +2053,11 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'AE',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2120,7 +2080,6 @@ $result_trees{'complex_float'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {},
                 'spaces_before_argument' => ' '
@@ -2152,13 +2111,11 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'TeX',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2196,7 +2153,6 @@ $result_trees{'complex_float'} = {
                                             }
                                           ],
                                           'cmdname' => '\'',
-                                          'contents' => [],
                                           'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
@@ -2222,7 +2178,6 @@ $result_trees{'complex_float'} = {
                                                     }
                                                   ],
                                                   'cmdname' => 'dotless',
-                                                  'contents' => [],
                                                   'parent' => {},
                                                   'source_info' => {
                                                     'file_name' => '',
@@ -2236,7 +2191,6 @@ $result_trees{'complex_float'} = {
                                             }
                                           ],
                                           'cmdname' => '^',
-                                          'contents' => [],
                                           'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
@@ -2250,7 +2204,6 @@ $result_trees{'complex_float'} = {
                                     }
                                   ],
                                   'cmdname' => 'b',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -2272,7 +2225,6 @@ $result_trees{'complex_float'} = {
                                     }
                                   ],
                                   'cmdname' => 'url',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -2286,7 +2238,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'emph',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2312,7 +2263,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2339,7 +2289,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'contents' => [],
                           'extra' => {
                             'delimiter' => '!'
                           },
@@ -2385,13 +2334,11 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'AE',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2413,7 +2360,6 @@ $result_trees{'complex_float'} = {
                 }
               ],
               'cmdname' => 'shortcaption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -2523,7 +2469,6 @@ $result_trees{'complex_float'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2637,13 +2582,11 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'enddots',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2668,7 +2611,6 @@ $result_trees{'complex_float'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => ' 
 '
@@ -2750,7 +2692,6 @@ $result_trees{'complex_float'} = {
                           'contents' => [
                             {
                               'cmdname' => 'emph',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3196,7 +3137,6 @@ $result_trees{'complex_float'} = {
                           'contents' => [
                             {
                               'cmdname' => 'minus',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3312,7 +3252,6 @@ $result_trees{'complex_float'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -3369,7 +3308,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'xref',
-                          'contents' => [],
                           'extra' => {
                             'label' => {},
                             'node_argument' => {
@@ -3416,7 +3354,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3444,13 +3381,11 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'TeX',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3488,7 +3423,6 @@ $result_trees{'complex_float'} = {
                                             }
                                           ],
                                           'cmdname' => '\'',
-                                          'contents' => [],
                                           'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
@@ -3514,7 +3448,6 @@ $result_trees{'complex_float'} = {
                                                     }
                                                   ],
                                                   'cmdname' => 'dotless',
-                                                  'contents' => [],
                                                   'parent' => {},
                                                   'source_info' => {
                                                     'file_name' => '',
@@ -3528,7 +3461,6 @@ $result_trees{'complex_float'} = {
                                             }
                                           ],
                                           'cmdname' => '^',
-                                          'contents' => [],
                                           'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
@@ -3542,7 +3474,6 @@ $result_trees{'complex_float'} = {
                                     }
                                   ],
                                   'cmdname' => 'b',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -3564,7 +3495,6 @@ $result_trees{'complex_float'} = {
                                     }
                                   ],
                                   'cmdname' => 'url',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -3578,7 +3508,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'emph',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3604,7 +3533,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3631,7 +3559,6 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'contents' => [],
                           'extra' => {
                             'delimiter' => '!'
                           },
@@ -3677,13 +3604,11 @@ $result_trees{'complex_float'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'AE',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3706,7 +3631,6 @@ $result_trees{'complex_float'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {},
                 'spaces_before_argument' => ' '
@@ -3803,7 +3727,6 @@ $result_trees{'complex_float'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

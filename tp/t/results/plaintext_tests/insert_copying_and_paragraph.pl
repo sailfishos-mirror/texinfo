@@ -12,7 +12,6 @@ $result_trees{'insert_copying_and_paragraph'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

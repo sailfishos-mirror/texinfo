@@ -45,7 +45,6 @@ $result_trees{'defx_after_text'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },

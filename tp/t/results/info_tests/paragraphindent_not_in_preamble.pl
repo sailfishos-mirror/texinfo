@@ -14,7 +14,6 @@ $result_trees{'paragraphindent_not_in_preamble'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -122,7 +121,6 @@ $result_trees{'paragraphindent_not_in_preamble'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

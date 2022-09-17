@@ -68,7 +68,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -159,7 +158,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -225,7 +223,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -251,7 +248,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -391,7 +387,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -482,7 +477,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -548,7 +542,6 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

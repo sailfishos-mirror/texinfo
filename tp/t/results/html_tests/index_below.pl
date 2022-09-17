@@ -9,7 +9,6 @@ $result_trees{'index_below'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},

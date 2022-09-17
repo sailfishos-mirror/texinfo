@@ -80,7 +80,6 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

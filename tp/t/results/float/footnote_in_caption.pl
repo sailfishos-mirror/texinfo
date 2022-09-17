@@ -154,7 +154,6 @@ $result_trees{'footnote_in_caption'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -172,7 +171,6 @@ $result_trees{'footnote_in_caption'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

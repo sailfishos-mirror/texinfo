@@ -46,7 +46,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}
@@ -95,7 +94,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
         {
           "args" => [
             {
-              "contents" => [],
               "extra" => {
                 "spaces_after_argument" => "\n"
               },
@@ -169,7 +167,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                   "type" => "menu_entry_leading_text"
                 },
                 {
-                  "contents" => [],
                   "parent" => {},
                   "type" => "menu_entry_node"
                 },
@@ -214,7 +211,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
                   "type" => "menu_entry_leading_text"
                 },
                 {
-                  "contents" => [],
                   "parent" => {},
                   "type" => "menu_entry_node"
                 },
@@ -493,7 +489,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}
@@ -553,7 +548,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
     {
       "args" => [
         {
-          "contents" => [],
           "extra" => {
             "spaces_after_argument" => " \t\f\13\n"
           },
@@ -562,7 +556,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "nodes_manuals" => [
           undef
@@ -612,7 +605,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
     {
       "args" => [
         {
-          "contents" => [],
           "extra" => {
             "spaces_after_argument" => " \r\n"
           },
@@ -621,7 +613,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "nodes_manuals" => [
           undef
@@ -685,7 +676,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}
@@ -759,7 +749,6 @@ $result_trees{'in_menu_only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}

@@ -16,13 +16,11 @@ $result_trees{'w_argument'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'w',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -66,7 +64,6 @@ $result_trees{'w_argument'} = {
                         }
                       ],
                       'cmdname' => 'option',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -118,7 +115,6 @@ $result_trees{'w_argument'} = {
                         }
                       ],
                       'cmdname' => 'option',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

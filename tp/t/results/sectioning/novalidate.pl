@@ -81,7 +81,6 @@ $result_trees{'novalidate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -208,7 +207,6 @@ $result_trees{'novalidate'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [

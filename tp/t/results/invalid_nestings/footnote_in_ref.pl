@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'footnote_in_ref'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -94,7 +93,6 @@ $result_trees{'footnote_in_ref'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -115,7 +113,6 @@ $result_trees{'footnote_in_ref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

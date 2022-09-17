@@ -58,13 +58,11 @@ $result_trees{'empty_caption'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -141,7 +139,6 @@ $result_trees{'empty_caption'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
@@ -177,13 +174,11 @@ $result_trees{'empty_caption'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'shortcaption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -257,7 +252,6 @@ $result_trees{'empty_caption'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -282,13 +276,11 @@ $result_trees{'empty_caption'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'shortcaption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -308,13 +300,11 @@ $result_trees{'empty_caption'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

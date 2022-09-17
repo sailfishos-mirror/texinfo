@@ -70,7 +70,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -206,7 +205,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -268,7 +266,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -362,7 +359,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -484,7 +480,6 @@ $result_trees{'itemize_and_empty_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }
@@ -541,7 +536,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -677,7 +671,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -759,7 +752,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -853,7 +845,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -986,7 +977,6 @@ $result_trees{'itemize_and_empty_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'minus',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1122,7 +1112,6 @@ $result_trees{'itemize_and_empty_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'minus',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1172,7 +1161,6 @@ $result_trees{'itemize_and_empty_lines'} = {
                       'contents' => [
                         {
                           'cmdname' => 'bullet',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1349,7 +1337,6 @@ $result_trees{'itemize_and_empty_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

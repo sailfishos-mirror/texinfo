@@ -36,7 +36,6 @@ $result_trees{'ref_in_center'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -113,7 +112,6 @@ $result_trees{'ref_in_center'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -179,7 +177,6 @@ $result_trees{'ref_in_center'} = {
                     }
                   ],
                   'cmdname' => 'ref',
-                  'contents' => [],
                   'extra' => {
                     'label' => {},
                     'node_argument' => {
@@ -239,7 +236,6 @@ $result_trees{'ref_in_center'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
@@ -259,7 +255,6 @@ $result_trees{'ref_in_center'} = {
                     }
                   ],
                   'cmdname' => 'ref',
-                  'contents' => [],
                   'extra' => {},
                   'parent' => {},
                   'source_info' => {

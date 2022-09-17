@@ -74,7 +74,6 @@ $result_trees{'accentenc'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -142,7 +141,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -168,7 +166,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -211,7 +208,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '\'',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -237,7 +233,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '\'',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -280,7 +275,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -306,7 +300,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -349,7 +342,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -375,7 +367,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -418,7 +409,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -444,7 +434,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -487,7 +476,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '\'',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -513,7 +501,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '\'',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -556,7 +543,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -582,7 +568,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -625,7 +610,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -651,7 +635,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -694,7 +677,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -720,7 +702,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -763,7 +744,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -789,7 +769,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -832,7 +811,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '=',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -858,7 +836,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '=',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -901,7 +878,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -927,7 +903,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'H',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -953,7 +928,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'H',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -999,7 +973,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'dotaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1025,7 +998,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'dotaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -1071,7 +1043,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1097,7 +1068,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -1143,7 +1113,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'tieaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1186,7 +1155,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'u',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1212,7 +1180,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'u',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -1258,7 +1225,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ubaraccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1284,7 +1250,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ubaraccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -1330,7 +1295,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'udotaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1356,7 +1320,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'udotaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -1402,7 +1365,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'v',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1428,7 +1390,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'v',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -1474,7 +1435,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ogonek',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1500,7 +1460,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ogonek',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -1546,7 +1505,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ogonek',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1572,7 +1530,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ogonek',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -1607,13 +1564,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'questiondown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1628,13 +1583,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'exclamdown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1666,13 +1619,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'aa',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1687,13 +1638,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AA',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1725,13 +1674,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ae',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1746,13 +1693,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AE',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1767,13 +1712,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'oe',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1788,13 +1731,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'OE',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1837,7 +1778,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1863,7 +1803,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1895,13 +1834,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'l',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1916,13 +1853,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'L',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1954,13 +1889,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'o',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1975,13 +1908,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'O',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2013,13 +1944,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ss',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2051,13 +1980,11 @@ $result_trees{'accentenc'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'pounds',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2122,7 +2049,6 @@ $result_trees{'accentenc'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2136,7 +2062,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2183,7 +2108,6 @@ $result_trees{'accentenc'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2197,7 +2121,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '\'',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2244,7 +2167,6 @@ $result_trees{'accentenc'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2258,7 +2180,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2305,7 +2226,6 @@ $result_trees{'accentenc'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2319,7 +2239,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2384,7 +2303,6 @@ $result_trees{'accentenc'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2398,7 +2316,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2445,7 +2362,6 @@ $result_trees{'accentenc'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2459,7 +2375,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '\'',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2506,7 +2421,6 @@ $result_trees{'accentenc'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2520,7 +2434,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2567,7 +2480,6 @@ $result_trees{'accentenc'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2581,7 +2493,6 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

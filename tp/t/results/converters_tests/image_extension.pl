@@ -22,17 +22,14 @@ $result_trees{'image_extension'} = {
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
@@ -48,7 +45,6 @@ $result_trees{'image_extension'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

@@ -277,13 +277,11 @@ $result_trees{'star_at_command_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -314,7 +312,6 @@ $result_trees{'star_at_command_formatting'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -346,13 +343,11 @@ $result_trees{'star_at_command_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -399,7 +394,6 @@ $result_trees{'star_at_command_formatting'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -430,7 +424,6 @@ $result_trees{'star_at_command_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -579,13 +572,11 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -616,7 +607,6 @@ $result_trees{'star_at_command_formatting'} = {
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -648,13 +638,11 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -701,7 +689,6 @@ $result_trees{'star_at_command_formatting'} = {
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -769,7 +756,6 @@ $result_trees{'star_at_command_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -924,13 +910,11 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -961,7 +945,6 @@ $result_trees{'star_at_command_formatting'} = {
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -993,13 +976,11 @@ $result_trees{'star_at_command_formatting'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1046,7 +1027,6 @@ $result_trees{'star_at_command_formatting'} = {
                     }
                   ],
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

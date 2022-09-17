@@ -26,7 +26,6 @@ $result_trees{'def_in_style_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

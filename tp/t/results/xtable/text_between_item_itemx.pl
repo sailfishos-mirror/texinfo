@@ -15,7 +15,6 @@ $result_trees{'text_between_item_itemx'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

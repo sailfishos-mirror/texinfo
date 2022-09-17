@@ -351,46 +351,7 @@ element_to_perl_hash (ELEMENT *e)
          elsewhere by passing an appropriate second argument. */
     }
 
-  /* A lot of special cases for when an empty contents array should be
-     created.  Largely by trial and error to match the Perl code.  Some of
-     them don't make sense, like @arrow{}, @image, or for accent commands. */
-  if (e->contents.number > 0
-      || e->type == ET_before_node_section
-      || e->type == ET_root_line
-      || e->type == ET_bracketed
-      || e->type == ET_bracketed_def_content
-      || e->type == ET_line_arg
-      || e->cmd == CM_image
-      || e->cmd == CM_item && e->parent && e->parent->type == ET_row
-      || e->cmd == CM_headitem && e->parent && e->parent->type == ET_row
-      || e->cmd == CM_tab && e->parent && e->parent->type == ET_row
-      || e->cmd == CM_anchor
-      || e->cmd == CM_macro
-      || e->cmd == CM_multitable
-      || e->type == ET_menu_entry_name
-      || e->type == ET_menu_entry_node
-      || e->type == ET_menu_entry_description
-      || e->type == ET_brace_command_arg
-      || e->type == ET_brace_command_context
-      || e->type == ET_block_line_arg
-      || e->type == ET_before_item
-      || e->type == ET_inter_item
-      || e->cmd == CM_TeX
-      || e->type == ET_elided
-      || e->type == ET_elided_block
-      || e->type == ET_preformatted
-      || e->type == ET_paragraph
-      || (command_flags(e) & CF_root)
-      || (command_data(e->cmd).flags & CF_brace
-          && (command_data(e->cmd).data >= 0
-              || command_data(e->cmd).data == BRACE_style_other
-              || command_data(e->cmd).data == BRACE_style_code
-              || command_data(e->cmd).data == BRACE_style_no_code
-              || command_data(e->cmd).data == BRACE_context
-              || command_data(e->cmd).data == BRACE_other
-              || command_data(e->cmd).data == BRACE_accent
-              ))
-      || e->cmd == CM_node)
+  if (e->contents.number > 0)
     {
       AV *av;
       int i;

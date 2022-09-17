@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'email_in_node'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -34,7 +33,6 @@ $result_trees{'email_in_node'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -76,7 +74,6 @@ $result_trees{'email_in_node'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -91,7 +88,6 @@ $result_trees{'email_in_node'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
@@ -113,7 +109,6 @@ $result_trees{'email_in_node'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -131,7 +126,6 @@ $result_trees{'email_in_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},

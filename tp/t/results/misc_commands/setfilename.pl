@@ -154,7 +154,6 @@ $result_trees{'setfilename'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'contents' => [],
                       'extra' => {
                         'delimiter' => ':'
                       },

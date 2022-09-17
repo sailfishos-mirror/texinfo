@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'node_up_direction_for_top_with_manual'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -25,12 +24,10 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -62,7 +59,6 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

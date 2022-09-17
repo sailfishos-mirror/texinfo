@@ -74,7 +74,6 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
                 }
               ],
               'cmdname' => 'headword',
-              'contents' => [],
               'extra' => {
                 'begin' => '',
                 'end' => ':'

@@ -36,7 +36,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

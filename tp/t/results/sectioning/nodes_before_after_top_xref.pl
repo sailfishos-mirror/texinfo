@@ -137,7 +137,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -296,7 +295,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -408,7 +406,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -444,7 +441,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -523,7 +519,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -559,7 +554,6 @@ $result_trees{'nodes_before_after_top_xref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

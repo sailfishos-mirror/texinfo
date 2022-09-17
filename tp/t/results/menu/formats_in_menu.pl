@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'formats_in_menu'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'formats_in_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -100,7 +98,6 @@ $result_trees{'formats_in_menu'} = {
                           'contents' => [
                             {
                               'cmdname' => 'asis',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -303,7 +300,6 @@ $result_trees{'formats_in_menu'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -364,7 +360,6 @@ $result_trees{'formats_in_menu'} = {
                       }
                     },
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'preformatted'
                     }
@@ -431,7 +426,6 @@ $result_trees{'formats_in_menu'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'extra' => {
                                 'spaces_after_argument' => '
 '
@@ -579,7 +573,6 @@ $result_trees{'formats_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'acronym',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -634,7 +627,6 @@ $result_trees{'formats_in_menu'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '

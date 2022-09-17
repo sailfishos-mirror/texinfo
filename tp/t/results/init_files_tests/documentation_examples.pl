@@ -54,7 +54,6 @@ $result_trees{'documentation_examples'} = {
                     }
                   ],
                   'cmdname' => 'email',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -80,7 +79,6 @@ $result_trees{'documentation_examples'} = {
                     }
                   ],
                   'cmdname' => 'sansserif',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -95,13 +93,11 @@ $result_trees{'documentation_examples'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'error',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -180,7 +176,6 @@ $result_trees{'documentation_examples'} = {
                 }
               ],
               'cmdname' => 'sansserif',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -203,13 +198,11 @@ $result_trees{'documentation_examples'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'error',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -236,7 +229,6 @@ $result_trees{'documentation_examples'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -320,7 +312,6 @@ $result_trees{'documentation_examples'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -351,7 +342,6 @@ $result_trees{'documentation_examples'} = {
             }
           ],
           'cmdname' => 'titlefont',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -401,7 +391,6 @@ $result_trees{'documentation_examples'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -444,7 +433,6 @@ $result_trees{'documentation_examples'} = {
                         }
                       ],
                       'cmdname' => 'sansserif',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -467,13 +455,11 @@ $result_trees{'documentation_examples'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'error',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -487,7 +473,6 @@ $result_trees{'documentation_examples'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -513,7 +498,6 @@ $result_trees{'documentation_examples'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -540,7 +524,6 @@ $result_trees{'documentation_examples'} = {
                     }
                   ],
                   'cmdname' => 'sansserif',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -563,13 +546,11 @@ $result_trees{'documentation_examples'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'error',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

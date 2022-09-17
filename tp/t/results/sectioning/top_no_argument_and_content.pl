@@ -21,7 +21,6 @@ $result_trees{'top_no_argument_and_content'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '

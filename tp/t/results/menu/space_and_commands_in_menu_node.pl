@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'space_and_commands_in_menu_node'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -81,7 +79,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -803,7 +800,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -848,7 +844,6 @@ $result_trees{'space_and_commands_in_menu_node'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

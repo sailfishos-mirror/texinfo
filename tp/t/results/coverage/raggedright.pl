@@ -18,7 +18,6 @@ $result_trees{'raggedright'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

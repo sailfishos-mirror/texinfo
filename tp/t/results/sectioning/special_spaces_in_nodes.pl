@@ -46,7 +46,6 @@ $result_trees{'special_spaces_in_nodes'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}
@@ -120,7 +119,6 @@ $result_trees{'special_spaces_in_nodes'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}
@@ -174,7 +172,6 @@ $result_trees{'special_spaces_in_nodes'} = {
         {
           "args" => [
             {
-              "contents" => [],
               "extra" => {
                 "spaces_after_argument" => "\n"
               },
@@ -1045,7 +1042,6 @@ $result_trees{'special_spaces_in_nodes'} = {
                 }
               ],
               "cmdname" => "ref",
-              "contents" => [],
               "extra" => {
                 "label" => {},
                 "node_argument" => {

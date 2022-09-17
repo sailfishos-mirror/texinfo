@@ -14,7 +14,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -65,7 +64,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                                     }
                                   ],
                                   'cmdname' => 'anchor',
-                                  'contents' => [],
                                   'extra' => {
                                     'node_content' => [
                                       {}
@@ -95,7 +93,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => '
 '
@@ -308,7 +305,6 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

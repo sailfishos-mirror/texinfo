@@ -36,7 +36,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -113,7 +112,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -164,7 +162,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -304,7 +301,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -355,7 +351,6 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

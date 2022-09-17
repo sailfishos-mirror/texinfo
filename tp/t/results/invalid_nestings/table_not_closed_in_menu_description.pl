@@ -12,7 +12,6 @@ $result_trees{'table_not_closed_in_menu_description'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -71,7 +70,6 @@ $result_trees{'table_not_closed_in_menu_description'} = {
                           'contents' => [
                             {
                               'cmdname' => 'asis',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',

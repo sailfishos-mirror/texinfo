@@ -14,13 +14,11 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'TeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -35,13 +33,11 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'LaTeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -56,13 +52,11 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'copyright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -77,13 +71,11 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'registeredsymbol',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

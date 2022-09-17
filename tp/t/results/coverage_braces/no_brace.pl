@@ -13,7 +13,6 @@ $result_trees{'no_brace'} = {
           'contents' => [
             {
               'cmdname' => 'TeX',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -30,7 +29,6 @@ $result_trees{'no_brace'} = {
             },
             {
               'cmdname' => 'code',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -47,7 +45,6 @@ $result_trees{'no_brace'} = {
             },
             {
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },

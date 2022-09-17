@@ -12,7 +12,6 @@ $result_trees{'formats_not_closed_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -41,7 +40,6 @@ $result_trees{'formats_not_closed_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -124,7 +122,6 @@ $result_trees{'formats_not_closed_in_example'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'extra' => {
                                 'spaces_after_argument' => '
 '

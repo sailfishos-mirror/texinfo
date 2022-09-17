@@ -137,7 +137,6 @@ $result_trees{'nodes_before_after_top'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -296,7 +295,6 @@ $result_trees{'nodes_before_after_top'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

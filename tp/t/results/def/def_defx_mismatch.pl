@@ -92,7 +92,6 @@ $result_trees{'def_defx_mismatch'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -114,13 +113,11 @@ $result_trees{'def_defx_mismatch'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'dots',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },

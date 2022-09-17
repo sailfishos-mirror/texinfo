@@ -36,7 +36,6 @@ $result_trees{'one_subsection'} = {
         }
       ],
       'cmdname' => 'subsection',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

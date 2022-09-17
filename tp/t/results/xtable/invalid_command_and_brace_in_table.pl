@@ -15,7 +15,6 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

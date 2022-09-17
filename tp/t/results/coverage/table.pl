@@ -21,7 +21,6 @@ $result_trees{'table'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -185,7 +184,6 @@ $result_trees{'table'} = {
               'contents' => [
                 {
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -527,7 +525,6 @@ $result_trees{'table'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

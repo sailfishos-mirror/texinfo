@@ -27,7 +27,6 @@ $result_trees{'empty_label_with_space'} = {
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '

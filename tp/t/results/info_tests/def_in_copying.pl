@@ -112,7 +112,6 @@ $result_trees{'def_in_copying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -164,7 +163,6 @@ $result_trees{'def_in_copying'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

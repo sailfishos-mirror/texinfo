@@ -17,7 +17,6 @@ $result_trees{'invalid_accent_punctuation'} = {
             },
             {
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -71,7 +71,6 @@ $result_trees{'pagesizes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -148,7 +147,6 @@ $result_trees{'pagesizes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

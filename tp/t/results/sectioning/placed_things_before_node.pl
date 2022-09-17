@@ -23,7 +23,6 @@ $result_trees{'placed_things_before_node'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}
@@ -70,7 +69,6 @@ $result_trees{'placed_things_before_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -123,7 +121,6 @@ $result_trees{'placed_things_before_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -139,7 +136,6 @@ $result_trees{'placed_things_before_node'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -199,7 +195,6 @@ $result_trees{'placed_things_before_node'} = {
                               }
                             ],
                             'cmdname' => 'ref',
-                            'contents' => [],
                             'extra' => {
                               'label' => {},
                               'node_argument' => {
@@ -231,7 +226,6 @@ $result_trees{'placed_things_before_node'} = {
                         {}
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'parent' => {
                         'contents' => [
                           {},
@@ -297,7 +291,6 @@ $result_trees{'placed_things_before_node'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
@@ -404,7 +397,6 @@ $result_trees{'placed_things_before_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -439,7 +431,6 @@ $result_trees{'placed_things_before_node'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -618,7 +609,6 @@ $result_trees{'placed_things_before_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -687,7 +677,6 @@ $result_trees{'placed_things_before_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -740,7 +729,6 @@ $result_trees{'placed_things_before_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

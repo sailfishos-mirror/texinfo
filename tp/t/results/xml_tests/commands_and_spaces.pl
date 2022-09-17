@@ -422,7 +422,6 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -515,7 +514,6 @@ $result_trees{'commands_and_spaces'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -677,7 +675,6 @@ $result_trees{'commands_and_spaces'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {},
                 'spaces_before_argument' => ' '
@@ -720,7 +717,6 @@ $result_trees{'commands_and_spaces'} = {
                 }
               ],
               'cmdname' => 'shortcaption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -940,7 +936,6 @@ $result_trees{'commands_and_spaces'} = {
                     }
                   ],
                   'cmdname' => 'var',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1039,7 +1034,6 @@ $result_trees{'commands_and_spaces'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '  
 '
@@ -1102,7 +1096,6 @@ $result_trees{'commands_and_spaces'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '  
 '
@@ -1170,7 +1163,6 @@ $result_trees{'commands_and_spaces'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '  
 '
@@ -1241,7 +1233,6 @@ $result_trees{'commands_and_spaces'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1374,7 +1365,6 @@ $result_trees{'commands_and_spaces'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '  '
               },
@@ -1439,7 +1429,6 @@ $result_trees{'commands_and_spaces'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },
@@ -1485,7 +1474,6 @@ $result_trees{'commands_and_spaces'} = {
                 }
               ],
               'cmdname' => 'indicateurl',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

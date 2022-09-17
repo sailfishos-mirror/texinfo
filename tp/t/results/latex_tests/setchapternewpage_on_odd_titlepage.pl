@@ -88,7 +88,6 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

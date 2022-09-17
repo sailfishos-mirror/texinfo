@@ -12,7 +12,6 @@ $result_trees{'commands_in_flushright'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -32,7 +31,6 @@ $result_trees{'commands_in_flushright'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -176,7 +174,6 @@ $result_trees{'commands_in_flushright'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -305,7 +302,6 @@ $result_trees{'commands_in_flushright'} = {
                   'contents' => [
                     {
                       'cmdname' => 'emph',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -805,7 +801,6 @@ $result_trees{'commands_in_flushright'} = {
                     }
                   ],
                   'cmdname' => 'caption',
-                  'contents' => [],
                   'extra' => {
                     'float' => {}
                   },
@@ -929,7 +924,6 @@ $result_trees{'commands_in_flushright'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -997,7 +991,6 @@ $result_trees{'commands_in_flushright'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -1065,7 +1058,6 @@ $result_trees{'commands_in_flushright'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

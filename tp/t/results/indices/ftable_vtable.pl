@@ -61,7 +61,6 @@ $result_trees{'ftable_vtable'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -295,7 +294,6 @@ $result_trees{'ftable_vtable'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -330,13 +328,11 @@ $result_trees{'ftable_vtable'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'error',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',

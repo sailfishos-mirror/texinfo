@@ -534,6 +534,7 @@ sub format_image($$)
   my $lines_count = 0;
 
   if (defined($element->{'args'}->[0])
+      and $element->{'args'}->[0]->{'contents'}
       and @{$element->{'args'}->[0]->{'contents'}}) {
     my $basefile = Texinfo::Convert::Text::convert_to_text(
       {'contents' => $element->{'args'}->[0]->{'contents'}},
@@ -564,6 +565,7 @@ sub format_image($$)
     my ($text, $width) = $self->txt_image_text($element, $basefile);
     my $alt;
     if (defined($element->{'args'}->[3])
+        and $element->{'args'}->[3]->{'contents'}
         and @{$element->{'args'}->[3]->{'contents'}}) {
      $alt = Texinfo::Convert::Text::convert_to_text(
        {'contents' => $element->{'args'}->[3]->{'contents'}},
@@ -577,8 +579,7 @@ sub format_image($$)
       $image_file =~ s/\"/\\\"/g;
       $result = "\x{00}\x{08}[image src=\"$image_file\"";
 
-      if (defined($element->{'args'}->[3])
-          and @{$element->{'args'}->[3]->{'contents'}}) {
+      if ($alt) {
         $alt =~ s/\\/\\\\/g;
         $alt =~ s/\"/\\\"/g;
         $result .= " alt=\"$alt\"";

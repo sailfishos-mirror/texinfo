@@ -9,7 +9,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -41,7 +40,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -75,7 +73,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                                 }
                               ],
                               'cmdname' => '~',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -207,7 +204,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                                 }
                               ],
                               'cmdname' => '^',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -343,7 +339,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -457,7 +452,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -475,7 +469,6 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

@@ -36,13 +36,11 @@ $result_trees{'inlinefmt'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'lbracechar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -63,7 +61,6 @@ $result_trees{'inlinefmt'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'plaintext'
@@ -112,7 +109,6 @@ $result_trees{'inlinefmt'} = {
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -133,7 +129,6 @@ $result_trees{'inlinefmt'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'

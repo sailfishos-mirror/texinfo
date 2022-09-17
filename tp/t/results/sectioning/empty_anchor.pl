@@ -12,13 +12,11 @@ $result_trees{'empty_anchor'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -36,7 +34,6 @@ $result_trees{'empty_anchor'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => '   '
                   },
@@ -45,7 +42,6 @@ $result_trees{'empty_anchor'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

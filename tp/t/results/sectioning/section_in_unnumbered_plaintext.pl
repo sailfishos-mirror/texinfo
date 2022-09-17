@@ -48,7 +48,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -139,7 +138,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -507,7 +505,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -558,7 +555,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -698,7 +694,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -775,7 +770,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -826,7 +820,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -966,7 +959,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1043,7 +1035,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1094,7 +1085,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1291,7 +1281,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1342,7 +1331,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1653,7 +1641,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1730,7 +1717,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1807,7 +1793,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1884,7 +1869,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1961,7 +1945,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2012,7 +1995,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2152,7 +2134,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2235,7 +2216,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2286,7 +2266,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2654,7 +2633,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2705,7 +2683,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -3016,7 +2993,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3093,7 +3069,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3170,7 +3145,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3247,7 +3221,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3324,7 +3297,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3401,7 +3373,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3452,7 +3423,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -3592,7 +3562,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3669,7 +3638,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3720,7 +3688,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -3860,7 +3827,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3937,7 +3903,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3988,7 +3953,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -4128,7 +4092,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -4205,7 +4168,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -4256,7 +4218,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -4396,7 +4357,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -4447,7 +4407,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -4758,7 +4717,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -4835,7 +4793,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -4912,7 +4869,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -4989,7 +4945,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -5030,7 +4985,6 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'cmdname' => 'subsection',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

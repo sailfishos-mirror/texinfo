@@ -15,7 +15,6 @@ $result_trees{'headitem_itemx_in_itemize'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }

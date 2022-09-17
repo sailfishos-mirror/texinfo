@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'additional_space_in_end_conditional'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     }

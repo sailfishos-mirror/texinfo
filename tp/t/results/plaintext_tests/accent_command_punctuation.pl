@@ -25,7 +25,6 @@ $result_trees{'accent_command_punctuation'} = {
                 }
               ],
               'cmdname' => 'dotaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -55,7 +55,6 @@ $result_trees{'math_bracketed_not_closed'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

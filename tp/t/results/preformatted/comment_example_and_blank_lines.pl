@@ -29,7 +29,6 @@ $result_trees{'comment_example_and_blank_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -131,7 +130,6 @@ $result_trees{'comment_example_and_blank_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -227,7 +225,6 @@ $result_trees{'comment_example_and_blank_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -312,7 +309,6 @@ $result_trees{'comment_example_and_blank_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

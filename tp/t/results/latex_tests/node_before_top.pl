@@ -84,7 +84,6 @@ $result_trees{'node_before_top'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -161,7 +160,6 @@ $result_trees{'node_before_top'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -225,7 +223,6 @@ $result_trees{'node_before_top'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

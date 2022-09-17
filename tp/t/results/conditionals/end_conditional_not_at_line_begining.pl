@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'end_conditional_not_at_line_begining'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     }

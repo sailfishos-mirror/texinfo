@@ -220,7 +220,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -234,7 +233,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -261,7 +259,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'extra' => {
                 'code' => 1
               },
@@ -299,7 +296,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'extra' => {
                         'code' => 1
                       },
@@ -316,7 +312,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -359,7 +354,6 @@ $result_trees{'kbdinputstyle'} = {
                                 }
                               ],
                               'cmdname' => 'kbd',
-                              'contents' => [],
                               'extra' => {
                                 'code' => 1
                               },
@@ -376,7 +370,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -390,7 +383,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -427,7 +419,6 @@ $result_trees{'kbdinputstyle'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -462,7 +453,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -476,7 +466,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -503,7 +492,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'extra' => {
                     'code' => 1
                   },
@@ -541,7 +529,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'kbd',
-                          'contents' => [],
                           'extra' => {
                             'code' => 1
                           },
@@ -562,7 +549,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -605,7 +591,6 @@ $result_trees{'kbdinputstyle'} = {
                                     }
                                   ],
                                   'cmdname' => 'kbd',
-                                  'contents' => [],
                                   'extra' => {
                                     'code' => 1
                                   },
@@ -622,7 +607,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'r',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -636,7 +620,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -778,7 +761,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -792,7 +774,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -819,7 +800,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'extra' => {
                 'code' => 1
               },
@@ -857,7 +837,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'extra' => {
                         'code' => 1
                       },
@@ -874,7 +853,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -917,7 +895,6 @@ $result_trees{'kbdinputstyle'} = {
                                 }
                               ],
                               'cmdname' => 'kbd',
-                              'contents' => [],
                               'extra' => {
                                 'code' => 1
                               },
@@ -934,7 +911,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -948,7 +924,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -985,7 +960,6 @@ $result_trees{'kbdinputstyle'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1020,7 +994,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1034,7 +1007,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1061,7 +1033,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1096,7 +1067,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'kbd',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1114,7 +1084,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1157,7 +1126,6 @@ $result_trees{'kbdinputstyle'} = {
                                     }
                                   ],
                                   'cmdname' => 'kbd',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -1171,7 +1139,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'r',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1185,7 +1152,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1327,7 +1293,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1341,7 +1306,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1368,7 +1332,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1403,7 +1366,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1417,7 +1379,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1460,7 +1421,6 @@ $result_trees{'kbdinputstyle'} = {
                                 }
                               ],
                               'cmdname' => 'kbd',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1474,7 +1434,6 @@ $result_trees{'kbdinputstyle'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1488,7 +1447,6 @@ $result_trees{'kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1525,7 +1483,6 @@ $result_trees{'kbdinputstyle'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1560,7 +1517,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1574,7 +1530,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1601,7 +1556,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1636,7 +1590,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'kbd',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1654,7 +1607,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1697,7 +1649,6 @@ $result_trees{'kbdinputstyle'} = {
                                     }
                                   ],
                                   'cmdname' => 'kbd',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -1711,7 +1662,6 @@ $result_trees{'kbdinputstyle'} = {
                             }
                           ],
                           'cmdname' => 'r',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1725,7 +1675,6 @@ $result_trees{'kbdinputstyle'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

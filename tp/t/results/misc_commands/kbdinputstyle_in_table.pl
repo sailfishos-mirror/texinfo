@@ -232,7 +232,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'extra' => {
                     'code' => 1
                   },
@@ -350,13 +349,11 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'extra' => {
                     'code' => 1
                   },
@@ -481,7 +478,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -498,7 +494,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'contents' => [
                     {
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'extra' => {
                         'code' => 1
                       },
@@ -610,13 +605,11 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'extra' => {
                         'code' => 1
                       },
@@ -828,7 +821,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'extra' => {
                     'code' => 1
                   },
@@ -946,13 +938,11 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'extra' => {
                     'code' => 1
                   },
@@ -1077,7 +1067,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1094,7 +1083,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'contents' => [
                     {
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1202,13 +1190,11 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1416,7 +1402,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1530,13 +1515,11 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1657,7 +1640,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1674,7 +1656,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'contents' => [
                     {
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1782,13 +1763,11 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

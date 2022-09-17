@@ -47,7 +47,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -73,7 +72,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -136,7 +134,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -151,7 +148,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -167,7 +163,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -211,7 +206,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -226,12 +220,10 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -247,7 +239,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -291,7 +282,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -306,17 +296,14 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -332,7 +319,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -376,7 +362,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -391,22 +376,18 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -422,7 +403,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -466,7 +446,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -502,7 +481,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -553,7 +531,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -578,7 +555,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -594,7 +570,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -645,7 +620,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -670,12 +644,10 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -691,7 +663,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -741,7 +712,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -766,17 +736,14 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -792,7 +759,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -842,7 +808,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -887,13 +852,11 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -944,7 +907,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -979,7 +941,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -995,7 +956,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1045,7 +1005,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1080,12 +1039,10 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1101,7 +1058,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1151,7 +1107,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1207,7 +1162,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1257,7 +1211,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1302,7 +1255,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1318,7 +1270,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1368,7 +1319,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1440,7 +1390,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1490,7 +1439,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1515,7 +1463,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1541,7 +1488,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1591,7 +1537,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1616,7 +1561,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1631,7 +1575,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1647,7 +1590,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1697,7 +1639,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1722,7 +1663,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1764,7 +1704,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1814,7 +1753,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1839,12 +1777,10 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1870,7 +1806,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1920,7 +1855,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1935,7 +1869,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1960,13 +1893,11 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2010,7 +1941,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2025,7 +1955,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2040,7 +1969,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2056,7 +1984,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2100,7 +2027,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2115,7 +2041,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2130,12 +2055,10 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2151,7 +2074,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2195,7 +2117,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2210,7 +2131,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2246,7 +2166,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2290,7 +2209,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2305,7 +2223,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2330,7 +2247,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2346,7 +2262,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2390,7 +2305,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2405,7 +2319,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2457,7 +2370,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2501,7 +2413,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2516,12 +2427,10 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2547,7 +2456,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2591,7 +2499,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2606,12 +2513,10 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2626,7 +2531,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2642,7 +2546,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2686,7 +2589,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2701,12 +2603,10 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2748,7 +2648,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2792,7 +2691,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2807,17 +2705,14 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2843,7 +2738,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2899,7 +2793,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2914,7 +2807,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -2933,7 +2825,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -2977,7 +2868,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2992,12 +2882,10 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -3013,7 +2901,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -3057,7 +2944,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3072,7 +2958,6 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -3101,7 +2986,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -3141,7 +3025,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3156,13 +3039,11 @@ $result_trees{'ref_error_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {},
               'parent' => {},
               'source_info' => {
@@ -3218,7 +3099,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3270,7 +3150,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -3320,7 +3199,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3346,7 +3224,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -3396,7 +3273,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3435,7 +3311,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -3485,7 +3360,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3510,7 +3384,6 @@ $result_trees{'ref_error_formatting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -3526,7 +3399,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [

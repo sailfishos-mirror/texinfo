@@ -423,7 +423,6 @@ $result_trees{'macro_in_early_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

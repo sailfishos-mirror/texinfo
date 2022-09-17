@@ -12,7 +12,6 @@ $result_trees{'node_in_copying_not_closed'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -82,7 +81,6 @@ $result_trees{'node_in_copying_not_closed'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

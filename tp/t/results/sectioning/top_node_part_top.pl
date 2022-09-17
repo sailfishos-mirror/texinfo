@@ -121,7 +121,6 @@ $result_trees{'top_node_part_top'} = [
                 }
               ],
               'cmdname' => 'top',
-              'contents' => [],
               'extra' => {
                 'associated_part' => {},
                 'spaces_before_argument' => ' '

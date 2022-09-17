@@ -13,7 +13,6 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
           'contents' => [
             {
               'cmdname' => 'code',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -43,7 +42,6 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
           'contents' => [
             {
               'cmdname' => '~',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },

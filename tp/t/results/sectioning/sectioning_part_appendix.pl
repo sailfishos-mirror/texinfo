@@ -9,7 +9,6 @@ $result_trees{'sectioning_part_appendix'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -392,7 +391,6 @@ $result_trees{'sectioning_part_appendix'} = [
                 }
               ],
               'cmdname' => 'appendixsec',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },

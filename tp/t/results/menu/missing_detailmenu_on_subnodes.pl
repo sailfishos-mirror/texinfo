@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'missing_detailmenu_on_subnodes'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -81,7 +79,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -496,7 +493,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -547,7 +543,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -687,7 +682,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -764,7 +758,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -815,7 +808,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1012,7 +1004,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1089,7 +1080,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1130,7 +1120,6 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         }
       ],
       'cmdname' => 'unnumberedsec',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

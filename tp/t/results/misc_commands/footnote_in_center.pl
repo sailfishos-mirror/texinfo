@@ -46,7 +46,6 @@ $result_trees{'footnote_in_center'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'extra' => {
                                 'spaces_after_argument' => '
 '
@@ -63,7 +62,6 @@ $result_trees{'footnote_in_center'} = {
                                   'contents' => [
                                     {
                                       'cmdname' => 'asis',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -224,7 +222,6 @@ $result_trees{'footnote_in_center'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

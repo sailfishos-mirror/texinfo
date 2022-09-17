@@ -96,7 +96,6 @@ $result_trees{'split_chapter_index'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -211,7 +210,6 @@ $result_trees{'split_chapter_index'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -351,7 +349,6 @@ $result_trees{'split_chapter_index'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -797,7 +794,6 @@ $result_trees{'split_chapter_index'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -937,7 +933,6 @@ $result_trees{'split_chapter_index'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -988,7 +983,6 @@ $result_trees{'split_chapter_index'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1222,7 +1216,6 @@ $result_trees{'split_chapter_index'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

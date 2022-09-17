@@ -186,7 +186,6 @@ $result_trees{'cindex_in_caption'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

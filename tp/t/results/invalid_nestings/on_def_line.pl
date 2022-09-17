@@ -32,7 +32,6 @@ $result_trees{'on_def_line'} = {
                             }
                           ],
                           'cmdname' => 'anchor',
-                          'contents' => [],
                           'extra' => {
                             'node_content' => [
                               {}
@@ -80,7 +79,6 @@ $result_trees{'on_def_line'} = {
                         }
                       ],
                       'cmdname' => 'titlefont',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -119,7 +117,6 @@ $result_trees{'on_def_line'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -223,7 +220,6 @@ $result_trees{'on_def_line'} = {
                             }
                           ],
                           'cmdname' => 'anchor',
-                          'contents' => [],
                           'extra' => {
                             'node_content' => [
                               {}
@@ -271,7 +267,6 @@ $result_trees{'on_def_line'} = {
                         }
                       ],
                       'cmdname' => 'titlefont',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -310,7 +305,6 @@ $result_trees{'on_def_line'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },

@@ -25,7 +25,6 @@ $result_trees{'accent_with_text'} = {
                 }
               ],
               'cmdname' => 'u',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -51,7 +50,6 @@ $result_trees{'accent_with_text'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -85,7 +83,6 @@ $result_trees{'accent_with_text'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -99,7 +96,6 @@ $result_trees{'accent_with_text'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -133,7 +129,6 @@ $result_trees{'accent_with_text'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -147,7 +142,6 @@ $result_trees{'accent_with_text'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -173,7 +167,6 @@ $result_trees{'accent_with_text'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -12,7 +12,6 @@ $result_trees{'recursive_copying'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

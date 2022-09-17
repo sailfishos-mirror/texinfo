@@ -14,7 +14,6 @@ $result_trees{'anchor_in_titlepage'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -48,7 +47,6 @@ $result_trees{'anchor_in_titlepage'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -137,7 +135,6 @@ $result_trees{'anchor_in_titlepage'} = {
         }
       ],
       'cmdname' => 'top',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },
@@ -214,7 +211,6 @@ $result_trees{'anchor_in_titlepage'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },
@@ -266,7 +262,6 @@ $result_trees{'anchor_in_titlepage'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

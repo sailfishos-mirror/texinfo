@@ -1084,6 +1084,7 @@ sub _convert($$;$)
             $manual_arg_index = 2;
           }
           if (defined($element->{'args'}->[$manual_arg_index])
+              and $element->{'args'}->[$manual_arg_index]->{'contents'}
               and @{$element->{'args'}->[$manual_arg_index]->{'contents'}}) {
             $manual = Texinfo::Convert::Text::convert_to_text({'contents'
                      => $element->{'args'}->[$manual_arg_index]->{'contents'}},

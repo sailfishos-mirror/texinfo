@@ -23,7 +23,6 @@ $result_trees{'raw_in_para'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -93,7 +92,6 @@ $result_trees{'raw_in_para'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -177,7 +175,6 @@ $result_trees{'raw_in_para'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

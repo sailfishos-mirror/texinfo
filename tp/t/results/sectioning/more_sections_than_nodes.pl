@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'more_sections_than_nodes'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'more_sections_than_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -81,7 +79,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -371,7 +368,6 @@ $result_trees{'more_sections_than_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -521,7 +517,6 @@ $result_trees{'more_sections_than_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -590,7 +585,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '
@@ -766,7 +760,6 @@ $result_trees{'more_sections_than_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -982,7 +975,6 @@ $result_trees{'more_sections_than_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -1012,7 +1004,6 @@ $result_trees{'more_sections_than_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1102,7 +1093,6 @@ $result_trees{'more_sections_than_nodes'} = {
         }
       ],
       'cmdname' => 'appendix',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

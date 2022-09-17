@@ -37,7 +37,6 @@ $result_trees{'two_nodes_at_the_end'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -88,7 +87,6 @@ $result_trees{'two_nodes_at_the_end'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -379,7 +377,6 @@ $result_trees{'two_nodes_at_the_end'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -539,7 +536,6 @@ $result_trees{'two_nodes_at_the_end'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

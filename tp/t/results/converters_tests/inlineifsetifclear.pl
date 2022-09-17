@@ -38,7 +38,6 @@ $result_trees{'inlineifsetifclear'} = {
                 }
               ],
               'cmdname' => 'inlineifclear',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'aaa'
@@ -80,13 +79,11 @@ $result_trees{'inlineifsetifclear'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineifset',
-              'contents' => [],
               'extra' => {
                 'format' => 'aaa'
               },
@@ -157,13 +154,11 @@ $result_trees{'inlineifsetifclear'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineifclear',
-              'contents' => [],
               'extra' => {
                 'format' => 'aaa'
               },
@@ -218,7 +213,6 @@ $result_trees{'inlineifsetifclear'} = {
                 }
               ],
               'cmdname' => 'inlineifset',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'aaa'

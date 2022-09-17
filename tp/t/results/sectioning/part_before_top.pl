@@ -73,7 +73,6 @@ $result_trees{'part_before_top'} = [
                 }
               ],
               'cmdname' => 'top',
-              'contents' => [],
               'extra' => {
                 'associated_part' => {},
                 'spaces_before_argument' => ' '

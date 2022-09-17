@@ -32,7 +32,6 @@ $result_trees{'style_not_closed_before_first_node'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

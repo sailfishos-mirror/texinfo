@@ -100,7 +100,6 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -226,7 +225,6 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

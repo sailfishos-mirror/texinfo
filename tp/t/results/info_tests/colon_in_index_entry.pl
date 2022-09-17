@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'colon_in_index_entry'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -128,7 +127,6 @@ $result_trees{'colon_in_index_entry'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

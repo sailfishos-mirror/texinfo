@@ -15,7 +15,6 @@ $result_trees{'table_on_item_line'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -53,7 +52,6 @@ $result_trees{'table_on_item_line'} = {
                                   'contents' => [
                                     {
                                       'cmdname' => 'asis',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -74,7 +72,6 @@ $result_trees{'table_on_item_line'} = {
                               'cmdname' => 'table',
                               'contents' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'before_item'
                                 }

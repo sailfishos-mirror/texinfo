@@ -12,7 +12,6 @@ $result_trees{'nested_ignore'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -81,7 +80,6 @@ $result_trees{'nested_ignore'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -150,7 +148,6 @@ $result_trees{'nested_ignore'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '

@@ -397,7 +397,6 @@ $result_trees{'sections_test_no_use_nodes_use_node_directions'} = {
         }
       ],
       'cmdname' => 'appendixsec',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

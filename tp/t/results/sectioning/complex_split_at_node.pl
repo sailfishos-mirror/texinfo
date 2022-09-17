@@ -9,7 +9,6 @@ $result_trees{'complex_split_at_node'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -59,7 +58,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -96,7 +94,6 @@ $result_trees{'complex_split_at_node'} = [
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -110,7 +107,6 @@ $result_trees{'complex_split_at_node'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -528,7 +524,6 @@ $result_trees{'complex_split_at_node'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -558,7 +553,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -633,7 +627,6 @@ $result_trees{'complex_split_at_node'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -905,7 +898,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -956,7 +948,6 @@ $result_trees{'complex_split_at_node'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -1267,7 +1258,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1344,7 +1334,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1421,7 +1410,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1498,7 +1486,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1575,7 +1562,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1626,7 +1612,6 @@ $result_trees{'complex_split_at_node'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -1766,7 +1751,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1849,7 +1833,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1921,12 +1904,10 @@ $result_trees{'complex_split_at_node'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -2024,7 +2005,6 @@ $result_trees{'complex_split_at_node'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -2175,7 +2155,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -2306,7 +2285,6 @@ $result_trees{'complex_split_at_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -2418,7 +2396,6 @@ $result_trees{'complex_split_at_node'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },

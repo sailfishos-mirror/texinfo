@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'nodename_parentheses'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -81,7 +79,6 @@ $result_trees{'nodename_parentheses'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -350,7 +347,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -444,7 +440,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -512,7 +507,6 @@ $result_trees{'nodename_parentheses'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -576,7 +570,6 @@ $result_trees{'nodename_parentheses'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -650,7 +643,6 @@ $result_trees{'nodename_parentheses'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -744,7 +736,6 @@ $result_trees{'nodename_parentheses'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}

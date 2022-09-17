@@ -37,7 +37,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -88,7 +87,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -379,7 +377,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -522,7 +519,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -563,7 +559,6 @@ $result_trees{'two_nodes_between_chapters'} = [
                 }
               ],
               'cmdname' => 'chapter',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },

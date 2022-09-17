@@ -159,7 +159,6 @@ $result_trees{'bad_enumerate_arguments'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

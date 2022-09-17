@@ -15,7 +15,6 @@ $result_trees{'title_and_itemx_before_item'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

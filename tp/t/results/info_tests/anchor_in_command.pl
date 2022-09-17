@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'anchor_in_command'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -50,13 +49,11 @@ $result_trees{'anchor_in_command'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'TeX',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -82,7 +79,6 @@ $result_trees{'anchor_in_command'} = {
                         }
                       ],
                       'cmdname' => 'emph',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -139,7 +135,6 @@ $result_trees{'anchor_in_command'} = {
                                 }
                               ],
                               'cmdname' => 'anchor',
-                              'contents' => [],
                               'extra' => {
                                 'node_content' => [
                                   {}
@@ -159,7 +154,6 @@ $result_trees{'anchor_in_command'} = {
                         }
                       ],
                       'cmdname' => 'emph',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -173,7 +167,6 @@ $result_trees{'anchor_in_command'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

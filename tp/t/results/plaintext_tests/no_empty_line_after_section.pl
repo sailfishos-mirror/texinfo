@@ -189,7 +189,6 @@ $result_trees{'no_empty_line_after_section'} = {
                 }
               ],
               'cmdname' => 'uref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

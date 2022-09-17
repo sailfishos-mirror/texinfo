@@ -14,7 +14,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -105,7 +104,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'extra' => {
                         'spaces_before_argument' => '
 '
@@ -238,7 +236,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -323,7 +320,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -463,7 +459,6 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

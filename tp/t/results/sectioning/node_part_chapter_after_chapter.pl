@@ -9,7 +9,6 @@ $result_trees{'node_part_chapter_after_chapter'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -31,7 +30,6 @@ $result_trees{'node_part_chapter_after_chapter'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -82,7 +80,6 @@ $result_trees{'node_part_chapter_after_chapter'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -363,7 +360,6 @@ $result_trees{'node_part_chapter_after_chapter'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

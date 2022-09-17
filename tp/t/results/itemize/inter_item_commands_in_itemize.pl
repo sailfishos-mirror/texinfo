@@ -36,7 +36,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -113,7 +112,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -167,7 +165,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
               'contents' => [
                 {
                   'cmdname' => 'minus',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -335,7 +332,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -564,7 +560,6 @@ $result_trees{'inter_item_commands_in_itemize'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }

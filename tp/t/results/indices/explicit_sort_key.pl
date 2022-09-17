@@ -36,7 +36,6 @@ $result_trees{'explicit_sort_key'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -62,7 +61,6 @@ $result_trees{'explicit_sort_key'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -168,7 +166,6 @@ $result_trees{'explicit_sort_key'} = {
                     }
                   ],
                   'cmdname' => 'sortas',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -238,7 +235,6 @@ $result_trees{'explicit_sort_key'} = {
                     }
                   ],
                   'cmdname' => 'sortas',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -308,7 +304,6 @@ $result_trees{'explicit_sort_key'} = {
                     }
                   ],
                   'cmdname' => 'sortas',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -386,7 +381,6 @@ $result_trees{'explicit_sort_key'} = {
                             }
                           ],
                           'cmdname' => 'sortas',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -400,7 +394,6 @@ $result_trees{'explicit_sort_key'} = {
                     }
                   ],
                   'cmdname' => 'b',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -467,7 +460,6 @@ $result_trees{'explicit_sort_key'} = {
                 }
               ],
               'cmdname' => 'sortas',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -501,7 +493,6 @@ $result_trees{'explicit_sort_key'} = {
                         }
                       ],
                       'cmdname' => 'sortas',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -515,7 +506,6 @@ $result_trees{'explicit_sort_key'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -562,7 +552,6 @@ $result_trees{'explicit_sort_key'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -576,7 +565,6 @@ $result_trees{'explicit_sort_key'} = {
                 }
               ],
               'cmdname' => 'sortas',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -611,7 +599,6 @@ $result_trees{'explicit_sort_key'} = {
                         }
                       ],
                       'cmdname' => 'sortas',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -625,7 +612,6 @@ $result_trees{'explicit_sort_key'} = {
                 }
               ],
               'cmdname' => 'url',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -103,7 +103,6 @@ $result_trees{'set_form_feed'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'equivalent_nodes'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'equivalent_nodes'} = {
                 }
               ],
               'cmdname' => 'emph',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -69,7 +67,6 @@ $result_trees{'equivalent_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -103,7 +100,6 @@ $result_trees{'equivalent_nodes'} = {
                         }
                       ],
                       'cmdname' => 'strong',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -245,7 +241,6 @@ $result_trees{'equivalent_nodes'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -286,7 +281,6 @@ $result_trees{'equivalent_nodes'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

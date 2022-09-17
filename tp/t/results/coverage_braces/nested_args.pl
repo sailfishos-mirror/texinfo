@@ -37,7 +37,6 @@ $result_trees{'nested_args'} = {
                         }
                       ],
                       'cmdname' => 'samp',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -69,7 +68,6 @@ $result_trees{'nested_args'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -104,7 +102,6 @@ $result_trees{'nested_args'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -139,7 +136,6 @@ $result_trees{'nested_args'} = {
                         }
                       ],
                       'cmdname' => 'cite',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -157,7 +153,6 @@ $result_trees{'nested_args'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [

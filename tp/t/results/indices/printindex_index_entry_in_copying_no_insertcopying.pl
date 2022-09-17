@@ -14,7 +14,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -338,7 +337,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'contents' => [
                         {
                           'cmdname' => 'asis',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -603,7 +601,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -671,7 +668,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -811,7 +807,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [

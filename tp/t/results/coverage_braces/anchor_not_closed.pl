@@ -30,7 +30,6 @@ $result_trees{'anchor_not_closed'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',

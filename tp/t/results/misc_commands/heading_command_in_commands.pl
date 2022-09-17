@@ -60,7 +60,6 @@ $result_trees{'heading_command_in_commands'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -86,7 +85,6 @@ $result_trees{'heading_command_in_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -177,7 +175,6 @@ $result_trees{'heading_command_in_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -54,7 +54,6 @@ $result_trees{'definfoenclose_on_table_line'} = {
               'contents' => [
                 {
                   'cmdname' => 'phi',
-                  'contents' => [],
                   'extra' => {
                     'begin' => ':',
                     'end' => ':'

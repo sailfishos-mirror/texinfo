@@ -121,7 +121,6 @@ $result_trees{'encoding_index_ascii'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -188,7 +187,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '\'',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -214,7 +212,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '\'',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -273,7 +270,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -299,7 +295,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -321,7 +316,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -343,7 +337,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -402,7 +395,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -428,7 +420,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -450,7 +441,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -472,7 +462,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -494,7 +483,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1690,13 +1678,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'l',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1744,13 +1730,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'L',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1809,7 +1793,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => 'dotless',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1835,7 +1818,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => 'dotless',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1902,7 +1884,6 @@ $result_trees{'encoding_index_ascii'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1916,7 +1897,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1946,7 +1926,6 @@ $result_trees{'encoding_index_ascii'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1960,7 +1939,6 @@ $result_trees{'encoding_index_ascii'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2012,13 +1990,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'ss',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2066,13 +2042,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'euro',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2120,13 +2094,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'AE',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2174,13 +2146,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'exclamdown',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2228,13 +2198,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'TH',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2282,13 +2250,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'DH',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2336,13 +2302,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'textdegree',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2472,13 +2436,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'quotedblleft',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2526,13 +2488,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'geq',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2580,13 +2540,11 @@ $result_trees{'encoding_index_ascii'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'comma',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

@@ -12,7 +12,6 @@ $result_trees{'section_in_copying'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -76,7 +75,6 @@ $result_trees{'section_in_copying'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

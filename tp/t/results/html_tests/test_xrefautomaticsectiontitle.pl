@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'test_xrefautomaticsectiontitle'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -81,7 +79,6 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -221,7 +218,6 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -322,7 +318,6 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -407,7 +402,6 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

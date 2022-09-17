@@ -37,7 +37,6 @@ $result_trees{'chapter_node_before_and_after_part'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -88,7 +87,6 @@ $result_trees{'chapter_node_before_and_after_part'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -264,7 +262,6 @@ $result_trees{'chapter_node_before_and_after_part'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

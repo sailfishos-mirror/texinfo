@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'comment_on_menu_line'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'comment_on_menu_line'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -211,7 +209,6 @@ $result_trees{'comment_on_menu_line'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },
@@ -240,7 +237,6 @@ $result_trees{'comment_on_menu_line'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

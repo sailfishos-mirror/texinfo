@@ -12,7 +12,6 @@ $result_trees{'false_format_not_closed'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -24,7 +23,6 @@ $result_trees{'false_format_not_closed'} = {
           'cmdname' => 'html',
           'contents' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'elided_block'
             },

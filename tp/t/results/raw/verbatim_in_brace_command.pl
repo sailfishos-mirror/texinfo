@@ -26,7 +26,6 @@ $result_trees{'verbatim_in_brace_command'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -41,7 +40,6 @@ $result_trees{'verbatim_in_brace_command'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

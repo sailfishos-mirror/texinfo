@@ -37,7 +37,6 @@ $result_trees{'ifset_in_command'} = {
                 }
               ],
               'cmdname' => 'file',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

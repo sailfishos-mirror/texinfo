@@ -74,7 +74,6 @@ $result_trees{'weird_accents'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -151,7 +150,6 @@ $result_trees{'weird_accents'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -223,7 +221,6 @@ $result_trees{'weird_accents'} = {
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -237,7 +234,6 @@ $result_trees{'weird_accents'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -251,7 +247,6 @@ $result_trees{'weird_accents'} = {
                 }
               ],
               'cmdname' => '=',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -298,7 +293,6 @@ $result_trees{'weird_accents'} = {
                                 }
                               ],
                               'cmdname' => '~',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -312,7 +306,6 @@ $result_trees{'weird_accents'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -326,7 +319,6 @@ $result_trees{'weird_accents'} = {
                 }
               ],
               'cmdname' => '=',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -369,7 +361,6 @@ $result_trees{'weird_accents'} = {
                         }
                       ],
                       'cmdname' => 'ubaraccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -383,7 +374,6 @@ $result_trees{'weird_accents'} = {
                 }
               ],
               'cmdname' => '=',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -430,7 +420,6 @@ $result_trees{'weird_accents'} = {
                                 }
                               ],
                               'cmdname' => '`',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -444,7 +433,6 @@ $result_trees{'weird_accents'} = {
                         }
                       ],
                       'cmdname' => 'udotaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -458,7 +446,6 @@ $result_trees{'weird_accents'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -505,7 +492,6 @@ $result_trees{'weird_accents'} = {
                                 }
                               ],
                               'cmdname' => '`',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -519,7 +505,6 @@ $result_trees{'weird_accents'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -533,7 +518,6 @@ $result_trees{'weird_accents'} = {
                 }
               ],
               'cmdname' => '=',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

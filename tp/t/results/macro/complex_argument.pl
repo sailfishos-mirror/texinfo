@@ -254,7 +254,6 @@ $result_trees{'complex_argument'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => '%'
               },
@@ -381,7 +380,6 @@ $result_trees{'complex_argument'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -438,7 +436,6 @@ $result_trees{'complex_argument'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -629,7 +626,6 @@ $result_trees{'complex_argument'} = {
                 }
               ],
               'cmdname' => 'emph',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

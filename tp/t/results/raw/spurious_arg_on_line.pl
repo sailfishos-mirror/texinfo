@@ -182,7 +182,6 @@ $result_trees{'spurious_arg_on_line'} = {
           'cmdname' => 'html',
           'contents' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'elided_block'
             },

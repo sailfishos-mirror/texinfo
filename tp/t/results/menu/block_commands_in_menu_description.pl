@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'block_commands_in_menu_description'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'block_commands_in_menu_description'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -81,7 +79,6 @@ $result_trees{'block_commands_in_menu_description'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -141,7 +138,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                           'contents' => [
                             {
                               'cmdname' => 'bullet',
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'command_as_argument_inserted'
                             }
@@ -256,7 +252,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                           'contents' => [
                             {
                               'cmdname' => 'asis',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -409,7 +404,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'extra' => {
                                 'spaces_after_argument' => '
 '
@@ -487,7 +481,6 @@ $result_trees{'block_commands_in_menu_description'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '

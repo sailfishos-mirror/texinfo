@@ -35,7 +35,6 @@ $result_trees{'protect_spaces_on_line'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -61,7 +60,6 @@ $result_trees{'protect_spaces_on_line'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -87,7 +85,6 @@ $result_trees{'protect_spaces_on_line'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -120,7 +117,6 @@ $result_trees{'protect_spaces_on_line'} = {
                         }
                       ],
                       'cmdname' => 'samp',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -146,7 +142,6 @@ $result_trees{'protect_spaces_on_line'} = {
                         }
                       ],
                       'cmdname' => 'w',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

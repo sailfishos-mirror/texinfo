@@ -12,7 +12,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -340,7 +339,6 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

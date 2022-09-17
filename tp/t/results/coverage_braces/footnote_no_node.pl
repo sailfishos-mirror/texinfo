@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'footnote_no_node'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -63,7 +62,6 @@ $result_trees{'footnote_no_node'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

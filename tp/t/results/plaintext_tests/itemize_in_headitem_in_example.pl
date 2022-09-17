@@ -12,7 +12,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -29,7 +28,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'command_as_argument_inserted'
                     }
@@ -124,7 +122,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'command_as_argument_inserted'
                     }
@@ -243,7 +240,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'command_as_argument_inserted'
                     }
@@ -368,7 +364,6 @@ $result_trees{'itemize_in_headitem_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'command_as_argument_inserted'
                     }

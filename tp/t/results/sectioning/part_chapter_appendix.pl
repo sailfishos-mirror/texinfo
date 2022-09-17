@@ -110,7 +110,6 @@ $result_trees{'part_chapter_appendix'} = {
         }
       ],
       'cmdname' => 'appendix',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

@@ -18,7 +18,6 @@ $result_trees{'braces_in_tex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -120,7 +119,6 @@ $result_trees{'braces_in_tex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -136,7 +134,6 @@ $result_trees{'braces_in_tex'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '

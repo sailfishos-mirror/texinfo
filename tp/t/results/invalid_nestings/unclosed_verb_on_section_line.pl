@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'unclosed_verb_on_section_line'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -48,7 +47,6 @@ $result_trees{'unclosed_verb_on_section_line'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => 'T'
               },
@@ -65,7 +63,6 @@ $result_trees{'unclosed_verb_on_section_line'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'double_top_in_menu'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -62,7 +61,6 @@ $result_trees{'double_top_in_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -272,7 +270,6 @@ $result_trees{'double_top_in_menu'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },

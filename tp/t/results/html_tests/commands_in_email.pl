@@ -22,13 +22,11 @@ $result_trees{'commands_in_email'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'enddots',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -54,7 +52,6 @@ $result_trees{'commands_in_email'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -68,7 +65,6 @@ $result_trees{'commands_in_email'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

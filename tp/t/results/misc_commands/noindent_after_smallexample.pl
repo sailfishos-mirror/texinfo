@@ -23,7 +23,6 @@ $result_trees{'noindent_after_smallexample'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

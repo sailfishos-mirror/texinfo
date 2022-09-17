@@ -37,7 +37,6 @@ $result_trees{'brace_opened_no_command'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

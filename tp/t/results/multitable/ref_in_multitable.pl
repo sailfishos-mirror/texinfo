@@ -53,7 +53,6 @@ $result_trees{'ref_in_multitable'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -190,7 +189,6 @@ $result_trees{'ref_in_multitable'} = {
                                 }
                               ],
                               'cmdname' => 'ref',
-                              'contents' => [],
                               'extra' => {
                                 'node_argument' => {
                                   'node_content' => [
@@ -293,7 +291,6 @@ $result_trees{'ref_in_multitable'} = {
                                 }
                               ],
                               'cmdname' => 'ref',
-                              'contents' => [],
                               'extra' => {
                                 'node_argument' => {
                                   'node_content' => [
@@ -377,7 +374,6 @@ $result_trees{'ref_in_multitable'} = {
                                             }
                                           ],
                                           'cmdname' => 'ref',
-                                          'contents' => [],
                                           'extra' => {
                                             'node_argument' => {
                                               'node_content' => [
@@ -404,7 +400,6 @@ $result_trees{'ref_in_multitable'} = {
                                 }
                               ],
                               'cmdname' => 'footnote',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -542,7 +537,6 @@ $result_trees{'ref_in_multitable'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [

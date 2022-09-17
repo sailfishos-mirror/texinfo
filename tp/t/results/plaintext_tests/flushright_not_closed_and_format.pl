@@ -12,7 +12,6 @@ $result_trees{'flushright_not_closed_and_format'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -43,7 +42,6 @@ $result_trees{'flushright_not_closed_and_format'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => ' 
 '

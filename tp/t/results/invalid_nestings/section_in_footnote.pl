@@ -37,7 +37,6 @@ $result_trees{'section_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '
 '
@@ -75,7 +74,6 @@ $result_trees{'section_in_footnote'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

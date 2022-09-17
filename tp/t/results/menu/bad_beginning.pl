@@ -12,7 +12,6 @@ $result_trees{'bad_beginning'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -60,7 +59,6 @@ $result_trees{'bad_beginning'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

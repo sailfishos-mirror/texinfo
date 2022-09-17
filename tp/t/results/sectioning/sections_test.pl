@@ -397,7 +397,6 @@ $result_trees{'sections_test'} = {
         }
       ],
       'cmdname' => 'appendixsec',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

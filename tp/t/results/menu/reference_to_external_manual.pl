@@ -47,7 +47,6 @@ $result_trees{'reference_to_external_manual'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

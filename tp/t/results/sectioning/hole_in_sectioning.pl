@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'hole_in_sectioning'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -174,7 +173,6 @@ $result_trees{'hole_in_sectioning'} = {
         }
       ],
       'cmdname' => 'subsection',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

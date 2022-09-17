@@ -67,7 +67,6 @@ $result_trees{'references_to_top_no_top_output'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -102,7 +101,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -195,7 +193,6 @@ $result_trees{'references_to_top_no_top_output'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -274,7 +271,6 @@ $result_trees{'references_to_top_no_top_output'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}
@@ -320,7 +316,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -375,7 +370,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                             }
                           ],
                           'cmdname' => 'anchor',
-                          'contents' => [],
                           'extra' => {
                             'node_content' => [
                               {}
@@ -399,7 +393,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -496,7 +489,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -543,7 +535,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                             }
                           ],
                           'cmdname' => 'anchor',
-                          'contents' => [],
                           'extra' => {
                             'node_content' => [
                               {}
@@ -567,7 +558,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -734,7 +724,6 @@ $result_trees{'references_to_top_no_top_output'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -799,7 +788,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -835,7 +823,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -871,7 +858,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -907,7 +893,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -943,7 +928,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -979,7 +963,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -1156,7 +1139,6 @@ $result_trees{'references_to_top_no_top_output'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

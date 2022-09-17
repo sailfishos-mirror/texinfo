@@ -16,7 +16,6 @@ $result_trees{'empty_comment'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'comment_at_end' => {
                           'args' => [

@@ -33,7 +33,6 @@ $result_trees{'uref_with_commands_characters'} = {
                         }
                       ],
                       'cmdname' => 'strong',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -86,13 +85,11 @@ $result_trees{'uref_with_commands_characters'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'LaTeX',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -106,7 +103,6 @@ $result_trees{'uref_with_commands_characters'} = {
                         }
                       ],
                       'cmdname' => 'strong',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -123,7 +119,6 @@ $result_trees{'uref_with_commands_characters'} = {
                 }
               ],
               'cmdname' => 'uref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

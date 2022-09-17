@@ -12,7 +12,6 @@ $result_trees{'comment_first_on_enumerate_line'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [

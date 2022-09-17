@@ -12,7 +12,6 @@ $result_trees{'line_breaks'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '
@@ -211,7 +210,6 @@ $result_trees{'line_breaks'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

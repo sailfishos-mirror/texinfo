@@ -100,7 +100,6 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -112,7 +111,6 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
           'cmdname' => 'html',
           'contents' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'elided_block'
             },
@@ -220,7 +218,6 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -232,7 +229,6 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'elided_block'
             },

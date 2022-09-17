@@ -59,7 +59,6 @@ $result_trees{'simple'} = {
                 }
               ],
               'cmdname' => 'b',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

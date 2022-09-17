@@ -52,7 +52,6 @@ $result_trees{'footnote'} = {
                             }
                           ],
                           'cmdname' => 'r',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -74,7 +73,6 @@ $result_trees{'footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

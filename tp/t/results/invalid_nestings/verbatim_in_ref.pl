@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'verbatim_in_ref'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -52,7 +51,6 @@ $result_trees{'verbatim_in_ref'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' 
 '
@@ -62,7 +60,6 @@ $result_trees{'verbatim_in_ref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -77,7 +74,6 @@ $result_trees{'verbatim_in_ref'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

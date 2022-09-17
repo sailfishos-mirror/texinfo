@@ -66,7 +66,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -92,7 +91,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -118,7 +116,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -149,7 +146,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -175,7 +171,6 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                     }
                   ],
                   'cmdname' => '~',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

@@ -74,7 +74,6 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -125,7 +124,6 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -265,7 +263,6 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -329,7 +326,6 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -414,7 +410,6 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

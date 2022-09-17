@@ -54,7 +54,6 @@ $result_trees{'topic_guide'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -127,7 +126,6 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -324,7 +322,6 @@ $result_trees{'topic_guide'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -392,7 +389,6 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -684,7 +680,6 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -916,7 +911,6 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1154,7 +1148,6 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1311,7 +1304,6 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1481,7 +1473,6 @@ $result_trees{'topic_guide'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },
@@ -1532,7 +1523,6 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1771,7 +1761,6 @@ $result_trees{'topic_guide'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1839,7 +1828,6 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

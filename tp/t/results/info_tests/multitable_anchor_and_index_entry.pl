@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'multitable_anchor_and_index_entry'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -343,7 +342,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                 }
                               ],
                               'cmdname' => 'anchor',
-                              'contents' => [],
                               'extra' => {
                                 'node_content' => [
                                   {}
@@ -763,7 +761,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                 }
                               ],
                               'cmdname' => 'anchor',
-                              'contents' => [],
                               'extra' => {
                                 'node_content' => [
                                   {}
@@ -940,7 +937,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -976,7 +972,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

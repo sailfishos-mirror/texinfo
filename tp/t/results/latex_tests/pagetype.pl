@@ -83,7 +83,6 @@ $result_trees{'pagetype'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -160,7 +159,6 @@ $result_trees{'pagetype'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

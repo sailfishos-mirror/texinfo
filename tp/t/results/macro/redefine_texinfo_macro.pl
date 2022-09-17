@@ -93,7 +93,6 @@ $result_trees{'redefine_texinfo_macro'} = {
                 }
               ],
               'cmdname' => 'emph',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -114,7 +114,6 @@ $result_trees{'ref_to_float'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
@@ -216,7 +215,6 @@ $result_trees{'ref_to_float'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -264,7 +262,6 @@ $result_trees{'ref_to_float'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

@@ -14,7 +14,6 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -48,7 +47,6 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -140,7 +138,6 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -217,7 +214,6 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -281,7 +277,6 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -352,7 +347,6 @@ $result_trees{'anchor_in_copying_insertcopying_chap'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

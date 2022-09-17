@@ -12,7 +12,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -65,7 +64,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -201,7 +199,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -283,7 +280,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -377,7 +373,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -496,7 +491,6 @@ $result_trees{'enumerate_and_empty_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

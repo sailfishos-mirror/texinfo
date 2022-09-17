@@ -51,7 +51,6 @@ $result_trees{'brace_in_index'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -77,7 +76,6 @@ $result_trees{'brace_in_index'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -204,7 +202,6 @@ $result_trees{'brace_in_index'} = {
                     }
                   ],
                   'cmdname' => 'math',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -268,7 +265,6 @@ $result_trees{'brace_in_index'} = {
                     }
                   ],
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

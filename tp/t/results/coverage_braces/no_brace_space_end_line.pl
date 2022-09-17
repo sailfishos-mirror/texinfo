@@ -25,7 +25,6 @@ $result_trees{'no_brace_space_end_line'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -55,7 +54,6 @@ $result_trees{'no_brace_space_end_line'} = {
           'contents' => [
             {
               'cmdname' => 'TeX',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '
@@ -74,7 +72,6 @@ $result_trees{'no_brace_space_end_line'} = {
             },
             {
               'cmdname' => 'code',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '

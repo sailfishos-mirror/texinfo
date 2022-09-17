@@ -75,7 +75,6 @@ $result_trees{'syncode_index_print_both'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -152,7 +151,6 @@ $result_trees{'syncode_index_print_both'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [

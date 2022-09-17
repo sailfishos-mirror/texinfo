@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'bad_ifset_argument'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     }

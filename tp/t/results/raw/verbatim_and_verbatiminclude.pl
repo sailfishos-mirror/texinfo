@@ -12,7 +12,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -86,7 +85,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -160,7 +158,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -185,7 +182,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -302,7 +298,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -412,7 +407,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -568,7 +562,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -599,7 +592,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -717,7 +709,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -748,7 +739,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -860,7 +850,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -891,7 +880,6 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

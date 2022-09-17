@@ -50,7 +50,6 @@ $result_trees{'in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'xref',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -123,7 +122,6 @@ $result_trees{'in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -179,7 +177,6 @@ $result_trees{'in_table'} = {
                                 }
                               ],
                               'cmdname' => 'titlefont',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -205,7 +202,6 @@ $result_trees{'in_table'} = {
                                 }
                               ],
                               'cmdname' => 'anchor',
-                              'contents' => [],
                               'extra' => {
                                 'node_content' => [
                                   {}
@@ -239,7 +235,6 @@ $result_trees{'in_table'} = {
                                 }
                               ],
                               'cmdname' => 'footnote',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -327,7 +322,6 @@ $result_trees{'in_table'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -373,7 +367,6 @@ $result_trees{'in_table'} = {
                                   'type' => 'brace_command_arg'
                                 },
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 },
@@ -393,7 +386,6 @@ $result_trees{'in_table'} = {
                                 }
                               ],
                               'cmdname' => 'ref',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -628,7 +620,6 @@ $result_trees{'in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -747,7 +738,6 @@ $result_trees{'in_table'} = {
                             }
                           ],
                           'cmdname' => 'option',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -876,7 +866,6 @@ $result_trees{'in_table'} = {
                             }
                           ],
                           'cmdname' => 'option',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',

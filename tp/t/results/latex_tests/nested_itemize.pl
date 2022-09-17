@@ -20,7 +20,6 @@ $result_trees{'nested_itemize'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }
@@ -105,7 +104,6 @@ $result_trees{'nested_itemize'} = {
                       'contents' => [
                         {
                           'cmdname' => 'bullet',
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'command_as_argument_inserted'
                         }
@@ -190,7 +188,6 @@ $result_trees{'nested_itemize'} = {
                               'contents' => [
                                 {
                                   'cmdname' => 'bullet',
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'command_as_argument_inserted'
                                 }
@@ -275,7 +272,6 @@ $result_trees{'nested_itemize'} = {
                                       'contents' => [
                                         {
                                           'cmdname' => 'bullet',
-                                          'contents' => [],
                                           'parent' => {},
                                           'type' => 'command_as_argument_inserted'
                                         }

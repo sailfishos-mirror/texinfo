@@ -50,7 +50,6 @@ $result_trees{'verb_not_closed_with_char'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => '*'
               },

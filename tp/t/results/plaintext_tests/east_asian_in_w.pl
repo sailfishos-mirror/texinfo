@@ -77,7 +77,6 @@ $result_trees{'east_asian_in_w'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'east_asian_in_w.texi',

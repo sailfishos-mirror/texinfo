@@ -9,7 +9,6 @@ $result_trees{'part_node_node_part_appendix'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -31,7 +30,6 @@ $result_trees{'part_node_node_part_appendix'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -82,7 +80,6 @@ $result_trees{'part_node_node_part_appendix'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -315,7 +312,6 @@ $result_trees{'part_node_node_part_appendix'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -393,7 +389,6 @@ $result_trees{'part_node_node_part_appendix'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -470,7 +465,6 @@ $result_trees{'part_node_node_part_appendix'} = [
                 }
               ],
               'cmdname' => 'appendix',
-              'contents' => [],
               'extra' => {
                 'associated_part' => {},
                 'spaces_before_argument' => ' '

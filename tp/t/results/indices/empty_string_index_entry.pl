@@ -36,7 +36,6 @@ $result_trees{'empty_string_index_entry'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -91,13 +90,11 @@ $result_trees{'empty_string_index_entry'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'w',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -150,7 +147,6 @@ $result_trees{'empty_string_index_entry'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -181,13 +177,11 @@ $result_trees{'empty_string_index_entry'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'w',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -315,13 +309,11 @@ $result_trees{'empty_string_index_entry'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'w',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -350,7 +342,6 @@ $result_trees{'empty_string_index_entry'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -371,7 +362,6 @@ $result_trees{'empty_string_index_entry'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -459,13 +449,11 @@ $result_trees{'empty_string_index_entry'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'w',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -494,7 +482,6 @@ $result_trees{'empty_string_index_entry'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -515,7 +502,6 @@ $result_trees{'empty_string_index_entry'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },

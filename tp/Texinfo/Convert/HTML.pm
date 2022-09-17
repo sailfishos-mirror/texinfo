@@ -1042,10 +1042,9 @@ sub command_text($$;$)
           return '';
         }
       } else {
-        if (!$command->{'args'}->[0]->{'contents'}) {
-          cluck "No misc_content: "
-            .Texinfo::Common::debug_print_element($command);
-        }
+        my $section_arg_contents = [];
+        $section_arg_contents = $command->{'args'}->[0]->{'contents'}
+          if $command->{'args'}->[0]->{'contents'};
         if (defined($command->{'structure'}->{'section_number'})
             and ($self->get_conf('NUMBER_SECTIONS')
                  or !defined($self->get_conf('NUMBER_SECTIONS')))) {
@@ -1055,22 +1054,20 @@ sub command_text($$;$)
                              {'number'
                                 => {'text' => $command->{'structure'}->{'section_number'}},
                               'section_title'
-                                => {'contents'
-                                    => $command->{'args'}->[0]->{'contents'}}});
+                                => {'contents' => $section_arg_contents}});
           } else {
             $tree = $self->gdt('{number} {section_title}',
                              {'number'
                                 => {'text' => $command->{'structure'}->{'section_number'}},
                               'section_title'
-                                => {'contents'
-                                    => $command->{'args'}->[0]->{'contents'}}});
+                                => {'contents' => $section_arg_contents}});
           }
         } else {
-          $tree = {'contents' => [@{$command->{'args'}->[0]->{'contents'}}]};
+          $tree = {'contents' => $section_arg_contents};
         }
 
         $target->{'tree_nonumber'}
-          = {'contents' => $command->{'args'}->[0]->{'contents'}};
+          = {'contents' => $section_arg_contents};
       }
       $target->{'tree'} = $tree;
     } else {
@@ -5673,8 +5670,8 @@ sub _convert_row_type($$$$) {
   return $content if ($self->in_string());
   if ($content =~ /\S/) {
     my $result = '<tr>' . $content . '</tr>';
-    my $row_cmdname = $element->{'contents'}->[0]->{'cmdname'};
-    if ($row_cmdname ne 'headitem') {
+    if ($element->{'contents'}
+        and $element->{'contents'}->[0]->{'cmdname'} ne 'headitem') {
       # if headitem, end of line added in _convert_multitable_head_type
       $result .= "\n";
     }
@@ -10167,7 +10164,7 @@ sub _convert($$;$)
         $result .= &{$self->{'commands_open'}->{$command_name}}($self,
                                                  $command_name, $element);
       }
-      my $content_formatted;
+      my $content_formatted = '';
       if ($element->{'contents'}) {
         if ($convert_to_latex) {
           $content_formatted
@@ -10175,7 +10172,6 @@ sub _convert($$;$)
                                 {'contents' => $element->{'contents'}},
                                          $self->{'options_latex_math'});
         } else {
-          $content_formatted = '';
           my $content_idx = 0;
           foreach my $content (@{$element->{'contents'}}) {
             $content_formatted .= _convert($self, $content, "$command_type c[$content_idx]");
@@ -10339,13 +10335,12 @@ sub _convert($$;$)
       $self->{'document_context'}->[-1]->{'string'}++;
     }
 
-    my $content_formatted;
+    my $content_formatted = '';
     if ($type_name eq 'definfoenclose_command') {
       if ($element->{'args'}) {
         $content_formatted = $self->_convert($element->{'args'}->[0]);
       }
     } elsif ($element->{'contents'}) {
-      $content_formatted = '';
       my $content_idx = 0;
       foreach my $content (@{$element->{'contents'}}) {
         $content_formatted .= _convert($self, $content, "$command_type c[$content_idx]");
@@ -10358,7 +10353,6 @@ sub _convert($$;$)
                                                  $type_name,
                                                  $element,
                                                  $content_formatted);
-      #print STDERR "Converting type $type_name -> $result\n";
     } elsif (defined($content_formatted)) {
       $result = $content_formatted;
     }

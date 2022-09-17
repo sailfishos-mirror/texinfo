@@ -79,7 +79,6 @@ $result_trees{'shorttitlepage'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -156,7 +155,6 @@ $result_trees{'shorttitlepage'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

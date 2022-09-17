@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'shortcontents_no_top'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },

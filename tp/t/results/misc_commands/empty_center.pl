@@ -12,7 +12,6 @@ $result_trees{'empty_center'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '

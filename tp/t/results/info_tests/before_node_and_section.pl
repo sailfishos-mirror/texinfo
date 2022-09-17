@@ -34,7 +34,6 @@ $result_trees{'before_node_and_section'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -54,7 +53,6 @@ $result_trees{'before_node_and_section'} = {
                     }
                   ],
                   'cmdname' => 'node',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -160,7 +158,6 @@ $result_trees{'before_node_and_section'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -191,7 +188,6 @@ $result_trees{'before_node_and_section'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -223,7 +219,6 @@ $result_trees{'before_node_and_section'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -409,7 +404,6 @@ $result_trees{'before_node_and_section'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -443,7 +437,6 @@ $result_trees{'before_node_and_section'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -472,7 +465,6 @@ $result_trees{'before_node_and_section'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -612,7 +604,6 @@ $result_trees{'before_node_and_section'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [

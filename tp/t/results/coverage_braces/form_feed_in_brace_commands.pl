@@ -25,7 +25,6 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'option',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -51,7 +50,6 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -115,7 +113,6 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -153,7 +150,6 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' 
 '
@@ -204,7 +200,6 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '  '
               },

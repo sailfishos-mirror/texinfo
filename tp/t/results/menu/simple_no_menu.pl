@@ -35,7 +35,6 @@ $result_trees{'simple_no_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

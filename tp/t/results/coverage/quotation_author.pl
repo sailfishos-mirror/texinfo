@@ -12,7 +12,6 @@ $result_trees{'quotation_author'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -87,7 +86,6 @@ $result_trees{'quotation_author'} = {
                             }
                           ],
                           'cmdname' => '~',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',

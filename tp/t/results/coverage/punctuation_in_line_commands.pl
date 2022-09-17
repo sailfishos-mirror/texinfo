@@ -37,7 +37,6 @@ $result_trees{'punctuation_in_line_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -92,7 +91,6 @@ $result_trees{'punctuation_in_line_commands'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -364,7 +362,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                 }
               ],
               'cmdname' => 'shortcaption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -499,7 +496,6 @@ $result_trees{'punctuation_in_line_commands'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -708,7 +704,6 @@ $result_trees{'punctuation_in_line_commands'} = {
             }
           ],
           'cmdname' => 'titlefont',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',

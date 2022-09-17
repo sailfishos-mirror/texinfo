@@ -16,7 +16,6 @@ $result_trees{'empty'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => ' 
 '

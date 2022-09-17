@@ -14,7 +14,6 @@ $result_trees{'titlepage_and_headings'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

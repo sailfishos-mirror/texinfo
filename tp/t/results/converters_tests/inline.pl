@@ -44,7 +44,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -88,7 +87,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'plaintext'
@@ -132,7 +130,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'xml'
@@ -176,7 +173,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'docbook'
@@ -206,13 +202,11 @@ $result_trees{'inline'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'format' => 'tex'
               },
@@ -285,7 +279,6 @@ $result_trees{'inline'} = {
                                     }
                                   ],
                                   'cmdname' => 'code',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -323,7 +316,6 @@ $result_trees{'inline'} = {
                         }
                       ],
                       'cmdname' => 'math',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -344,7 +336,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'latex'
@@ -406,7 +397,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -450,7 +440,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'plaintext'
@@ -494,7 +483,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'xml'
@@ -538,7 +526,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'docbook'
@@ -568,13 +555,11 @@ $result_trees{'inline'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'format' => 'tex'
               },
@@ -643,7 +628,6 @@ $result_trees{'inline'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -688,7 +672,6 @@ $result_trees{'inline'} = {
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'latex'

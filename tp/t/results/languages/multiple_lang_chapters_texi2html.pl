@@ -127,7 +127,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -178,7 +177,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -575,7 +573,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -643,7 +640,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -896,7 +892,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -964,7 +959,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -1217,7 +1211,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1492,7 +1485,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1598,7 +1590,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1666,7 +1657,6 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

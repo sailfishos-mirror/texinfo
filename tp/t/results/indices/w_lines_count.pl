@@ -36,7 +36,6 @@ $result_trees{'w_lines_count'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -63,7 +62,6 @@ $result_trees{'w_lines_count'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -105,7 +103,6 @@ $result_trees{'w_lines_count'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -119,7 +116,6 @@ $result_trees{'w_lines_count'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -203,7 +199,6 @@ $result_trees{'w_lines_count'} = {
                 }
               ],
               'cmdname' => 'key',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -229,7 +224,6 @@ $result_trees{'w_lines_count'} = {
                 }
               ],
               'cmdname' => 'key',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

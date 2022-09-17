@@ -32,7 +32,6 @@ $result_trees{'unclosed_verb_on_misc_line'} = {
                     }
                   ],
                   'cmdname' => 'verb',
-                  'contents' => [],
                   'extra' => {
                     'delimiter' => 'f'
                   },

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'all_commands_delimiters_printindex'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -67,7 +66,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -100,7 +98,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -269,7 +266,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -310,7 +306,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -376,7 +371,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -712,7 +706,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -753,7 +746,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -819,7 +811,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1068,7 +1059,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1124,7 +1114,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1336,7 +1325,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1392,7 +1380,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1520,7 +1507,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1561,7 +1547,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1627,7 +1612,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -2054,7 +2038,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -2124,7 +2107,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -2494,7 +2476,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -2535,7 +2516,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -2601,7 +2581,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -2927,7 +2906,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -2968,7 +2946,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -3034,7 +3011,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -3344,7 +3320,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -3385,7 +3360,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -3451,7 +3425,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -3662,7 +3635,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -3793,7 +3765,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -3834,7 +3805,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -3900,7 +3870,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -4207,7 +4176,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -4248,7 +4216,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -4314,7 +4281,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -4522,7 +4488,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -4653,7 +4618,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -4694,7 +4658,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -4760,7 +4723,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -4969,7 +4931,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -5187,7 +5148,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -5416,7 +5376,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -5634,7 +5593,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -5841,7 +5799,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -6059,7 +6016,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -6288,7 +6244,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -6506,7 +6461,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -6713,7 +6667,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -6931,7 +6884,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -7160,7 +7112,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -7378,7 +7329,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -7585,7 +7535,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -7769,7 +7718,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -7812,7 +7760,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -7859,7 +7806,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -8183,7 +8129,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -8216,7 +8161,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -8249,7 +8193,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -8282,7 +8225,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -8406,7 +8348,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -8439,7 +8380,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -8472,7 +8412,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -8505,7 +8444,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -8629,7 +8567,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -8662,7 +8599,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -8695,7 +8631,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -8728,7 +8663,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -8852,7 +8786,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -8885,7 +8818,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -8918,7 +8850,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -8951,7 +8882,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -9075,7 +9005,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -9108,7 +9037,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -9141,7 +9069,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -9174,7 +9101,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -9207,7 +9133,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -9332,7 +9257,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -9365,7 +9289,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -9398,7 +9321,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -9431,7 +9353,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -9464,7 +9385,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -9589,7 +9509,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -9622,7 +9541,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -9655,7 +9573,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -9688,7 +9605,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -9721,7 +9637,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -9846,7 +9761,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -9879,7 +9793,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 't',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -9912,7 +9825,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -9945,7 +9857,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -9978,7 +9889,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -10103,7 +10013,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -10136,7 +10045,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -10169,7 +10077,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -10202,7 +10109,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -10326,7 +10232,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -10359,7 +10264,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -10392,7 +10296,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -10425,7 +10328,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -10549,7 +10451,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -10582,7 +10483,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'class'
                       },
@@ -10615,7 +10515,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -10648,7 +10547,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -10681,7 +10579,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -10806,7 +10703,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -10839,7 +10735,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -10872,7 +10767,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -10905,7 +10799,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -10938,7 +10831,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -11062,7 +10954,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -11095,7 +10986,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'class'
                       },
@@ -11127,7 +11017,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -11160,7 +11049,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -11192,7 +11080,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -11225,7 +11112,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -11359,7 +11245,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -11392,7 +11277,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'class'
                       },
@@ -11424,7 +11308,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'option',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -11457,7 +11340,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -11489,7 +11371,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -11522,7 +11403,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -11656,7 +11536,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -11689,7 +11568,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'class'
                       },
@@ -11721,7 +11599,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -11753,7 +11630,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -11786,7 +11662,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -11919,7 +11794,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -11952,7 +11826,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'class'
                       },
@@ -11984,7 +11857,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -12016,7 +11888,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -12049,7 +11920,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -12182,7 +12052,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -12215,7 +12084,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'class'
                       },
@@ -12247,7 +12115,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -12280,7 +12147,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -12312,7 +12178,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -12345,7 +12210,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -12479,7 +12343,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -12512,7 +12375,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'class'
                       },
@@ -12544,7 +12406,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -12577,7 +12438,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -12609,7 +12469,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -12642,7 +12501,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -12854,7 +12712,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -12887,7 +12744,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -12920,7 +12776,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -12953,7 +12808,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -13156,7 +13010,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -13189,7 +13042,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -13222,7 +13074,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -13255,7 +13106,6 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },

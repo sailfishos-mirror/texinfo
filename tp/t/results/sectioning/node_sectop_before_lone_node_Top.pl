@@ -72,7 +72,6 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -231,7 +230,6 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

@@ -90,7 +90,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'g_f',
@@ -167,7 +166,6 @@ $result_trees{'cpp_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -312,7 +310,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'g_f',
@@ -368,7 +365,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'g_f',
@@ -476,7 +472,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'g_f',
@@ -537,7 +532,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'g_f',
@@ -588,7 +582,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'inc',
@@ -627,7 +620,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'g_f',
@@ -674,7 +666,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -716,7 +707,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'g_f',
@@ -765,7 +755,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '
 '
@@ -824,7 +813,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '
 '
@@ -893,7 +881,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'footnote2',
@@ -952,7 +939,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'email2',
@@ -1011,7 +997,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'email2',
@@ -1056,7 +1041,6 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'email12',

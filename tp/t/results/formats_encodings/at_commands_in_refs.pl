@@ -36,7 +36,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -87,7 +86,6 @@ $result_trees{'at_commands_in_refs'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -324,13 +322,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'atchar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -345,13 +341,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'lbracechar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -366,13 +360,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'rbracechar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -387,13 +379,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'backslashchar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -408,13 +398,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'hashchar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -486,13 +474,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'LaTeX',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -507,13 +493,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'TeX',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -528,13 +512,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -549,13 +531,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -570,13 +550,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'copyright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -591,13 +569,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'dots',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -612,13 +588,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'enddots',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -694,13 +668,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'equiv',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -715,13 +687,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'error',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -736,13 +706,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'euro',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -757,13 +725,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'exclamdown',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -778,13 +744,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'expansion',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -799,13 +763,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'minus',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -879,13 +841,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'geq',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -900,13 +860,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'leq',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -921,13 +879,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'arrow',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -995,13 +951,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ordf',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1016,13 +970,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ordm',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1037,13 +989,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'point',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1058,13 +1008,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'pounds',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1079,13 +1027,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'print',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1100,13 +1046,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'questiondown',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1121,13 +1065,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'registeredsymbol',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1203,13 +1145,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'result',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1224,13 +1164,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'textdegree',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1245,13 +1183,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'tie',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1266,13 +1202,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'today',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1287,13 +1221,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'aa',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1365,13 +1297,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AA',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1386,13 +1316,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ae',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1407,13 +1335,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'oe',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1428,13 +1354,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AE',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1449,13 +1373,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'OE',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1470,13 +1392,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'o',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1491,13 +1411,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'O',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1512,13 +1430,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ss',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1533,13 +1449,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'l',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1554,13 +1468,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'L',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1575,13 +1487,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'DH',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1596,13 +1506,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'dh',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1617,13 +1525,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'TH',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1638,13 +1544,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'th',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1745,7 +1649,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1771,7 +1674,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1801,7 +1703,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -1815,7 +1716,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1841,7 +1741,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1867,7 +1766,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1893,7 +1791,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1919,7 +1816,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1945,7 +1841,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '=',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1971,7 +1866,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'ringaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1997,7 +1891,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'H',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2023,7 +1916,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'ogonek',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2118,7 +2010,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dotaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2144,7 +2035,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'u',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2170,7 +2060,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'ubaraccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2196,7 +2085,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'udotaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2222,7 +2110,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'v',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2248,7 +2135,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2274,7 +2160,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'tieaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2361,7 +2246,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2391,7 +2275,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => '=',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -2405,7 +2288,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2435,7 +2317,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => '\'',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -2449,7 +2330,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2517,13 +2397,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2538,13 +2416,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quotedblright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2559,13 +2435,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quoteleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2580,13 +2454,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quoteright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2601,13 +2473,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quotedblbase',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2622,13 +2492,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quotesinglbase',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2702,13 +2570,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guillemetleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2723,13 +2589,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guillemetright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2744,13 +2608,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guillemotleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2765,13 +2627,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guillemotright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2786,13 +2646,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guilsinglleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2807,13 +2665,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guilsinglright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2968,7 +2824,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2994,7 +2849,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3020,7 +2874,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3112,7 +2965,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'abbr',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3138,7 +2990,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'abbr',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3164,7 +3015,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'abbr',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3264,7 +3114,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'email',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3298,7 +3147,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'email',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3375,7 +3223,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'image',
-                      'contents' => [],
                       'extra' => {
                         'input_perl_encoding' => 'utf-8'
                       },
@@ -3444,7 +3291,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'image',
-                      'contents' => [],
                       'extra' => {
                         'input_perl_encoding' => 'utf-8'
                       },
@@ -3525,7 +3371,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'contents' => [],
                       'extra' => {
                         'delimiter' => '.'
                       },
@@ -3611,7 +3456,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => 'asis',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3625,7 +3469,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'cite',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3667,7 +3510,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => 'b',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3681,7 +3523,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'w',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3707,7 +3548,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3733,7 +3573,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3759,7 +3598,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'strong',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3785,7 +3623,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 't',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3811,7 +3648,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3837,7 +3673,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dfn',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3863,7 +3698,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'i',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3954,7 +3788,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'env',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3980,7 +3813,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4006,7 +3838,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'option',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4032,7 +3863,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'samp',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4058,7 +3888,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'command',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4084,7 +3913,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'file',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4118,7 +3946,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => 'key',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -4132,7 +3959,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4223,7 +4049,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dmn',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4299,7 +4124,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'sansserif',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4325,7 +4149,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'slanted',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4402,7 +4225,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'indicateurl',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4477,7 +4299,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'sub',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4503,7 +4324,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'sup',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4580,7 +4400,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'url',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4619,7 +4438,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'url',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4644,7 +4462,6 @@ $result_trees{'at_commands_in_refs'} = {
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
@@ -4660,7 +4477,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'uref',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4804,7 +4620,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -4969,7 +4784,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -5131,13 +4945,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'atchar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5152,13 +4964,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'lbracechar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5173,13 +4983,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'rbracechar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5194,13 +5002,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'backslashchar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5215,13 +5021,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'hashchar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5239,7 +5043,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -5285,13 +5088,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'atchar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5306,13 +5107,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'lbracechar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5327,13 +5126,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'rbracechar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5348,13 +5145,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'backslashchar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5369,13 +5164,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'hashchar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5418,13 +5211,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'LaTeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5439,13 +5230,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'TeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5460,13 +5249,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'bullet',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5481,13 +5268,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'comma',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5502,13 +5287,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'copyright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5523,13 +5306,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dots',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5544,13 +5325,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'enddots',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5568,7 +5347,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -5622,13 +5400,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'LaTeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5643,13 +5419,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'TeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5664,13 +5438,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'bullet',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5685,13 +5457,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'comma',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5706,13 +5476,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'copyright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5727,13 +5495,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dots',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5748,13 +5514,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'enddots',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5797,13 +5561,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'equiv',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5818,13 +5580,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'error',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5839,13 +5599,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'euro',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5860,13 +5618,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'exclamdown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5881,13 +5637,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'expansion',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5902,13 +5656,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'minus',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5926,7 +5678,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -5976,13 +5727,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'equiv',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -5997,13 +5746,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'error',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6018,13 +5765,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'euro',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6039,13 +5784,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'exclamdown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6060,13 +5803,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'expansion',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6081,13 +5822,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'minus',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6130,13 +5869,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'geq',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6151,13 +5888,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'leq',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6172,13 +5907,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'arrow',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6196,7 +5929,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -6234,13 +5966,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'geq',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6255,13 +5985,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'leq',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6276,13 +6004,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'arrow',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6325,13 +6051,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ordf',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6346,13 +6070,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ordm',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6367,13 +6089,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'point',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6388,13 +6108,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'pounds',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6409,13 +6127,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'print',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6430,13 +6146,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'questiondown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6451,13 +6165,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'registeredsymbol',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6475,7 +6187,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -6529,13 +6240,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ordf',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6550,13 +6259,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ordm',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6571,13 +6278,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'point',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6592,13 +6297,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'pounds',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6613,13 +6316,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'print',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6634,13 +6335,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'questiondown',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6655,13 +6354,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'registeredsymbol',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6704,13 +6401,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'result',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6725,13 +6420,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'textdegree',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6746,13 +6439,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'tie',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6767,13 +6458,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'today',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6788,13 +6477,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'aa',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6812,7 +6499,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -6858,13 +6544,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'result',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6879,13 +6563,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'textdegree',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6900,13 +6582,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'tie',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6921,13 +6601,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'today',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6942,13 +6620,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'aa',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -6991,13 +6667,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AA',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7012,13 +6686,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ae',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7033,13 +6705,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'oe',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7054,13 +6724,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AE',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7075,13 +6743,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'OE',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7096,13 +6762,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'o',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7117,13 +6781,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'O',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7138,13 +6800,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ss',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7159,13 +6819,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'l',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7180,13 +6838,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'L',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7201,13 +6857,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'DH',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7222,13 +6876,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dh',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7243,13 +6895,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'TH',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7264,13 +6914,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'th',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7288,7 +6936,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -7370,13 +7017,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AA',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7391,13 +7036,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ae',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7412,13 +7055,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'oe',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7433,13 +7074,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AE',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7454,13 +7093,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'OE',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7475,13 +7112,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'o',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7496,13 +7131,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'O',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7517,13 +7150,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ss',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7538,13 +7169,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'l',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7559,13 +7188,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'L',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7580,13 +7207,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'DH',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7601,13 +7226,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dh',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7622,13 +7245,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'TH',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7643,13 +7264,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'th',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7703,7 +7322,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7729,7 +7347,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7759,7 +7376,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -7773,7 +7389,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7799,7 +7414,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7825,7 +7439,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7851,7 +7464,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '\'',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7877,7 +7489,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7903,7 +7514,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '=',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7929,7 +7539,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7955,7 +7564,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'H',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7981,7 +7589,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ogonek',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -7999,7 +7606,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -8080,7 +7686,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '"',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8106,7 +7711,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8136,7 +7740,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -8150,7 +7753,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8176,7 +7778,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8202,7 +7803,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8228,7 +7828,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '\'',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8254,7 +7853,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8280,7 +7878,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '=',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8306,7 +7903,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8332,7 +7928,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'H',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8358,7 +7953,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ogonek',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8412,7 +8006,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dotaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8438,7 +8031,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'u',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8464,7 +8056,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ubaraccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8490,7 +8081,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'udotaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8516,7 +8106,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'v',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8542,7 +8131,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8568,7 +8156,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'tieaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8586,7 +8173,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -8651,7 +8237,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dotaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8677,7 +8262,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'u',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8703,7 +8287,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ubaraccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8729,7 +8312,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'udotaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8755,7 +8337,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'v',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8781,7 +8362,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8807,7 +8387,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'tieaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8861,7 +8440,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8891,7 +8469,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '=',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -8905,7 +8482,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8935,7 +8511,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -8949,7 +8524,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -8967,7 +8541,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -9016,7 +8589,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9046,7 +8618,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '=',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -9060,7 +8631,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => '`',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9090,7 +8660,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -9104,7 +8673,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => ',',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9147,13 +8715,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotedblleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9168,13 +8734,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotedblright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9189,13 +8753,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quoteleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9210,13 +8772,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quoteright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9231,13 +8791,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotedblbase',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9252,13 +8810,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotesinglbase',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9276,7 +8832,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -9326,13 +8881,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotedblleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9347,13 +8900,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotedblright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9368,13 +8919,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quoteleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9389,13 +8938,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quoteright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9410,13 +8957,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotedblbase',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9431,13 +8976,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotesinglbase',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9480,13 +9023,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guillemetleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9501,13 +9042,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guillemetright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9522,13 +9061,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guillemotleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9543,13 +9080,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guillemotright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9564,13 +9099,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guilsinglleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9585,13 +9118,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guilsinglright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9609,7 +9140,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -9659,13 +9189,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guillemetleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9680,13 +9208,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guillemetright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9701,13 +9227,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guillemotleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9722,13 +9246,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guillemotright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9743,13 +9265,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guilsinglleft',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9764,13 +9284,11 @@ $result_trees{'at_commands_in_refs'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'guilsinglright',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9824,7 +9342,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -9914,7 +9431,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9940,7 +9456,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9966,7 +9481,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -9984,7 +9498,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -10046,7 +9559,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10072,7 +9584,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10098,7 +9609,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10165,7 +9675,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10191,7 +9700,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10217,7 +9725,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10235,7 +9742,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -10297,7 +9803,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10323,7 +9828,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10349,7 +9853,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10424,7 +9927,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10458,7 +9960,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10476,7 +9977,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -10542,7 +10042,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10576,7 +10075,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -10630,7 +10128,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'image',
-              'contents' => [],
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
@@ -10699,7 +10196,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'image',
-              'contents' => [],
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
@@ -10720,7 +10216,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -10765,7 +10260,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'image',
-              'contents' => [],
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
@@ -10834,7 +10328,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'image',
-              'contents' => [],
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
@@ -10892,7 +10385,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => '.'
               },
@@ -10913,7 +10405,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -10955,7 +10446,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => '.'
               },
@@ -11020,7 +10510,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -11034,7 +10523,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'cite',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11076,7 +10564,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -11090,7 +10577,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11116,7 +10602,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'r',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11142,7 +10627,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11168,7 +10652,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11194,7 +10677,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 't',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11220,7 +10702,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11246,7 +10727,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dfn',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11272,7 +10752,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'i',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11290,7 +10769,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -11371,7 +10849,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -11385,7 +10862,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'cite',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11427,7 +10903,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -11441,7 +10916,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11467,7 +10941,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'r',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11493,7 +10966,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11519,7 +10991,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11545,7 +11016,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 't',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11571,7 +11041,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11597,7 +11066,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dfn',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11623,7 +11091,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'i',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11677,7 +11144,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'env',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11703,7 +11169,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11729,7 +11194,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'option',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11755,7 +11219,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11781,7 +11244,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'command',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11807,7 +11269,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'file',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11841,7 +11302,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'key',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -11855,7 +11315,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11873,7 +11332,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -11938,7 +11396,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'env',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11964,7 +11421,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -11990,7 +11446,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'option',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12016,7 +11471,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12042,7 +11496,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'command',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12068,7 +11521,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'file',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12102,7 +11554,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'key',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -12116,7 +11567,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12174,7 +11624,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dmn',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12192,7 +11641,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -12239,7 +11687,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'dmn',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12293,7 +11740,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'sansserif',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12319,7 +11765,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'slanted',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12337,7 +11782,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -12382,7 +11826,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'sansserif',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12408,7 +11851,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'slanted',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12462,7 +11904,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'indicateurl',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12480,7 +11921,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -12521,7 +11961,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'indicateurl',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12575,7 +12014,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'sub',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12601,7 +12039,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'sup',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12619,7 +12056,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -12664,7 +12100,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'sub',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12690,7 +12125,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'sup',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12744,7 +12178,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'url',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12783,7 +12216,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'url',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12808,7 +12240,6 @@ $result_trees{'at_commands_in_refs'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -12824,7 +12255,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'uref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12842,7 +12272,6 @@ $result_trees{'at_commands_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -12891,7 +12320,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'url',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12930,7 +12358,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'url',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -12955,7 +12382,6 @@ $result_trees{'at_commands_in_refs'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -12971,7 +12397,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'uref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -13028,7 +12453,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -13144,7 +12568,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -13201,13 +12624,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'atchar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13222,13 +12643,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'lbracechar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13243,13 +12662,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'rbracechar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13264,13 +12681,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'backslashchar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13285,13 +12700,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'hashchar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13305,7 +12718,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -13354,13 +12766,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'LaTeX',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13375,13 +12785,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'TeX',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13396,13 +12804,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13417,13 +12823,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13438,13 +12842,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'copyright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13459,13 +12861,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'dots',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13480,13 +12880,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'enddots',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13500,7 +12898,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -13553,13 +12950,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'equiv',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13574,13 +12969,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'error',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13595,13 +12988,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'euro',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13616,13 +13007,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'exclamdown',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13637,13 +13026,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'expansion',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13658,13 +13045,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'minus',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13678,7 +13063,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -13729,13 +13113,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'geq',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13750,13 +13132,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'leq',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13771,13 +13151,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'arrow',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13791,7 +13169,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -13836,13 +13213,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ordf',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13857,13 +13232,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ordm',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13878,13 +13251,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'point',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13899,13 +13270,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'pounds',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13920,13 +13289,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'print',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13941,13 +13308,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'questiondown',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13962,13 +13327,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'registeredsymbol',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -13982,7 +13345,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -14035,13 +13397,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'result',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14056,13 +13416,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'textdegree',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14077,13 +13435,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'tie',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14098,13 +13454,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'today',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14119,13 +13473,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'aa',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14139,7 +13491,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -14188,13 +13539,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AA',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14209,13 +13558,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ae',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14230,13 +13577,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'oe',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14251,13 +13596,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AE',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14272,13 +13615,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'OE',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14293,13 +13634,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'o',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14314,13 +13653,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'O',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14335,13 +13672,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ss',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14356,13 +13691,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'l',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14377,13 +13710,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'L',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14398,13 +13729,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'DH',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14419,13 +13748,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'dh',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14440,13 +13767,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'TH',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14461,13 +13786,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'th',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14481,7 +13804,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -14559,7 +13881,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14585,7 +13906,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14615,7 +13935,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -14629,7 +13948,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14655,7 +13973,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14681,7 +13998,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14707,7 +14023,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14733,7 +14048,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14759,7 +14073,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '=',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14785,7 +14098,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'ringaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14811,7 +14123,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'H',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14837,7 +14148,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'ogonek',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14851,7 +14161,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -14923,7 +14232,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dotaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14949,7 +14257,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'u',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -14975,7 +14282,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'ubaraccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15001,7 +14307,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'udotaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15027,7 +14332,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'v',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15053,7 +14357,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15079,7 +14382,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'tieaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15093,7 +14395,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -15157,7 +14458,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15187,7 +14487,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => '=',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -15201,7 +14500,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15231,7 +14529,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => '\'',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -15245,7 +14542,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15259,7 +14555,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -15304,13 +14599,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quotedblleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15325,13 +14618,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quotedblright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15346,13 +14637,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quoteleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15367,13 +14656,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quoteright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15388,13 +14675,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quotedblbase',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15409,13 +14694,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'quotesinglbase',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15429,7 +14712,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -15480,13 +14762,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guillemetleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15501,13 +14781,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guillemetright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15522,13 +14800,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guillemotleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15543,13 +14819,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guillemotright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15564,13 +14838,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guilsinglleft',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15585,13 +14857,11 @@ $result_trees{'at_commands_in_refs'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'guilsinglright',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15605,7 +14875,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -15663,7 +14932,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -15728,7 +14996,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15754,7 +15021,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15780,7 +15046,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15794,7 +15059,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -15863,7 +15127,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'abbr',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15889,7 +15152,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'abbr',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15915,7 +15177,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'abbr',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -15929,7 +15190,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -16006,7 +15266,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'email',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16040,7 +15299,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'email',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16054,7 +15312,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -16108,7 +15365,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'image',
-                      'contents' => [],
                       'extra' => {
                         'input_perl_encoding' => 'utf-8'
                       },
@@ -16177,7 +15433,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'image',
-                      'contents' => [],
                       'extra' => {
                         'input_perl_encoding' => 'utf-8'
                       },
@@ -16194,7 +15449,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -16249,7 +15503,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'contents' => [],
                       'extra' => {
                         'delimiter' => '.'
                       },
@@ -16266,7 +15519,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -16326,7 +15578,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => 'asis',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -16340,7 +15591,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'cite',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16382,7 +15632,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => 'b',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -16396,7 +15645,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'w',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16422,7 +15670,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16448,7 +15695,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16474,7 +15720,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'strong',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16500,7 +15745,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 't',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16526,7 +15770,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16552,7 +15795,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dfn',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16578,7 +15820,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'i',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16592,7 +15833,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -16660,7 +15900,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'env',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16686,7 +15925,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16712,7 +15950,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'option',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16738,7 +15975,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'samp',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16764,7 +16000,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'command',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16790,7 +16025,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'file',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16824,7 +16058,6 @@ $result_trees{'at_commands_in_refs'} = {
                                 }
                               ],
                               'cmdname' => 'key',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -16838,7 +16071,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16852,7 +16084,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -16920,7 +16151,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'dmn',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -16934,7 +16164,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -16987,7 +16216,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'sansserif',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -17013,7 +16241,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'slanted',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -17027,7 +16254,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -17081,7 +16307,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'indicateurl',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -17095,7 +16320,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -17147,7 +16371,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'sub',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -17173,7 +16396,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'sup',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -17187,7 +16409,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -17241,7 +16462,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'url',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -17280,7 +16500,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'url',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -17305,7 +16524,6 @@ $result_trees{'at_commands_in_refs'} = {
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
@@ -17321,7 +16539,6 @@ $result_trees{'at_commands_in_refs'} = {
                         }
                       ],
                       'cmdname' => 'uref',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -17335,7 +16552,6 @@ $result_trees{'at_commands_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

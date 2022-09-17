@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'block_commands_in_table'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'block_commands_in_table'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -84,7 +82,6 @@ $result_trees{'block_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -242,7 +239,6 @@ $result_trees{'block_commands_in_table'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -424,7 +420,6 @@ $result_trees{'block_commands_in_table'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -544,7 +539,6 @@ $result_trees{'block_commands_in_table'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -664,7 +658,6 @@ $result_trees{'block_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -911,7 +904,6 @@ $result_trees{'block_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'r',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1128,7 +1120,6 @@ $result_trees{'block_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

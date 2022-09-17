@@ -61,7 +61,6 @@ $result_trees{'seealso_duplicate'} = {
                     }
                   ],
                   'cmdname' => 'command',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -149,7 +148,6 @@ $result_trees{'seealso_duplicate'} = {
                     }
                   ],
                   'cmdname' => 'command',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -215,7 +213,6 @@ $result_trees{'seealso_duplicate'} = {
                                 }
                               ],
                               'cmdname' => 'command',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -229,7 +226,6 @@ $result_trees{'seealso_duplicate'} = {
                         }
                       ],
                       'cmdname' => 'seealso',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

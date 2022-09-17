@@ -118,7 +118,6 @@ $result_trees{'bad_syntax'} = {
         },
         {
           'cmdname' => 'value',
-          'contents' => [],
           'extra' => {
             'flag' => 'unknown'
           },

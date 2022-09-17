@@ -36,7 +36,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -113,7 +112,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -164,7 +162,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -284,7 +281,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -433,7 +429,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -576,7 +571,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -719,7 +713,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -867,7 +860,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

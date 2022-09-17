@@ -23,7 +23,6 @@ $result_trees{'displaymath'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -142,7 +141,6 @@ $result_trees{'displaymath'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -167,7 +165,6 @@ $result_trees{'displaymath'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -193,7 +190,6 @@ $result_trees{'displaymath'} = {
                 }
               ],
               'cmdname' => 'sub',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -219,7 +215,6 @@ $result_trees{'displaymath'} = {
                 }
               ],
               'cmdname' => 'sup',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -289,7 +284,6 @@ $result_trees{'displaymath'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -335,7 +329,6 @@ $result_trees{'displaymath'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -471,7 +464,6 @@ $result_trees{'displaymath'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

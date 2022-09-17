@@ -70,7 +70,6 @@ $result_trees{'uref_accented_letter_ascii'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -92,7 +91,6 @@ $result_trees{'uref_accented_letter_ascii'} = {
                         }
                       ],
                       'cmdname' => 'ogonek',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -106,7 +104,6 @@ $result_trees{'uref_accented_letter_ascii'} = {
                 }
               ],
               'cmdname' => 'uref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

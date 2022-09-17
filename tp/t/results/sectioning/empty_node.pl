@@ -8,14 +8,12 @@ use utf8;
 $result_trees{'empty_node'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -48,7 +46,6 @@ $result_trees{'empty_node'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -95,7 +92,6 @@ $result_trees{'empty_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           undef,

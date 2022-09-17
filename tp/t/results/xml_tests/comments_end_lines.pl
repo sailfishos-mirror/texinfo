@@ -15,7 +15,6 @@ $result_trees{'comments_end_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }
@@ -126,7 +125,6 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -206,7 +204,6 @@ $result_trees{'comments_end_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -333,7 +330,6 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -418,7 +414,6 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -503,7 +498,6 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -883,7 +877,6 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -968,7 +961,6 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -12,7 +12,6 @@ $result_trees{'titlefont_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -37,7 +36,6 @@ $result_trees{'titlefont_in_example'} = {
                 }
               ],
               'cmdname' => 'titlefont',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

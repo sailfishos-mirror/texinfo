@@ -12,7 +12,6 @@ $result_trees{'xml_protected_in_verb'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -89,7 +88,6 @@ $result_trees{'xml_protected_in_verb'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => '.'
               },

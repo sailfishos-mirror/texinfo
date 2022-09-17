@@ -12,7 +12,6 @@ $result_trees{'mathjax_with_texinfo'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -59,13 +58,11 @@ $result_trees{'mathjax_with_texinfo'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'copyright',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -88,7 +85,6 @@ $result_trees{'mathjax_with_texinfo'} = {
                 }
               ],
               'cmdname' => 'sup',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -114,7 +110,6 @@ $result_trees{'mathjax_with_texinfo'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -187,13 +182,11 @@ $result_trees{'mathjax_with_texinfo'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'minus',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -208,13 +201,11 @@ $result_trees{'mathjax_with_texinfo'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'geq',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -229,13 +220,11 @@ $result_trees{'mathjax_with_texinfo'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AA',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -261,7 +250,6 @@ $result_trees{'mathjax_with_texinfo'} = {
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -275,7 +263,6 @@ $result_trees{'mathjax_with_texinfo'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

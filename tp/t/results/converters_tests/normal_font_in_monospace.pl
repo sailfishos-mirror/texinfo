@@ -12,7 +12,6 @@ $result_trees{'normal_font_in_monospace'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -51,7 +50,6 @@ $result_trees{'normal_font_in_monospace'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -65,7 +63,6 @@ $result_trees{'normal_font_in_monospace'} = {
                     }
                   ],
                   'cmdname' => 'r',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -157,7 +154,6 @@ $result_trees{'normal_font_in_monospace'} = {
                                 }
                               ],
                               'cmdname' => 'file',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -171,7 +167,6 @@ $result_trees{'normal_font_in_monospace'} = {
                         }
                       ],
                       'cmdname' => 'r',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -185,7 +180,6 @@ $result_trees{'normal_font_in_monospace'} = {
                 }
               ],
               'cmdname' => 'command',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

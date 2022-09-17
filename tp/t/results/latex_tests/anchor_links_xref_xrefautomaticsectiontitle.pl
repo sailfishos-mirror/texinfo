@@ -64,7 +64,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -135,7 +134,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -204,7 +202,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -291,7 +288,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -362,7 +358,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -431,7 +426,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -508,7 +502,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -544,7 +537,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -580,7 +572,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -616,7 +607,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -695,7 +685,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -731,7 +720,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -767,7 +755,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -803,7 +790,6 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

@@ -26,7 +26,6 @@ $result_trees{'simple'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => '.'
               },

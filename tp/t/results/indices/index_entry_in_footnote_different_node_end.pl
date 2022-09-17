@@ -46,7 +46,6 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -306,7 +305,6 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

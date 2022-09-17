@@ -15,7 +15,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -96,7 +95,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           'contents' => [
                             {
                               'cmdname' => 'bullet',
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'command_as_argument_inserted'
                             }
@@ -194,7 +192,6 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '

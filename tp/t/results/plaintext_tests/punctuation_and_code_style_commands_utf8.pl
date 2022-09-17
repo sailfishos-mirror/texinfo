@@ -56,7 +56,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'command',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -86,7 +85,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -100,7 +98,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -119,13 +116,11 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'aa',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -139,7 +134,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -166,7 +160,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'command',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -196,7 +189,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -210,7 +202,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -229,13 +220,11 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AA',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -249,7 +238,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -276,7 +264,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'command',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -310,7 +297,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -324,7 +310,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -347,13 +332,11 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AA',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -367,7 +350,6 @@ $result_trees{'punctuation_and_code_style_commands_utf8'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

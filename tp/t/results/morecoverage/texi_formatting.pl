@@ -86,7 +86,6 @@ $result_trees{'texi_formatting'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'formatting.texi',
@@ -113,13 +112,11 @@ $result_trees{'texi_formatting'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'TeX',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
@@ -133,7 +130,6 @@ $result_trees{'texi_formatting'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'formatting.texi',
@@ -172,7 +168,6 @@ $result_trees{'texi_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -298,7 +293,6 @@ $result_trees{'texi_formatting'} = {
                                 }
                               ],
                               'cmdname' => '\'',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
@@ -313,13 +307,11 @@ $result_trees{'texi_formatting'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'equiv',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
@@ -333,7 +325,6 @@ $result_trees{'texi_formatting'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'formatting.texi',
@@ -395,7 +386,6 @@ $result_trees{'texi_formatting'} = {
                             }
                           ],
                           'cmdname' => 'asis',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'formatting.texi',
@@ -426,7 +416,6 @@ $result_trees{'texi_formatting'} = {
                             }
                           ],
                           'cmdname' => 'command',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'formatting.texi',
@@ -452,7 +441,6 @@ $result_trees{'texi_formatting'} = {
                             }
                           ],
                           'cmdname' => '`',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'formatting.texi',
@@ -550,7 +538,6 @@ $result_trees{'texi_formatting'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -602,7 +589,6 @@ $result_trees{'texi_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -853,7 +839,6 @@ $result_trees{'texi_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -926,7 +911,6 @@ $result_trees{'texi_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1043,7 +1027,6 @@ $result_trees{'texi_formatting'} = {
                         }
                       ],
                       'cmdname' => '\'',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'formatting.texi',
@@ -1065,7 +1048,6 @@ $result_trees{'texi_formatting'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'formatting.texi',
@@ -1290,7 +1272,6 @@ $result_trees{'texi_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2106,7 +2087,6 @@ $result_trees{'texi_formatting'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2176,7 +2156,6 @@ $result_trees{'texi_formatting'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -2202,7 +2181,6 @@ $result_trees{'texi_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2216,7 +2194,6 @@ $result_trees{'texi_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => ' 
 '
@@ -2243,13 +2220,11 @@ $result_trees{'texi_formatting'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'comma',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'formatting.texi',
@@ -2281,13 +2256,11 @@ $result_trees{'texi_formatting'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'comma',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => 'formatting.texi',
@@ -2472,13 +2445,11 @@ $result_trees{'texi_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'comma',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -2500,7 +2471,6 @@ $result_trees{'texi_formatting'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -2555,7 +2525,6 @@ $result_trees{'texi_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2644,7 +2613,6 @@ $result_trees{'texi_formatting'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -2901,7 +2869,6 @@ $result_trees{'texi_formatting'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2952,7 +2919,6 @@ $result_trees{'texi_formatting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -3134,7 +3100,6 @@ $result_trees{'texi_formatting'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}
@@ -3189,7 +3154,6 @@ $result_trees{'texi_formatting'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3266,7 +3230,6 @@ $result_trees{'texi_formatting'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3343,7 +3306,6 @@ $result_trees{'texi_formatting'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [

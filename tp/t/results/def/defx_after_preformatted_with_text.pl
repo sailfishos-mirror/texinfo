@@ -12,7 +12,6 @@ $result_trees{'defx_after_preformatted_with_text'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -59,7 +58,6 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'extra' => {
                             'def_role' => 'name'
                           },

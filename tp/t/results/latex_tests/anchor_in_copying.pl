@@ -14,7 +14,6 @@ $result_trees{'anchor_in_copying'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -48,7 +47,6 @@ $result_trees{'anchor_in_copying'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -140,7 +138,6 @@ $result_trees{'anchor_in_copying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -217,7 +214,6 @@ $result_trees{'anchor_in_copying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -281,7 +277,6 @@ $result_trees{'anchor_in_copying'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

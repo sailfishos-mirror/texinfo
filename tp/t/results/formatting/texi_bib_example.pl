@@ -3894,7 +3894,6 @@ $result_trees{'texi_bib_example'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -3945,7 +3944,6 @@ $result_trees{'texi_bib_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -4160,7 +4158,6 @@ $result_trees{'texi_bib_example'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -4268,7 +4265,6 @@ $result_trees{'texi_bib_example'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -4288,7 +4284,6 @@ $result_trees{'texi_bib_example'} = {
                     }
                   ],
                   'cmdname' => 'node',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -4393,7 +4388,6 @@ $result_trees{'texi_bib_example'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'bib-example.texi',
@@ -4448,7 +4442,6 @@ $result_trees{'texi_bib_example'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}

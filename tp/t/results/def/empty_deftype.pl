@@ -38,7 +38,6 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces_inserted'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },
@@ -482,7 +481,6 @@ $result_trees{'empty_deftype'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'type'
                       },

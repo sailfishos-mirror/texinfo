@@ -108,7 +108,6 @@ $result_trees{'command_in_heading_footing'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

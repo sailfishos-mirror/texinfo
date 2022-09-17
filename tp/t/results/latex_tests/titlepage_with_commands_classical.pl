@@ -14,7 +14,6 @@ $result_trees{'titlepage_with_commands_classical'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -82,7 +81,6 @@ $result_trees{'titlepage_with_commands_classical'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -294,7 +292,6 @@ $result_trees{'titlepage_with_commands_classical'} = {
                                 {
                                   'args' => [
                                     {
-                                      'contents' => [],
                                       'extra' => {
                                         'spaces_after_argument' => '
 '
@@ -387,7 +384,6 @@ $result_trees{'titlepage_with_commands_classical'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -562,7 +558,6 @@ $result_trees{'titlepage_with_commands_classical'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -639,7 +634,6 @@ $result_trees{'titlepage_with_commands_classical'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

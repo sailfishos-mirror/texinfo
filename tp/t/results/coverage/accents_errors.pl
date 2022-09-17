@@ -29,7 +29,6 @@ $result_trees{'accents_errors'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '
@@ -59,7 +58,6 @@ $result_trees{'accents_errors'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => '  
 '
@@ -85,7 +83,6 @@ $result_trees{'accents_errors'} = {
             },
             {
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -132,7 +129,6 @@ $result_trees{'accents_errors'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -166,7 +162,6 @@ $result_trees{'accents_errors'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '
@@ -192,7 +187,6 @@ $result_trees{'accents_errors'} = {
             },
             {
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

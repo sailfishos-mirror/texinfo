@@ -24,7 +24,6 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -40,7 +39,6 @@ $result_trees{'inlinefmtifelse'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'html'
@@ -70,7 +68,6 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -86,7 +83,6 @@ $result_trees{'inlinefmtifelse'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'html'
@@ -128,18 +124,15 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'plaintext'
@@ -169,7 +162,6 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -185,7 +177,6 @@ $result_trees{'inlinefmtifelse'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'plaintext'
@@ -227,18 +218,15 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'xml'
@@ -284,7 +272,6 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -303,7 +290,6 @@ $result_trees{'inlinefmtifelse'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'docbook'
@@ -349,7 +335,6 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -368,7 +353,6 @@ $result_trees{'inlinefmtifelse'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'tex'
@@ -410,7 +394,6 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -426,7 +409,6 @@ $result_trees{'inlinefmtifelse'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'docbook'
@@ -468,7 +450,6 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -484,7 +465,6 @@ $result_trees{'inlinefmtifelse'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'tex'
@@ -526,7 +506,6 @@ $result_trees{'inlinefmtifelse'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -542,7 +521,6 @@ $result_trees{'inlinefmtifelse'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'latex'

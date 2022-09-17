@@ -29,7 +29,6 @@ $result_trees{'w_end_sentence'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

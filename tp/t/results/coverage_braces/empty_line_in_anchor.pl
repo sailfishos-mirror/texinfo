@@ -30,7 +30,6 @@ $result_trees{'empty_line_in_anchor'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',

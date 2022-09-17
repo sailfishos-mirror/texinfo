@@ -25,7 +25,6 @@ $result_trees{'code_not_closed'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

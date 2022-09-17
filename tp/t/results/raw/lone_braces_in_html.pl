@@ -12,7 +12,6 @@ $result_trees{'lone_braces_in_html'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -80,7 +79,6 @@ $result_trees{'lone_braces_in_html'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'verb_in_xref'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -86,7 +85,6 @@ $result_trees{'verb_in_xref'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'contents' => [],
                       'extra' => {
                         'delimiter' => '*'
                       },
@@ -106,7 +104,6 @@ $result_trees{'verb_in_xref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

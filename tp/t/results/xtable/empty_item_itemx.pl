@@ -15,7 +15,6 @@ $result_trees{'empty_item_itemx'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -110,7 +109,6 @@ $result_trees{'empty_item_itemx'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -184,7 +182,6 @@ $result_trees{'empty_item_itemx'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => ' 
 '

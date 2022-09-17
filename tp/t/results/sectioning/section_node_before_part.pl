@@ -37,7 +37,6 @@ $result_trees{'section_node_before_part'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -114,7 +113,6 @@ $result_trees{'section_node_before_part'} = {
         }
       ],
       'cmdname' => 'part',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

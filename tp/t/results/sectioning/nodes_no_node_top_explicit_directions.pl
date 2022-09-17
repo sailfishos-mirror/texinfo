@@ -9,7 +9,6 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -26,12 +25,10 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -80,7 +77,6 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -234,7 +230,6 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'test_index'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'test_index'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -94,7 +92,6 @@ $result_trees{'test_index'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -110,7 +107,6 @@ $result_trees{'test_index'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -188,7 +184,6 @@ $result_trees{'test_index'} = {
                                 }
                               ],
                               'cmdname' => 'node',
-                              'contents' => [],
                               'extra' => {
                                 'isindex' => 1,
                                 'node_content' => [
@@ -385,13 +380,11 @@ $result_trees{'test_index'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'exclamdown',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -519,7 +512,6 @@ $result_trees{'test_index'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -774,7 +766,6 @@ $result_trees{'test_index'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1023,7 +1014,6 @@ $result_trees{'test_index'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1220,7 +1210,6 @@ $result_trees{'test_index'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

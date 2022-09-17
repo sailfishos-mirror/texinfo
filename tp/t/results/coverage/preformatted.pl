@@ -18,7 +18,6 @@ $result_trees{'preformatted'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -97,7 +96,6 @@ $result_trees{'preformatted'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -114,7 +112,6 @@ $result_trees{'preformatted'} = {
                   'contents' => [
                     {
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

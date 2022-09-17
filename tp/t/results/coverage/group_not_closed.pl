@@ -12,7 +12,6 @@ $result_trees{'group_not_closed'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

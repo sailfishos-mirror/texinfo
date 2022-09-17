@@ -70,7 +70,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => ',',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -96,7 +95,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'u',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -122,7 +120,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => '`',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -136,7 +133,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

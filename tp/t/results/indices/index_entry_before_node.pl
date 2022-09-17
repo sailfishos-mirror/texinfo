@@ -46,7 +46,6 @@ $result_trees{'index_entry_before_node'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -260,7 +259,6 @@ $result_trees{'index_entry_before_node'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -400,7 +398,6 @@ $result_trees{'index_entry_before_node'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },

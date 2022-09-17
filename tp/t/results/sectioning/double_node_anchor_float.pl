@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'double_node_anchor_float'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -99,7 +98,6 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {},
           'parent' => {},
           'source_info' => {
@@ -134,7 +132,6 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}
@@ -491,7 +488,6 @@ $result_trees{'double_node_anchor_float'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           {

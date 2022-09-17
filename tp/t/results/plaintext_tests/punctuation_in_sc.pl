@@ -29,7 +29,6 @@ $result_trees{'punctuation_in_sc'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -55,7 +54,6 @@ $result_trees{'punctuation_in_sc'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

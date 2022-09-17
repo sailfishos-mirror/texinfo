@@ -9,7 +9,6 @@ $result_trees{'explicit_node_directions'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -46,7 +45,6 @@ $result_trees{'explicit_node_directions'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -366,7 +364,6 @@ $result_trees{'explicit_node_directions'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -396,7 +393,6 @@ $result_trees{'explicit_node_directions'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

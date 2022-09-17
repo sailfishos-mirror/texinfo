@@ -45,7 +45,6 @@ $result_trees{'defx_after_empty_line'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },

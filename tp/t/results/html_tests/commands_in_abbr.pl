@@ -39,7 +39,6 @@ $result_trees{'commands_in_abbr'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -60,7 +59,6 @@ $result_trees{'commands_in_abbr'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -86,7 +84,6 @@ $result_trees{'commands_in_abbr'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -127,7 +124,6 @@ $result_trees{'commands_in_abbr'} = {
                             }
                           ],
                           'cmdname' => 'b',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -148,7 +144,6 @@ $result_trees{'commands_in_abbr'} = {
                     }
                   ],
                   'cmdname' => 'abbr',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

@@ -23,7 +23,6 @@ $result_trees{'raw_in_style'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -88,7 +87,6 @@ $result_trees{'raw_in_style'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

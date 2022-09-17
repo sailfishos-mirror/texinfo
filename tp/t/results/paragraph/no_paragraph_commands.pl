@@ -32,7 +32,6 @@ $result_trees{'no_paragraph_commands'} = {
             }
           ],
           'cmdname' => 'titlefont',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',
@@ -99,7 +98,6 @@ $result_trees{'no_paragraph_commands'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

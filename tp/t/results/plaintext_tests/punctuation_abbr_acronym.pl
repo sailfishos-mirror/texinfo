@@ -25,7 +25,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -51,7 +50,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -77,7 +75,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -103,7 +100,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -143,7 +139,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -182,7 +177,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -221,7 +215,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -261,7 +254,6 @@ $result_trees{'punctuation_abbr_acronym'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -88,7 +88,6 @@ $result_trees{'spaces_info_lost'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '  
 '

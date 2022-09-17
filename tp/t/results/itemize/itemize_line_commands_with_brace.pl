@@ -16,13 +16,11 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -126,13 +124,11 @@ $result_trees{'itemize_line_commands_with_brace'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'minus',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

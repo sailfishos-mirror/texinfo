@@ -102,7 +102,6 @@ $result_trees{'comment_space_command_on_line'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -217,7 +216,6 @@ $result_trees{'comment_space_command_on_line'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [

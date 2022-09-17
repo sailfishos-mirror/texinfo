@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'complex_nestings'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'complex_nestings'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -107,7 +105,6 @@ $result_trees{'complex_nestings'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -158,7 +155,6 @@ $result_trees{'complex_nestings'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -263,7 +259,6 @@ $result_trees{'complex_nestings'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'extra' => {
                             'def_role' => 'arg'
                           },
@@ -285,13 +280,11 @@ $result_trees{'complex_nestings'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'dots',
-                          'contents' => [],
                           'extra' => {
                             'def_role' => 'arg'
                           },
@@ -891,7 +884,6 @@ $result_trees{'complex_nestings'} = {
                                           'contents' => [
                                             {
                                               'cmdname' => 'asis',
-                                              'contents' => [],
                                               'parent' => {},
                                               'source_info' => {
                                                 'file_name' => '',

@@ -47,7 +47,6 @@ $result_trees{'invalid_node_name_warning'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -81,7 +80,6 @@ $result_trees{'invalid_node_name_warning'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -114,7 +112,6 @@ $result_trees{'invalid_node_name_warning'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -135,7 +132,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'preformatted'
                     }
@@ -194,13 +190,11 @@ $result_trees{'invalid_node_name_warning'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -282,7 +276,6 @@ $result_trees{'invalid_node_name_warning'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -418,7 +411,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -477,13 +469,11 @@ $result_trees{'invalid_node_name_warning'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'comma',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -557,7 +547,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -602,7 +591,6 @@ $result_trees{'invalid_node_name_warning'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -630,7 +618,6 @@ $result_trees{'invalid_node_name_warning'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -647,7 +634,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -679,13 +665,11 @@ $result_trees{'invalid_node_name_warning'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -716,7 +700,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -758,7 +741,6 @@ $result_trees{'invalid_node_name_warning'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -772,7 +754,6 @@ $result_trees{'invalid_node_name_warning'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

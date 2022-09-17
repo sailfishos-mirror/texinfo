@@ -96,7 +96,6 @@ $result_trees{'no_monolithic'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -170,7 +169,6 @@ $result_trees{'no_monolithic'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'no_monolithic.texi',
@@ -243,7 +241,6 @@ $result_trees{'no_monolithic'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -383,7 +380,6 @@ $result_trees{'no_monolithic'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [

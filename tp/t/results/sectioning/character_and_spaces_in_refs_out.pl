@@ -9,7 +9,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -31,7 +30,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -82,7 +80,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -279,7 +276,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -380,12 +376,10 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
@@ -404,7 +398,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'node_content' => [
@@ -437,12 +430,10 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
@@ -458,7 +449,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'node_content' => [
@@ -495,12 +485,10 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
@@ -519,7 +507,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'node_content' => [
@@ -565,7 +552,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'manual_content' => [
@@ -601,12 +587,10 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         },
@@ -625,7 +609,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'node_content' => [
@@ -705,7 +688,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'label' => {
                           'args' => [
@@ -843,7 +825,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'label' => {
                           'args' => [
@@ -978,7 +959,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'label' => {},
                         'node_argument' => {
@@ -1017,7 +997,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'label' => {
                           'args' => [
@@ -1032,7 +1011,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                               'type' => 'line_arg'
                             },
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'line_arg'
                             },
@@ -1200,7 +1178,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -1269,7 +1246,6 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '

@@ -13,7 +13,6 @@ $result_trees{'accent_on_table_line'} = {
           'args' => [
             {
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'type' => 'command_as_argument_inserted'
             },
@@ -21,7 +20,6 @@ $result_trees{'accent_on_table_line'} = {
               'contents' => [
                 {
                   'cmdname' => '~',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -107,7 +105,6 @@ $result_trees{'accent_on_table_line'} = {
                                 }
                               ],
                               'cmdname' => 'code',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -194,7 +191,6 @@ $result_trees{'accent_on_table_line'} = {
           'args' => [
             {
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'type' => 'command_as_argument_inserted'
             },
@@ -203,13 +199,11 @@ $result_trees{'accent_on_table_line'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => '~',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -295,7 +289,6 @@ $result_trees{'accent_on_table_line'} = {
                                 }
                               ],
                               'cmdname' => 'code',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',

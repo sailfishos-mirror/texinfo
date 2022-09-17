@@ -46,7 +46,6 @@ $result_trees{'paragraph_command'} = {
                 }
               ],
               'cmdname' => 'b',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -85,7 +84,6 @@ $result_trees{'paragraph_command'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -124,7 +122,6 @@ $result_trees{'paragraph_command'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -163,7 +160,6 @@ $result_trees{'paragraph_command'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -239,7 +235,6 @@ $result_trees{'paragraph_command'} = {
                 }
               ],
               'cmdname' => 'foo',
-              'contents' => [],
               'extra' => {
                 'begin' => '\\',
                 'end' => '//'
@@ -289,7 +284,6 @@ $result_trees{'paragraph_command'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

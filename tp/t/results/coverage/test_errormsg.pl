@@ -38,7 +38,6 @@ $result_trees{'test_errormsg'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -64,7 +63,6 @@ $result_trees{'test_errormsg'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -78,7 +76,6 @@ $result_trees{'test_errormsg'} = {
                 }
               ],
               'cmdname' => 'errormsg',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -109,7 +106,6 @@ $result_trees{'test_errormsg'} = {
                 }
               ],
               'cmdname' => 'errormsg',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -12,7 +12,6 @@ $result_trees{'heading_in_quotation'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -59,7 +58,6 @@ $result_trees{'heading_in_quotation'} = {
                         }
                       ],
                       'cmdname' => 'emph',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

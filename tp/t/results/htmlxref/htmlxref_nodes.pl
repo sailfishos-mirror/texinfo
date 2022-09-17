@@ -90,7 +90,6 @@ $result_trees{'htmlxref_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -141,7 +140,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -303,7 +301,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -335,12 +332,10 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -359,7 +354,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -390,7 +384,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -477,7 +470,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ';'
               },
@@ -505,12 +497,10 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -526,7 +516,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -553,7 +542,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -640,7 +628,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -672,12 +659,10 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -696,7 +681,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -727,7 +711,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -814,7 +797,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -855,7 +837,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -885,7 +866,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1006,7 +986,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -1034,12 +1013,10 @@ $result_trees{'htmlxref_nodes'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -1058,7 +1035,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -1089,7 +1065,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1210,7 +1185,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -1239,7 +1213,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -1300,7 +1273,6 @@ $result_trees{'htmlxref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -1432,7 +1404,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1514,7 +1485,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -1543,7 +1513,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -1598,7 +1567,6 @@ $result_trees{'htmlxref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -1734,7 +1702,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1816,7 +1783,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -1848,7 +1814,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -1877,7 +1842,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1959,7 +1923,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -1991,7 +1954,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -2006,7 +1968,6 @@ $result_trees{'htmlxref_nodes'} = {
                       'type' => 'line_arg'
                     },
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'line_arg'
                     },
@@ -2040,7 +2001,6 @@ $result_trees{'htmlxref_nodes'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -2167,7 +2127,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2298,7 +2257,6 @@ $result_trees{'htmlxref_nodes'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2367,7 +2325,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2449,7 +2406,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -2481,7 +2437,6 @@ $result_trees{'htmlxref_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -2510,7 +2465,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2578,7 +2532,6 @@ $result_trees{'htmlxref_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -47,7 +47,6 @@ $result_trees{'sc_in_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -81,7 +80,6 @@ $result_trees{'sc_in_menu'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -114,7 +112,6 @@ $result_trees{'sc_in_menu'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -149,7 +146,6 @@ $result_trees{'sc_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -213,7 +209,6 @@ $result_trees{'sc_in_menu'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -239,7 +234,6 @@ $result_trees{'sc_in_menu'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -270,7 +264,6 @@ $result_trees{'sc_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -296,7 +289,6 @@ $result_trees{'sc_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -322,7 +314,6 @@ $result_trees{'sc_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -355,7 +346,6 @@ $result_trees{'sc_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -497,7 +487,6 @@ $result_trees{'sc_in_menu'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -525,7 +514,6 @@ $result_trees{'sc_in_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -539,7 +527,6 @@ $result_trees{'sc_in_menu'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -573,7 +560,6 @@ $result_trees{'sc_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -618,7 +604,6 @@ $result_trees{'sc_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -653,7 +638,6 @@ $result_trees{'sc_in_menu'} = {
                                 }
                               ],
                               'cmdname' => 'sc',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -720,7 +704,6 @@ $result_trees{'sc_in_menu'} = {
                             }
                           ],
                           'cmdname' => 'sc',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'menu_in_style_command'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -54,7 +53,6 @@ $result_trees{'menu_in_style_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -69,7 +67,6 @@ $result_trees{'menu_in_style_command'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

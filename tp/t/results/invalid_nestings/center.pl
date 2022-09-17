@@ -41,7 +41,6 @@ $result_trees{'center'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -67,7 +66,6 @@ $result_trees{'center'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -101,7 +99,6 @@ $result_trees{'center'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -212,7 +209,6 @@ $result_trees{'center'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -339,7 +335,6 @@ $result_trees{'center'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -398,7 +393,6 @@ $result_trees{'center'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -472,13 +466,11 @@ $result_trees{'center'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -530,7 +522,6 @@ $result_trees{'center'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -646,7 +637,6 @@ $result_trees{'center'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -814,7 +804,6 @@ $result_trees{'center'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -874,7 +863,6 @@ $result_trees{'center'} = {
                     }
                   ],
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -943,13 +931,11 @@ $result_trees{'center'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1287,7 +1273,6 @@ $result_trees{'center'} = {
                       'contents' => [
                         {
                           'cmdname' => 'asis',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1308,7 +1293,6 @@ $result_trees{'center'} = {
                   'cmdname' => 'table',
                   'contents' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'before_item'
                     }

@@ -15,7 +15,6 @@ $result_trees{'accent_argument'} = {
               'contents' => [
                 {
                   'cmdname' => '~',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -132,7 +131,6 @@ $result_trees{'accent_argument'} = {
                     }
                   ],
                   'cmdname' => '~',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

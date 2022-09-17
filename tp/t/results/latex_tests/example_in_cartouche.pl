@@ -17,7 +17,6 @@ $result_trees{'example_in_cartouche'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -102,7 +101,6 @@ $result_trees{'example_in_cartouche'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -116,7 +114,6 @@ $result_trees{'example_in_cartouche'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

@@ -15,7 +15,6 @@ $result_trees{'no_category_or_no_name'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -362,7 +361,6 @@ $result_trees{'no_category_or_no_name'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 }

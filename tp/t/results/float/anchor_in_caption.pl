@@ -148,7 +148,6 @@ $result_trees{'anchor_in_caption'} = {
                             }
                           ],
                           'cmdname' => 'anchor',
-                          'contents' => [],
                           'extra' => {
                             'node_content' => [
                               {}
@@ -172,7 +171,6 @@ $result_trees{'anchor_in_caption'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

@@ -29,7 +29,6 @@ $result_trees{'on_block_command_line'} = {
                         }
                       ],
                       'cmdname' => 'anchor',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}
@@ -65,7 +64,6 @@ $result_trees{'on_block_command_line'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -110,7 +108,6 @@ $result_trees{'on_block_command_line'} = {
                             }
                           ],
                           'cmdname' => 'titlefont',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -232,7 +229,6 @@ $result_trees{'on_block_command_line'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -258,7 +254,6 @@ $result_trees{'on_block_command_line'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -292,7 +287,6 @@ $result_trees{'on_block_command_line'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

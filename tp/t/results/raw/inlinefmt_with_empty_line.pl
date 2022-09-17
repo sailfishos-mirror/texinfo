@@ -49,7 +49,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'plaintext'
@@ -70,13 +69,11 @@ $result_trees{'inlinefmt_with_empty_line'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'lbracechar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -123,7 +120,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'html'
@@ -159,7 +155,6 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

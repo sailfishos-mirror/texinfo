@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'top_node_normalization'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -53,7 +52,6 @@ $result_trees{'top_node_normalization'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -88,7 +86,6 @@ $result_trees{'top_node_normalization'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -123,7 +120,6 @@ $result_trees{'top_node_normalization'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

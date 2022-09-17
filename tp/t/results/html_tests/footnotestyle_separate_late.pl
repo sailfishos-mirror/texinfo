@@ -9,7 +9,6 @@ $result_trees{'footnotestyle_separate_late'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -31,7 +30,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -108,7 +106,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -178,7 +175,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                         }
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -230,7 +226,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -300,7 +295,6 @@ $result_trees{'footnotestyle_separate_late'} = [
                         }
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

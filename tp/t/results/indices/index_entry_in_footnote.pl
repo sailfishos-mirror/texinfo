@@ -111,7 +111,6 @@ $result_trees{'index_entry_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

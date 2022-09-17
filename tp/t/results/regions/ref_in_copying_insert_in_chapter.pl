@@ -14,7 +14,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -41,7 +40,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'label' => {
                           'args' => [
@@ -61,7 +59,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                             }
                           ],
                           'cmdname' => 'node',
-                          'contents' => [],
                           'extra' => {
                             'node_content' => [
                               {}
@@ -176,7 +173,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -253,7 +249,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -327,7 +322,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

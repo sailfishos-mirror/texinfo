@@ -72,7 +72,6 @@ $result_trees{'ref_tests'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -121,7 +120,6 @@ $result_trees{'ref_tests'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -174,7 +172,6 @@ $result_trees{'ref_tests'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'manual_content' => [
@@ -198,7 +195,6 @@ $result_trees{'ref_tests'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -268,7 +264,6 @@ $result_trees{'ref_tests'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -330,7 +325,6 @@ $result_trees{'ref_tests'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -396,7 +390,6 @@ $result_trees{'ref_tests'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'manual_content' => [
@@ -420,7 +413,6 @@ $result_trees{'ref_tests'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -472,7 +464,6 @@ $result_trees{'ref_tests'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [

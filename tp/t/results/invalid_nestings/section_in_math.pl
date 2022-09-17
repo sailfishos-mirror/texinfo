@@ -57,7 +57,6 @@ $result_trees{'section_in_math'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -125,7 +124,6 @@ $result_trees{'section_in_math'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },
@@ -169,7 +167,6 @@ $result_trees{'section_in_math'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

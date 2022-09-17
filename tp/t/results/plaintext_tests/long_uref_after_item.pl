@@ -15,7 +15,6 @@ $result_trees{'long_uref_after_item'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }
@@ -55,7 +54,6 @@ $result_trees{'long_uref_after_item'} = {
                         }
                       ],
                       'cmdname' => 'uref',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

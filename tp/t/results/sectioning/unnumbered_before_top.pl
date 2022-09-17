@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'unnumbered_before_top'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -66,7 +65,6 @@ $result_trees{'unnumbered_before_top'} = {
         }
       ],
       'cmdname' => 'top',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

@@ -46,7 +46,6 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}
@@ -120,7 +119,6 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}
@@ -180,7 +178,6 @@ $result_trees{'only_special_spaces_node'} = {
     {
       "args" => [
         {
-          "contents" => [],
           "extra" => {
             "spaces_after_argument" => " \t\f\13\n"
           },
@@ -189,7 +186,6 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "nodes_manuals" => [
           undef
@@ -239,7 +235,6 @@ $result_trees{'only_special_spaces_node'} = {
     {
       "args" => [
         {
-          "contents" => [],
           "extra" => {
             "spaces_after_argument" => " \r\n"
           },
@@ -248,7 +243,6 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "nodes_manuals" => [
           undef
@@ -312,7 +306,6 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}
@@ -386,7 +379,6 @@ $result_trees{'only_special_spaces_node'} = {
         }
       ],
       "cmdname" => "node",
-      "contents" => [],
       "extra" => {
         "node_content" => [
           {}

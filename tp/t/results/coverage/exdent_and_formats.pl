@@ -12,7 +12,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -32,13 +31,11 @@ $result_trees{'exdent_and_formats'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'TeX',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -168,7 +165,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -320,7 +316,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -444,7 +439,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -517,7 +511,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -602,7 +595,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -627,7 +619,6 @@ $result_trees{'exdent_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -760,7 +751,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -845,7 +835,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -941,7 +930,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1037,7 +1025,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1150,7 +1137,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1263,7 +1249,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1359,7 +1344,6 @@ $result_trees{'exdent_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

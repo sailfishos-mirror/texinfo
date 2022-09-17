@@ -34,7 +34,6 @@ $result_trees{'nested'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'contents' => [],
                       'extra' => {
                         'delimiter' => '/'
                       },
@@ -55,7 +54,6 @@ $result_trees{'nested'} = {
                 }
               ],
               'cmdname' => 'b',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

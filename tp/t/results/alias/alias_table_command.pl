@@ -53,7 +53,6 @@ $result_trees{'alias_table_command'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

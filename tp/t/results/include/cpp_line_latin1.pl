@@ -92,7 +92,6 @@ $result_trees{'cpp_line_latin1'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -118,7 +117,6 @@ $result_trees{'cpp_line_latin1'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '

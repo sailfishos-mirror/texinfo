@@ -77,7 +77,6 @@ $result_trees{'empty_quotation_with_arg_followed_by_quotation'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -36,7 +36,6 @@ $result_trees{'float_with_at_commands'} = {
                     }
                   ],
                   'cmdname' => '\'',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -72,7 +71,6 @@ $result_trees{'float_with_at_commands'} = {
                     }
                   ],
                   'cmdname' => '`',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -98,7 +96,6 @@ $result_trees{'float_with_at_commands'} = {
                     }
                   ],
                   'cmdname' => '\'',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -148,7 +145,6 @@ $result_trees{'float_with_at_commands'} = {
                     }
                   ],
                   'cmdname' => '`',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -174,7 +170,6 @@ $result_trees{'float_with_at_commands'} = {
                     }
                   ],
                   'cmdname' => '\'',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -215,7 +210,6 @@ $result_trees{'float_with_at_commands'} = {
                             }
                           ],
                           'cmdname' => '`',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -241,7 +235,6 @@ $result_trees{'float_with_at_commands'} = {
                             }
                           ],
                           'cmdname' => '\'',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -263,7 +256,6 @@ $result_trees{'float_with_at_commands'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -376,7 +368,6 @@ $result_trees{'float_with_at_commands'} = {
                     }
                   ],
                   'cmdname' => '\'',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

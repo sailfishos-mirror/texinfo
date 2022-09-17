@@ -79,7 +79,8 @@ sub root_heading_command_to_texinfo($)
   if ($element->{'cmdname'}) {
     if ($element->{'cmdname'} eq 'node') {
       $tree = $element->{'extra'}->{'node_content'};
-    } elsif ($sectioning_heading_commands{$element->{'cmdname'}}) {
+    } elsif ($sectioning_heading_commands{$element->{'cmdname'}}
+             and $element->{'args'}->[0]->{'contents'}) {
       $tree = $element->{'args'}->[0]->{'contents'};
     }
   } else {
@@ -87,7 +88,7 @@ sub root_heading_command_to_texinfo($)
   }
   return '@'.$element->{'cmdname'}.' '.convert_to_texinfo({'contents' => $tree})
           if ($tree);
-  return 'UNDEF @'.$element->{'cmdname'};
+  return '@'.$element->{'cmdname'};
 }
 
 # Following subroutines deal with transforming a texinfo tree into texinfo

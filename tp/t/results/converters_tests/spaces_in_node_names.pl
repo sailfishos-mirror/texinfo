@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'spaces_in_node_names'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'spaces_in_node_names'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -146,7 +144,6 @@ $result_trees{'spaces_in_node_names'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'contents' => [],
                       'extra' => {
                         'delimiter' => ':'
                       },
@@ -413,7 +410,6 @@ $result_trees{'spaces_in_node_names'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },
@@ -488,7 +484,6 @@ $result_trees{'spaces_in_node_names'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -537,7 +532,6 @@ $result_trees{'spaces_in_node_names'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -596,7 +590,6 @@ $result_trees{'spaces_in_node_names'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'contents' => [],
                       'extra' => {
                         'delimiter' => ':'
                       },
@@ -613,7 +606,6 @@ $result_trees{'spaces_in_node_names'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -670,7 +662,6 @@ $result_trees{'spaces_in_node_names'} = {
                         }
                       ],
                       'cmdname' => 'w',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -684,7 +675,6 @@ $result_trees{'spaces_in_node_names'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

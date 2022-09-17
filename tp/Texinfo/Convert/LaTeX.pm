@@ -2504,6 +2504,7 @@ sub _convert($$)
       return $result;
     } elsif ($cmdname eq 'image') {
       if (defined($element->{'args'}->[0])
+          and $element->{'args'}->[0]->{'contents'}
           and @{$element->{'args'}->[0]->{'contents'}}) {
         # distinguish text basefile used to find the file and
         # converted basefile with special characters escaped
@@ -2545,6 +2546,7 @@ sub _convert($$)
         my $width;
         if ((@{$element->{'args'}} >= 2)
               and defined($element->{'args'}->[1])
+              and $element->{'args'}->[1]->{'contents'}
               and @{$element->{'args'}->[1]->{'contents'}}){
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
           $width = _convert($self, {'contents'
@@ -2558,6 +2560,7 @@ sub _convert($$)
         my $height;
         if ((@{$element->{'args'}} >= 3)
               and defined($element->{'args'}->[2])
+              and $element->{'args'}->[2]->{'contents'}
               and @{$element->{'args'}->[2]->{'contents'}}) {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
           $height = _convert($self, {'contents'
@@ -2593,11 +2596,13 @@ sub _convert($$)
         my $email_text;
         if (scalar (@{$element->{'args'}}) == 2
             and defined($element->{'args'}->[1])
+            and $element->{'args'}->[1]->{'contents'}
             and @{$element->{'args'}->[1]->{'contents'}}) {
           $name = $element->{'args'}->[1]->{'contents'};
           $converted_name = _convert($self, {'contents' => $name});
         }
         if (defined($element->{'args'}->[0])
+            and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
           $email = $element->{'args'}->[0]->{'contents'};
           $email_text
@@ -2621,7 +2626,8 @@ sub _convert($$)
              and @{$element->{'args'}->[2]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]},
             {'contents' => $element->{'args'}->[2]->{'contents'}};
-        } elsif (@{$element->{'args'}->[0]->{'contents'}}) {
+        } elsif ($element->{'args'}->[0]->{'contents'}
+                 and @{$element->{'args'}->[0]->{'contents'}}) {
           my $url_content = $element->{'args'}->[0]->{'contents'};
           my $url_text = $self->_protect_url(
             Texinfo::Convert::Text::convert_to_text(
@@ -2629,6 +2635,7 @@ sub _convert($$)
                {'code' => 1, %{$self->{'convert_text_options'}}}));
           if (scalar(@{$element->{'args'}}) == 2
              and defined($element->{'args'}->[1])
+             and $element->{'args'}->[1]->{'contents'}
              and @{$element->{'args'}->[1]->{'contents'}}) {
             my $description = _convert($self, {'contents',
                                    $element->{'args'}->[1]->{'contents'}});
@@ -2909,6 +2916,7 @@ sub _convert($$)
     } elsif ($explained_commands{$cmdname}) {
       if ($element->{'args'}
           and defined($element->{'args'}->[0])
+          and $element->{'args'}->[0]->{'contents'}
           and @{$element->{'args'}->[0]->{'contents'}}) {
         # in abbr spaces never end a sentence.
         my $argument;
@@ -2940,6 +2948,7 @@ sub _convert($$)
       }
       if (scalar(@{$element->{'args'}}) > $arg_index
          and defined($element->{'args'}->[$arg_index])
+         and $element->{'args'}->[$arg_index]->{'contents'}
          and scalar(@{$element->{'args'}->[$arg_index]->{'contents'}})) {
         if ($cmdname eq 'inlineraw') {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';

@@ -50,7 +50,6 @@ $result_trees{'settitle_and_empty_top'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '

@@ -117,7 +117,6 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -437,7 +436,6 @@ $result_trees{'nodes_after_top_before_chapter'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -467,7 +465,6 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

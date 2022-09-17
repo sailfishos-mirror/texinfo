@@ -173,7 +173,6 @@ $result_trees{'documentlanguage_set_unknown'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

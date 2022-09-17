@@ -13,7 +13,6 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
           'args' => [
             {
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'type' => 'command_as_argument_inserted'
             },
@@ -21,7 +20,6 @@ $result_trees{'no_arg_brace_command_on_table_line'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

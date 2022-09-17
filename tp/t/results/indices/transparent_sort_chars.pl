@@ -67,7 +67,6 @@ $result_trees{'transparent_sort_chars'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -93,7 +92,6 @@ $result_trees{'transparent_sort_chars'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -162,7 +160,6 @@ $result_trees{'transparent_sort_chars'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -188,7 +185,6 @@ $result_trees{'transparent_sort_chars'} = {
                     }
                   ],
                   'cmdname' => 'command',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

@@ -30,7 +30,6 @@ $result_trees{'indicateurl_end_lines'} = {
                 }
               ],
               'cmdname' => 'indicateurl',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -76,7 +75,6 @@ $result_trees{'indicateurl_end_lines'} = {
                 }
               ],
               'cmdname' => 'indicateurl',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

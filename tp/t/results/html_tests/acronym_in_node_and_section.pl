@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'acronym_in_node_and_section'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -107,7 +105,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -184,7 +181,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -261,7 +257,6 @@ $result_trees{'acronym_in_node_and_section'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -317,7 +312,6 @@ $result_trees{'acronym_in_node_and_section'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -335,7 +329,6 @@ $result_trees{'acronym_in_node_and_section'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {},
@@ -382,7 +375,6 @@ $result_trees{'acronym_in_node_and_section'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -427,7 +419,6 @@ $result_trees{'acronym_in_node_and_section'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'backslash_in_arg'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },

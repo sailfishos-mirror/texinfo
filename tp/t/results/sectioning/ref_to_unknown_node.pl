@@ -25,7 +25,6 @@ $result_trees{'ref_to_unknown_node'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [

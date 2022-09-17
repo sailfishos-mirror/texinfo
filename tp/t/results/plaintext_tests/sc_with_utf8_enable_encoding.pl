@@ -56,7 +56,6 @@ $result_trees{'sc_with_utf8_enable_encoding'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

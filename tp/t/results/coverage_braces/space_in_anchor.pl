@@ -27,7 +27,6 @@ $result_trees{'space_in_anchor'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}

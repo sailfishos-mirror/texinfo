@@ -184,7 +184,6 @@ $result_trees{'japanese_utf8'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -235,7 +234,6 @@ $result_trees{'japanese_utf8'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -255,13 +253,11 @@ $result_trees{'japanese_utf8'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'copyright',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
@@ -310,7 +306,6 @@ $result_trees{'japanese_utf8'} = {
                     }
                   ],
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
@@ -354,7 +349,6 @@ $result_trees{'japanese_utf8'} = {
                     }
                   ],
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'japanese_utf8.texi',
@@ -440,7 +434,6 @@ $result_trees{'japanese_utf8'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -637,7 +630,6 @@ $result_trees{'japanese_utf8'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -737,7 +729,6 @@ $result_trees{'japanese_utf8'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

@@ -106,7 +106,6 @@ $result_trees{'equivalent_nodes'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
@@ -122,7 +121,6 @@ $result_trees{'equivalent_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -237,7 +235,6 @@ $result_trees{'equivalent_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -271,7 +268,6 @@ $result_trees{'equivalent_nodes'} = {
                         }
                       ],
                       'cmdname' => 'strong',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'equivalent_nodes.texi',
@@ -442,7 +438,6 @@ $result_trees{'equivalent_nodes'} = {
                     }
                   ],
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => 'equivalent_nodes.texi',
@@ -585,7 +580,6 @@ $result_trees{'equivalent_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -665,7 +659,6 @@ $result_trees{'equivalent_nodes'} = {
                         }
                       ],
                       'cmdname' => 'samp',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'equivalent_nodes.texi',
@@ -679,7 +672,6 @@ $result_trees{'equivalent_nodes'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

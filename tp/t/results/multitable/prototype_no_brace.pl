@@ -31,7 +31,6 @@ $result_trees{'prototype_no_brace'} = {
                     }
                   ],
                   'cmdname' => 'var',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

@@ -41,7 +41,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -78,7 +77,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -110,7 +108,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -159,7 +156,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -191,7 +187,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -228,7 +223,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -281,7 +275,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -322,7 +315,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -363,7 +355,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -416,7 +407,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -457,7 +447,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -498,7 +487,6 @@ $result_trees{'punctuation_and_footnotes'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

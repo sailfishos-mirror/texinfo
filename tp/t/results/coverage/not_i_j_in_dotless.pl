@@ -25,7 +25,6 @@ $result_trees{'not_i_j_in_dotless'} = {
                 }
               ],
               'cmdname' => 'dotless',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -58,7 +57,6 @@ $result_trees{'not_i_j_in_dotless'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -72,7 +70,6 @@ $result_trees{'not_i_j_in_dotless'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

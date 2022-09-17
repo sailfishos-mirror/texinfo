@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'special_docbook_unnumbered'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'special_docbook_unnumbered'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -98,7 +96,6 @@ $result_trees{'special_docbook_unnumbered'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -409,7 +406,6 @@ $result_trees{'special_docbook_unnumbered'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -503,7 +499,6 @@ $result_trees{'special_docbook_unnumbered'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -597,7 +592,6 @@ $result_trees{'special_docbook_unnumbered'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -691,7 +685,6 @@ $result_trees{'special_docbook_unnumbered'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

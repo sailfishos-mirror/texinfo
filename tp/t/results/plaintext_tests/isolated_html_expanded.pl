@@ -18,7 +18,6 @@ $result_trees{'isolated_html_expanded'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

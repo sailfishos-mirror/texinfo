@@ -9,7 +9,6 @@ $result_trees{'chapter_sections'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -283,7 +282,6 @@ $result_trees{'chapter_sections'} = [
                 }
               ],
               'cmdname' => 'chapter',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },

@@ -109,7 +109,6 @@ $result_trees{'error_in_footnote'} = {
                         },
                         {
                           'cmdname' => 'TeX',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -140,7 +139,6 @@ $result_trees{'error_in_footnote'} = {
                             }
                           ],
                           'cmdname' => 'strong',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -165,7 +163,6 @@ $result_trees{'error_in_footnote'} = {
                                   'contents' => [
                                     {
                                       'cmdname' => 'LaTeX',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -196,7 +193,6 @@ $result_trees{'error_in_footnote'} = {
                                         }
                                       ],
                                       'cmdname' => 'strong',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -218,7 +214,6 @@ $result_trees{'error_in_footnote'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -236,7 +231,6 @@ $result_trees{'error_in_footnote'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

@@ -38,7 +38,6 @@ $result_trees{'too_much_args'} = {
                 }
               ],
               'cmdname' => 'abbr',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

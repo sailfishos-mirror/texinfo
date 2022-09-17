@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'all_commands_printindex'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },

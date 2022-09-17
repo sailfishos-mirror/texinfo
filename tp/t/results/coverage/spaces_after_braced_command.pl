@@ -25,7 +25,6 @@ $result_trees{'spaces_after_braced_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -67,7 +66,6 @@ $result_trees{'spaces_after_braced_command'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '
@@ -99,13 +97,11 @@ $result_trees{'spaces_after_braced_command'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AA',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
  '
@@ -163,7 +159,6 @@ $result_trees{'spaces_after_braced_command'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '
@@ -194,7 +189,6 @@ $result_trees{'spaces_after_braced_command'} = {
           'contents' => [
             {
               'cmdname' => 'TeX',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '

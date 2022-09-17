@@ -13,7 +13,6 @@ $result_trees{'at_after_accent_command'} = {
           'contents' => [
             {
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -34,7 +33,6 @@ $result_trees{'at_after_accent_command'} = {
             },
             {
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

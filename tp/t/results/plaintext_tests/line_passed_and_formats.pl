@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'line_passed_and_formats'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -70,7 +69,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => ' 
 '
@@ -183,7 +181,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -208,7 +205,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -313,7 +309,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -338,7 +333,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -443,7 +437,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -505,7 +498,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -573,7 +565,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -635,7 +626,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -703,7 +693,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '
@@ -728,7 +717,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => ' 
 '
@@ -844,7 +832,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -869,7 +856,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -985,7 +971,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1010,7 +995,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -1137,7 +1121,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1227,7 +1210,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1317,7 +1299,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1419,7 +1400,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1538,7 +1518,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1558,7 +1537,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -1692,7 +1670,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1712,7 +1689,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -1834,7 +1810,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1860,7 +1835,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -2000,7 +1974,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -2026,7 +1999,6 @@ $result_trees{'line_passed_and_formats'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -2154,7 +2126,6 @@ $result_trees{'line_passed_and_formats'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

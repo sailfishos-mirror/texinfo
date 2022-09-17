@@ -12,7 +12,6 @@ $result_trees{'def_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

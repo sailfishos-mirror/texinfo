@@ -85,7 +85,6 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

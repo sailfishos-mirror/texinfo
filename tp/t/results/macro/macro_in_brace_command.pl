@@ -141,7 +141,6 @@ $result_trees{'macro_in_brace_command'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -193,7 +192,6 @@ $result_trees{'macro_in_brace_command'} = {
                         }
                       ],
                       'cmdname' => 'email',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

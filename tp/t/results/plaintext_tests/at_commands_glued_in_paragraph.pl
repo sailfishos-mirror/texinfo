@@ -31,13 +31,11 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'TeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -68,7 +66,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -112,7 +109,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -143,7 +139,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -187,7 +182,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -218,7 +212,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -263,7 +256,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -298,7 +290,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -312,7 +303,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -420,7 +410,6 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

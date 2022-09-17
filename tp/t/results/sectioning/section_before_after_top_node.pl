@@ -72,7 +72,6 @@ $result_trees{'section_before_after_top_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

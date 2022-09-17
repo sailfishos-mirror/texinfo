@@ -12,7 +12,6 @@ $result_trees{'raw_and_comments'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -123,7 +122,6 @@ $result_trees{'raw_and_comments'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'comment_at_end' => {
                       'args' => [

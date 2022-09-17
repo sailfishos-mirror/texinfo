@@ -82,7 +82,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -119,7 +118,6 @@ $result_trees{'sectioning_frames'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -133,7 +131,6 @@ $result_trees{'sectioning_frames'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -207,7 +204,6 @@ $result_trees{'sectioning_frames'} = {
                                     }
                                   ],
                                   'cmdname' => 'dotless',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => 'sectioning.texi',
@@ -221,7 +217,6 @@ $result_trees{'sectioning_frames'} = {
                             }
                           ],
                           'cmdname' => '^',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'sectioning.texi',
@@ -252,7 +247,6 @@ $result_trees{'sectioning_frames'} = {
                             }
                           ],
                           'cmdname' => 'cite',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'sectioning.texi',
@@ -698,7 +692,6 @@ $result_trees{'sectioning_frames'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -728,7 +721,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -803,7 +795,6 @@ $result_trees{'sectioning_frames'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1075,7 +1066,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1126,7 +1116,6 @@ $result_trees{'sectioning_frames'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1437,7 +1426,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1514,7 +1502,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1591,7 +1578,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1668,7 +1654,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1745,7 +1730,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1796,7 +1780,6 @@ $result_trees{'sectioning_frames'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1936,7 +1919,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2019,7 +2001,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2091,12 +2072,10 @@ $result_trees{'sectioning_frames'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -2194,7 +2173,6 @@ $result_trees{'sectioning_frames'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -2345,7 +2323,6 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -2440,7 +2417,6 @@ $result_trees{'sectioning_frames'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },

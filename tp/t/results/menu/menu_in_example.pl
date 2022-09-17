@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'menu_in_example'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'menu_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -54,7 +52,6 @@ $result_trees{'menu_in_example'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -111,7 +108,6 @@ $result_trees{'menu_in_example'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'extra' => {
                                 'spaces_after_argument' => '
 '
@@ -208,7 +204,6 @@ $result_trees{'menu_in_example'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '

@@ -40,7 +40,6 @@ $result_trees{'anchor_and_empty_lines'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}

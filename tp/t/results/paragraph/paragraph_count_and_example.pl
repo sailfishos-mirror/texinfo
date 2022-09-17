@@ -12,7 +12,6 @@ $result_trees{'paragraph_count_and_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

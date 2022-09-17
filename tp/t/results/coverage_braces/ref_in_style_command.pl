@@ -41,7 +41,6 @@ $result_trees{'ref_in_style_command'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'manual_content' => [
@@ -65,7 +64,6 @@ $result_trees{'ref_in_style_command'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

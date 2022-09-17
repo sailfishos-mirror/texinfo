@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'float_long_captions'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -87,7 +86,6 @@ $result_trees{'float_long_captions'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },
@@ -210,7 +208,6 @@ $result_trees{'float_long_captions'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

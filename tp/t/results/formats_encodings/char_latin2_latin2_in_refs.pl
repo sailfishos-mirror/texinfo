@@ -127,7 +127,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -192,7 +191,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {
                   'args' => [
@@ -212,7 +210,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                     }
                   ],
                   'cmdname' => 'node',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -322,7 +319,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'at_commands_in_raw'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'at_commands_in_raw'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -170,7 +168,6 @@ $result_trees{'at_commands_in_raw'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -222,7 +219,6 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -259,7 +255,6 @@ $result_trees{'at_commands_in_raw'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -286,7 +281,6 @@ $result_trees{'at_commands_in_raw'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -363,7 +357,6 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -391,7 +384,6 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -417,7 +409,6 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -429,7 +420,6 @@ $result_trees{'at_commands_in_raw'} = {
           'cmdname' => 'tex',
           'contents' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'elided_block'
             },
@@ -490,7 +480,6 @@ $result_trees{'at_commands_in_raw'} = {
         },
         {
           'cmdname' => 'value',
-          'contents' => [],
           'extra' => {
             'flag' => 'flag'
           },
@@ -529,7 +518,6 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -568,7 +556,6 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -616,7 +603,6 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -829,7 +815,6 @@ $result_trees{'at_commands_in_raw'} = {
                 }
               ],
               'cmdname' => 'acronym',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

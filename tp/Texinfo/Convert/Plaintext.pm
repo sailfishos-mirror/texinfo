@@ -1503,7 +1503,8 @@ sub image_formatted_text($$$$)
   if (defined($text)) {
     $result = $text;
   } elsif (defined($element->{'args'}->[3])
-      and @{$element->{'args'}->[3]->{'contents'}}) {
+           and $element->{'args'}->[3]->{'contents'}
+           and @{$element->{'args'}->[3]->{'contents'}}) {
     $result = '[' .Texinfo::Convert::Text::convert_to_text(
       {'contents' => $element->{'args'}->[3]->{'contents'}},
       $self->{'convert_text_options'}) .']';
@@ -1521,7 +1522,8 @@ sub format_image($$)
   my ($self, $element) = @_;
 
   if (defined($element->{'args'}->[0])
-        and @{$element->{'args'}->[0]->{'contents'}}) {
+      and $element->{'args'}->[0]->{'contents'}
+      and @{$element->{'args'}->[0]->{'contents'}}) {
     my $basefile = Texinfo::Convert::Text::convert_to_text(
      {'contents' => $element->{'args'}->[0]->{'contents'}},
      {'code' => 1, %{$self->{'convert_text_options'}}});
@@ -1945,10 +1947,12 @@ sub _convert($$)
         my $email;
         if (scalar (@{$element->{'args'}}) == 2
             and defined($element->{'args'}->[1])
+            and $element->{'args'}->[1]->{'contents'}
             and @{$element->{'args'}->[1]->{'contents'}}) {
           $name = $element->{'args'}->[1]->{'contents'};
         }
         if (defined($element->{'args'}->[0])
+            and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
           $email = $element->{'args'}->[0]->{'contents'};
         }
@@ -1971,15 +1975,18 @@ sub _convert($$)
       if ($element->{'args'}) {
         if (scalar(@{$element->{'args'}}) == 3
              and defined($element->{'args'}->[2])
+             and $element->{'args'}->[2]->{'contents'}
              and @{$element->{'args'}->[2]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]}, 
             {'contents' => $element->{'args'}->[2]->{'contents'}};
-        } elsif (@{$element->{'args'}->[0]->{'contents'}}) {
+        } elsif ($element->{'args'}->[0]->{'contents'}
+                 and @{$element->{'args'}->[0]->{'contents'}}) {
           # no mangling of --- and similar in url.
           my $url = {'type' => '_code',
               'contents' => $element->{'args'}->[0]->{'contents'}};
           if (scalar(@{$element->{'args'}}) == 2
              and defined($element->{'args'}->[1])
+             and $element->{'args'}->[1]->{'contents'}
              and @{$element->{'args'}->[1]->{'contents'}}) {
             my $prepended = $self->gdt('{text} ({url})', 
                  {'text' => $element->{'args'}->[1]->{'contents'},
@@ -2269,6 +2276,7 @@ sub _convert($$)
     } elsif ($explained_commands{$command}) {
       if ($element->{'args'}
           and defined($element->{'args'}->[0])
+          and $element->{'args'}->[0]->{'contents'}
           and @{$element->{'args'}->[0]->{'contents'}}) {
         # in abbr spaces never end a sentence.
         my $argument;
@@ -2304,6 +2312,7 @@ sub _convert($$)
       }
       if (scalar(@{$element->{'args'}}) > $arg_index
          and defined($element->{'args'}->[$arg_index])
+         and $element->{'args'}->[$arg_index]->{'contents'}
          and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
         my $argument;
         if ($command eq 'inlineraw') {

@@ -125,7 +125,6 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                   'contents' => [
                     {
                       'cmdname' => 'item',
-                      'contents' => [],
                       'extra' => {
                         'cell_number' => 1
                       },
@@ -138,7 +137,6 @@ $result_trees{'multitable_with_empty_item_tab'} = {
                     },
                     {
                       'cmdname' => 'tab',
-                      'contents' => [],
                       'extra' => {
                         'cell_number' => 2
                       },

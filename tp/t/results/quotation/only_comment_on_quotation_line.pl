@@ -12,7 +12,6 @@ $result_trees{'only_comment_on_quotation_line'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [

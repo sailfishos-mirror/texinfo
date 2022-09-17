@@ -99,7 +99,6 @@ $result_trees{'caption_not_closed'} = {
                 }
               ],
               'cmdname' => 'caption',
-              'contents' => [],
               'extra' => {
                 'float' => {}
               },

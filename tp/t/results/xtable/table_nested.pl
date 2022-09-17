@@ -206,7 +206,6 @@ $result_trees{'table_nested'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -223,7 +222,6 @@ $result_trees{'table_nested'} = {
                   'contents' => [
                     {
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -557,7 +555,6 @@ $result_trees{'table_nested'} = {
                   'contents' => [
                     {
                       'cmdname' => 'emph',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -800,7 +797,6 @@ $result_trees{'table_nested'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -817,7 +813,6 @@ $result_trees{'table_nested'} = {
                   'contents' => [
                     {
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1151,7 +1146,6 @@ $result_trees{'table_nested'} = {
                   'contents' => [
                     {
                       'cmdname' => 'emph',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1394,7 +1388,6 @@ $result_trees{'table_nested'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1408,7 +1401,6 @@ $result_trees{'table_nested'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -1425,7 +1417,6 @@ $result_trees{'table_nested'} = {
                       'contents' => [
                         {
                           'cmdname' => 'asis',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -1759,7 +1750,6 @@ $result_trees{'table_nested'} = {
                       'contents' => [
                         {
                           'cmdname' => 'emph',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',

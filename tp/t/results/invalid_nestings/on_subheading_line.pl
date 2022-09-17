@@ -45,7 +45,6 @@ $result_trees{'on_subheading_line'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -71,7 +70,6 @@ $result_trees{'on_subheading_line'} = {
                     }
                   ],
                   'cmdname' => 'anchor',
-                  'contents' => [],
                   'extra' => {
                     'node_content' => [
                       {}
@@ -105,7 +103,6 @@ $result_trees{'on_subheading_line'} = {
                     }
                   ],
                   'cmdname' => 'footnote',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

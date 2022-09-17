@@ -18,7 +18,6 @@ $result_trees{'dash_in_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -92,7 +92,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'direntry_dircategory.texi',
@@ -131,7 +130,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -209,7 +207,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => 'direntry_dircategory.texi',
@@ -322,7 +319,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -495,7 +491,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -585,7 +580,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -722,7 +716,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -862,7 +855,6 @@ $result_trees{'direntry_dircategory_info_split'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

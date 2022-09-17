@@ -96,7 +96,6 @@ $result_trees{'contents_at_end_document'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

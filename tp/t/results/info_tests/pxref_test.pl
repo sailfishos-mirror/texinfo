@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'pxref_test'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -73,7 +72,6 @@ $result_trees{'pxref_test'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -138,7 +136,6 @@ $result_trees{'pxref_test'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -191,7 +188,6 @@ $result_trees{'pxref_test'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -256,7 +252,6 @@ $result_trees{'pxref_test'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [

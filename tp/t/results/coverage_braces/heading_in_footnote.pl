@@ -115,7 +115,6 @@ $result_trees{'heading_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '
 '

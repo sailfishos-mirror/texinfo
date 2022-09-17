@@ -309,7 +309,6 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '
 '

@@ -25,7 +25,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => '    '
               },
@@ -67,7 +66,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '
@@ -110,7 +108,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '
@@ -153,7 +150,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
   '
@@ -196,7 +192,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },
@@ -238,7 +233,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
 '
@@ -281,7 +275,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'extra' => {
                 'spaces' => '
  '
@@ -325,7 +318,6 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },

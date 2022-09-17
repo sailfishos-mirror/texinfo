@@ -74,7 +74,6 @@ $result_trees{'frenchspacing_and_code'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -151,7 +150,6 @@ $result_trees{'frenchspacing_and_code'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -232,7 +230,6 @@ $result_trees{'frenchspacing_and_code'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -258,7 +255,6 @@ $result_trees{'frenchspacing_and_code'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -491,7 +487,6 @@ $result_trees{'frenchspacing_and_code'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -524,7 +519,6 @@ $result_trees{'frenchspacing_and_code'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -796,7 +790,6 @@ $result_trees{'frenchspacing_and_code'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -829,7 +822,6 @@ $result_trees{'frenchspacing_and_code'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1018,7 +1010,6 @@ $result_trees{'frenchspacing_and_code'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1099,7 +1090,6 @@ $result_trees{'frenchspacing_and_code'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1125,7 +1115,6 @@ $result_trees{'frenchspacing_and_code'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1358,7 +1347,6 @@ $result_trees{'frenchspacing_and_code'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1391,7 +1379,6 @@ $result_trees{'frenchspacing_and_code'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'typearg'
                       },
@@ -1663,7 +1650,6 @@ $result_trees{'frenchspacing_and_code'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -1696,7 +1682,6 @@ $result_trees{'frenchspacing_and_code'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },

@@ -48,7 +48,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

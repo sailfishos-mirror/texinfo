@@ -29,7 +29,6 @@ $result_trees{'quotation_and_author'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '
@@ -148,7 +147,6 @@ $result_trees{'quotation_and_author'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -12,7 +12,6 @@ $result_trees{'documentdescription'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -43,7 +42,6 @@ $result_trees{'documentdescription'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -58,13 +56,11 @@ $result_trees{'documentdescription'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -79,13 +75,11 @@ $result_trees{'documentdescription'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'enddots',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -112,7 +106,6 @@ $result_trees{'documentdescription'} = {
                     }
                   ],
                   'cmdname' => 'verb',
-                  'contents' => [],
                   'extra' => {
                     'delimiter' => ':'
                   },
@@ -130,13 +123,11 @@ $result_trees{'documentdescription'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'aa',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -166,7 +157,6 @@ $result_trees{'documentdescription'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -180,7 +170,6 @@ $result_trees{'documentdescription'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -210,7 +199,6 @@ $result_trees{'documentdescription'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -228,7 +216,6 @@ $result_trees{'documentdescription'} = {
                     }
                   ],
                   'cmdname' => 'email',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -310,7 +297,6 @@ $result_trees{'documentdescription'} = {
         }
       ],
       'cmdname' => 'top',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

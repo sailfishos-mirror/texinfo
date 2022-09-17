@@ -12,7 +12,6 @@ $result_trees{'itemize_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -29,7 +28,6 @@ $result_trees{'itemize_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -149,7 +147,6 @@ $result_trees{'itemize_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -461,13 +458,11 @@ $result_trees{'itemize_in_example'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'bullet',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

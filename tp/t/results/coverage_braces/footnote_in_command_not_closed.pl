@@ -43,7 +43,6 @@ $result_trees{'footnote_in_command_not_closed'} = {
                         }
                       ],
                       'cmdname' => 'footnote',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -57,7 +56,6 @@ $result_trees{'footnote_in_command_not_closed'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -9,7 +9,6 @@ $result_trees{'nodes_after_top_before_section_nodes'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -46,7 +45,6 @@ $result_trees{'nodes_after_top_before_section_nodes'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -366,7 +364,6 @@ $result_trees{'nodes_after_top_before_section_nodes'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 },
@@ -396,7 +393,6 @@ $result_trees{'nodes_after_top_before_section_nodes'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -450,7 +446,6 @@ $result_trees{'nodes_after_top_before_section_nodes'} = [
                 }
               ],
               'cmdname' => 'subsection',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },

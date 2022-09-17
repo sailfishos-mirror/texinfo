@@ -8,14 +8,12 @@ use utf8;
 $result_trees{'unnumbered_no_argument'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'spaces_after_argument' => '
 '
@@ -25,7 +23,6 @@ $result_trees{'unnumbered_no_argument'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'contents' => [],
       'extra' => {
         'missing_argument' => 1
       },

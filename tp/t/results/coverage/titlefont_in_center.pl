@@ -33,7 +33,6 @@ $result_trees{'titlefont_in_center'} = {
                     }
                   ],
                   'cmdname' => 'titlefont',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

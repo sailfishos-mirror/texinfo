@@ -32,7 +32,6 @@ $result_trees{'comments'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => 'a'
               },
@@ -92,7 +91,6 @@ $result_trees{'comments'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ','
               },

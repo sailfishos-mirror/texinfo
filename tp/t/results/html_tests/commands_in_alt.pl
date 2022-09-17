@@ -22,12 +22,10 @@ $result_trees{'commands_in_alt'} = {
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
@@ -51,7 +49,6 @@ $result_trees{'commands_in_alt'} = {
                     }
                   ],
                   'cmdname' => 'b',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -65,7 +62,6 @@ $result_trees{'commands_in_alt'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -90,7 +86,6 @@ $result_trees{'commands_in_alt'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -116,12 +111,10 @@ $result_trees{'commands_in_alt'} = {
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     },
@@ -145,7 +138,6 @@ $result_trees{'commands_in_alt'} = {
                             }
                           ],
                           'cmdname' => 'b',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -159,7 +151,6 @@ $result_trees{'commands_in_alt'} = {
                     }
                   ],
                   'cmdname' => 'image',
-                  'contents' => [],
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },

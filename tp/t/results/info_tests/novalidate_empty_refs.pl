@@ -83,7 +83,6 @@ $result_trees{'novalidate_empty_refs'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -122,7 +121,6 @@ $result_trees{'novalidate_empty_refs'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -136,7 +134,6 @@ $result_trees{'novalidate_empty_refs'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -205,7 +202,6 @@ $result_trees{'novalidate_empty_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           {
@@ -242,7 +238,6 @@ $result_trees{'novalidate_empty_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           {
@@ -279,7 +274,6 @@ $result_trees{'novalidate_empty_refs'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -297,7 +291,6 @@ $result_trees{'novalidate_empty_refs'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           {

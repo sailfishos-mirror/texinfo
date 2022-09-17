@@ -36,7 +36,6 @@ $result_trees{'inter_item_commands_in_table'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -113,7 +112,6 @@ $result_trees{'inter_item_commands_in_table'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -167,7 +165,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -333,7 +330,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -539,7 +535,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'var',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -962,7 +957,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1157,7 +1151,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1328,7 +1321,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1523,7 +1515,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1694,7 +1685,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1866,7 +1856,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2032,7 +2021,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2198,7 +2186,6 @@ $result_trees{'inter_item_commands_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'samp',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

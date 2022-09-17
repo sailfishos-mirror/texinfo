@@ -96,7 +96,6 @@ $result_trees{'ampchar'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'arg'
                       },
@@ -226,13 +225,11 @@ $result_trees{'ampchar'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ampchar',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

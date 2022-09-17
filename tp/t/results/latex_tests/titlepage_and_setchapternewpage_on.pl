@@ -51,7 +51,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

@@ -50,7 +50,6 @@ $result_trees{'block_command_alias'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

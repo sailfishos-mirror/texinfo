@@ -86,7 +86,9 @@ sub definition_arguments_content($)
   my $element = shift;
 
   return undef if (!defined($element->{'extra'})
-                    or !defined($element->{'extra'}->{'def_parsed_hash'}));
+                    or !defined($element->{'extra'}->{'def_parsed_hash'})
+                    or !$element->{'args'}->[0]->{'contents'});
+
   my @args = @{$element->{'args'}->[0]->{'contents'}};
   while (@args) {
     last if (defined($args[0]->{'extra'})
@@ -167,9 +169,6 @@ sub find_innermost_accent_contents($)
     }
     my $arg = $current->{'args'}->[0];
     if (!$arg->{'contents'}) {
-      print STDERR "BUG: No content in accent command\n";
-      #print STDERR Data::Dumper->Dump([$current]);
-      #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
       return ([], \@accent_commands);
     }
     # inside the argument of an accent

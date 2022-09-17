@@ -56,7 +56,6 @@ $result_trees{'U_with_utf8_enable_encoding'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -48,7 +48,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -125,7 +124,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -205,7 +203,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -266,7 +263,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -284,7 +280,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           {
@@ -321,7 +316,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -366,7 +360,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -394,7 +387,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => 'reference_to_only_special_spaces_node.texi',
@@ -411,7 +403,6 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

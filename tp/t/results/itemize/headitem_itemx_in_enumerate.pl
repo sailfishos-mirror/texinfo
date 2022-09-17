@@ -12,7 +12,6 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

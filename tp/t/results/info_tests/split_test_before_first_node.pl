@@ -83,7 +83,6 @@ $result_trees{'split_test_before_first_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -151,7 +150,6 @@ $result_trees{'split_test_before_first_node'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -291,7 +289,6 @@ $result_trees{'split_test_before_first_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

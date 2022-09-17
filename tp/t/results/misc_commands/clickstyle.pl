@@ -47,13 +47,11 @@ $result_trees{'clickstyle'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'click',
-              'contents' => [],
               'extra' => {
                 'clickstyle' => 'result'
               },

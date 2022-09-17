@@ -25,7 +25,6 @@ $result_trees{'arg_in_brace_no_arg_command'} = {
                 }
               ],
               'cmdname' => 'TeX',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

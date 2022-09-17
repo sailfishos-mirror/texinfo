@@ -20,13 +20,11 @@ $result_trees{'empty_ref'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -41,12 +39,10 @@ $result_trees{'empty_ref'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -62,7 +58,6 @@ $result_trees{'empty_ref'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -77,7 +72,6 @@ $result_trees{'empty_ref'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
@@ -86,7 +80,6 @@ $result_trees{'empty_ref'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -106,7 +99,6 @@ $result_trees{'empty_ref'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
@@ -128,7 +120,6 @@ $result_trees{'empty_ref'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

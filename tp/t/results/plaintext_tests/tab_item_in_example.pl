@@ -12,7 +12,6 @@ $result_trees{'tab_item_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

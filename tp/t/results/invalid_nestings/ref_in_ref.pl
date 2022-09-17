@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'ref_in_ref'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -51,7 +50,6 @@ $result_trees{'ref_in_ref'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'label' => {},
                         'node_argument' => {
@@ -74,7 +72,6 @@ $result_trees{'ref_in_ref'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

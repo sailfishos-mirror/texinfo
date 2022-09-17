@@ -12,7 +12,6 @@ $result_trees{'menu_entry_no_entry'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -99,7 +98,6 @@ $result_trees{'menu_entry_no_entry'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -130,7 +128,6 @@ $result_trees{'menu_entry_no_entry'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

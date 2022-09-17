@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'ref_in_preformatted'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'ref_in_preformatted'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -154,7 +152,6 @@ $result_trees{'ref_in_preformatted'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -190,7 +187,6 @@ $result_trees{'ref_in_preformatted'} = {
                     }
                   ],
                   'cmdname' => 'ref',
-                  'contents' => [],
                   'extra' => {
                     'label' => {
                       'args' => [
@@ -210,7 +206,6 @@ $result_trees{'ref_in_preformatted'} = {
                         }
                       ],
                       'cmdname' => 'node',
-                      'contents' => [],
                       'extra' => {
                         'node_content' => [
                           {}

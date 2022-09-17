@@ -18,13 +18,11 @@ $result_trees{'test_tie'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'tie',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

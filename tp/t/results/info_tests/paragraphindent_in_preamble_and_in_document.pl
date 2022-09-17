@@ -14,7 +14,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -176,7 +175,6 @@ $result_trees{'paragraphindent_in_preamble_and_in_document'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

@@ -31,7 +31,6 @@ $result_trees{'wrong_command'} = {
                             }
                           ],
                           'cmdname' => 'b',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',

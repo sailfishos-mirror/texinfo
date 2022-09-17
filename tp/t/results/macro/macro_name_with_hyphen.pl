@@ -102,7 +102,6 @@ $result_trees{'macro_name_with_hyphen'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

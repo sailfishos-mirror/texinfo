@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'image_not_found'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -45,7 +44,6 @@ $result_trees{'image_not_found'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

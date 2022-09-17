@@ -153,7 +153,6 @@ $result_trees{'text_on_example_command_line'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -221,7 +220,6 @@ $result_trees{'text_on_example_command_line'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -235,7 +233,6 @@ $result_trees{'text_on_example_command_line'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

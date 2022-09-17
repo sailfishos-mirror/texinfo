@@ -72,7 +72,6 @@ $result_trees{'xref_test'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -120,7 +119,6 @@ $result_trees{'xref_test'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -173,7 +171,6 @@ $result_trees{'xref_test'} = {
                         }
                       ],
                       'cmdname' => 'xref',
-                      'contents' => [],
                       'extra' => {
                         'node_argument' => {
                           'manual_content' => [
@@ -197,7 +194,6 @@ $result_trees{'xref_test'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -249,7 +245,6 @@ $result_trees{'xref_test'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [
@@ -298,7 +293,6 @@ $result_trees{'xref_test'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'manual_content' => [

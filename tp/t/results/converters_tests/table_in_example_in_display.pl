@@ -12,7 +12,6 @@ $result_trees{'table_in_example_in_display'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -26,7 +25,6 @@ $result_trees{'table_in_example_in_display'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -43,7 +41,6 @@ $result_trees{'table_in_example_in_display'} = {
                       'contents' => [
                         {
                           'cmdname' => 'asis',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',

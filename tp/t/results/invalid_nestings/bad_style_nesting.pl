@@ -26,7 +26,6 @@ $result_trees{'bad_style_nesting'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -41,7 +40,6 @@ $result_trees{'bad_style_nesting'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

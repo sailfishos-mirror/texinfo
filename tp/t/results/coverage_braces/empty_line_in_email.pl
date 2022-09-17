@@ -31,7 +31,6 @@ $result_trees{'empty_line_in_email'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

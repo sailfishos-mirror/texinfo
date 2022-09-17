@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'ifset_nonalpha'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     }

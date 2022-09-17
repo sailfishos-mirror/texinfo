@@ -36,7 +36,6 @@ $result_trees{'section_below_unnumbered_no_top'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },
@@ -65,7 +64,6 @@ $result_trees{'section_below_unnumbered_no_top'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

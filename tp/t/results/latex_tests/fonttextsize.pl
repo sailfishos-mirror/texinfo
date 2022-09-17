@@ -74,7 +74,6 @@ $result_trees{'fonttextsize'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -151,7 +150,6 @@ $result_trees{'fonttextsize'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

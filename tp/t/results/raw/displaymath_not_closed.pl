@@ -12,7 +12,6 @@ $result_trees{'displaymath_not_closed'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

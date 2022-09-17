@@ -61,7 +61,6 @@ $result_trees{'value_in_misc_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -610,7 +609,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               ],
               'cmdname' => 'phoo',
-              'contents' => [],
               'extra' => {
                 'begin' => '//',
                 'end' => '\\\\'
@@ -717,7 +715,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               ],
               'cmdname' => 'phi',
-              'contents' => [],
               'extra' => {
                 'begin' => ':',
                 'end' => ':'
@@ -815,7 +812,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -893,7 +889,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               ],
               'cmdname' => 'strong',
-              'contents' => [],
               'extra' => {
                 'begin' => '(strong:',
                 'end' => ':)'
@@ -937,7 +932,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1037,7 +1031,6 @@ $result_trees{'value_in_misc_commands'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'extra' => {
                 'code' => 1
               },
@@ -1066,7 +1059,6 @@ $result_trees{'value_in_misc_commands'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1093,7 +1085,6 @@ $result_trees{'value_in_misc_commands'} = {
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'contents' => [],
                   'extra' => {
                     'code' => 1
                   },

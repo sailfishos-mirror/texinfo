@@ -64,7 +64,6 @@ $result_trees{'titles'} = {
                     }
                   ],
                   'cmdname' => 'sc',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -90,7 +89,6 @@ $result_trees{'titles'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -146,7 +144,6 @@ $result_trees{'titles'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -199,7 +196,6 @@ $result_trees{'titles'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -225,7 +221,6 @@ $result_trees{'titles'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

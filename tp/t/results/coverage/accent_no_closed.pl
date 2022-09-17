@@ -25,7 +25,6 @@ $result_trees{'accent_no_closed'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

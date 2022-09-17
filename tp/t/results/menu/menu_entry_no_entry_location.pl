@@ -12,7 +12,6 @@ $result_trees{'menu_entry_no_entry_location'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

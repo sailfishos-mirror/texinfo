@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'empty_ref_arg'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -66,7 +65,6 @@ $result_trees{'empty_ref_arg'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -101,7 +99,6 @@ $result_trees{'empty_ref_arg'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
@@ -123,7 +120,6 @@ $result_trees{'empty_ref_arg'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -185,7 +181,6 @@ $result_trees{'empty_ref_arg'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -321,7 +316,6 @@ $result_trees{'empty_ref_arg'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

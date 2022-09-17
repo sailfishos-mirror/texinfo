@@ -75,7 +75,6 @@ $result_trees{'def_syn_indices'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -152,7 +151,6 @@ $result_trees{'def_syn_indices'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -360,7 +358,6 @@ $result_trees{'def_syn_indices'} = {
                     }
                   ],
                   'cmdname' => 'var',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -386,7 +383,6 @@ $result_trees{'def_syn_indices'} = {
                     }
                   ],
                   'cmdname' => '~',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -416,7 +412,6 @@ $result_trees{'def_syn_indices'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -430,7 +425,6 @@ $result_trees{'def_syn_indices'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

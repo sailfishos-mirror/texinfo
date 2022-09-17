@@ -14,7 +14,6 @@ $result_trees{'ref_in_copying'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '
@@ -41,7 +40,6 @@ $result_trees{'ref_in_copying'} = {
                         }
                       ],
                       'cmdname' => 'ref',
-                      'contents' => [],
                       'extra' => {
                         'label' => {
                           'args' => [
@@ -61,7 +59,6 @@ $result_trees{'ref_in_copying'} = {
                             }
                           ],
                           'cmdname' => 'node',
-                          'contents' => [],
                           'extra' => {
                             'node_content' => [
                               {}
@@ -176,7 +173,6 @@ $result_trees{'ref_in_copying'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -250,7 +246,6 @@ $result_trees{'ref_in_copying'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

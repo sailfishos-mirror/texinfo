@@ -17,7 +17,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -34,7 +33,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'var',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

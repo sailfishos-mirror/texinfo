@@ -53,13 +53,11 @@ $result_trees{'invalid_clickstyle'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'click',
-              'contents' => [],
               'extra' => {
                 'clickstyle' => 'result'
               },
@@ -123,13 +121,11 @@ $result_trees{'invalid_clickstyle'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'click',
-              'contents' => [],
               'extra' => {
                 'clickstyle' => 'nocmd'
               },
@@ -183,13 +179,11 @@ $result_trees{'invalid_clickstyle'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'click',
-              'contents' => [],
               'extra' => {
                 'clickstyle' => 'nocmd'
               },

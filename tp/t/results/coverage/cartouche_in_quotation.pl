@@ -12,7 +12,6 @@ $result_trees{'cartouche_in_quotation'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -37,7 +36,6 @@ $result_trees{'cartouche_in_quotation'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

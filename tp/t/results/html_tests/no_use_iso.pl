@@ -29,7 +29,6 @@ $result_trees{'no_use_iso'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

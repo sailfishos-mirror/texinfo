@@ -36,7 +36,6 @@ $result_trees{'empty_line_in_math'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

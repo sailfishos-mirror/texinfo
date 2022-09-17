@@ -15,7 +15,6 @@ $result_trees{'comment_and_itemx_before_item'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

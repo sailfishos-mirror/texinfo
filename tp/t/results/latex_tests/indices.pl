@@ -79,7 +79,6 @@ $result_trees{'indices'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -156,7 +155,6 @@ $result_trees{'indices'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -231,7 +229,6 @@ $result_trees{'indices'} = {
                     }
                   ],
                   'cmdname' => 'math',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -265,7 +262,6 @@ $result_trees{'indices'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -291,7 +287,6 @@ $result_trees{'indices'} = {
                     }
                   ],
                   'cmdname' => '"',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -350,7 +345,6 @@ $result_trees{'indices'} = {
                         }
                       ],
                       'cmdname' => 'sortas',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -389,7 +383,6 @@ $result_trees{'indices'} = {
                         }
                       ],
                       'cmdname' => 'math',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -423,7 +416,6 @@ $result_trees{'indices'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -449,7 +441,6 @@ $result_trees{'indices'} = {
                         }
                       ],
                       'cmdname' => '"',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -488,7 +479,6 @@ $result_trees{'indices'} = {
                                 }
                               ],
                               'cmdname' => 'math',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -522,7 +512,6 @@ $result_trees{'indices'} = {
                                 }
                               ],
                               'cmdname' => '"',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -548,7 +537,6 @@ $result_trees{'indices'} = {
                                 }
                               ],
                               'cmdname' => '"',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -562,7 +550,6 @@ $result_trees{'indices'} = {
                         }
                       ],
                       'cmdname' => 'seealso',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -673,7 +660,6 @@ $result_trees{'indices'} = {
                     }
                   ],
                   'cmdname' => 'sortas',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -770,7 +756,6 @@ $result_trees{'indices'} = {
                     }
                   ],
                   'cmdname' => 'file',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -856,7 +841,6 @@ $result_trees{'indices'} = {
                     }
                   ],
                   'cmdname' => 'r',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -882,7 +866,6 @@ $result_trees{'indices'} = {
                     }
                   ],
                   'cmdname' => 'file',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

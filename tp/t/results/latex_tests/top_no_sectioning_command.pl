@@ -84,7 +84,6 @@ $result_trees{'top_no_sectioning_command'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -148,7 +147,6 @@ $result_trees{'top_no_sectioning_command'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

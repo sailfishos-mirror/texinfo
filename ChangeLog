@@ -1,3 +1,37 @@
+2022-09-17  Patrice Dumas  <pertusus@free.fr>
+
+	Remove contents tree element keys if empty
+
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_line, _begin_paragraph)
+	(_close_command_cleanup, _close_current, _abort_empty_line)
+	(_isolate_last_space, _parse_node_manual, _parse_float_type)
+	(_split_def_args, _parse_def, _convert_to_text, _end_line)
+	(_register_extra_menu_entry_information, _enter_menu_entry_node)
+	(_setup_document_root_and_before_node_section)
+	(_process_remaining_on_line, _parse_line_command_args):
+	do not add an explicit empty contents array reference.  If
+	a contents is emptied, or an empty non-closed command or type appears
+	at the end of the document, remove the key.  
+
+	* p/Texinfo/XS/parsetexi/api.c (element_to_perl_hash): do not
+	set 'contents' if empty.
+
+	* tp/Texinfo/Common.pm (_add_preamble_before_content)
+	(parse_node_manual), tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/HTML.pm (command_text, _convert_row_type)
+	(_convert), tp/Texinfo/Convert/Info.pm (format_image),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (image_formatted_text)
+	(format_image, _convert), tp/Texinfo/Convert/Texinfo.pm
+	(root_heading_command_to_texinfo),
+	tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/Convert/Utils.pm (definition_arguments_content)
+	(find_innermost_accent_contents), tp/Texinfo/Transformations.pm:
+	handle non defined 'contents'.
+
+	* tp/Texinfo/Common.pm (rearrange_tree_beginning): remove
+	before_node_section contents if empty.
+
 2022-09-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\frenchspacing): Save french spacing setting

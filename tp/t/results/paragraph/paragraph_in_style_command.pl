@@ -36,7 +36,6 @@ $result_trees{'paragraph_in_style_command'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -92,7 +91,6 @@ $result_trees{'paragraph_in_style_command'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

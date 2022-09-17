@@ -193,7 +193,6 @@ $result_trees{'empty_headitem'} = {
                                 }
                               ],
                               'cmdname' => 'code',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -244,7 +243,6 @@ $result_trees{'empty_headitem'} = {
                                 }
                               ],
                               'cmdname' => 'code',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',

@@ -47,7 +47,6 @@ $result_trees{'multitable_not_closed'} = {
             }
           ],
           'cmdname' => 'multitable',
-          'contents' => [],
           'extra' => {
             'max_columns' => 2,
             'prototypes' => [

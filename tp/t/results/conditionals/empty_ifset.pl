@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'empty_ifset'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     }

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'menu_pointing_to_anchor'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -109,7 +107,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {}
@@ -138,7 +135,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -15,7 +15,6 @@ $result_trees{'formats_only_title_comments'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }
@@ -114,7 +113,6 @@ $result_trees{'formats_only_title_comments'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -229,7 +227,6 @@ $result_trees{'formats_only_title_comments'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -337,7 +334,6 @@ $result_trees{'formats_only_title_comments'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

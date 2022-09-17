@@ -223,7 +223,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -270,7 +269,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -635,7 +633,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               'contents' => [
                 {
                   'cmdname' => 'today',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -672,13 +669,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'today',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -760,13 +755,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'aa',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -785,13 +778,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'aa',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -805,7 +796,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'sc',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -841,13 +831,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'aa',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -866,13 +854,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'aa',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -886,7 +872,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -967,13 +952,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'tie',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1010,13 +993,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'tie',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1098,13 +1079,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'tie',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1144,13 +1123,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'tie',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1230,7 +1207,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               'contents' => [
                 {
                   'cmdname' => 'atchar',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1334,13 +1310,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'atchar',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1380,13 +1354,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'atchar',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1673,13 +1645,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'registeredsymbol',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1716,13 +1686,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'registeredsymbol',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1804,13 +1772,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'registeredsymbol',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1850,13 +1816,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'registeredsymbol',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -1937,13 +1901,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'enddots',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1980,13 +1942,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'enddots',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2068,13 +2028,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'enddots',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2114,13 +2072,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'enddots',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2200,7 +2156,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               'contents' => [
                 {
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2230,7 +2185,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => '^',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2244,7 +2198,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'sc',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2291,7 +2244,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2321,7 +2273,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => '^',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -2335,7 +2286,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2415,7 +2365,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               'contents' => [
                 {
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2445,7 +2394,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => '^',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2459,7 +2407,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'sc',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2506,7 +2453,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => '^',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2536,7 +2482,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => '^',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -2550,7 +2495,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2646,7 +2590,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2660,7 +2603,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => '~',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2686,7 +2628,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'dotless',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2720,7 +2661,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                     }
                                   ],
                                   'cmdname' => 'dotless',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -2734,7 +2674,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => '~',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2760,7 +2699,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -2774,7 +2712,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'sc',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -2825,7 +2762,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -2839,7 +2775,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => '~',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2865,7 +2800,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -2899,7 +2833,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                         }
                                       ],
                                       'cmdname' => 'dotless',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -2913,7 +2846,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => '~',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -2939,7 +2871,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -2953,7 +2884,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3045,7 +2975,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'udotaccent',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -3075,7 +3004,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => '\'',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3089,7 +3017,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'v',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -3119,7 +3046,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => 'udotaccent',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3149,7 +3075,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                     }
                                   ],
                                   'cmdname' => '\'',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -3163,7 +3088,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => 'v',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3177,7 +3101,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'sc',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -3224,7 +3147,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'udotaccent',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3254,7 +3176,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => '\'',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3268,7 +3189,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'v',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3298,7 +3218,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => 'udotaccent',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3328,7 +3247,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                         }
                                       ],
                                       'cmdname' => '\'',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -3342,7 +3260,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => 'v',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3356,7 +3273,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3456,7 +3372,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                     }
                                   ],
                                   'cmdname' => '~',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -3470,7 +3385,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => ',',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3484,7 +3398,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => '=',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -3526,7 +3439,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                             }
                                           ],
                                           'cmdname' => '~',
-                                          'contents' => [],
                                           'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
@@ -3540,7 +3452,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                     }
                                   ],
                                   'cmdname' => ',',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -3554,7 +3465,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                             }
                           ],
                           'cmdname' => '=',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -3568,7 +3478,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     }
                   ],
                   'cmdname' => 'sc',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -3623,7 +3532,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                         }
                                       ],
                                       'cmdname' => '~',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -3637,7 +3545,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => ',',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3651,7 +3558,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => '=',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3693,7 +3599,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                                 }
                                               ],
                                               'cmdname' => '~',
-                                              'contents' => [],
                                               'parent' => {},
                                               'source_info' => {
                                                 'file_name' => '',
@@ -3707,7 +3612,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                         }
                                       ],
                                       'cmdname' => ',',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -3721,7 +3625,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                                 }
                               ],
                               'cmdname' => '=',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -3735,7 +3638,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3815,7 +3717,6 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -3852,13 +3753,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -3940,13 +3839,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'click',
-                  'contents' => [],
                   'extra' => {
                     'clickstyle' => 'arrow'
                   },
@@ -3986,13 +3883,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'click',
-                      'contents' => [],
                       'extra' => {
                         'clickstyle' => 'arrow'
                       },
@@ -4077,13 +3972,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'click',
-                  'contents' => [],
                   'extra' => {
                     'clickstyle' => 'arrow'
                   },
@@ -4126,13 +4019,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'click',
-                      'contents' => [],
                       'extra' => {
                         'clickstyle' => 'arrow'
                       },
@@ -4245,13 +4136,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'click',
-                  'contents' => [],
                   'extra' => {
                     'clickstyle' => 'result'
                   },
@@ -4291,13 +4180,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'click',
-                      'contents' => [],
                       'extra' => {
                         'clickstyle' => 'result'
                       },
@@ -4382,13 +4269,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'click',
-                  'contents' => [],
                   'extra' => {
                     'clickstyle' => 'result'
                   },
@@ -4431,13 +4316,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'click',
-                      'contents' => [],
                       'extra' => {
                         'clickstyle' => 'result'
                       },
@@ -4521,13 +4404,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'error',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -4564,13 +4445,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'error',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4652,13 +4531,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'error',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -4698,13 +4575,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'error',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4814,13 +4689,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'error',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -4857,13 +4730,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'error',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -4945,13 +4816,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'error',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -4991,13 +4860,11 @@ $result_trees{'itemize_arguments_enable_encoding'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'error',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',

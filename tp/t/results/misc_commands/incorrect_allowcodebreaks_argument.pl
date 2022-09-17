@@ -53,7 +53,6 @@ $result_trees{'incorrect_allowcodebreaks_argument'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -54,7 +54,6 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

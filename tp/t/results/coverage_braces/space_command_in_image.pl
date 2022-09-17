@@ -22,12 +22,10 @@ $result_trees{'space_command_in_image'} = {
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
@@ -43,7 +41,6 @@ $result_trees{'space_command_in_image'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
@@ -71,12 +68,10 @@ $result_trees{'space_command_in_image'} = {
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'brace_command_arg'
             },
@@ -92,7 +87,6 @@ $result_trees{'space_command_in_image'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

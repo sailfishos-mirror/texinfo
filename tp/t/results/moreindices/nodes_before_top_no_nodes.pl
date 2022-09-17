@@ -110,7 +110,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },
@@ -228,7 +227,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -388,12 +386,10 @@ $result_trees{'nodes_before_top_no_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -607,7 +603,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },
@@ -809,7 +804,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -964,7 +958,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -1176,7 +1169,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1337,12 +1329,10 @@ $result_trees{'nodes_before_top_no_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -1366,7 +1356,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -1616,7 +1605,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },
@@ -1851,7 +1839,6 @@ $result_trees{'nodes_before_top_no_nodes'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },

@@ -12,37 +12,30 @@ $result_trees{'example_empty_arguments'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -113,12 +106,10 @@ $result_trees{'example_empty_arguments'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },
@@ -126,12 +117,10 @@ $result_trees{'example_empty_arguments'} = {
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => '  '
               },
@@ -139,17 +128,14 @@ $result_trees{'example_empty_arguments'} = {
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '
@@ -220,17 +206,14 @@ $result_trees{'example_empty_arguments'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
@@ -245,17 +228,14 @@ $result_trees{'example_empty_arguments'} = {
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

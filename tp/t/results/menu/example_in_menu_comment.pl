@@ -12,7 +12,6 @@ $result_trees{'example_in_menu_comment'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -97,7 +96,6 @@ $result_trees{'example_in_menu_comment'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '

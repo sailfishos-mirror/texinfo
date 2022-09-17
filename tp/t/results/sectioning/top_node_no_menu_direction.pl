@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'top_node_no_menu_direction'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -40,7 +39,6 @@ $result_trees{'top_node_no_menu_direction'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -244,7 +242,6 @@ $result_trees{'top_node_no_menu_direction'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -274,7 +271,6 @@ $result_trees{'top_node_no_menu_direction'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

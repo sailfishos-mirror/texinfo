@@ -17,7 +17,6 @@ $result_trees{'nested_enumerate'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -95,7 +94,6 @@ $result_trees{'nested_enumerate'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -173,7 +171,6 @@ $result_trees{'nested_enumerate'} = {
                         {
                           'args' => [
                             {
-                              'contents' => [],
                               'extra' => {
                                 'spaces_after_argument' => '
 '
@@ -251,7 +248,6 @@ $result_trees{'nested_enumerate'} = {
                                 {
                                   'args' => [
                                     {
-                                      'contents' => [],
                                       'extra' => {
                                         'spaces_after_argument' => '
 '

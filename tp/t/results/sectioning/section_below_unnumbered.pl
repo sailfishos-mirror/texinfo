@@ -72,7 +72,6 @@ $result_trees{'section_below_unnumbered'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -140,7 +139,6 @@ $result_trees{'section_below_unnumbered'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -286,7 +284,6 @@ $result_trees{'section_below_unnumbered'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -337,7 +334,6 @@ $result_trees{'section_below_unnumbered'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -477,7 +473,6 @@ $result_trees{'section_below_unnumbered'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

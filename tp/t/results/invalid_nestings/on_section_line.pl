@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'on_section_line'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -48,7 +47,6 @@ $result_trees{'on_section_line'} = {
                 }
               ],
               'cmdname' => 'titlefont',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -74,7 +72,6 @@ $result_trees{'on_section_line'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -108,7 +105,6 @@ $result_trees{'on_section_line'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -154,7 +150,6 @@ $result_trees{'on_section_line'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

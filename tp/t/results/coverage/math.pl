@@ -64,7 +64,6 @@ $result_trees{'math'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -120,7 +119,6 @@ $result_trees{'math'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -146,7 +144,6 @@ $result_trees{'math'} = {
                         }
                       ],
                       'cmdname' => 'sub',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -172,7 +169,6 @@ $result_trees{'math'} = {
                         }
                       ],
                       'cmdname' => 'sup',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -186,7 +182,6 @@ $result_trees{'math'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -255,7 +250,6 @@ $result_trees{'math'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -335,7 +329,6 @@ $result_trees{'math'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },
@@ -411,7 +404,6 @@ $result_trees{'math'} = {
                 }
               ],
               'cmdname' => 'sup',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -437,7 +429,6 @@ $result_trees{'math'} = {
                 }
               ],
               'cmdname' => 'sub',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

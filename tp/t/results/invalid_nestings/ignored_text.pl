@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'ignored_text'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -26,7 +25,6 @@ $result_trees{'ignored_text'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

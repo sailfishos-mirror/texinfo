@@ -156,7 +156,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -207,7 +206,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -604,7 +602,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -672,7 +669,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -925,7 +921,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -993,7 +988,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -1246,7 +1240,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1521,7 +1514,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1627,7 +1619,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -1695,7 +1686,6 @@ $result_trees{'multiple_lang_chapters_latex'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

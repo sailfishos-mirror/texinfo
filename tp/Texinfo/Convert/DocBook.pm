@@ -1047,6 +1047,7 @@ sub _convert($$;$)
               $book_contents = $element->{'args'}->[-1]->{'contents'};
             }
             if (defined($element->{'args'}->[2])
+                and $element->{'args'}->[2]->{'contents'}
                 and @{$element->{'args'}->[2]->{'contents'}}) {
               my $section_name_contents = $element->{'args'}->[2]->{'contents'};
               $section_name = $self->_convert(
@@ -1057,16 +1058,19 @@ sub _convert($$;$)
           my $manual_file_contents;
           if (scalar(@{$element->{'args'}}) >= $manual_file_index+1
               and defined($element->{'args'}->[$manual_file_index])
+              and $element->{'args'}->[$manual_file_index]->{'contents'}
               and @{$element->{'args'}->[$manual_file_index]->{'contents'}}) {
             $manual_file_contents = $element->{'args'}->[$manual_file_index]->{'contents'};
           }
           if (! defined($section_name) and defined($element->{'args'}->[1])
-                   and @{$element->{'args'}->[1]->{'contents'}}) {
+              and $element->{'args'}->[1]->{'contents'}
+              and @{$element->{'args'}->[1]->{'contents'}}) {
             my $section_name_contents
               = $element->{'args'}->[1]->{'contents'};
             $section_name = $self->_convert(
                    {'contents' => $section_name_contents});
           } elsif (defined($element->{'args'}->[0])
+                   and $element->{'args'}->[0]->{'contents'}
                    and @{$element->{'args'}->[0]->{'contents'}}) {
             my $node_contents
               = $element->{'args'}->[0]->{'contents'};
@@ -1214,6 +1218,7 @@ sub _convert($$;$)
         }
       } elsif ($element->{'cmdname'} eq 'image') {
         if (defined($element->{'args'}->[0])
+            and $element->{'args'}->[0]->{'contents'}
             and @{$element->{'args'}->[0]->{'contents'}}) {
           my $basefile = Texinfo::Convert::Text::convert_to_text(
            {'contents' => $element->{'args'}->[0]->{'contents'}},
@@ -1267,10 +1272,13 @@ sub _convert($$;$)
           my $email_text;
           if (scalar(@{$element->{'args'}}) == 2
               and defined($element->{'args'}->[-1])
+              and $element->{'args'}->[-1]->{'contents'}
               and @{$element->{'args'}->[-1]->{'contents'}}) {
             $name = $element->{'args'}->[1]->{'contents'};
           }
-          if (defined($element->{'args'}->[0]) and @{$element->{'args'}->[0]->{'contents'}}) {
+          if (defined($element->{'args'}->[0])
+              and $element->{'args'}->[0]->{'contents'}
+              and @{$element->{'args'}->[0]->{'contents'}}) {
             $email = $element->{'args'}->[0]->{'contents'};
             $email_text
               = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
@@ -1294,6 +1302,7 @@ sub _convert($$;$)
         if ($element->{'args'}) {
           my ($url_text, $url_content);
           if (defined($element->{'args'}->[0])
+              and $element->{'args'}->[0]->{'contents'}
               and @{$element->{'args'}->[0]->{'contents'}}) {
             $url_content = $element->{'args'}->[0]->{'contents'};
             $url_text = $self->_protect_text(
@@ -1306,13 +1315,17 @@ sub _convert($$;$)
           }
           my $replacement;
           if (scalar(@{$element->{'args'}}) >= 2 
-              and defined($element->{'args'}->[1]) and @{$element->{'args'}->[1]->{'contents'}}) {
+              and defined($element->{'args'}->[1])
+              and $element->{'args'}->[1]->{'contents'}
+              and @{$element->{'args'}->[1]->{'contents'}}) {
             $replacement = $self->_convert({'contents' 
                       => $element->{'args'}->[1]->{'contents'}});
           }
           if (!defined($replacement) or $replacement eq '') {
             if (scalar(@{$element->{'args'}}) == 3
-                and defined($element->{'args'}->[2]) and @{$element->{'args'}->[2]->{'contents'}}) {
+                and defined($element->{'args'}->[2])
+                and $element->{'args'}->[2]->{'contents'}
+                and @{$element->{'args'}->[2]->{'contents'}}) {
               $replacement = $self->_convert({'contents' 
                       => $element->{'args'}->[2]->{'contents'}});
             }
@@ -1402,6 +1415,7 @@ sub _convert($$;$)
         }
         if (scalar(@{$element->{'args'}}) > $arg_index
             and defined($element->{'args'}->[$arg_index])
+            and $element->{'args'}->[$arg_index]->{'contents'}
             and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
           $result .= $self->_convert({'contents'
                         => $element->{'args'}->[$arg_index]->{'contents'}});

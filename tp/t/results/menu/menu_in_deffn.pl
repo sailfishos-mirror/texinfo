@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'menu_in_deffn'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -132,7 +131,6 @@ $result_trees{'menu_in_deffn'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '

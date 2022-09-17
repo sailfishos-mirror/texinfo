@@ -18,7 +18,6 @@ $result_trees{'misc_raw'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => ' 
 '
@@ -150,7 +149,6 @@ $result_trees{'misc_raw'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'space_in_def_for_index'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },

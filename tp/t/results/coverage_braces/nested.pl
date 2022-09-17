@@ -37,7 +37,6 @@ $result_trees{'nested'} = {
                         }
                       ],
                       'cmdname' => 'key',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -51,7 +50,6 @@ $result_trees{'nested'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

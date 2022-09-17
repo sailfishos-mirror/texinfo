@@ -17,7 +17,6 @@ $result_trees{'verbatim_in_smallformat'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -31,7 +30,6 @@ $result_trees{'verbatim_in_smallformat'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

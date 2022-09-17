@@ -90,7 +90,6 @@ $result_trees{'check_htmlxref_menu'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -209,7 +208,6 @@ $result_trees{'check_htmlxref_menu'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -282,7 +280,6 @@ $result_trees{'check_htmlxref_menu'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'node_argument' => {
                   'node_content' => [
@@ -315,7 +312,6 @@ $result_trees{'check_htmlxref_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -692,7 +688,6 @@ $result_trees{'check_htmlxref_menu'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -747,7 +742,6 @@ $result_trees{'check_htmlxref_menu'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

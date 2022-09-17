@@ -12,7 +12,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -59,7 +58,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             }
                           ],
                           'cmdname' => 'var',
-                          'contents' => [],
                           'extra' => {
                             'def_role' => 'name'
                           },
@@ -228,7 +226,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           'type' => 'spaces'
                         },
                         {
-                          'contents' => [],
                           'extra' => {
                             'def_role' => 'arg'
                           },
@@ -380,7 +377,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                                     }
                                   ],
                                   'cmdname' => 'samp',
-                                  'contents' => [],
                                   'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
@@ -398,7 +394,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             }
                           ],
                           'cmdname' => 'b',
-                          'contents' => [],
                           'extra' => {
                             'def_role' => 'name'
                           },

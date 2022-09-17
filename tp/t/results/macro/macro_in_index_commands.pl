@@ -696,7 +696,6 @@ $result_trees{'macro_in_index_commands'} = {
                     }
                   ],
                   'cmdname' => 'var',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -722,7 +721,6 @@ $result_trees{'macro_in_index_commands'} = {
                     }
                   ],
                   'cmdname' => '\'',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -752,7 +750,6 @@ $result_trees{'macro_in_index_commands'} = {
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -766,7 +763,6 @@ $result_trees{'macro_in_index_commands'} = {
                     }
                   ],
                   'cmdname' => '^',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',

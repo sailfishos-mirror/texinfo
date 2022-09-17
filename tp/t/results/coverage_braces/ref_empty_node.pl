@@ -20,17 +20,14 @@ $result_trees{'ref_empty_node'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -46,7 +43,6 @@ $result_trees{'ref_empty_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -61,22 +57,18 @@ $result_trees{'ref_empty_node'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
@@ -98,7 +90,6 @@ $result_trees{'ref_empty_node'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -113,12 +104,10 @@ $result_trees{'ref_empty_node'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 },
@@ -134,7 +123,6 @@ $result_trees{'ref_empty_node'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -150,7 +138,6 @@ $result_trees{'ref_empty_node'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
@@ -211,7 +198,6 @@ $result_trees{'ref_empty_node'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

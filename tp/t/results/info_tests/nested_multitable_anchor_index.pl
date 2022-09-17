@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'nested_multitable_anchor_index'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -189,7 +188,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                                 }
                                               ],
                                               'cmdname' => 'anchor',
-                                              'contents' => [],
                                               'extra' => {
                                                 'node_content' => [
                                                   {}
@@ -443,7 +441,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                 }
                               ],
                               'cmdname' => 'anchor',
-                              'contents' => [],
                               'extra' => {
                                 'node_content' => [
                                   {}
@@ -644,7 +641,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -680,7 +676,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

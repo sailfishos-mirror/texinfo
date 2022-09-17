@@ -66,7 +66,6 @@ $result_trees{'utf8_default'} = {
                 }
               ],
               'cmdname' => '^',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

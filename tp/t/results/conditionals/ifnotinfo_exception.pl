@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'ifnotinfo_exception'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     }

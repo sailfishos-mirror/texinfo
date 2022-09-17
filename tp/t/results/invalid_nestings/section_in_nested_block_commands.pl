@@ -15,7 +15,6 @@ $result_trees{'section_in_nested_block_commands'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -93,7 +92,6 @@ $result_trees{'section_in_nested_block_commands'} = {
                     {
                       'args' => [
                         {
-                          'contents' => [],
                           'extra' => {
                             'spaces_after_argument' => '
 '
@@ -177,7 +175,6 @@ $result_trees{'section_in_nested_block_commands'} = {
         }
       ],
       'cmdname' => 'section',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

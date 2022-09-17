@@ -15,7 +15,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -85,7 +84,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -155,7 +153,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -225,7 +222,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -295,7 +291,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -365,7 +360,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -435,7 +429,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -505,7 +498,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }
@@ -575,7 +567,6 @@ $result_trees{'all_empty_def'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'block_line_arg'
                 }

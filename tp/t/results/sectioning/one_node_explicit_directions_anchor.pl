@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'one_node_explicit_directions_anchor'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -25,12 +24,10 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -96,7 +93,6 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
                 }
               ],
               'cmdname' => 'anchor',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -145,7 +141,6 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {

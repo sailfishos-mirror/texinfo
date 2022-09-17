@@ -12,7 +12,6 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

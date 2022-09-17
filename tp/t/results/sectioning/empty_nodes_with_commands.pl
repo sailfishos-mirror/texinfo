@@ -22,7 +22,6 @@ $result_trees{'empty_nodes_with_commands'} = {
     {
       'args' => [
         {
-          'contents' => [],
           'extra' => {
             'comment_at_end' => {
               'args' => [
@@ -84,7 +83,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           {
@@ -121,7 +119,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           {
@@ -158,7 +155,6 @@ $result_trees{'empty_nodes_with_commands'} = {
                 }
               ],
               'cmdname' => 'asis',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -176,7 +172,6 @@ $result_trees{'empty_nodes_with_commands'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'nodes_manuals' => [
           {

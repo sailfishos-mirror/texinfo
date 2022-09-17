@@ -25,7 +25,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -51,7 +50,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'slanted',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -77,7 +75,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'var',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -103,7 +100,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'sub',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -134,7 +130,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'hyphenation',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -166,7 +161,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'indicateurl',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -196,7 +190,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'U',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -222,7 +215,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'w',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -249,7 +241,6 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ':'
               },

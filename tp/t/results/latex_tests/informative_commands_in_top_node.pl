@@ -36,7 +36,6 @@ $result_trees{'informative_commands_in_top_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -179,7 +178,6 @@ $result_trees{'informative_commands_in_top_node'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -273,7 +271,6 @@ $result_trees{'informative_commands_in_top_node'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

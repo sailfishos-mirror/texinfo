@@ -99,7 +99,6 @@ $result_trees{'empty_index_entry'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -120,7 +119,6 @@ $result_trees{'empty_index_entry'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name',
                         'spaces_before_argument' => ' '

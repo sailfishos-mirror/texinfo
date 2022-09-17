@@ -45,7 +45,6 @@ $result_trees{'empty_def_arguments'} = {
                         }
                       ],
                       'cmdname' => 'var',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -157,7 +156,6 @@ $result_trees{'empty_def_arguments'} = {
                                 }
                               ],
                               'cmdname' => 'samp',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -175,7 +173,6 @@ $result_trees{'empty_def_arguments'} = {
                         }
                       ],
                       'cmdname' => 'b',
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -220,7 +217,6 @@ $result_trees{'empty_def_arguments'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'line_arg'
                 }
@@ -287,7 +283,6 @@ $result_trees{'empty_def_arguments'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -308,7 +303,6 @@ $result_trees{'empty_def_arguments'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },
@@ -357,7 +351,6 @@ $result_trees{'empty_def_arguments'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -430,7 +423,6 @@ $result_trees{'empty_def_arguments'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name',
                         'spaces_before_argument' => ' '
@@ -531,7 +523,6 @@ $result_trees{'empty_def_arguments'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'category'
                       },
@@ -552,7 +543,6 @@ $result_trees{'empty_def_arguments'} = {
                       'type' => 'spaces'
                     },
                     {
-                      'contents' => [],
                       'extra' => {
                         'def_role' => 'name'
                       },

@@ -24,13 +24,11 @@ $result_trees{'inlineifset_false_not_closed'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineifset',
-              'contents' => [],
               'extra' => {
                 'format' => 'aaa'
               },

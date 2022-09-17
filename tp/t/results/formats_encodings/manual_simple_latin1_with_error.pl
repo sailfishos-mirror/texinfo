@@ -92,7 +92,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -217,7 +216,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -267,7 +265,6 @@ $result_trees{'manual_simple_latin1_with_error'} = {
         },
         {
           'cmdname' => 'value',
-          'contents' => [],
           'extra' => {
             'flag' => "non_conn\x{f9}e"
           },

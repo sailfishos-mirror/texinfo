@@ -30,13 +30,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'format' => 'html'
               },
@@ -65,13 +63,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'format' => 'plaintext'
               },
@@ -100,13 +96,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'format' => 'xml'
               },
@@ -135,13 +129,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'format' => 'docbook'
               },
@@ -189,7 +181,6 @@ $result_trees{'inline_expand_tex'} = {
                         }
                       ],
                       'cmdname' => 'code',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -206,7 +197,6 @@ $result_trees{'inline_expand_tex'} = {
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'tex'
@@ -236,13 +226,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlinefmt',
-              'contents' => [],
               'extra' => {
                 'format' => 'latex'
               },
@@ -289,13 +277,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'format' => 'html'
               },
@@ -324,13 +310,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'format' => 'plaintext'
               },
@@ -359,13 +343,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'format' => 'xml'
               },
@@ -394,13 +376,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'format' => 'docbook'
               },
@@ -469,7 +449,6 @@ $result_trees{'inline_expand_tex'} = {
                             }
                           ],
                           'cmdname' => 'code',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -499,7 +478,6 @@ $result_trees{'inline_expand_tex'} = {
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 1,
                 'format' => 'tex'
@@ -529,13 +507,11 @@ $result_trees{'inline_expand_tex'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 }
               ],
               'cmdname' => 'inlineraw',
-              'contents' => [],
               'extra' => {
                 'format' => 'latex'
               },

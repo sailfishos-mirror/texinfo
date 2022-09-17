@@ -37,7 +37,6 @@ $result_trees{'nested_in_sc'} = {
                                 }
                               ],
                               'cmdname' => '~',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -52,13 +51,11 @@ $result_trees{'nested_in_sc'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'aa',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -73,13 +70,11 @@ $result_trees{'nested_in_sc'} = {
                             {
                               'args' => [
                                 {
-                                  'contents' => [],
                                   'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'TeX',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -98,13 +93,11 @@ $result_trees{'nested_in_sc'} = {
                                     {
                                       'args' => [
                                         {
-                                          'contents' => [],
                                           'parent' => {},
                                           'type' => 'brace_command_arg'
                                         }
                                       ],
                                       'cmdname' => 'aa',
-                                      'contents' => [],
                                       'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
@@ -118,7 +111,6 @@ $result_trees{'nested_in_sc'} = {
                                 }
                               ],
                               'cmdname' => '~',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -150,7 +142,6 @@ $result_trees{'nested_in_sc'} = {
                                 }
                               ],
                               'cmdname' => 'footnote',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -189,7 +180,6 @@ $result_trees{'nested_in_sc'} = {
                                 }
                               ],
                               'cmdname' => 'abbr',
-                              'contents' => [],
                               'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
@@ -217,7 +207,6 @@ $result_trees{'nested_in_sc'} = {
                                 }
                               ],
                               'cmdname' => 'verb',
-                              'contents' => [],
                               'extra' => {
                                 'delimiter' => ':'
                               },
@@ -234,7 +223,6 @@ $result_trees{'nested_in_sc'} = {
                         }
                       ],
                       'cmdname' => 'sc',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -248,7 +236,6 @@ $result_trees{'nested_in_sc'} = {
                 }
               ],
               'cmdname' => 'sc',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

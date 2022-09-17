@@ -396,7 +396,6 @@ $result_trees{'macro_in_menu'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -9,7 +9,6 @@ $result_trees{'top_chapter_sections'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -319,7 +318,6 @@ $result_trees{'top_chapter_sections'} = [
                 }
               ],
               'cmdname' => 'chapter',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },

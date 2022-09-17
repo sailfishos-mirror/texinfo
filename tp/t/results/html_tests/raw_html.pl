@@ -12,7 +12,6 @@ $result_trees{'raw_html'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -122,7 +122,6 @@ $result_trees{'nested_footnotes_separate'} = {
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'contents' => [],
                           'parent' => {},
                           'source_info' => {
                             'file_name' => '',
@@ -145,7 +144,6 @@ $result_trees{'nested_footnotes_separate'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

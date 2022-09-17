@@ -24,7 +24,6 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'elided'
                 },
@@ -44,7 +43,6 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                         }
                       ],
                       'cmdname' => 'emph',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -61,7 +59,6 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                 }
               ],
               'cmdname' => 'inlinefmtifelse',
-              'contents' => [],
               'extra' => {
                 'expand_index' => 2,
                 'format' => 'info'

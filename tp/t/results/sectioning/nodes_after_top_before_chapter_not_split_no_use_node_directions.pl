@@ -51,7 +51,6 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -371,7 +370,6 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'parent' => {},
           'type' => 'line_arg'
         },
@@ -401,7 +399,6 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -455,7 +452,6 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
       'extra' => {
         'spaces_before_argument' => ' '
       },

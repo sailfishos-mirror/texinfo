@@ -18,7 +18,6 @@ $result_trees{'misc_raw_comments'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -202,7 +201,6 @@ $result_trees{'misc_raw_comments'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

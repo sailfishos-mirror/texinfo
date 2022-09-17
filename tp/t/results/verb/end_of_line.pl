@@ -48,7 +48,6 @@ $result_trees{'end_of_line'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'contents' => [],
               'extra' => {
                 'delimiter' => ''
               },

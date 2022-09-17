@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'node_too_much_args'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -25,7 +24,6 @@ $result_trees{'node_too_much_args'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },
@@ -33,7 +31,6 @@ $result_trees{'node_too_much_args'} = {
           'type' => 'line_arg'
         },
         {
-          'contents' => [],
           'extra' => {
             'spaces_before_argument' => ' '
           },
@@ -63,7 +60,6 @@ $result_trees{'node_too_much_args'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}

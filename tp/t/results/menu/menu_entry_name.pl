@@ -12,7 +12,6 @@ $result_trees{'menu_entry_name'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '
@@ -76,7 +75,6 @@ $result_trees{'menu_entry_name'} = {
                 {
                   'contents' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'preformatted'
                     }

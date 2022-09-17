@@ -43,7 +43,6 @@ $result_trees{'accent_no_closed_comment'} = {
                 }
               ],
               'cmdname' => '~',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

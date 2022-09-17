@@ -15,7 +15,6 @@ $result_trees{'comments_on_block_command_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }
@@ -241,7 +240,6 @@ $result_trees{'comments_on_block_command_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -362,13 +360,11 @@ $result_trees{'comments_on_block_command_lines'} = {
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'bullet',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -485,7 +481,6 @@ $result_trees{'comments_on_block_command_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -708,7 +703,6 @@ $result_trees{'comments_on_block_command_lines'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -835,7 +829,6 @@ $result_trees{'comments_on_block_command_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -1015,7 +1008,6 @@ $result_trees{'comments_on_block_command_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -1102,7 +1094,6 @@ $result_trees{'comments_on_block_command_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -1208,7 +1199,6 @@ $result_trees{'comments_on_block_command_lines'} = {
                     }
                   ],
                   'cmdname' => 'code',
-                  'contents' => [],
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
@@ -1563,7 +1553,6 @@ $result_trees{'comments_on_block_command_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -2136,7 +2125,6 @@ $result_trees{'comments_on_block_command_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
@@ -2223,7 +2211,6 @@ $result_trees{'comments_on_block_command_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [

@@ -39,7 +39,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'email',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -70,7 +69,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'dmn',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -101,7 +99,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'indicateurl',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -132,7 +129,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'kbd',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -163,7 +159,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'math',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -194,7 +189,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'cite',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -225,7 +219,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'emph',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -260,7 +253,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                         }
                       ],
                       'cmdname' => 'asis',
-                      'contents' => [],
                       'parent' => {},
                       'source_info' => {
                         'file_name' => '',
@@ -274,7 +266,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'code',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -310,7 +301,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 }
               ],
               'cmdname' => 'emph',
-              'contents' => [],
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

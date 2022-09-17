@@ -76,7 +76,6 @@ $result_trees{'paragraph_indent_asis'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

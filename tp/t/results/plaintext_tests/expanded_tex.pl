@@ -19,7 +19,6 @@ $result_trees{'expanded_tex'} = {
             {
               'args' => [
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_after_argument' => '
 '

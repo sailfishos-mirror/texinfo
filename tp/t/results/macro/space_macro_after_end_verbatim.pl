@@ -75,7 +75,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

@@ -13,7 +13,6 @@ $result_trees{'spaces_no_brace_after_braced_command'} = {
           'contents' => [
             {
               'cmdname' => 'code',
-              'contents' => [],
               'extra' => {
                 'spaces' => ' '
               },

@@ -75,7 +75,6 @@ $result_trees{'macro_in_end_argument'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

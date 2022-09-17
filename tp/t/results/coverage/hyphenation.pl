@@ -32,7 +32,6 @@ $result_trees{'hyphenation'} = {
             }
           ],
           'cmdname' => 'hyphenation',
-          'contents' => [],
           'parent' => {},
           'source_info' => {
             'file_name' => '',

@@ -23,7 +23,6 @@ $result_trees{'image_link_prefix'} = {
             }
           ],
           'cmdname' => 'image',
-          'contents' => [],
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },

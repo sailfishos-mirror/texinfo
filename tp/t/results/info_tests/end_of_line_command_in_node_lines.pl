@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'end_of_line_command_in_node_lines'} = {
   'contents' => [
     {
-      'contents' => [],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -30,7 +29,6 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -123,7 +121,6 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'isindex' => 1,
         'node_content' => [
@@ -202,7 +199,6 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
             }
           ],
           'cmdname' => 'anchor',
-          'contents' => [],
           'extra' => {
             'node_content' => [
               {},
@@ -384,7 +380,6 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
         }
       ],
       'cmdname' => 'node',
-      'contents' => [],
       'extra' => {
         'node_content' => [
           {}
@@ -464,7 +459,6 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -524,7 +518,6 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -603,7 +596,6 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'contents' => [],
               'extra' => {
                 'label' => {},
                 'node_argument' => {
@@ -640,7 +632,6 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
         {
           'args' => [
             {
-              'contents' => [],
               'extra' => {
                 'spaces_after_argument' => '
 '

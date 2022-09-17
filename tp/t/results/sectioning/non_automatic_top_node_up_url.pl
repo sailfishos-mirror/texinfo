@@ -9,7 +9,6 @@ $result_trees{'non_automatic_top_node_up_url'} = [
   {
     'contents' => [
       {
-        'contents' => [],
         'parent' => {
           'contents' => [
             {},
@@ -84,7 +83,6 @@ $result_trees{'non_automatic_top_node_up_url'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -151,7 +149,6 @@ $result_trees{'non_automatic_top_node_up_url'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -286,7 +283,6 @@ $result_trees{'non_automatic_top_node_up_url'} = [
                   'type' => 'line_arg'
                 },
                 {
-                  'contents' => [],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
@@ -331,7 +327,6 @@ $result_trees{'non_automatic_top_node_up_url'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}

@@ -83,7 +83,6 @@ $result_trees{'lone_Top_node'} = [
                 {
                   'args' => [
                     {
-                      'contents' => [],
                       'extra' => {
                         'spaces_after_argument' => '
 '
@@ -235,7 +234,6 @@ $result_trees{'lone_Top_node'} = [
                 }
               ],
               'cmdname' => 'node',
-              'contents' => [],
               'extra' => {
                 'node_content' => [
                   {}
@@ -276,7 +274,6 @@ $result_trees{'lone_Top_node'} = [
                 }
               ],
               'cmdname' => 'chapter',
-              'contents' => [],
               'extra' => {
                 'spaces_before_argument' => ' '
               },
