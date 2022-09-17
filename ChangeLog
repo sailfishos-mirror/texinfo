@@ -1,3 +1,14 @@
+2022-09-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\frenchspacing): Save french spacing setting
+	in \frenchspacingsetting.
+	(\headline, \footline): Restore French spacing setting.
+	(\output, \onepageout): Shorten some comments, including some
+	about old code.
+
+	Sentence spacing setting not always obeyed in header reported by
+	Werner.
+
 2022-09-16  Patrice Dumas  <pertusus@free.fr>
 
 	Keep definfoenclose defined commands line numbers
