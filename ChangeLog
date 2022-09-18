@@ -1,5 +1,11 @@
 2022-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_normalize_texinfo_name): 'contents' can now be undef in anchor
+	argument.
+
+2022-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/misc.c (xs_abort_empty_line): remove the contents key
 	if contents are empty.
 

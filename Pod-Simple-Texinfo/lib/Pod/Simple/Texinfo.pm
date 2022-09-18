@@ -419,10 +419,10 @@ sub _normalize_texinfo_name($$)
     }
     if (not exists($current->{'cmdname'}) or $current->{'cmdname'} ne 'anchor') {
       cluck "BUG: could not find anchor: $texinfo_text";
-    } else {
+    } elsif ($current->{'args'}->[0]->{'contents'}) {
       my $protected_contents
-          = protect_first_parenthesis($current->{'args'}->[-0]->{'contents'});
-      $current->{'args'}->[-0]->{'contents'} = $protected_contents;
+          = protect_first_parenthesis($current->{'args'}->[0]->{'contents'});
+      $current->{'args'}->[0]->{'contents'} = $protected_contents;
     }
   }
   my $fixed_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree, 1);
