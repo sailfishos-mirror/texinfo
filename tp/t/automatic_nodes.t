@@ -58,7 +58,7 @@ sub test_new_node($$$$)
 test_new_node ('a node', 'a-node', '@node a node
 ', 'simple');
 test_new_node ('a node @code{in code} @c comment
-', 'a-node-in-code-', '@node a node @code{in code} @c comment
+', 'a-node-in-code', '@node a node @code{in code} @c comment
 ', 'complex');
 test_new_node ('a ,, node @code{a,b,}', 'a-_002c_002c-node-a_002cb_002c',
 '@node a @comma{}@comma{} node @code{a@comma{}b@comma{}}

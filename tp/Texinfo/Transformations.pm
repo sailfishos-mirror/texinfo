@@ -227,14 +227,20 @@ sub _new_node($$$$)
     $empty_node = 1;
   }
 
-  unless (($node_tree->{'contents'}->[-1]->{'cmdname'}
-       and ($node_tree->{'contents'}->[-1]->{'cmdname'} eq 'c'
-            or $node_tree->{'contents'}->[-1]->{'cmdname'} eq 'comment'))
-      or (defined($node_tree->{'contents'}->[-1]->{'text'})
-          and $node_tree->{'contents'}->[-1]->{'text'} =~ /\n/)) {
-    push @{$node_tree->{'contents'}},
-           {'type' => 'spaces_at_end', 'text' => "\n"};
+  my $comment_at_end;
+  if ($node_tree->{'contents'}->[-1]->{'cmdname'}
+      and ($node_tree->{'contents'}->[-1]->{'cmdname'} eq 'c'
+           or $node_tree->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
+    $comment_at_end = pop @{$node_tree->{'contents'}};
   }
+  my $spaces_after_argument = '';
+  if (scalar(@{$node_tree->{'contents'}}) > 0
+             and $node_tree->{'contents'}->[-1]->{'text'}
+             and $node_tree->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//) {
+    $spaces_after_argument = $1;
+  }
+  $spaces_after_argument .= "\n" unless ($spaces_after_argument =~ /\n/
+                                         or $comment_at_end);
 
   my $appended_number = 0 +$empty_node;
   my ($node, $parsed_node);
@@ -242,28 +248,33 @@ sub _new_node($$$$)
   while (!defined($node)
          or ($labels
             and $labels->{$parsed_node->{'normalized'}})) {
-    $node = {'cmdname' => 'node', 'args' => [{}],
+    $node = {'cmdname' => 'node',
+             'args' => [
+               {'type' => 'line_arg',
+                'extra' =>
+                    {'spaces_after_argument' => $spaces_after_argument}}
+             ],
              'extra' => {'spaces_before_argument' => ' '}};
-    my $node_arg = $node->{'args'}->[0];
-    $node_arg->{'parent'} = $node;
-    @{$node_arg->{'contents'}} = (
-        @{$node_tree->{'contents'}});
+    my $node_line_arg = $node->{'args'}->[0];
+    $node_line_arg->{'parent'} = $node;
+    $node_line_arg->{'extra'}->{'comment_at_end'} = $comment_at_end
+      if (defined($comment_at_end));
+    @{$node_line_arg->{'contents'}} = (@{$node_tree->{'contents'}});
     if ($appended_number) {
-      splice (@{$node_arg->{'contents'}}, -1, 0,
-                  {'text' => " $appended_number"});
+      push @{$node_line_arg->{'contents'}}, {'text' => " $appended_number"};
     }
-    foreach my $content (@{$node_arg->{'contents'}}) {
-      $content->{'parent'} = $node_arg;
+    foreach my $content (@{$node_line_arg->{'contents'}}) {
+      $content->{'parent'} = $node_line_arg;
     }
     my $modified_node_content;
     ($parsed_node, $modified_node_content)
-       = Texinfo::Common::parse_node_manual($node_arg);
+       = Texinfo::Common::parse_node_manual($node_line_arg);
     if ($parsed_node and $parsed_node->{'node_content'}) {
       $parsed_node->{'normalized'} =
        Texinfo::Convert::NodeNameNormalization::normalize_node(
         { 'contents' => $parsed_node->{'node_content'} });
     }
-    $node_arg->{'contents'} = $modified_node_content;
+    $node_line_arg->{'contents'} = $modified_node_content;
     if (!defined($parsed_node) or !$parsed_node->{'node_content'}
         or $parsed_node->{'normalized'} !~ /[^-]/) {
       if ($appended_number) {
