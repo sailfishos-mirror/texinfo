@@ -1,5 +1,9 @@
 2022-09-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Node Commands): Correct @pxref to @ref.
+
+2022-09-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex [e-TeX]: Do not set \lastlinefit.  Karl
 	reported that this led to many underful hbox warnings.
 

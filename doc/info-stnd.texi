@@ -1054,7 +1054,7 @@ created.
 @cindex man pages, displaying
 Read the name of a man page to load and display.  This uses the @command{man}
 command on your system to retrieve the contents of the requested man page.
-See also @pxref{--raw-escapes}.
+See also @ref{--raw-escapes}.
 
 @end table
 
