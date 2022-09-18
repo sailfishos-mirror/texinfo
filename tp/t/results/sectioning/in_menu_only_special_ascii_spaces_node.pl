@@ -140,7 +140,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               "args" => [
                 {
                   "parent" => {},
-                  "text" => "* \t\f\13",
+                  "text" => "* \t\f",
                   "type" => "menu_entry_leading_text"
                 },
                 {
@@ -293,7 +293,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "args" => [
         {
           "extra" => {
-            "spaces_after_argument" => " \t\f\13\n"
+            "spaces_after_argument" => " \t\f\n"
           },
           "parent" => {},
           "type" => "line_arg"
@@ -318,7 +318,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           "contents" => [
             {
               "parent" => {},
-              "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
+              "text" => "CHARACTER TABULATION|\t| FORM FEED|\f|"
             }
           ],
           "extra" => {
@@ -400,14 +400,14 @@ $result_texis{'in_menu_only_special_ascii_spaces_node'} = '@node Top
 
 @menu
 * '."\r".'::
-* 	::
+* 	::
 @end menu
 
 @node '."\r".'
 @chapter CARRIAGE RETURN|'."\r".'|
 
-@node 	
-@chapter CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
+@node 	
+@chapter CHARACTER TABULATION|	| FORM FEED||
 
 ';
 
@@ -416,13 +416,13 @@ $result_texts{'in_menu_only_special_ascii_spaces_node'} = 'top
 ***
 
 * '."\r".'::
-* 	::
+* 	::
 
 1 CARRIAGE RETURN|'."\r".'|
 ********************
 
-2 CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
-*********************************************************
+2 CHARACTER TABULATION|	| FORM FEED||
+**************************************
 
 ';
 
@@ -592,13 +592,13 @@ top
 * Menu:
 
 * '."\r".'::
-* 	::
+* 	::
 
 1 CARRIAGE RETURN|'."\r".'|
 ********************
 
-2 CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
-*********************************************************
+2 CHARACTER TABULATION|	| FORM FEED||
+**************************************
 
 
 
@@ -643,7 +643,7 @@ Next: CARRIAGE RETURN|'."\r".'| &nbsp; </p>
 
 <ul class="mini-toc">
 <li>CARRIAGE RETURN|'."\r".'|</li>
-<li>CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</li>
+<li>CHARACTER TABULATION|	| FORM FEED|&#12;|</li>
 </ul>
 <hr>
 <div class="chapter-level-extent">
@@ -660,7 +660,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a> &nbsp; </p>
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c">2 CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</h2>
+<h2 class="chapter" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c">2 CHARACTER TABULATION|	| FORM FEED|&#12;|</h2>
 
 </div>
 </div>

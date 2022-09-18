@@ -3,12 +3,12 @@
 
 @menu
 * ::
-* 	::
+* 	::
 @end menu
 
 @node 
 @chapter CARRIAGE RETURN||
 
-@node 	
-@chapter CHARACTER TABULATION|	| FORM FEED|| LINE TABULATION||
+@node 	
+@chapter CHARACTER TABULATION|	| FORM FEED||
 
