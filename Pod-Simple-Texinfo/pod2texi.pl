@@ -266,48 +266,52 @@ sub _parsed_manual_tree($$$$$)
         foreach my $node (@$added_nodes) {
           # First remove the old normalized entry
           delete $texi_parser->{'labels'}->{$node->{'extra'}->{'normalized'}};
-          # now get the number
+
+          # prepare the new node Texinfo name and parse it to a Texinfo tree
           my $node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
                 {'contents' => $node->{'extra'}->{'node_content'}});
           # We could have kept the asis, too, it is kept when !section_nodes
           $node_texi =~ s/^\s*(\@asis\{\})?\s*//;
           # complete with manual name
           my $complete_node_name = $self->_node_name($node_texi);
-          # now recreate node arg, similar with Texinfo::Transformations::_new_node
-          my $tree = Texinfo::Parser::parse_texi_text(undef, $complete_node_name);
+          my $completed_node_tree
+            = Texinfo::Parser::parse_texi_line(undef, $complete_node_name);
+
+          # now recreate node arg
           my $node_arg = $node->{'args'}->[0];
-          $node_arg->{'contents'} = $tree->{'contents'};
-          push @{$node_arg->{'contents'}},
-              {'type' => 'spaces_at_end', 'text' => "\n"};
-          unshift @{$node_arg->{'contents'}},
-                  {'extra' => {'command' => $node},
-                   'text' => ' ',
-                   'type' => 'empty_spaces_after_command'};
+          $node_arg->{'contents'} = $completed_node_tree->{'contents'};
           foreach my $content (@{$node_arg->{'contents'}}) {
             $content->{'parent'} = $node_arg;
           }
-          # Last parse and register node
-          my $parsed_node = Texinfo::Common::parse_node_manual($node_arg);
-          #push @{$node->{'extra'}->{'nodes_manuals'}}, $parsed_node;
+
+          # reset extra informations
+          my $parsed_node = {'node_content' => $node_arg->{'contents'}};
+          my $normalized_node_name
+             = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                  { 'contents' => $node_arg->{'contents'} });
+          $parsed_node->{'normalized'} = $normalized_node_name;
+          $node->{'extra'}->{'normalized'} = $normalized_node_name;
           @{$node->{'extra'}->{'nodes_manuals'}} = ($parsed_node);
-          Texinfo::Common::register_label($texi_parser, $node, $parsed_node);
+          # this (re)sets $node->{'extra'}->{'node_content'}
+          Texinfo::Common::register_label($targets_list, $node, $parsed_node);
+          # Nothing should link to the added node, but we setup the label
+          # informations nonetheless.
+          $labels->{$normalized_node_name} = $node;
         }
       }
     }
   }
   my ($sectioning_root, $sections_list)
     = Texinfo::Structuring::sectioning_structure($registrar, $texi_parser, $tree);
-  my ($updated_labels, $updated_targets_list, $updated_nodes_list)
-        = $texi_parser->labels_information();
   my $refs = $texi_parser->internal_references_information();
   my $parser_information = $texi_parser->global_information();
   # this is needed to set 'normalized' for menu entries, they are
   # used in complete_tree_nodes_menus.
   Texinfo::Structuring::associate_internal_references($registrar, $texi_parser,
-                                  $parser_information, $updated_labels, $refs);
+                                  $parser_information, $labels, $refs);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes and $do_node_menus);
-  return ($texi_parser, $tree, $updated_labels);
+  return ($texi_parser, $tree, $labels);
 }
 
 sub _fix_texinfo_tree($$$$;$$)

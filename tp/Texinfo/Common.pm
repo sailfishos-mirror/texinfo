@@ -2701,6 +2701,9 @@ sub register_label($$$)
 {
   my ($targets_list, $current, $label) = @_;
 
+  #if (ref($targets_list) ne 'ARRAY') {
+  #  cluck("BUG: register_label \$targets_list not an ARRAY reference\n");
+  #}
   push @{$targets_list}, $current;
   if ($label->{'node_content'}) {
     $current->{'extra'}->{'node_content'} = $label->{'node_content'};
