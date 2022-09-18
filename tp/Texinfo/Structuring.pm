@@ -26,7 +26,7 @@ use 5.00405;
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => 'unicode_strings';
 
-use Carp qw(cluck);
+use Carp qw(cluck confess);
 
 use strict;
 
@@ -1423,7 +1423,8 @@ sub new_node_menu_entry
 {
   my ($node, $use_sections) = @_;
 
-  my $node_contents = $node->{'extra'}->{'node_content'};
+  my $node_contents;
+  $node_contents = $node->{'extra'}->{'node_content'} if ($node->{'extra'});
 
   # can happen with node without argument or with empty argument
   return undef if (not defined($node_contents));
@@ -1517,6 +1518,8 @@ sub new_block_command($$$)
                            'extra' => { 'spaces_after_argument' => "\n",}}];
 
   foreach my $content (@$block_contents) {
+    confess("new_block_command: undef \$block_contents content")
+      if (!defined($content));
     $content->{'parent'} = $new_block;
   }
 

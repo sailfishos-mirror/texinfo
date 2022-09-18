@@ -123,6 +123,31 @@ test('@node Top
 @chapter chap2
 ', 'menu completed before');
 
+test('@node Top
+@top top
+
+@node  @ 
+@chapter  @ 
+
+@node
+@chapter
+
+@node @code{ }
+@chapter @code{ }
+',
+'@node Top
+@top top
+
+@node  @ 
+@chapter  @ 
+
+@node
+@chapter
+
+@node @code{ }
+@chapter @code{ }
+', 'empty nodes ');
+
 my $colon_in_menu_entry_text = '@node Top
 @top top
 

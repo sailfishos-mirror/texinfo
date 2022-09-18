@@ -1,5 +1,16 @@
 2022-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Transformations.pm (complete_node_menu): handle empty
+	nodes.
+
+	* tp/Texinfo/Structuring.pm (new_node_menu_entry): call confess if
+	there are undef contents in node contents.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_node_manual): remove useless
+	condition.
+
+2022-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (parse_node_manual): return directly undef
 	if there is no contents.  Code stylistic and variable names changes.
 

@@ -431,7 +431,9 @@ sub complete_node_menu($;$)
     my @pending;
     my $current_menu;
     foreach my $node_entry (@node_childs) {
-      if ($existing_entries{$node_entry->{'extra'}->{'normalized'}}) {
+      if ($node_entry->{'extra'}
+          and defined($node_entry->{'extra'}->{'normalized'})
+          and $existing_entries{$node_entry->{'extra'}->{'normalized'}}) {
         my $entry;
         ($current_menu, $entry)
          = @{$existing_entries{$node_entry->{'extra'}->{'normalized'}}};
@@ -450,7 +452,9 @@ sub complete_node_menu($;$)
       } else {
         my $entry = Texinfo::Structuring::new_node_menu_entry($node_entry,
                                                               $use_sections);
-        push @pending, $entry;
+        # not defined $entry should mean an empty node.  We do not warn as
+        # we try, in general, to be silent in the transformations.
+        push @pending, $entry if (defined($entry));
       }
     }
     if (scalar(@pending)) {

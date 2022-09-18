@@ -2411,7 +2411,7 @@ sub _parse_node_manual($)
   my ($parsed_node_manual, $modified_node_content)
     = Texinfo::Common::parse_node_manual($label_contents_container);
   $label_contents_container->{'contents'} = $modified_node_content
-     if ($modified_node_content and scalar(@$modified_node_content) > 0);
+     if ($modified_node_content);
   return $parsed_node_manual;
 }
 
