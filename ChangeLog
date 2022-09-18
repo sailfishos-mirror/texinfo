@@ -1,5 +1,10 @@
 2022-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (parse_node_manual): return directly undef
+	if there is no contents.  Code stylistic and variable names changes.
+
+2022-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/pod2texi.pl (_parsed_manual_tree): update/fix
 	the code adding the manual name to added nodes with
 	fill_gaps_in_sectioning, and simplify.

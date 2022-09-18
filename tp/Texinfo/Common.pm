@@ -1466,36 +1466,33 @@ sub _count_opened_tree_braces($$)
 #
 # Could be documented, but only is there is evidence that this function
 # is useful in user-defined code.
-#
-# FIXME need to clean the code, simply returning undef if there are
-# no contents does not work, this is not normal.
 sub parse_node_manual($)
 {
   my $label_contents_container = shift;
 
-  #return ($label_contents_container, undef)
-  #   if (!$label_contents_container->{'contents'});
+  return (undef, undef)
+     if (!$label_contents_container->{'contents'});
 
-  my @contents;
-  @contents = @{$label_contents_container->{'contents'}}
-     if ($label_contents_container->{'contents'});
+  # the elements are not modified, when modifications are needed new elements
+  # are setup.
+  my @contents = @{$label_contents_container->{'contents'}};
 
   my $manual;
   my $result;
   my ($end_paren, $spaces_after);
 
   if ($contents[0] and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
-    # remove the leading (, it is not in manual_content
+    # remove the leading ( from @contents, it is not in manual_content.
     my $braces_count = 1;
-    if ($contents[0]->{'text'} !~ /^\($/) {
-      my $brace = shift @contents;
-      my $brace_text = $brace->{'text'};
+    if ($contents[0]->{'text'} ne '(') {
+      my $first_element = shift @contents;
+      my $brace_text = $first_element->{'text'};
       $brace_text =~ s/^\(//;
-      if ($brace_text ne '') {
-        my $added_content = { 'text' => $brace_text, 'parent' => $brace->{'parent'} };
-        $added_content->{'type'} = $brace->{'type'} if defined($brace->{'type'});
-        unshift @contents, $added_content;
-      }
+      my $new_element = { 'text' => $brace_text,
+                          'parent' => $first_element->{'parent'} };
+      $new_element->{'type'} = $first_element->{'type'}
+         if defined($first_element->{'type'});
+      unshift @contents, $new_element;
     } else {
       shift @contents;
     }
@@ -1532,10 +1529,11 @@ sub parse_node_manual($)
     if ($braces_count == 0) {
       $result->{'manual_content'} = $manual if (defined($manual));
     } else {
-      @contents = ({ 'text' => '(', 'parent' => $label_contents_container }, @$manual);
+      # unclosed brace, reset @contents
+      @contents = @{$label_contents_container->{'contents'}};
     }
   }
-  if (@contents) {
+  if (scalar(@contents) > 0) {
     $result->{'node_content'} = \@contents;
   }
 
