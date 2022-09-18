@@ -1,5 +1,10 @@
 2022-09-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Hardcopy with TeX, Generic Translator texi2any):
+	Shorten chapter titles so they fit in table of contents better.
+
+2022-09-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Node Commands): Correct @pxref to @ref.
 
 2022-09-18  Gavin Smith  <gavinsmith0123@gmail.com>

@@ -509,7 +509,7 @@ Include Files
 * Sample Include File::         A sample outer file with included files
                                      within it; and a sample included file.
 
-Formatting and Printing Hardcopy with @TeX{}
+Formatting and Printing with @TeX{}
 
 * Use @TeX{}::                     Use @TeX{} to format for hardcopy.
 * Format with @command{texi2dvi} or @command{texi2pdf}:: The simplest way to format.
@@ -14378,7 +14378,7 @@ Texinfo files.
 
 
 @node Hardcopy with @TeX{}
-@chapter Formatting and Printing Hardcopy with @TeX{}
+@chapter Formatting and Printing with @TeX{}
 @anchor{Hardcopy} @c old name
 @cindex Format and print hardcopy
 @cindex Printing hardcopy
@@ -15245,7 +15245,7 @@ before the @code{@@titlepage} command:
 
 
 @node Generic Translator @command{texi2any}
-@chapter @command{texi2any}: The Generic Translator for Texinfo
+@chapter @command{texi2any}: The Translator for Texinfo
 
 @command{texi2any} is the generic translator for Texinfo that can
 produce different output formats and is highly customizable.  It
