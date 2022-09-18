@@ -1,5 +1,10 @@
 2022-09-18  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/misc.c (xs_abort_empty_line): remove the contents key
+	if contents are empty.
+
+2022-09-18  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_register_command_as_argument)
 	(_parent_of_command_as_argument, _process_remaining_on_line),
 	tp/Texinfo/XS/parsetexi/parser.c (parent_of_command_as_argument)

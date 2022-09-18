@@ -119,6 +119,8 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
     {
       /* Remove spaces_elt */
       av_pop (contents_array);
+      if (av_len(contents_array) + 1 == 0)
+        hv_delete (current, "contents", strlen ("contents"), G_DISCARD);
     }
   else if (!strcmp (type, "empty_line"))
     {
@@ -186,6 +188,8 @@ delete_type:
 
       /* Remove spaces_elt */
       av_pop (contents_array);
+      if (av_len(contents_array) + 1 == 0)
+        hv_delete (current, "contents", strlen ("contents"), G_DISCARD);
 
       /* add spaces to associated element extra "spaces_before_argument" */
       svp = hv_fetch (spaces_elt, "extra", strlen ("extra"), 0);
