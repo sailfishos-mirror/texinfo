@@ -155,7 +155,8 @@ sub _ixin_attributes($$$)
       if ($attribute_string_names{$name}
           and $attribute_string_names{$name}->{$attribute_spec->[0]}) {
         $result .= '"'
-          .Texinfo::Convert::TexinfoSXML->protect_text($attribute_spec->[1]).'"';
+          .Texinfo::Convert::TexinfoSXML->txi_markup_protect_text(
+                                               $attribute_spec->[1]).'"';
       } else {
         $result .= $attribute_spec->[1];
       }
@@ -881,7 +882,8 @@ sub output_ixin($$)
       my $basefile;
       my $extension;
       if (defined($command->{'args'}->[0])
-            and @{$command->{'args'}->[0]->{'contents'}}) {
+          and $command->{'args'}->[0]->{'contents'}
+          and @{$command->{'args'}->[0]->{'contents'}}) {
         $basefile = Texinfo::Convert::Text::convert_to_text(
           {'contents' => $command->{'args'}->[0]->{'contents'}},
           {'code' => 1,
@@ -890,7 +892,8 @@ sub output_ixin($$)
         next;
       }
       if (defined($command->{'args'}->[4])
-            and @{$command->{'args'}->[4]->{'contents'}}) {
+          and $command->{'args'}->[4]->{'contents'}
+          and @{$command->{'args'}->[4]->{'contents'}}) {
         $extension = Texinfo::Convert::Text::convert_to_text(
           {'contents' => $command->{'args'}->[4]->{'contents'}},
           {'code' => 1,
