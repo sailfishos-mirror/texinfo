@@ -448,19 +448,10 @@ handle_close_brace (ELEMENT *current, char **line_inout)
 
             }
         }
-      else if (command_with_command_as_argument (current->parent->parent)
+      else if (parent_of_command_as_argument (current->parent->parent)
                && current->contents.number == 0)
         {
-          debug ("FOR PARENT ... command_as_argument_braces ...");
-          if (!current->parent->type)
-            current->parent->type = ET_command_as_argument;
-          add_extra_element (current->parent->parent->parent,
-                             "command_as_argument", current->parent);
-          if (current->parent->cmd == CM_kbd
-              && kbd_formatted_as_code(current->parent->parent->parent)) {
-            add_extra_integer (current->parent->parent->parent,
-                               "command_as_argument_kbd_code", 1);
-          }
+          register_command_as_argument (current->parent);
         }
       else if (current->parent->cmd == CM_sortas
                || current->parent->cmd == CM_seeentry

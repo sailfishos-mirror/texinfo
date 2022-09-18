@@ -824,15 +824,34 @@ kbd_formatted_as_code (ELEMENT *current)
 }
 
 
-/* If the parent element takes a command as an argument, like
-   @itemize @bullet. */
+/* If the container can hold a command as an argument, determined as
+   parent element taking a command as an argument, like
+   @itemize @bullet, and the command as argument being the only content. */
 int
-command_with_command_as_argument (ELEMENT *current)
+parent_of_command_as_argument (ELEMENT *current)
 {
   return current->type == ET_block_line_arg
     && (current->parent->cmd == CM_itemize
         || item_line_command (current->parent->cmd))
     && (current->contents.number == 1);
+}
+
+/* register a command like @bullet with @itemize, or @asis with @table */
+void
+register_command_as_argument (ELEMENT *cmd_as_arg)
+{
+  debug ("FOR PARENT @%s command_as_argument @%s",
+         command_name(cmd_as_arg->parent->parent->cmd),
+         command_name(cmd_as_arg->cmd));
+  if (!cmd_as_arg->type)
+    cmd_as_arg->type = ET_command_as_argument;
+  add_extra_element (cmd_as_arg->parent->parent,
+                     "command_as_argument", cmd_as_arg);
+  if (cmd_as_arg->cmd == CM_kbd
+      && kbd_formatted_as_code(cmd_as_arg->parent->parent)) {
+    add_extra_integer (cmd_as_arg->parent->parent,
+                       "command_as_argument_kbd_code", 1);
+  }
 }
 
 /* Check if line is "@end ..." for current command.  If so, advance LINE. */
@@ -1479,20 +1498,9 @@ superfluous_arg:
      Need to be done as early as possible such that no other condition
      prevail and lead to a missed command */
   if (command_flags(current) & CF_brace && *line != '{'
-      && command_with_command_as_argument (current->parent))
+      && parent_of_command_as_argument (current->parent))
     {
-      debug ("FOR PARENT @%s command_as_argument @%s",
-             command_name(current->parent->parent->cmd),
-             command_name(current->cmd));
-      if (!current->type)
-        current->type = ET_command_as_argument;
-      add_extra_element (current->parent->parent,
-                             "command_as_argument", current);
-      if (current->cmd == CM_kbd
-          && kbd_formatted_as_code(current->parent->parent)) {
-        add_extra_integer (current->parent->parent,
-                           "command_as_argument_kbd_code", 1);
-      }
+      register_command_as_argument (current);
       current = current->parent;
     }
 

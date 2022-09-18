@@ -3030,11 +3030,8 @@ sub _end_line($$$)
         if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
           my $bracketed_prototype
             = { 'type' => 'bracketed_multitable_prototype' };
-          if ($content->{'contents'}
-              and scalar(@{$content->{'contents'}}) > 0) {
-            # avoid empty content to match with XS parser.
-            $bracketed_prototype->{'contents'} = $content->{'contents'};
-          }
+          $bracketed_prototype->{'contents'} = $content->{'contents'}
+            if ($content->{'contents'});
           push @prototype_row, $bracketed_prototype;
         } elsif ($content->{'text'}) {
           # TODO: this should be a warning or an error - all prototypes
@@ -3070,11 +3067,6 @@ sub _end_line($$$)
     $current = $current->{'parent'};
     delete $current->{'remaining_args'};
 
-    # this is in particular to have the same output as the XS parser
-    if (scalar(@{$current->{'contents'}}) == 0) {
-      delete $current->{'contents'};
-    }
-
     # @float args
     if ($current->{'cmdname'} and $current->{'cmdname'} eq 'float') {
       $current->{'source_info'} = $source_info;
@@ -3092,6 +3084,7 @@ sub _end_line($$$)
         if (defined($self->{'current_section'}));
     }
 
+    # all the commands with @item
     if ($current->{'cmdname'}
           and $block_item_commands{$current->{'cmdname'}}) {
       if ($current->{'cmdname'} eq 'enumerate') {
@@ -3129,12 +3122,11 @@ sub _end_line($$$)
               $current->{'cmdname'});
           delete $current->{'extra'}->{'command_as_argument'};
         }
-      }
-      # This code checks that the command_as_argument of the @itemize
-      # is alone on the line, otherwise it is not a command_as_argument.
-      if ($current->{'extra'}
-          and $current->{'extra'}->{'command_as_argument'}
-          and $current->{'cmdname'} eq 'itemize') {
+      } elsif ($current->{'cmdname'} eq 'itemize'
+               and $current->{'extra'}
+               and $current->{'extra'}->{'command_as_argument'}) {
+        # This code checks that the command_as_argument of the @itemize
+        # is alone on the line, otherwise it is not a command_as_argument.
         my @args = @{$current->{'args'}->[0]->{'contents'}};
         while (@args) {
           my $arg = shift @args;
@@ -3196,7 +3188,7 @@ sub _end_line($$$)
         $current->{'extra'}->{'command_as_argument'} = $inserted;
       }
       push @{$current->{'contents'}}, { 'type' => 'before_item',
-         'contents' => [], 'parent', $current };
+                                        'parent', $current };
       $current = $current->{'contents'}->[-1];
     }
     if ($current->{'cmdname'} and $menu_commands{$current->{'cmdname'}}) {
@@ -3715,7 +3707,10 @@ sub _enter_menu_entry_node($$$)
   return $current;
 }
 
-sub _command_with_command_as_argument($)
+# If the container can hold a command as an argument, determined as
+# parent element taking a command as an argument, like
+# @itemize @bullet, and the command as argument being the only content.
+sub _parent_of_command_as_argument($)
 {
   my $current = shift;
   return ($current and $current->{'type'}
@@ -3725,6 +3720,22 @@ sub _command_with_command_as_argument($)
       and ($current->{'parent'}->{'cmdname'} eq 'itemize'
            or $item_line_commands{$current->{'parent'}->{'cmdname'}})
       and scalar(@{$current->{'contents'}}) == 1);
+}
+
+# register a command like @bullet with @itemize, or @asis with @table
+sub _register_command_as_argument($$)
+{
+  my $self = shift;
+  my $cmd_as_arg = shift;
+  print STDERR "FOR PARENT \@$cmd_as_arg->{'parent'}->{'parent'}->{'cmdname'} ".
+         "command_as_argument $cmd_as_arg->{'cmdname'}\n" if ($self->{'DEBUG'});
+  $cmd_as_arg->{'type'} = 'command_as_argument' if (!$cmd_as_arg->{'type'});
+  $cmd_as_arg->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
+    = $cmd_as_arg;
+  if ($cmd_as_arg->{'cmdname'} eq 'kbd'
+      and _kbd_formatted_as_code($self, $cmd_as_arg->{'parent'}->{'parent'})) {
+    $cmd_as_arg->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+  }
 }
 
 sub _is_index_element {
@@ -4184,16 +4195,8 @@ sub _process_remaining_on_line($$$$)
   if ($current->{'cmdname'}
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
       and !$open_brace
-      and _command_with_command_as_argument($current->{'parent'})) {
-    print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} ".
-           "command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
-    $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
-    $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
-      = $current;
-    if ($current->{'cmdname'} eq 'kbd'
-        and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
-      $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
-    }
+      and _parent_of_command_as_argument($current->{'parent'})) {
+    _register_command_as_argument($self, $current);
     $current = $current->{'parent'};
   }
 
@@ -5459,19 +5462,10 @@ sub _process_remaining_on_line($$$$)
                 $source_info);
             }
           }
-
-        } elsif (_command_with_command_as_argument($current->{'parent'}->{'parent'})
+          # first parent is the brace command
+        } elsif (_parent_of_command_as_argument($current->{'parent'}->{'parent'})
              and !$current->{'contents'}) {
-           print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'parent'}->{'cmdname'} command_as_argument braces $current->{'parent'}->{'cmdname'}\n" if ($self->{'DEBUG'});
-           $current->{'parent'}->{'type'} = 'command_as_argument'
-              if (!$current->{'parent'}->{'type'});
-           $current->{'parent'}->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'}
-              = $current->{'parent'};
-           if ($current->{'parent'}->{'cmdname'} eq 'kbd'
-               and _kbd_formatted_as_code($self,
-                                          $current->{'parent'}->{'parent'}->{'parent'})) {
-             $current->{'parent'}->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
-           }
+          _register_command_as_argument($self, $current->{'parent'});
         } elsif ($in_index_commands{$current->{'parent'}->{'cmdname'}}) {
           my $command = $current->{'parent'}->{'cmdname'};
 
