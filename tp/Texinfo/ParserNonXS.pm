@@ -1322,7 +1322,6 @@ sub _command_error($$$$;@)
 
   # use the beginning of the @-command for the error message
   # line number if available.
-  # FIXME source_info currently not registered for regular brace commands
   if ($current->{'source_info'}) {
     $source_info = $current->{'source_info'};
   }
@@ -2490,9 +2489,6 @@ sub _split_def_args
   } elsif ($root->{'type'} and $root->{'type'} eq 'bracketed') {
     _isolate_last_space($self, $root);
     $root->{'type'} = 'bracketed_def_content';
-    # FIXME not clear why this needs to be done here
-    delete $root->{'contents'}
-      if ($root->{'contents'} and scalar(@{$root->{'contents'}}) == 0);
   }
   return $root;
 }
@@ -3268,8 +3264,9 @@ sub _end_line($$$)
               my $texi_line
                 = Texinfo::Convert::Texinfo::convert_to_texinfo(
                                                        $current->{'args'}->[0]);
-              # FIXME an @-command will truncate the identifier, while it will have
-              # been expanded above in $text
+              # FIXME an @-command will truncate the identifier, while it
+              # could have been expanded above in $text.  Also the errors
+              # are different if there are one or 2 leading letters
               $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]+)//;
               $self->_command_error($current, $source_info,
                              __("superfluous argument to \@%s %s: %s"),
@@ -3277,6 +3274,8 @@ sub _end_line($$$)
               $superfluous_arg = 0; # Don't issue another error message below.
             }
           } else {
+            # FIXME if $superfluous_arg, there will be a second
+            # error message below
             $self->_command_error($current, $source_info,
                               __("bad argument to \@%s: %s"),
                               $command, $line);

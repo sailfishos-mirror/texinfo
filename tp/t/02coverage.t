@@ -725,6 +725,104 @@ text in group
 '@unknwon
 @#
 '],
+['command_in_end_ignored_raw_in_command',
+'@html
+In html
+@end @code{html}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_ignored_raw_one_char_not_in_command',
+'@html
+In html
+@end h@asis{tml}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_ignored_raw_two_char_not_in_command',
+'@html
+In html
+@end ht@asis{ml}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_ignored_raw_command_after',
+'@html
+In html
+@end html@asis{asis}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_ignored_raw_one_char_before_command',
+'@html
+In html
+@end h@asis{}tml
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_ignored_raw_two_char_before_command',
+'@html
+In html
+@end ht@asis{}ml
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_expanded_raw_in_command',
+'@tex
+In TeX
+@end @code{tex}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_expanded_raw_one_char_not_in_command',
+'@tex
+In TeX
+@end t@asis{ex}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_expanded_raw_two_char_not_in_command',
+'@tex
+In TeX
+@end te@asis{x}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_expanded_raw_command_after',
+'@tex
+In TeX
+@end tex@asis{asis}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_expanded_raw_command_empty_after',
+'@tex
+In TeX
+@end tex@asis{}
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_expanded_raw_one_char_before_command',
+'@tex
+In TeX
+@end t@asis{}ex
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end_expanded_raw_two_char_before_command',
+'@tex
+In TeX
+@end te@asis{}x
+', { 'EXPANDED_FORMATS' => ['tex'] }],
+['command_in_end',
+'@quotation
+In quotation
+@end @code{quotation}
+
+@quotation
+In quotation
+@end q@code{uotation}
+
+@quotation
+In quotation
+@end qu@code{otation}
+
+@quotation
+In quotation
+@end quot@asis{atio}n
+
+@quotation
+In quotation
+@end q@asis{}uotation
+
+@quotation
+In quotation
+@end qu@asis{}otation
+
+@quotation
+In quotation
+@end quot@asis{}ation
+
+@verbatim
+In verbatim
+@end verb@code{a}tim
+'],
 ['symbol_after_block',
 '@html
 In html
