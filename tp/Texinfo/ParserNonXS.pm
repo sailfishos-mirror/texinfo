@@ -3231,14 +3231,14 @@ sub _end_line($$$)
           $self->_command_warn($current, $source_info,
                                __("\@%s missing argument"), $command);
         }
-        # Otherwise an error message is issued below.
+        # if there is superfluous arg, a more suitable error is issued below.
         $current->{'extra'}->{'missing_argument'} = 1;
       } else {
         $current->{'extra'}->{'text_arg'} = $text;
         if ($command eq 'end') {
           # REMACRO
-          my $line = $text;
-          if ($line =~ s/^([[:alnum:]][[:alnum:]-]+)//) {
+          my $remaining_on_line = $text;
+          if ($remaining_on_line =~ s/^([[:alnum:]][[:alnum:]-]*)//) {
             $end_command = $1;
 
             if (!exists $block_commands{$end_command}) {
@@ -3259,7 +3259,7 @@ sub _end_line($$$)
               }
             }
             # non ascii spaces are also superfluous arguments
-            if (($superfluous_arg or $line =~ /\S/)
+            if (($superfluous_arg or $remaining_on_line =~ /\S/)
                 and defined($end_command)) {
               my $texi_line
                 = Texinfo::Convert::Texinfo::convert_to_texinfo(
@@ -3267,7 +3267,7 @@ sub _end_line($$$)
               # FIXME an @-command will truncate the identifier, while it
               # could have been expanded above in $text.  Also the errors
               # are different if there are one or 2 leading letters
-              $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]+)//;
+              $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]*)//;
               $self->_command_error($current, $source_info,
                              __("superfluous argument to \@%s %s: %s"),
                              $command, $end_command, $texi_line);
@@ -3278,7 +3278,7 @@ sub _end_line($$$)
             # error message below
             $self->_command_error($current, $source_info,
                               __("bad argument to \@%s: %s"),
-                              $command, $line);
+                              $command, $remaining_on_line);
           }
         } elsif ($superfluous_arg) {
           # @-command effects are ignored, an error message is issued below.
