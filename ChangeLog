@@ -1,6 +1,15 @@
 2022-09-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): use
+	the same error message for superfluous argument to @end command
+	after the command argument as for other cases of superfluous
+	argument triggered by unexpected @-commands on @end ond other
+	similar commands line.
+
+2022-09-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): avoid
 	a double error message when there are both superfluous arg and
 	a bad @end argument.

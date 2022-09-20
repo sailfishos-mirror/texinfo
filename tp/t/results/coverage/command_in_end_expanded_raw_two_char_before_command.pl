@@ -118,12 +118,12 @@ $result_texts{'command_in_end_expanded_raw_two_char_before_command'} = '';
 
 $result_errors{'command_in_end_expanded_raw_two_char_before_command'} = [
   {
-    'error_line' => 'superfluous argument to @end tex: @asis{}x
+    'error_line' => 'bad argument to @end: te@asis{}x
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => 'superfluous argument to @end tex: @asis{}x',
+    'text' => 'bad argument to @end: te@asis{}x',
     'type' => 'error'
   }
 ];

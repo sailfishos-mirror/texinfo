@@ -1383,23 +1383,13 @@ end_line_misc_line (ELEMENT *current)
                               free (end_command); end_command = 0;
                             }
                         }
+                      /* If there is superfluous text after @end argument, set
+                         superfluous_arg such that the error message triggered by an
+                         unexpected @-command on the @end line is issued below.  Note
+                         that superfluous_arg may also be true if it was set above. */
                       if (end_command
-                          && (superfluous_arg
-                             || line[strspn (line, whitespace_chars)] != '\0'))
-                        {
-                          char *line, *line2;
-                          line = convert_to_texinfo (current->args.list[0]);
-
-                          line2 = line;
-                          line2 += strspn (line2, whitespace_chars);
-                          free (read_command_name (&line2));
-                          command_error (current,
-                                         "superfluous argument to @end %s: "
-                                         "%s", end_command, line2);
-                          superfluous_arg = 0; /* Don't issue another error
-                                                 message below. */
-                          free (line);
-                        }
+                          && line[strspn (line, whitespace_chars)] != '\0')
+                          superfluous_arg = 1;
                     }
                 }
               /* if superfluous_arg is set there is a similar and somewhat

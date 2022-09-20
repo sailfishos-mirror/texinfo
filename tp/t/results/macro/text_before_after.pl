@@ -112,12 +112,12 @@ $result_errors{'text_before_after'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end macro:  after
+    'error_line' => 'bad argument to @end: macro after
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => 'superfluous argument to @end macro:  after',
+    'text' => 'bad argument to @end: macro after',
     'type' => 'error'
   }
 ];

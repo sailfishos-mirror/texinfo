@@ -111,12 +111,12 @@ $result_texts{'command_in_end_ignored_raw_command_after'} = '';
 
 $result_errors{'command_in_end_ignored_raw_command_after'} = [
   {
-    'error_line' => 'superfluous argument to @end html: @asis{asis}
+    'error_line' => 'bad argument to @end: html@asis{asis}
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => 'superfluous argument to @end html: @asis{asis}',
+    'text' => 'bad argument to @end: html@asis{asis}',
     'type' => 'error'
   }
 ];

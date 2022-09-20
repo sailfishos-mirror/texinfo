@@ -859,30 +859,30 @@ $result_errors{'command_in_end'} = [
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end quotation: @asis{}uotation
+    'error_line' => 'bad argument to @end: q@asis{}uotation
 ',
     'file_name' => '',
     'line_nr' => 19,
     'macro' => '',
-    'text' => 'superfluous argument to @end quotation: @asis{}uotation',
+    'text' => 'bad argument to @end: q@asis{}uotation',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end quotation: @asis{}otation
+    'error_line' => 'bad argument to @end: qu@asis{}otation
 ',
     'file_name' => '',
     'line_nr' => 23,
     'macro' => '',
-    'text' => 'superfluous argument to @end quotation: @asis{}otation',
+    'text' => 'bad argument to @end: qu@asis{}otation',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end quotation: @asis{}ation
+    'error_line' => 'bad argument to @end: quot@asis{}ation
 ',
     'file_name' => '',
     'line_nr' => 27,
     'macro' => '',
-    'text' => 'superfluous argument to @end quotation: @asis{}ation',
+    'text' => 'bad argument to @end: quot@asis{}ation',
     'type' => 'error'
   },
   {

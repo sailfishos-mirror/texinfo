@@ -3258,19 +3258,13 @@ sub _end_line($$$)
                 }
               }
             }
-            # non-ASCII spaces are also superfluous arguments
-            if (($superfluous_arg or $remaining_on_line =~ /\S/)
-                and defined($end_command)) {
-              my $texi_line
-                = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                                                       $current->{'args'}->[0]);
-              # FIXME an @-command will truncate the identifier, while it
-              # could have been expanded above in $text.
-              $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]*)//;
-              $self->_command_error($current, $source_info,
-                             __("superfluous argument to \@%s %s: %s"),
-                             $command, $end_command, $texi_line);
-              $superfluous_arg = 0; # Don't issue another error message below.
+            # non-ASCII spaces are also superfluous arguments.
+            # If there is superfluous text after @end argument, set
+            # $superfluous_arg such that the error message triggered by an
+            # unexpected @-command on the @end line is issued below.  Note
+            # that $superfluous_arg may also be true if it was set above.
+            if ($end_command and $remaining_on_line =~ /\S/) {
+              $superfluous_arg = 1;
             }
           # if $superfluous_arg is set there is a similar and somewhat
           # better error message below

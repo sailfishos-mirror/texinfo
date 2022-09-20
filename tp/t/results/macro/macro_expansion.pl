@@ -742,21 +742,21 @@ arg3
 
 $result_errors{'macro_expansion'} = [
   {
-    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
+    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 9,
     'macro' => 'macroone',
-    'text' => 'superfluous argument to @end verbatim: .',
+    'text' => 'bad argument to @end: verbatim.',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
+    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 11,
     'macro' => 'macroone',
-    'text' => 'superfluous argument to @end verbatim: .',
+    'text' => 'bad argument to @end: verbatim.',
     'type' => 'error'
   },
   {
@@ -769,39 +769,39 @@ $result_errors{'macro_expansion'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim:  my arg. (possibly involving @macroone)
+    'error_line' => 'bad argument to @end: verbatim my arg. (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 13,
     'macro' => 'macroone',
-    'text' => 'superfluous argument to @end verbatim:  my arg.',
+    'text' => 'bad argument to @end: verbatim my arg.',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
+    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 15,
     'macro' => 'macroone',
-    'text' => 'superfluous argument to @end verbatim: .',
+    'text' => 'bad argument to @end: verbatim.',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
+    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 17,
     'macro' => 'macroone',
-    'text' => 'superfluous argument to @end verbatim: .',
+    'text' => 'bad argument to @end: verbatim.',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: . (possibly involving @macroone)
+    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
 ',
     'file_name' => '',
     'line_nr' => 23,
     'macro' => 'macroone',
-    'text' => 'superfluous argument to @end verbatim: .',
+    'text' => 'bad argument to @end: verbatim.',
     'type' => 'error'
   }
 ];

@@ -40,12 +40,12 @@ $result_texts{'superfluous_argument_to_end'} = 'not html
 
 $result_errors{'superfluous_argument_to_end'} = [
   {
-    'error_line' => 'superfluous argument to @end ifnothtml:  superfluous
+    'error_line' => 'bad argument to @end: ifnothtml superfluous
 ',
     'file_name' => '',
     'line_nr' => 3,
     'macro' => '',
-    'text' => 'superfluous argument to @end ifnothtml:  superfluous',
+    'text' => 'bad argument to @end: ifnothtml superfluous',
     'type' => 'error'
   }
 ];

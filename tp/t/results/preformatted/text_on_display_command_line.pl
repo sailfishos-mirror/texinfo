@@ -387,21 +387,21 @@ in display
 
 $result_errors{'text_on_display_command_line'} = [
   {
-    'error_line' => 'superfluous argument to @end display:  text after end
+    'error_line' => 'bad argument to @end: display text after end
 ',
     'file_name' => '',
     'line_nr' => 10,
     'macro' => '',
-    'text' => 'superfluous argument to @end display:  text after end',
+    'text' => 'bad argument to @end: display text after end',
     'type' => 'error'
   },
   {
-    'error_line' => 'superfluous argument to @end display:  text after end display nested in display
+    'error_line' => 'bad argument to @end: display text after end display nested in display
 ',
     'file_name' => '',
     'line_nr' => 14,
     'macro' => '',
-    'text' => 'superfluous argument to @end display:  text after end display nested in display',
+    'text' => 'bad argument to @end: display text after end display nested in display',
     'type' => 'error'
   }
 ];

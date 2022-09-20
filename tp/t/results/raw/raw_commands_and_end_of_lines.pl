@@ -1742,12 +1742,12 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end html:  after the closing command.
+    'error_line' => 'bad argument to @end: html after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 20,
     'macro' => '',
-    'text' => 'superfluous argument to @end html:  after the closing command.',
+    'text' => 'bad argument to @end: html after the closing command.',
     'type' => 'error'
   },
   {
@@ -1769,12 +1769,12 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end html: . A symbol after the closing command.
+    'error_line' => 'bad argument to @end: html. A symbol after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 29,
     'macro' => '',
-    'text' => 'superfluous argument to @end html: . A symbol after the closing command.',
+    'text' => 'bad argument to @end: html. A symbol after the closing command.',
     'type' => 'error'
   },
   {
@@ -1796,12 +1796,12 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end tex:  after the closing command.
+    'error_line' => 'bad argument to @end: tex after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 48,
     'macro' => '',
-    'text' => 'superfluous argument to @end tex:  after the closing command.',
+    'text' => 'bad argument to @end: tex after the closing command.',
     'type' => 'error'
   },
   {
@@ -1823,12 +1823,12 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end tex: . A symbol after the closing command.
+    'error_line' => 'bad argument to @end: tex. A symbol after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 57,
     'macro' => '',
-    'text' => 'superfluous argument to @end tex: . A symbol after the closing command.',
+    'text' => 'bad argument to @end: tex. A symbol after the closing command.',
     'type' => 'error'
   },
   {
@@ -1850,12 +1850,12 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim:  after the closing command.
+    'error_line' => 'bad argument to @end: verbatim after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 76,
     'macro' => '',
-    'text' => 'superfluous argument to @end verbatim:  after the closing command.',
+    'text' => 'bad argument to @end: verbatim after the closing command.',
     'type' => 'error'
   },
   {
@@ -1877,12 +1877,12 @@ $result_errors{'raw_commands_and_end_of_lines'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'superfluous argument to @end verbatim: . A symbol after the closing command.
+    'error_line' => 'bad argument to @end: verbatim. A symbol after the closing command.
 ',
     'file_name' => '',
     'line_nr' => 85,
     'macro' => '',
-    'text' => 'superfluous argument to @end verbatim: . A symbol after the closing command.',
+    'text' => 'bad argument to @end: verbatim. A symbol after the closing command.',
     'type' => 'error'
   }
 ];
