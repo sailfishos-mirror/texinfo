@@ -823,6 +823,11 @@ In quotation
 In verbatim
 @end verb@code{a}tim
 '],
+['end_bad_end_argument_and_superfluous_arg',
+'@quotation
+In quotation
+@end : @code{in c}
+'],
 ['symbol_after_block',
 '@html
 In html

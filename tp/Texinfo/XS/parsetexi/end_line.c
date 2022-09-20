@@ -1402,7 +1402,9 @@ end_line_misc_line (ELEMENT *current)
                         }
                     }
                 }
-              else
+              /* if superfluous_arg is set there is a similar and somewhat
+                 better error message below */
+              else if (!superfluous_arg)
                 {
                   command_error (current, "bad argument to @end: %s", line);
                 }

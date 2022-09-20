@@ -3258,24 +3258,23 @@ sub _end_line($$$)
                 }
               }
             }
-            # non ascii spaces are also superfluous arguments
+            # non-ASCII spaces are also superfluous arguments
             if (($superfluous_arg or $remaining_on_line =~ /\S/)
                 and defined($end_command)) {
               my $texi_line
                 = Texinfo::Convert::Texinfo::convert_to_texinfo(
                                                        $current->{'args'}->[0]);
               # FIXME an @-command will truncate the identifier, while it
-              # could have been expanded above in $text.  Also the errors
-              # are different if there are one or 2 leading letters
+              # could have been expanded above in $text.
               $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]*)//;
               $self->_command_error($current, $source_info,
                              __("superfluous argument to \@%s %s: %s"),
                              $command, $end_command, $texi_line);
               $superfluous_arg = 0; # Don't issue another error message below.
             }
-          } else {
-            # FIXME if $superfluous_arg, there will be a second
-            # error message below
+          # if $superfluous_arg is set there is a similar and somewhat
+          # better error message below
+          } elsif (!$superfluous_arg) {
             $self->_command_error($current, $source_info,
                               __("bad argument to \@%s: %s"),
                               $command, $remaining_on_line);
