@@ -1,3 +1,7 @@
+2022-09-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* README-hacking: git branch structure for after next release
+
 2022-09-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\image): Begin \vtop with negative kern by
