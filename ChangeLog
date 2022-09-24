@@ -1,5 +1,11 @@
 2022-09-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\ifmonotype): Replace with \ifusingtt which
+	is nearly identical.
+	(\ifusingtt, \ifusingit): Move earlier in file.
+
+2022-09-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Less Cluttered Menu Entry, Other Info Files):
 	@set txicodevaristt to preserve vertical alignment.
 
