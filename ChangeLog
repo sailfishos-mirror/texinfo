@@ -1,5 +1,11 @@
 2022-09-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* info/dir.c (dir_entry_of_infodir): Always allocate enough
+	memory in argument to info_check_compressed.  Crash with
+	hardened_malloc for "info -a arg" reported by Tommy Nguyen.
+
+2022-09-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: git branch structure for after next release
 
 2022-09-21  Gavin Smith  <gavinsmith0123@gmail.com>
