@@ -1,3 +1,11 @@
+2022-09-25  Karl Berry  <karl@freefriends.org>, and
+            Gavin Smith  <gavinsmith0123@gmail.com>
+
+	microtype
+
+	* doc/texinfo.tex (@microtype) [pdfTeX, LuaTeX]: For "@microtype on",
+	use microtypographical features.  Set it on by default.
+
 2022-09-25  Sam James  <sam@gentoo.org>  (tiny change)
 
 	* install-info/install-info.c
