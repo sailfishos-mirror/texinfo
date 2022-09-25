@@ -4,7 +4,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-09-25.12}
+\def\texinfoversion{2022-09-25.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2545,34 +2545,30 @@ end
   \scriptfont\sffam=\sevensf
 }
 
-%
 
-% The font-changing commands (all called \...fonts) redefine the meanings
-% of \STYLEfont, instead of just \STYLE.  We do this because \STYLE needs
-% to also set the current \fam for math mode.  Our \STYLE (e.g., \rm)
-% commands hardwire \STYLEfont to set the current font.
+
+% \defineassignfonts{SIZE} -
+%   Define sequence \assignfontsSIZE, which switches between font sizes
+% by redefining the meanings of \STYLEfont.  (Just \STYLE additionally sets
+% the current \fam for math mode.)
 %
-% The fonts used for \ifont are for "math italics"  (\itfont is for italics
-% in regular text).  \syfont is also used in math mode only.
-%
-% Each font-changing command also sets the names \lsize (one size lower)
-% and \lllsize (three sizes lower).  These relative commands are used
-% in, e.g., the LaTeX logo and acronyms.
-%
-% This all needs generalizing, badly.
-%
+\def\defineassignfonts#1{%
+  \expandafter\edef\csname assignfonts#1\endcsname{%
+    \let\noexpand\rmfont\csname #1rm\endcsname
+    \let\noexpand\itfont\csname #1it\endcsname
+    \let\noexpand\slfont\csname #1sl\endcsname
+    \let\noexpand\bffont\csname #1bf\endcsname
+    \let\noexpand\ttfont\csname #1tt\endcsname
+    \let\noexpand\smallcaps\csname #1sc\endcsname
+    \let\noexpand\sffont  \csname #1sf\endcsname
+    \let\noexpand\ifont   \csname #1i\endcsname
+    \let\noexpand\syfont  \csname #1sy\endcsname
+    \let\noexpand\ttslfont\csname #1ttsl\endcsname
+  }
+}
 
 \def\assignfonts#1{%
-  \expandafter\let\expandafter\rmfont\csname #1rm\endcsname
-  \expandafter\let\expandafter\itfont\csname #1it\endcsname
-  \expandafter\let\expandafter\slfont\csname #1sl\endcsname
-  \expandafter\let\expandafter\bffont\csname #1bf\endcsname
-  \expandafter\let\expandafter\ttfont\csname #1tt\endcsname
-  \expandafter\let\expandafter\smallcaps\csname #1sc\endcsname
-  \expandafter\let\expandafter\sffont  \csname #1sf\endcsname
-  \expandafter\let\expandafter\ifont   \csname #1i\endcsname
-  \expandafter\let\expandafter\syfont  \csname #1sy\endcsname
-  \expandafter\let\expandafter\ttslfont\csname #1ttsl\endcsname
+  \csname assignfonts#1\endcsname
 }
 
 \newif\ifrmisbold
@@ -2596,12 +2592,21 @@ end
    \csname\curfontstyle\endcsname
 }%
 
+% Define the font-changing commands (all called \...fonts).
+% Each font-changing command also sets the names \lsize (one size lower)
+% and \lllsize (three sizes lower).  These relative commands are used
+% in, e.g., the LaTeX logo and acronyms.
+%
+% Note: The fonts used for \ifont are for "math italics"  (\itfont is for
+% italics in regular text).  \syfont is also used in math mode only.
+%
 \def\definefontsetatsize#1#2#3#4#5{%
+  \defineassignfonts{#1}%
 \expandafter\def\csname #1fonts\endcsname{%
   \def\curfontsize{#1}%
   \def\lsize{#2}\def\lllsize{#3}%
   \csname rmisbold#5\endcsname
-  \assignfonts{#1}%
+  \csname assignfonts#1\endcsname
   \resetmathfonts
   \setleading{#4}%
 }}
@@ -2650,7 +2655,6 @@ end
 % print if we are indeed using \tt; #2 is what to print otherwise.
 \def\ifusingtt#1#2{\ifdim \fontdimen3\font=0pt #1\else #2\fi}
 
-
 % Same as above, but check for italic font.  Actually this also catches
 % non-italic slanted fonts since it is impossible to distinguish them from
 % italic fonts.  But since this is only used by $ and it uses \sl anyway
@@ -2663,8 +2667,6 @@ end
   \expandafter\ifx\csname SET#1\endcsname\relax
   #2\else#3\fi
 }
-
-
 
 {
 \catcode`\'=\active

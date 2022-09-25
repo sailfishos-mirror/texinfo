@@ -1,5 +1,14 @@
 2022-09-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Faster font switching
+
+	* doc/texinfo.tex (\assignfonts, \defineassignfonts):
+	\defineassignfonts creates control sequences which are used
+	to switch to particular font sizes.  This avoids using \csname
+	to define all font styles each time the font size changes.
+
+2022-09-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\frenchspacing): Only change \sfcode if
 	setting is changing, by using a conditional.
 
