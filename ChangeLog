@@ -1,3 +1,11 @@
+2022-09-25  Sam James  <sam@gentoo.org>  (tiny change)
+
+	* install-info/install-info.c
+	(strip_info_suffix, open_possibly_compressed_file):
+	Recognize .zst file extension from the zstd compression tool.
+
+	* info/filesys.c (compress_suffixes): Ditto.
+
 2022-09-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\ifmonotype): Replace with \ifusingtt which

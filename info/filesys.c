@@ -67,6 +67,7 @@ static COMPRESSION_ALIST compress_suffixes[] = {
   { ".z", "gunzip" },
   { ".lzma", "unlzma" },
   { ".Z", "uncompress" },
+  { ".zst", "unzstd --rm -q" },
   { ".Y", "unyabba" },
 #ifdef __MSDOS__
   { "gz", "gunzip" },

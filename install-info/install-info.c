@@ -388,6 +388,11 @@ strip_info_suffix (char *fname)
       len -= 4;
       ret[len] = 0;
     }
+  else if (len > 4 && FILENAME_CMP (ret + len - 4, ".zst") == 0)
+    {
+      len -= 4;
+      ret[len] = 0;
+    }
   else if (len > 3 && FILENAME_CMP (ret + len - 3, ".lz") == 0)
     {
       len -= 3;
@@ -668,6 +673,12 @@ open_possibly_compressed_file (char *filename,
     {
       free (*opened_filename);
       *opened_filename = concat (filename, ".bz2", "");
+      f = fopen (*opened_filename, FOPEN_RBIN);
+    }
+  if (!f)
+    {
+      free (*opened_filename);
+      *opened_filename = concat (filename, ".zst", "");
       f = fopen (*opened_filename, FOPEN_RBIN);
     }
   if (!f)
