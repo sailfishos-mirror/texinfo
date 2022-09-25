@@ -943,7 +943,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
                         current,
                         command_data (current->cmd).args_number - 1);
         }
-      else if (command_data (current->cmd).data == BLOCK_variadic)
+      else if (command_data (current->cmd).flags & CF_variadic)
         {
           /* Unlimited args */
           counter_push (&count_remaining_args, current,

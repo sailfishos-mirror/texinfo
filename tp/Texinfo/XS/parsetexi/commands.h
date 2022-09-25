@@ -55,9 +55,9 @@ void wipe_user_commands (void);
 #define CF_brace		        0x0010
 #define CF_letter_no_arg	        0x0020
 #define CF_accent		        0x0040
-/* CF_style and CF_code_style are not used */
+/* CF_style is not used */
 #define CF_style		        0x0080
-#define CF_code_style		        0x0100
+#define CF_variadic		        0x0100
 #define CF_INFOENCLOSE  	        0x0200
 #define CF_in_heading     	        0x0400
 #define CF_ref			        0x0800
@@ -113,7 +113,9 @@ void wipe_user_commands (void);
 #define BLOCK_raw -2
 #define BLOCK_multitable -3
 #define BLOCK_region -4
-#define BLOCK_variadic -5
+#define BLOCK_blockitem -6
+#define BLOCK_quotation -7
+#define BLOCK_float -8
 
 /* Types of brace command (CF_brace). */
 #define BRACE_arguments 1

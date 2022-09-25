@@ -405,11 +405,11 @@ direntry                block,menu
 raggedright             block
 flushleft               block
 flushright              block
+indentedblock           block
+smallindentedblock      block
 
 cartouche               block
 group                   block
-indentedblock           block
-smallindentedblock      block
 
 # region commands
 titlepage               block,global_unique             BLOCK_region
@@ -417,7 +417,7 @@ copying                 block,global_unique             BLOCK_region
 documentdescription     block,global_unique             BLOCK_region
 
 # preformatted commands
-example                 block,preformatted,preformatted_code    BLOCK_variadic
+example                 block,preformatted,preformatted_code,variadic
 smallexample            block,preformatted,preformatted_code
 lisp                    block,preformatted,preformatted_code
 smalllisp               block,preformatted,preformatted_code
@@ -439,16 +439,16 @@ ignore                  block                           BLOCK_raw
 macro                   block                           BLOCK_raw
 rmacro                  block                           BLOCK_raw
 
-table                   block,blockitem                 1
-ftable                  block,blockitem                 1
-vtable                  block,blockitem                 1
-itemize                 block,blockitem                 1
-enumerate               block,blockitem                 1
-quotation               block                           1
-smallquotation          block                           1
+table                   block,blockitem                 BLOCK_blockitem    1
+ftable                  block,blockitem                 BLOCK_blockitem    1
+vtable                  block,blockitem                 BLOCK_blockitem    1
+itemize                 block,blockitem                 BLOCK_blockitem    1
+enumerate               block,blockitem                 BLOCK_blockitem    1
+quotation               block                           BLOCK_quotation    1
+smallquotation          block                           BLOCK_quotation    1
 
-float                   block                           2
-displaymath             block                           0
+float                   block                           BLOCK_float        2
+displaymath             block
 
 ##################################################################
 # Conditional commands

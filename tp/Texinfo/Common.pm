@@ -844,10 +844,10 @@ foreach my $unformatted_brace_command ('anchor', 'shortcaption',
 }
 
 # commands delimiting blocks, with an @end.
-# Value is either the number of arguments on the line separated by
-# commas or the type of command, 'raw', 'def', 'conditional',
-# or 'multitable'.
+# Type of command, 'raw', 'def', 'conditional', 'multitable'...
 our %block_commands;
+# Number of arguments on the line separated by commas
+our %block_commands_args_number;
 
 # commands that have a possible content before an item
 our %block_item_commands;
@@ -925,24 +925,27 @@ $block_item_commands{'multitable'} = 1;
 our %menu_commands;
 foreach my $menu_command ('menu', 'detailmenu', 'direntry') {
   $menu_commands{$menu_command} = 1;
-  $block_commands{$menu_command} = 0;
+  $block_commands{$menu_command} = 'menu';
 };
 
 our %align_commands;
 foreach my $align_command('raggedright', 'flushleft', 'flushright') {
-  $block_commands{$align_command} = 0;
+  $block_commands{$align_command} = 'align';
   $align_commands{$align_command} = 1;
 }
 $align_commands{'center'} = 1;
 
-foreach my $block_command(
-    'cartouche', 'group', 'indentedblock', 'smallindentedblock') {
-  $block_commands{$block_command} = 0;
+foreach my $block_command('indentedblock', 'smallindentedblock') {
+  $block_commands{$block_command} = 'align';
+}
+
+foreach my $block_command('cartouche', 'group') {
+  $block_commands{$block_command} = 'other';
 }
 
 our %region_commands;
 foreach my $block_command('titlepage', 'copying', 'documentdescription') {
-  $block_commands{$block_command} = 0;
+  $block_commands{$block_command} = 'region';
   $region_commands{$block_command} = 1;
 }
 
@@ -950,26 +953,26 @@ our %preformatted_commands;
 our %preformatted_code_commands;
 foreach my $preformatted_command(
     'example', 'smallexample', 'lisp', 'smalllisp') {
-  $block_commands{$preformatted_command} = 0;
+  $block_commands{$preformatted_command} = 'preformatted';
   $preformatted_commands{$preformatted_command} = 1;
   $preformatted_code_commands{$preformatted_command} = 1;
 }
-$block_commands{'example'} = 'variadic'; # unlimited arguments
+$block_commands_args_number{'example'} = 'variadic'; # unlimited arguments
 
 foreach my $preformatted_command(
     'display', 'smalldisplay', 'format', 'smallformat') {
-  $block_commands{$preformatted_command} = 0;
+  $block_commands{$preformatted_command} = 'preformatted';
   $preformatted_commands{$preformatted_command} = 1;
 }
 
 foreach my $block_math_command('displaymath') {
-  $block_commands{$block_math_command} = 0;
+  $block_commands{$block_math_command} = 'math';
   $math_commands{$block_math_command} = 1;
 }
 
 our %format_raw_commands;
 foreach my $format_raw_command('html', 'tex', 'xml', 'docbook', 'latex') {
-  $block_commands{$format_raw_command} = 0;
+  $block_commands{$format_raw_command} = 'format';
   $format_raw_commands{$format_raw_command} = 1;
 }
 
@@ -994,15 +997,20 @@ $block_commands{'ifclear'} = 'conditional';
 $block_commands{'ifcommanddefined'} = 'conditional';
 $block_commands{'ifcommandnotdefined'} = 'conditional';
 
-# 'macro' ?
 foreach my $block_command_one_arg('table', 'ftable', 'vtable',
-  'itemize', 'enumerate', 'quotation', 'smallquotation') {
-  $block_commands{$block_command_one_arg} = 1;
-  $block_item_commands{$block_command_one_arg} = 1
-    unless ($block_command_one_arg =~ /quotation/);
+  'itemize', 'enumerate') {
+  $block_commands{$block_command_one_arg} = 'blockitem';
+  $block_commands_args_number{$block_command_one_arg} = 1;
+  $block_item_commands{$block_command_one_arg} = 1;
 }
 
-$block_commands{'float'} = 2;
+foreach my $block_command_one_arg('quotation', 'smallquotation') {
+  $block_commands{$block_command_one_arg} = 'quotation';
+  $block_commands_args_number{$block_command_one_arg} = 1;
+}
+
+$block_commands{'float'} = 'float';
+$block_commands_args_number{'float'} = 2;
 
 # commands that forces closing an opened paragraph.
 our %close_paragraph_commands;
@@ -2953,11 +2961,16 @@ Commands delimiting a block with a closing C<@end>.  The value
 is I<conditional> for C<@if> commands, I<def> for definition
 commands like C<@deffn>, I<raw> for @-commands that have no expansion
 of @-commands in their bodies (C<@macro>, C<@verbatim> and C<@ignore>),
-and I<multitable> for C<@multitable>.
-Otherwise it is set to the number of arguments separated by commas
-that may appear on the @-command line, or to I<variadic> if there is
-an unlimited number of arguments. That means 0 in most cases,
-1 for C<@quotation>, 2 for C<@float> and C<variadic> for C<@example>.
+I<multitable> for C<@multitable> and other values for other block line
+commands.
+
+=item %block_commands_args_number
+X<C<%block_commands_args_number>>
+
+Set to the number of arguments separated by commas that may appear on the
+@-command line, or to I<variadic> if there is an unlimited number of arguments.
+That means 0 or unset in most cases, 1 for C<@quotation>, 2 for C<@float> and
+C<variadic> for C<@example>.
 
 =item %brace_commands
 X<C<%brace_commands>>

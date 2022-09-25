@@ -265,6 +265,7 @@ my %brace_commands_args_number = %Texinfo::Common::brace_commands_args_number;
 my %accent_commands           = %Texinfo::Common::accent_commands;
 my %context_brace_commands    = %Texinfo::Common::context_brace_commands;
 my %block_commands            = %Texinfo::Common::block_commands;
+my %block_commands_args_number = %Texinfo::Common::block_commands_args_number;
 my %block_item_commands       = %Texinfo::Common::block_item_commands;
 my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
 my %def_map                   = %Texinfo::Common::def_map;
@@ -3801,7 +3802,7 @@ sub _check_valid_nesting {
                    and $current->{'type'} eq 'line_arg'))
           # we make sure that we are on a block @-command line and
           # not in contents
-          and (!($block_commands{$current->{'parent'}->{'cmdname'}})
+          and (!defined($block_commands{$current->{'parent'}->{'cmdname'}})
                or ($current->{'type'}
                    and $current->{'type'} eq 'block_line_arg'))
           # we make sure that we are on an @item/@itemx line and
@@ -5078,11 +5079,15 @@ sub _process_remaining_on_line($$$$)
            'contents' => [],
            'parent' => $current } ];
 
-        if ($block_commands{$command} =~ /^\d+$/
-            and $block_commands{$command} - 1 > 0) {
-          $current->{'remaining_args'} = $block_commands{$command} - 1;
-        } elsif ($block_commands{$command} eq 'variadic') {
-          $current->{'remaining_args'} = -1; # unlimited args
+        if ($block_commands_args_number{$command}) {
+          if ($block_commands_args_number{$command} =~ /^\d+$/) {
+            if ($block_commands_args_number{$command} - 1 > 0) {
+              $current->{'remaining_args'}
+                = $block_commands_args_number{$command} - 1;
+            }
+          } elsif ($block_commands_args_number{$command} eq 'variadic') {
+            $current->{'remaining_args'} = -1; # unlimited args
+          }
         }
         $current = $current->{'args'}->[-1];
         $self->_push_context('ct_line', $command)
