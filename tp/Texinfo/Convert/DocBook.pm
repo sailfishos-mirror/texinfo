@@ -956,7 +956,7 @@ sub _convert($$;$)
         }
       } else {
         $self->present_bug_message("unknown misc_command style $type", $element)
-          if ($type !~ /^\d$/);
+          if ($type ne 'specific');
         if ($element->{'cmdname'} eq 'printindex') {
           if (defined($element->{'extra'})
               and defined($element->{'extra'}->{'misc_args'})) {

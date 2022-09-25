@@ -937,11 +937,11 @@ handle_block_command (ELEMENT *current, char **line_inout,
       bla = new_element (ET_block_line_arg);
       add_to_element_args (current, bla);
 
-      if (command_data (current->cmd).data > 1)
+      if (command_data (current->cmd).args_number > 1)
         {
           counter_push (&count_remaining_args,
                         current,
-                        command_data (current->cmd).data - 1);
+                        command_data (current->cmd).args_number - 1);
         }
       else if (command_data (current->cmd).data == BLOCK_variadic)
         {

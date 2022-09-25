@@ -364,6 +364,8 @@ parse_line_command_args (ELEMENT *line_command)
         user_defined_command_data[new_cmd].flags |= CF_ALIAS;
 
         user_defined_command_data[new_cmd].data = existing_cmd;
+        user_defined_command_data[new_cmd].args_number
+                  = command_data(existing_cmd).args_number;
         /* Note the data field is an int, existing_cmd is
            enum command_id, so would have problems if enum command_id
            were wider than an int. */
@@ -416,6 +418,7 @@ parse_line_command_args (ELEMENT *line_command)
         user_defined_command_data[new_cmd].flags
           |= (CF_INFOENCLOSE | CF_brace);
         user_defined_command_data[new_cmd].data = BRACE_style_other;
+        user_defined_command_data[new_cmd].args_number = 1;
 
         ADD_ARG(new_command); free (new_command);
         ADD_ARG(start); free (start);
@@ -1152,7 +1155,7 @@ end_line_starting_block (ELEMENT *current)
             {
               ELEMENT *e = k->value;
               if (!(command_flags(e) & CF_brace)
-                  || (command_data(e->cmd).data == 0))
+                  || (command_data(e->cmd).data == BRACE_noarg))
                 {
                   command_error (current,
                                  "command @%s not accepting argument in brace "
@@ -1317,7 +1320,7 @@ end_line_misc_line (ELEMENT *current)
 
   debug ("MISC END %s", command_name(cmd));
 
-  if (arg_type > 0)
+  if (arg_type == LINE_specific)
     {
       ELEMENT *args = parse_line_command_args (current);
       if (args)

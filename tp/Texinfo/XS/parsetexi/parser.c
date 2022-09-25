@@ -920,7 +920,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   // much TODO here.
 
   if ((outer_flags & CF_line
-            && (command_data(outer).data >= 0
+            && (command_data(outer).data == LINE_specific
                 || (command_data(outer).data == LINE_line
                     && !(outer_flags & (CF_def | CF_sectioning)))
                 || command_data(outer).data == LINE_text
@@ -955,7 +955,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
       if (cmd_flags & (CF_nobrace | CF_accent))
         ok = 1;
       else if (cmd_flags & CF_brace
-               && command_data(cmd).data == 0)
+               && command_data(cmd).data == BRACE_noarg)
         ok = 1; /* glyph command */
       if (cmd == CM_c || cmd == CM_comment)
         ok = 1;

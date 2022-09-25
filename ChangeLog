@@ -1,5 +1,28 @@
 2022-09-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%line_commands), tp/Texinfo/Convert/DocBook.pm
+	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): use
+	a new type for command line, 'specific' for line @-commands with
+	specific args, such as @printindex, @alias... that had previously
+	a positive number as type.
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	use args_number.
+	
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting):
+	use BRACE_noarg instead of 0.
+
+	* tp/Texinfo/XS/parsetexi/commands.c (add_texinfo_command),
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args): set
+	args_number for user defined commands.
+
+2022-09-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/command_data.awk,
 	tp/Texinfo/XS/parsetexi/command_data.txt,
 	tp/Texinfo/XS/parsetexi/commands.h (command_struct): separate the

@@ -527,10 +527,10 @@ our %line_commands = (
   'comment'           => 'lineraw',
   'c'                 => 'lineraw',
   # special
-  'definfoenclose'    => 3,
-  'alias'             => 2,
+  'definfoenclose'    => 'specific', # 3
+  'alias'             => 'specific', # 2
   # number of arguments is not known in advance.
-  'columnfractions'   => 1,
+  'columnfractions'   => 'specific',
   # file names
   'setfilename'       => 'text',
   'verbatiminclude'   => 'text',
@@ -544,63 +544,63 @@ our %line_commands = (
   'insertcopying'     => 'skipline', # no arg
   'clickstyle'        => 'special', # arg should be an @-command
   # more relevant in preamble
-  'documentencoding'  => 'text', # or 1?
+  'documentencoding'  => 'text', # or 'specific'?
   'novalidate'        => 'skipline', # no arg
   'dircategory'       => 'line', # line. Position with regard
                                  # with direntry is significant
   'pagesizes'         => 'line', # can have 2 args
                            # or one? 200mm,150mm 11.5in
   'finalout'          => 'skipline', # no arg
-  'paragraphindent'   => 1, # arg none asis
+  'paragraphindent'   => 'specific', # 1: arg none asis
                        # or a number and forbids anything else on the line
-  'firstparagraphindent' => 1, # none insert
-  'frenchspacing'     => 1, # on off
-  'codequoteundirected'       => 1, # on off
-  'codequotebacktick'         => 1, # on off
-  'xrefautomaticsectiontitle' => 1, # on off
-  'deftypefnnewline'  => 1, # on off
-  'microtype'         => 1, # on off
-  'fonttextsize'      => 1, # 10 11
-  'allowcodebreaks'   => 1, # false or true
-  'exampleindent'     => 1, # asis or a number
-  'footnotestyle'     => 1, # end and separate, nothing else on the line
-  'urefbreakstyle'    => 1, # after|before|none
+  'firstparagraphindent' => 'specific', # 1: none insert
+  'frenchspacing'     => 'specific', # 1: on off
+  'codequoteundirected'       => 'specific', # 1: on off
+  'codequotebacktick'         => 'specific', # 1: on off
+  'xrefautomaticsectiontitle' => 'specific', # 1: on off
+  'deftypefnnewline'  => 'specific', # 1: on off
+  'microtype'         => 'specific', # 1: on off
+  'fonttextsize'      => 'specific', # 1: 10 11
+  'allowcodebreaks'   => 'specific', # 1: false or true
+  'exampleindent'     => 'specific', # 1: asis or a number
+  'footnotestyle'     => 'specific', # 1: end and separate, nothing else on the line
+  'urefbreakstyle'    => 'specific', # 1: after|before|none
   'smallbook'         => 'skipline', # no arg
   'afourpaper'        => 'skipline', # no arg
   'afivepaper'        => 'skipline', # no arg
   'afourlatex'        => 'skipline', # no arg
   'afourwide'         => 'skipline', # no arg
   'bsixpaper'         => 'skipline', # no arg
-  'headings'          => 1, #off on single double singleafter doubleafter
+  'headings'          => 'specific', # 1: off on single double singleafter doubleafter
                             # interacts with setchapternewpage
-  'setchapternewpage' => 1, # off on odd
+  'setchapternewpage' => 'specific', # 1: off on odd
 
-  'syncodeindex'      => 2,   # args are index identifiers
-  'synindex'          => 2,
-  'defindex'          => 1, # one identifier arg
-  'defcodeindex'      => 1, # one identifier arg
+  'syncodeindex'      => 'specific', # 2: args are index identifiers
+  'synindex'          => 'specific', # 2
+  'defindex'          => 'specific', # 1: one identifier arg
+  'defcodeindex'      => 'specific', # 1: one identifier arg
   'documentlanguage'  => 'text',     # language code arg
-  'kbdinputstyle'     => 1,          # code example distinct
-  'everyheadingmarks' => 1, # top bottom
-  'everyfootingmarks' => 1,
-  'evenheadingmarks'  => 1,
-  'oddheadingmarks'   => 1,
-  'evenfootingmarks'  => 1,
-  'oddfootingmarks'   => 1,
+  'kbdinputstyle'     => 'specific', # 1: code example distinct
+  'everyheadingmarks' => 'specific', # 1: top bottom
+  'everyfootingmarks' => 'specific', # 1:
+  'evenheadingmarks'  => 'specific', # 1:
+  'oddheadingmarks'   => 'specific', # 1:
+  'evenfootingmarks'  => 'specific', # 1:
+  'oddfootingmarks'   => 'specific', # 1:
   'shorttitlepage'    => 'line',
   'settitle'          => 'line',
 
   # formatting
   'center'            => 'line',
-  'printindex'        => 1,
+  'printindex'        => 'specific', # 1:
   'listoffloats'      => 'line',
   # especially in titlepage
   'author'            => 'line',
   'subtitle'          => 'line',
   'title'             => 'line',
-  'sp'                => 1, # numerical arg
+  'sp'                => 'specific', # 1: numerical arg
   'page'              => 'skipline', # no arg (pagebreak)
-  'need'              => 1, # one numerical/real arg
+  'need'              => 'specific', # 1: one numerical/real arg
   # formatting
   'exdent'            => 'line',
   'item'              => 'line', # or skipspace, depending on the context

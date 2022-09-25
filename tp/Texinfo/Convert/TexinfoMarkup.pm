@@ -905,7 +905,8 @@ sub _convert($$;$)
                     .$self->txi_markup_close_element($cmdname)."\n";
         }
       } else {
-        print STDERR "BUG: unknown misc_command style $type\n" if ($type !~ /^\d$/);
+        print STDERR "BUG: unknown misc_command style $type\n"
+           if ($type ne 'specific');
         my $args_attributes;
         if ($misc_command_numbered_arguments_attributes{$cmdname}) {
           $args_attributes = $misc_command_numbered_arguments_attributes{$cmdname};

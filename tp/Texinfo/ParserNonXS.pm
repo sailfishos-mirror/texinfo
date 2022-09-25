@@ -438,7 +438,7 @@ foreach my $in_full_text_no_in_simple_text (keys(%in_heading_commands)) {
 # commands that only accept simple text as argument in any context.
 my %simple_text_commands;
 foreach my $line_command(keys(%line_commands)) {
-  if ($line_commands{$line_command} =~ /^\d+$/
+  if ($line_commands{$line_command} eq 'specific'
       or ($line_commands{$line_command} eq 'line'
           and !($sectioning_heading_commands{$line_command}
                 or $def_commands{$line_command}
@@ -3219,7 +3219,7 @@ sub _end_line($$$)
     print STDERR "MISC END \@$command: $self->{'line_commands'}->{$command}\n"
        if ($self->{'DEBUG'});
 
-    if ($self->{'line_commands'}->{$command} =~ /^\d$/) {
+    if ($self->{'line_commands'}->{$command} eq 'specific') {
       my $args = _parse_line_command_args($self, $current, $source_info);
       $current->{'extra'}->{'misc_args'} = $args if (defined($args));
     } elsif ($self->{'line_commands'}->{$command} eq 'text') {

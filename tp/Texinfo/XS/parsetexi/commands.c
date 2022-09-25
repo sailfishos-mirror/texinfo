@@ -107,6 +107,7 @@ add_texinfo_command (char *name)
   user_defined_command_data[user_defined_number].cmdname = strdup (name);
   user_defined_command_data[user_defined_number].flags = 0;
   user_defined_command_data[user_defined_number].data = 0;
+  user_defined_command_data[user_defined_number].args_number = 0;
 
   return ((enum command_id) user_defined_number++) | USER_COMMAND_BIT;
 }
