@@ -261,6 +261,7 @@ my %no_brace_commands         = %Texinfo::Common::no_brace_commands;
 my %line_commands             = %Texinfo::Common::line_commands;
 my %other_commands            = %Texinfo::Common::other_commands;
 my %brace_commands            = %Texinfo::Common::brace_commands;
+my %brace_commands_args_number = %Texinfo::Common::brace_commands_args_number;
 my %accent_commands           = %Texinfo::Common::accent_commands;
 my %context_brace_commands    = %Texinfo::Common::context_brace_commands;
 my %block_commands            = %Texinfo::Common::block_commands;
@@ -381,7 +382,8 @@ foreach my $no_close_preformatted('sp') {
 # commands that may appear in accents
 my %in_accent_commands = %accent_commands;
 foreach my $brace_command(keys(%brace_commands)) {
-  $in_accent_commands{$brace_command} = 1 if (!$brace_commands{$brace_command});
+  $in_accent_commands{$brace_command} = 1
+     if ($brace_commands{$brace_command} eq 'noarg');
 }
 foreach my $no_brace_command (keys(%no_brace_commands)) {
   $in_accent_commands{$no_brace_command} = 1;
@@ -457,8 +459,7 @@ delete $simple_text_commands{'center'};
 delete $simple_text_commands{'exdent'};
 
 foreach my $command (keys (%brace_commands)) {
-  if ($brace_commands{$command} =~ /\d/
-      and $brace_commands{$command} > 0
+  if ($brace_commands{$command} eq 'arguments'
       and !$inline_commands{$command}) {
     $simple_text_commands{$command} = 1;
   }
@@ -3110,8 +3111,8 @@ sub _end_line($$$)
           $self->_command_error($current, $source_info,
               __("%s requires an argument: the formatter for %citem"),
               $current->{'cmdname'}, ord('@'));
-        } elsif (!$self->{'brace_commands'}->{
-              $current->{'extra'}->{'command_as_argument'}->{'cmdname'}}) {
+        } elsif ($self->{'brace_commands'}->{
+      $current->{'extra'}->{'command_as_argument'}->{'cmdname'}} eq 'noarg') {
           $self->_command_error($current, $source_info,
               __("command \@%s not accepting argument in brace should not be on \@%s line"),
               $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
@@ -5145,10 +5146,10 @@ sub _process_remaining_on_line($$$$)
         my $command = $current->{'cmdname'};
         $current->{'args'} = [ { 'parent' => $current } ];
 
-        if ($brace_commands{$command}
-            and $brace_commands{$command} =~ /^\d$/
-            and $brace_commands{$command} > 1) {
-          $current->{'remaining_args'} = $brace_commands{$command} - 1;
+        if (defined($brace_commands_args_number{$command})
+            and $brace_commands_args_number{$command} > 1) {
+          $current->{'remaining_args'}
+              = $brace_commands_args_number{$command} - 1;
         }
 
         $current = $current->{'args'}->[-1];
@@ -5203,11 +5204,9 @@ sub _process_remaining_on_line($$$$)
           };
         } else {
           $current->{'type'} = 'brace_command_arg';
-          # only put spaces in spaces_before_argument if the @-command
-          # has an explicit positive number of arguments.
+          # Commands that disregard leading and trailing whitespace.
           if ($brace_commands{$command}
-              and $brace_commands{$command} =~ /^\d$/
-              and $brace_commands{$command} > 0) {
+              and $brace_commands{$command} eq 'arguments') {
             # internal_spaces_before_argument is a transient internal type,
             # which should end up in extra spaces_before_argument.
             push @{$current->{'contents'}}, {
@@ -5287,8 +5286,7 @@ sub _process_remaining_on_line($$$$)
         }
         # first is the arg.
         if ($brace_commands{$current->{'parent'}->{'cmdname'}}
-            and $brace_commands{$current->{'parent'}{'cmdname'}} =~ /^\d$/
-            and $brace_commands{$current->{'parent'}->{'cmdname'}} > 0
+            and $brace_commands{$current->{'parent'}{'cmdname'}} eq 'arguments'
             and $current->{'parent'}->{'cmdname'} ne 'math') {
           # @inline* always have end spaces considered as normal text
           _isolate_last_space($self, $current)
@@ -5299,7 +5297,7 @@ sub _process_remaining_on_line($$$$)
           if ($self->{'DEBUG'});
         delete $current->{'parent'}->{'remaining_args'};
         if (defined($brace_commands{$closed_command})
-             and $brace_commands{$closed_command} eq '0'
+             and $brace_commands{$closed_command} eq 'noarg'
              and $current->{'contents'}
              and @{$current->{'contents'}}) {
           $self->_line_warn(sprintf(__(

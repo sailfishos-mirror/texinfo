@@ -215,7 +215,7 @@ my %no_brace_commands = %Texinfo::Common::no_brace_commands;
 my %brace_no_arg_commands;
 foreach my $command (keys (%Texinfo::Common::brace_commands)) {
   $brace_no_arg_commands{$command} = 1
-    if ($Texinfo::Common::brace_commands{$command} eq '0');
+    if ($Texinfo::Common::brace_commands{$command} eq 'noarg');
 }
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %misc_commands = %Texinfo::Common::misc_commands;

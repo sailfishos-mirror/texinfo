@@ -4,6 +4,20 @@
 
 2022-09-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%brace_commands, %brace_commands_args_number),
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/ParserNonXS.pm (_end_line, _process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_open_brace)
+	(handle_close_brace):
+	separate number of brace arguments in %brace_commands_args_number and
+	%brace_commands types in perl too.  Use 'arguments'/BRACE_arguments
+	for the brace commands types that were selected by a positive number
+	of arguments previously.  Use noarg/BRACE_noarg.
+
+2022-09-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%line_commands), tp/Texinfo/Convert/DocBook.pm
 	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm (_convert),
 	tp/Texinfo/ParserNonXS.pm (_end_line),

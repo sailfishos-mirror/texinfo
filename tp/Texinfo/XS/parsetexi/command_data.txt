@@ -300,17 +300,17 @@ t                       brace                           BRACE_style_code
 # No code style commands
 r                       brace                           BRACE_style_no_code
 
-U                       brace                           1
-dmn                     brace                           1
-titlefont               brace,global                    1
-hyphenation             brace,global                    1
-anchor                  brace                           1
-errormsg                brace                           1
-sortas                  brace                           1
-seeentry                brace                           1
-seealso                 brace                           1
-indicateurl             brace                           1
-key                     brace                           1
+U                       brace                           BRACE_arguments     1
+dmn                     brace                           BRACE_arguments     1
+titlefont               brace,global                    BRACE_arguments     1
+hyphenation             brace,global                    BRACE_arguments     1
+anchor                  brace                           BRACE_arguments     1
+errormsg                brace                           BRACE_arguments     1
+sortas                  brace                           BRACE_arguments     1
+seeentry                brace                           BRACE_arguments     1
+seealso                 brace                           BRACE_arguments     1
+indicateurl             brace                           BRACE_arguments     1
+key                     brace                           BRACE_arguments     1
 
 verb                    brace                           BRACE_other
 w                       brace                           BRACE_other
@@ -322,28 +322,28 @@ shortcaption            brace                           BRACE_context
 math                    brace                           BRACE_context
 
 # explained commands
-abbr                    brace                           2
-acronym                 brace                           2
+abbr                    brace                           BRACE_arguments     2
+acronym                 brace                           BRACE_arguments     2
 
 # inline format command
-inlineraw               brace,inline                    2
-inlinefmt               brace,inline                    2
-inlinefmtifelse         brace,inline                    3
+inlineraw               brace,inline                    BRACE_arguments     2
+inlinefmt               brace,inline                    BRACE_arguments     2
+inlinefmtifelse         brace,inline                    BRACE_arguments     3
 
 # inline conditional commands
-inlineifclear           brace,inline                    2
-inlineifset             brace,inline                    2
+inlineifclear           brace,inline                    BRACE_arguments     2
+inlineifset             brace,inline                    BRACE_arguments     2
 
-email                   brace                           2
+email                   brace                           BRACE_arguments     2
 
-uref                    brace                           3
-url                     brace                           3
-inforef                 brace,ref,deprecated            3
+uref                    brace                           BRACE_arguments     3
+url                     brace                           BRACE_arguments     3
+inforef                 brace,ref,deprecated            BRACE_arguments     3
 
-xref                    brace,ref                       5
-ref                     brace,ref                       5
-pxref                   brace,ref                       5
-image                   brace                           5
+xref                    brace,ref                       BRACE_arguments     5
+ref                     brace,ref                       BRACE_arguments     5
+pxref                   brace,ref                       BRACE_arguments     5
+image                   brace                           BRACE_arguments     5
 
 
 ##########################################################

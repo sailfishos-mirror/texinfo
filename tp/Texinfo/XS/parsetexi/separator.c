@@ -37,7 +37,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
 
       command = current->cmd;
       counter_push (&count_remaining_args, current,
-                    command_data(current->cmd).data);
+                    command_data(current->cmd).args_number);
       counter_dec (&count_remaining_args);
 
       arg = new_element (ET_NONE);
@@ -136,9 +136,8 @@ handle_open_brace (ELEMENT *current, char **line_inout)
         {
           current->type = ET_brace_command_arg;
 
-          /* Commands which are said to take a positive number of arguments
-             disregard leading and trailing whitespace. */
-          if (command_data(command).data > 0)
+          /* Commands that disregard leading and trailing whitespace. */
+          if (command_data(command).data == BRACE_arguments)
             {
               ELEMENT *e;
               e = new_element (ET_internal_spaces_before_argument);
@@ -249,7 +248,8 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           else if (pop_context () != ct_brace_command)
             fatal ("context brace command context expected");
         }
-      else if (command_data(current->parent->cmd).data > 0)
+      /* determine if trailing spaces are ignored */
+      else if (command_data(current->parent->cmd).data == BRACE_arguments)
         {
           /* @inline* always have end spaces considered as normal text */
           if (!(command_flags(current->parent) & CF_inline))
@@ -261,7 +261,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       counter_pop (&count_remaining_args);
 
       if (current->contents.number > 0
-          && command_data(closed_command).data == 0)
+          && command_data(closed_command).data == BRACE_noarg)
         line_warn ("command @%s does not accept arguments",
                    command_name(closed_command));
 

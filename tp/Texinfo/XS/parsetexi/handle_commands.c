@@ -280,7 +280,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
     }
 
   /* Look up information about this command ( skipline text 
-     line lineraw (a number) ). */
+     line lineraw specific ). */
   arg_spec = command_data(cmd).data;
 
   /* All the cases using the raw line.

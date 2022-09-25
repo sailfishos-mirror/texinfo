@@ -116,6 +116,7 @@ void wipe_user_commands (void);
 #define BLOCK_variadic -5
 
 /* Types of brace command (CF_brace). */
+#define BRACE_arguments 1
 #define BRACE_noarg 0
 #define BRACE_context -1 /* Can enclose paragraph breaks. */
 #define BRACE_accent -2

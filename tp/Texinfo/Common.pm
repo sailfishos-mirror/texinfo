@@ -681,15 +681,16 @@ foreach my $index_name (keys (%index_names)) {
   }
 }
 
-# command with braces. Value is the max number of arguments or
-# a string.
+# commands with braces.
 our %brace_commands;
+# max number of arguments
+our %brace_commands_args_number;
 
 our %letter_no_arg_commands;
 foreach my $letter_no_arg_command ('aa','AA','ae','oe','AE','OE','o','O',
                                    'ss','l','L','DH','dh','TH','th') {
   $letter_no_arg_commands{$letter_no_arg_command} = 1;
-  $brace_commands{$letter_no_arg_command} = 0;
+  $brace_commands{$letter_no_arg_command} = 'noarg';
 }
 
 foreach my $no_arg_command ('TeX','LaTeX','bullet','copyright',
@@ -702,7 +703,7 @@ foreach my $no_arg_command ('TeX','LaTeX','bullet','copyright',
   'quotedblleft','quotedblright','quoteleft','quoteright','quotedblbase',
   'quotesinglbase','guillemetleft','guillemetright','guillemotleft',
   'guillemotright','guilsinglleft','guilsinglright') {
-  $brace_commands{$no_arg_command} = 0;
+  $brace_commands{$no_arg_command} = 'noarg';
 }
 
 # accent commands. They may be called with and without braces.
@@ -751,7 +752,8 @@ foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'option',
 # text with type, but commas do not delimitate arguments
 foreach my $one_arg_command ('U', 'dmn', 'key', 'hyphenation', 'indicateurl',
     'titlefont', 'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
-  $brace_commands{$one_arg_command} = 1;
+  $brace_commands{$one_arg_command} = 'arguments';
+  $brace_commands_args_number{$one_arg_command} = 1;
 }
 
 # commands in other keep their leading and trailing spaces in main text
@@ -788,7 +790,8 @@ foreach my $math_brace_command ('math') {
 our %explained_commands;
 foreach my $explained_command ('abbr', 'acronym') {
   $explained_commands{$explained_command} = 1;
-  $brace_commands{$explained_command} = 2;
+  $brace_commands{$explained_command} = 'arguments';
+  $brace_commands_args_number{$explained_command} = 2;
 }
 
 our %inline_format_commands;
@@ -796,29 +799,34 @@ our %inline_commands;
 foreach my $inline_format_command ('inlineraw', 'inlinefmt',
         'inlinefmtifelse') {
   $inline_format_commands{$inline_format_command} = 1;
-  $brace_commands{$inline_format_command} = 2;
+  $brace_commands_args_number{$inline_format_command} = 2;
+  $brace_commands{$inline_format_command} = 'arguments';
   $inline_commands{$inline_format_command} = 1;
 }
 
-$brace_commands{'inlinefmtifelse'} = 3;
+$brace_commands_args_number{'inlinefmtifelse'} = 3;
 
 our %inline_conditional_commands;
 foreach my $inline_conditional_command ('inlineifclear', 'inlineifset') {
   $inline_conditional_commands{$inline_conditional_command} = 1;
-  $brace_commands{$inline_conditional_command} = 2;
+  $brace_commands_args_number{$inline_conditional_command} = 2;
+  $brace_commands{$inline_conditional_command} = 'arguments';
   $inline_commands{$inline_conditional_command} = 1;
 }
 
 foreach my $two_arg_command('email') {
-  $brace_commands{$two_arg_command} = 2;
+  $brace_commands_args_number{$two_arg_command} = 2;
+  $brace_commands{$two_arg_command} = 'arguments';
 }
 
 foreach my $three_arg_command('uref','url','inforef') {
-  $brace_commands{$three_arg_command} = 3;
+  $brace_commands_args_number{$three_arg_command} = 3;
+  $brace_commands{$three_arg_command} = 'arguments';
 }
 
 foreach my $five_arg_command('xref','ref','pxref','image') {
-  $brace_commands{$five_arg_command} = 5;
+  $brace_commands_args_number{$five_arg_command} = 5;
+  $brace_commands{$five_arg_command} = 'arguments';
 }
 
 
@@ -2954,8 +2962,7 @@ an unlimited number of arguments. That means 0 in most cases,
 =item %brace_commands
 X<C<%brace_commands>>
 
-The commands that take braces.  The associated value is the maximum
-number of arguments.
+The commands that take braces.
 
 =item %code_style_commands
 X<C<%code_style_commands>>
