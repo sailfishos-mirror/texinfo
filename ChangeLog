@@ -1,3 +1,8 @@
+2022-09-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Menu Example): Change menu marker from
+	"* menu:" to "* Menu:" in example.
+
 2022-09-25  Karl Berry  <karl@freefriends.org>, and
             Gavin Smith  <gavinsmith0123@gmail.com>
 

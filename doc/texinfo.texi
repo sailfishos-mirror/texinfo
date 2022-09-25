@@ -3499,7 +3499,7 @@ This produces:
 
 @example
 @group
-* menu:
+* Menu:
 
 * menu entry name: Node name.   A short description.
 * Node name::                   This form is preferred.
@@ -3527,7 +3527,7 @@ This produces:
 
 @example
 @group
-* menu:
+* Menu:
 Larger Units of Text
 
 * Files::                       All about handling files.
