@@ -427,6 +427,8 @@ Titlepage
 
 @frenchspacing on @c comment frenchspacing
 
+@microtype off@c comment microtype
+
 @cindex index entry @  @c index entry
 
 @heading Heading @     @c heading
