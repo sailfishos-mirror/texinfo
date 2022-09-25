@@ -223,7 +223,6 @@ my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
 my %block_commands = %Texinfo::Common::block_commands;
-my %menu_commands = %Texinfo::Common::menu_commands;
 my %root_commands = %Texinfo::Common::root_commands;
 my %preformatted_commands = %Texinfo::Common::preformatted_commands;
 my %math_commands = %Texinfo::Common::math_commands;
@@ -479,8 +478,9 @@ foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
   $ignored_commands{$ignored_block_commands} = 1;
 }
 
-foreach my $menu_command (keys(%menu_commands)) {
-  $ignored_commands{$menu_command} = 1;
+foreach my $block_command (keys(%block_commands)) {
+  $ignored_commands{$block_command} = 1
+    if ($block_commands{$block_command} eq 'menu')
 }
 
 my @LaTeX_same_block_commands = (

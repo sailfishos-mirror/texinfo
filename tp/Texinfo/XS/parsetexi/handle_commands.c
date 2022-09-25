@@ -842,7 +842,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
     {
       ELEMENT *block = 0;
       ELEMENT *bla;   /* block line arg element */
-      if (flags & CF_menu
+      if (command_data(cmd).data == BLOCK_menu
           && (current->type == ET_menu_comment
               || current->type == ET_menu_entry_description))
         {
@@ -907,7 +907,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
           push_region (block);
         }
 
-      if (command_data(cmd).flags & CF_menu)
+      if (command_data(cmd).data == BLOCK_menu)
         {
           push_context (ct_preformatted, cmd);
 

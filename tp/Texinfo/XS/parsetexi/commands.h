@@ -68,6 +68,7 @@ void wipe_user_commands (void);
 #define CF_global                	0x00010000
 #define CF_def		        	0x00020000
 #define CF_def_alias	        	0x00040000
+/* CF_menu is not used */
 #define CF_menu		        	0x00080000
 #define CF_align	        	0x00100000
 #define CF_other	        	0x00200000
@@ -116,6 +117,7 @@ void wipe_user_commands (void);
 #define BLOCK_blockitem -6
 #define BLOCK_quotation -7
 #define BLOCK_float -8
+#define BLOCK_menu -9
 
 /* Types of brace command (CF_brace). */
 #define BRACE_arguments 1

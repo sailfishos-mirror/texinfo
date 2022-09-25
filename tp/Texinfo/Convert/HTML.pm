@@ -104,7 +104,6 @@ my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
 my %brace_commands = %Texinfo::Common::brace_commands;
 my %block_commands = %Texinfo::Common::block_commands;
-my %menu_commands = %Texinfo::Common::menu_commands;
 my %root_commands = %Texinfo::Common::root_commands;
 my %preformatted_commands = %Texinfo::Common::preformatted_commands;
 my %math_commands = %Texinfo::Common::math_commands;
@@ -137,8 +136,12 @@ foreach my $misc_context_command('tab', 'item', 'itemx', 'headitem') {
 }
 
 my %composition_context_commands = (%preformatted_commands, %root_commands,
-  %menu_commands, %align_commands);
+  %align_commands);
 $composition_context_commands{'float'} = 1;
+foreach my $block_command (keys(%block_commands)) {
+  $composition_context_commands{$block_command} = 1
+    if ($block_commands{$block_command} eq 'menu');
+}
 
 # FIXME allow customization? (also in DocBook)
 my %upper_case_commands = ( 'sc' => 1 );
@@ -473,7 +476,9 @@ sub in_preformatted($)
   my $context = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
   if ($preformatted_commands{$context}
       or $self->{'pre_class_types'}->{$context}
-      or ($menu_commands{$context} and $self->_in_preformatted_in_menu())) {
+      or ($block_commands{$context}
+          and $block_commands{$context} eq 'menu'
+          and $self->_in_preformatted_in_menu())) {
     return $context;
   } else {
     return undef;
@@ -2228,15 +2233,6 @@ $default_commands_conversion{'vskip'} = undef;
 foreach my $ignored_brace_commands ('caption', 'shortcaption',
   'hyphenation', 'sortas') {
   $default_commands_conversion{$ignored_brace_commands} = undef;
-}
-
-# commands that leads to advancing the paragraph number.  This is mostly
-# used to determine the first line, in fact.
-my %advance_paragraph_count_commands;
-foreach my $command (keys(%block_commands)) {
-  next if ($menu_commands{$command}
-            or $block_commands{$command} eq 'raw');
-  $advance_paragraph_count_commands{$command} = 1;
 }
 
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',

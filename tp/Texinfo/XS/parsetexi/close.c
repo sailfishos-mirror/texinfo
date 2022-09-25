@@ -288,7 +288,8 @@ close_current (ELEMENT *current,
                                                           (parent));
                 }
             }
-          if (command_data(cmd).flags & (CF_preformatted | CF_menu))
+          if (command_data(cmd).flags & CF_preformatted
+               || command_data(cmd).data == BLOCK_menu)
             {
               if (pop_context () != ct_preformatted)
                 fatal ("preformatted context expected");
@@ -401,7 +402,7 @@ close_commands (ELEMENT *current, enum command_id closed_command,
   if (closed_command && current->cmd == closed_command)
     {
       if (command_data(current->cmd).flags & CF_preformatted
-          || command_data(current->cmd).flags & CF_menu)
+          || command_data(current->cmd).data == BLOCK_menu)
         {
           if (pop_context () != ct_preformatted)
             fatal ("preformatted context expected");

@@ -1231,7 +1231,11 @@ my %converter_defaults;
 if (defined($formats_table{$converted_format}->{'module'})) {
   # Speed up initialization by only loading the module we need.
   my $module = $formats_table{$converted_format}->{'module'};
-  eval "require $module" or die "$@";
+  eval "require $module";
+  my $error = $@;
+  if ($error ne '') {
+    die sprintf(__("error loading %s: %s"), $module, $error);
+  };
   eval "$module->import;";
 
   eval '$formats_table{$converted_format}->{\'converter\'} = sub{'.

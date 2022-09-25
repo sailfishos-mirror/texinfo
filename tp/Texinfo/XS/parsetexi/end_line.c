@@ -1269,7 +1269,7 @@ end_line_starting_block (ELEMENT *current)
       }
     } /* CF_blockitem */
 
-  if (command_flags(current) & CF_menu)
+  if (command_data(current->cmd).data == BLOCK_menu)
     {
       /* Start reading a menu.  Processing will continue in
          handle_menu in menus.c. */
@@ -1811,8 +1811,8 @@ end_line_misc_line (ELEMENT *current)
 
               add_to_element_contents (closed_command, end_elt);
 
-              if (command_flags(closed_command) & CF_menu
-                  && command_data(current_context_command()).flags & CF_menu)
+              if (command_data(closed_command->cmd).data == BLOCK_menu
+                  && command_data(current_context_command()).data == BLOCK_menu)
                 {
                   ELEMENT *e;
                   debug ("CLOSE menu but still in menu context");

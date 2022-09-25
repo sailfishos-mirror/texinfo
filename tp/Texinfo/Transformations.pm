@@ -753,7 +753,7 @@ sub menu_to_simple_menu($)
         }
       }
     } elsif ($content->{'cmdname'}
-             and $Texinfo::Common::menu_commands{$content->{'cmdname'}}) {
+  and $Texinfo::Common::block_commands{$content->{'cmdname'}} eq 'menu') {
       menu_to_simple_menu($content);
       push @contents, $content;
     } else {

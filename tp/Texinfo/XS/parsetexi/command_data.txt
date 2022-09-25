@@ -397,9 +397,9 @@ deftypemethodx          line,def,def_alias              LINE_line
 multitable              block,blockitem                 BLOCK_multitable
 
 # menu commands
-menu                    block,menu
-detailmenu              block,menu,global
-direntry                block,menu
+menu                    block                           BLOCK_menu
+detailmenu              block,global                    BLOCK_menu
+direntry                block                           BLOCK_menu
 
 # align commands
 raggedright             block

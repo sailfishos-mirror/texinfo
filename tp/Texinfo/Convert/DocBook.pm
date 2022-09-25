@@ -1552,9 +1552,8 @@ sub _convert($$;$)
         # the context is here only for the command, so this is forgotten
         # once all the raw internal text has been formatted
         $self->{'document_context'}->[-1]->{'raw'} = 1;
-      } elsif ($Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'raw') {
-        return '';
-      } elsif ($Texinfo::Common::menu_commands{$element->{'cmdname'}}) {
+      } elsif ($Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'raw'
+               or $Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'menu') {
         return '';
       }
       foreach my $format_element (@format_elements) {

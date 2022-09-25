@@ -94,7 +94,6 @@ my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
 my %block_commands = %Texinfo::Common::block_commands;
-my %menu_commands = %Texinfo::Common::menu_commands;
 my %root_commands = %Texinfo::Common::root_commands;
 my %preformatted_commands = %Texinfo::Common::preformatted_commands;
 my %math_commands = %Texinfo::Common::math_commands;
@@ -163,6 +162,13 @@ foreach my $def_command (keys(%def_commands)) {
 # paragraph number incremented with paragraphs, center, listoffloats
 # and block commands except: html and such, group, raggedright, menu*, float
 
+my %menu_commands;
+
+foreach my $block_command (keys(%block_commands)) {
+  $menu_commands{$block_command} = 1
+    if ($block_commands{$block_command} eq 'menu');
+}
+
 my %default_preformatted_context_commands = (%preformatted_commands,
                                              %format_raw_commands);
 foreach my $preformatted_command ('verbatim', keys(%menu_commands)) {
@@ -228,7 +234,7 @@ my %flush_commands = (
 # used to determine the first line, in fact.
 my %advance_paragraph_count_commands;
 foreach my $command (keys(%block_commands)) {
-  next if ($menu_commands{$command} 
+  next if ($menu_commands{$command}
             or $block_commands{$command} eq 'raw');
   $advance_paragraph_count_commands{$command} = 1;
 }

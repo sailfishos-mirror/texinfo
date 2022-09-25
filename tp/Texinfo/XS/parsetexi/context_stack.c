@@ -157,7 +157,7 @@ in_preformatted_context_not_menu()
       if (ct != ct_line && ct != ct_preformatted)
         return 0;
       cmd = commands_stack[i];
-      if (! (command_data(cmd).flags & CF_menu) && ct == ct_preformatted)
+      if (command_data(cmd).data != BLOCK_menu && ct == ct_preformatted)
         return 1;
     }
   return 0;

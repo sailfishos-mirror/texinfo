@@ -271,7 +271,6 @@ my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
 my %def_map                   = %Texinfo::Common::def_map;
 my %def_commands              = %Texinfo::Common::def_commands;
 my %def_aliases               = %Texinfo::Common::def_aliases;
-my %menu_commands             = %Texinfo::Common::menu_commands;
 my %preformatted_commands     = %Texinfo::Common::preformatted_commands;
 my %math_commands             = %Texinfo::Common::math_commands;
 my %format_raw_commands       = %Texinfo::Common::format_raw_commands;
@@ -1377,7 +1376,8 @@ sub _in_preformatted_context_not_menu($)
       return 0;
     }
     my $command_name = $self->{'context_command_stack'}->[$i];
-    if (defined($command_name) and not $menu_commands{$command_name}
+    if (defined($command_name)
+        and (not $block_commands{$command_name} eq 'menu')
         and $context eq 'ct_preformatted') {
       return 1;
     }
@@ -1785,7 +1785,7 @@ sub _close_current($$$;$$)
         }
       }
       if ($preformatted_commands{$current->{'cmdname'}}
-          or $menu_commands{$current->{'cmdname'}}) {
+          or $block_commands{$current->{'cmdname'}} eq 'menu') {
         $self->_pop_context(['ct_preformatted'], $source_info, $current);
       } elsif ($format_raw_commands{$current->{'cmdname'}}) {
         $self->_pop_context(['ct_rawpreformatted'], $source_info, $current);
@@ -1879,7 +1879,7 @@ sub _close_commands($$$;$$)
   if ($closed_command and $current->{'cmdname'}
       and $current->{'cmdname'} eq $closed_command) {
     if ($preformatted_commands{$current->{'cmdname'}}
-        or $menu_commands{$current->{'cmdname'}}) {
+        or $block_commands{$current->{'cmdname'}} eq 'menu') {
       $self->_pop_context(['ct_preformatted'], $source_info, $current,
                           "for $closed_command");
     } elsif ($format_raw_commands{$current->{'cmdname'}}) {
@@ -3189,7 +3189,8 @@ sub _end_line($$$)
                                         'parent', $current };
       $current = $current->{'contents'}->[-1];
     }
-    if ($current->{'cmdname'} and $menu_commands{$current->{'cmdname'}}) {
+    if ($current->{'cmdname'}
+        and $block_commands{$current->{'cmdname'}} eq 'menu') {
       push @{$current->{'contents'}}, {'type' => 'menu_comment',
                                        'parent' => $current,
                                        'contents' => [] };
@@ -3456,9 +3457,9 @@ sub _end_line($$$)
           push @{$closed_command->{'contents'}}, $end;
 
           # closing a menu command, but still in a menu. Open a menu_comment
-          if ($menu_commands{$closed_command->{'cmdname'}}
+          if ($block_commands{$closed_command->{'cmdname'}} eq 'menu'
               and defined($self->_top_context_command())
-              and $menu_commands{$self->_top_context_command()}) {
+              and $block_commands{$self->_top_context_command()} eq 'menu') {
             print STDERR "CLOSE MENU but still in menu context\n"
               if ($self->{'DEBUG'});
             push @{$current->{'contents'}}, {'type' => 'menu_comment',
@@ -4350,7 +4351,8 @@ sub _process_remaining_on_line($$$$)
         if ($current->{'type'} ne 'preformatted'
             or $current->{'parent'}->{'type'} ne 'menu_entry_description'
             or $current->{'parent'}->{'parent'}->{'type'} ne 'menu_entry'
-            or !$menu_commands{$current->{'parent'}->{'parent'}->{'parent'}->{'cmdname'}}) {
+            or (not $block_commands{$current->{'parent'}->{'parent'}->{'parent'}
+                                                  ->{'cmdname'}} eq 'menu')) {
           $self->_bug_message("Not in menu comment nor description",
                                $source_info, $current);
         }
@@ -4986,7 +4988,7 @@ sub _process_remaining_on_line($$$$)
         # a menu command closes a menu_comment, but not the other
         # block commands. This won't catch menu commands buried in
         # other formats (that are incorrect anyway).
-        if ($menu_commands{$command} and $current->{'type'}
+        if ($block_commands{$command} eq 'menu' and $current->{'type'}
             and ($current->{'type'} eq 'menu_comment'
                  or $current->{'type'} eq 'menu_entry_description')) {
 
@@ -5048,7 +5050,7 @@ sub _process_remaining_on_line($$$$)
           }
           push @{$self->{'regions_stack'}}, $block;
         }
-        if ($menu_commands{$command}) {
+        if ($block_commands{$command} eq 'menu') {
           $self->_push_context('ct_preformatted', $command);
           push @{$self->{'info'}->{'dircategory_direntry'}}, $block
             if ($command eq 'direntry');

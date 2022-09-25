@@ -922,9 +922,7 @@ $block_commands{'multitable'} = 'multitable';
 $block_item_commands{'multitable'} = 1;
 
 # block commands in which menu entry and menu comments appear
-our %menu_commands;
 foreach my $menu_command ('menu', 'detailmenu', 'direntry') {
-  $menu_commands{$menu_command} = 1;
   $block_commands{$menu_command} = 'menu';
 };
 
@@ -2961,8 +2959,8 @@ Commands delimiting a block with a closing C<@end>.  The value
 is I<conditional> for C<@if> commands, I<def> for definition
 commands like C<@deffn>, I<raw> for @-commands that have no expansion
 of @-commands in their bodies (C<@macro>, C<@verbatim> and C<@ignore>),
-I<multitable> for C<@multitable> and other values for other block line
-commands.
+I<multitable> for C<@multitable>, I<menu> for C<@menu>, C<@detailmenu>
+and C<@direntry> and other values for other block line commands.
 
 =item %block_commands_args_number
 X<C<%block_commands_args_number>>
@@ -3070,11 +3068,6 @@ like C<@AA{}> or C<@ss{}> or C<@o{}>.
 X<C<%math_commands>>
 
 @-commands which contains math, like C<@math> or C<@displaymath>.
-
-=item %menu_commands
-X<C<%menu_commands>>
-
-@-commands with menu entries.
 
 =item %misc_commands
 X<C<%misc_commands>>
