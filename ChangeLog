@@ -1,5 +1,17 @@
 2022-09-25  Patrice Dumas  <pertusus@free.fr>
 
+	microtype in texi2any parsers
+
+	* tp/Texinfo/Common.pm (%document_settable_multiple_at_commands)
+	(%line_commands), tp/Texinfo/ParserNonXS.pm
+	(_parse_line_command_args), tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args),
+	tp/Texinfo/XS/parsetexi/parser.c (register_global_command)
+	(wipe_global_info), tp/Texinfo/XS/parsetexi/parser.h (GLOBAL_INFO):
+	add @microtype to texi2any parsers.
+
+2022-09-25  Patrice Dumas  <pertusus@free.fr>
+
 	* TODO: mention the Emacs Info viewer bug on node name quoting.
 
 	* doc/texinfo.texi (Macro Details): texi2any expands macros in

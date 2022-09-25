@@ -225,6 +225,7 @@ register_global_command (ELEMENT *current)
         GLOBAL_CASE(frenchspacing);
         GLOBAL_CASE(headings);
         GLOBAL_CASE(kbdinputstyle);
+        GLOBAL_CASE(microtype);
         GLOBAL_CASE(paragraphindent);
         GLOBAL_CASE(shortcontents);
         GLOBAL_CASE(urefbreakstyle);
@@ -349,6 +350,7 @@ wipe_global_info (void)
   GLOBAL_CASE(frenchspacing);
   GLOBAL_CASE(headings);
   GLOBAL_CASE(kbdinputstyle);
+  GLOBAL_CASE(microtype);
   GLOBAL_CASE(paragraphindent);
   GLOBAL_CASE(shortcontents);
   GLOBAL_CASE(urefbreakstyle);

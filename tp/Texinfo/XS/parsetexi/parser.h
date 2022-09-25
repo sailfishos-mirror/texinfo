@@ -94,6 +94,7 @@ typedef struct GLOBAL_INFO {
     ELEMENT frenchspacing;
     ELEMENT headings;
     ELEMENT kbdinputstyle;
+    ELEMENT microtype;
     ELEMENT paragraphindent;
     ELEMENT shortcontents;
     ELEMENT urefbreakstyle;

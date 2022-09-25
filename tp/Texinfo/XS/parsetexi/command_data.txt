@@ -104,6 +104,7 @@ afourwide               line,global_unique              LINE_skipline
 bsixpaper               line,global_unique              LINE_skipline
 headings                line,global                     1
 setchapternewpage       line,global_unique              1
+microtype               line,global                     1
 
 everyheading            line,global                     LINE_heading_spec
 everyfooting            line,global                     LINE_heading_spec

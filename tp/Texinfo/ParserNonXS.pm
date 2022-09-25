@@ -6127,7 +6127,8 @@ sub _parse_line_command_args($$$)
            or $command eq 'xrefautomaticsectiontitle'
            or $command eq 'codequoteundirected'
            or $command eq 'codequotebacktick'
-           or $command eq 'deftypefnnewline') {
+           or $command eq 'deftypefnnewline'
+           or $command eq 'microtype') {
     if ($line eq 'on' or $line eq 'off') {
       $args = [$line];
     } else {

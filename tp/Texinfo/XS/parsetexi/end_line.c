@@ -721,6 +721,7 @@ parse_line_command_args (ELEMENT *line_command)
     case CM_codequoteundirected:
     case CM_codequotebacktick:
     case CM_deftypefnnewline:
+    case CM_microtype:
       {
         if (!strcmp (line, "on") || !strcmp (line, "off"))
           {
