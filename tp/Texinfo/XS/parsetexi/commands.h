@@ -19,7 +19,8 @@
 typedef struct command_struct {
     char *cmdname;
     unsigned long flags; /* Up to 32 flags */
-    int data; /* Number of arguments for brace or line commands. */
+    int data; /* type of command. */
+    int args_number; /* Number of arguments for brace or line commands. */
 } COMMAND;
 
 extern COMMAND builtin_command_data[];
@@ -114,6 +115,7 @@ void wipe_user_commands (void);
 #define BLOCK_variadic -5
 
 /* Types of brace command (CF_brace). */
+#define BRACE_noarg 0
 #define BRACE_context -1 /* Can enclose paragraph breaks. */
 #define BRACE_accent -2
 #define BRACE_style_other -3

@@ -1,5 +1,13 @@
 2022-09-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/command_data.awk,
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h (command_struct): separate the
+	information on the number of arguments from the information on
+	the type of command.
+
+2022-09-25  Patrice Dumas  <pertusus@free.fr>
+
 	microtype in texi2any parsers
 
 	* tp/Texinfo/Common.pm (%document_settable_multiple_at_commands)
