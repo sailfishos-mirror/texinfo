@@ -13691,7 +13691,8 @@ By design, macro expansion should not happen in the following contexts:
 
 @item @code{@@clickstyle} lines;
 
-@item @code{@@end} lines.
+@item @code{@@end} lines when there is no macro expansion in the block
+command.
 @end itemize
 
 @noindent Unfortunately, @TeX{} may do some expansion in these situations,

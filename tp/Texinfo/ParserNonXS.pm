@@ -5423,18 +5423,15 @@ sub _process_remaining_on_line($$$$)
           if (!defined($arg) || !$arg) {
             $self->_line_warn(__("no argument specified for \@U"),
               $source_info);
-
           } elsif ($arg !~ /^[0-9A-Fa-f]+$/) {
-            $self->_line_error(
-        sprintf(__("non-hex digits in argument for \@U: %s"), $arg),
-              $source_info);
-
+            $self->_line_error(sprintf(__(
+                        "non-hex digits in argument for \@U: %s"), $arg),
+                               $source_info);
           } elsif (length ($arg) < 4) {
             # Perl doesn't mind, but too much trouble to do in TeX.
             $self->_line_warn(sprintf(__(
               "fewer than four hex digits in argument for \@U: %s"), $arg),
              $source_info);
-
           } else {
             # we don't want to call hex at all if the value isn't
             # going to fit; so first use eval to check.
