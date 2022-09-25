@@ -1,5 +1,10 @@
 2022-09-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\frenchspacing): Only change \sfcode if
+	setting is changing, by using a conditional.
+
+2022-09-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Menu Example): Change menu marker from
 	"* menu:" to "* Menu:" in example.
 

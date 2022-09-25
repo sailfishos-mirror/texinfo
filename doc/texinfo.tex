@@ -4,7 +4,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-09-25.09}
+\def\texinfoversion{2022-09-25.12}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -2821,20 +2821,29 @@ end
 \def\nohyphenation{\hyphenchar\font = -1  \aftergroup\restorehyphenation}
 \def\restorehyphenation{\hyphenchar\font = `- }
 
+\newif\iffrenchspacing
+\frenchspacingfalse
+
 % Set sfcode to normal for the chars that usually have another value.
 % Can't use plain's \frenchspacing because it uses the `\x notation, and
 % sometimes \x has an active definition that messes things up.
 %
 \catcode`@=11
   \def\plainfrenchspacing{%
-    \sfcode`\.=\@m \sfcode`\?=\@m \sfcode`\!=\@m
-    \sfcode`\:=\@m \sfcode`\;=\@m \sfcode`\,=\@m
-    \def\endofsentencespacefactor{1000}% for @. and friends
+    \iffrenchspacing\else
+      \frenchspacingtrue
+      \sfcode`\.=\@m \sfcode`\?=\@m \sfcode`\!=\@m
+      \sfcode`\:=\@m \sfcode`\;=\@m \sfcode`\,=\@m
+      \def\endofsentencespacefactor{1000}% for @. and friends
+    \fi
   }
   \def\plainnonfrenchspacing{%
-    \sfcode`\.3000\sfcode`\?3000\sfcode`\!3000
-    \sfcode`\:2000\sfcode`\;1500\sfcode`\,1250
-    \def\endofsentencespacefactor{3000}% for @. and friends
+    \iffrenchspacing
+      \frenchspacingfalse
+       \sfcode`\.3000\sfcode`\?3000\sfcode`\!3000
+       \sfcode`\:2000\sfcode`\;1500\sfcode`\,1250
+       \def\endofsentencespacefactor{3000}% for @. and friends
+    \fi
   }
 \catcode`@=\other
 \def\endofsentencespacefactor{3000}% default
