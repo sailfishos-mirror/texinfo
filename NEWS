@@ -77,6 +77,7 @@ See the manual for detailed information.
  . for @deftype* commands, use typewriter font in argument list
 
 * texinfo.tex
+  . `@microtype on' uses microtypography in formatting for pdfTeX and LuaTeX
   . do not ignore @part page immediately following Top node
   . for @deftype* commands, use typewriter font in argument list
   . do "@set txicodevaristt" to get slanted typewriter for @var in code,

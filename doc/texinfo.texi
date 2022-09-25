@@ -677,6 +677,7 @@ Global Document Commands
 * @code{@@smallbook}::                  How to print small format books and manuals.
 * A4 Paper::                    How to print on A4, A5 or B6 paper.
 * @code{@@pagesizes}::                  How to print with customized page sizes.
+* Microtypography::             Improving the appearance of paragraphs.
 * Magnification::               How to print scaled up output.
 
 Page Headings
@@ -19796,6 +19797,9 @@ Format a mathematical expression.  @xref{Inserting Math}.
 Mark the beginning of a menu of nodes.  No effect in a printed manual.
 Pair with @code{@@end menu}.  @xref{Menus}.
 
+@item @@microtype @var{on-off}
+Turn microtype on or off.  @xref{Microtypography}.
+
 @item @@minus@{@}
 Generate a minus sign, `@minus{}'.  @xref{@code{@@minus}}.
 
@@ -22874,6 +22878,7 @@ They are generally all given before the Top node, if they are given at all.
 * @code{@@smallbook}::                  How to print small format books and manuals.
 * A4 Paper::                    How to print on A4, A5 or B6 paper.
 * @code{@@pagesizes}::                  How to print with customized page sizes.
+* Microtypography::             Improving the appearance of paragraphs.
 * Magnification::               How to print scaled up output.
 @end menu
 
@@ -23536,6 +23541,25 @@ margins, you must define a new command in @file{texinfo.tex} or
 @xref{Format with @command{texi2dvi} or @command{texi2pdf}},
 and @ref{Preparing for @TeX{}}, for other ways to specify
 @code{@@pagesizes} that do not require changing the source file.
+
+
+@node Microtypography
+@section Microtypography
+
+Some versions of @TeX{}, namely pdf@TeX{} and Lua@TeX{}, have
+@dfn{microtypography} features.  These involve stretching font glyphs
+slightly, and allowing text to produce very slightly into the margins.
+Use of these gives @TeX{} more flexibility in breaking a paragraph
+into lines, and can improve paragraph appearance by reducing hyphenation
+and producing a more consistent typographic color.
+
+@findex microtype
+@file{texinfo.tex} uses these features (`microtype' for short) when
+available.  You can turn microtype off by specifying @samp{@@microtype off}
+in your input file; likewise, @samp{@@microtype on} turns microtype back on.
+
+The @code{@@microtype} command does nothing for other output formats.
+
 
 
 @node Magnification
