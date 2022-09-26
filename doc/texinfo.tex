@@ -1,10 +1,9 @@
-
 % texinfo.tex -- TeX macros to handle Texinfo files.
 % 
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-09-25.13}
+\def\texinfoversion{2022-09-26.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -11419,21 +11418,49 @@ directory should work if nowhere else does.}
 
 % protrusion, from Thanh's protcode.tex.
 \def\mtsetprotcode#1{%
-    \rpcode#1`\!=200  \rpcode#1`\,=700  \rpcode#1`\-=700  \rpcode#1`\.=700
-    \rpcode#1`\;=500  \rpcode#1`\:=500  \rpcode#1`\?=200  \lpcode#1`\`=700
-    \rpcode#1`\'=700
-    \lpcode#1 92=500  % ``
-    \rpcode#1 34=500  % ''
-    \rpcode#1 123=300 % --
-    \rpcode#1 124=200 % ---
-    \rpcode#1`\)=50   \rpcode#1`\A=50   \rpcode#1`\F=50   \rpcode#1`\K=50
-    \rpcode#1`\L=50   \rpcode#1`\T=50   \rpcode#1`\V=50   \rpcode#1`\W=50
-    \rpcode#1`\X=50   \rpcode#1`\Y=50   \rpcode#1`\k=50   \rpcode#1`\r=50
-    \rpcode#1`\t=50   \rpcode#1`\v=50   \rpcode#1`\w=50   \rpcode#1`\x=50
-    \rpcode#1`\y=50   \lpcode#1`\(=50   \lpcode#1`\A=50   \lpcode#1`\J=50
-    \lpcode#1`\T=50   \lpcode#1`\V=50   \lpcode#1`\W=50   \lpcode#1`\X=50
-    \lpcode#1`\Y=50   \lpcode#1`\v=50   \lpcode#1`\w=50   \lpcode#1`\x=50
-    \lpcode#1`\y=0
+  \rpcode#1`\!=200  \rpcode#1`\,=700  \rpcode#1`\-=700  \rpcode#1`\.=700
+  \rpcode#1`\;=500  \rpcode#1`\:=500  \rpcode#1`\?=200
+  \rpcode#1`\'=700
+  \rpcode#1 34=500  % ''
+  \rpcode#1 123=300 % --
+  \rpcode#1 124=200 % ---
+  \rpcode#1`\)=50   \rpcode#1`\A=50   \rpcode#1`\F=50   \rpcode#1`\K=50
+  \rpcode#1`\L=50   \rpcode#1`\T=50   \rpcode#1`\V=50   \rpcode#1`\W=50
+  \rpcode#1`\X=50   \rpcode#1`\Y=50   \rpcode#1`\k=50   \rpcode#1`\r=50
+  \rpcode#1`\t=50   \rpcode#1`\v=50   \rpcode#1`\w=50   \rpcode#1`\x=50
+  \rpcode#1`\y=50
+  %
+  \lpcode#1`\`=700
+  \lpcode#1 92=500  % ``
+  \lpcode#1`\(=50   \lpcode#1`\A=50   \lpcode#1`\J=50   \lpcode#1`\T=50
+  \lpcode#1`\V=50   \lpcode#1`\W=50   \lpcode#1`\X=50   \lpcode#1`\Y=50
+  \lpcode#1`\v=50   \lpcode#1`\w=50   \lpcode#1`\x=50   \lpcode#1`\y=0
+  %
+  \mtadjustprotcode#1\relax
+}
+
+\def\mtadjustprotcode#1{%
+  \countA=0
+  \loop
+    \ifcase\lpcode#1\countA\else
+      \mtadjustcp\lpcode#1\countA
+    \fi
+    \ifcase\rpcode#1\countA\else
+      \mtadjustcp\rpcode#1\countA
+    \fi
+    \advance\countA 1
+  \ifnum\countA < 256 \repeat
+}
+
+\newcount\countB
+\def\mtadjustcp#1#2#3{%
+  \setbox\boxA=\hbox{%
+    \ifx#2\font\else#2\fi
+    \char#3}%
+  \countB=\wd\boxA
+  \multiply\countB #1#2#3\relax
+  \divide\countB \fontdimen6 #2\relax
+  #1#2#3=\countB\relax
 }
 
 \ifx\luatexversion\thisisundefined
@@ -11457,9 +11484,11 @@ directory should work if nowhere else does.}
   \ifx\luatexversion\thisisundefined
     \ifpdf % pdfTeX
       \pdfadjustspacing=2
+      \pdfprotrudechars=2
     \fi
   \else % LuaTeX
     \adjustspacing=2
+    \protrudechars=2
   \fi
   \mtfontexpand\textrm
   \mtfontexpand\textsl
@@ -11473,9 +11502,11 @@ directory should work if nowhere else does.}
   \ifx\luatexversion\thisisundefined
     \ifpdf % pdfTeX
       \pdfadjustspacing=0
+      \pdfprotrudechars=0
     \fi
   \else % LuaTeX
     \adjustspacing=0
+    \protrudechars=0
   \fi
 }
 

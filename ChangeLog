@@ -1,3 +1,18 @@
+2022-09-26  Werner Lemberg  <wl@gnu.org>
+
+	* doc/texinfo.tex: Fix character protrusion in `@microtype`.
+
+	First of all, character protrusion wasn't activated at all. 
+	Additionally, the code from the original `protcode.tex` was added
+	incompletely, causing far too large protrusion values.
+
+	* doc/texinfo.tex (\countB): New counter.
+	(\mtadjustprotcode, \mtadjustcp): New macros.
+	(\mtsetprotcode): Call `\mtadjustprotcode` to scale protrusion
+	values correctly.
+	(\microtypeON, \microtypeOFF): Switch on or off character
+	protrusion.
+
 2022-09-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%blockitem_commands),
