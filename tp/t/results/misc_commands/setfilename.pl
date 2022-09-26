@@ -308,6 +308,7 @@ $result_converted{'latex'}->{'setfilename'} = '\\documentclass{book}
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
+\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}
@@ -325,6 +326,7 @@ $result_converted{'latex'}->{'setfilename'} = '\\documentclass{book}
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
 % used for substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 

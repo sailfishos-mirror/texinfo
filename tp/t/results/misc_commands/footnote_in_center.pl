@@ -354,6 +354,7 @@ $result_converted{'latex'}->{'footnote_in_center'} = '\\documentclass{book}
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
+\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{enumitem}
 \\usepackage{titleps}
@@ -372,6 +373,9 @@ $result_converted{'latex'}->{'footnote_in_center'} = '\\documentclass{book}
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
+\\AtBeginEnvironment{GNUTexinfopreformatted}{\\microtypesetup{activate=false}}
+
 % set defaults for lists that match Texinfo TeX formatting
 \\setlist[description]{style=nextline, font=\\normalfont}
 

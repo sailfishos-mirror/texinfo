@@ -1,5 +1,12 @@
 2022-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	Microtype in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_fixed_width_environments)
+	(_latex_header, _convert): implement microytpe in LaTeX output.
+
+2022-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	* TODO: user-defined macros as argument to @table and @itemize
 
 	* doc/texinfo.texi (Defining Macros): say that Texinfo commands

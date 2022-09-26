@@ -7,6 +7,7 @@
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{needspace}
+\usepackage{microtype}
 \usepackage{etoolbox}
 \usepackage{array}
 \usepackage{embrac}
@@ -48,6 +49,10 @@
   \par\GNUTobeylines\obeyspaces\frenchspacing\parskip=\z@\parindent=\z@}{}
 {\catcode`\^^M=13 \gdef\GNUTobeylines{\catcode`\^^M=13 \def^^M{\null\par}}}
 \newenvironment{GNUTexinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
+
+\AtBeginEnvironment{GNUTexinfopreformatted}{\microtypesetup{activate=false}}
+\AtBeginEnvironment{verbatim}{\microtypesetup{activate=false}}
+
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
 \setlist[itemize]{label=\textbullet}

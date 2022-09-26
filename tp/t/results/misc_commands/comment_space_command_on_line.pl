@@ -1125,6 +1125,7 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
+\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}
@@ -1147,6 +1148,7 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
 % used for substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 
@@ -1169,6 +1171,7 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 
 \\frenchspacing
 
+\\microtypesetup{activate=false}%
 
 \\index[cp]{index entry \\ {}}%
 

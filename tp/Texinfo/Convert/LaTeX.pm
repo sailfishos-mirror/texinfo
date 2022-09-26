@@ -519,6 +519,12 @@ my %LaTeX_list_environments = (
   'itemize' => 'itemize',
   'enumerate' => 'enumerate',
 );
+
+my %LaTeX_fixed_width_environments = (
+  'verbatim' => 1,
+  'GNUTexinfopreformatted' => 1,
+);
+
 foreach my $command (keys(%item_line_commands)) {
   $LaTeX_list_environments{$command} = 'description';
 }
@@ -1274,6 +1280,7 @@ sub _latex_header() {
 
   $header_code .=
 '\newenvironment{GNUTexinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
+
 ';
 
   if ($self->{'packages'}->{'babel'}) {
@@ -1286,6 +1293,16 @@ sub _latex_header() {
 }
 ';
   }
+
+  # disactivate microtype for fixed-width environments
+  if ($self->{'fixed_width_environments'}) {
+    foreach my $no_microtype_environment (sort(keys(%{$self->{'fixed_width_environments'}}))) {
+      $header_code .= "\\AtBeginEnvironment{$no_microtype_environment}"
+                      ."{\\microtypesetup{activate=false}}\n";
+    }
+    $header_code .= "\n";
+  }
+
   if ($self->{'list_environments'}) {
     $header_code .= "% set defaults for lists that match Texinfo TeX formatting\n";
     if ($self->{'list_environments'}->{'description'}) {
@@ -1364,9 +1381,13 @@ roundcorner=10pt}
   # textcomp for \textdegree in older LaTeX
   # graphicx for \includegraphics
   # needspace for \needspace. In texlive-latex-extra in debian
-  # etoolbox for \patchcmd and \ifstrempty. In texlive-latex-recommended in debian
+  # etoolbox for \patchcmd, \ifstrempty \and AtBeginEnvironment.
+  # In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
   # mdframed is used for the formatting of @cartouche,
+  # microtype is used for @microtype and set in the default case.
+  # microtype requires cm-super installed, or to use lmodern package.
+  # In texlive-latex-recommended in debian.
   # framemethod=TikZ is needed for roundcorner.
   # Possibility for hyperref for color:
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
@@ -1386,6 +1407,8 @@ roundcorner=10pt}
   if ($self->{'packages'}->{'needspace'}) {
     $header .= "\\usepackage{needspace}\n";
   }
+  $header .= '\usepackage{microtype}
+';
   $header .= '\usepackage{etoolbox}
 ';
   if ($self->{'packages'}->{'array'}) {
@@ -1843,6 +1866,7 @@ sub _open_preformatted($$)
 
   my $result = '';
   $result .= '\\begin{GNUTexinfopreformatted}%'."\n";
+  $self->{'fixed_width_environments'}->{'GNUTexinfopreformatted'} = 1;
   # The % comments out the newline to avoid extra vertical space.
 
   if ($preformatted_code_commands{$command}) {
@@ -3070,6 +3094,8 @@ sub _convert($$)
       if ($LaTeX_environment_commands{$cmdname}) {
         my $environment_options = _set_environment_options($self, $cmdname, $element);
         foreach my $environment (@{$LaTeX_environment_commands{$cmdname}}) {
+          $self->{'fixed_width_environments'}->{$environment} = 1
+            if ($LaTeX_fixed_width_environments{$environment});
           $result .= "\\begin{".$environment."}";
           if (defined($environment_options) and
               exists($environment_options->{$environment})) {
@@ -3512,6 +3538,14 @@ sub _convert($$)
       } elsif ($paper_geometry_commands{$cmdname}) {
         $result .= "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
         $self->{'packages'}->{'geometry'} = 1;
+      } elsif ($cmdname eq 'microtype'
+               and $element->{'extra'}->{'misc_args'}->[0]) {
+        my $microtype_spec = $element->{'extra'}->{'misc_args'}->[0];
+        if ($microtype_spec eq 'on') {
+          $result .= "\\microtypesetup{activate=true}%\n";
+        } elsif ($microtype_spec eq 'off') {
+          $result .= "\\microtypesetup{activate=false}%\n";
+        }
       }
       return $result;
     } else {

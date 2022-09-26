@@ -415,6 +415,7 @@ $result_converted{'latex'}->{'empty_index_entry'} = '\\documentclass{book}
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
+\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{tabularx}
 \\usepackage{titleps}
@@ -433,6 +434,7 @@ $result_converted{'latex'}->{'empty_index_entry'} = '\\documentclass{book}
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
 % used for substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 

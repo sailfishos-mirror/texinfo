@@ -349,6 +349,7 @@ $result_converted{'latex'}->{'heading_command_in_commands'} = '\\documentclass{b
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
+\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}
@@ -366,6 +367,9 @@ $result_converted{'latex'}->{'heading_command_in_commands'} = '\\documentclass{b
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
 \\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+
+\\AtBeginEnvironment{GNUTexinfopreformatted}{\\microtypesetup{activate=false}}
+
 % used for substitutions in commands
 \\newcommand{\\GNUTexinfoplaceholder}[1]{}
 
