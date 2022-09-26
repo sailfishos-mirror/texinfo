@@ -51,7 +51,7 @@ void wipe_user_commands (void);
 #define CF_line			        0x0001
 #define CF_deprecated   	        0x0002
 #define CF_root			        0x0004
-#define CF_sectioning		        0x0008
+#define CF_sectioning_heading		        0x0008
 #define CF_brace		        0x0010
 #define CF_letter_no_arg	        0x0020
 #define CF_accent		        0x0040
@@ -114,7 +114,8 @@ void wipe_user_commands (void);
 #define BLOCK_raw -2
 #define BLOCK_multitable -3
 #define BLOCK_region -4
-#define BLOCK_blockitem -6
+#define BLOCK_item_line -5
+#define BLOCK_item_container -6
 #define BLOCK_quotation -7
 #define BLOCK_float -8
 #define BLOCK_menu -9

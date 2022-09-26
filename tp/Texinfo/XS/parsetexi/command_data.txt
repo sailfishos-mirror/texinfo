@@ -439,15 +439,15 @@ ignore                  block                           BLOCK_raw
 macro                   block                           BLOCK_raw
 rmacro                  block                           BLOCK_raw
 
-table                   block,blockitem                 BLOCK_blockitem    1
-ftable                  block,blockitem                 BLOCK_blockitem    1
-vtable                  block,blockitem                 BLOCK_blockitem    1
-itemize                 block,blockitem                 BLOCK_blockitem    1
-enumerate               block,blockitem                 BLOCK_blockitem    1
-quotation               block                           BLOCK_quotation    1
-smallquotation          block                           BLOCK_quotation    1
+table                   block,blockitem                 BLOCK_item_line       1
+ftable                  block,blockitem                 BLOCK_item_line       1
+vtable                  block,blockitem                 BLOCK_item_line       1
+itemize                 block,blockitem                 BLOCK_item_container  1
+enumerate               block,blockitem                 BLOCK_item_container  1
+quotation               block                           BLOCK_quotation       1
+smallquotation          block                           BLOCK_quotation       1
 
-float                   block                           BLOCK_float        2
+float                   block                           BLOCK_float           2
 displaymath             block
 
 ##################################################################
@@ -473,27 +473,27 @@ ifcommandnotdefined     block                           BLOCK_conditional
 
 ##########################################################
 # Root commands
-node                    root,line                       LINE_line
-top                     root,line,sectioning,global_unique      LINE_line
-chapter                 root,line,sectioning            LINE_line
-unnumbered              root,line,sectioning            LINE_line
-chapheading             line,sectioning                 LINE_line
-appendix                root,line,sectioning            LINE_line
-section                 root,line,sectioning            LINE_line
-unnumberedsec           root,line,sectioning            LINE_line
-heading                 line,sectioning                 LINE_line
-appendixsec             root,line,sectioning            LINE_line
-subsection              root,line,sectioning            LINE_line
-unnumberedsubsec        root,line,sectioning            LINE_line
-subheading              line,sectioning                 LINE_line
-appendixsubsec          root,line,sectioning            LINE_line
-subsubsection           root,line,sectioning            LINE_line
-unnumberedsubsubsec     root,line,sectioning            LINE_line
-subsubheading           line,sectioning                 LINE_line
-appendixsubsubsec       root,line,sectioning            LINE_line
+node                    root,line                               LINE_line     4
+top                     root,line,sectioning_heading,global_unique   LINE_line
+chapter                 root,line,sectioning_heading            LINE_line
+unnumbered              root,line,sectioning_heading            LINE_line
+chapheading             line,sectioning_heading                 LINE_line
+appendix                root,line,sectioning_heading            LINE_line
+section                 root,line,sectioning_heading            LINE_line
+unnumberedsec           root,line,sectioning_heading            LINE_line
+heading                 line,sectioning_heading                 LINE_line
+appendixsec             root,line,sectioning_heading            LINE_line
+subsection              root,line,sectioning_heading            LINE_line
+unnumberedsubsec        root,line,sectioning_heading            LINE_line
+subheading              line,sectioning_heading                 LINE_line
+appendixsubsec          root,line,sectioning_heading            LINE_line
+subsubsection           root,line,sectioning_heading            LINE_line
+unnumberedsubsubsec     root,line,sectioning_heading            LINE_line
+subsubheading           line,sectioning_heading                 LINE_line
+appendixsubsubsec       root,line,sectioning_heading            LINE_line
 
-part                    root,line,sectioning,global     LINE_line
-appendixsection         root,line,sectioning            LINE_line
-majorheading            line,sectioning                 LINE_line
-centerchap              root,line,sectioning,deprecated LINE_line
+part                    root,line,sectioning_heading,global     LINE_line
+appendixsection         root,line,sectioning_heading            LINE_line
+majorheading            line,sectioning_heading                 LINE_line
+centerchap              root,line,sectioning_heading,deprecated LINE_line
 

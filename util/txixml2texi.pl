@@ -382,7 +382,8 @@ while ($reader->read) {
         print $reader->getAttribute('leadingtext');
       }
     }
-    if ($Texinfo::Common::item_line_commands{$name}
+    if ($Texinfo::Common::block_commands{$name}
+        and $Texinfo::Common::block_commands{$name} eq 'item_line'
         and $reader->hasAttributes()
         and defined($reader->getAttribute('commandarg'))) {
       print '@'.$reader->getAttribute('commandarg');

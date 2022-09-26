@@ -922,7 +922,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   if ((outer_flags & CF_line
             && (command_data(outer).data == LINE_specific
                 || (command_data(outer).data == LINE_line
-                    && !(outer_flags & (CF_def | CF_sectioning)))
+                    && !(outer_flags & (CF_def | CF_sectioning_heading)))
                 || command_data(outer).data == LINE_text
                 || command_data(outer).data == LINE_heading_spec)
             && outer != CM_center
@@ -975,7 +975,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
            || (!current->parent->cmd && current_context () == ct_def)
 
            /* "full line no refs commands" */
-           || (outer_flags & (CF_sectioning | CF_def))
+           || (outer_flags & (CF_sectioning_heading | CF_def))
            || (!current->parent->cmd && current_context () == ct_def))
     {
       /* Start by checking if the command is allowed inside a "full text 
@@ -1015,7 +1015,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
       /* Now add more restrictions for "full line no refs" commands and "simple 
          text" commands. */
-      if (outer_flags & (CF_sectioning | CF_def)
+      if (outer_flags & (CF_sectioning_heading | CF_def)
           || (!current->parent->cmd && current_context () == ct_def)
           || simple_text_command)
         {

@@ -522,7 +522,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
           add_to_element_contents (current, misc);
 
-          if (command_data(cmd).flags & CF_sectioning)
+          if (command_data(cmd).flags & CF_sectioning_heading)
             {
               if (global_info.sections_level)
                 {

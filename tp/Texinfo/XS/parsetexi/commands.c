@@ -175,7 +175,7 @@ close_paragraph_command (enum command_id cmd)
      || cmd == CM_exdent)
     return 1;
 
-  if ((command_data(cmd).flags & CF_sectioning)
+  if ((command_data(cmd).flags & CF_sectioning_heading)
       && !(command_data(cmd).flags & CF_root))
     return 1;
 

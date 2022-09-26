@@ -229,14 +229,12 @@ my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
-my %item_container_commands = %Texinfo::Common::item_container_commands;
 my %format_raw_commands = %Texinfo::Common::format_raw_commands;
 my %code_style_commands       = %Texinfo::Common::code_style_commands;
 my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
-my %item_line_commands = %Texinfo::Common::item_line_commands;
 my %headings_specification_commands = %Texinfo::Common::headings_specification_commands;
 my %in_heading_commands = %Texinfo::Common::in_heading_commands;
 my %unformatted_brace_command = %Texinfo::Common::unformatted_brace_command;
@@ -478,9 +476,16 @@ foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
   $ignored_commands{$ignored_block_commands} = 1;
 }
 
+my %LaTeX_list_environments = (
+  'itemize' => 'itemize',
+  'enumerate' => 'enumerate',
+);
+
 foreach my $block_command (keys(%block_commands)) {
   $ignored_commands{$block_command} = 1
-    if ($block_commands{$block_command} eq 'menu')
+    if ($block_commands{$block_command} eq 'menu');
+  $LaTeX_list_environments{$block_command} = 'description'
+    if ($block_commands{$block_command} eq 'item_line');
 }
 
 my @LaTeX_same_block_commands = (
@@ -515,19 +520,10 @@ my %LaTeX_environment_packages = (
   'cartouche' => ['mdframed'],
 );
 
-my %LaTeX_list_environments = (
-  'itemize' => 'itemize',
-  'enumerate' => 'enumerate',
-);
-
 my %LaTeX_fixed_width_environments = (
   'verbatim' => 1,
   'GNUTexinfopreformatted' => 1,
 );
-
-foreach my $command (keys(%item_line_commands)) {
-  $LaTeX_list_environments{$command} = 'description';
-}
 
 foreach my $environment_command (@LaTeX_same_block_commands) {
   $LaTeX_environment_commands{$environment_command} = [$environment_command];
@@ -3121,7 +3117,8 @@ sub _convert($$)
       } elsif ($block_raw_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
       }
-      if ($item_line_commands{$cmdname}) {
+      if ($block_commands{$cmdname}
+          and $block_commands{$cmdname} eq 'item_line') {
         # may be undef, in particular if the command is not a style command,
         # for example @email
         my $description_command_format
@@ -3283,7 +3280,8 @@ sub _convert($$)
       }
       $result .= $index_entry;
     } elsif ($cmdname eq 'item' and $element->{'parent'}->{'cmdname'}
-             and $item_container_commands{$element->{'parent'}->{'cmdname'}}) {
+             and $block_commands{$element->{'parent'}->{'cmdname'}}
+             and $block_commands{$element->{'parent'}->{'cmdname'}} eq 'item_container') {
       # item in @enumerate and @itemize
       $result .= '\item ';
     } elsif ($cmdname eq 'headitem' or $cmdname eq 'item'
@@ -3807,7 +3805,8 @@ sub _convert($$)
         # move_index_entries_after_items for enumerate and itemize, but not
         # for @*table.  For @*table there is relate_index_entries_to_table_entries
         # but it has no obvious use here
-        if ($item_line_commands{$element->{'parent'}->{'cmdname'}}) {
+        if ($block_commands{$element->{'parent'}->{'cmdname'}}
+            and $block_commands{$element->{'parent'}->{'cmdname'}} eq 'item_line') {
           # it is important to have an empty optional argument otherwise
           # a quoted command will output the quotes, even with a detection
           # of empty argument (tested with diverse possibilities)
@@ -3831,7 +3830,7 @@ sub _convert($$)
 
   # close commands
   if ($cmdname) {
-    if ($item_line_commands{$cmdname}) {
+    if ($block_commands{$cmdname} and $block_commands{$cmdname} eq 'item_line') {
       pop @{$self->{'formatting_context'}->[-1]->{'table_command_format'}};
     }
     if ($LaTeX_environment_commands{$cmdname}) {

@@ -1,5 +1,33 @@
 2022-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%blockitem_commands),
+	tp/Texinfo/Convert/TextContent.pm, tp/Texinfo/ParserNonXS.pm: rename
+	%block_item_commands as %blockitem_commands to be more consistent with
+	XS parser.
+
+	* tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.c (close_paragraph_command),
+	tp/Texinfo/XS/parsetexi/commands.h,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command),
+	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): rename
+	CF_sectioning as CF_sectioning_heading to be more consistent with Perl
+	parser.
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (_convert), tp/Texinfo/ParserNonXS.pm
+	(_close_command_cleanup, _item_container_parent, _item_line_parent)
+	(_end_line, _parent_of_command_as_argument,
+	_process_remaining_on_line), tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h, util/txixml2texi.pl: use item_line
+	and item_container as types for block commands, instead of
+	%item_container_command and %item_line_commands. Remove
+	%item_container_command and %item_line_commands.
+
+	* tp/Texinfo/Convert/HTML.pm: remove useless code.
+
+2022-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	Document Microtypography in LaTeX output
 
 	* doc/texinfo.texi (Microtypography): document that cm-super

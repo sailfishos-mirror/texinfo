@@ -850,7 +850,7 @@ our %block_commands;
 our %block_commands_args_number;
 
 # commands that have a possible content before an item
-our %block_item_commands;
+our %blockitem_commands;
 
 # Do nothing, used to mark translations for gettext.  The strings
 # are marked to be translated in the parsers with type 'untranslated'.
@@ -919,7 +919,7 @@ foreach my $def_command(keys %def_map) {
 }
 
 $block_commands{'multitable'} = 'multitable';
-$block_item_commands{'multitable'} = 1;
+$blockitem_commands{'multitable'} = 1;
 
 # block commands in which menu entry and menu comments appear
 foreach my $menu_command ('menu', 'detailmenu', 'direntry') {
@@ -995,11 +995,16 @@ $block_commands{'ifclear'} = 'conditional';
 $block_commands{'ifcommanddefined'} = 'conditional';
 $block_commands{'ifcommandnotdefined'} = 'conditional';
 
-foreach my $block_command_one_arg('table', 'ftable', 'vtable',
-  'itemize', 'enumerate') {
-  $block_commands{$block_command_one_arg} = 'blockitem';
-  $block_commands_args_number{$block_command_one_arg} = 1;
-  $block_item_commands{$block_command_one_arg} = 1;
+foreach my $item_container_command ('itemize', 'enumerate') {
+  $block_commands{$item_container_command} = 'item_container';
+  $block_commands_args_number{$item_container_command} = 1;
+  $blockitem_commands{$item_container_command} = 1;
+}
+
+foreach my $item_line_command ('table', 'ftable', 'vtable') {
+  $block_commands{$item_line_command} = 'item_line';
+  $block_commands_args_number{$item_line_command} = 1;
+  $blockitem_commands{$item_line_command} = 1;
 }
 
 foreach my $block_command_one_arg('quotation', 'smallquotation') {
@@ -1034,14 +1039,6 @@ foreach my $close_paragraph_command (keys(%def_commands)) {
   $close_paragraph_commands{$close_paragraph_command} = 1;
 }
 
-our %item_container_commands;
-foreach my $item_container_command ('itemize', 'enumerate') {
-  $item_container_commands{$item_container_command} = 1;
-}
-our %item_line_commands;
-foreach my $item_line_command ('table', 'ftable', 'vtable') {
-  $item_line_commands{$item_line_command} = 1;
-}
 
 our %deprecated_commands = (
   'definfoenclose' => '',
@@ -2960,7 +2957,10 @@ is I<conditional> for C<@if> commands, I<def> for definition
 commands like C<@deffn>, I<raw> for @-commands that have no expansion
 of @-commands in their bodies (C<@macro>, C<@verbatim> and C<@ignore>),
 I<multitable> for C<@multitable>, I<menu> for C<@menu>, C<@detailmenu>
-and C<@direntry> and other values for other block line commands.
+and C<@direntry>, I<item_container> for commands with C<@item> containing
+any content, C<@itemize> and C<@enumerate>, I<item_line> for commands
+like C<@table> in which the C<@item> argument is on its line
+ and other values for other block line commands.
 
 =item %block_commands_args_number
 X<C<%block_commands_args_number>>
@@ -3045,18 +3045,6 @@ X<C<%inline_format_commands>>
 
 Inline conditional commands, like C<@inlineifclear>, and inline format
 commands like C<inlineraw> and C<inlinefmt>.
-
-=item %item_container_commands
-X<C<%item_container_commands>>
-
-Commands holding C<@item> with C<@item> that contains blocks of text,
-like C<@itemize>.
-
-=item %item_line_commands
-X<C<%item_line_commands>>
-
-Commands with C<@item> that have their arguments on their lines, like
-C<@ftable>.
 
 =item %letter_no_arg_commands
 X<C<%letter_no_arg_commands>>

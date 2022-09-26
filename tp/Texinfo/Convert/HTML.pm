@@ -108,7 +108,6 @@ my %root_commands = %Texinfo::Common::root_commands;
 my %preformatted_commands = %Texinfo::Common::preformatted_commands;
 my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
-my %item_container_commands = %Texinfo::Common::item_container_commands;
 my %raw_commands = %Texinfo::Common::raw_commands;
 my %format_raw_commands = %Texinfo::Common::format_raw_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
@@ -3671,7 +3670,7 @@ sub _convert_heading_command($$$$$)
   my $mini_toc = '';
   if ($tables_of_contents eq ''
       and $self->get_conf('FORMAT_MENU') eq 'sectiontoc'
-      and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
+      and $sectioning_heading_commands{$cmdname}) {
     $mini_toc = _mini_toc($self, $element);
   }
 
@@ -3804,7 +3803,7 @@ sub _convert_heading_command($$$$$)
   if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
-        and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
+        and $sectioning_heading_commands{$cmdname}) {
       my $content_href = $self->command_contents_href($element, 'contents');
       if ($content_href ne '') {
         $heading = "<a href=\"$content_href\">$heading</a>";

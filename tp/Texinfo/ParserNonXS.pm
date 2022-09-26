@@ -266,7 +266,7 @@ my %accent_commands           = %Texinfo::Common::accent_commands;
 my %context_brace_commands    = %Texinfo::Common::context_brace_commands;
 my %block_commands            = %Texinfo::Common::block_commands;
 my %block_commands_args_number = %Texinfo::Common::block_commands_args_number;
-my %block_item_commands       = %Texinfo::Common::block_item_commands;
+my %blockitem_commands        = %Texinfo::Common::blockitem_commands;
 my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
 my %def_map                   = %Texinfo::Common::def_map;
 my %def_commands              = %Texinfo::Common::def_commands;
@@ -274,8 +274,6 @@ my %def_aliases               = %Texinfo::Common::def_aliases;
 my %preformatted_commands     = %Texinfo::Common::preformatted_commands;
 my %math_commands             = %Texinfo::Common::math_commands;
 my %format_raw_commands       = %Texinfo::Common::format_raw_commands;
-my %item_container_commands   = %Texinfo::Common::item_container_commands;
-my %item_line_commands        = %Texinfo::Common::item_line_commands;
 my %deprecated_commands       = %Texinfo::Common::deprecated_commands;
 my %root_commands             = %Texinfo::Common::root_commands;
 my %sectioning_heading_commands     = %Texinfo::Common::sectioning_heading_commands;
@@ -1647,7 +1645,8 @@ sub _close_command_cleanup($$) {
       }
     }
     delete $current->{'rows_count'};
-  } elsif ($item_container_commands{$current->{'cmdname'}}) {
+  } elsif ($block_commands{$current->{'cmdname'}}
+           and $block_commands{$current->{'cmdname'}} eq 'item_container') {
     delete $current->{'items_count'};
   }
 
@@ -1658,7 +1657,8 @@ sub _close_command_cleanup($$) {
     _gather_def_item($current);
   }
 
-  if ($item_line_commands{$current->{'cmdname'}}) {
+  if ($block_commands{$current->{'cmdname'}}
+      and $block_commands{$current->{'cmdname'}} eq 'item_line') {
     # At this point the end command hasn't been added to the command contents.
     # so checks cannot be done at this point.
     if (@{$current->{'contents'}}) {
@@ -1669,7 +1669,7 @@ sub _close_command_cleanup($$) {
   # put end out of before_item, and replace it at the end of the parent.
   # remove empty before_item.
   # warn if not empty before_item, but format is empty
-  if ($block_item_commands{$current->{'cmdname'}}) {
+  if ($blockitem_commands{$current->{'cmdname'}}) {
     if (@{$current->{'contents'}}) {
       my $leading_spaces = 0;
       my $before_item;
@@ -1960,7 +1960,8 @@ sub _item_container_parent($)
   if ((($current->{'cmdname'} and $current->{'cmdname'} eq 'item')
        or ($current->{'type'} and $current->{'type'} eq 'before_item'))
       and ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-        and $item_container_commands{$current->{'parent'}->{'cmdname'}})) {
+           and $block_commands{$current->{'parent'}->{'cmdname'}}
+           and $block_commands{$current->{'parent'}->{'cmdname'}} eq 'item_container')) {
     return ($current->{'parent'});
   }
   return undef;
@@ -1975,7 +1976,8 @@ sub _item_line_parent($)
     $current = $current->{'parent'};
   }
   return $current if ($current->{'cmdname'}
-                      and $item_line_commands{$current->{'cmdname'}});
+                      and $block_commands{$current->{'cmdname'}}
+                      and $block_commands{$current->{'cmdname'}} eq 'item_line');
   return undef;
 }
 
@@ -3084,7 +3086,7 @@ sub _end_line($$$)
 
     # all the commands with @item
     if ($current->{'cmdname'}
-          and $block_item_commands{$current->{'cmdname'}}) {
+        and $blockitem_commands{$current->{'cmdname'}}) {
       if ($current->{'cmdname'} eq 'enumerate') {
         my $spec = '1';
         if ($current->{'args'} and $current->{'args'}->[0]
@@ -3106,7 +3108,7 @@ sub _end_line($$$)
           }
         }
         $current->{'extra'}->{'enumerate_specification'} = $spec;
-      } elsif ($item_line_commands{$current->{'cmdname'}}) {
+      } elsif ($block_commands{$current->{'cmdname'}} eq 'item_line') {
         if (!$current->{'extra'}
             or !$current->{'extra'}->{'command_as_argument'}) {
           $self->_command_error($current, $source_info,
@@ -3146,7 +3148,8 @@ sub _end_line($$$)
           and $current->{'extra'}->{'command_as_argument'}
           and $accent_commands{$current->{'extra'}->{'command_as_argument'}->{'cmdname'}}
           and ($current->{'cmdname'} eq 'itemize'
-               or $item_line_commands{$current->{'cmdname'}})) {
+               or ($block_commands{$current->{'cmdname'}}
+                   and $block_commands{$current->{'cmdname'}} eq 'item_line'))) {
         # this can only happen to an accent command with brace, if without
         # brace it is not set as command_as_argument to begin with.
         $self->_command_warn($current, $source_info,
@@ -3177,8 +3180,9 @@ sub _end_line($$$)
           unshift @{$block_line_arg->{'contents'}}, $inserted;
           $current->{'extra'}->{'command_as_argument'} = $inserted;
         }
-      } elsif ($item_line_commands{$current->{'cmdname'}} and
-              !$current->{'extra'}->{'command_as_argument'}) {
+      } elsif ($block_commands{$current->{'cmdname'}}
+               and $block_commands{$current->{'cmdname'}} eq 'item_line'
+               and !$current->{'extra'}->{'command_as_argument'}) {
         my $inserted =  { 'cmdname' => 'asis',
                           'type' => 'command_as_argument_inserted',
                           'parent' => $current };
@@ -3713,7 +3717,8 @@ sub _parent_of_command_as_argument($)
       and $current->{'parent'}
       and $current->{'parent'}->{'cmdname'}
       and ($current->{'parent'}->{'cmdname'} eq 'itemize'
-           or $item_line_commands{$current->{'parent'}->{'cmdname'}})
+           or ($block_commands{$current->{'parent'}->{'cmdname'}}
+               and $block_commands{$current->{'parent'}->{'cmdname'}} eq 'item_line'))
       and scalar(@{$current->{'contents'}}) == 1);
 }
 
@@ -5074,7 +5079,8 @@ sub _process_remaining_on_line($$$$)
         # cleaner, and more similar to XS parser, but not required, would have
         # been initialized automatically.
         $current->{'items_count'} = 0
-           if ($item_container_commands{$command});
+           if ($block_commands{$command}
+               and $block_commands{$command} eq 'item_container');
 
         $current->{'args'} = [ {
            'type' => 'block_line_arg',

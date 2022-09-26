@@ -140,7 +140,7 @@ sub _convert($$)
   my $result = '';
   if ($element->{'args'}
       and (!$element->{'cmdname'}
-           or !$Texinfo::Common::block_item_commands{$element->{'cmdname'}})) {
+           or !$Texinfo::Common::blockitem_commands{$element->{'cmdname'}})) {
     my $args;
     if ($element->{'cmdname'}
         and $Texinfo::Common::inline_format_commands{$element->{'cmdname'}}) {

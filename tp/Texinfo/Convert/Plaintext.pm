@@ -100,7 +100,6 @@ my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
-my %item_container_commands = %Texinfo::Common::item_container_commands;
 my %raw_commands = %Texinfo::Common::raw_commands;
 my %format_raw_commands = %Texinfo::Common::format_raw_commands;
 my %code_style_commands       = %Texinfo::Common::code_style_commands;
@@ -2567,7 +2566,8 @@ sub _convert($$)
         }
       }
     } elsif ($command eq 'item' and $element->{'parent'}->{'cmdname'}
-             and $item_container_commands{$element->{'parent'}->{'cmdname'}}) {
+             and $block_commands{$element->{'parent'}->{'cmdname'}}
+             and $block_commands{$element->{'parent'}->{'cmdname'}} eq 'item_container') {
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
       my $line = $self->new_formatter('line', 
           {'indent_length' => 

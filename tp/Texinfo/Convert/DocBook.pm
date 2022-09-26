@@ -1466,7 +1466,7 @@ sub _convert($$;$)
           $numeration = 'arabic';
         }
         push @attributes, " numeration=\"$numeration\"";
-      } elsif ($Texinfo::Common::item_line_commands{$element->{'cmdname'}}) {
+      } elsif ($Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'item_line') {
         push @format_elements, 'variablelist';
       } elsif ($element->{'cmdname'} eq 'itemize') {
         push @format_elements, 'itemizedlist';
