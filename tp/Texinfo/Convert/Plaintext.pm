@@ -26,9 +26,9 @@ use 5.00405;
 # See comment at start of HTML.pm
 use if $] >= 5.012, feature => qw(unicode_strings);
 
-use strict;
-
 use if $] >= 5.014, re => '/a';
+
+use strict;
 
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -62,6 +62,7 @@ $VERSION = '6.8dev';
 # misc commands that are of use for formatting.
 my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
 my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
+my %brace_commands = %Texinfo::Common::brace_commands;
 
 
 my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
@@ -82,11 +83,11 @@ sub get_informative_global_commands($)
   return @informative_global_commands;
 }
 
-my %no_brace_commands = %Texinfo::Common::no_brace_commands;
+my %nobrace_commands = %Texinfo::Common::nobrace_commands;
 my %brace_no_arg_commands;
-foreach my $command (keys (%Texinfo::Common::brace_commands)) {
+foreach my $command (keys (%brace_commands)) {
   $brace_no_arg_commands{$command} = 1 
-    if ($Texinfo::Common::brace_commands{$command} eq 'noarg');
+    if ($brace_commands{$command} eq 'noarg');
 }
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %misc_commands = %Texinfo::Common::misc_commands;
@@ -102,8 +103,7 @@ my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
 my %raw_commands = %Texinfo::Common::raw_commands;
 my %format_raw_commands = %Texinfo::Common::format_raw_commands;
-my %code_style_commands       = %Texinfo::Common::code_style_commands;
-my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
+my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
@@ -313,7 +313,7 @@ my %non_quoted_commands_when_nested;
 # if @documentencoding utf-8 is used.
 foreach my $quoted_command (@quoted_commands) {
   $style_map{$quoted_command} = ["'", "'"];
-  if ($code_style_commands{$quoted_command}) {
+  if ($brace_code_commands{$quoted_command}) {
     $non_quoted_commands_when_nested{$quoted_command} = 1;
   }
 }
@@ -335,7 +335,7 @@ for my $index_style_command ('strong', 'emph', 'sub', 'sup', 'key') {
 # in those commands, there is no addition of double space after a dot.
 # math is special
 my %no_punctation_munging_commands;
-foreach my $command ('var', 'cite', 'dmn', keys(%code_style_commands)) {
+foreach my $command ('var', 'cite', 'dmn', keys(%brace_code_commands)) {
   $no_punctation_munging_commands{$command} = 1;
 }
 
@@ -1708,7 +1708,7 @@ sub _convert($$)
   my $preformatted;
   if ($command) {
     my $unknown_command;
-    if (defined($no_brace_commands{$command})) {
+    if (defined($nobrace_commands{$command})) {
       if ($command eq ':') {
         remove_end_sentence($formatter->{'container'});
         return '';
@@ -1731,10 +1731,10 @@ sub _convert($$)
         add_end_sentence($formatter->{'container'}, 1);
       } elsif ($command eq ' ' or $command eq "\n" or $command eq "\t") {
         $result .= _count_added($self, $formatter->{'container'}, 
-            add_next($formatter->{'container'}, $no_brace_commands{$command}));
+            add_next($formatter->{'container'}, $nobrace_commands{$command}));
       } else {
         $result .= _count_added($self, $formatter->{'container'}, 
-            add_text($formatter->{'container'}, $no_brace_commands{$command}));
+            add_text($formatter->{'container'}, $nobrace_commands{$command}));
       }
       return $result;
     } elsif ($command eq 'today') {
@@ -1826,13 +1826,14 @@ sub _convert($$)
       return $result;
     } elsif ($self->{'style_map'}->{$command} 
          or ($element->{'type'} and $element->{'type'} eq 'definfoenclose_command')) {
-      if ($code_style_commands{$command}) {
+      if ($brace_code_commands{$command}) {
         if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
           push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
         } else {
           $formatter->{'font_type_stack'}->[-1]->{'monospace'}++;
         }
-      } elsif ($regular_font_style_commands{$command}) {
+      } elsif ($brace_commands{$command}
+               and $brace_commands{$command} eq 'style_no_code') {
         if ($formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
           push @{$formatter->{'font_type_stack'}}, {'monospace' => 0, 
                                                     'normal' => 1};
@@ -1899,12 +1900,13 @@ sub _convert($$)
         set_space_protection($formatter->{'container'},0,undef)
           if ($formatter->{'w'} == 0);
       }
-      if ($code_style_commands{$command}) {
+      if ($brace_code_commands{$command}) {
         $formatter->{'font_type_stack'}->[-1]->{'monospace'}--;
         allow_end_sentence($formatter->{'container'});
         pop @{$formatter->{'font_type_stack'}}
           if !$formatter->{'font_type_stack'}->[-1]->{'monospace'};
-      } elsif ($regular_font_style_commands{$command}) {
+      } elsif ($brace_commands{$command}
+               and $brace_commands{$command} eq 'style_no_code') {
         if ($formatter->{'font_type_stack'}->[-1]->{'normal'}) {
           $formatter->{'font_type_stack'}->[-1]->{'normal'}--;
           pop @{$formatter->{'font_type_stack'}}

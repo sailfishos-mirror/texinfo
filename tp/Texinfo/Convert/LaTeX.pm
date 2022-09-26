@@ -211,7 +211,7 @@ foreach my $informative_command (keys (%Texinfo::Common::document_settable_at_co
   $informative_commands{$informative_command} = 1;
 }
 
-my %no_brace_commands = %Texinfo::Common::no_brace_commands;
+my %nobrace_commands = %Texinfo::Common::nobrace_commands;
 my %brace_no_arg_commands;
 foreach my $command (keys (%Texinfo::Common::brace_commands)) {
   $brace_no_arg_commands{$command} = 1
@@ -230,8 +230,7 @@ my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
 my %format_raw_commands = %Texinfo::Common::format_raw_commands;
-my %code_style_commands       = %Texinfo::Common::code_style_commands;
-my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
+my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
@@ -2284,7 +2283,7 @@ sub _convert($$)
       $command_format_context = 'cmd_math';
     }
     my $did_stop_embrac;
-    if (defined($no_brace_commands{$cmdname})) {
+    if (defined($nobrace_commands{$cmdname})) {
       if ($cmdname eq ':') {
         if ($command_format_context ne 'cmd_math') {
           $result .= "\\\@";
@@ -2344,7 +2343,7 @@ sub _convert($$)
           $result .= "\\$cmdname";
         }
       } else {
-        $result .= _protect_text($self, $no_brace_commands{$cmdname});
+        $result .= _protect_text($self, $nobrace_commands{$cmdname});
       }
       return $result;
     } elsif (exists($brace_no_arg_commands{$cmdname})) {
@@ -2455,7 +2454,7 @@ sub _convert($$)
       } else {
         $formatted_cmdname = $cmdname;
       }
-      if ($code_style_commands{$cmdname}) {
+      if ($brace_code_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 1;
       } elsif ($roman_style_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'code'}}, 0;
@@ -2495,7 +2494,7 @@ sub _convert($$)
       if ($self->{'quotes_map'}->{$formatted_cmdname}) {
         $result .= $self->{'quotes_map'}->{$formatted_cmdname}->[1];
       }
-      if ($code_style_commands{$cmdname}) {
+      if ($brace_code_commands{$cmdname}) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       } elsif ($roman_style_commands{$cmdname}) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
@@ -3250,7 +3249,7 @@ sub _convert($$)
             and $table_command->{'extra'}->{'command_as_argument'}) {
           my $command_as_argument
             = $table_command->{'extra'}->{'command_as_argument'}->{'cmdname'};
-          if ($code_style_commands{$command_as_argument}) {
+          if ($brace_code_commands{$command_as_argument}) {
             $code_style = 1;
           }
         }

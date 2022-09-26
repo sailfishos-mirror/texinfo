@@ -99,6 +99,8 @@ our %no_arg_commands_formatting = (
            'guillemotright'  => 'guillemotright',
 );
 
+my %brace_commands = %Texinfo::Common::brace_commands;
+
 # use default XML formatting to complete the hash, removing XML
 # specific formatting.  This avoids some code duplication.
 my %default_xml_no_arg_commands_formatting =
@@ -165,7 +167,6 @@ foreach my $command ('item', 'headitem', 'itemx', 'tab',
 
 my %default_args_code_style
   = %Texinfo::Convert::Converter::default_args_code_style;
-my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
 
 # our because it is used in the xml to texi translator
 our %commands_args_elements = (
@@ -654,7 +655,8 @@ sub _convert($$;$)
           if (defined($default_args_code_style{$format_item_command})
               and $default_args_code_style{$format_item_command}->[0]) {
             $in_monospace_not_normal = 1;
-          } elsif ($regular_font_style_commands{$format_item_command}) {
+          } elsif ($brace_commands{$format_item_command}
+                   and $brace_commands{$format_item_command} eq 'style_no_code') {
             $in_monospace_not_normal = 0;
           }
         }
@@ -938,7 +940,8 @@ sub _convert($$;$)
       if (defined($default_args_code_style{$element->{'cmdname'}})
           and $default_args_code_style{$element->{'cmdname'}}->[0]) {
         $in_monospace_not_normal = 1;
-      } elsif ($regular_font_style_commands{$element->{'cmdname'}}) {
+      } elsif ($brace_commands{$element->{'cmdname'}}
+               and $brace_commands{$element->{'cmdname'}} eq 'style_no_code') {
         $in_monospace_not_normal = 0;
       }
       push @{$self->{'document_context'}->[-1]->{'monospace'}},
@@ -953,7 +956,7 @@ sub _convert($$;$)
                  .$arg.$self->txi_markup_close_element('infoenclose');
       return $command_result;
     } elsif ($element->{'args'}
-             and exists($Texinfo::Common::brace_commands{$element->{'cmdname'}})) {
+             and exists($brace_commands{$element->{'cmdname'}})) {
 
       if ($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
           and $element->{'extra'} and $element->{'extra'}->{'format'}
@@ -1022,7 +1025,8 @@ sub _convert($$;$)
           if (defined($default_args_code_style{$element->{'cmdname'}})
               and $default_args_code_style{$element->{'cmdname'}}->[$arg_index]) {
             $in_monospace_not_normal = 1;
-          } elsif ($regular_font_style_commands{$element->{'cmdname'}}) {
+          } elsif ($brace_commands{$element->{'cmdname'}}
+                   and $brace_commands{$element->{'cmdname'}} eq 'style_no_code') {
             $in_monospace_not_normal = 0;
           }
           push @{$self->{'document_context'}->[-1]->{'monospace'}},

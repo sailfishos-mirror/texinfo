@@ -21,6 +21,31 @@
 
 2022-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%nobrace_commands),
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/NodeNameNormalization.pm,
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/Convert/TextContent.pm,
+	tp/Texinfo/ParserNonXS.pm: rename %no_brace_commands as
+	%nobrace_commands to be more in line with XS parser.
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm
+	(@all_style_commands, _convert), tp/Texinfo/Convert/HTML.pm
+	(@all_style_commands, _convert), tp/Texinfo/Convert/Plaintext.pm
+	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): remove
+	%style_commands and %regular_font_style_commands, use %brace_commands
+	values instead.
+
+	* tp/Texinfo/Common.pm (%brace_code_commands),
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/Text.pm: rename %code_style_commands as
+	%brace_code_commands.
+
+	* tp/Texinfo/Convert/NodeNameNormalization.pm: change in spacing.
+
+2022-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%blockitem_commands),
 	tp/Texinfo/Convert/TextContent.pm, tp/Texinfo/ParserNonXS.pm: rename
 	%block_item_commands as %blockitem_commands to be more consistent with

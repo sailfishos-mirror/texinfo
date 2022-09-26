@@ -136,7 +136,7 @@ our %default_args_code_style = (
   'float' => [1],
 );
 
-foreach my $code_style_command (keys(%Texinfo::Common::code_style_commands)) {
+foreach my $code_style_command (keys(%Texinfo::Common::brace_code_commands)) {
   $default_args_code_style{$code_style_command} = [1];
 }
 foreach my $ref_cmd ('pxref', 'xref', 'ref') {
@@ -1488,9 +1488,9 @@ our %xml_text_entity_no_arg_commands_formatting = (
                'guilsinglright'          => '&rsaquo;',
 );
 
-foreach my $no_brace_command (keys(%Texinfo::Common::no_brace_commands)) {
+foreach my $no_brace_command (keys(%Texinfo::Common::nobrace_commands)) {
   $xml_text_entity_no_arg_commands_formatting{$no_brace_command}
-    = $Texinfo::Common::no_brace_commands{$no_brace_command};
+    = $Texinfo::Common::nobrace_commands{$no_brace_command};
 }
 
 $xml_text_entity_no_arg_commands_formatting{'&'} = '&amp;';

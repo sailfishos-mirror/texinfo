@@ -54,16 +54,16 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 $VERSION = '6.8dev';
 
 
-my %normalize_node_brace_no_arg_commands 
+my %normalize_node_brace_no_arg_commands
   = %Texinfo::Convert::Text::text_brace_no_arg_commands;
 foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands)) {
   $normalize_node_brace_no_arg_commands{$command} =
      $Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands{$command};
 }
 
-my %normalize_node_no_brace_commands 
-  = %Texinfo::Common::no_brace_commands;
-$normalize_node_no_brace_commands{'*'} = ' ';
+my %normalize_node_nobrace_commands
+  = %Texinfo::Common::nobrace_commands;
+$normalize_node_nobrace_commands{'*'} = ' ';
 
 my %accent_commands = %Texinfo::Common::accent_commands;
 
@@ -195,7 +195,7 @@ sub _unicode_to_transliterate($;$)
       } elsif (ord($char) <= hex(0xFFFF)
                and exists($Texinfo::Convert::Unicode::transliterate_map{uc(sprintf("%04x",ord($char)))})) {
         $result .= $Texinfo::Convert::Unicode::transliterate_map{uc(sprintf("%04x",ord($char)))};
-      } elsif (ord($char) <= hex(0xFFFF) 
+      } elsif (ord($char) <= hex(0xFFFF)
                and exists($Texinfo::Convert::Unicode::diacritics_accent_commands{uc(sprintf("%04x",ord($char)))})) {
         $result .= '';
       # in this case, we want to avoid calling unidecode, as we are sure
@@ -204,7 +204,7 @@ sub _unicode_to_transliterate($;$)
       # This is the case, for example, for @exclamdown, is corresponds
       # with x00a1, but unidecode transliterates it to a !, we want
       # to avoid that and keep x00a1.
-      } elsif (ord($char) <= hex(0xFFFF) 
+      } elsif (ord($char) <= hex(0xFFFF)
                and exists($Texinfo::Convert::Unicode::no_transliterate_map{uc(sprintf("%04x",ord($char)))})) {
         $result .= $char;
       } else {
@@ -253,8 +253,8 @@ sub _convert($;$)
   }
   if ($element->{'cmdname'}) {
     my $command = $element->{'cmdname'};
-    if (defined($normalize_node_no_brace_commands{$element->{'cmdname'}})) {
-      return $normalize_node_no_brace_commands{$element->{'cmdname'}};
+    if (defined($normalize_node_nobrace_commands{$element->{'cmdname'}})) {
+      return $normalize_node_nobrace_commands{$element->{'cmdname'}};
     } elsif (defined($normalize_node_brace_no_arg_commands{$element->{'cmdname'}})) {
       $command = $element->{'extra'}->{'clickstyle'}
          if ($element->{'extra'}
@@ -269,8 +269,8 @@ sub _convert($;$)
     } elsif ($accent_commands{$element->{'cmdname'}}) {
       return '' if (!$element->{'args'});
       my $accent_text = _convert($element->{'args'}->[0]);
-      my $accented_char 
-        = Texinfo::Convert::Unicode::unicode_accent($accent_text, 
+      my $accented_char
+        = Texinfo::Convert::Unicode::unicode_accent($accent_text,
                                                     $element);
       if (!defined($accented_char)) {
         # In this case, the node normalization do not follow the specification,
@@ -314,7 +314,7 @@ sub _convert($;$)
       $result .= _convert($content, $in_sc);
     }
   }
-  $result = '{'.$result.'}' 
+  $result = '{'.$result.'}'
      if ($element->{'type'} and $element->{'type'} eq 'bracketed');
   return $result;
 }
@@ -360,8 +360,8 @@ sub set_nodes_list_labels($$$)
         } else {
           if (defined $labels{$normalized}) {
             $registrar->line_error($configuration_information,
-              sprintf(__("\@%s `%s' previously defined"), 
-                         $target->{'cmdname'}, 
+              sprintf(__("\@%s `%s' previously defined"),
+                         $target->{'cmdname'},
                    Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
                                     => $target->{'extra'}->{'node_content'}})),
                                $target->{'source_info'});

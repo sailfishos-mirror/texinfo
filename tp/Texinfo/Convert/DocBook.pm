@@ -41,6 +41,7 @@ use vars qw($VERSION @ISA);
 
 $VERSION = '6.8dev';
 
+my %brace_commands = %Texinfo::Common::brace_commands;
 
 my $nbsp = '&#'.hex('00A0').';';
 
@@ -118,13 +119,13 @@ my %style_attribute_commands;
       'emph'        => 'emphasis',
       'env'         => 'envar',
       'file'        => 'filename',
-      'footnote'    => 'footnote',   # not in %style_commands
+      'footnote'    => 'footnote',   # brace context command
       'headitemfont' => 'emphasis role="bold"', # actually <th> instead of <td>
       'i'           => 'emphasis',
       'indicateurl' => 'literal',
       'kbd'         => 'userinput',
       'key'         => 'keycap',
-      'math'        => 'mathphrase', # not in %style_commands
+      'math'        => 'mathphrase', # brace context command
       'option'      => 'option',
       'r'           => '',
       'samp'        => 'literal',
@@ -134,14 +135,19 @@ my %style_attribute_commands;
       'sup'         => 'superscript',
       't'           => 'literal',
       'var'         => 'replaceable',
-      'verb'        => 'literal',     # not in %style_commands
+      'verb'        => 'literal',     # brace other command
 );
 
-# this weird construct does like uniq, it avoids duplicates.
-# it may be required since some commands are not in %style_commands.
+my %style_brace_types = map {$_ => 1} ('style_other', 'style_code', 'style_no_code');
+# @all_style_commands is the union of style brace commands, commands
+# in %style_attribute_commands and a few other, some not style brace commands.
+# Using keys of a map generated hash does like uniq, it avoids duplicates.
+# The first grep selects style brace commands, ie commands with %brace_commands
+# type in %style_brace_types.
 my @all_style_commands = keys %{{ map { $_ => 1 }
-    (keys(%Texinfo::Common::style_commands), keys(%style_attribute_commands),
-     'w', 'dmn', 'titlefont') }};
+    ((grep {$style_brace_types{$brace_commands{$_}}} keys(%brace_commands)),
+      keys(%style_attribute_commands), 'w', 'dmn', 'titlefont') }};
+
 # special string for 'w'.
 my $w_command_mark = '<!-- /@w -->';
 
@@ -178,7 +184,6 @@ my %docbook_global_commands = (
 
 my %default_args_code_style
   = %Texinfo::Convert::Converter::default_args_code_style;
-my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
 
 my %defcommand_name_type = (
  'defcv'     => 'property',
@@ -990,7 +995,8 @@ sub _convert($$;$)
         if (defined($default_args_code_style{$element->{'cmdname'}})
             and $default_args_code_style{$element->{'cmdname'}}->[0]) {
            $in_monospace_not_normal = 1;
-        } elsif ($regular_font_style_commands{$element->{'cmdname'}}) {
+        } elsif ($brace_commands{$element->{'cmdname'}}
+                 and $brace_commands{$element->{'cmdname'}} eq 'style_no_code') {
           $in_monospace_not_normal = 0;
         }
         if ($formatting->{'upper_case'}) {

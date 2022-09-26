@@ -474,8 +474,8 @@ sub valid_tree_transformation ($)
 
 # @-commands classifications and other information on @-commands
 
-our %no_brace_commands;             # commands never taking braces
-%no_brace_commands = (
+our %nobrace_commands;             # commands never taking braces
+%nobrace_commands = (
            '*', "\n",
            ' ', ' ',
            "\t", ' ',
@@ -715,31 +715,21 @@ foreach my $accent_command ('"','~','^','`',"'",',','=',
   $brace_commands{$accent_command} = 'accent';
 }
 
-# FIXME There are some redundant informations in $brace_commands and being
-# in %style_commands and %regular_font_style_commands.
-# NOTE The distinction between 'style_other', 'style_no_code' and 'style_code'
-# is currently not used anywhere, but could be used in the parser if needed.
-our %style_commands;
 foreach my $style_command ('asis', 'cite', 'clicksequence',
   'dfn', 'emph', 'sc', 'var', 'headitemfont', 'strong', 'sub', 'sup',
   'i', 'b', 'sansserif', 'slanted') {
   $brace_commands{$style_command} = 'style_other';
-  $style_commands{$style_command} = 1;
 }
 
-our %regular_font_style_commands;
 foreach my $command ('r') {
-  $regular_font_style_commands{$command} = 1;
   $brace_commands{$command} = 'style_no_code';
-  $style_commands{$command} = 1;
 }
 
-our %code_style_commands; # contains also non style commands, see below
+our %brace_code_commands; # contains also non style commands, see below
 foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'option',
    'samp', 't') {
-  $code_style_commands{$command} = 1;
+  $brace_code_commands{$command} = 1;
   $brace_commands{$command} = 'style_code';
-  $style_commands{$command} = 1;
 }
 
 # FIXME this category contains commands with different constraints.  Some should
@@ -764,10 +754,10 @@ foreach my $other_arg_command ('w', 'verb') {
   $brace_commands{$other_arg_command} = 'other';
 }
 
-# code style command that are not style commands
-$code_style_commands{'key'} = 1;
-$code_style_commands{'verb'} = 1;
-$code_style_commands{'indicateurl'} = 1;
+# brace style command that are not style commands
+$brace_code_commands{'key'} = 1;
+$brace_code_commands{'verb'} = 1;
+$brace_code_commands{'indicateurl'} = 1;
 
 # Commands that enclose full texts not in the main document context.
 # They can contain multiple paragraphs.
@@ -1172,7 +1162,7 @@ foreach my $command (
   keys(%Texinfo::Common::block_commands),
   keys(%Texinfo::Common::brace_commands),
   keys(%Texinfo::Common::misc_commands),
-  keys(%Texinfo::Common::no_brace_commands),
+  keys(%Texinfo::Common::nobrace_commands),
   qw(value),
  ) {
   $all_commands{$command} = 1;
@@ -2975,10 +2965,10 @@ X<C<%brace_commands>>
 
 The commands that take braces.
 
-=item %code_style_commands
-X<C<%code_style_commands>>
+=item %brace_code_commands
+X<C<%brace_code_commands>>
 
-I<style_commands> that have their argument in code style, like
+Brace commands that have their argument in code style, like
 C<@code>.
 
 =item %context_brace_commands
@@ -3065,8 +3055,8 @@ C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>, C<@end>, C<@footnotestyle>,
 C<@set>, C<@settitle>, C<@indent>, C<@definfoenclose>, C<@comment> and many
 others.
 
-=item %no_brace_commands
-X<C<%no_brace_commands>>
+=item %nobrace_commands
+X<C<%nobrace_commands>>
 
 Commands without brace with a single character as name, like C<*>
 or C<:>.  The value is an ASCII representation of the command.  It
@@ -3098,11 +3088,6 @@ X<C<%region_commands>>
 
 Block @-commands that enclose full text regions, like C<@titlepage>.
 
-=item %regular_font_style_commands
-X<C<%regular_font_style_commands>>
-
-I<style_commands> that have their argument in regular font, C<@r>.
-
 =item %root_commands
 X<C<%root_commands>>
 
@@ -3120,12 +3105,6 @@ X<C<%small_block_associated_command>>
 
 Associate small command like C<smallexample> to the regular command
 C<example>.
-
-=item %style_commands
-X<C<%style_commands>>
-
-Commands that mark a fragment of texinfo, like C<@strong>,
-C<@cite>, C<@code> or C<@asis>.
 
 =back
 

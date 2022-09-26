@@ -96,7 +96,7 @@ sub import {
 # misc commands that are of use for formatting.
 my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
 my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
-my %no_brace_commands = %Texinfo::Common::no_brace_commands;
+my %nobrace_commands = %Texinfo::Common::nobrace_commands;
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %misc_commands = %Texinfo::Common::misc_commands;
 my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
@@ -112,11 +112,9 @@ my %raw_commands = %Texinfo::Common::raw_commands;
 my %format_raw_commands = %Texinfo::Common::format_raw_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
-my %code_style_commands       = %Texinfo::Common::code_style_commands;
-my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
+my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
-my %style_commands = %Texinfo::Common::style_commands;
 my %align_commands = %Texinfo::Common::align_commands;
 my %region_commands = %Texinfo::Common::region_commands;
 my %context_brace_commands = %Texinfo::Common::context_brace_commands;
@@ -2283,9 +2281,9 @@ $default_no_arg_commands_formatting{'preformatted'}->{'*'}->{'text'} = "\n";
 # is protected as CSS as a\'b", and " is escaped in an HTML style
 # attribute: style="list-style-type: 'a\'b&quot;'"
 
-foreach my $no_brace_command (keys(%no_brace_commands)) {
+foreach my $no_brace_command (keys(%nobrace_commands)) {
   $default_no_arg_commands_formatting{'css_string'}->{$no_brace_command}->{'text'}
-   = $no_brace_commands{$no_brace_command};
+   = $nobrace_commands{$no_brace_command};
 }
 
 foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
@@ -2305,8 +2303,8 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   } elsif ($default_no_arg_commands_formatting{'normal'}->{$command}->{'text'}) {
     $default_no_arg_commands_formatting{'css_string'}->{$command}->{'text'} =
       $default_no_arg_commands_formatting{'normal'}->{$command}->{'text'};
-  } elsif (exists($no_brace_commands{$command})
-           and $no_brace_commands{$command} eq '') {
+  } elsif (exists($nobrace_commands{$command})
+           and $nobrace_commands{$command} eq '') {
     # @- @/ @/ @|
     $default_no_arg_commands_formatting{'css_string'}->{$command}->{'text'} = '';
   } else {
@@ -2499,15 +2497,20 @@ $style_commands_element{'normal'} = {
       'sup'         => 'sup',
       't'           => 'code',
       'var'         => 'var',
-      'verb'        => 'code', # not in %style_commands
+      'verb'        => 'code', # other brace command
 };
 
 my %style_commands_formatting;
 
-# this weird construct does like uniq, it avoids duplicates.
-# it may be required since some commands are not in %style_commands.
+my %style_brace_types = map {$_ => 1} ('style_other', 'style_code', 'style_no_code');
+# @all_style_commands is the union of style brace commands and commands
+# in $style_commands_element{'normal'}, a few not being style brace commands.
+# Using keys of a map generated hash does like uniq, it avoids duplicates.
+# The first grep selects style brace commands, ie commands with %brace_commands
+# type in %style_brace_types.
 my @all_style_commands = keys %{{ map { $_ => 1 }
-    (keys(%style_commands), keys(%{$style_commands_element{'normal'}})) }};
+    ((grep {$style_brace_types{$brace_commands{$_}}} keys(%brace_commands)),
+      keys(%{$style_commands_element{'normal'}})) }};
 
 foreach my $command(@all_style_commands) {
   # default is no attribute.
@@ -3014,7 +3017,7 @@ foreach my $command (keys(%accent_commands)) {
   $default_css_string_commands_conversion{$command} = \&_css_string_convert_accent_command;
 }
 
-# argument is formatted as code since indicateurl is in code_style_commands
+# argument is formatted as code since indicateurl is in brace_code_commands
 sub _convert_indicateurl_command($$$$)
 {
   my $self = shift;
@@ -6977,7 +6980,7 @@ sub converter_initialize($)
   my $customized_commands_conversion
      = Texinfo::Config::GNUT_get_commands_conversion();
   foreach my $command (keys(%misc_commands), keys(%brace_commands),
-     keys (%block_commands), keys(%no_brace_commands), 'value') {
+     keys (%block_commands), keys(%nobrace_commands), 'value') {
     if (exists($customized_commands_conversion->{$command})) {
       $self->{'commands_conversion'}->{$command}
           = $customized_commands_conversion->{$command};
@@ -6997,7 +7000,7 @@ sub converter_initialize($)
   my $customized_commands_open
      = Texinfo::Config::GNUT_get_commands_open();
   foreach my $command (keys(%misc_commands), keys(%brace_commands),
-     keys (%block_commands), keys(%no_brace_commands), 'value') {
+     keys (%block_commands), keys(%nobrace_commands), 'value') {
     if (exists($customized_commands_open->{$command})) {
       $self->{'commands_open'}->{$command}
           = $customized_commands_open->{$command};
@@ -10141,10 +10144,11 @@ sub _convert($$;$)
       } elsif ($command_name eq 'verb' or $command_name eq 'verbatim') {
         $self->{'document_context'}->[-1]->{'verbatim'}++;
       }
-      if ($code_style_commands{$command_name} or
+      if ($brace_code_commands{$command_name} or
           $preformatted_code_commands{$command_name}) {
         push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-      } elsif ($regular_font_style_commands{$command_name}) {
+      } elsif ($brace_commands{$command_name}
+               and $brace_commands{$command_name} eq 'style_no_code') {
         push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
       } elsif ($upper_case_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'}++;
@@ -10250,9 +10254,10 @@ sub _convert($$;$)
       if ($pre_class_commands{$command_name}) {
         pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       }
-      if ($code_style_commands{$command_name}
-          or $preformatted_code_commands{$command_name}
-          or $regular_font_style_commands{$command_name}) {
+      if ($preformatted_code_commands{$command_name}
+          or ($brace_commands{$command_name}
+              and $brace_commands{$command_name} eq 'style_no_code')
+          or $brace_code_commands{$command_name}) {
         pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       } elsif ($upper_case_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'}--;

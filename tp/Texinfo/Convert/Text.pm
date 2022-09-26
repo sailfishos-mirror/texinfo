@@ -142,7 +142,7 @@ foreach my $accent_letter ('o','O','l','L') {
 }
 
 my %accent_commands = %Texinfo::Common::accent_commands;
-my %no_brace_commands = %Texinfo::Common::no_brace_commands;
+my %nobrace_commands = %Texinfo::Common::nobrace_commands;
 my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
 # 'page' is a formatted_misc_commands and therefore is replaced by an empty line.
 
@@ -432,8 +432,8 @@ sub _convert($;$)
   }
   if ($element->{'cmdname'}) {
     my $command = $element->{'cmdname'};
-    if (defined($no_brace_commands{$element->{'cmdname'}})) {
-      return $no_brace_commands{$element->{'cmdname'}};
+    if (defined($nobrace_commands{$element->{'cmdname'}})) {
+      return $nobrace_commands{$element->{'cmdname'}};
     } elsif ($element->{'cmdname'} eq 'today') {
       if ($options->{'sort_string'}
           and $sort_brace_no_arg_commands{$element->{'cmdname'}}) {
@@ -515,7 +515,7 @@ sub _convert($;$)
       my $result;
       my $in_code;
       $options->{'sc'}++ if ($element->{'cmdname'} eq 'sc');
-      if ($Texinfo::Common::code_style_commands{$element->{'cmdname'}}
+      if ($Texinfo::Common::brace_code_commands{$element->{'cmdname'}}
                or $Texinfo::Common::math_commands{$element->{'cmdname'}}) {
         $in_code = 1;
       }

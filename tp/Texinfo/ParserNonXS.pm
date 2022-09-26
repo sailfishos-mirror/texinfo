@@ -257,7 +257,7 @@ my %initialization_overrides = (
   'documentlanguage' => 1,
 );
 
-my %no_brace_commands         = %Texinfo::Common::no_brace_commands;
+my %nobrace_commands         = %Texinfo::Common::nobrace_commands;
 my %line_commands             = %Texinfo::Common::line_commands;
 my %other_commands            = %Texinfo::Common::other_commands;
 my %brace_commands            = %Texinfo::Common::brace_commands;
@@ -280,7 +280,6 @@ my %sectioning_heading_commands     = %Texinfo::Common::sectioning_heading_comma
 my %command_index             = %Texinfo::Common::command_index;
 my %ref_commands              = %Texinfo::Common::ref_commands;
 my %region_commands           = %Texinfo::Common::region_commands;
-my %code_style_commands       = %Texinfo::Common::code_style_commands;
 my %headings_specification_commands = %Texinfo::Common::headings_specification_commands;
 my %in_heading_commands       = %Texinfo::Common::in_heading_commands;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
@@ -383,7 +382,7 @@ foreach my $brace_command(keys(%brace_commands)) {
   $in_accent_commands{$brace_command} = 1
      if ($brace_commands{$brace_command} eq 'noarg');
 }
-foreach my $no_brace_command (keys(%no_brace_commands)) {
+foreach my $no_brace_command (keys(%nobrace_commands)) {
   $in_accent_commands{$no_brace_command} = 1;
 }
 $in_accent_commands{'c'} = 1;
@@ -391,7 +390,7 @@ $in_accent_commands{'comment'} = 1;
 
 # commands that may appear in text arguments
 my %in_full_text_commands;
-foreach my $command (keys(%brace_commands), keys(%no_brace_commands)) {
+foreach my $command (keys(%brace_commands), keys(%nobrace_commands)) {
   $in_full_text_commands{$command} = 1;
 }
 foreach my $in_full_text_command ('c', 'comment', 'refill', 'subentry',
@@ -5129,7 +5128,7 @@ sub _process_remaining_on_line($$$$)
         $current->{'extra'}->{'end'}
           = $self->{'definfoenclose'}->{$command}->[1];
       }
-    } elsif (exists ($no_brace_commands{$command})) {
+    } elsif (exists ($nobrace_commands{$command})) {
       push @{$current->{'contents'}},
              { 'cmdname' => $command, 'parent' => $current };
       # FIXME generalize?

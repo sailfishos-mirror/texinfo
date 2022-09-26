@@ -10,6 +10,9 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+global_unique document_settable_unique_at_commands
+global document_settable_multiple_at_commands
+
 Bugs
 ====
 
