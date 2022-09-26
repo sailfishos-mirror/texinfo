@@ -13445,7 +13445,7 @@ a following space (@pxref{Inserting Math}).  However, for a macro to
 work consistently with @TeX{}, @var{macroname} must consist entirely
 of letters: no digits, hyphens, or other special characters.
 So, we recommend using only letters.  Texinfo commands should not
-be redefined as macro.
+be redefined as macros.
 
 If a macro needs no parameters, you can define it either with an empty
 list (@samp{@@macro foo @{@}}) or with no braces at all (@samp{@@macro
