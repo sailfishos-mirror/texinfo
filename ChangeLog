@@ -1,5 +1,11 @@
 2022-09-26  Werner Lemberg  <wl@gnu.org>
 
+	* doc/texinfo.tex: Add character protrusion support for XeTeX.
+
+	(top-level, \microtypeON, \microtypeOFF): Do it.
+
+2022-09-26  Werner Lemberg  <wl@gnu.org>
+
 	* doc/texinfo.tex: Fix character protrusion in `@microtype`.
 
 	First of all, character protrusion wasn't activated at all. 

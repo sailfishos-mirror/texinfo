@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-09-26.16}
+\def\texinfoversion{2022-09-26.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -11463,16 +11463,21 @@ directory should work if nowhere else does.}
   #1#2#3=\countB\relax
 }
 
-\ifx\luatexversion\thisisundefined
-\ifpdf  % pdfTeX
-    \mtsetprotcode\textrm
-    \def\mtfontexpand#1{\pdffontexpand#1 20 20 1 autoexpand\relax}
-\else  % TeX
-    \def\mtfontexpand#1{}
-\fi
-\else  % LuaTeX
+\ifx\XeTeXrevision\thisisundefined
+  \ifx\luatexversion\thisisundefined
+    \ifpdf % pdfTeX
+      \mtsetprotcode\textrm
+      \def\mtfontexpand#1{\pdffontexpand#1 20 20 1 autoexpand\relax}
+    \else % TeX
+      \def\mtfontexpand#1{}
+    \fi
+  \else % LuaTeX
     \mtsetprotcode\textrm
     \def\mtfontexpand#1{\expandglyphsinfont#1 20 20 1\relax}
+  \fi
+\else % XeTeX
+  \mtsetprotcode\textrm
+  \def\mtfontexpand#1{}
 \fi
 
 
@@ -11481,32 +11486,40 @@ directory should work if nowhere else does.}
 \def\microtypeON{%
   \microtypetrue
   %
-  \ifx\luatexversion\thisisundefined
-    \ifpdf % pdfTeX
-      \pdfadjustspacing=2
-      \pdfprotrudechars=2
+  \ifx\XeTeXrevision\thisisundefined
+    \ifx\luatexversion\thisisundefined
+      \ifpdf % pdfTeX
+        \pdfadjustspacing=2
+        \pdfprotrudechars=2
+      \fi
+    \else % LuaTeX
+      \adjustspacing=2
+      \protrudechars=2
     \fi
-  \else % LuaTeX
-    \adjustspacing=2
-    \protrudechars=2
+  \else % XeTeX
+    \XeTeXprotrudechars=2
   \fi
+  %
   \mtfontexpand\textrm
   \mtfontexpand\textsl
   \mtfontexpand\textbf
-  %
 }
 
 \def\microtypeOFF{%
   \microtypefalse
   %
-  \ifx\luatexversion\thisisundefined
-    \ifpdf % pdfTeX
-      \pdfadjustspacing=0
-      \pdfprotrudechars=0
+  \ifx\XeTeXrevision\thisisundefined
+    \ifx\luatexversion\thisisundefined
+      \ifpdf % pdfTeX
+        \pdfadjustspacing=0
+        \pdfprotrudechars=0
+      \fi
+    \else % LuaTeX
+      \adjustspacing=0
+      \protrudechars=0
     \fi
-  \else % LuaTeX
-    \adjustspacing=0
-    \protrudechars=0
+  \else % XeTeX
+    \XeTeXprotrudechars=0
   \fi
 }
 
