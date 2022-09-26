@@ -270,7 +270,8 @@ sub converter_initialize($)
 
   $self->{'document_context'} = [{'monospace' => [0], 'upper_case' => [0]}];
   $self->{'context_block_commands'} = {%default_context_block_commands};
-  foreach my $raw (keys (%Texinfo::Common::format_raw_commands)) {
+  foreach my $raw (grep {$Texinfo::Common::block_commands{$_} eq 'format_raw'}
+                        keys(%Texinfo::Common::block_commands)) {
     $self->{'context_block_commands'}->{$raw} = 1
          if $self->{'expanded_formats_hash'}->{$raw};
   }
@@ -1553,7 +1554,7 @@ sub _convert($$;$)
         }
         $format_element = 'blockquote' if (!defined($format_element));
         push @format_elements, $format_element;
-      } elsif ($Texinfo::Common::format_raw_commands{$element->{'cmdname'}}) {
+      } elsif ($Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'format_raw') {
         return '' if (!$self->{'expanded_formats_hash'}->{$element->{'cmdname'}});
         # the context is here only for the command, so this is forgotten
         # once all the raw internal text has been formatted

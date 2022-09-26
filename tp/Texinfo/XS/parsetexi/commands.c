@@ -144,11 +144,9 @@ close_paragraph_command (enum command_id cmd)
   if (command_data(cmd).flags & CF_block)
     {
       if (command_data(cmd).data == BLOCK_conditional
-          || command_data(cmd).data == BLOCK_raw)
+          || command_data(cmd).data == BLOCK_raw
+          || command_data(cmd).data == BLOCK_format_raw)
         return 0;
-      if (command_data(cmd).flags & CF_format_raw)
-        return 0;
-
       return 1;
     }
 

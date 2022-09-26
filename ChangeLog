@@ -1,3 +1,23 @@
+2022-09-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm
+	(converter_initialize, _convert), tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm
+	(_convert), tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/ParserNonXS.pm (_close_current, _end_line)
+	(_process_remaining_on_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/close.c (close_current, close_commands),
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.c (close_paragraph_command),
+	tp/Texinfo/XS/parsetexi/commands.h, tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_block_command), tp/Texinfo/XS/parsetexi/parser.c
+	(check_valid_nesting, process_remaining_on_line):
+	remove %raw_commands and %format_raw_commands, use %block_commands
+	values instead, adding 'format_raw'.  In XS Parser, set and use
+	BLOCK_format_raw instead of the flag CF_format_raw.  In some
+	converters, set %format_raw_commands locally.
+
 2022-09-26  Werner Lemberg  <wl@gnu.org>
 
 	* doc/texinfo.tex: Add character protrusion support for XeTeX.

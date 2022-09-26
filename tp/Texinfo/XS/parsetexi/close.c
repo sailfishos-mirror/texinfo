@@ -294,7 +294,7 @@ close_current (ELEMENT *current,
               if (pop_context () != ct_preformatted)
                 fatal ("preformatted context expected");
             }
-          else if (command_data(cmd).flags & CF_format_raw)
+          else if (command_data(cmd).data == BLOCK_format_raw)
             {
               if (pop_context () != ct_rawpreformatted)
                 fatal ("rawpreformatted context expected");
@@ -407,7 +407,7 @@ close_commands (ELEMENT *current, enum command_id closed_command,
           if (pop_context () != ct_preformatted)
             fatal ("preformatted context expected");
         }
-      else if (command_data(current->cmd).flags & CF_format_raw)
+      else if (command_data(current->cmd).data == BLOCK_format_raw)
         {
           if (pop_context () != ct_rawpreformatted)
             fatal ("rawpreformatted context expected");

@@ -427,11 +427,11 @@ format                  block,preformatted
 smallformat             block,preformatted
 
 # format raw commands
-html                    block,format_raw
-tex                     block,format_raw
-xml                     block,format_raw
-docbook                 block,format_raw
-latex                   block,format_raw
+html                    block                           BLOCK_format_raw
+tex                     block                           BLOCK_format_raw
+xml                     block                           BLOCK_format_raw
+docbook                 block                           BLOCK_format_raw
+latex                   block                           BLOCK_format_raw
 
 # raw commands
 verbatim                block                           BLOCK_raw

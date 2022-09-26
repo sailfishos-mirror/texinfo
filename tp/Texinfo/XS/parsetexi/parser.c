@@ -993,7 +993,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
                || cmd == CM_clear
                || cmd == CM_end)
         ok = 1;
-      else if (cmd_flags & CF_format_raw)
+      else if (command_data(cmd).data == BLOCK_format_raw)
         ok = 1;
       if (cmd == CM_caption || cmd == CM_shortcaption)
         ok = 0;
@@ -1335,7 +1335,7 @@ superfluous_arg:
           retval = GET_A_NEW_LINE; goto funexit;  /* Get next line. */
         }
     } /* CM_verb */
-  else if (command_flags(current) & CF_format_raw
+  else if (command_data(current->cmd).data == BLOCK_format_raw
            && !format_expanded_p (command_name(current->cmd)))
     {
       ELEMENT *e;
@@ -2058,7 +2058,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
              && (command_data(current->cmd).data == BLOCK_raw
                  || command_data(current->cmd).data == BLOCK_conditional)
             || current->parent && current->parent->cmd == CM_verb
-            || (command_flags(current) & CF_format_raw
+            || (command_data(current->cmd).data == BLOCK_format_raw
                 && !format_expanded_p (command_name(current->cmd))))
           && current_context () != ct_def)
         {

@@ -229,7 +229,6 @@ my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
-my %format_raw_commands = %Texinfo::Common::format_raw_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
@@ -258,11 +257,6 @@ foreach my $def_command (keys(%def_commands)) {
 #       text_context: relevant for math versus text mode or raw
 #                (no text protection). Inside formatting_context.
 
-
-my %block_raw_commands = %format_raw_commands;
-foreach my $block_raw_command ('verbatim') {
-  $block_raw_commands{$block_raw_command} = 1
-}
 
 my %block_math_commands;
 foreach my $block_math_command (keys(%math_commands)) {
@@ -480,11 +474,19 @@ my %LaTeX_list_environments = (
   'enumerate' => 'enumerate',
 );
 
+my %format_raw_commands;
 foreach my $block_command (keys(%block_commands)) {
   $ignored_commands{$block_command} = 1
     if ($block_commands{$block_command} eq 'menu');
   $LaTeX_list_environments{$block_command} = 'description'
     if ($block_commands{$block_command} eq 'item_line');
+  $format_raw_commands{$block_command} = 1
+    if ($block_commands{$block_command} eq 'format_raw');
+}
+
+my %block_raw_commands = %format_raw_commands;
+foreach my $block_raw_command ('verbatim') {
+  $block_raw_commands{$block_raw_command} = 1
 }
 
 my @LaTeX_same_block_commands = (
@@ -1376,7 +1378,7 @@ roundcorner=10pt}
   # textcomp for \textdegree in older LaTeX
   # graphicx for \includegraphics
   # needspace for \needspace. In texlive-latex-extra in debian
-  # etoolbox for \patchcmd, \ifstrempty \and AtBeginEnvironment.
+  # etoolbox for \patchcmd, \ifstrempty and \AtBeginEnvironment.
   # In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
   # mdframed is used for the formatting of @cartouche,

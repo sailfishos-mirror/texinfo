@@ -892,7 +892,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
         push_context (ct_preformatted, cmd);
       else if (cmd == CM_displaymath)
         push_context (ct_math, cmd);
-      else if (command_data(cmd).flags & CF_format_raw)
+      else if (command_data(cmd).data == BLOCK_format_raw)
         {
           push_context (ct_rawpreformatted, cmd);
         }

@@ -53,6 +53,7 @@ void wipe_user_commands (void);
 #define CF_root			        0x0004
 #define CF_sectioning_heading		        0x0008
 #define CF_brace		        0x0010
+/* CF_letter_no_arg is not used */
 #define CF_letter_no_arg	        0x0020
 #define CF_accent		        0x0040
 /* CF_style is not used */
@@ -63,18 +64,23 @@ void wipe_user_commands (void);
 #define CF_ref			        0x0800
 #define CF_ALIAS                        0x1000
 #define CF_block		        0x2000
+/* CF_raw is not used */
 #define CF_raw			        0x4000
+/* CF_format_raw is not used */
 #define CF_format_raw		        0x8000
 #define CF_global                	0x00010000
 #define CF_def		        	0x00020000
 #define CF_def_alias	        	0x00040000
 /* CF_menu is not used */
 #define CF_menu		        	0x00080000
+/* CF_align is not used */
 #define CF_align	        	0x00100000
 #define CF_other	        	0x00200000
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000
+/* CF_item_container is not used */
 #define CF_item_container		0x01000000
+/* CF_item_line is not used */
 #define CF_item_line			0x02000000
 #define CF_nobrace			0x04000000
 #define CF_blockitem			0x08000000
@@ -119,6 +125,7 @@ void wipe_user_commands (void);
 #define BLOCK_quotation -7
 #define BLOCK_float -8
 #define BLOCK_menu -9
+#define BLOCK_format_raw -10
 
 /* Types of brace command (CF_brace). */
 #define BRACE_arguments 1

@@ -101,8 +101,6 @@ my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
-my %raw_commands = %Texinfo::Common::raw_commands;
-my %format_raw_commands = %Texinfo::Common::format_raw_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
@@ -163,9 +161,12 @@ foreach my $def_command (keys(%def_commands)) {
 
 my %menu_commands;
 
+my %format_raw_commands;
 foreach my $block_command (keys(%block_commands)) {
   $menu_commands{$block_command} = 1
     if ($block_commands{$block_command} eq 'menu');
+  $format_raw_commands{$block_command} = 1
+    if ($block_commands{$block_command} eq 'format_raw');
 }
 
 my %default_preformatted_context_commands = (%preformatted_commands,
@@ -2425,7 +2426,8 @@ sub _convert($$)
         push @{$self->{'context'}}, $command;
       } elsif ($flush_commands{$command}) {
         push @{$self->{'context'}}, $command;
-      } elsif ($raw_commands{$command} or $block_math_commands{$command}) {
+      } elsif ($block_commands{$command} eq 'raw' # can only be @verbatim in practice
+               or $block_math_commands{$command}) {
         if (!$self->{'formatters'}->[-1]->{'_top_formatter'}) {
           # reuse the current formatter if not in top level
           $result .= _count_added($self, $formatter->{'container'},

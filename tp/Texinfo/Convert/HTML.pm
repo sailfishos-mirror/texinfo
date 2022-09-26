@@ -108,8 +108,6 @@ my %root_commands = %Texinfo::Common::root_commands;
 my %preformatted_commands = %Texinfo::Common::preformatted_commands;
 my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
-my %raw_commands = %Texinfo::Common::raw_commands;
-my %format_raw_commands = %Texinfo::Common::format_raw_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
@@ -135,9 +133,12 @@ foreach my $misc_context_command('tab', 'item', 'itemx', 'headitem') {
 my %composition_context_commands = (%preformatted_commands, %root_commands,
   %align_commands);
 $composition_context_commands{'float'} = 1;
+my %format_raw_commands;
 foreach my $block_command (keys(%block_commands)) {
   $composition_context_commands{$block_command} = 1
     if ($block_commands{$block_command} eq 'menu');
+  $format_raw_commands{$block_command} = 1
+    if ($block_commands{$block_command} eq 'format_raw');
 }
 
 # FIXME allow customization? (also in DocBook)

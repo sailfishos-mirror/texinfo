@@ -258,7 +258,8 @@ sub converter_initialize($)
 
   $self->{'document_context'} = [{'monospace' => [0]}];
   $self->{'context_block_commands'} = {%default_context_block_commands};
-  foreach my $raw (keys (%Texinfo::Common::format_raw_commands)) {
+  foreach my $raw (grep {$Texinfo::Common::block_commands{$_} eq 'format_raw'}
+                        keys(%Texinfo::Common::block_commands)) {
     $self->{'context_block_commands'}->{$raw} = 1
          if $self->{'expanded_formats_hash'}->{$raw};
   }

@@ -958,25 +958,24 @@ foreach my $block_math_command('displaymath') {
   $math_commands{$block_math_command} = 1;
 }
 
-our %format_raw_commands;
-foreach my $format_raw_command('html', 'tex', 'xml', 'docbook', 'latex') {
-  $block_commands{$format_raw_command} = 'format';
-  $format_raw_commands{$format_raw_command} = 1;
-}
-
-our %raw_commands;
 # macro/rmacro are special
-foreach my $raw_command ('verbatim',
-                         'ignore', 'macro', 'rmacro') {
+foreach my $raw_command ('verbatim', 'ignore', 'macro', 'rmacro') {
   $block_commands{$raw_command} = 'raw';
-  $raw_commands{$raw_command} = 1;
 }
 
 our %texinfo_output_formats;
-foreach my $command (keys(%format_raw_commands), 'info', 'plaintext') {
+foreach my $format_raw_command('html', 'tex', 'xml', 'docbook', 'latex') {
+  $block_commands{$format_raw_command} = 'format_raw';
+  $texinfo_output_formats{$format_raw_command} = $format_raw_command;
+}
+
+foreach my $output_format_command ('info', 'plaintext') {
+  $texinfo_output_formats{$output_format_command} = $output_format_command;
+}
+
+foreach my $command (keys(%texinfo_output_formats)) {
   $block_commands{'if' . $command} = 'conditional';
   $block_commands{'ifnot' . $command} = 'conditional';
-  $texinfo_output_formats{$command} = $command;
 }
 
 $block_commands{'ifset'} = 'conditional';
@@ -1010,9 +1009,9 @@ our %close_paragraph_commands;
 
 foreach my $block_command (keys(%block_commands)) {
   $close_paragraph_commands{$block_command} = 1
-     unless ($block_commands{$block_command} eq 'raw' or
-             $block_commands{$block_command} eq 'conditional'
-             or $format_raw_commands{$block_command});
+     unless ($block_commands{$block_command} eq 'raw'
+             or $block_commands{$block_command} eq 'conditional'
+             or $block_commands{$block_command} eq 'format_raw');
 }
 
 $close_paragraph_commands{'verbatim'} = 1;
@@ -1171,7 +1170,8 @@ foreach my $command (
 our %preamble_commands;
 foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',
        'inlineraw', '*', keys(%document_settable_at_commands),
-       keys(%format_raw_commands), keys(%inline_commands),
+       (grep {$block_commands{$_} eq 'format_raw'} keys(%block_commands)),
+       keys(%inline_commands),
        keys(%unformatted_block_commands), keys(%misc_commands),
        keys(%region_commands)) {
   $preamble_commands{$preamble_command} = 1;
@@ -2908,7 +2908,7 @@ described in L<Texinfo::Parser/indices_information>.
 X<C<%texinfo_output_formats>>
 
 Cannonical output formats that have associated conditionals.  In
-practice corresponds to C<%format_raw_commands> plus C<info>
+practice corresponds to C<format_raw> C<%block_commands> plus C<info>
 and C<plaintext>.
 
 =back
@@ -2942,15 +2942,48 @@ X<C<%align_commands>>
 =item %block_commands
 X<C<%block_commands>>
 
-Commands delimiting a block with a closing C<@end>.  The value
-is I<conditional> for C<@if> commands, I<def> for definition
-commands like C<@deffn>, I<raw> for @-commands that have no expansion
-of @-commands in their bodies (C<@macro>, C<@verbatim> and C<@ignore>),
-I<multitable> for C<@multitable>, I<menu> for C<@menu>, C<@detailmenu>
-and C<@direntry>, I<item_container> for commands with C<@item> containing
-any content, C<@itemize> and C<@enumerate>, I<item_line> for commands
-like C<@table> in which the C<@item> argument is on its line
- and other values for other block line commands.
+Commands delimiting a block with a closing C<@end>.  The values are:
+
+=over
+
+=item I<conditional>
+
+C<@if*> commands;
+
+=item I<def>
+
+Definition commands like C<@deffn>;
+
+=item I<format_raw>
+
+raw output format commands such as C<@html> or C<@info>;
+
+=item I<item_container>
+
+commands  with C<@item> containing
+any content, C<@itemize> and C<@enumerate>;
+
+=item I<item_line>
+
+commands like C<@table> in which the C<@item> argument is on its line;
+
+=item I<menu>
+
+menu @-commands, C<@menu>, C<@detailmenu>
+and C<@direntry>;
+
+=item I<multitable>
+
+C<@multitable>;
+
+=item I<raw>
+
+@-commands that have no expansion
+of @-commands in their bodies (C<@macro>, C<@verbatim> and C<@ignore>);
+
+=back
+
+Other values for other block line commands.
 
 =item %block_commands_args_number
 X<C<%block_commands_args_number>>
@@ -3006,12 +3039,6 @@ X<C<%explained_commands>>
 
 @-commands whose second argument explain first argument and further
 @-command call without first argument, as C<@abbr> and C<@acronym>.
-
-=item %format_raw_commands
-X<C<%format_raw_commands>>
-
-@-commands associated with raw output format, like C<@html>, or
-C<@docbook>.
 
 =item %headings_specification_commands
 X<C<%headings_specification_commands>>
@@ -3071,12 +3098,6 @@ X<C<%preformatted_code_commands>>
 I<%preformatted_commands> is for commands whose content should not
 be filled, like C<@example> or C<@display>.  If the command is meant
 for code, it is also in I<%preformatted_code_commands>, like C<@example>.
-
-=item %raw_commands
-X<C<%raw_commands>>
-
-@-commands that have no expansion of @-commands in their bodies,
-as C<@macro>, C<@verbatim> or C<@ignore>.
 
 =item %ref_commands
 X<C<%ref_commands>>

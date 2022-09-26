@@ -273,7 +273,6 @@ my %def_commands              = %Texinfo::Common::def_commands;
 my %def_aliases               = %Texinfo::Common::def_aliases;
 my %preformatted_commands     = %Texinfo::Common::preformatted_commands;
 my %math_commands             = %Texinfo::Common::math_commands;
-my %format_raw_commands       = %Texinfo::Common::format_raw_commands;
 my %deprecated_commands       = %Texinfo::Common::deprecated_commands;
 my %root_commands             = %Texinfo::Common::root_commands;
 my %sectioning_heading_commands     = %Texinfo::Common::sectioning_heading_commands;
@@ -362,19 +361,18 @@ foreach my $not_begin_line_command ('comment', 'c', 'sp', 'columnfractions',
   delete $begin_line_commands{$not_begin_line_command};
 }
 
-foreach my $block_command (keys(%block_commands)) {
-  $begin_line_commands{$block_command} = 1;
-  $default_no_paragraph_commands{$block_command} = 1;
-}
-
 my %close_preformatted_commands = %close_paragraph_commands;
 foreach my $no_close_preformatted('sp') {
   delete $close_preformatted_commands{$no_close_preformatted};
 }
-# FIXME to close preformated or not to close?
-#foreach my $format_raw_command(keys(%format_raw_commands)) {
-#  $close_preformatted_commands{$format_raw_command} = 1;
-#}
+
+foreach my $block_command (keys(%block_commands)) {
+  $begin_line_commands{$block_command} = 1;
+  $default_no_paragraph_commands{$block_command} = 1;
+  # FIXME to close preformated or not to close?
+  #$close_preformatted_commands{$format_raw_command} = 1
+  #  if ($brace_commands{$format_raw_command}) eq 'format_raw');
+}
 
 # commands that may appear in accents
 my %in_accent_commands = %accent_commands;
@@ -398,7 +396,8 @@ foreach my $in_full_text_command ('c', 'comment', 'refill', 'subentry',
   $in_full_text_commands{$in_full_text_command} = 1;
 }
 
-foreach my $out_format (keys(%format_raw_commands)) {
+foreach my $out_format (grep {$block_commands{$_} eq 'format_raw'}
+                             keys(%block_commands)) {
   $in_full_text_commands{$out_format} = 1;
 }
 delete $in_full_text_commands{'caption'};
@@ -1786,7 +1785,7 @@ sub _close_current($$$;$$)
       if ($preformatted_commands{$current->{'cmdname'}}
           or $block_commands{$current->{'cmdname'}} eq 'menu') {
         $self->_pop_context(['ct_preformatted'], $source_info, $current);
-      } elsif ($format_raw_commands{$current->{'cmdname'}}) {
+      } elsif ($block_commands{$current->{'cmdname'}} eq 'format_raw') {
         $self->_pop_context(['ct_rawpreformatted'], $source_info, $current);
       } elsif ($math_commands{$current->{'cmdname'}}) {
         $self->_pop_context(['ct_math'], $source_info, $current);
@@ -1881,7 +1880,7 @@ sub _close_commands($$$;$$)
         or $block_commands{$current->{'cmdname'}} eq 'menu') {
       $self->_pop_context(['ct_preformatted'], $source_info, $current,
                           "for $closed_command");
-    } elsif ($format_raw_commands{$current->{'cmdname'}}) {
+    } elsif ($block_commands{$current->{'cmdname'}} eq 'format_raw') {
       $self->_pop_context(['ct_rawpreformatted'], $source_info, $current,
                           "for $closed_command");
     } elsif ($math_commands{$current->{'cmdname'}}) {
@@ -3200,7 +3199,8 @@ sub _end_line($$$)
       $current = $current->{'contents'}->[-1];
       print STDERR "MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
     }
-    if ($current->{'cmdname'} and $format_raw_commands{$current->{'cmdname'}}
+    if ($current->{'cmdname'}
+        and $block_commands{$current->{'cmdname'}} eq 'format_raw'
         and $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
       push @{$current->{'contents'}},
           { 'type' => 'rawpreformatted',
@@ -4019,7 +4019,8 @@ sub _process_remaining_on_line($$$$)
       goto funexit;
     }
   } elsif ($current->{'cmdname'}
-           and $format_raw_commands{$current->{'cmdname'}}
+           and $block_commands{$current->{'cmdname'}}
+           and $block_commands{$current->{'cmdname'}} eq 'format_raw'
            and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}}) {
     push @{$current->{'contents'}}, { 'type' => 'elided_block',
                                       'parent' => $current };
@@ -5042,7 +5043,7 @@ sub _process_remaining_on_line($$$$)
           $self->_push_context('ct_preformatted', $command);
         } elsif ($math_commands{$command}) {
           $self->_push_context('ct_math', $command);
-        } elsif ($format_raw_commands{$command}) {
+        } elsif ($block_commands{$command} eq 'format_raw') {
           $self->_push_context('ct_rawpreformatted', $command);
         }
         if ($region_commands{$command}) {
@@ -5721,15 +5722,13 @@ sub _parse_texi($$$)
         # 'raw' command or ignored conditional or verb or ignored raw format
           (($current->{'cmdname'}
            and $block_commands{$current->{'cmdname'}}
-            and ($block_commands{$current->{'cmdname'}} eq 'raw'
-                 or $block_commands{$current->{'cmdname'}} eq 'conditional'))
+           and ($block_commands{$current->{'cmdname'}} eq 'raw'
+                or $block_commands{$current->{'cmdname'}} eq 'conditional'
+                or ($block_commands{$current->{'cmdname'}} eq 'format_raw'
+           and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}})))
           or
            ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
             and $current->{'parent'}->{'cmdname'} eq 'verb')
-          or
-           ($current->{'cmdname'}
-            and $format_raw_commands{$current->{'cmdname'}}
-            and not $self->{'expanded_formats_hash'}->{$current->{'cmdname'}})
           )
         # not def line
         and $self->_top_context() ne 'ct_def') {
