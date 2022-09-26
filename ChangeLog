@@ -1,5 +1,13 @@
 2022-09-26  Patrice Dumas  <pertusus@free.fr>
 
+	Document Microtypography in LaTeX output
+
+	* doc/texinfo.texi (Microtypography): document that cm-super
+	fonts package is needed for microtypography and that there will
+	be errors with the default fonts.
+
+2022-09-26  Patrice Dumas  <pertusus@free.fr>
+
 	Microtype in LaTeX
 
 	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_fixed_width_environments)

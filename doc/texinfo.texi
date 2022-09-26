@@ -23559,8 +23559,15 @@ and producing a more consistent typographic color.
 available.  You can turn microtype off by specifying @samp{@@microtype off}
 in your input file; likewise, @samp{@@microtype on} turns microtype back on.
 
-The @code{@@microtype} command does nothing for other output formats.
+Microtypography is also setup for @LaTeX{} output.  The default fonts used in
+@LaTeX{} are not scalable and therefore do not support microtypography.  An
+error will be triggered by conversion of @LaTeX{} output when scalable fonts
+are needed by microtype.  You need to install the @code{cm-super} fonts package
+or use scalable fonts for microtypography in @LaTeX{}.  It is also possible to
+disable microtypography with @samp{@@microtype off} at the beginning of the
+document.
 
+The @code{@@microtype} command does nothing for other output formats.
 
 
 @node Magnification
