@@ -1,3 +1,14 @@
+2022-09-27  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (%heading_spec_commands),
+	tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command),
+	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): rename
+	%headings_specification_commands as %heading_spec_commands to match XS
+	Parser.  Replace LINE_heading_spec data in XS parser to heading_spec
+	flag, and and add math flag, to match with perl Parser.
+
 2022-09-26  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm

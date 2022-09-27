@@ -233,7 +233,7 @@ my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
-my %headings_specification_commands = %Texinfo::Common::headings_specification_commands;
+my %heading_spec_commands = %Texinfo::Common::heading_spec_commands;
 my %in_heading_commands = %Texinfo::Common::in_heading_commands;
 my %unformatted_brace_command = %Texinfo::Common::unformatted_brace_command;
 
@@ -3447,7 +3447,7 @@ sub _convert($$)
         $result .= '';
       }
       return $result;
-    } elsif ($headings_specification_commands{$cmdname}) {
+    } elsif ($heading_spec_commands{$cmdname}) {
       if ($element->{'args'} and $element->{'args'}->[0]
           and $element->{'args'}->[0]->{'contents'}) {
         my $custom_headings_specification

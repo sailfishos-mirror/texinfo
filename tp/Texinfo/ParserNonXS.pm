@@ -279,7 +279,7 @@ my %sectioning_heading_commands     = %Texinfo::Common::sectioning_heading_comma
 my %command_index             = %Texinfo::Common::command_index;
 my %ref_commands              = %Texinfo::Common::ref_commands;
 my %region_commands           = %Texinfo::Common::region_commands;
-my %headings_specification_commands = %Texinfo::Common::headings_specification_commands;
+my %heading_spec_commands     = %Texinfo::Common::heading_spec_commands;
 my %in_heading_commands       = %Texinfo::Common::in_heading_commands;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
 my %explained_commands        = %Texinfo::Common::explained_commands;
@@ -440,13 +440,13 @@ foreach my $line_command(keys(%line_commands)) {
       or ($line_commands{$line_command} eq 'line'
           and !($sectioning_heading_commands{$line_command}
                 or $def_commands{$line_command}
-                or $headings_specification_commands{$line_command}))
+                or $heading_spec_commands{$line_command}))
       or $line_commands{$line_command} eq 'text') {
     $simple_text_commands{$line_command} = 1;
   }
 }
 
-my %simple_text_headings_commands = (%headings_specification_commands);
+my %simple_text_headings_commands = (%heading_spec_commands);
 
 my %full_line_commands_no_refs = (%sectioning_heading_commands,
                                   %def_commands);
@@ -4546,7 +4546,7 @@ sub _process_remaining_on_line($$$$)
           # in command on context stack
           my $top_context_command = $self->_top_context_command();
           if (not defined($top_context_command)
-              or not $headings_specification_commands{$top_context_command}) {
+              or not $heading_spec_commands{$top_context_command}) {
             $self->_line_error(
               sprintf(__("\@%s should only appear in heading or footing"),
                     $command), $source_info);

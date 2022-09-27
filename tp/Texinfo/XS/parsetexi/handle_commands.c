@@ -92,7 +92,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
   if (arg_spec == OTHER_noarg)
     {
       if (command_data(cmd).flags & CF_in_heading
-          && command_data(current_context_command()).data != LINE_heading_spec)
+          && !(command_data(current_context_command()).flags & CF_heading_spec))
         {
           line_error ("@%s should only appear in heading or footing",
                       command_name(cmd));

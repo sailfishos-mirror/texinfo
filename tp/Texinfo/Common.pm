@@ -636,10 +636,10 @@ foreach my $in_heading_command ('thischapter', 'thischaptername',
 }
 
 # %in_heading_commands and @| are only valid in the following @-commands
-our %headings_specification_commands;
+our %heading_spec_commands;
 foreach my $headings_specification_command ('everyheading', 'everyfooting',
   'evenheading', 'evenfooting', 'oddheading', 'oddfooting') {
-  $headings_specification_commands{$headings_specification_command} = 1;
+  $heading_spec_commands{$headings_specification_command} = 1;
 
   $line_commands{$headings_specification_command} = 'line';
 }
@@ -3040,8 +3040,8 @@ X<C<%explained_commands>>
 @-commands whose second argument explain first argument and further
 @-command call without first argument, as C<@abbr> and C<@acronym>.
 
-=item %headings_specification_commands
-X<C<%headings_specification_commands>>
+=item %heading_spec_commands
+X<C<%heading_spec_commands>>
 
 @-commands used to specify custom headings, like C<@everyheading>.
 
@@ -3339,7 +3339,7 @@ X<C<split_custom_heading_command_contents>>
 Split the I<$contents> array reference at C<@|> in at max three parts.
 Return an array reference containing the split parts.  The I<$contents>
 array reference is supposed to be C<< $element->{'args'}->[0]->{'contents'} >>
-of C<%headings_specification_commands> commands such as C<@everyheading>.
+of C<%heading_spec_commands> commands such as C<@everyheading>.
 
 =item trim_spaces_comment_from_content($contents)
 X<C<trim_spaces_comment_from_content>>

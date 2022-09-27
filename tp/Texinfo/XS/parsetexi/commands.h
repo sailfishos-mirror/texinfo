@@ -51,29 +51,27 @@ void wipe_user_commands (void);
 #define CF_line			        0x0001
 #define CF_deprecated   	        0x0002
 #define CF_root			        0x0004
-#define CF_sectioning_heading		        0x0008
+#define CF_sectioning_heading	        0x0008
 #define CF_brace		        0x0010
-/* CF_letter_no_arg is not used */
+/* CF_letter_no_arg is not used, in Common */
 #define CF_letter_no_arg	        0x0020
 #define CF_accent		        0x0040
-/* CF_style is not used */
-#define CF_style		        0x0080
+#define CF_math			        0x0080
 #define CF_variadic		        0x0100
 #define CF_INFOENCLOSE  	        0x0200
 #define CF_in_heading     	        0x0400
 #define CF_ref			        0x0800
 #define CF_ALIAS                        0x1000
 #define CF_block		        0x2000
-/* CF_raw is not used */
-#define CF_raw			        0x4000
+#define CF_heading_spec		        0x4000
 /* CF_format_raw is not used */
 #define CF_format_raw		        0x8000
-#define CF_global                	0x00010000
+#define CF_global			0x00010000
 #define CF_def		        	0x00020000
 #define CF_def_alias	        	0x00040000
 /* CF_menu is not used */
 #define CF_menu		        	0x00080000
-/* CF_align is not used */
+/* CF_align is not used, in Common */
 #define CF_align	        	0x00100000
 #define CF_other	        	0x00200000
 #define CF_preformatted	        	0x00400000
@@ -89,15 +87,10 @@ void wipe_user_commands (void);
 #define CF_index_entry_command  	0x40000000
 #define CF_global_unique		0x80000000
 
-/* NOTE: We've run out of spaces for flags, but some of these may not
-   be used, or may not be necessary.
-     CF_deprecated is hardly used.
+/* NOTE: We often run out of spaces for flags
 
    Candidates for flags:
-     CF_close_paragraph, CF_heading_spec
-
-   Instead of CF_heading_spec, LINE_heading_spec was used because there
-   are no flags available anymore
+     CF_close_paragraph
 
    Could combine CF_MACRO, CF_ALIAS, and CF_INFOENCLOSE into 2 bits.
  */
@@ -109,7 +102,6 @@ void wipe_user_commands (void);
 #define LINE_specific -4
 #define LINE_text -6
 #define LINE_line -7
-#define LINE_heading_spec -8
 
 /* Types of other command (has CF_other flag). */
 #define OTHER_skipspace -1

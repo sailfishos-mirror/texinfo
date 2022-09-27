@@ -108,12 +108,12 @@ headings                line,global                     LINE_specific  1
 setchapternewpage       line,global_unique              LINE_specific  1
 microtype               line,global                     LINE_specific  1
 
-everyheading            line,global                     LINE_heading_spec
-everyfooting            line,global                     LINE_heading_spec
-evenheading             line,global                     LINE_heading_spec
-evenfooting             line,global                     LINE_heading_spec
-oddheading              line,global                     LINE_heading_spec
-oddfooting              line,global                     LINE_heading_spec
+everyheading            line,global,heading_spec        LINE_line
+everyfooting            line,global,heading_spec        LINE_line
+evenheading             line,global,heading_spec        LINE_line
+evenfooting             line,global,heading_spec        LINE_line
+oddheading              line,global,heading_spec        LINE_line
+oddfooting              line,global,heading_spec        LINE_line
 
 syncodeindex            line                            LINE_specific  2
 synindex                line                            LINE_specific  2
@@ -319,7 +319,7 @@ w                       brace                           BRACE_other
 footnote                brace,global                    BRACE_context
 caption                 brace                           BRACE_context
 shortcaption            brace                           BRACE_context
-math                    brace                           BRACE_context
+math                    brace,math                      BRACE_context
 
 # explained commands
 abbr                    brace                           BRACE_arguments     2
@@ -448,7 +448,7 @@ quotation               block                           BLOCK_quotation       1
 smallquotation          block                           BLOCK_quotation       1
 
 float                   block                           BLOCK_float           2
-displaymath             block
+displaymath             block,math
 
 ##################################################################
 # Conditional commands
