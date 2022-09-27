@@ -587,15 +587,17 @@ handle_line_command (ELEMENT *current, char **line_inout,
       arg = new_element (ET_line_arg);
       add_to_element_args (current, arg);
 
-      if (cmd == CM_node)
+      /* LINE_specific commands arguments are handled in a specific way.
+         The only other line commands that have more than one argument is
+         node, so the following condition only applies to node */
+      if (command_data (current->cmd).data != LINE_specific
+          && command_data (current->cmd).args_number > 1)
         {
-          /* At most three comma-separated arguments to @node.  This
-             is the only (non-block) line command taking comma-separated
-             arguments.  Its arguments will be gathered the same as
-             those of some block line commands and brace commands. */
-          counter_push (&count_remaining_args, current, 3);
+          counter_push (&count_remaining_args,
+                        current,
+                        command_data (current->cmd).args_number - 1);
         }
-      else if (cmd == CM_author)
+      if (cmd == CM_author)
         {
           ELEMENT *parent = current;
           int found = 0;

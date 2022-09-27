@@ -261,11 +261,10 @@ my %nobrace_commands         = %Texinfo::Common::nobrace_commands;
 my %line_commands             = %Texinfo::Common::line_commands;
 my %other_commands            = %Texinfo::Common::other_commands;
 my %brace_commands            = %Texinfo::Common::brace_commands;
-my %brace_commands_args_number = %Texinfo::Common::brace_commands_args_number;
+my %commands_args_number      = %Texinfo::Common::commands_args_number;
 my %accent_commands           = %Texinfo::Common::accent_commands;
 my %context_brace_commands    = %Texinfo::Common::context_brace_commands;
 my %block_commands            = %Texinfo::Common::block_commands;
-my %block_commands_args_number = %Texinfo::Common::block_commands_args_number;
 my %blockitem_commands        = %Texinfo::Common::blockitem_commands;
 my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
 my %def_map                   = %Texinfo::Common::def_map;
@@ -4853,13 +4852,16 @@ sub _process_remaining_on_line($$$$)
         $current = $current->{'contents'}->[-1];
         $current->{'args'} = [{ 'type' => 'line_arg',
                                 'parent' => $current }];
-        # @node is the only misc command with args separated with comma
-        # FIXME a 3 lingering here deep into the code may not
-        # be very wise...  However having a hash only for one @-command
-        # is not very appealing either...
-        if ($command eq 'node') {
-          $current->{'remaining_args'} = 3;
-        } elsif ($command eq 'author') {
+
+        # 'specific' commands arguments are handled in a specific way.
+        # The only other line commands that have more than one argument is
+        # node, so the following condition only applies to node
+        if ($self->{'line_commands'}->{$command} ne 'specific'
+            and $commands_args_number{$command}
+            and $commands_args_number{$command} > 1) {
+          $current->{'remaining_args'} = $commands_args_number{$command} - 1;
+        }
+        if ($command eq 'author') {
           my $parent = $current;
           my $found;
           while ($parent->{'parent'}) {
@@ -5087,13 +5089,13 @@ sub _process_remaining_on_line($$$$)
            'contents' => [],
            'parent' => $current } ];
 
-        if ($block_commands_args_number{$command}) {
-          if ($block_commands_args_number{$command} =~ /^\d+$/) {
-            if ($block_commands_args_number{$command} - 1 > 0) {
+        if ($commands_args_number{$command}) {
+          if ($commands_args_number{$command} =~ /^\d+$/) {
+            if ($commands_args_number{$command} - 1 > 0) {
               $current->{'remaining_args'}
-                = $block_commands_args_number{$command} - 1;
+                = $commands_args_number{$command} - 1;
             }
-          } elsif ($block_commands_args_number{$command} eq 'variadic') {
+          } elsif ($commands_args_number{$command} eq 'variadic') {
             $current->{'remaining_args'} = -1; # unlimited args
           }
         }
@@ -5159,10 +5161,10 @@ sub _process_remaining_on_line($$$$)
         my $command = $current->{'cmdname'};
         $current->{'args'} = [ { 'parent' => $current } ];
 
-        if (defined($brace_commands_args_number{$command})
-            and $brace_commands_args_number{$command} > 1) {
+        if (defined($commands_args_number{$command})
+            and $commands_args_number{$command} > 1) {
           $current->{'remaining_args'}
-              = $brace_commands_args_number{$command} - 1;
+              = $commands_args_number{$command} - 1;
         }
 
         $current = $current->{'args'}->[-1];

@@ -494,6 +494,13 @@ our %nobrace_commands;             # commands never taking braces
            '\\', '\\',  # should only appear in math
 );
 
+# @-commands max number of arguments.  Not set for all commands,
+# in general it only matters if > 1, as commands with 0 args
+# are in specific categories, and default handling of commands
+# ignore commas as argument delimiter, which corresponds to commands
+# with 1 argument.  Only used in Parser.
+our %commands_args_number;
+
 # commands taking a line as argument or no argument.
 # sectioning commands and def* commands are added below.
 # index commands are added dynamically.
@@ -610,6 +617,8 @@ our %line_commands = (
   'subentry'          => 'line',
 );
 
+$commands_args_number{'node'} = 4;
+
 # commands that do not take the whole line as argument
 #
 # skipspace:   no argument, following spaces are skipped.
@@ -683,9 +692,6 @@ foreach my $index_name (keys (%index_names)) {
 
 # commands with braces.
 our %brace_commands;
-# max number of arguments
-our %brace_commands_args_number;
-
 our %letter_no_arg_commands;
 foreach my $letter_no_arg_command ('aa','AA','ae','oe','AE','OE','o','O',
                                    'ss','l','L','DH','dh','TH','th') {
@@ -743,7 +749,7 @@ foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'option',
 foreach my $one_arg_command ('U', 'dmn', 'key', 'hyphenation', 'indicateurl',
     'titlefont', 'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
   $brace_commands{$one_arg_command} = 'arguments';
-  $brace_commands_args_number{$one_arg_command} = 1;
+  $commands_args_number{$one_arg_command} = 1;
 }
 
 # commands in other keep their leading and trailing spaces in main text
@@ -781,7 +787,7 @@ our %explained_commands;
 foreach my $explained_command ('abbr', 'acronym') {
   $explained_commands{$explained_command} = 1;
   $brace_commands{$explained_command} = 'arguments';
-  $brace_commands_args_number{$explained_command} = 2;
+  $commands_args_number{$explained_command} = 2;
 }
 
 our %inline_format_commands;
@@ -789,33 +795,33 @@ our %inline_commands;
 foreach my $inline_format_command ('inlineraw', 'inlinefmt',
         'inlinefmtifelse') {
   $inline_format_commands{$inline_format_command} = 1;
-  $brace_commands_args_number{$inline_format_command} = 2;
+  $commands_args_number{$inline_format_command} = 2;
   $brace_commands{$inline_format_command} = 'arguments';
   $inline_commands{$inline_format_command} = 1;
 }
 
-$brace_commands_args_number{'inlinefmtifelse'} = 3;
+$commands_args_number{'inlinefmtifelse'} = 3;
 
 our %inline_conditional_commands;
 foreach my $inline_conditional_command ('inlineifclear', 'inlineifset') {
   $inline_conditional_commands{$inline_conditional_command} = 1;
-  $brace_commands_args_number{$inline_conditional_command} = 2;
+  $commands_args_number{$inline_conditional_command} = 2;
   $brace_commands{$inline_conditional_command} = 'arguments';
   $inline_commands{$inline_conditional_command} = 1;
 }
 
 foreach my $two_arg_command('email') {
-  $brace_commands_args_number{$two_arg_command} = 2;
+  $commands_args_number{$two_arg_command} = 2;
   $brace_commands{$two_arg_command} = 'arguments';
 }
 
 foreach my $three_arg_command('uref','url','inforef') {
-  $brace_commands_args_number{$three_arg_command} = 3;
+  $commands_args_number{$three_arg_command} = 3;
   $brace_commands{$three_arg_command} = 'arguments';
 }
 
 foreach my $five_arg_command('xref','ref','pxref','image') {
-  $brace_commands_args_number{$five_arg_command} = 5;
+  $commands_args_number{$five_arg_command} = 5;
   $brace_commands{$five_arg_command} = 'arguments';
 }
 
@@ -836,8 +842,6 @@ foreach my $unformatted_brace_command ('anchor', 'shortcaption',
 # commands delimiting blocks, with an @end.
 # Type of command, 'raw', 'def', 'conditional', 'multitable'...
 our %block_commands;
-# Number of arguments on the line separated by commas
-our %block_commands_args_number;
 
 # commands that have a possible content before an item
 our %blockitem_commands;
@@ -945,7 +949,7 @@ foreach my $preformatted_command(
   $preformatted_commands{$preformatted_command} = 1;
   $preformatted_code_commands{$preformatted_command} = 1;
 }
-$block_commands_args_number{'example'} = 'variadic'; # unlimited arguments
+$commands_args_number{'example'} = 'variadic'; # unlimited arguments
 
 foreach my $preformatted_command(
     'display', 'smalldisplay', 'format', 'smallformat') {
@@ -986,23 +990,23 @@ $block_commands{'ifcommandnotdefined'} = 'conditional';
 
 foreach my $item_container_command ('itemize', 'enumerate') {
   $block_commands{$item_container_command} = 'item_container';
-  $block_commands_args_number{$item_container_command} = 1;
+  $commands_args_number{$item_container_command} = 1;
   $blockitem_commands{$item_container_command} = 1;
 }
 
 foreach my $item_line_command ('table', 'ftable', 'vtable') {
   $block_commands{$item_line_command} = 'item_line';
-  $block_commands_args_number{$item_line_command} = 1;
+  $commands_args_number{$item_line_command} = 1;
   $blockitem_commands{$item_line_command} = 1;
 }
 
 foreach my $block_command_one_arg('quotation', 'smallquotation') {
   $block_commands{$block_command_one_arg} = 'quotation';
-  $block_commands_args_number{$block_command_one_arg} = 1;
+  $commands_args_number{$block_command_one_arg} = 1;
 }
 
 $block_commands{'float'} = 'float';
-$block_commands_args_number{'float'} = 2;
+$commands_args_number{'float'} = 2;
 
 # commands that forces closing an opened paragraph.
 our %close_paragraph_commands;
@@ -2985,18 +2989,26 @@ of @-commands in their bodies (C<@macro>, C<@verbatim> and C<@ignore>);
 
 Other values for other block line commands.
 
-=item %block_commands_args_number
-X<C<%block_commands_args_number>>
+=item %commands_args_number
+X<C<%commands_args_number>>
 
-Set to the number of arguments separated by commas that may appear on the
-@-command line, or to I<variadic> if there is an unlimited number of arguments.
-That means 0 or unset in most cases, 1 for C<@quotation>, 2 for C<@float> and
-C<variadic> for C<@example>.
+Set to the number of arguments separated by commas that may appear in braces or
+on the @-command line, or to I<variadic> if there is an unlimited number of
+arguments.  That means 0 or unset in most block command cases, 1 for
+C<@quotation>, 2 for C<@float> and C<variadic> for C<@example>, 1 for most
+brace commands, 2 for C<@email> or C<@abbr>, 5 for C<@image> of C<@ref>.
+
+Values are not necessarily set for all the commands, as commands are
+also classified by type of command, some type of commands implying a
+number of arguments, and the number of arguments may not be set if it
+coorresponds to the default (0 for block commands, 1 for other commands).
 
 =item %brace_commands
 X<C<%brace_commands>>
 
-The commands that take braces.
+The commands that take braces. Value is I<noarg> for brace commands without
+argument such as C<@AA>, C<@TeX>, or C<@equiv>.  Other values include
+I<accent>, I<arguments>, I<context> and other values.
 
 =item %brace_code_commands
 X<C<%brace_code_commands>>
