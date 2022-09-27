@@ -17,10 +17,10 @@
 
 # Information from tp/Texinfo/Common.pm
 
-# Not in Common.pm
-value                   brace
+##############################################################
+# Internal commands
 # invalid if not accept_internalvalue set in configuration
-txiinternalvalue        brace
+txiinternalvalue        brace,internal                  INTERNAL_brace
 
 ##############################################################
 # no brace commands - single letter commands
@@ -312,6 +312,7 @@ seealso                 brace                           BRACE_arguments     1
 indicateurl             brace                           BRACE_arguments     1
 key                     brace                           BRACE_arguments     1
 
+value                   brace                           BRACE_other
 verb                    brace                           BRACE_other
 w                       brace                           BRACE_other
 

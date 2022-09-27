@@ -56,6 +56,7 @@ void wipe_user_commands (void);
 /* CF_letter_no_arg is not used, in Common */
 #define CF_letter_no_arg	        0x0020
 #define CF_accent		        0x0040
+/* CF_math is not used, in Common */
 #define CF_math			        0x0080
 #define CF_variadic		        0x0100
 #define CF_INFOENCLOSE  	        0x0200
@@ -64,8 +65,9 @@ void wipe_user_commands (void);
 #define CF_ALIAS                        0x1000
 #define CF_block		        0x2000
 #define CF_heading_spec		        0x4000
-/* CF_format_raw is not used */
-#define CF_format_raw		        0x8000
+/* CF_internal is not used in code, but it should be kept as internal
+ * commands marker */
+#define CF_internal		        0x8000
 #define CF_global			0x00010000
 #define CF_def		        	0x00020000
 #define CF_def_alias	        	0x00040000
@@ -128,5 +130,8 @@ void wipe_user_commands (void);
 #define BRACE_style_code -5
 #define BRACE_style_no_code -6
 #define BRACE_other -7
+
+/* Types of internal commands (CF_internal). */
+#define INTERNAL_brace -1
 
 #endif

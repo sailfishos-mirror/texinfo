@@ -754,9 +754,10 @@ foreach my $one_arg_command ('U', 'dmn', 'key', 'hyphenation', 'indicateurl',
 
 # commands in other keep their leading and trailing spaces in main text
 # argument, but are not style commands.
-# key should not contain spaces, so it does not matter if 'other' or 1.
+# key should not contain spaces, it does not matter if 'other' or 'arguments'.
 # verb is treated especially, it should not matter in which category it is.
-foreach my $other_arg_command ('w', 'verb') {
+# value also is treated especially.
+foreach my $other_arg_command ('w', 'verb', 'value') {
   $brace_commands{$other_arg_command} = 'other';
 }
 
@@ -1157,19 +1158,27 @@ our %misc_commands = (%line_commands, %other_commands);
 
 $root_commands{'node'} = 1;
 
-# there is the @txiinternalvalue command too, but it is considered
-# as a valid command only if a customization option is set, such
-# that it does not appear in user documents.  So it is not set here.
+# Not used, kept here as documenation.
+# @txiinternalvalue is considered as a valid command only if a customization
+# option is set, such that it does not appear in user documents.
+our %internal_commands;
+%internal_commands = (
+  'txiinternalvalue' => 'brace',
+);
+
+# The internal commands are not in %all_commands, which includes user-settable
+# commands only.
+# used in util/txicmdlist
 our %all_commands;
 foreach my $command (
   keys(%Texinfo::Common::block_commands),
   keys(%Texinfo::Common::brace_commands),
   keys(%Texinfo::Common::misc_commands),
   keys(%Texinfo::Common::nobrace_commands),
-  qw(value),
  ) {
   $all_commands{$command} = 1;
 }
+
 
 our %preamble_commands;
 foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',

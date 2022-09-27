@@ -1,5 +1,16 @@
 2022-09-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%brace_commands, %internal_commands),
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h: put value in brace commands.
+	Put internal commands (currently only txiinternalvalue) in
+	specific hash, and use specific flag/data.
+
+	* tp/Texinfo/XS/parsetexi/commands.c (item_line_command):
+	use BLOCK_item_line.
+
+2022-09-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%commands_args_number): merge
 	%brace_commands_args_number and %block_commands_args_number in
 	%commands_args_number, and add the number of arguments of node too,

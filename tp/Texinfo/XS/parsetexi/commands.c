@@ -192,5 +192,5 @@ close_preformatted_command (enum command_id cmd_id)
 int
 item_line_command (enum command_id cmd_id)
 {
-  return cmd_id == CM_table || cmd_id == CM_ftable || cmd_id == CM_vtable;
+  return command_data(cmd_id).data == BLOCK_item_line;
 }
