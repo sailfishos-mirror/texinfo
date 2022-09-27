@@ -23,6 +23,7 @@ package Pod::Simple::Texinfo;
 
 require 5;
 use strict;
+#no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck);
 #use Pod::Simple::Debug (3);
@@ -110,6 +111,7 @@ sub new
   $new->texinfo_man_url_prefix($man_url_prefix);
   $new->texinfo_sectioning_style($sectioning_style);
   $new->texinfo_add_upper_sectioning_command(1);
+  #$new->{'texinfo_nodes'} = {};
   return $new;
 }
 
@@ -119,6 +121,8 @@ sub run
 
   # In case the caller changed the formats
   my @formats = $self->accept_targets();
+  $self->{'texinfo_raw_format_commands'} = {};
+  $self->{'texinfo_if_format_commands'} = {};
   foreach my $format (@formats) {
     if (lc($format) eq 'texinfo') {
       $self->{'texinfo_raw_format_commands'}->{$format} = '';
@@ -154,6 +158,7 @@ sub run
     $self->{'texinfo_sectioning_main_command'} = \@appendix_sectioning_commands;
   }
 
+  $self->{'texinfo_head_commands'} = {};
   foreach my $heading_command (keys(%pod_head_commands_level)) {
     my $level = $pod_head_commands_level{$heading_command} + $base_level -1;
     if (defined($self->{'texinfo_sectioning_commands'}->[$level])) {
@@ -666,7 +671,7 @@ sub _convert_pod($)
         _begin_context(\@accumulated_output, $tagname);
       } elsif ($tag_commands{$tagname}) {
         _output($fh, \@accumulated_output, "\@$tag_commands{$tagname}\{");
-        if ($Texinfo::Common::code_style_commands{$tag_commands{$tagname}}) {
+        if ($Texinfo::Common::brace_code_commands{$tag_commands{$tagname}}) {
           if (@format_stack and ref($format_stack[-1]) eq ''
               and defined($self->{'texinfo_raw_format_commands'}->{$format_stack[-1]})) {
             cluck "in $format_stack[-1]: $tagname $tag_commands{$tagname}";
@@ -827,7 +832,7 @@ sub _convert_pod($)
         }
       } elsif ($tag_commands{$tagname}) {
         _output($fh, \@accumulated_output, "}");
-        if ($Texinfo::Common::code_style_commands{$tag_commands{$tagname}}) {
+        if ($Texinfo::Common::brace_code_commands{$tag_commands{$tagname}}) {
           pop @format_stack;
         }
       } elsif ($environment_commands{$tagname}) {
