@@ -24,6 +24,10 @@ use 5.00405;
 
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
+
 use Carp qw(cluck);
 
 use Texinfo::Common;
@@ -563,7 +567,7 @@ sub _print_down_menus($$)
       } else {
         $node_title_contents = Texinfo::Common::copy_contents($node->{'extra'}->{'node_content'});
       }
-      my $menu_comment = {'type' => 'menu_comment'};
+      my $menu_comment = {'type' => 'menu_comment', 'contents' => []};
       $menu_comment->{'contents'}->[0] = {'type' => 'preformatted',
                                           'parent' => $menu_comment};
     
@@ -806,13 +810,15 @@ sub _is_cpp_line($)
   return 0;
 }
 
+# An element can be marked to be protected, it will actually be protected
+# when it is processed later on by Texinfo::Common::modify_tree
 sub _protect_hashchar_at_line_beginning($$$)
 {
   my $type = shift;
   my $current = shift;
   my $argument = shift;
 
-  my ($registrar, $customization_information) = @$argument;
+  my ($registrar, $customization_information, $elements_to_protect) = @$argument;
 
   #print STDERR "$type $current ".debug_print_element($current)."\n";
   # if the next is a hash character at line beginning, mark it
@@ -825,7 +831,7 @@ sub _protect_hashchar_at_line_beginning($$$)
       if ($current_found) {
         #print STDERR "after $current: $content $content->{'text'}\n";
         if ($content->{'text'} and _is_cpp_line($content->{'text'})) {
-          $content->{'extra'}->{'_protect_hashchar'} = 1;
+          $elements_to_protect->{$content} = 1;
         }
         last;
       } elsif ($content eq $current) {
@@ -836,13 +842,11 @@ sub _protect_hashchar_at_line_beginning($$$)
 
   my $protect_hash = 0;
   # if marked, or first and a cpp_line protect a leading hash character
-  if ($current->{'extra'} and $current->{'extra'}->{'_protect_hashchar'}) {
-    delete $current->{'extra'}->{'_protect_hashchar'};
-    if (!scalar(keys(%{$current->{'extra'}}))) {
-      delete $current->{'extra'};
-    }
+  if ($elements_to_protect->{$current}) {
     $protect_hash = 1;
-  } elsif ($current->{'parent'} and $current->{'parent'}->{'contents'}
+    delete $elements_to_protect->{$current};
+  } elsif ($current->{'parent'}
+           and $current->{'parent'}->{'contents'}
            and $current->{'parent'}->{'contents'}->[0]
            and $current->{'parent'}->{'contents'}->[0] eq $current
            and $current->{'text'}
@@ -885,8 +889,9 @@ sub protect_hashchar_at_line_beginning($$$)
   my $customization_information = shift;
   my $tree = shift;
 
+  my $elements_to_protect = {};
   return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
-                                       [$registrar, $customization_information]);
+                      [$registrar, $customization_information, $elements_to_protect]);
 }
 
 1;
