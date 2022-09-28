@@ -19,8 +19,6 @@
 
 package Texinfo::Translations;
 
-require Exporter;
-
 use 5.00405;
 use strict;
 
@@ -229,9 +227,11 @@ sub gdt($$;$$$)
   # relevant information (if any).  It could also mess with the parser
   # state, though this has not been checked for a long time.
 
+  # accept @txiinternalvalue as a valid Texinfo command, used to mark
+  # location in tree of substituted brace enclosed strings.
+  my $parser_conf = {'accept_internalvalue' => 1};
   # information only found in parser, not available through get_conf().
   # Note that it is only available for the NonXS parser.
-  my $parser_conf;
   if ($current_parser) {
     foreach my $duplicated_conf ('clickstyle', 'kbdinputstyle') {
       $parser_conf->{$duplicated_conf} = $current_parser->{$duplicated_conf}
@@ -246,9 +246,6 @@ sub gdt($$;$$$)
       }
     }
   }
-  # accept @txiinternalvalue as a valid Texinfo command, used to mark
-  # location in tree of substituted brace enclosed strings.
-  $parser_conf->{'accept_internalvalue'} = 1;
   my $parser = Texinfo::Parser::simple_parser($parser_conf);
   if ($parser->{'DEBUG'}) {
     print STDERR "GDT $translation_result\n";
