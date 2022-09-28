@@ -402,8 +402,7 @@ $result_nodes{'top_without_node_sections'} = {
     'node_up' => {
       'extra' => {
         'manual_content' => []
-      },
-      'structure' => {}
+      }
     }
   }
 };

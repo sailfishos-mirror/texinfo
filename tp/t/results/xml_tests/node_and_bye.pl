@@ -80,7 +80,6 @@ $result_trees{'node_and_bye'} = [
       {},
       {}
     ],
-    'extra' => {},
     'type' => 'unit'
   }
 ];
@@ -112,7 +111,6 @@ $result_nodes{'node_and_bye'} = {
   },
   'structure' => {
     'associated_unit' => {
-      'extra' => {},
       'structure' => {
         'directions' => {
           'This' => {}
@@ -131,7 +129,6 @@ $result_menus{'node_and_bye'} = {
   },
   'structure' => {
     'associated_unit' => {
-      'extra' => {},
       'structure' => {
         'directions' => {
           'This' => {}
@@ -151,7 +148,6 @@ $result_floats{'node_and_bye'} = {};
 
 $result_elements{'node_and_bye'} = [
   {
-    'extra' => {},
     'structure' => {
       'directions' => {
         'This' => {}
@@ -165,8 +161,7 @@ $result_elements{'node_and_bye'}[0]{'structure'}{'directions'}{'This'} = $result
 
 
 $result_directions_text{'node_and_bye'} = 'element: No associated command (type unit)
-  This: No associated command (type unit)
-';
+  NO DIRECTION';
 
 
 $result_converted{'xml'}->{'node_and_bye'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

@@ -7,6 +7,10 @@
 
 2022-09-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm: avoid unneeded autovivification.
+
+2022-09-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm: initialize hashes and determine valid keys by
 	looking directly at the initialized hashes.
 

@@ -463,8 +463,7 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = {
     'node_up' => {
       'extra' => {
         'manual_content' => []
-      },
-      'structure' => {}
+      }
     }
   }
 };

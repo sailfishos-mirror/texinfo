@@ -581,8 +581,7 @@ $result_nodes{'non_automatic_top_node_up_url'} = {
                               'text' => 'dir'
                             }
                           ]
-                        },
-                        'structure' => {}
+                        }
                       }
                     }
                   }

@@ -672,8 +672,7 @@ $result_nodes{'unnumbered_top_without_node_sections'} = {
     'node_up' => {
       'extra' => {
         'manual_content' => []
-      },
-      'structure' => {}
+      }
     }
   }
 };

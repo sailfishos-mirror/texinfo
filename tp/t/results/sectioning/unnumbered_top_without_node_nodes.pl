@@ -569,8 +569,7 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
                               'text' => 'dir'
                             }
                           ]
-                        },
-                        'structure' => {}
+                        }
                       }
                     }
                   }
@@ -616,8 +615,7 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
     'node_up' => {
       'extra' => {
         'manual_content' => []
-      },
-      'structure' => {}
+      }
     }
   }
 };

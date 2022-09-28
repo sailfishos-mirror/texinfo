@@ -261,8 +261,7 @@ $result_nodes{'one_node_explicit_directions_anchor'} = {
             'text' => 'dir'
           }
         ]
-      },
-      'structure' => {}
+      }
     }
   }
 };
