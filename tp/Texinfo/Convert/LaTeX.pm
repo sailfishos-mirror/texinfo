@@ -91,12 +91,17 @@
 #
 # should we percent encode @email and @uref/@url urls?
 #
+# Some customization would be relevant, for example the
+# document type, fonts, packages...  In particular, as reported by Karl,
+# people will surely want to run xelatex or lualatex and use ttf/otf
+# fonts, which means getting rid of the {fontenc} call entirely. (And
+# using \usepackage{fontspec}\usepackage{unicode-math} instead.)
+# We can also imagine people wanting different euro symbols.
+# Maybe each one of the default \usepackage's should be configurable.
 #
 # CAN WAIT
 #
-# Use texinfo.cnf?  Here?  in texi2any.pl?  What about customization of
-# LaTeX output?  Some customization would be relevant, for example the
-# document type, fonts, packages...
+# Use texinfo.cnf?  Here?  in texi2any.pl?
 #
 # @need is implemented in a specific way, maybe there could be a definition of
 # \mil instead.
