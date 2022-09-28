@@ -1,5 +1,17 @@
 2022-09-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (output_files_initialize),
+	tp/Texinfo/Convert/Converter.pm (converter),
+	tp/Texinfo/Convert/Text.pm (output), tp/texi2any.pl: add
+	output_files_initialize() to initialize the structures of the output
+	files API.
+
+	* tp/Texinfo/Common.pm (parse_node_manual, set_global_document_command)
+	(set_output_encodings, modify_tree): avoid erroneous autovivification,
+	initialize more cleanly.
+
+2022-09-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Transformations.pm (set_menus_node_directions): handle
 	simple menus.
 

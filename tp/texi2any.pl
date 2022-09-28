@@ -1423,7 +1423,7 @@ while(@input_files) {
     #print STDERR "$texinfo_text\n";
     my $encoded_macro_expand_file_name = get_conf('MACRO_EXPAND');
     my $macro_expand_file_name = _decode_input($encoded_macro_expand_file_name);
-    my $macro_expand_files_information = {};
+    my $macro_expand_files_information = Texinfo::Common::output_files_initialize();;
     my ($macro_expand_fh, $error_message) = Texinfo::Common::output_files_open_out(
                                 $macro_expand_files_information, $main_configuration,
                                 $encoded_macro_expand_file_name);
@@ -1627,7 +1627,8 @@ while(@input_files) {
     my $encoded_internal_links_file_name = get_conf('INTERNAL_LINKS');
     my $internal_links_file_name
         = _decode_input($encoded_internal_links_file_name);
-    my $internal_links_files_information = {};
+    my $internal_links_files_information
+         = Texinfo::Common::output_files_initialize();
     my ($internal_links_fh, $error_message)
             = Texinfo::Common::output_files_open_out(
                               $internal_links_files_information, $converter,
@@ -1678,7 +1679,7 @@ while(@input_files) {
     my ($encoded_sort_element_count_file_name, $path_encoding)
        = Texinfo::Common::encode_file_name($sort_element_count_file_name,
                                            $input_perl_encoding);
-    my $sort_elem_files_information = {};
+    my $sort_elem_files_information = Texinfo::Common::output_files_initialize();
     # FIXME using $converter here for the configuration is
     # not right, should be changed by something not associated
     # with the converter but to the main program or file. parser

@@ -21,6 +21,8 @@
 package Texinfo::Common;
 
 use strict;
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
 
 # for unicode/layer support in binmode
 # for binmode documented as pushing :utf8 on top of :encoding
@@ -677,7 +679,7 @@ our %index_names = (
 
 foreach my $index (keys(%index_names)) {
   $index_names{$index}->{'name'} = $index;
-  $index_names{$index}->{'contained_indices'}->{$index} = 1;
+  $index_names{$index}->{'contained_indices'} = {$index => 1};
 }
 
 our %default_index_commands;
@@ -1235,6 +1237,13 @@ sub locate_init_file($$$)
 # API to open, set encoding and register files.
 # In general $SELF is stored as $converter->{'output_files'}
 # and should be accessed through $converter->output_files_information();
+
+# TODO next three functions not documented anywhere, probably relevant to document
+# both in POD and in HTML Customization API.
+sub output_files_initialize
+{
+  return {'unclosed_files' => {}, 'opened_files' => []};
+}
 #
 # All the opened files are registered, except for stdout,
 # and the closing of files should be registered too with
@@ -1247,9 +1256,6 @@ sub locate_init_file($$$)
 # $OUTPUT_ENCODING argument overrides the output encoding.
 # returns the opened filehandle, or undef if opening failed,
 # and the $! error message or undef if opening succeeded.
-#
-# TODO next two functions not documented anywhere, probably relevant to document
-# both in POD and in HTML Customization API.
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;
@@ -1498,6 +1504,7 @@ sub parse_node_manual($)
   my ($end_paren, $spaces_after);
 
   if ($contents[0] and $contents[0]->{'text'} and $contents[0]->{'text'} =~ /^\(/) {
+    $manual = [];
     # remove the leading ( from @contents, it is not in manual_content.
     my $braces_count = 1;
     if ($contents[0]->{'text'} ne '(') {
@@ -1542,15 +1549,21 @@ sub parse_node_manual($)
         }
       }
     }
-    if ($braces_count == 0) {
-      $result->{'manual_content'} = $manual if (defined($manual));
-    } else {
+    if ($braces_count != 0) {
       # unclosed brace, reset @contents
       @contents = @{$label_contents_container->{'contents'}};
+      $manual = undef;
     }
   }
+  my $node_content;
   if (scalar(@contents) > 0) {
-    $result->{'node_content'} = \@contents;
+    $node_content = \@contents;
+  }
+
+  if (($manual and scalar(@$manual)) or $node_content) {
+    $result = {};
+    $result->{'node_content'} = $node_content if ($node_content);
+    $result->{'manual_content'} = $manual if ($manual and scalar(@$manual));
   }
 
   # Return the contents array in which all the elements in 'manual_content'
@@ -1733,7 +1746,8 @@ sub set_global_document_command($$$$)
   }
 
   my $element;
-  if (defined($global_commands_information->{$global_command})
+  if ($global_commands_information
+      and defined($global_commands_information->{$global_command})
       and ref($global_commands_information->{$global_command}) eq 'ARRAY') {
     if ($command_location eq 'last') {
       $element = $global_commands_information->{$global_command}->[-1];
@@ -1755,7 +1769,8 @@ sub set_global_document_command($$$$)
         }
       }
     }
-  } elsif (defined($global_commands_information->{$global_command})) {
+  } elsif ($global_commands_information
+           and defined($global_commands_information->{$global_command})) {
     # unique command, first, preamble and last are the same
     $element = $global_commands_information->{$global_command};
     set_informative_command_value($self, $element);
@@ -1770,7 +1785,8 @@ sub set_output_encodings($$)
 
   $customization_information->set_conf('OUTPUT_ENCODING_NAME',
                $parser_information->{'input_encoding_name'})
-     if ($parser_information->{'input_encoding_name'});
+     if ($parser_information
+         and $parser_information->{'input_encoding_name'});
   if (!$customization_information->get_conf('OUTPUT_PERL_ENCODING')
        and $customization_information->get_conf('OUTPUT_ENCODING_NAME')) {
     my $perl_encoding
@@ -2284,7 +2300,7 @@ sub _substitute_references($$$)
       my $index = 0;
       foreach my $child (@{$new->{$key}}) {
         _substitute_references($child, $current->{$key}->[$index],
-                              $reference_associations);
+                               $reference_associations);
         $index++;
       }
     }
@@ -2313,7 +2329,6 @@ sub _substitute_references($$$)
           #print STDERR "Done [$command_or_type]: $key\n";
         } else {
           if (ref($current->{'extra'}->{$key}) eq 'ARRAY') {
-            
             #print STDERR "Array $command_or_type -> $key\n";
             $new->{'extra'}->{$key} = _substitute_references_in_array(
               $current->{'extra'}->{$key}, $reference_associations,
@@ -2321,12 +2336,13 @@ sub _substitute_references($$$)
           } else {
             if (($current->{'cmdname'}
                  and ($current->{'cmdname'} eq 'listoffloats'
-                     or $current->{'cmdname'} eq 'float')
+                      or $current->{'cmdname'} eq 'float')
                  and $key eq 'type')
-                 or ($key eq 'index_entry')
-                 or ($current->{'type'}
-                     and $current->{'type'} eq 'menu_entry'
-                     and $key eq 'menu_entry_node')) {
+                or ($key eq 'index_entry')
+                or ($current->{'type'}
+                    and $current->{'type'} eq 'menu_entry'
+                    and $key eq 'menu_entry_node')) {
+              $new->{'extra'}->{$key} = {};
               foreach my $type_key (keys(%{$current->{'extra'}->{$key}})) {
                 if (ref($current->{'extra'}->{$key}->{$type_key}) eq '') {
                   $new->{'extra'}->{$key}->{$type_key}
@@ -2341,7 +2357,8 @@ sub _substitute_references($$$)
                       $reference_associations,
                       "[$command_or_type]{$key}{$type_key}");
                 } elsif ($key eq 'index_entry' and $type_key eq 'index_ignore_chars') {
-                  $new->{'extra'}->{$key}->{$type_key} = { %{$current->{'extra'}->{$key}->{$type_key}} };
+                  $new->{'extra'}->{$key}->{$type_key}
+                     = { %{$current->{'extra'}->{$key}->{$type_key}} };
                 } else {
                   print STDERR "Not substituting [$command_or_type]{$key}: $type_key\n";
                 }
@@ -2384,6 +2401,9 @@ sub modify_tree($$;$)
   my $operation = shift;
   my $argument = shift;
   #print STDERR "modify_tree tree: $tree\n";
+
+  # TODO warn?
+  return undef if (!$tree or ref($tree) ne 'HASH');
 
   if ($tree->{'args'}) {
     my @args = @{$tree->{'args'}};
@@ -2719,7 +2739,8 @@ sub register_label($$$)
   #  cluck("BUG: register_label \$targets_list not an ARRAY reference\n");
   #}
   push @{$targets_list}, $current;
-  if ($label->{'node_content'}) {
+  if ($label and $label->{'node_content'}) {
+    #$current->{'extra'} = {} if (!$current->{'extra'});
     $current->{'extra'}->{'node_content'} = $label->{'node_content'};
   }
 }

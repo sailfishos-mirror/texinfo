@@ -800,7 +800,7 @@ sub output($$)
     }
   }
   my $fh;
-  $self->{'output_files'} = {};
+  $self->{'output_files'} = Texinfo::Common::output_files_initialize();
   my ($encoded_outfile, $outfile_encoding);
   if (defined($outfile)) {
     ($encoded_outfile, $outfile_encoding)

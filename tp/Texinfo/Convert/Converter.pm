@@ -252,7 +252,7 @@ sub converter(;$)
 
   # used for output files information, to register opened
   # and not closed files.  Accessed through output_files_information()
-  $converter->{'output_files'} = {};
+  $converter->{'output_files'} = Texinfo::Common::output_files_initialize();
 
   $converter->Texinfo::Report::new();
 
