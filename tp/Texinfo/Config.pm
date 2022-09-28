@@ -30,9 +30,10 @@
 package Texinfo::Config;
 
 use strict;
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
 
-# for carp
-use Carp;
+use Carp qw(carp confess);
 
 # for Encode::encode
 use Encode;
@@ -66,7 +67,7 @@ my $init_files_options = {};
 # matter.
 my %options_as_lists;
 
-# called from texi2any.pl main program
+# called from texi2any.pl main program and t/test_utils.pl.
 sub GNUT_initialize_config($$$) {
   $real_command_name = shift;
   $main_program_default_options = shift;
@@ -120,7 +121,7 @@ sub _GNUT_document_warn($) {
 }
 
 my @init_file_loading_messages;
-# called from texi2any.pl main program.
+# called from texi2any.pl main program and t/test_utils.pl.
 # eval $FILE in the Texinfo::Config namespace. $FILE should be a binary string.
 sub GNUT_load_init_file($) {
   my $file = shift;
@@ -304,6 +305,9 @@ sub texinfo_remove_from_option_list($$)
 sub texinfo_get_conf($)
 {
   my $var = shift;
+  confess("BUG: texinfo_get_conf: undef \$cmdline_options."
+         ." Call GNUT_initialize_config")
+    if (!$cmdline_options);
   if (exists($cmdline_options->{$var})) {
     return $cmdline_options->{$var};
   } elsif (exists($init_files_options->{$var})) {
@@ -345,10 +349,6 @@ sub GNUT_get_format_from_init_file()
 # stages handlers API.  Used in HTML only.
 
 my @possible_stages = ('setup', 'structure', 'init', 'finish');
-my %possible_stages;
-foreach my $stage (@possible_stages) {
-  $possible_stages{$stage} = 1;
-}
 
 my $default_priority = 'default';
 
@@ -356,13 +356,17 @@ my $default_priority = 'default';
 # the only customizable format for now.
 my $GNUT_stage_handlers = {};
 
+foreach my $stage (@possible_stages) {
+  $GNUT_stage_handlers->{$stage} = {};
+}
+
 sub texinfo_register_handler($$;$)
 {
   my $stage = shift;
   my $handler = shift;
   my $priority = shift;
 
-  if (!$possible_stages{$stage}) {
+  if (!$GNUT_stage_handlers->{$stage}) {
     carp ("Unknown stage $stage\n");
     return 0;
   }
@@ -491,10 +495,10 @@ sub GNUT_get_formatting_special_element_body_references()
 }
 
 my $default_formatting_context = 'normal';
-my %possible_formatting_contexts;
 foreach my $possible_formatting_context (($default_formatting_context,
                        'preformatted', 'string', 'css_string')) {
-  $possible_formatting_contexts{$possible_formatting_context} = 1;
+  $GNUT_no_arg_commands_formatting_strings->{$possible_formatting_context} = {};
+  $GNUT_style_commands_formatting_info->{$possible_formatting_context} = {};
 }
 
 # $translated_string is supposed to be already formatted.
@@ -514,7 +518,7 @@ sub texinfo_register_no_arg_command_formatting($$;$$$)
 
   if (!defined($context)) {
     $context = $default_formatting_context;
-  } elsif (not defined($possible_formatting_contexts{$context})) {
+  } elsif (not defined($GNUT_no_arg_commands_formatting_strings->{$context})) {
     _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
                   'texinfo_register_no_arg_command_formatting', $context));
     return 0;
@@ -541,7 +545,7 @@ sub GNUT_get_no_arg_command_formatting($;$)
 
   if (!defined($context)) {
     $context = $default_formatting_context;
-  } elsif (not defined($possible_formatting_contexts{$context})) {
+  } elsif (not defined($GNUT_style_commands_formatting_info->{$context})) {
     _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
                         'GNUT_get_no_arg_command_formatting', $context));
     return undef;
@@ -562,7 +566,7 @@ sub texinfo_register_style_command_formatting($$;$$)
 
   if (!defined($context)) {
     $context = $default_formatting_context;
-  } elsif (not defined($possible_formatting_contexts{$context})) {
+  } elsif (not defined($GNUT_style_commands_formatting_info->{$context})) {
     _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
                   'texinfo_register_style_command_formatting', $context));
     return 0;
@@ -585,7 +589,7 @@ sub GNUT_get_style_command_formatting($;$)
 
   if (!defined($context)) {
     $context = $default_formatting_context;
-  } elsif (not defined($possible_formatting_contexts{$context})) {
+  } elsif (not defined($GNUT_style_commands_formatting_info->{$context})) {
     _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
                         'GNUT_get_style_command_formatting', $context));
     return undef;

@@ -1,5 +1,17 @@
 2022-09-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm: initialize hashes and determine valid keys by
+	looking directly at the initialized hashes.
+
+	* tp/Texinfo/Config.pm (texinfo_get_conf): abort if
+	GNUT_initialize_config() has not been called before texinfo_get_conf()
+	is called.
+
+	* tp/t/test_utils.pl (test): call Texinfo::Config::GNUT_initialize_config
+	before calling Texinfo::Config files.
+
+2022-09-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (output_files_initialize),
 	tp/Texinfo/Convert/Converter.pm (converter),
 	tp/Texinfo/Convert/Text.pm (output), tp/texi2any.pl: add

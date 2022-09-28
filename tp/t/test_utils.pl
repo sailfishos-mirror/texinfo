@@ -953,6 +953,12 @@ sub test($$)
   # be used.
   # FIXME what if srcdir is non ascii (srcdir is truly a binary string).
   if ($parser_options and $parser_options->{'init_files'}) {
+    my $conf = {};
+    if (defined($locale_encoding)) {
+      $conf->{'COMMAND_LINE_ENCODING'} = $locale_encoding;
+      $conf->{'MESSAGE_ENCODING'} = $locale_encoding;
+    }
+    Texinfo::Config::GNUT_initialize_config('', $conf, {});
     foreach my $filename (@{$parser_options->{'init_files'}}) {
       my $file = Texinfo::Common::locate_init_file($filename,
                                                $init_file_directories, 0);
