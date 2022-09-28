@@ -884,6 +884,20 @@ sub test($$)
     delete $parser_options->{'SIMPLE_MENU'};
   }
 
+  my %tree_transformations;
+  if ($parser_options->{'TREE_TRANSFORMATIONS'}) {
+    my @option_transformations
+        = split /,/, $parser_options->{'TREE_TRANSFORMATIONS'};
+    foreach my $transformation (@option_transformations) {
+      if (Texinfo::Common::valid_tree_transformation($transformation)) {
+        $tree_transformations{$transformation} = 1;
+      } else {
+        warn "$test_name: unknown tree transformation $transformation\n";
+      }
+    }
+    delete $parser_options->{'TREE_TRANSFORMATIONS'};
+  }
+
   # always set FORMAT_MENU to menu, which is the default for parser
   my $added_main_configurations = {'FORMAT_MENU' => 'menu'};
   
@@ -963,14 +977,14 @@ sub test($$)
   # take the initial values to record only if there is something new
   # do a copy to compare the values and not the references
   my $initial_index_names = dclone(\%Texinfo::Common::index_names);
-  my $result;
+  my $tree;
   if (!$test_file) {
     if ($full_document) {
       print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
-      $result = $parser->parse_texi_text($test_text);
+      $tree = $parser->parse_texi_text($test_text);
     } else {
       print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
-      $result = $parser->parse_texi_piece($test_text);
+      $tree = $parser->parse_texi_piece($test_text);
     }
     if (defined($test_input_file_name)) {
       # FIXME should we need to encode or do we assume that
@@ -979,17 +993,37 @@ sub test($$)
     }
   } else {
     print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
-    $result = $parser->parse_texi_file($test_file);
+    $tree = $parser->parse_texi_file($test_file);
   }
   my $registrar = $parser->registered_errors();
 
-  if (not defined($result)) {
+  if (not defined($tree)) {
     print STDERR "ERROR: parsing result undef\n";
     my ($parser_errors, $parser_error_count) = $registrar->errors();
     foreach my $error_message (@$parser_errors) {
       warn $error_message->{'error_line'}
         if ($error_message->{'type'} eq 'error');
     }
+  }
+
+  # require instead of use for speed when this module is not needed
+  require Texinfo::Transformations
+    if (scalar(keys(%tree_transformations))
+        or $converter_options->{'SIMPLE_MENU'});
+
+  if ($tree_transformations{'fill_gaps_in_sectioning'}) {
+    my ($filled_contents, $added_sections)
+      = Texinfo::Transformations::fill_gaps_in_sectioning($tree);
+    if (!defined($filled_contents)) {
+      warn "$test_name: fill_gaps_in_sectioning transformation return no result. No section?\n";
+    } else {
+      $tree->{'contents'} = $filled_contents;
+    }
+  }
+
+  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  if ($converter_options->{'SIMPLE_MENU'}) {
+    Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
 
   my $parser_information = $parser->global_information();
@@ -1002,17 +1036,34 @@ sub test($$)
     $main_configuration->set_conf('novalidate', 1);
   }
 
-  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  if ($tree_transformations{'move_index_entries_after_items'}) {
+    Texinfo::Common::move_index_entries_after_items_in_tree($tree);
+  }
+
+  if ($tree_transformations{'relate_index_entries_to_table_entries'}) {
+    Texinfo::Common::relate_index_entries_to_table_entries_in_tree($tree);
+  }
+
+  if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
+    my ($modified_contents, $added_nodes)
+     = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
+                              $tree, $nodes_list, $targets_list, $labels);
+    if (!defined($modified_contents)) {
+      warn
+       "$test_name: insert_nodes_for_sectioning_commands transformation return no result. No section?\n";
+    } else {
+      $tree->{'contents'} = $modified_contents;
+    }
+  }
+
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
                                         $main_configuration,
                                         $parser_information, $labels, $refs);
-  my $floats = $parser->floats_information();
-
   my $structure_information = {};
   my ($sectioning_root, $sections_list)
         = Texinfo::Structuring::sectioning_structure($registrar,
-                                      $main_configuration, $result);
+                                      $main_configuration, $tree);
   if ($sectioning_root) {
     Texinfo::Structuring::warn_non_empty_parts($registrar,
                                                $main_configuration,
@@ -1021,7 +1072,18 @@ sub test($$)
     $structure_information->{'sections_list'} = $sections_list;
   }
 
-  Texinfo::Structuring::number_floats($floats);
+  if ($tree_transformations{'complete_tree_nodes_menus'}) {
+    Texinfo::Transformations::complete_tree_nodes_menus($tree);
+  } elsif ($tree_transformations{'complete_tree_nodes_missing_menu'}) {
+    Texinfo::Transformations::complete_tree_nodes_missing_menu($tree);
+  }
+
+  if ($tree_transformations{'regenerate_master_menu'}) {
+    Texinfo::Transformations::regenerate_master_menu($main_configuration,
+                                                     $labels);
+  }
+
+  my $floats = $parser->floats_information();
 
   Texinfo::Structuring::set_menus_node_directions($registrar,
                       $main_configuration, $parser_information,
@@ -1040,6 +1102,8 @@ sub test($$)
                                           $main_configuration, $nodes_list,
                                           $top_node, $labels, $refs);
   }
+
+  Texinfo::Structuring::number_floats($floats);
 
   my ($errors, $error_nrs) = $registrar->errors();
   my $index_names = $parser->indices_information();
@@ -1072,14 +1136,9 @@ sub test($$)
       }
     }
   }
-  if ($converter_options->{'SIMPLE_MENU'}) {
-    # require instead of use for speed when this module is not needed
-    require Texinfo::Transformations;
-    Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
-  }
 
   my $converted_text
-      = Texinfo::Convert::Text::convert_to_text($result, {'TEST' => 1});
+      = Texinfo::Convert::Text::convert_to_text($tree, {'TEST' => 1});
 
   my %converted;
   my %converted_errors;
@@ -1123,7 +1182,7 @@ sub test($$)
       my $converter;
       ($converted_errors{$format}, $converted{$format}, $converter)
            = &{$formats{$format}}($self, $test_name, $format_type,
-                                  $result, $parser, $main_configuration,
+                                  $tree, $parser, $main_configuration,
                                   $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 
@@ -1238,12 +1297,12 @@ sub test($$)
   # means that depending on the order of converters call, trees feed to
   # converters may have a document_root as top level command parent or
   # elements.  All the converters will have the document_root as argument.
-  unsplit($result);
+  unsplit($tree);
   my $elements;
   if ($split eq 'node') {
-    $elements = Texinfo::Structuring::split_by_node($result);
+    $elements = Texinfo::Structuring::split_by_node($tree);
   } elsif ($split eq 'section') {
-    $elements = Texinfo::Structuring::split_by_section($result);
+    $elements = Texinfo::Structuring::split_by_section($tree);
   }
   if ($split) {
     Texinfo::Structuring::elements_directions($parser, $labels, $elements);
@@ -1267,8 +1326,8 @@ sub test($$)
       duplicate_tree_element_keys($element);
     }
   } else {
-    $split_result = $result;
-    duplicate_tree_element_keys($result);
+    $split_result = $tree;
+    duplicate_tree_element_keys($tree);
   }
 
   {
@@ -1290,7 +1349,7 @@ sub test($$)
      '   %result_elements %result_directions_text %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
-    #print STDERR "Generate: ".Data::Dumper->Dump([$result], ['$res']);
+    #print STDERR "Generate: ".Data::Dumper->Dump([$tree], ['$res']);
     # NOTE $test_name is in general used for directories and
     # file names, here it is used as a text string.  If non ascii, it
     # should be a character string in internal perl codepoints as OUT
@@ -1310,7 +1369,7 @@ sub test($$)
       }
     }
     my $texi_string_result
-        = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
+        = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
           .protect_perl_string($texi_string_result)."';\n\n";
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
@@ -1407,7 +1466,7 @@ sub test($$)
     ok (Data::Compare::Compare($indices_sorted_sort_strings,
                                $result_indices_sort_strings{$test_name}),
         $test_name.' indices sort');
-    my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
+    my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     is ($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {

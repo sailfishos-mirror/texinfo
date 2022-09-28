@@ -467,7 +467,14 @@ sub set_menus_node_directions($$$$$$)
       }
       foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
         my $previous_node;
-        foreach my $menu_content (@{$menu->{'contents'}}) {
+        my $menu_contents = $menu;
+        # simple menu
+        if (scalar(@{$menu->{'contents'}}) > 0
+            and $menu->{'contents'}->[0]->{'type'}
+            and $menu->{'contents'}->[0]->{'type'} eq 'preformatted') {
+          $menu_contents = $menu->{'contents'}->[0];
+        }
+        foreach my $menu_content (@{$menu_contents->{'contents'}}) {
           if ($menu_content->{'extra'}
              and $menu_content->{'extra'}->{'menu_entry_node'}) {
             my $menu_node;
