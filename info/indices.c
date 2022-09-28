@@ -33,7 +33,7 @@ int show_index_match = 1;
 static REFERENCE **index_index = NULL;
 
 /* The offset of the most recently selected index element. */
-static int index_offset = 0;
+static int index_offset = -1;
 
 /* Whether we are doing initial index search. */
 static int index_initial = 0;
@@ -264,7 +264,7 @@ DECLARE_INFO_COMMAND (info_index_search,
 
   /* If the search failed, return the index offset to where it belongs. */
   if (index_offset == old_offset)
-    index_offset = 0;
+    index_offset = -1;
 }
 
 /* Return true if ENT->label matches "S( <[0-9]+>)?", where S stands
@@ -472,11 +472,11 @@ DECLARE_INFO_COMMAND (info_next_index_match,
   /* If that failed, print an error. */
   if (!result)
     {
-      info_error (index_offset > 0 ?
+      info_error (index_offset >= 0 ?
                   _("No more index entries containing '%s'") :
                   _("No index entries containing '%s'"),
                   index_search);
-      index_offset = 0;
+      index_offset = -1;
       return;
     }
 
@@ -825,7 +825,7 @@ create_virtual_index (FILE_BUFFER *file_buffer, char *index_search)
 
   cnt = 0;
 
-  index_offset = 0;
+  index_offset = -1;
   index_initial = 0;
   index_partial = 0;
   while (1)

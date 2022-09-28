@@ -1,3 +1,10 @@
+2022-09-28   Charles Reilly  <git.2022@charlesreilly.com>  (tiny change)
+
+	* info/indices (index_offset, info_index_search)
+	(info_next_index_match, create_virtual_index): Initialize
+	index_offset to -1 rather than 0 to avoid missing the first
+	index entry.
+
 2022-09-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Config.pm: initialize hashes and determine valid keys by
