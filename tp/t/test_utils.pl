@@ -19,6 +19,8 @@
 
 use strict;
 
+#no autovivification qw(fetch delete exists store strict);
+
 use 5.006;
 
 BEGIN {
@@ -828,6 +830,7 @@ sub test($$)
   $test_text = shift @$test_case;
   $parser_options = shift @$test_case if (@$test_case);
   $converter_options = shift @$test_case if (@$test_case);
+  $converter_options = {} if (! defined($converter_options));
 
   if (!$self->{'generate'}) {
     mkdir "t/results/$self->{'name'}" if (! -d "t/results/$self->{'name'}");
@@ -1121,7 +1124,7 @@ sub test($$)
   # indices
   my $indices;
   my $trimmed_index_names = remove_keys($index_names, ['index_entries']);
-  $indices->{'index_names'} = $trimmed_index_names
+  $indices = {'index_names' => $trimmed_index_names}
     unless (Data::Compare::Compare($trimmed_index_names, $initial_index_names));
 
   my ($sorted_index_entries, $index_entries_sort_strings);
@@ -1131,6 +1134,7 @@ sub test($$)
       = Texinfo::Structuring::sort_indices($registrar,
                                    $main_configuration,
                                    $merged_index_entries);
+    $indices_sorted_sort_strings = {};
     foreach my $index_name (keys(%$sorted_index_entries)) {
       # index entries sort strings sorted in the order of the index entries
       if (scalar(@{$sorted_index_entries->{$index_name}})) {
@@ -1542,9 +1546,12 @@ sub test($$)
         }
         if ($reference_exists) {
           $tests_count += 1;
-          ok (Data::Compare::Compare($converted_errors{$format},
-               $result_converted_errors{$format}->{$test_name}),
-               $test_name.' errors '.$format);
+          ok (((not defined($converted_errors{$format})
+               and (not $result_converted_errors{$format}
+                    or not $result_converted_errors{$format}->{$test_name}))
+               or Data::Compare::Compare($converted_errors{$format},
+                              $result_converted_errors{$format}->{$test_name})),
+              $test_name.' errors '.$format);
         }
       }
     }

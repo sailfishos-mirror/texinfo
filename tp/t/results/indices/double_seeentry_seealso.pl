@@ -820,6 +820,9 @@ $result_errors{'double_seeentry_seealso'} = [];
 $result_floats{'double_seeentry_seealso'} = {};
 
 
+$result_indices_sort_strings{'double_seeentry_seealso'} = {};
+
+
 
 $result_converted{'docbook'}->{'double_seeentry_seealso'} = '<chapter label="1" id="node-index">
 <title>Chapter Index</title>

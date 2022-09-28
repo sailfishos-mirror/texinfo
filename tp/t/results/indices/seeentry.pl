@@ -707,6 +707,9 @@ $result_errors{'seeentry'} = [];
 $result_floats{'seeentry'} = {};
 
 
+$result_indices_sort_strings{'seeentry'} = {};
+
+
 
 $result_converted{'docbook'}->{'seeentry'} = '<chapter label="1" id="chapter-index">
 <title>Index</title>
