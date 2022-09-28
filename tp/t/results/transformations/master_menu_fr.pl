@@ -208,6 +208,159 @@ $result_trees{'master_menu_fr'} = {
               'type' => 'menu_entry'
             },
             {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'after_menu_description_line'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'preformatted'
+                }
+              ],
+              'parent' => {},
+              'type' => 'menu_comment'
+            },
+            {
+              'args' => [
+                {
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'block_line_arg'
+                }
+              ],
+              'cmdname' => 'detailmenu',
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => ' --- The Detailed Node Listing ---'
+                        },
+                        {
+                          'parent' => {},
+                          'text' => '
+'
+                        },
+                        {
+                          'parent' => {},
+                          'text' => '
+',
+                          'type' => 'empty_line'
+                        },
+                        {
+                          'parent' => {},
+                          'text' => 'chap'
+                        },
+                        {
+                          'parent' => {},
+                          'text' => '
+',
+                          'type' => 'empty_line'
+                        },
+                        {
+                          'parent' => {},
+                          'text' => '
+',
+                          'type' => 'empty_line'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'preformatted'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'menu_comment'
+                },
+                {
+                  'args' => [
+                    {
+                      'parent' => {},
+                      'text' => '* ',
+                      'type' => 'menu_entry_leading_text'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'section'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'menu_entry_node'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '::',
+                      'type' => 'menu_entry_separator'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => '
+'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'preformatted'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'menu_entry_description'
+                    }
+                  ],
+                  'extra' => {
+                    'menu_entry_description' => {},
+                    'menu_entry_node' => {
+                      'node_content' => [
+                        {}
+                      ],
+                      'normalized' => 'section'
+                    }
+                  },
+                  'parent' => {},
+                  'type' => 'menu_entry'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'detailmenu'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'detailmenu'
+                  },
+                  'parent' => {}
+                }
+              ],
+              'parent' => {}
+            },
+            {
               'args' => [
                 {
                   'contents' => [
@@ -549,9 +702,35 @@ $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'ar
 $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
 $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
 $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1];
-$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[3];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[3];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[2];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[3];
+$result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1];
 $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2];
 $result_trees{'master_menu_fr'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'master_menu_fr'}{'contents'}[2];
 $result_trees{'master_menu_fr'}{'contents'}[2]{'parent'} = $result_trees{'master_menu_fr'};
@@ -598,6 +777,14 @@ $result_texis{'master_menu_fr'} = '\\input texinfo.tex
 
 @menu
 * chap::
+
+@detailmenu
+ --- The Detailed Node Listing ---
+
+chap
+
+* section::
+@end detailmenu
 @end menu
 
 @node chap
@@ -617,6 +804,12 @@ max
 ***
 
 * chap::
+
+ -- The Detailed Node Listing --
+
+chap
+
+* section::
 
 1 chap
 ******
@@ -798,5 +991,55 @@ $result_errors{'master_menu_fr'} = [];
 
 $result_floats{'master_menu_fr'} = {};
 
+
+
+$result_converted{'info'}->{'master_menu_fr'} = 'This is , produced from no_master_menu_fr.texi.
+
+
+File: ,  Node: Top,  Next: chap,  Up: (dir)
+
+max
+***
+
+* Menu:
+
+* chap::
+
+ — The Detailed Node Listing —
+
+chap
+
+* section::
+
+
+File: ,  Node: chap,  Prev: Top,  Up: Top
+
+1 chap
+******
+
+* Menu:
+
+* section::
+
+
+File: ,  Node: section,  Up: chap
+
+1.1 sec
+=======
+
+
+
+Tag Table:
+Node: Top49
+Node: chap179
+Node: section261
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
+';
 
 1;
