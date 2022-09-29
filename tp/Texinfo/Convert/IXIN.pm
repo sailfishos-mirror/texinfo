@@ -680,7 +680,7 @@ sub output_ixin($$)
       my $dts_entries_nr = 0;
       my $dts_in_code = $index_names->{$index_name}->{'in_code'};
       foreach my $dts_entry (@{$entries->{$index_name}}) {
-        my $node = $dts_entry->{'node'};
+        my $node = $dts_entry->{'entry_node'};
         my $associated_node_id;
         if (defined($node)) {
           $associated_node_id = $self->_associated_node_id(undef,
@@ -688,7 +688,7 @@ sub output_ixin($$)
         } else {
           $associated_node_id = -1;
         }
-        my $entry = $self->convert_tree({'contents' => $dts_entry->{'content'}});
+        my $entry = $self->convert_tree({'contents' => $dts_entry->{'entry_content'}});
         $dts_text_result .= $self->ixin_open_element('dtsentry',
                                                 [['nodeid', $associated_node_id]]);
         $dts_text_result .= $self->ixin_open_element('dtsterm');

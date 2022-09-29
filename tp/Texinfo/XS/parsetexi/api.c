@@ -783,12 +783,12 @@ build_single_index_data (INDEX *i)
              newSVpv (command_name(e->index_at_command), 0));
       STORE2("index_type_command",
              newSVpv (command_name(e->index_type_command), 0));
-      STORE2("command",
+      STORE2("entry_element",
              newRV_inc ((SV *)e->command->hv));
-      STORE2("number", newSViv (entry_number));
+      STORE2("entry_number", newSViv (entry_number));
       if (e->region)
         {
-          STORE2("region", newRV_inc ((SV *)e->region->hv));
+          STORE2("entry_region", newRV_inc ((SV *)e->region->hv));
         }
       if (e->content)
         {
@@ -812,14 +812,14 @@ build_single_index_data (INDEX *i)
           if (contents_array)
             {
               /* Copy the reference to the array. */
-              STORE2("content", newRV_inc ((SV *)(AV *)SvRV(*contents_array)));
+              STORE2("entry_content", newRV_inc ((SV *)(AV *)SvRV(*contents_array)));
 
               STORE2("content_normalized",
                      newRV_inc ((SV *)(AV *)SvRV(*contents_array)));
             }
           else
             {
-              STORE2("content", newRV_inc ((SV *)newAV ()));
+              STORE2("entry_content", newRV_inc ((SV *)newAV ()));
               STORE2("content_normalized", newRV_inc ((SV *)newAV ()));
             }
         }
@@ -827,7 +827,7 @@ build_single_index_data (INDEX *i)
         ; /* will be set in Texinfo::Common::complete_indices */
 
       if (e->node)
-        STORE2("node", newRV_inc ((SV *)e->node->hv));
+        STORE2("entry_node", newRV_inc ((SV *)e->node->hv));
       if (e->sortas)
         STORE2("sortas", newSVpv_utf8 (e->sortas, 0));
 

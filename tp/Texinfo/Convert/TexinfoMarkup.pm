@@ -359,8 +359,8 @@ sub _index_entry($$)
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
     my $index_entry = $element->{'extra'}->{'index_entry'};
     my $attribute = [['index', $index_entry->{'index_name'}]];
-    push @$attribute, ['number', $index_entry->{'number'}]
-        if (defined($index_entry->{'number'}));
+    push @$attribute, ['number', $index_entry->{'entry_number'}]
+        if (defined($index_entry->{'entry_number'}));
     # in case the index is not a default index, or the style of the
     # entry (in code or not) is not the default for this index
     if ($self->{'indices_information'}) {
@@ -379,7 +379,7 @@ sub _index_entry($$)
     push @{$self->{'document_context'}}, {'monospace' => [0]};
     $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1
       if ($index_entry->{'in_code'});
-    $result .= $self->_convert({'contents' => $index_entry->{'content'}});
+    $result .= $self->_convert({'contents' => $index_entry->{'entry_content'}});
     pop @{$self->{'document_context'}};
     $result .= $self->txi_markup_close_element('indexterm');
     return $result;

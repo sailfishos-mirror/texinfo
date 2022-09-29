@@ -5062,7 +5062,7 @@ sub _convert_printindex_command($$$$)
       }
 
       my $subentries_tree = $self->comma_index_subentries_tree($index_entry_ref);
-      my @entry_contents = @{$index_entry_ref->{'content'}};
+      my @entry_contents = @{$index_entry_ref->{'entry_content'}};
       push @entry_contents, @{$subentries_tree->{'contents'}}
         if (defined($subentries_tree));
       my $entry_tree = {'contents' => \@entry_contents};
@@ -5080,23 +5080,23 @@ sub _convert_printindex_command($$$$)
 
       next if ($entry !~ /\S/);
       next if ($self->get_conf('NO_TOP_NODE_OUTPUT')
-               and defined($index_entry_ref->{'node'})
-               and $index_entry_ref->{'node'}->{'extra'}
-               and $index_entry_ref->{'node'}->{'extra'}->{'normalized'}
-               and $index_entry_ref->{'node'}->{'extra'}->{'normalized'} eq 'Top');
+               and defined($index_entry_ref->{'entry_node'})
+               and $index_entry_ref->{'entry_node'}->{'extra'}
+               and $index_entry_ref->{'entry_node'}->{'extra'}->{'normalized'}
+               and $index_entry_ref->{'entry_node'}->{'extra'}->{'normalized'} eq 'Top');
       $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
-      my $entry_href = $self->command_href($index_entry_ref->{'command'});
+      my $entry_href = $self->command_href($index_entry_ref->{'entry_element'});
       my $associated_command;
       if ($self->get_conf('NODE_NAME_IN_INDEX')) {
-        $associated_command = $index_entry_ref->{'node'};
+        $associated_command = $index_entry_ref->{'entry_node'};
         if (!defined($associated_command)) {
           $associated_command
-            = $self->command_node($index_entry_ref->{'command'});
+            = $self->command_node($index_entry_ref->{'entry_element'});
         }
       }
       if (!$associated_command) {
         $associated_command
-          = $self->command_root_element_command($index_entry_ref->{'command'});
+          = $self->command_root_element_command($index_entry_ref->{'entry_element'});
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command
@@ -8156,8 +8156,8 @@ sub _prepare_index_entries($)
     foreach my $index_name (sort(keys(%$index_names))) {
       foreach my $index_entry (@{$index_names->{$index_name}->{'index_entries'}}) {
         my $region = '';
-        $region = "$index_entry->{'region'}->{'cmdname'}-"
-          if (defined($index_entry->{'region'}));
+        $region = "$index_entry->{'entry_region'}->{'cmdname'}-"
+          if (defined($index_entry->{'entry_region'}));
         my @contents = @{$index_entry->{'content_normalized'}};
         my $trimmed_contents
           = Texinfo::Common::trim_spaces_comment_from_content(\@contents);
@@ -8174,8 +8174,8 @@ sub _prepare_index_entries($)
           die if ($nr == 0);
         }
         $self->{'seen_ids'}->{$target} = 1;
-        $self->{'targets'}->{$index_entry->{'command'}} = {'target' => $target,
-                                                        };
+        $self->{'targets'}->{$index_entry->{'entry_element'}}
+                                              = {'target' => $target, };
       }
     }
   }
@@ -9344,12 +9344,12 @@ sub output_internal_links($)
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
           my $href;
-          $href = $self->command_href($index_entry->{'command'}, '');
+          $href = $self->command_href($index_entry->{'entry_element'}, '');
           # Obtain term by converting to text
           my $converter_options = {%options};
           $converter_options->{'code'} = $index_entry->{'in_code'};
           my $index_term = Texinfo::Convert::Text::convert_to_text(
-               {'contents' => $index_entry->{'content'}}, $converter_options);
+               {'contents' => $index_entry->{'entry_content'}}, $converter_options);
           if (defined($index_term) and $index_term =~ /\S/) {
             $out_string .= $href if (defined($href));
             $out_string .= "\t$index_name\t";

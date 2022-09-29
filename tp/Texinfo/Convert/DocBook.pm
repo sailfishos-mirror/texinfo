@@ -574,11 +574,11 @@ sub _index_entry($$)
       if ($index_entry->{'in_code'});
 
     $result .= "<primary>";
-    $result .= $self->_convert({'contents' => $index_entry->{'content'}});
+    $result .= $self->_convert({'contents' => $index_entry->{'entry_content'}});
     $result .= "</primary>";
 
     # Add any index subentries.
-    my $tmp = $index_entry->{'command'};
+    my $tmp = $index_entry->{'entry_element'};
     my $level = "secondary";
     while ($tmp->{'extra'}->{'subentry'}) {
       $result .= "<$level>";
@@ -587,14 +587,16 @@ sub _index_entry($$)
       $result .= "</$level>";
       $level = "tertiary";
     }
-    if ($index_entry->{'command'}->{'extra'}->{'seeentry'}) {
+    if ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}) {
       $result .= "<see>";
-      $result .= $self->_convert({'contents' => $index_entry->{'command'}->{'extra'}->{'seeentry'}->{'args'}});
+      $result .= $self->_convert({'contents'
+        => $index_entry->{'entry_element'}->{'extra'}->{'seeentry'}->{'args'}});
       $result .= "</see>";
     }
-    if ($index_entry->{'command'}->{'extra'}->{'seealso'}) {
+    if ($index_entry->{'entry_element'}->{'extra'}->{'seealso'}) {
       $result .= "<seealso>";
-      $result .= $self->_convert({'contents' => $index_entry->{'command'}->{'extra'}->{'seealso'}->{'args'}});
+      $result .= $self->_convert({'contents'
+        => $index_entry->{'entry_element'}->{'extra'}->{'seealso'}->{'args'}});
       $result .= "</seealso>";
     }
 

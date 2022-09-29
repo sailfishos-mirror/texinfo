@@ -323,23 +323,23 @@ sub _reassociate_to_node($$$$)
     push @{$new_node->{'extra'}->{'menus'}}, $current;
   } elsif ($current->{'extra'} and $current->{'extra'}->{'index_entry'}) {
     if ($previous_node
-        and (!$current->{'extra'}->{'index_entry'}->{'node'}
-             or $current->{'extra'}->{'index_entry'}->{'node'} ne $previous_node)) {
+        and (!$current->{'extra'}->{'index_entry'}->{'entry_node'}
+             or $current->{'extra'}->{'index_entry'}->{'entry_node'} ne $previous_node)) {
       print STDERR "Bug: index entry $current (".
         Texinfo::Convert::Texinfo::convert_to_texinfo(
-            {'contents' => $current->{'extra'}->{'index_entry'}->{'content'}})
+            {'contents' => $current->{'extra'}->{'index_entry'}->{'entry_content'}})
          .") not in previous node $previous_node\n";
       print STDERR "  previous node: "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($previous_node)."\n";
-      if ($current->{'extra'}->{'index_entry'}->{'node'}) {
+      if ($current->{'extra'}->{'index_entry'}->{'entry_node'}) {
         print STDERR "  current node: ".
          Texinfo::Convert::Texinfo::root_heading_command_to_texinfo(
-                            $current->{'extra'}->{'index_entry'}->{'node'})."\n";
+                            $current->{'extra'}->{'index_entry'}->{'entry_node'})."\n";
       } else {
         print STDERR "  current node not set\n";
       }
     }
-    $current->{'extra'}->{'index_entry'}->{'node'} = $new_node;
+    $current->{'extra'}->{'index_entry'}->{'entry_node'} = $new_node;
   }
   return ($current);
 }

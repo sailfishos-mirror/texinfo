@@ -67,15 +67,15 @@ $result_trees{'unknown_then_known_index_entry'} = {
               'cmdname' => 'someindex',
               'extra' => {
                 'index_entry' => {
-                  'command' => {},
-                  'content' => [],
                   'content_normalized' => [],
+                  'entry_content' => [],
+                  'entry_element' => {},
+                  'entry_number' => 1,
                   'in_code' => 0,
                   'index_at_command' => 'someindex',
                   'index_ignore_chars' => {},
                   'index_name' => 'some',
-                  'index_type_command' => 'someindex',
-                  'number' => 1
+                  'index_type_command' => 'someindex'
                 },
                 'spaces_before_argument' => ' '
               },
@@ -104,9 +104,9 @@ $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'c
 $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0];
 $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'command'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0];
 $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_then_known_index_entry'}{'contents'}[0];
 $result_trees{'unknown_then_known_index_entry'}{'contents'}[0]{'parent'} = $result_trees{'unknown_then_known_index_entry'};

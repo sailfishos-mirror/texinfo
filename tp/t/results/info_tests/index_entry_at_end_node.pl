@@ -360,16 +360,16 @@ $result_trees{'index_entry_at_end_node'} = {
           'cmdname' => 'cindex',
           'extra' => {
             'index_entry' => {
-              'command' => {},
-              'content' => [],
               'content_normalized' => [],
+              'entry_content' => [],
+              'entry_element' => {},
+              'entry_node' => {},
+              'entry_number' => 1,
               'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
-              'index_type_command' => 'cindex',
-              'node' => {},
-              'number' => 1
+              'index_type_command' => 'cindex'
             },
             'spaces_before_argument' => ' '
           },
@@ -558,10 +558,10 @@ $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[1]{'parent'}
 $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4];
 $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'args'}[0];
 $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3];
-$result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'command'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3];
-$result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'node'} = $result_trees{'index_entry_at_end_node'}{'contents'}[3];
+$result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3];
+$result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'index_entry_at_end_node'}{'contents'}[3];
 $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4];
 $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'index_entry_at_end_node'}{'contents'}[4];
 $result_trees{'index_entry_at_end_node'}{'contents'}[4]{'parent'} = $result_trees{'index_entry_at_end_node'};

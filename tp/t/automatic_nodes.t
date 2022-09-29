@@ -203,7 +203,7 @@ is (Texinfo::Convert::Texinfo::convert_to_texinfo($labels->{'chap'}->{'extra'}->
 @end menu
 ', 'reassociated menu is correct');
 #print STDERR join('|', keys(%{$index_names->{'cp'}->{'index_entries'}}))."\n";
-is ($labels->{'chap'}, $index_names->{'cp'}->{'index_entries'}->[0]->{'node'}, 
+is ($labels->{'chap'}, $index_names->{'cp'}->{'index_entries'}->[0]->{'entry_node'}, 
   'index entry reassociated');
 #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
@@ -227,6 +227,6 @@ is ($labels->{'chap'}, $index_names->{'cp'}->{'index_entries'}->[0]->{'node'},
 #                                       $nodes_list, $targets_list, $labels);
 # ($index_names, $merged_indices) = $parser->indices_information();
 # ($labels, $targets_list, $nodes_list) = $parser->labels_information();
-# is ($labels->{'SEE-ALSO'}, $index_names->{'cp'}->{'index_entries'}->[0]->{'node'},
+# is ($labels->{'SEE-ALSO'}, $index_names->{'cp'}->{'index_entries'}->[0]->{'entry_node'},
 #   'index entry reassociated duplicate node ignored');
 

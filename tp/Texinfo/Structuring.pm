@@ -1712,17 +1712,17 @@ sub sort_indices($$$;$)
     my $index_letter_hash = {};
     foreach my $entry (@{$index_entries->{$index_name}}) {
       my $entry_key = index_entry_sort_string($entry,
-                                  {'contents' => $entry->{'content'}},
-                                  $entry->{'sortas'}, $options);
+                                 {'contents' => $entry->{'entry_content'}},
+                                              $entry->{'sortas'}, $options);
       $index_entries_sort_strings->{$entry} = $entry_key;
       if ($entry_key !~ /\S/) {
         $registrar->line_warn($customization_information,
                      sprintf(__("empty index key in \@%s"),
                                  $entry->{'index_at_command'}),
-                        $entry->{'command'}->{'source_info'});
+                        $entry->{'entry_element'}->{'source_info'});
       } else {
         my $sortable_entry = {'entry' => $entry, 'key' => $entry_key,
-           'number' => $entry->{'number'},
+           'number' => $entry->{'entry_number'},
            'index_at_command' => $entry->{'index_at_command'}};
 
         if ($sort_by_letter) {

@@ -247,11 +247,15 @@ sub chm_init($)
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
-        my $origin_href = $self->command_href($index_entry_ref->{'command'}, '');
+        my $origin_href
+            = $self->command_href($index_entry_ref->{'entry_element'}, '');
         my $entry = _chm_convert_tree_to_text($self,
-                               {'contents' => $index_entry_ref->{'content'}},
-                               {'code' => $index_entry_ref->{'in_code'}});
-        print $hhk_fh "<LI> <OBJECT type=\"text/sitemap\">\n<param name=\"Name\" value=\"$entry\">\n<param name=\"Local\" value=\"$origin_href\">\n</OBJECT> </LI>\n"
+                         {'contents' => $index_entry_ref->{'entry_content'}},
+                         {'code' => $index_entry_ref->{'in_code'}});
+        print $hhk_fh "<LI> <OBJECT type=\"text/sitemap\">\n"
+                      ."<param name=\"Name\" value=\"$entry\">\n"
+                      ."<param name=\"Local\" value=\"$origin_href\">\n"
+                      ."</OBJECT> </LI>\n"
          if ($entry =~ /\S/);
       }
     }

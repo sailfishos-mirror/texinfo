@@ -1274,10 +1274,10 @@ sub process_printindex($$;$)
   foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
     my $line_nr;
 
-    if (defined ($self->{'index_entries_line_location'}->{$entry->{'command'}})) {
-      $line_nr = $self->{'index_entries_line_location'}->{$entry->{'command'}}->{'lines'};
+    if (defined ($self->{'index_entries_line_location'}->{$entry->{'entry_element'}})) {
+      $line_nr = $self->{'index_entries_line_location'}->{$entry->{'entry_element'}}->{'lines'};
       # ignore index entries in special regions that haven't been seen
-    } elsif ($entry->{'region'}) {
+    } elsif ($entry->{'entry_region'}) {
       $ignored_entries{$entry} = 1;
       next;
     }
@@ -1285,10 +1285,10 @@ sub process_printindex($$;$)
     my $node;
     # priority given to the location determined dynamically as the
     # index entry may be in footnote.
-    if (defined($self->{'index_entries_line_location'}->{$entry->{'command'}}->{'node'})) {
-      $node = $self->{'index_entries_line_location'}->{$entry->{'command'}}->{'node'};
-    } elsif (defined($entry->{'node'})) {
-      $node = $entry->{'node'};
+    if (defined($self->{'index_entries_line_location'}->{$entry->{'entry_element'}}->{'node'})) {
+      $node = $self->{'index_entries_line_location'}->{$entry->{'entry_element'}}->{'node'};
+    } elsif (defined($entry->{'entry_node'})) {
+      $node = $entry->{'entry_node'};
     }
     $entry_nodes{$entry} = $node;
     if (!defined($node)) {
@@ -1311,7 +1311,7 @@ sub process_printindex($$;$)
 
   foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
     next if ($ignored_entries{$entry});
-    my $entry_tree = {'contents' => $entry->{'content'}};
+    my $entry_tree = {'contents' => $entry->{'entry_content'}};
     my $subentries_tree = $self->comma_index_subentries_tree($entry);
     if ($entry->{'in_code'}) {
       $entry_tree->{'type'} = '_code';
@@ -1347,7 +1347,7 @@ sub process_printindex($$;$)
         sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
                 $entry->{'index_at_command'},
                 Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)),
-                        $entry->{'command'}->{'source_info'});
+                        $entry->{'entry_element'}->{'source_info'});
     }
 
     my $entry_nr = '';
@@ -1392,7 +1392,7 @@ sub process_printindex($$;$)
       if (!$self->{'index_entries_no_node'}->{$entry}) {
         $self->line_warn($self,
              sprintf(__("entry for index `%s' outside of any node"),
-                        $index_name), $entry->{'command'}->{'source_info'});
+                        $index_name), $entry->{'entry_element'}->{'source_info'});
         $self->{'index_entries_no_node'}->{$entry} = 1;
       }
     } else {

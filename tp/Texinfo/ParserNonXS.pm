@@ -2738,10 +2738,10 @@ sub _enter_index_entry($$$$$$$)
   my $index_entry = { 'index_name'           => $index_name,
                       'index_at_command'     => $command,
                       'index_type_command'   => $command_container,
-                      'content'              => $content,
+                      'entry_content'        => $content,
                       'content_normalized'   => $content_normalized,
-                      'command'              => $current,
-                      'number'               => $number,
+                      'entry_element'        => $current,
+                      'entry_number'         => $number,
                       'index_ignore_chars'   => {},
                     };
   # gather set txiindex*ignore information
@@ -2755,9 +2755,9 @@ sub _enter_index_entry($$$$$$$)
     $index_entry->{'sortas'} = $current->{'extra'}->{'sortas'};
   }
   if (@{$self->{'regions_stack'}}) {
-    $index_entry->{'region'} = $self->{'regions_stack'}->[-1];
+    $index_entry->{'entry_region'} = $self->{'regions_stack'}->[-1];
   } elsif ($self->{'current_node'}) {
-    $index_entry->{'node'} = $self->{'current_node'};
+    $index_entry->{'entry_node'} = $self->{'current_node'};
   } elsif (!$self->{'current_section'}) {
     $self->_line_warn(sprintf(__("entry for index `%s' outside of any node"),
                              $index_name), $source_info);
@@ -6701,7 +6701,7 @@ should allow to find the index associated to the index entry.
 
 =end comment
 
-=item content
+=item entry_content
 
 An array reference corresponding to the index entry content.
 
@@ -6710,20 +6710,20 @@ An array reference corresponding to the index entry content.
 An array reference corresponding to the index entry content, independent
 of the current language.
 
-=item command
+=item entry_element
 
 The element in the parsed tree associated with the @-command holding the
 index entry.
 
-=item node
+=item entry_node
 
 The node in the parsed tree containing the index entry.
 
-=item number
+=item entry_number
 
 The number of the index entry.
 
-=item region
+=item entry_region
 
 The region command (C<@copying>, C<@titlepage>) containing the index entry,
 if it is in such an environement.

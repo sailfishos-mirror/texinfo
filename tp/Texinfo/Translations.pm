@@ -340,17 +340,17 @@ sub complete_indices($)
     next if (not defined($self->{'index_names'}->{$index_name}->{'index_entries'}));
     foreach my $entry (@{$self->{'index_names'}->{$index_name}->{'index_entries'}}) {
       $entry->{'in_code'} = $self->{'index_names'}->{$index_name}->{'in_code'};
-      if (not defined($entry->{'content'})) {
+      if (not defined($entry->{'entry_content'})) {
         my ($index_entry, $index_contents_normalized);
-        my $def_command = $entry->{'command'}->{'extra'}->{'def_command'};
+        my $def_command = $entry->{'entry_element'}->{'extra'}->{'def_command'};
 
-        my $def_parsed_hash = $entry->{'command'}->{'extra'}->{'def_parsed_hash'};
+        my $def_parsed_hash = $entry->{'entry_element'}->{'extra'}->{'def_parsed_hash'};
         if ($def_parsed_hash and $def_parsed_hash->{'class'}
             and $def_command) {
           # Use the document language that was current when the command was
           # used for getting the translation.
           my $entry_language
-             = $entry->{'command'}->{'extra'}->{'documentlanguage'};
+             = $entry->{'entry_element'}->{'extra'}->{'documentlanguage'};
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
               or $def_command eq 'defmethod'
@@ -383,7 +383,7 @@ sub complete_indices($)
           }
         }
         if ($index_entry->{'contents'}) {
-          $entry->{'content'} = [@{$index_entry->{'contents'}}];
+          $entry->{'entry_content'} = [@{$index_entry->{'contents'}}];
           $entry->{'content_normalized'} = $index_contents_normalized;
         }
       }

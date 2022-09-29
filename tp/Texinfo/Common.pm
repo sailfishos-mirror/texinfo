@@ -2682,7 +2682,7 @@ sub _relate_index_entry_to_table_entry($)
       delete $index_command->{'parent'};
       $item->{'extra'}->{'index_entry'}
         = $index_command->{'extra'}->{'index_entry'};
-      $item->{'extra'}->{'index_entry'}->{'command'} = $item;
+      $item->{'extra'}->{'index_entry'}->{'entry_element'} = $item;
   }
 }
 

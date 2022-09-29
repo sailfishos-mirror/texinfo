@@ -1303,7 +1303,7 @@ sub comma_index_subentries_tree {
   my ($self, $entry) = @_;
 
   my @contents;
-  my $tmp = $entry->{'command'};
+  my $tmp = $entry->{'entry_element'};
   while ($tmp->{'extra'} and $tmp->{'extra'}->{'subentry'}) {
     $tmp = $tmp->{'extra'}->{'subentry'};
     push @contents, {'text' => ', '}, $tmp->{'args'}->[0];

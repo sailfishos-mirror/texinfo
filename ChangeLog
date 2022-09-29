@@ -1,5 +1,14 @@
 2022-09-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_enter_index_entry),
+	tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),
+	tp/Texinfo/Convert/*.pm, tp/Texinfo/Common.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm,
+	tp/Texinfo/Translations.pm, tp/init/chm.pm: change index structure key
+	names to have more specific names.
+
+2022-09-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_enter_index_entry): initialize 'index_entries'
 	to an empty array for the index even if the entry being processed has
 	seeentry or seealso and won't be pushed on the 'index_entries' array.
