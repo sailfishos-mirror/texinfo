@@ -1,4 +1,4 @@
-This program replicates the functionality in tp/Texinfo/ParserNonXS.pm.
+This module replicates the functionality in tp/Texinfo/ParserNonXS.pm.
 
 
 =====================================================================
@@ -19,11 +19,11 @@ export PERL5LIB to the value in the makeinfo script
 
 with alias VAL='valgrind --log-file=val.log', can do e.g.
 
-VAL perl ./texi2any-C.pl texinfo.texi
+VAL perl ./texi2any.pl texinfo.texi
 
 also
 
-valgrind --vgdb-error=0 perl texi2any-C.pl texinfo.texi
+valgrind --vgdb-error=0 perl texi2any.pl texinfo.texi
 
 =====================================================================
 
@@ -31,9 +31,6 @@ To see contents of leaked memory
 
 Run with valgrind, e.g.
 
-s=../../tp
-export srcdir=$s builddir=. top_srcdir=../../ top_builddir=..
-export TEXINFO_XS_PARSER=1
 valgrind --leak-check=full --vgdb-error=0 --vgdb-stop-at=exit \
   perl -w $s/t/18itemize.t
 
@@ -54,4 +51,11 @@ $ for t in `cat test-list` ;  do valgrind --log-file=val.log.$t  \
 --leak-check=full perl -w $s/t/18itemize.t $t ; done
 
 
+%
+
+checking memory leaks
+install Perl::Destruct::Level via cpan
+then e.g.
+
+VAL --leak-check=full perl -M'Perl::Destruct::Level level => 1' -w t/02coverage.t
 

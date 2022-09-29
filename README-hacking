@@ -212,6 +212,7 @@ to update ancilliary files in build-aux and elsewhere.  Check changes before
 committing.
 
 run all tests with valgrind
+parsetexi memory leak checks with valgrind
 
 NYTProf profiling for Perl code to check for avoidable hotspots
 
