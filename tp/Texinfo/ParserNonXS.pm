@@ -2723,9 +2723,15 @@ sub _enter_index_entry($$$$$$$)
   my $index_name = $self->{'command_index'}->{$command_container};
   my $index = $self->{'index_names'}->{$index_name};
 
-  my $number = (defined($index->{'index_entries'})
-                ? (scalar(@{$index->{'index_entries'}}) + 1)
-                  : 1);
+  # if the entry has seeentry or seealso it won't be pushed in
+  # $index->{'index_entries'}, so it may remain empty.
+  if (!defined($index->{'index_entries'})) {
+    $index->{'index_entries'} = [];
+  }
+
+  # not accounting for seeentry/seealso entries
+  my $number = scalar(@{$index->{'index_entries'}}) + 1;
+
   # FIXME index_type_command does not seems to be used anywhere.
   # It appears in test results tree, so maybe it is worth keeping
   # it to be able to understand changes.

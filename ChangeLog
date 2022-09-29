@@ -1,3 +1,9 @@
+2022-09-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_enter_index_entry): initialize 'index_entries'
+	to an empty array for the index even if the entry being processed has
+	seeentry or seealso and won't be pushed on the 'index_entries' array.
+
 2022-09-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Transformations.pm (_protect_hashchar_at_line_beginning)
