@@ -1,5 +1,10 @@
 2022-09-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	pop document context when there is no output.
+
+2022-09-29  Patrice Dumas  <pertusus@free.fr>
+
 	Gather @seealso and @seeentry index entries with other entries
 
 	* tp/Texinfo/ParserNonXS.pm (_enter_index_entry),

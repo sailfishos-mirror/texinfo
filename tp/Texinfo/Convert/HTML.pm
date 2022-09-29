@@ -5015,8 +5015,6 @@ sub _convert_printindex_command($$$$)
   #}
   return '' if ($self->in_string());
 
-  $self->_new_document_context($cmdname);
-
   my %letter_id;
   my %letter_is_symbol;
   # First collect the links that are used in entries and in letter summaries
@@ -5040,6 +5038,8 @@ sub _convert_printindex_command($$$$)
     }
     $letter_id{$letter} = $identifier;
   }
+
+  $self->_new_document_context($cmdname);
 
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
@@ -5153,6 +5153,7 @@ sub _convert_printindex_command($$$$)
   }
 
   if (scalar(@non_alpha) + scalar(@alpha) == 0) {
+    $self->_pop_document_context();
     return '';
   }
 
