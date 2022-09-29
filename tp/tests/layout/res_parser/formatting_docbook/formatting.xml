@@ -3646,8 +3646,8 @@ Various deff lines
 <indexterm role="cp"><primary>aaa</primary><see>bbb</see></indexterm>
 <indexterm role="cp"><primary>ddd</primary><seealso>ccc</seealso></indexterm>
 
-<indexterm role="fn"><primary>f&#8212;aaa</primary><see>f&#8212;bbb</see></indexterm>
-<indexterm role="fn"><primary>f&#8212;ddd</primary><seealso>f&#8212;ccc</seealso></indexterm>
+<indexterm role="fn"><primary>f---aaa</primary><see>f---bbb</see></indexterm>
+<indexterm role="fn"><primary>f---ddd</primary><seealso>f---ccc</seealso></indexterm>
 
 <indexterm role="cp"><primary>aaa</primary><secondary>bbb</secondary></indexterm>
 <indexterm role="fn"><primary>xxx</primary><secondary>zzz</secondary></indexterm>
@@ -3664,7 +3664,7 @@ Various deff lines
 <!--  File ended while scanning use of @initialx. -->
 <indexterm role="cp"><primary>ddd</primary><seealso>ccc</seealso></indexterm>
 
-<indexterm role="fn"><primary>f&#8212;ddd</primary><seealso>f&#8212;ccc</seealso></indexterm>
+<indexterm role="fn"><primary>f---ddd</primary><seealso>f---ccc</seealso></indexterm>
 
 
 <para>Text<footnote><para>in footnote

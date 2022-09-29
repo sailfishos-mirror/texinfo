@@ -247,6 +247,10 @@ sub chm_init($)
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
+        # do not register index entries that do not point to the document
+        next if ($index_entry_ref->{'entry_element'}->{'extra'}
+                 and ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}
+                      or $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'}));
         my $origin_href
             = $self->command_href($index_entry_ref->{'entry_element'}, '');
         my $entry = _chm_convert_tree_to_text($self,

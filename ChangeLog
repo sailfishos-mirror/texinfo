@@ -1,5 +1,21 @@
 2022-09-29  Patrice Dumas  <pertusus@free.fr>
 
+	Gather @seealso and @seeentry index entries with other entries
+
+	* tp/Texinfo/ParserNonXS.pm (_enter_index_entry),
+	tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),
+	tp/Texinfo/Convert/HTML.pm (_convert_printindex_command)
+	(_prepare_index_entries, output_internal_links),
+	tp/Texinfo/Convert/Plaintext.pm (process_printindex),
+	tp/init/chm.pm: keep index entries with @seealso or @seeentry
+	with other index entries in 'index_names' index 'index_entries'.
+	Ignore these index entries, if needed, in converters.
+
+	* tp/Texinfo/Convert/Plaintext.pm (process_printindex): do not
+	output the index header if all the index entries are ignored.
+
+2022-09-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_enter_index_entry),
 	tp/Texinfo/XS/parsetexi/api.c (build_single_index_data),
 	tp/Texinfo/Convert/*.pm, tp/Texinfo/Common.pm,

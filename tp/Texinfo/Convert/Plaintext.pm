@@ -1252,26 +1252,19 @@ sub process_printindex($$;$)
     return '';
   }
 
-  my $result = '';
-  $result .= _add_newline_if_needed($self);
-  if ($in_info) {
-    my $info_printindex_magic = "\x{00}\x{08}[index\x{00}\x{08}]\n";
-    $result .= $info_printindex_magic;
-    add_text_count($self, $info_printindex_magic);
-    _add_lines_count($self, 1);
-  }
-  my $heading = "* Menu:\n\n";
-
-  $result .= $heading;
-  add_text_count($self, $heading);
-  _add_lines_count($self, 2);
-
   # first determine the line numbers for the spacing of their formatting
   my %line_nrs;
   my %entry_nodes;
   my $max_index_line_nr_string_length = 0;
   my %ignored_entries;
   foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
+    # FIXME format in a way instead of ignoring
+    if ($entry->{'entry_element'}->{'extra'}
+         and ($entry->{'entry_element'}->{'extra'}->{'seeentry'}
+              or $entry->{'entry_element'}->{'extra'}->{'seealso'})) {
+      $ignored_entries{$entry} = 1;
+      next;
+    }
     my $line_nr;
 
     if (defined ($self->{'index_entries_line_location'}->{$entry->{'entry_element'}})) {
@@ -1305,6 +1298,22 @@ sub process_printindex($$;$)
      if ($max_index_line_nr_string_length < $index_line_nr_string_length);
     $line_nrs{$entry} = $line_nr;
   }
+
+  return '' if (scalar(%line_nrs) == 0);
+
+  my $result = '';
+  $result .= _add_newline_if_needed($self);
+  if ($in_info) {
+    my $info_printindex_magic = "\x{00}\x{08}[index\x{00}\x{08}]\n";
+    $result .= $info_printindex_magic;
+    add_text_count($self, $info_printindex_magic);
+    _add_lines_count($self, 1);
+  }
+  my $heading = "* Menu:\n\n";
+
+  $result .= $heading;
+  add_text_count($self, $heading);
+  _add_lines_count($self, 2);
 
   # this is used to count entries that are the same
   my %entry_counts = ();

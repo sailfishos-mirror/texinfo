@@ -1270,10 +1270,6 @@ $result_converted{'info'}->{'printindex_index_entry_in_copying'} = 'This is , pr
 ftable item
 xftable xitem
 
- [index ]
-* Menu:
-
-
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
 
@@ -1336,8 +1332,8 @@ xftable xitem
 
 
 Tag Table:
-Node: Top131
-Node: chapter687
+Node: Top109
+Node: chapter665
 
 End Tag Table
 

@@ -211,6 +211,7 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_element' => {},
               'entry_node' => {},
               'entry_number' => 1,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -277,7 +278,8 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 2,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -350,7 +352,8 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 3,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -417,7 +420,8 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 4,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -490,7 +494,8 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 5,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -557,7 +562,8 @@ $result_trees{'same_only_seealso_seeentry'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 6,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -852,7 +858,16 @@ $result_errors{'same_only_seealso_seeentry'} = [];
 $result_floats{'same_only_seealso_seeentry'} = {};
 
 
-$result_indices_sort_strings{'same_only_seealso_seeentry'} = {};
+$result_indices_sort_strings{'same_only_seealso_seeentry'} = {
+  'cp' => [
+    'aaa',
+    'aaa',
+    'bbb',
+    'bbb',
+    'ccc',
+    'ccc'
+  ]
+};
 
 
 
@@ -925,6 +940,7 @@ $result_converted{'html_text'}->{'same_only_seealso_seeentry'} = '<div class="to
 
 
 $result_converted{'latex'}->{'same_only_seealso_seeentry'} = '\\documentclass{book}
+\\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}
@@ -941,6 +957,8 @@ $result_converted{'latex'}->{'same_only_seealso_seeentry'} = '\\documentclass{bo
 
 \\makeatletter
 \\newcommand{\\GNUTexinfosettitle}{No Title}%
+
+\\makeindex[name=cp]%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
@@ -979,6 +997,7 @@ $result_converted{'latex'}->{'same_only_seealso_seeentry'} = '\\documentclass{bo
 \\index[cp]{ccc|seealso{also}}%
 \\index[cp]{ccc|see{entry}}%
 
+\\printindex[cp]
 \\end{document}
 ';
 

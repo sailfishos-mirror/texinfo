@@ -5809,43 +5809,43 @@ Various deff lines
 <findex index="fn" spaces=" "><indexterm index="fn" number="216">f---ddd</indexterm></findex><subentry spaces=" ">f&textmdash;eee </subentry><subentry spaces=" ">ffff</subentry>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="37">aaa <seeentry>bbb</seeentry></indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="37">ddd <seealso>ccc</seealso></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="38">ddd <seealso>ccc</seealso></indexterm></cindex>
 
-<findex index="fn" spaces=" "><indexterm index="fn" number="217">f&textmdash;aaa <seeentry>f&textmdash;bbb</seeentry></indexterm></findex>
-<findex index="fn" spaces=" "><indexterm index="fn" number="217">f&textmdash;ddd <seealso>f&textmdash;ccc</seealso></indexterm></findex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="217">f---aaa <seeentry>f---bbb</seeentry></indexterm></findex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="218">f---ddd <seealso>f---ccc</seealso></indexterm></findex>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="37">aaa <sortas>A&textmdash;S</sortas></indexterm></cindex><subentry spaces=" "><sortas>B&textmdash;S1</sortas> bbb</subentry>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="39">aaa <sortas>A&textmdash;S</sortas></indexterm></cindex><subentry spaces=" "><sortas>B&textmdash;S1</sortas> bbb</subentry>
 
-<findex index="fn" spaces=" "><indexterm index="fn" number="217">xxx <sortas>X---S</sortas></indexterm></findex><subentry spaces=" "><sortas>X&textmdash;S1</sortas> zzz</subentry>
+<findex index="fn" spaces=" "><indexterm index="fn" number="219">xxx <sortas>X---S</sortas></indexterm></findex><subentry spaces=" "><sortas>X&textmdash;S1</sortas> zzz</subentry>
 
 <cindex></cindex>
-<findex index="fn" spaces=" "><indexterm index="fn" number="218"><w></w></indexterm></findex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="220"><w></w></indexterm></findex>
 
 <indexcommand command="codeidxindex" index="codeidx" spaces=" "><indexterm index="codeidx" number="1" incode="1">a <var>index---entry</var> t<accent type="tilde" bracketed="off">e</accent> --- <accent type="circ"><dotless>i</dotless></accent></indexterm></indexcommand>
 
 <indexcommand command="trucindex" index="truc" spaces=" "><indexterm index="truc" number="1" incode="0">truc</indexterm></indexcommand>
 
 <!-- c error with texindex: Bad entry; expected 3 to 5 fields, not 6 -->
-<cindex index="cp" spaces=" "><indexterm index="cp" number="38">g&textmdash;gg</indexterm></cindex><subentry spaces=" ">h&textmdash;hh jjj </subentry><subentry spaces=" ">k&textmdash;kk </subentry><subentry spaces=" ">l&textmdash;ll</subentry>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="40">g&textmdash;gg</indexterm></cindex><subentry spaces=" ">h&textmdash;hh jjj </subentry><subentry spaces=" ">k&textmdash;kk </subentry><subentry spaces=" ">l&textmdash;ll</subentry>
 
-<findex index="fn" spaces=" "><indexterm index="fn" number="219">f---ggg</indexterm></findex><subentry spaces=" ">f&textmdash;hhh fjjj </subentry><subentry spaces=" ">f&textmdash;kkk </subentry><subentry spaces=" ">f&textmdash;lll</subentry>
+<findex index="fn" spaces=" "><indexterm index="fn" number="221">f---ggg</indexterm></findex><subentry spaces=" ">f&textmdash;hhh fjjj </subentry><subentry spaces=" ">f&textmdash;kkk </subentry><subentry spaces=" ">f&textmdash;lll</subentry>
 
 <!-- c incorrect order.  Cryptic error in TeX -->
 <!-- c  File ended while scanning use of @initialx. -->
-<cindex index="cp" spaces=" "><indexterm index="cp" number="39"><seealso>ccc</seealso> ddd</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="41"><seealso>ccc</seealso> ddd</indexterm></cindex>
 
-<findex index="fn" spaces=" "><indexterm index="fn" number="220"><seealso>f&textmdash;ccc</seealso> f&textmdash;ddd</indexterm></findex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="222"><seealso>f---ccc</seealso> f---ddd</indexterm></findex>
 
 <syncodeindex from="vr" to="cp" line="vr cp"></syncodeindex>
 
 <para>Text<footnote><para>in footnote
-<cindex index="cp" spaces=" "><indexterm index="cp" number="39">index entry in footnote</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="42">index entry in footnote</indexterm></cindex>
 </para>
 <para>Blah
 </para>
 <para>Blih
 </para>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="40">counting entry</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="43">counting entry</indexterm></cindex>
 </footnote>
 </para>
 <para>truc

@@ -271,6 +271,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'entry_element' => {},
               'entry_node' => {},
               'entry_number' => 1,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -348,7 +349,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 2,
               'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
@@ -425,7 +426,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 2,
+              'entry_number' => 3,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -690,7 +692,9 @@ $result_floats{'multiple_index_text_sortas_seeentry_seealso'} = {};
 
 $result_indices_sort_strings{'multiple_index_text_sortas_seeentry_seealso'} = {
   'cp' => [
-    'BB'
+    'A---S',
+    'BB',
+    'entry secret'
   ]
 };
 

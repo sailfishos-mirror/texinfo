@@ -848,14 +848,8 @@ build_single_index_data (INDEX *i)
         STORE2("index_ignore_chars", newRV_inc ((SV *)hv));
       }
 
-      /* Skip these as these entries do not refer to the place in the document 
-         where the index commands occurred. */
-      if (!lookup_extra (e->command, "seeentry")
-          && !lookup_extra (e->command, "seealso"))
-        {
-          av_push (entries, newRV_inc ((SV *)entry));
-          entry_number++;
-        }
+      av_push (entries, newRV_inc ((SV *)entry));
+      entry_number++;
 
       /* We set this now because the index data structures don't
          exist at the time that the main tree is built. */

@@ -788,10 +788,6 @@ $result_converted{'info'}->{'printindex_index_entry_in_copying_in_footnote'} = '
 
 Copying(1).
 
- [index ]
-* Menu:
-
-
    ---------- Footnotes ----------
 
    (1) In footnote
@@ -805,10 +801,6 @@ top
 Top.
 
    Copying(1).
-
- [index ]
-* Menu:
-
 
 * Menu:
 
@@ -829,7 +821,7 @@ Copying(1).
  [index ]
 * Menu:
 
-* Copying this document:                 Top.                  (line 20)
+* Copying this document:                 Top.                  (line 16)
 
    ---------- Footnotes ----------
 
@@ -838,10 +830,10 @@ Copying(1).
 
 
 Tag Table:
-Node: Top118
-Ref: Top-Footnote-1279
-Node: chapter299
-Ref: chapter-Footnote-1512
+Node: Top96
+Ref: Top-Footnote-1235
+Node: chapter255
+Ref: chapter-Footnote-1468
 
 End Tag Table
 
@@ -859,9 +851,6 @@ Top.
 
    Copying(1).
 
-* Menu:
-
-
    ---------- Footnotes ----------
 
    (1) In footnote
@@ -873,7 +862,7 @@ Copying(1).
 
 * Menu:
 
-* Copying this document:                 Top.                  (line 12)
+* Copying this document:                 Top.                   (line 9)
 
    ---------- Footnotes ----------
 

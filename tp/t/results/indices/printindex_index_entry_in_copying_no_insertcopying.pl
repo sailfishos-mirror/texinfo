@@ -1230,10 +1230,6 @@ $result_converted{'info'}->{'printindex_index_entry_in_copying_no_insertcopying'
 ftable item
 xftable xitem
 
- [index ]
-* Menu:
-
-
 
 File: ,  Node: Top,  Next: chapter,  Up: (dir)
 
@@ -1252,15 +1248,11 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 Chapter
 *********
 
- [index ]
-* Menu:
-
-
 
 
 Tag Table:
-Node: Top131
-Node: chapter218
+Node: Top109
+Node: chapter196
 
 End Tag Table
 
@@ -1278,9 +1270,6 @@ Top.
 
 1 Chapter
 *********
-
-* Menu:
-
 
 ';
 

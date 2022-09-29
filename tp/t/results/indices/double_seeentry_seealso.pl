@@ -237,6 +237,7 @@ $result_trees{'double_seeentry_seealso'} = {
               'entry_element' => {},
               'entry_node' => {},
               'entry_number' => 1,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -329,7 +330,8 @@ $result_trees{'double_seeentry_seealso'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 2,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -422,7 +424,8 @@ $result_trees{'double_seeentry_seealso'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 3,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -480,7 +483,8 @@ $result_trees{'double_seeentry_seealso'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 4,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -814,13 +818,29 @@ $result_menus{'double_seeentry_seealso'} = {
   'structure' => {}
 };
 
-$result_errors{'double_seeentry_seealso'} = [];
+$result_errors{'double_seeentry_seealso'} = [
+  {
+    'error_line' => 'warning: empty index key in @cindex
+',
+    'file_name' => '',
+    'line_nr' => 10,
+    'macro' => '',
+    'text' => 'empty index key in @cindex',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'double_seeentry_seealso'} = {};
 
 
-$result_indices_sort_strings{'double_seeentry_seealso'} = {};
+$result_indices_sort_strings{'double_seeentry_seealso'} = {
+  'cp' => [
+    'aaa',
+    'ddd',
+    'ggg'
+  ]
+};
 
 
 
@@ -868,6 +888,19 @@ coding: utf-8
 End:
 ';
 
+$result_converted_errors{'info'}->{'double_seeentry_seealso'} = [
+  {
+    'error_line' => 'warning: empty index key in @cindex
+',
+    'file_name' => '',
+    'line_nr' => 10,
+    'macro' => '',
+    'text' => 'empty index key in @cindex',
+    'type' => 'warning'
+  }
+];
+
+
 
 $result_converted{'plaintext'}->{'double_seeentry_seealso'} = 'top
 ***
@@ -876,6 +909,19 @@ $result_converted{'plaintext'}->{'double_seeentry_seealso'} = 'top
 ***************
 
 ';
+
+$result_converted_errors{'plaintext'}->{'double_seeentry_seealso'} = [
+  {
+    'error_line' => 'warning: empty index key in @cindex
+',
+    'file_name' => '',
+    'line_nr' => 10,
+    'macro' => '',
+    'text' => 'empty index key in @cindex',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-level-extent" id="Top">
@@ -901,8 +947,22 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 </div>
 ';
 
+$result_converted_errors{'html_text'}->{'double_seeentry_seealso'} = [
+  {
+    'error_line' => 'warning: empty index key in @cindex
+',
+    'file_name' => '',
+    'line_nr' => 10,
+    'macro' => '',
+    'text' => 'empty index key in @cindex',
+    'type' => 'warning'
+  }
+];
+
+
 
 $result_converted{'latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
+\\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}
@@ -919,6 +979,8 @@ $result_converted{'latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
 
 \\makeatletter
 \\newcommand{\\GNUTexinfosettitle}{No Title}%
+
+\\makeindex[name=cp]%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
@@ -953,6 +1015,7 @@ $result_converted{'latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
 \\index[cp]{ggg|see{hhh}}%
 \\index[cp]{!subggg|seealso{fff}}%
 
+\\printindex[cp]
 \\end{document}
 ';
 

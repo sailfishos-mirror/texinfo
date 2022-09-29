@@ -203,6 +203,7 @@ $result_trees{'seeentry'} = {
               'entry_element' => {},
               'entry_node' => {},
               'entry_number' => 1,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -269,7 +270,8 @@ $result_trees{'seeentry'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 2,
+              'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
               'index_name' => 'cp',
@@ -343,6 +345,7 @@ $result_trees{'seeentry'} = {
               'entry_element' => {},
               'entry_node' => {},
               'entry_number' => 1,
+              'in_code' => 1,
               'index_at_command' => 'findex',
               'index_ignore_chars' => {},
               'index_name' => 'fn',
@@ -409,7 +412,8 @@ $result_trees{'seeentry'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 1,
+              'entry_number' => 2,
+              'in_code' => 1,
               'index_at_command' => 'findex',
               'index_ignore_chars' => {},
               'index_name' => 'fn',
@@ -707,7 +711,16 @@ $result_errors{'seeentry'} = [];
 $result_floats{'seeentry'} = {};
 
 
-$result_indices_sort_strings{'seeentry'} = {};
+$result_indices_sort_strings{'seeentry'} = {
+  'cp' => [
+    'aaa',
+    'ddd'
+  ],
+  'fn' => [
+    'f---aaa',
+    'f---ddd'
+  ]
+};
 
 
 
@@ -717,8 +730,8 @@ $result_converted{'docbook'}->{'seeentry'} = '<chapter label="1" id="chapter-ind
 <indexterm role="cp"><primary>aaa</primary><see>bbb</see></indexterm>
 <indexterm role="cp"><primary>ddd</primary><seealso>ccc</seealso></indexterm>
 
-<indexterm role="fn"><primary>f&#8212;aaa</primary><see>f&#8212;bbb</see></indexterm>
-<indexterm role="fn"><primary>f&#8212;ddd</primary><seealso>f&#8212;ccc</seealso></indexterm>
+<indexterm role="fn"><primary>f---aaa</primary><see>f---bbb</see></indexterm>
+<indexterm role="fn"><primary>f---ddd</primary><seealso>f---ccc</seealso></indexterm>
 
 <index role="cp"></index>
 <index role="fn"></index>
@@ -787,6 +800,7 @@ $result_converted{'html_text'}->{'seeentry'} = '<div class="top-level-extent" id
 
 
 $result_converted{'latex'}->{'seeentry'} = '\\documentclass{book}
+\\usepackage{imakeidx}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}
 \\usepackage[gen]{eurosym}
@@ -803,6 +817,9 @@ $result_converted{'latex'}->{'seeentry'} = '\\documentclass{book}
 
 \\makeatletter
 \\newcommand{\\GNUTexinfosettitle}{No Title}%
+
+\\makeindex[name=cp]%
+\\makeindex[name=fn]%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
@@ -835,9 +852,11 @@ $result_converted{'latex'}->{'seeentry'} = '\\documentclass{book}
 \\index[cp]{aaa|see{bbb}}%
 \\index[cp]{ddd|seealso{ccc}}%
 
-\\index[fn]{f--aaa@\\texttt{f{-}{-}{-}aaa}|see{f---bbb}}%
-\\index[fn]{f--ddd@\\texttt{f{-}{-}{-}ddd}|seealso{f---ccc}}%
+\\index[fn]{f---aaa@\\texttt{f{-}{-}{-}aaa}|see{f---bbb}}%
+\\index[fn]{f---ddd@\\texttt{f{-}{-}{-}ddd}|seealso{f---ccc}}%
 
+\\printindex[cp]
+\\printindex[fn]
 \\end{document}
 ';
 

@@ -5051,6 +5051,10 @@ sub _convert_printindex_command($$$$)
     my $entries_text = '';
     my $entry_nr = -1;
     foreach my $index_entry_ref (@{$letter_entry->{'entries'}}) {
+      # FIXME format instead of ignoring
+      next if ($index_entry_ref->{'entry_element'}->{'extra'}
+               and ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}
+                    or $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'}));
       $entry_nr++;
       # to avoid double error messages set ignore_notice if an entry was
       # already formatted once, for example if there are multiple printindex.
@@ -5146,6 +5150,10 @@ sub _convert_printindex_command($$$$)
     } else {
       push @alpha, $summary_letter_link;
     }
+  }
+
+  if (scalar(@non_alpha) + scalar(@alpha) == 0) {
+    return '';
   }
 
   my $non_breaking_space = $self->get_info('non_breaking_space');
@@ -8155,6 +8163,10 @@ sub _prepare_index_entries($)
 
     foreach my $index_name (sort(keys(%$index_names))) {
       foreach my $index_entry (@{$index_names->{$index_name}->{'index_entries'}}) {
+        # does not refer to the document
+        next if ($index_entry->{'entry_element'}->{'extra'}
+                 and ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}
+                      or $index_entry->{'entry_element'}->{'extra'}->{'seealso'}));
         my $region = '';
         $region = "$index_entry->{'entry_region'}->{'cmdname'}-"
           if (defined($index_entry->{'entry_region'}));
@@ -9343,6 +9355,10 @@ sub output_internal_links($)
     foreach my $index_name (sort(keys (%{$index_entries_by_letter}))) {
       foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
+          # does not refer to the document
+          next if ($index_entry->{'entry_element'}->{'extra'}
+                   and ($index_entry->{'entry_element'}->{'extra'}->{'seeentry'}
+                        or $index_entry->{'entry_element'}->{'extra'}->{'seealso'}));
           my $href;
           $href = $self->command_href($index_entry->{'entry_element'}, '');
           # Obtain term by converting to text

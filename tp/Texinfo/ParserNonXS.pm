@@ -2723,13 +2723,10 @@ sub _enter_index_entry($$$$$$$)
   my $index_name = $self->{'command_index'}->{$command_container};
   my $index = $self->{'index_names'}->{$index_name};
 
-  # if the entry has seeentry or seealso it won't be pushed in
-  # $index->{'index_entries'}, so it may remain empty.
   if (!defined($index->{'index_entries'})) {
     $index->{'index_entries'} = [];
   }
 
-  # not accounting for seeentry/seealso entries
   my $number = scalar(@{$index->{'index_entries'}}) + 1;
 
   # FIXME index_type_command does not seems to be used anywhere.
@@ -2763,12 +2760,7 @@ sub _enter_index_entry($$$$$$$)
                              $index_name), $source_info);
   }
 
-  # Skip these as these entries do not refer to the place in the document where
-  # the index commands occurred.
-  if (!defined $current->{'extra'}->{'seeentry'}
-      and !defined $current->{'extra'}->{'seealso'}) {
-    push @{$index->{'index_entries'}}, $index_entry;
-  }
+  push @{$index->{'index_entries'}}, $index_entry;
 
   $current->{'extra'}->{'index_entry'} = $index_entry;
 }
