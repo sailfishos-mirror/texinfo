@@ -149,13 +149,9 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'http://example.com'
+                      'text' => ' http://example.com '
                     }
                   ],
-                  'extra' => {
-                    'spaces_after_argument' => ' ',
-                    'spaces_before_argument' => ' '
-                  },
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
@@ -313,7 +309,7 @@ $result_texis{'one_argument_leading_trailing_spaces'} = '@code{ in code } @slant
 
 
 $result_texts{'one_argument_leading_trailing_spaces'} = ' in code   in slanted   var   sub 
-http://example.com 1234  w   verb .
+ http://example.com  1234  w   verb .
 ';
 
 $result_errors{'one_argument_leading_trailing_spaces'} = [];
@@ -323,17 +319,17 @@ $result_floats{'one_argument_leading_trailing_spaces'} = {};
 
 
 
-$result_converted{'plaintext'}->{'one_argument_leading_trailing_spaces'} = '‘ in code ’ in slanted VAR _{ sub } ‘http://example.com’ ሴ  w   verb .
+$result_converted{'plaintext'}->{'one_argument_leading_trailing_spaces'} = '‘ in code ’ in slanted VAR _{ sub } ‘ http://example.com ’ ሴ  w   verb .
 ';
 
 
 $result_converted{'html_text'}->{'one_argument_leading_trailing_spaces'} = '<p><code class="code"> in code </code> <i class="slanted"> in slanted </i> <var class="var"> var </var> <sub class="sub"> sub </sub>
-&lsquo;<code class="indicateurl">http://example.com</code>&rsquo; &#x1234; &nbsp;w&nbsp;<!-- /@w --> <code class="verb"> verb </code>.
+&lsquo;<code class="indicateurl"> http://example.com </code>&rsquo; &#x1234; &nbsp;w&nbsp;<!-- /@w --> <code class="verb"> verb </code>.
 </p>';
 
 
 $result_converted{'latex_text'}->{'one_argument_leading_trailing_spaces'} = '\\texttt{\\ in code } \\textsl{ in slanted } \\GNUTexinfocommandstyletextvar{ var } \\textsubscript{ sub }
-\\hyphenation{a-b c-d}`\\texttt{http://example.com}\' ሴ \\hbox{ w } \\verb: verb :.
+\\hyphenation{a-b c-d}`\\texttt{\\ http://example.com }\' ሴ \\hbox{ w } \\verb: verb :.
 ';
 
 1;

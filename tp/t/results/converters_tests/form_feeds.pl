@@ -463,12 +463,9 @@ $result_trees{'form_feeds'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'in indicateurl'
+                      'text' => '  in indicateurl'
                     }
                   ],
-                  'extra' => {
-                    'spaces_before_argument' => '  '
-                  },
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
@@ -1192,7 +1189,7 @@ in example
 around center
 in center
 
-in indicateurl
+  in indicateurl
 
 truc: machin bidule  chose arg
 T
@@ -1291,7 +1288,7 @@ $result_converted{'plaintext'}->{'form_feeds'} = 'aa
                              around center
                                in center
 
-   ‘in indicateurl’
+   ‘ in indicateurl’
 
  -- truc: machin bidule chose arg
      T
@@ -1341,7 +1338,7 @@ $result_converted{'html_text'}->{'form_feeds'} = '<a class="node-id" id="Top"></
 <div class="center">around center
 </div><div class="center">in &#12;center
 </div>
-<p>&lsquo;<code class="indicateurl">in indicateurl</code>&rsquo;
+<p>&lsquo;<code class="indicateurl"> &#12; in indicateurl</code>&rsquo;
 </p>
 <dl class="first-deffn">
 <dt class="deffn" id="index-machin"><span class="category-def">truc: </span><span><strong class="def-name">machin</strong> <var class="def-var-arguments">bidule  chose arg</var><a class="copiable-link" href=\'#index-machin\'> &para;</a></span></dt>
@@ -1381,7 +1378,7 @@ $result_converted{'xml'}->{'form_feeds'} = '<node name="Top" spaces=" "><nodenam
 <center spaces=" \\f ">around center &formfeed;</center>
 <center spaces=" ">in &formfeed;center</center>
 
-<para><indicateurl spaces=" \\f ">in indicateurl</indicateurl>
+<para><indicateurl> &formfeed; in indicateurl</indicateurl>
 </para>
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">machin</indexterm><defcategory bracketed="on" spaces=" \\f">truc</defcategory> <deffunction bracketed="on" spaces=" ">machin</deffunction>  <defparam bracketed="on" spaces=" ">bidule</defparam>  <defparam bracketed="on" spaces=" \\f ">chose</defparam> <defparam bracketed="on" spaces="  ">arg</defparam></definitionterm>
 <definitionitem><para>T
@@ -1417,7 +1414,7 @@ $result_converted{'docbook'}->{'form_feeds'} = '<anchor id="first-node"/>
 <simpara role="center">around center</simpara>
 <simpara role="center">in  center</simpara>
 
-<para><literal>in indicateurl</literal>
+<para><literal>   in indicateurl</literal>
 </para>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function>  <emphasis role="arg">bidule</emphasis>  <emphasis role="arg">chose</emphasis> <emphasis role="arg">arg</emphasis></synopsis>
 <blockquote><para>T
@@ -1461,7 +1458,7 @@ around center
 in center
 \\end{center}
 
-`\\texttt{in indicateurl}\'
+`\\texttt{\\  in indicateurl}\'
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}

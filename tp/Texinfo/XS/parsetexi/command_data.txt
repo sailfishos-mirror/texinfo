@@ -292,7 +292,9 @@ code                    brace                           BRACE_style_code
 command                 brace                           BRACE_style_code
 env                     brace                           BRACE_style_code
 file                    brace                           BRACE_style_code
+indicateurl             brace                           BRACE_style_code
 kbd                     brace                           BRACE_style_code
+key                     brace                           BRACE_style_code
 option                  brace                           BRACE_style_code
 samp                    brace                           BRACE_style_code
 t                       brace                           BRACE_style_code
@@ -301,20 +303,20 @@ t                       brace                           BRACE_style_code
 r                       brace                           BRACE_style_no_code
 
 U                       brace                           BRACE_arguments     1
-dmn                     brace                           BRACE_arguments     1
-titlefont               brace,global                    BRACE_arguments     1
 hyphenation             brace,global                    BRACE_arguments     1
 anchor                  brace                           BRACE_arguments     1
 errormsg                brace                           BRACE_arguments     1
 sortas                  brace                           BRACE_arguments     1
 seeentry                brace                           BRACE_arguments     1
 seealso                 brace                           BRACE_arguments     1
-indicateurl             brace                           BRACE_arguments     1
-key                     brace                           BRACE_arguments     1
 
-value                   brace                           BRACE_other
-verb                    brace                           BRACE_other
-w                       brace                           BRACE_other
+value                   brace                           BRACE_special
+verb                    brace                           BRACE_special
+w                       brace                           BRACE_special
+
+# other brace commands, leading and trailing spaces not ignored
+dmn                     brace                           BRACE_other         1
+titlefont               brace,global                    BRACE_other         1
 
 # context brace commands - commands that enclose full texts
 footnote                brace,global                    BRACE_context

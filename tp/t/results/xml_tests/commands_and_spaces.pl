@@ -1462,13 +1462,9 @@ $result_trees{'commands_and_spaces'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'http://ggg'
+                      'text' => ' http://ggg '
                     }
                   ],
-                  'extra' => {
-                    'spaces_after_argument' => ' ',
-                    'spaces_before_argument' => ' '
-                  },
                   'parent' => {},
                   'type' => 'brace_command_arg'
                 }
@@ -2132,7 +2128,7 @@ T.
 
 Math \\underline{ a, b} .
 
-http://ggg
+ http://ggg 
 
 truc: machin bidule  chose arg
 T
@@ -2302,7 +2298,7 @@ in tex
 </para>
 <para>Math <math spaces=" ">\\underline{ a, b} </math>.
 </para>
-<para><indicateurl spaces=" ">http://ggg </indicateurl>
+<para><indicateurl> http://ggg </indicateurl>
 </para>
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">machin</indexterm><defcategory bracketed="on" spaces=" ">truc</defcategory> <deffunction bracketed="on" spaces=" ">machin</deffunction>  <defparam bracketed="on" spaces=" ">bidule</defparam>  <defparam bracketed="on" spaces="  ">chose</defparam> <defparam bracketed="on" spaces="  ">arg</defparam></definitionterm>
 <definitionitem><para>T

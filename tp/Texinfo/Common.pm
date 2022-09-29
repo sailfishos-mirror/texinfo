@@ -734,39 +734,40 @@ foreach my $command ('r') {
 }
 
 our %brace_code_commands; # contains also non style commands, see below
-foreach my $command ('code', 'command', 'env', 'file', 'kbd', 'option',
-   'samp', 't') {
+foreach my $command ('code', 'command', 'env', 'file', 'indicateurl', 'kbd',
+   'key', 'option', 'samp', 't') {
   $brace_code_commands{$command} = 1;
   $brace_commands{$command} = 'style_code';
 }
 
-# FIXME this category contains commands with different constraints.  Some should
-# only contain text: 'U' , 'dmn', 'key', 'hyphenation', 'sortas'.
-# The others can contain @-commands, but not all, for example no @ref,
-# no @footnote: 'anchor', 'indicateurl', 'errormsg', 'seeentry', 'seealso'
-# and lastly titlefont which may be less constrained.
+# FIXME Some commands should only contain text/accents and
+# could be checked for that: 'dmn', 'key', 'hyphenation', 'sortas'.
+# Some commands can contain @-commands, but not all, for example no @ref,
+# no @footnote: 'anchor', 'indicateurl', 'errormsg', 'seeentry', 'seealso'.
+# 'titlefont' may be less constrained.
 
 # in this category, the leading and trailing spaces are put in specific
 # text with type, but commas do not delimitate arguments
-foreach my $one_arg_command ('U', 'dmn', 'key', 'hyphenation', 'indicateurl',
-    'titlefont', 'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
+foreach my $one_arg_command ('U', 'hyphenation',
+    'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
   $brace_commands{$one_arg_command} = 'arguments';
   $commands_args_number{$one_arg_command} = 1;
 }
 
-# commands in other keep their leading and trailing spaces in main text
-# argument, but are not style commands.
-# key should not contain spaces, it does not matter if 'other' or 'arguments'.
-# verb is treated especially, it should not matter in which category it is.
+# Leading and trailing spaces kept in main text.
+# verb is treated especially, it should not matter much in which category it is.
 # value also is treated especially.
-foreach my $other_arg_command ('w', 'verb', 'value') {
+foreach my $special_arg_command ('w', 'verb', 'value') {
+  $brace_commands{$special_arg_command} = 'special';
+}
+
+# Leading and trailing spaces kept in main text, nothing special.
+foreach my $other_arg_command ('titlefont', 'dmn') {
   $brace_commands{$other_arg_command} = 'other';
 }
 
 # brace style command that are not style commands
-$brace_code_commands{'key'} = 1;
 $brace_code_commands{'verb'} = 1;
-$brace_code_commands{'indicateurl'} = 1;
 
 # Commands that enclose full texts not in the main document context.
 # They can contain multiple paragraphs.

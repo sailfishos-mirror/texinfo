@@ -130,6 +130,7 @@ void wipe_user_commands (void);
 #define BRACE_style_code -5
 #define BRACE_style_no_code -6
 #define BRACE_other -7
+#define BRACE_special -8
 
 /* Types of internal commands (CF_internal). */
 #define INTERNAL_brace -1
