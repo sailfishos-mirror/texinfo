@@ -604,6 +604,44 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 
 @printindex cp
 '],
+['same_only_seealso_seeentry',
+'@node Top
+@top top
+
+@node node
+@chapter chap
+
+@cindex aaa @seealso{sss}
+@cindex aaa @seealso{123}
+
+@cindex bbb @seeentry{yyy}
+@cindex bbb @seeentry{ttt}
+
+@cindex ccc @seealso{also}
+@cindex ccc @seeentry{entry}
+
+@printindex cp
+'],
+['same_seealso_seeentry',
+'@node Top
+@top top
+
+@node node
+@chapter chap
+
+@cindex aaa @seealso{sss}
+@cindex aaa @seealso{123}
+
+@cindex bbb @seeentry{yyy}
+@cindex bbb @seeentry{ttt}
+
+@cindex ccc @seealso{also}
+@cindex ccc @seeentry{entry}
+
+@cindex entry
+
+@printindex cp
+'],
 ['subentry_and_sortas',
 '@node Top
 @top
@@ -750,7 +788,8 @@ my @latex_tests_cases_tests = ('syncode_index_print_both',
   'explicit_sort_key', 'transparent_sort_chars',
   'def_syn_indices', 'seeentry', 'subentry_and_sortas', 'subentries',
   'double_seeentry_seealso', 'seealso_duplicate',
-  'multiple_index_text_sortas_seeentry_seealso');
+  'multiple_index_text_sortas_seeentry_seealso', 'same_seealso_seeentry',
+  'same_only_seealso_seeentry');
 
 foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'info';
