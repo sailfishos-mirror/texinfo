@@ -1,5 +1,11 @@
 2022-09-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert): format separately
+	nobrace and line commands.  Do not use the type of line command to
+	format line commands.
+
+2022-09-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%nobrace_symbol_text, %nobrace_commands),
 	tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
 	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,

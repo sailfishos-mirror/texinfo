@@ -166,16 +166,20 @@ foreach my $command(@all_style_commands) {
   }
 }
 
-my %docbook_misc_elements_with_arg_map = (
+my %docbook_line_elements_with_arg_map = (
   'exdent' => 'simpara role="exdent"',
   'center' => 'simpara role="center"',
 );
 
-my %docbook_misc_commands = %Texinfo::Common::misc_commands;
+my %docbook_nobrace_commands = %Texinfo::Common::nobrace_commands;
+foreach my $command ('item', 'headitem', 'tab',
+   keys(%docbook_no_arg_commands_formatting)) {
+  delete $docbook_nobrace_commands{$command};
+}
 
-foreach my $command ('item', 'headitem', 'itemx', 'tab',
-                      keys %Texinfo::Common::def_commands) {
-  delete $docbook_misc_commands{$command};
+my %docbook_line_commands = %Texinfo::Common::line_commands;
+foreach my $command ('itemx', keys %Texinfo::Common::def_commands) {
+  delete $docbook_line_commands{$command};
 }
 
 my %docbook_global_commands = (
@@ -773,212 +777,182 @@ sub _convert($$;$)
       }
       return $self->_index_entry($element).${end_line};
 
-    } elsif (exists($docbook_misc_commands{$element->{'cmdname'}})) {
-      # FIXME redo code to use directly commands and not be based on the
-      # %misc_commands type.  Also probably ignore %nobrace_commands
-      # right away
-      #warn "  is dbk misc command\n";
+    } elsif (exists($docbook_nobrace_commands{$element->{'cmdname'}})) {
+      return '';
+    } elsif (exists($docbook_line_commands{$element->{'cmdname'}})) {
+      #warn "  is dbk line command\n";
       if ($docbook_global_commands{$element->{'cmdname'}}) {
         Texinfo::Common::set_informative_command_value($self, $element);
         return '';
       }
-      my $docbook_element;
-      my $attribute_text = '';
-      if (exists ($docbook_misc_elements_with_arg_map{$element->{'cmdname'}})) {
-        ($docbook_element, $attribute_text)
-          = _parse_attribute($docbook_misc_elements_with_arg_map{$element->{'cmdname'}});
-      }
-      my $type = $docbook_misc_commands{$element->{'cmdname'}};
-      if ($type eq 'text') {
-        if ($element->{'cmdname'} eq 'verbatiminclude') {
-          my $verbatim_include_verbatim
-            = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $element);
-          if (defined($verbatim_include_verbatim)) {
-            $result .= $self->_convert($verbatim_include_verbatim);
-          } else {
-            return '';
+      if ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
+        if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
+          my $node_element;
+          if ($element->{'cmdname'} eq 'node') {
+            $node_element = $element;
+          } elsif ($element->{'cmdname'} eq 'part' and $element->{'extra'}
+                 and $element->{'extra'}->{'part_following_node'}) {
+            $node_element = $element->{'extra'}->{'part_following_node'};
+          }
+          if ($node_element or $element->{'cmdname'} eq 'part') {
+            # $node_element->{'extra'}->{'normalized'} not defined happens for
+            # empty nodes
+            if ($node_element and $node_element->{'extra'}
+                and $node_element->{'extra'}->{'normalized'}
+                and $node_element->{'extra'}->{'normalized'} eq 'Top') {
+              $self->{'in_skipped_node_top'} = 1;
+            } elsif (defined($self->{'in_skipped_node_top'})
+                     and $self->{'in_skipped_node_top'} == 1) {
+              $self->{'in_skipped_node_top'} = -1;
+            }
+          }
+        }
+        if ($element->{'cmdname'} eq 'node'
+            and (not $element->{'extra'}
+                 or not $element->{'extra'}->{'associated_section'})) {
+          if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
+            $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
           }
         } else {
-          return '';
-        }
-      } elsif ($type eq 'line') {
-        if ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
-          if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
-            my $node_element;
-            if ($element->{'cmdname'} eq 'node') {
-              $node_element = $element;
-            } elsif ($element->{'cmdname'} eq 'part' and $element->{'extra'}
-                   and $element->{'extra'}->{'part_following_node'}) {
-              $node_element = $element->{'extra'}->{'part_following_node'};
-            }
-            if ($node_element or $element->{'cmdname'} eq 'part') {
-              # $node_element->{'extra'}->{'normalized'} not defined happens for
-              # empty nodes
-              if ($node_element and $node_element->{'extra'}
-                  and $node_element->{'extra'}->{'normalized'}
-                  and $node_element->{'extra'}->{'normalized'} eq 'Top') {
-                $self->{'in_skipped_node_top'} = 1;
-              } elsif (defined($self->{'in_skipped_node_top'})
-                       and $self->{'in_skipped_node_top'} == 1) {
-                $self->{'in_skipped_node_top'} = -1;
-              }
-            }
-          }
-          if ($element->{'cmdname'} eq 'node'
-              and (not $element->{'extra'}
-                   or not $element->{'extra'}->{'associated_section'})) {
-            if ($element->{'extra'} and defined($element->{'extra'}->{'normalized'})) {
-              $result .= "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>\n";
+          # start the section at the associated node or part, or at the sectioning
+          # command if there is no associated node nor part
+          my $section_element;
+          my $part;
+          if ($element->{'cmdname'} eq 'node') {
+            $section_element = $element->{'extra'}->{'associated_section'};
+          } elsif ($element->{'cmdname'} eq 'part') {
+            $part = $element;
+            if ($element->{'extra'}->{'part_associated_section'}) {
+              $section_element = $element->{'extra'}->{'part_associated_section'};
             }
           } else {
-            # start the section at the associated node or part, or at the sectioning
-            # command if there is no associated node nor part
-            my $section_element;
-            my $part;
-            if ($element->{'cmdname'} eq 'node') {
-              $section_element = $element->{'extra'}->{'associated_section'};
-            } elsif ($element->{'cmdname'} eq 'part') {
-              $part = $element;
-              if ($element->{'extra'}->{'part_associated_section'}) {
-                $section_element = $element->{'extra'}->{'part_associated_section'};
+            $section_element = $element;
+          }
+          if ($section_element and $section_element->{'extra'}
+              and $section_element->{'extra'}->{'associated_part'}) {
+            $part = $section_element->{'extra'}->{'associated_part'};
+          }
+          my @opened_elements;
+          # we need to check if the section was already done in case there is
+          # both a node and a part, we do not know in which order they appear.
+          if (not ($section_element
+                   and $sectioning_commands_done{$section_element})) {
+            push @opened_elements, $part if $part;
+            if ($section_element) {
+              push @opened_elements, $section_element;
+            }
+          }
+          foreach my $opened_element (@opened_elements) {
+            if (not (defined($self->{'in_skipped_node_top'})
+                     and $self->{'in_skipped_node_top'} == 1)) {
+              if ($section_element and $opened_element eq $section_element) {
+                $sectioning_commands_done{$section_element} = 1;
+              }
+              my $section_attribute = '';
+              # FIXME it is not clear that a label should be set for
+              # @appendix* or @chapter/@*section as the formatter should be
+              # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
+              # having a label (empty) is important.
+              my $label = '';
+              if (defined($opened_element->{'structure'}->{'section_number'})
+                and ($self->get_conf('NUMBER_SECTIONS')
+                     or !defined($self->get_conf('NUMBER_SECTIONS')))) {
+                # Looking at docbook2html output, Appendix is appended in the
+                # section title, so only the letter is used.
+                $label = $opened_element->{'structure'}->{'section_number'};
+              }
+              my $docbook_sectioning_element
+                 = $self->_docbook_section_element($opened_element);
+              if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
+                $section_attribute .= " label=\"$label\"";
+              }
+              if ($opened_element->{'extra'} and $opened_element->{'extra'}->{'associated_node'}) {
+                $section_attribute
+                 .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
+              }
+              my $language = '';
+              if (defined($self->get_conf('documentlanguage'))) {
+                $language = $self->get_conf('documentlanguage');
+                if ($self->{'lang_stack'}->[-1] ne $language) {
+                  $section_attribute .= ' lang="'.$language.'"';
+                }
+              }
+              push @{$self->{'lang_stack'}}, $language;
+              $result .= "<$docbook_sectioning_element${section_attribute}>\n";
+              if ($opened_element->{'args'} and $opened_element->{'args'}->[0]) {
+                my ($arg, $end_line) = $self->_convert_argument_and_end_line($opened_element);
+                $result .= "<title>$arg</title>$end_line";
+                chomp ($result);
+                $result .= "\n";
+              }
+              # if associated with a sectioning element, the part is opened before the
+              # sectioning element, such that the part content appears after the sectioning
+              # command opening, no need for partintro.
+              if ($docbook_sectioning_element eq 'part'
+                  and not ($opened_element->{'extra'}
+                           and $opened_element->{'extra'}->{'part_associated_section'})
+                  and !Texinfo::Common::is_content_empty($opened_element)) {
+                $result .= "<partintro>\n";
               }
             } else {
-              $section_element = $element;
-            }
-            if ($section_element and $section_element->{'extra'}
-                and $section_element->{'extra'}->{'associated_part'}) {
-              $part = $section_element->{'extra'}->{'associated_part'};
-            }
-            my @opened_elements;
-            # we need to check if the section was already done in case there is
-            # both a node and a part, we do not know in which order they appear.
-            if (not ($section_element
-                     and $sectioning_commands_done{$section_element})) {
-              push @opened_elements, $part if $part;
-              if ($section_element) {
-                push @opened_elements, $section_element;
-              }
-            }
-            foreach my $opened_element (@opened_elements) {
-              if (not (defined($self->{'in_skipped_node_top'})
-                       and $self->{'in_skipped_node_top'} == 1)) {
-                if ($section_element and $opened_element eq $section_element) {
-                  $sectioning_commands_done{$section_element} = 1;
-                }
-                my $section_attribute = '';
-                # FIXME it is not clear that a label should be set for
-                # @appendix* or @chapter/@*section as the formatter should be
-                # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
-                # having a label (empty) is important.
-                my $label = '';
-                if (defined($opened_element->{'structure'}->{'section_number'})
-                  and ($self->get_conf('NUMBER_SECTIONS')
-                       or !defined($self->get_conf('NUMBER_SECTIONS')))) {
-                  # Looking at docbook2html output, Appendix is appended in the
-                  # section title, so only the letter is used.
-                  $label = $opened_element->{'structure'}->{'section_number'};
-                }
-                my $docbook_sectioning_element
-                   = $self->_docbook_section_element($opened_element);
-                if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
-                  $section_attribute .= " label=\"$label\"";
-                }
-                if ($opened_element->{'extra'} and $opened_element->{'extra'}->{'associated_node'}) {
-                  $section_attribute
-                   .= " id=\"$opened_element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
-                }
-                my $language = '';
-                if (defined($self->get_conf('documentlanguage'))) {
-                  $language = $self->get_conf('documentlanguage');
-                  if ($self->{'lang_stack'}->[-1] ne $language) {
-                    $section_attribute .= ' lang="'.$language.'"';
-                  }
-                }
-                push @{$self->{'lang_stack'}}, $language;
-                $result .= "<$docbook_sectioning_element${section_attribute}>\n";
-                if ($opened_element->{'args'} and $opened_element->{'args'}->[0]) {
-                  my ($arg, $end_line) = $self->_convert_argument_and_end_line($opened_element);
-                  $result .= "<title>$arg</title>$end_line";
-                  chomp ($result);
-                  $result .= "\n";
-                }
-                # if associated with a sectioning element, the part is opened before the
-                # sectioning element, such that the part content appears after the sectioning
-                # command opening, no need for partintro.
-                if ($docbook_sectioning_element eq 'part'
-                    and not ($opened_element->{'extra'}
-                             and $opened_element->{'extra'}->{'part_associated_section'})
-                    and !Texinfo::Common::is_content_empty($opened_element)) {
-                  $result .= "<partintro>\n";
-                }
-              } else {
-                push @{$self->{'lang_stack'}}, $self->{'lang_stack'}->[-1];
-              }
+              push @{$self->{'lang_stack'}}, $self->{'lang_stack'}->[-1];
             }
           }
-        } elsif ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
-          if ($element->{'args'} and $element->{'args'}->[0]) {
-            my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
-            $result .=
-              "<bridgehead renderas=\"$docbook_sections{$element->{'cmdname'}}\">$arg</bridgehead>$end_line";
-            chomp ($result);
-            $result .= "\n";
-            return $result;
-          }
-          return '';
-        } else {
-          if (defined($docbook_element)) {
-            my ($arg, $end_line)
-              = $self->_convert_argument_and_end_line($element);
-            if ($docbook_element eq '') {
-              $result .= "$arg$end_line";
-            } else {
-              $result .= "<$docbook_element${attribute_text}>$arg</$docbook_element>$end_line";
-            }
-            chomp ($result);
-            $result .= "\n";
-            return $result;
-          }
-          # misc commands not handled especially are ignored here.
-          return '';
         }
-      } elsif ($type eq 'skipline' or $type eq 'other') {
-        if ($element->{'cmdname'} eq 'insertcopying') {
-          if ($self->{'global_commands'}
-              and $self->{'global_commands'}->{'copying'}) {
-            return $self->_convert({'contents'
-               => $self->{'global_commands'}->{'copying'}->{'contents'}});
-          } else {
-            return '';
-          }
-        } else {
-          return '';
+      } elsif ($element->{'cmdname'} eq 'c' or $element->{'cmdname'} eq 'comment') {
+        return $self->xml_comment($element->{'args'}->[0]->{'text'})
+      } elsif ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
+        if ($element->{'args'} and $element->{'args'}->[0]) {
+          my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+          $result .=
+            "<bridgehead renderas=\"$docbook_sections{$element->{'cmdname'}}\">$arg</bridgehead>$end_line";
+          chomp ($result);
+          $result .= "\n";
+          return $result;
         }
-      } elsif ($type eq 'special' or $type eq 'skipspace') {
         return '';
-      } elsif ($type eq 'lineraw') {
-        if ($element->{'cmdname'} eq 'c' or $element->{'cmdname'} eq 'comment') {
-          return $self->xml_comment($element->{'args'}->[0]->{'text'})
+      } elsif (exists ($docbook_line_elements_with_arg_map{$element->{'cmdname'}})) {
+        my ($docbook_element, $attribute_text)
+          = _parse_attribute($docbook_line_elements_with_arg_map{$element->{'cmdname'}});
+        my ($arg, $end_line)
+          = $self->_convert_argument_and_end_line($element);
+        if ($docbook_element eq '') {
+          $result .= "$arg$end_line";
         } else {
-          return "";
+          $result .= "<$docbook_element${attribute_text}>$arg</$docbook_element>$end_line";
+        }
+        chomp ($result);
+        $result .= "\n";
+        return $result;
+      } elsif ($element->{'cmdname'} eq 'insertcopying') {
+        if ($self->{'global_commands'}
+           and $self->{'global_commands'}->{'copying'}) {
+         return $self->_convert({'contents'
+            => $self->{'global_commands'}->{'copying'}->{'contents'}});
+        } else {
+          return '';
+        }
+      } elsif ($element->{'cmdname'} eq 'verbatiminclude') {
+        my $verbatim_include_verbatim
+          = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $element);
+        if (defined($verbatim_include_verbatim)) {
+          $result .= $self->_convert($verbatim_include_verbatim);
+        } else {
+          return '';
+        }
+      } elsif ($element->{'cmdname'} eq 'printindex') {
+        if (defined($element->{'extra'})
+            and defined($element->{'extra'}->{'misc_args'})) {
+          # FIXME DocBook 5
+          #return "<index type=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
+          return "<index role=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
+        } else {
+          return "<index></index>\n";
         }
       } else {
-        $self->present_bug_message("unknown misc_command style $type", $element)
-          if ($type ne 'specific');
-        if ($element->{'cmdname'} eq 'printindex') {
-          if (defined($element->{'extra'})
-              and defined($element->{'extra'}->{'misc_args'})) {
-            # FIXME DocBook 5
-            #return "<index type=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
-            return "<index role=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
-          } else {
-            return "<index></index>\n";
-          }
-        } else {
-          return '';
-        }
+        # ignore all the other line commands
+        return '';
       }
-
     } elsif ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command') {
       my $arg = $self->_convert($element->{'args'}->[0]);
