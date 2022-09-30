@@ -75,6 +75,7 @@ void wipe_user_commands (void);
 #define CF_menu		        	0x00080000
 /* CF_align is not used, in Common */
 #define CF_align	        	0x00100000
+/* CF_other is not used */
 #define CF_other	        	0x00200000
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000
@@ -106,9 +107,10 @@ void wipe_user_commands (void);
 #define LINE_text -6
 #define LINE_line -7
 
-/* Types of other command (has CF_other flag). */
-#define OTHER_skipspace -1
-#define OTHER_noarg -2
+/* Types of command without brace nor on line (has CF_nobrace flag). */
+#define NOBRACE_symbol 0
+#define NOBRACE_skipspace -1
+#define NOBRACE_other -2
 
 /* Types of block command (CF_block). */
 #define BLOCK_conditional -1

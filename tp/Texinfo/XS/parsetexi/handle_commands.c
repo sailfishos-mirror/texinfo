@@ -77,7 +77,7 @@ check_no_text (ELEMENT *current)
   return after_paragraph;
 }
 
-/* noarg skipspace */
+/* symbol skipspace other */
 ELEMENT *
 handle_other_command (ELEMENT *current, char **line_inout,
                      enum command_id cmd, int *status)
@@ -89,8 +89,11 @@ handle_other_command (ELEMENT *current, char **line_inout,
   *status = STILL_MORE_TO_PROCESS;
 
   arg_spec = command_data(cmd).data;
-  if (arg_spec == OTHER_noarg)
+  if (arg_spec != NOBRACE_skipspace)
     {
+      misc = new_element (ET_NONE);
+      misc->cmd = cmd;
+      add_to_element_contents (current, misc);
       if (command_data(cmd).flags & CF_in_heading
           && !(command_data(current_context_command()).flags & CF_heading_spec))
         {
@@ -98,12 +101,24 @@ handle_other_command (ELEMENT *current, char **line_inout,
                       command_name(cmd));
         }
 
-      misc = new_element (ET_NONE);
-      misc->cmd = cmd;
-      add_to_element_contents (current, misc);
-      register_global_command (misc);
-      if (close_preformatted_command(cmd))
-        current = begin_preformatted (current);
+      if (arg_spec == NOBRACE_symbol)
+        {
+          if (cmd == CM_BACKSLASH && current_context () != ct_math)
+            {
+              line_warn ("@\\ should only appear in math context");
+            }
+          if (cmd == CM_NEWLINE)
+            {
+              current = end_line (current);
+              *status = GET_A_NEW_LINE;
+            }
+        }
+      else  /* NOBRACE_other */
+        {
+          register_global_command (misc);
+          if (close_preformatted_command(cmd))
+            current = begin_preformatted (current);
+        }
     }
   else
     {

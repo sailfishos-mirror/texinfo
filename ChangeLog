@@ -1,5 +1,25 @@
 2022-09-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command),
+	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting)
+	(process_remaining_on_line): merge commands with CF_other flag with
+	commands with CF_nobrace flag.  Add NOBRACE_symbol type for symbols
+	without brace.  Rename OTHER_skipspace as NOBRACE_skipspace.  Rename
+	OTHER_noarg as NOBRACE_other.  Handle all the CF_nobrace commands in
+	handle_other_command, which means moving the handling of
+	NOBRACE_symbol commands from process_remaining_on_line to
+	handle_other_command.
+
+	* tp/Texinfo/XS/parsetexi/close.c (close_commands),
+	tp/Texinfo/XS/parsetexi/context_stack.c
+	(in_preformatted_context_not_menu), tp/Texinfo/XS/parsetexi/parser.c
+	(check_valid_nesting, parse_texi): check CF_* in addition to .data in
+	some places to be sure that the value is for the right type of
+	command.
+
+2022-09-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm,
 	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
 	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/TexinfoMarkup.pm,

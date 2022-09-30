@@ -25,23 +25,23 @@ txiinternalvalue        brace,internal                  INTERNAL_brace
 ##############################################################
 # no brace commands - single letter commands
 
-*                       nobrace
+*                       nobrace                         NOBRACE_symbol
 # space
-\x20                    nobrace
-\t                      nobrace
-\n                      nobrace
--                       nobrace
-|                       nobrace
-/                       nobrace
-:                       nobrace
-!                       nobrace
-?                       nobrace
-.                       nobrace
-@                       nobrace
-&                       nobrace
-}                       nobrace
-{                       nobrace
-\\                      nobrace
+\x20                    nobrace                         NOBRACE_symbol
+\t                      nobrace                         NOBRACE_symbol
+\n                      nobrace                         NOBRACE_symbol
+-                       nobrace                         NOBRACE_symbol
+|                       nobrace                         NOBRACE_symbol
+/                       nobrace                         NOBRACE_symbol
+:                       nobrace                         NOBRACE_symbol
+!                       nobrace                         NOBRACE_symbol
+?                       nobrace                         NOBRACE_symbol
+.                       nobrace                         NOBRACE_symbol
+@                       nobrace                         NOBRACE_symbol
+&                       nobrace                         NOBRACE_symbol
+}                       nobrace                         NOBRACE_symbol
+{                       nobrace                         NOBRACE_symbol
+\\                      nobrace                         NOBRACE_symbol
 
 ##########################################################
 #
@@ -160,23 +160,23 @@ subentry                line                            LINE_line
 ##########################################################
 
 # formatting
-noindent                other                           OTHER_skipspace
-indent                  other                           OTHER_skipspace
-headitem                other                           OTHER_skipspace
-item                    other                           OTHER_skipspace
-tab                     other                           OTHER_skipspace
+noindent                nobrace                         NOBRACE_skipspace
+indent                  nobrace                         NOBRACE_skipspace
+headitem                nobrace                         NOBRACE_skipspace
+item                    nobrace                         NOBRACE_skipspace
+tab                     nobrace                         NOBRACE_skipspace
 # only valid in heading or footing
-thischapter             other,in_heading                OTHER_noarg
-thischaptername         other,in_heading                OTHER_noarg
-thischapternum          other,in_heading                OTHER_noarg
-thissection             other,in_heading                OTHER_noarg
-thissectionname         other,in_heading                OTHER_noarg
-thissectionnum          other,in_heading                OTHER_noarg
-thisfile                other,in_heading                OTHER_noarg
-thispage                other,in_heading                OTHER_noarg
-thistitle               other,in_heading                OTHER_noarg
+thischapter             nobrace,in_heading              NOBRACE_other
+thischaptername         nobrace,in_heading              NOBRACE_other
+thischapternum          nobrace,in_heading              NOBRACE_other
+thissection             nobrace,in_heading              NOBRACE_other
+thissectionname         nobrace,in_heading              NOBRACE_other
+thissectionnum          nobrace,in_heading              NOBRACE_other
+thisfile                nobrace,in_heading              NOBRACE_other
+thispage                nobrace,in_heading              NOBRACE_other
+thistitle               nobrace,in_heading              NOBRACE_other
 # obsolete @-commands.
-refill                  other,deprecated                OTHER_noarg
+refill                  nobrace,deprecated              NOBRACE_other
 
 
 

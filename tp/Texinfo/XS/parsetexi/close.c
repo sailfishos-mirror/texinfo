@@ -402,12 +402,14 @@ close_commands (ELEMENT *current, enum command_id closed_command,
   if (closed_command && current->cmd == closed_command)
     {
       if (command_data(current->cmd).flags & CF_preformatted
-          || command_data(current->cmd).data == BLOCK_menu)
+          || (command_data(current->cmd).flags & CF_block
+              && command_data(current->cmd).data == BLOCK_menu))
         {
           if (pop_context () != ct_preformatted)
             fatal ("preformatted context expected");
         }
-      else if (command_data(current->cmd).data == BLOCK_format_raw)
+      else if (command_data(current->cmd).flags & CF_block
+               && command_data(current->cmd).data == BLOCK_format_raw)
         {
           if (pop_context () != ct_rawpreformatted)
             fatal ("rawpreformatted context expected");
@@ -418,7 +420,8 @@ close_commands (ELEMENT *current, enum command_id closed_command,
             fatal ("math context expected");
         }
 
-      if (command_data(current->cmd).data == BLOCK_region)
+      if (command_data(current->cmd).flags & CF_block
+          && command_data(current->cmd).data == BLOCK_region)
         pop_region ();
 
       *closed_element = current;

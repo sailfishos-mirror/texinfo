@@ -951,7 +951,9 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     ok = 1;
   else if (outer_flags & CF_accent)
     {
-      if (cmd_flags & (CF_nobrace | CF_accent))
+      if ((cmd_flags & CF_accent)
+          || (cmd_flags & CF_nobrace
+              && command_data(cmd).data == NOBRACE_symbol))
         ok = 1;
       else if (cmd_flags & CF_brace
                && command_data(cmd).data == BRACE_noarg)
@@ -979,7 +981,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     {
       /* Start by checking if the command is allowed inside a "full text 
          command" - this is the most permissive. */
-      if (cmd_flags & CF_nobrace)
+      if (cmd_flags & CF_nobrace && command_data(cmd).data == NOBRACE_symbol)
         ok = 1;
       if (cmd_flags & CF_brace && !(cmd_flags & CF_INFOENCLOSE))
         ok = 1;
@@ -992,7 +994,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
                || cmd == CM_clear
                || cmd == CM_end)
         ok = 1;
-      else if (command_data(cmd).data == BLOCK_format_raw)
+      else if (cmd_flags & CF_block
+               && command_data(cmd).data == BLOCK_format_raw)
         ok = 1;
       if (cmd == CM_caption || cmd == CM_shortcaption)
         ok = 0;
@@ -1334,7 +1337,8 @@ superfluous_arg:
           retval = GET_A_NEW_LINE; goto funexit;  /* Get next line. */
         }
     } /* CM_verb */
-  else if (command_data(current->cmd).data == BLOCK_format_raw
+  else if (command_flags(current) & CF_block
+           && command_data(current->cmd).data == BLOCK_format_raw
            && !format_expanded_p (command_name(current->cmd)))
     {
       ELEMENT *e;
@@ -1787,7 +1791,12 @@ value_invalid:
 
       /* check command doesn't start a paragraph */
       /* TODO store this in cmd->flags. */
-      if (!(command_data(cmd).flags & (CF_line | CF_other | CF_block)
+      if (!((command_data(cmd).flags & (CF_line | CF_block))
+            || (command_data(cmd).flags & CF_nobrace
+                && (command_data(cmd).data == NOBRACE_skipspace
+           /* FIXME NOBRACE_other should probably start a paragraph
+              except for refill */
+                    || command_data(cmd).data == NOBRACE_other))
             || cmd == CM_titlefont
             || cmd == CM_caption
             || cmd == CM_shortcaption
@@ -1842,7 +1851,8 @@ value_invalid:
         cmd = CM_item_LINE;
       /* We could possibly have done this before check_valid_nesting. */
 
-      if (command_data(cmd).flags & CF_other)
+      /* No-brace command */
+      if (command_data(cmd).flags & CF_nobrace)
         {
           int status;
           current = handle_other_command (current, &line, cmd, &status);
@@ -1877,26 +1887,6 @@ value_invalid:
       else if (command_data(cmd).flags & (CF_brace | CF_accent))
         {
           current = handle_brace_command (current, &line, cmd);
-        }
-      /* No-brace command */
-      else if (command_data(cmd).flags & CF_nobrace)
-        {
-          ELEMENT *nobrace;
-
-          nobrace = new_element (ET_NONE);
-          nobrace->cmd = cmd;
-          add_to_element_contents (current, nobrace);
-
-          if (cmd == CM_BACKSLASH && current_context () != ct_math)
-            {
-              line_warn ("@\\ should only appear in math context");
-            }
-          if (cmd == CM_NEWLINE)
-            {
-              current = end_line (current);
-              retval = GET_A_NEW_LINE;
-              goto funexit;
-            }
         }
     }
   /* "Separator" character */
@@ -2053,12 +2043,12 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
          leading whitespace and save as an "ET_empty_line" element.  This
          element type can be changed in 'abort_empty_line' when more text is
          read. */
-      if (!((command_flags(current) & CF_block)
-             && (command_data(current->cmd).data == BLOCK_raw
-                 || command_data(current->cmd).data == BLOCK_conditional)
-            || current->parent && current->parent->cmd == CM_verb
-            || (command_data(current->cmd).data == BLOCK_format_raw
-                && !format_expanded_p (command_name(current->cmd))))
+      if (!(((command_flags(current) & CF_block)
+             && ((command_data(current->cmd).data == BLOCK_raw
+                  || command_data(current->cmd).data == BLOCK_conditional)
+                 || (command_data(current->cmd).data == BLOCK_format_raw
+                     && !format_expanded_p (command_name(current->cmd)))))
+            || current->parent && current->parent->cmd == CM_verb)
           && current_context () != ct_def)
         {
           ELEMENT *e;

@@ -13,6 +13,8 @@ Before next release
 global_unique document_settable_unique_at_commands
 global document_settable_multiple_at_commands
 
+Add in_math (for /)?
+
 Bugs
 ====
 
