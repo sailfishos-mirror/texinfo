@@ -261,7 +261,7 @@ my %initialization_overrides = (
   'documentlanguage' => 1,
 );
 
-my %nobrace_commands         = %Texinfo::Common::nobrace_commands;
+my %nobrace_commands          = %Texinfo::Common::nobrace_commands;
 my %line_commands             = %Texinfo::Common::line_commands;
 my %other_commands            = %Texinfo::Common::other_commands;
 my %brace_commands            = %Texinfo::Common::brace_commands;
@@ -283,7 +283,7 @@ my %command_index             = %Texinfo::Common::command_index;
 my %ref_commands              = %Texinfo::Common::ref_commands;
 my %region_commands           = %Texinfo::Common::region_commands;
 my %heading_spec_commands     = %Texinfo::Common::heading_spec_commands;
-my %in_heading_commands       = %Texinfo::Common::in_heading_commands;
+my %in_heading_spec_commands  = %Texinfo::Common::in_heading_spec_commands;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
 my %explained_commands        = %Texinfo::Common::explained_commands;
 my %inline_format_commands    = %Texinfo::Common::inline_format_commands;
@@ -378,18 +378,19 @@ foreach my $block_command (keys(%block_commands)) {
 }
 
 # commands that may appear in accents
-my %in_accent_commands = %accent_commands;
+my %in_plain_text_commands = %accent_commands;
 foreach my $brace_command(keys(%brace_commands)) {
-  $in_accent_commands{$brace_command} = 1
+  $in_plain_text_commands{$brace_command} = 1
      if ($brace_commands{$brace_command} eq 'noarg');
 }
 foreach my $no_brace_command (keys(%nobrace_commands)) {
-  $in_accent_commands{$no_brace_command} = 1;
+  $in_plain_text_commands{$no_brace_command} = 1;
 }
-$in_accent_commands{'c'} = 1;
-$in_accent_commands{'comment'} = 1;
+$in_plain_text_commands{'c'} = 1;
+$in_plain_text_commands{'comment'} = 1;
 
-# commands that may appear in text arguments
+# commands that may appear in any text argument, similar constraints
+# as in paragraphs.
 my %in_full_text_commands;
 foreach my $command (keys(%brace_commands), keys(%nobrace_commands)) {
   $in_full_text_commands{$command} = 1;
@@ -410,31 +411,33 @@ foreach my $block_command (keys(%block_commands)) {
     if ($block_commands{$block_command} eq 'conditional');
 }
 
-
 # commands that may appear inside sectioning commands
-my %in_full_line_commands_no_refs = %in_full_text_commands;
-foreach my $not_in_full_line_commands_no_refs ('titlefont',
+my %in_simple_text_with_refs_commands = %in_full_text_commands;
+foreach my $not_in_simple_text_with_refs_commands ('titlefont',
                                    'anchor', 'footnote', 'verb') {
-  delete $in_full_line_commands_no_refs{$not_in_full_line_commands_no_refs};
+  delete $in_simple_text_with_refs_commands{$not_in_simple_text_with_refs_commands};
 }
 
 # commands that may happen in simple text arguments
-my %in_simple_text_commands = %in_full_line_commands_no_refs;
+my %in_simple_text_commands = %in_simple_text_with_refs_commands;
 foreach my $not_in_simple_text_command('xref', 'ref', 'pxref', 'inforef') {
   delete $in_simple_text_commands{$not_in_simple_text_command};
 }
 
-my %in_simple_text_headings_commands = (%in_simple_text_commands,
-                                        %in_heading_commands);
+my %in_heading_spec_simple_text_commands = (%in_simple_text_commands,
+                                            %in_heading_spec_commands);
 
-# should not appear in any line command except for heading commands.
+# @this* commands should not appear in any line command except for
+# page heading specification commands but can appear in brace @-commands,
+# on heading specification commands lines, such as indicatric @-commands.
 # Therefore they are set here, such that they do not end up in
-# %in_full_line_commands_no_refs.  Alternatively they could have been
+# %in_simple_text_with_refs_commands.  Alternatively they could have been
 # put in %in_full_text_commands and then removed as
-# $not_in_full_line_commands_no_refs.
-foreach my $in_full_text_no_in_simple_text (keys(%in_heading_commands)) {
-  $in_full_text_commands{$in_full_text_no_in_simple_text} = 1;
+# $not_in_simple_text_with_refs_commands.
+foreach my $in_full_text_not_in_simple_text (keys(%in_heading_spec_commands)) {
+  $in_full_text_commands{$in_full_text_not_in_simple_text} = 1;
 }
+
 
 # commands that only accept simple text as argument in any context.
 my %simple_text_commands;
@@ -449,10 +452,10 @@ foreach my $line_command(keys(%line_commands)) {
   }
 }
 
-my %simple_text_headings_commands = (%heading_spec_commands);
+my %simple_text_heading_spec_commands = (%heading_spec_commands);
 
-my %full_line_commands_no_refs = (%sectioning_heading_commands,
-                                  %def_commands);
+my %simple_text_with_refs_commands = (%sectioning_heading_commands,
+                                      %def_commands);
 
 delete $simple_text_commands{'center'};
 delete $simple_text_commands{'exdent'};
@@ -464,6 +467,7 @@ foreach my $command (keys (%brace_commands)) {
   }
 }
 
+# %brace_commands 'context'
 foreach my $command ('shortcaption', 'math') {
   $simple_text_commands{$command} = 1;
 }
@@ -496,19 +500,19 @@ $full_line_commands{'itemx'} = 1;
 my %default_valid_nestings;
 
 foreach my $command (keys(%accent_commands)) {
-  $default_valid_nestings{$command} = \%in_accent_commands;
+  $default_valid_nestings{$command} = \%in_plain_text_commands;
 }
 foreach my $command (keys(%simple_text_commands)) {
   $default_valid_nestings{$command} = \%in_simple_text_commands;
 }
-foreach my $command (keys(%simple_text_headings_commands)) {
-  $default_valid_nestings{$command} = \%in_simple_text_headings_commands;
+foreach my $command (keys(%simple_text_heading_spec_commands)) {
+  $default_valid_nestings{$command} = \%in_heading_spec_simple_text_commands;
 }
 foreach my $command (keys(%full_text_commands), keys(%full_line_commands)) {
   $default_valid_nestings{$command} = \%in_full_text_commands;
 }
-foreach my $command (keys(%full_line_commands_no_refs)) {
-  $default_valid_nestings{$command} = \%in_full_line_commands_no_refs;
+foreach my $command (keys(%simple_text_with_refs_commands)) {
+  $default_valid_nestings{$command} = \%in_simple_text_with_refs_commands;
 }
 
 # Only for block commands with line arguments
@@ -3847,9 +3851,9 @@ sub _check_valid_nesting {
         $invalid_parent = $current->{'parent'}->{'cmdname'};
       }
     } elsif ($self->_top_context() eq 'ct_def'
-      # FIXME instead of hardcoding in_full_line_commands_no_refs
+      # FIXME instead of hardcoding in_simple_text_with_refs_commands
       # it would be better to use the parent command valid_nesting.
-             and !$in_full_line_commands_no_refs{$command}) {
+             and !$in_simple_text_with_refs_commands{$command}) {
       my $def_block = $current;
       while ($def_block->{'parent'}
              and (!$def_block->{'parent'}->{'type'}
@@ -4574,7 +4578,7 @@ sub _process_remaining_on_line($$$$)
       my $misc;
 
       if ($arg_spec eq 'noarg') {
-        if ($in_heading_commands{$command}) {
+        if ($in_heading_spec_commands{$command}) {
           # TODO use a more generic system for check of @-command nesting
           # in command on context stack
           my $top_context_command = $self->_top_context_command();

@@ -636,17 +636,17 @@ our %other_commands = (
   'refill'            => 'noarg',     # obsolete
 );
 
-# only valid in heading or footing
-our %in_heading_commands;
+# only valid in heading or footing specifications
+our %in_heading_spec_commands;
 foreach my $in_heading_command ('thischapter', 'thischaptername',
    'thischapternum', 'thissection', 'thissectionname', 'thissectionnum',
    'thisfile', 'thispage', 'thistitle') {
-  $in_heading_commands{$in_heading_command} = 1;
+  $in_heading_spec_commands{$in_heading_command} = 1;
 
   $other_commands{$in_heading_command} = 'noarg';
 }
 
-# %in_heading_commands and @| are only valid in the following @-commands
+# %in_heading_spec_commands and @| are only valid in the following @-commands
 our %heading_spec_commands;
 foreach my $headings_specification_command ('everyheading', 'everyfooting',
   'evenheading', 'evenfooting', 'oddheading', 'oddfooting') {
@@ -1195,7 +1195,7 @@ foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',
 
 foreach my $formattable_or_formatted_misc_command (
    keys(%formattable_misc_commands), keys(%formatted_misc_commands),
-        keys(%default_index_commands), keys(%in_heading_commands),
+        keys(%default_index_commands), keys(%in_heading_spec_commands),
         keys(%def_commands)) {
   delete $preamble_commands{$formattable_or_formatted_misc_command};
 }
@@ -3088,8 +3088,8 @@ X<C<%heading_spec_commands>>
 
 @-commands used to specify custom headings, like C<@everyheading>.
 
-=item %in_heading_commands
-X<C<%in_heading_commands>>
+=item %in_heading_spec_commands
+X<C<%in_heading_spec_commands>>
 
 Special @-commands appearing in custom headings, such as C<@thischapter>
 or C<@thistitle>.

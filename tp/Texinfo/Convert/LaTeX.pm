@@ -239,14 +239,14 @@ my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 my %heading_spec_commands = %Texinfo::Common::heading_spec_commands;
-my %in_heading_commands = %Texinfo::Common::in_heading_commands;
+my %in_heading_spec_commands = %Texinfo::Common::in_heading_spec_commands;
 my %unformatted_brace_command = %Texinfo::Common::unformatted_brace_command;
 
 my %preamble_commands = %Texinfo::Common::preamble_commands;
 
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
-  keys(%in_heading_commands),
+  keys(%in_heading_spec_commands),
   keys(%formattable_misc_commands),
   'indent', 'noindent') {
   $formatted_misc_commands{$kept_command} = 1;
@@ -448,7 +448,7 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'cmd_math'}}) {
 # not exist in the default case.  it is defined in the pagenote package together with
 # \pagename which is page in the default case, but it is unclear if this
 # can be used as a basis for translations
-my %LaTeX_in_heading_commands = (
+my %LaTeX_in_heading_spec_commands = (
   'thischapter' => '\chaptername{} \thechapter{} \chaptertitle{}',
   'thischaptername' => '\chaptertitle{}',
   'thischapternum' => '\thechapter{}',
@@ -3391,8 +3391,8 @@ sub _convert($$)
         $result .= "\\needspace{${need_value}pt}%\n";
       }
       return $result;
-    } elsif ($in_heading_commands{$cmdname}) {
-      $result .= $LaTeX_in_heading_commands{$cmdname};
+    } elsif ($in_heading_spec_commands{$cmdname}) {
+      $result .= $LaTeX_in_heading_spec_commands{$cmdname};
       return $result;
     } elsif ($cmdname eq 'title') {
       my $title_text = _title_font($self, $element);

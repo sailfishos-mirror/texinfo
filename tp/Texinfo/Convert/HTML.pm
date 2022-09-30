@@ -6990,7 +6990,7 @@ sub converter_initialize($)
   my $customized_commands_conversion
      = Texinfo::Config::GNUT_get_commands_conversion();
   foreach my $command (keys(%misc_commands), keys(%brace_commands),
-     keys (%block_commands), keys(%nobrace_commands), 'value') {
+     keys (%block_commands), keys(%nobrace_commands)) {
     if (exists($customized_commands_conversion->{$command})) {
       $self->{'commands_conversion'}->{$command}
           = $customized_commands_conversion->{$command};
@@ -7010,7 +7010,7 @@ sub converter_initialize($)
   my $customized_commands_open
      = Texinfo::Config::GNUT_get_commands_open();
   foreach my $command (keys(%misc_commands), keys(%brace_commands),
-     keys (%block_commands), keys(%nobrace_commands), 'value') {
+     keys (%block_commands), keys(%nobrace_commands)) {
     if (exists($customized_commands_open->{$command})) {
       $self->{'commands_open'}->{$command}
           = $customized_commands_open->{$command};
