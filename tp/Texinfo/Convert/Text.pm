@@ -386,7 +386,8 @@ sub _convert($;$)
                  or ($ignored_block_commands{$element->{'cmdname'}}
                      and !(defined($options->{'expanded_formats_hash'})
                            and $options->{'expanded_formats_hash'}->{$element->{'cmdname'}}))
-                 or ($Texinfo::Common::inline_commands{$element->{'cmdname'}}
+                 or ($Texinfo::Common::brace_commands{$element->{'cmdname'}}
+                     and $Texinfo::Common::brace_commands{$element->{'cmdname'}} eq 'inline'
                      and $element->{'cmdname'} ne 'inlinefmtifelse'
                      and (($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
                           and (!$element->{'extra'}->{'format'}
@@ -494,7 +495,8 @@ sub _convert($;$)
       } else {
         return _convert($element->{'args'}->[0], $options);
       }
-    } elsif ($Texinfo::Common::inline_commands{$element->{'cmdname'}}) {
+    } elsif ($Texinfo::Common::brace_commands{$element->{'cmdname'}}
+             and $Texinfo::Common::brace_commands{$element->{'cmdname'}} eq 'inline') {
       $options->{'raw'} = 1 if ($element->{'cmdname'} eq 'inlineraw');
       my $arg_index = 1;
       if ($element->{'cmdname'} eq 'inlinefmtifelse'

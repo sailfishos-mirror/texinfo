@@ -928,8 +928,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
             && outer != CM_center
             && outer != CM_exdent)
       || ((outer_flags & CF_brace)
-           && !(outer_flags & CF_inline)
-           && command_data(outer).data > 0)
+           && command_data(outer).data == BRACE_arguments)
       || outer == CM_shortcaption
       || outer == CM_math
       || (outer_flags & CF_index_entry_command)

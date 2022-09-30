@@ -84,6 +84,7 @@ void wipe_user_commands (void);
 #define CF_item_line			0x02000000
 #define CF_nobrace			0x04000000
 #define CF_blockitem			0x08000000
+/* CF_inline is not used */
 #define CF_inline			0x10000000
 #define CF_MACRO 			0x20000000
 #define CF_index_entry_command  	0x40000000
@@ -131,6 +132,7 @@ void wipe_user_commands (void);
 #define BRACE_style_no_code -6
 #define BRACE_other -7
 #define BRACE_special -8
+#define BRACE_inline -9
 
 /* Types of internal commands (CF_internal). */
 #define INTERNAL_brace -1

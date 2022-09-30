@@ -795,13 +795,11 @@ foreach my $explained_command ('abbr', 'acronym') {
 }
 
 our %inline_format_commands;
-our %inline_commands;
 foreach my $inline_format_command ('inlineraw', 'inlinefmt',
         'inlinefmtifelse') {
   $inline_format_commands{$inline_format_command} = 1;
   $commands_args_number{$inline_format_command} = 2;
-  $brace_commands{$inline_format_command} = 'arguments';
-  $inline_commands{$inline_format_command} = 1;
+  $brace_commands{$inline_format_command} = 'inline';
 }
 
 $commands_args_number{'inlinefmtifelse'} = 3;
@@ -810,8 +808,7 @@ our %inline_conditional_commands;
 foreach my $inline_conditional_command ('inlineifclear', 'inlineifset') {
   $inline_conditional_commands{$inline_conditional_command} = 1;
   $commands_args_number{$inline_conditional_command} = 2;
-  $brace_commands{$inline_conditional_command} = 'arguments';
-  $inline_commands{$inline_conditional_command} = 1;
+  $brace_commands{$inline_conditional_command} = 'inline';
 }
 
 foreach my $two_arg_command('email') {
@@ -1187,7 +1184,7 @@ our %preamble_commands;
 foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',
        'inlineraw', '*', keys(%document_settable_at_commands),
        (grep {$block_commands{$_} eq 'format_raw'} keys(%block_commands)),
-       keys(%inline_commands),
+       keys(%inline_format_commands), keys(%inline_conditional_commands),
        keys(%unformatted_block_commands), keys(%misc_commands),
        keys(%region_commands)) {
   $preamble_commands{$preamble_command} = 1;
@@ -3094,12 +3091,9 @@ X<C<%in_heading_spec_commands>>
 Special @-commands appearing in custom headings, such as C<@thischapter>
 or C<@thistitle>.
 
-=item %inline_commands
-
 =item %inline_conditional_commands
 
 =item %inline_format_commands
-X<C<%inline_commands>>
 X<C<%inline_conditional_commands>>
 X<C<%inline_format_commands>>
 

@@ -136,8 +136,9 @@ handle_open_brace (ELEMENT *current, char **line_inout)
         {
           current->type = ET_brace_command_arg;
 
-          /* Commands that disregard leading and trailing whitespace. */
-          if (command_data(command).data == BRACE_arguments)
+          /* Commands that disregard leading whitespace. */
+          if (command_data(command).data == BRACE_arguments
+              || command_data(command).data == BRACE_inline)
             {
               ELEMENT *e;
               e = new_element (ET_internal_spaces_before_argument);
@@ -251,9 +252,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       /* determine if trailing spaces are ignored */
       else if (command_data(current->parent->cmd).data == BRACE_arguments)
         {
-          /* @inline* always have end spaces considered as normal text */
-          if (!(command_flags(current->parent) & CF_inline))
-            isolate_last_space (current);
+          isolate_last_space (current);
         }
 
       closed_command = current->parent->cmd;
@@ -387,7 +386,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                 }
             }
         }
-      else if ((command_data(closed_command).flags & CF_inline)
+      else if ((command_data(closed_command).data == BRACE_inline)
                || closed_command == CM_abbr
                || closed_command == CM_acronym)
         {
@@ -559,7 +558,7 @@ handle_comma (ELEMENT *current, char **line_inout)
   type = current->type;
   current = current->parent;
 
-  if (command_flags(current) & CF_inline)
+  if (command_data(current->cmd).data == BRACE_inline)
     {
       KEY_PAIR *k;
       int expandp = 0;

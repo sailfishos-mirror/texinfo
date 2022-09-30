@@ -287,7 +287,6 @@ my %in_heading_spec_commands  = %Texinfo::Common::in_heading_spec_commands;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
 my %explained_commands        = %Texinfo::Common::explained_commands;
 my %inline_format_commands    = %Texinfo::Common::inline_format_commands;
-my %inline_commands           = %Texinfo::Common::inline_commands;
 my %all_commands              = %Texinfo::Common::all_commands;
 
 # equivalence between a @set flag and an @@-command
@@ -461,8 +460,7 @@ delete $simple_text_commands{'center'};
 delete $simple_text_commands{'exdent'};
 
 foreach my $command (keys (%brace_commands)) {
-  if ($brace_commands{$command} eq 'arguments'
-      and !$inline_commands{$command}) {
+  if ($brace_commands{$command} eq 'arguments') {
     $simple_text_commands{$command} = 1;
   }
 }
@@ -5264,9 +5262,10 @@ sub _process_remaining_on_line($$$$)
           };
         } else {
           $current->{'type'} = 'brace_command_arg';
-          # Commands that disregard leading and trailing whitespace.
+          # Commands that disregard leading whitespace.
           if ($brace_commands{$command}
-              and $brace_commands{$command} eq 'arguments') {
+              and ($brace_commands{$command} eq 'arguments'
+                   or $brace_commands{$command} eq 'inline')) {
             # internal_spaces_before_argument is a transient internal type,
             # which should end up in extra spaces_before_argument.
             push @{$current->{'contents'}}, {
@@ -5348,9 +5347,7 @@ sub _process_remaining_on_line($$$$)
         if ($brace_commands{$current->{'parent'}->{'cmdname'}}
             and $brace_commands{$current->{'parent'}{'cmdname'}} eq 'arguments'
             and $current->{'parent'}->{'cmdname'} ne 'math') {
-          # @inline* always have end spaces considered as normal text
-          _isolate_last_space($self, $current)
-            unless ($inline_commands{$current->{'parent'}->{'cmdname'}});
+          _isolate_last_space($self, $current);
         }
         my $closed_command = $current->{'parent'}->{'cmdname'};
         print STDERR "CLOSING(brace) \@$current->{'parent'}->{'cmdname'}\n"
@@ -5457,9 +5454,10 @@ sub _process_remaining_on_line($$$$)
             }
           }
         } elsif ($explained_commands{$current->{'parent'}->{'cmdname'}}
-                 or $inline_commands{$current->{'parent'}->{'cmdname'}}) {
+                 or ($brace_commands{$current->{'parent'}->{'cmdname'}}
+                     and $brace_commands{$current->{'parent'}->{'cmdname'}} eq 'inline')) {
           my $current_command = $current->{'parent'};
-          if ($inline_commands{$current_command->{'cmdname'}}) {
+          if ($brace_commands{$current_command->{'cmdname'}} eq 'inline') {
             if ($current_command->{'cmdname'} eq 'inlineraw') {
               $self->_pop_context(['ct_inlineraw'], $source_info, $current,
                                   ' inlineraw');
@@ -5577,7 +5575,8 @@ sub _process_remaining_on_line($$$$)
       _isolate_last_space($self, $current);
       my $type = $current->{'type'};
       $current = $current->{'parent'};
-      if ($inline_commands{$current->{'cmdname'}}) {
+      if ($brace_commands{$current->{'cmdname'}}
+          and $brace_commands{$current->{'cmdname'}} eq 'inline') {
         my $expandp = 0;
         #$current->{'extra'} = {} if (!$current->{'extra'});
         if (! $current->{'extra'}->{'format'}) {

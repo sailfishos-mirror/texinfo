@@ -108,7 +108,6 @@ my %root_commands = %Texinfo::Common::root_commands;
 my %preformatted_commands = %Texinfo::Common::preformatted_commands;
 my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
-my %inline_commands = %Texinfo::Common::inline_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
@@ -3903,7 +3902,8 @@ sub _convert_inline_command($$$$)
   return '';
 }
 
-foreach my $command (keys(%inline_commands)) {
+foreach my $command (grep {$brace_commands{$_} eq 'inline'}
+                           keys(%brace_commands)) {
   $default_commands_conversion{$command} = \&_convert_inline_command;
 }
 

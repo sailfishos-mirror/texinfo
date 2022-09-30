@@ -328,14 +328,15 @@ math                    brace,math                      BRACE_context
 abbr                    brace                           BRACE_arguments     2
 acronym                 brace                           BRACE_arguments     2
 
+# leading space is ignored in inline brace commands, not trailing space
 # inline format command
-inlineraw               brace,inline                    BRACE_arguments     2
-inlinefmt               brace,inline                    BRACE_arguments     2
-inlinefmtifelse         brace,inline                    BRACE_arguments     3
+inlineraw               brace                           BRACE_inline        2
+inlinefmt               brace                           BRACE_inline        2
+inlinefmtifelse         brace                           BRACE_inline        3
 
 # inline conditional commands
-inlineifclear           brace,inline                    BRACE_arguments     2
-inlineifset             brace,inline                    BRACE_arguments     2
+inlineifclear           brace                           BRACE_inline        2
+inlineifset             brace                           BRACE_inline        2
 
 email                   brace                           BRACE_arguments     2
 

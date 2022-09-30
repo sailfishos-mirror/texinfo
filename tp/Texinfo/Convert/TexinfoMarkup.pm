@@ -195,14 +195,18 @@ foreach my $explained_command (keys(%Texinfo::Common::explained_commands)) {
                                                  "${explained_command}desc"];
 }
 
-foreach my $inline_command (keys(%Texinfo::Common::inline_commands)) {
-  $commands_args_elements{$inline_command} = ["${inline_command}format",
-                                              "${inline_command}content"];
-}
+foreach my $brace_command (keys(%Texinfo::Common::brace_commands)) {
+  if ($Texinfo::Common::brace_commands{$brace_command} eq 'inline') {
+    if ($brace_command eq 'inlinefmtifelse') {
+      $commands_args_elements{$brace_command} = ["${brace_command}format",
+             "${brace_command}contentif", "${brace_command}contentelse"];
 
-my $inline_command = 'inlinefmtifelse';
-$commands_args_elements{$inline_command} = ["${inline_command}format",
-             "${inline_command}contentif", "${inline_command}contentelse"];
+    } else {
+      $commands_args_elements{$brace_command} = ["${brace_command}format",
+                                                 "${brace_command}content"];
+    }
+  }
+}
 
 my %defcommand_name_type = (
  'deffn'     => 'function',

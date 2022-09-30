@@ -1,5 +1,18 @@
 2022-09-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/ParserNonXS.pm
+	(_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h, tp/Texinfo/XS/parsetexi/parser.c
+	(check_valid_nesting), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace, handle_close_brace, handle_comma): replace
+	%inline_commands/CF_inline with the brace command inline type/BRACE_inline.
+
+2022-09-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%in_heading_spec_commands),
 	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/ParserNonXS.pm: rename
 	%in_heading_commands as %in_heading_spec_commands.

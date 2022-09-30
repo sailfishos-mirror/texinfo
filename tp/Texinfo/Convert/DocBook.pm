@@ -1402,7 +1402,7 @@ sub _convert($$;$)
         }
         return $result;
 
-      } elsif ($Texinfo::Common::inline_commands{$element->{'cmdname'}}) {
+      } elsif ($Texinfo::Common::brace_commands{$element->{'cmdname'}} eq 'inline') {
         my $expand = 0;
         if ($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}) {
           if ($element->{'cmdname'} eq 'inlinefmtifelse'

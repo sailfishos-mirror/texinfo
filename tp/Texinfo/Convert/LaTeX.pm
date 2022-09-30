@@ -233,7 +233,6 @@ my %preformatted_commands = %Texinfo::Common::preformatted_commands;
 my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
-my %inline_commands = %Texinfo::Common::inline_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
@@ -2209,7 +2208,8 @@ sub _convert($$)
   if ((defined($type) and $self->{'ignored_types'}->{$type})
        or (defined($cmdname)
             and ($self->{'ignored_commands'}->{$cmdname}
-                 or ($inline_commands{$cmdname}
+                 or ($Texinfo::Common::brace_commands{$cmdname}
+                     and $Texinfo::Common::brace_commands{$cmdname} eq 'inline'
                      and $cmdname ne 'inlinefmtifelse'
                      and (($inline_format_commands{$cmdname}
                           and (!$element->{'extra'}->{'format'}
@@ -2965,7 +2965,8 @@ sub _convert($$)
         }
       }
       return $result;
-    } elsif ($inline_commands{$cmdname}) {
+    } elsif ($Texinfo::Common::brace_commands{$cmdname}
+             and $Texinfo::Common::brace_commands{$cmdname} eq 'inline') {
       my $arg_index = 1;
       if ($cmdname eq 'inlinefmtifelse'
           and (!$element->{'extra'}->{'format'}
