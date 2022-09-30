@@ -97,6 +97,8 @@ sub import {
 my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
 my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
 my %nobrace_commands = %Texinfo::Common::nobrace_commands;
+my %line_commands = %Texinfo::Common::line_commands;
+my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %misc_commands = %Texinfo::Common::misc_commands;
 my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
@@ -2281,9 +2283,9 @@ $default_no_arg_commands_formatting{'preformatted'}->{'*'}->{'text'} = "\n";
 # is protected as CSS as a\'b", and " is escaped in an HTML style
 # attribute: style="list-style-type: 'a\'b&quot;'"
 
-foreach my $no_brace_command (keys(%nobrace_commands)) {
+foreach my $no_brace_command (keys(%nobrace_symbol_text)) {
   $default_no_arg_commands_formatting{'css_string'}->{$no_brace_command}->{'text'}
-   = $nobrace_commands{$no_brace_command};
+   = $nobrace_symbol_text{$no_brace_command};
 }
 
 foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
@@ -2303,8 +2305,8 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   } elsif ($default_no_arg_commands_formatting{'normal'}->{$command}->{'text'}) {
     $default_no_arg_commands_formatting{'css_string'}->{$command}->{'text'} =
       $default_no_arg_commands_formatting{'normal'}->{$command}->{'text'};
-  } elsif (exists($nobrace_commands{$command})
-           and $nobrace_commands{$command} eq '') {
+  } elsif (exists($nobrace_symbol_text{$command})
+           and $nobrace_symbol_text{$command} eq '') {
     # @- @/ @/ @|
     $default_no_arg_commands_formatting{'css_string'}->{$command}->{'text'} = '';
   } else {
@@ -6989,7 +6991,7 @@ sub converter_initialize($)
   # FIXME put value in a category in Texinfo::Common?
   my $customized_commands_conversion
      = Texinfo::Config::GNUT_get_commands_conversion();
-  foreach my $command (keys(%misc_commands), keys(%brace_commands),
+  foreach my $command (keys(%line_commands), keys(%brace_commands),
      keys (%block_commands), keys(%nobrace_commands)) {
     if (exists($customized_commands_conversion->{$command})) {
       $self->{'commands_conversion'}->{$command}
@@ -7009,7 +7011,7 @@ sub converter_initialize($)
 
   my $customized_commands_open
      = Texinfo::Config::GNUT_get_commands_open();
-  foreach my $command (keys(%misc_commands), keys(%brace_commands),
+  foreach my $command (keys(%line_commands), keys(%brace_commands),
      keys (%block_commands), keys(%nobrace_commands)) {
     if (exists($customized_commands_open->{$command})) {
       $self->{'commands_open'}->{$command}

@@ -216,7 +216,7 @@ foreach my $informative_command (keys (%Texinfo::Common::document_settable_at_co
   $informative_commands{$informative_command} = 1;
 }
 
-my %nobrace_commands = %Texinfo::Common::nobrace_commands;
+my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %brace_no_arg_commands;
 foreach my $command (keys (%Texinfo::Common::brace_commands)) {
   $brace_no_arg_commands{$command} = 1
@@ -2290,7 +2290,7 @@ sub _convert($$)
       $command_format_context = 'cmd_math';
     }
     my $did_stop_embrac;
-    if (defined($nobrace_commands{$cmdname})) {
+    if (defined($nobrace_symbol_text{$cmdname})) {
       if ($cmdname eq ':') {
         if ($command_format_context ne 'cmd_math') {
           $result .= "\\\@";
@@ -2350,7 +2350,7 @@ sub _convert($$)
           $result .= "\\$cmdname";
         }
       } else {
-        $result .= _protect_text($self, $nobrace_commands{$cmdname});
+        $result .= _protect_text($self, $nobrace_symbol_text{$cmdname});
       }
       return $result;
     } elsif (exists($brace_no_arg_commands{$cmdname})) {

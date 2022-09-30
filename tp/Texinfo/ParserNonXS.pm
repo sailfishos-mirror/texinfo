@@ -263,7 +263,6 @@ my %initialization_overrides = (
 
 my %nobrace_commands          = %Texinfo::Common::nobrace_commands;
 my %line_commands             = %Texinfo::Common::line_commands;
-my %other_commands            = %Texinfo::Common::other_commands;
 my %brace_commands            = %Texinfo::Common::brace_commands;
 my %commands_args_number      = %Texinfo::Common::commands_args_number;
 my %accent_commands           = %Texinfo::Common::accent_commands;
@@ -347,7 +346,7 @@ foreach my $no_paragraph_command ('titlefont', 'caption', 'shortcaption',
 }
 
 foreach my $no_paragraph_command (keys(%line_commands),
-                                  keys(%other_commands)) {
+      grep {$nobrace_commands{$_} ne 'symbol'} keys(%nobrace_commands)) {
   $default_no_paragraph_commands{$no_paragraph_command} = 1;
 }
 
@@ -382,8 +381,12 @@ foreach my $brace_command(keys(%brace_commands)) {
   $in_plain_text_commands{$brace_command} = 1
      if ($brace_commands{$brace_command} eq 'noarg');
 }
+my %symbol_nobrace_commands;
 foreach my $no_brace_command (keys(%nobrace_commands)) {
-  $in_plain_text_commands{$no_brace_command} = 1;
+  if ($nobrace_commands{$no_brace_command} eq 'symbol') {
+    $symbol_nobrace_commands{$no_brace_command} = 1;
+    $in_plain_text_commands{$no_brace_command} = 1;
+  }
 }
 $in_plain_text_commands{'c'} = 1;
 $in_plain_text_commands{'comment'} = 1;
@@ -391,7 +394,7 @@ $in_plain_text_commands{'comment'} = 1;
 # commands that may appear in any text argument, similar constraints
 # as in paragraphs.
 my %in_full_text_commands;
-foreach my $command (keys(%brace_commands), keys(%nobrace_commands)) {
+foreach my $command (keys(%brace_commands), keys(%symbol_nobrace_commands)) {
   $in_full_text_commands{$command} = 1;
 }
 foreach my $in_full_text_command ('c', 'comment', 'refill', 'subentry',
@@ -4569,13 +4572,16 @@ sub _process_remaining_on_line($$$$)
       }
     }
 
-    if (defined($other_commands{$command})
+    if (defined($nobrace_commands{$command})
         and ($command ne 'item' or !_item_line_parent($current))) {
-      # noarg skipspace
-      my $arg_spec = $other_commands{$command};
+      # symbol skipspace other
+      my $arg_spec = $nobrace_commands{$command};
       my $misc;
 
-      if ($arg_spec eq 'noarg') {
+      if ($arg_spec ne 'skipspace') {
+        $misc = {'cmdname' => $command, 'parent' => $current};
+        push @{$current->{'contents'}}, $misc;
+
         if ($in_heading_spec_commands{$command}) {
           # TODO use a more generic system for check of @-command nesting
           # in command on context stack
@@ -4587,11 +4593,23 @@ sub _process_remaining_on_line($$$$)
                     $command), $source_info);
           }
         }
-        $misc = {'cmdname' => $command, 'parent' => $current};
-        push @{$current->{'contents'}}, $misc;
-        _register_global_command($self, $misc, $source_info);
-        $current = _begin_preformatted($self, $current)
-          if ($close_preformatted_commands{$command});
+        if ($arg_spec eq 'symbol') {
+          # FIXME generalize?
+          if ($command eq '\\' and $self->_top_context() ne 'ct_math') {
+            $self->_line_warn(sprintf(
+                       __("\@%s should only appear in math context"),
+                                  $command), $source_info);
+          }
+          if ($command eq "\n") {
+            $current = _end_line($self, $current, $source_info);
+            $retval = $GET_A_NEW_LINE;
+            goto funexit;
+          }
+        } else { # other
+          _register_global_command($self, $misc, $source_info);
+          $current = _begin_preformatted($self, $current)
+            if ($close_preformatted_commands{$command});
+        }
       } else {
         if ($command eq 'item'
             or $command eq 'headitem' or $command eq 'tab') {
@@ -5172,20 +5190,6 @@ sub _process_remaining_on_line($$$$)
           = $self->{'definfoenclose'}->{$command}->[0];
         $current->{'extra'}->{'end'}
           = $self->{'definfoenclose'}->{$command}->[1];
-      }
-    } elsif (exists ($nobrace_commands{$command})) {
-      push @{$current->{'contents'}},
-             { 'cmdname' => $command, 'parent' => $current };
-      # FIXME generalize?
-      if ($command eq '\\' and $self->_top_context() ne 'ct_math') {
-        $self->_line_warn(sprintf(
-                       __("\@%s should only appear in math context"),
-                                  $command), $source_info);
-      }
-      if ($command eq "\n") {
-        $current = _end_line($self, $current, $source_info);
-        $retval = $GET_A_NEW_LINE;
-        goto funexit;
       }
     }
   } elsif ($separator_match) {

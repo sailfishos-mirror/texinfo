@@ -142,7 +142,7 @@ foreach my $accent_letter ('o','O','l','L') {
 }
 
 my %accent_commands = %Texinfo::Common::accent_commands;
-my %nobrace_commands = %Texinfo::Common::nobrace_commands;
+my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
 # 'page' is a formatted_misc_commands and therefore is replaced by an empty line.
 
@@ -433,8 +433,8 @@ sub _convert($;$)
   }
   if ($element->{'cmdname'}) {
     my $command = $element->{'cmdname'};
-    if (defined($nobrace_commands{$element->{'cmdname'}})) {
-      return $nobrace_commands{$element->{'cmdname'}};
+    if (defined($nobrace_symbol_text{$element->{'cmdname'}})) {
+      return $nobrace_symbol_text{$element->{'cmdname'}};
     } elsif ($element->{'cmdname'} eq 'today') {
       if ($options->{'sort_string'}
           and $sort_brace_no_arg_commands{$element->{'cmdname'}}) {

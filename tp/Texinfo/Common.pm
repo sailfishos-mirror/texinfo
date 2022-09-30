@@ -476,8 +476,8 @@ sub valid_tree_transformation ($)
 
 # @-commands classifications and other information on @-commands
 
-our %nobrace_commands;             # commands never taking braces
-%nobrace_commands = (
+our %nobrace_symbol_text;
+%nobrace_symbol_text = (
            '*', "\n",
            ' ', ' ',
            "\t", ' ',
@@ -495,6 +495,12 @@ our %nobrace_commands;             # commands never taking braces
            '&', '&',
            '\\', '\\',  # should only appear in math
 );
+
+# commands never taking braces
+our %nobrace_commands;
+foreach my $nobrace_command (keys(%nobrace_symbol_text)) {
+  $nobrace_commands{$nobrace_command} = 'symbol';
+}
 
 # @-commands max number of arguments.  Not set for all commands,
 # in general it only matters if > 1, as commands with 0 args
@@ -626,14 +632,14 @@ $commands_args_number{'node'} = 4;
 # skipspace:   no argument, following spaces are skipped.
 # noarg:       no argument
 #
-our %other_commands = (
+my %other_commands = (
   # formatting
   'noindent'          => 'skipspace',
   'indent'            => 'skipspace',
   'headitem'          => 'skipspace',
   'item'              => 'skipspace', # or line, depending on the context
   'tab'               => 'skipspace',
-  'refill'            => 'noarg',     # obsolete
+  'refill'            => 'other',     # obsolete
 );
 
 # only valid in heading or footing specifications
@@ -643,7 +649,11 @@ foreach my $in_heading_command ('thischapter', 'thischaptername',
    'thisfile', 'thispage', 'thistitle') {
   $in_heading_spec_commands{$in_heading_command} = 1;
 
-  $other_commands{$in_heading_command} = 'noarg';
+  $other_commands{$in_heading_command} = 'other';
+}
+
+foreach my $nobrace_command (keys(%other_commands)) {
+  $nobrace_commands{$nobrace_command} = $other_commands{$nobrace_command};
 }
 
 # %in_heading_spec_commands and @| are only valid in the following @-commands
@@ -1173,7 +1183,7 @@ our %all_commands;
 foreach my $command (
   keys(%Texinfo::Common::block_commands),
   keys(%Texinfo::Common::brace_commands),
-  keys(%Texinfo::Common::misc_commands),
+  keys(%Texinfo::Common::line_commands),
   keys(%Texinfo::Common::nobrace_commands),
  ) {
   $all_commands{$command} = 1;
@@ -3119,8 +3129,8 @@ C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>, C<@end>, C<@footnotestyle>,
 C<@set>, C<@settitle>, C<@indent>, C<@definfoenclose>, C<@comment> and many
 others.
 
-=item %nobrace_commands
-X<C<%nobrace_commands>>
+=item %nobrace_symbol_text
+X<C<%nobrace_symbol_text>>
 
 Commands without brace with a single character as name, like C<*>
 or C<:>.  The value is an ASCII representation of the command.  It

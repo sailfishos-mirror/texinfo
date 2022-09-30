@@ -850,7 +850,7 @@ sub _convert($$;$)
         }
         return $self->txi_markup_open_element($cmdname, $attribute)
                  .$self->txi_markup_close_element($cmdname)."\n";
-      } elsif ($type eq 'noarg' or $type eq 'skipspace') {
+      } elsif ($type eq 'other' or $type eq 'skipspace') {
         my $spaces = '';
         $spaces = $element->{'extra'}->{'spaces_after_command'}
           if ($element->{'extra'} and $element->{'extra'}->{'spaces_after_command'}

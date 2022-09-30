@@ -118,8 +118,8 @@ sub _convert($$)
     return $element->{'text'};
   }
   if (defined($element->{'cmdname'})) {
-    if (exists($Texinfo::Common::nobrace_commands{$element->{'cmdname'}})) {
-      return $Texinfo::Common::nobrace_commands{$element->{'cmdname'}};
+    if (exists($Texinfo::Common::nobrace_symbol_text{$element->{'cmdname'}})) {
+      return $Texinfo::Common::nobrace_symbol_text{$element->{'cmdname'}};
     } elsif ($element->{'cmdname'} eq 'today') {
       if ($self->get_conf('TEST')) {
         return 'a sunny day';

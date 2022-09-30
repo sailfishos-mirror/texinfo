@@ -83,7 +83,7 @@ sub get_informative_global_commands($)
   return @informative_global_commands;
 }
 
-my %nobrace_commands = %Texinfo::Common::nobrace_commands;
+my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %brace_no_arg_commands;
 foreach my $command (keys (%brace_commands)) {
   $brace_no_arg_commands{$command} = 1 
@@ -1718,7 +1718,7 @@ sub _convert($$)
   my $preformatted;
   if ($command) {
     my $unknown_command;
-    if (defined($nobrace_commands{$command})) {
+    if (defined($nobrace_symbol_text{$command})) {
       if ($command eq ':') {
         remove_end_sentence($formatter->{'container'});
         return '';
@@ -1741,10 +1741,10 @@ sub _convert($$)
         add_end_sentence($formatter->{'container'}, 1);
       } elsif ($command eq ' ' or $command eq "\n" or $command eq "\t") {
         $result .= _count_added($self, $formatter->{'container'}, 
-            add_next($formatter->{'container'}, $nobrace_commands{$command}));
+            add_next($formatter->{'container'}, $nobrace_symbol_text{$command}));
       } else {
         $result .= _count_added($self, $formatter->{'container'}, 
-            add_text($formatter->{'container'}, $nobrace_commands{$command}));
+            add_text($formatter->{'container'}, $nobrace_symbol_text{$command}));
       }
       return $result;
     } elsif ($command eq 'today') {

@@ -1488,9 +1488,9 @@ our %xml_text_entity_no_arg_commands_formatting = (
                'guilsinglright'          => '&rsaquo;',
 );
 
-foreach my $no_brace_command (keys(%Texinfo::Common::nobrace_commands)) {
+foreach my $no_brace_command (keys(%Texinfo::Common::nobrace_symbol_text)) {
   $xml_text_entity_no_arg_commands_formatting{$no_brace_command}
-    = $Texinfo::Common::nobrace_commands{$no_brace_command};
+    = $Texinfo::Common::nobrace_symbol_text{$no_brace_command};
 }
 
 $xml_text_entity_no_arg_commands_formatting{'&'} = '&amp;';

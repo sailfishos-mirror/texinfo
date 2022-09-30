@@ -61,9 +61,9 @@ foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_character_brace_no
      $Texinfo::Convert::Unicode::unicode_character_brace_no_arg_commands{$command};
 }
 
-my %normalize_node_nobrace_commands
-  = %Texinfo::Common::nobrace_commands;
-$normalize_node_nobrace_commands{'*'} = ' ';
+my %normalize_node_nobrace_symbol_text
+  = %Texinfo::Common::nobrace_symbol_text;
+$normalize_node_nobrace_symbol_text{'*'} = ' ';
 
 my %accent_commands = %Texinfo::Common::accent_commands;
 
@@ -253,8 +253,8 @@ sub _convert($;$)
   }
   if ($element->{'cmdname'}) {
     my $command = $element->{'cmdname'};
-    if (defined($normalize_node_nobrace_commands{$element->{'cmdname'}})) {
-      return $normalize_node_nobrace_commands{$element->{'cmdname'}};
+    if (defined($normalize_node_nobrace_symbol_text{$element->{'cmdname'}})) {
+      return $normalize_node_nobrace_symbol_text{$element->{'cmdname'}};
     } elsif (defined($normalize_node_brace_no_arg_commands{$element->{'cmdname'}})) {
       $command = $element->{'extra'}->{'clickstyle'}
          if ($element->{'extra'}

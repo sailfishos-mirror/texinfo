@@ -1,5 +1,19 @@
 2022-09-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%nobrace_symbol_text, %nobrace_commands),
+	tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/NodeNameNormalization.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/Convert/TextContent.pm: rename
+	former %nobrace_commands as %nobrace_symbol_text.  Set
+	%nobrace_commands according to
+	tp/Texinfo/XS/parsetexi/command_data.txt.  Handle all the
+	%nobrace_commands together.
+
+2022-09-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/command_data.txt,
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command),
 	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting)

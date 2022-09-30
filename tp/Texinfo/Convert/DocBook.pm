@@ -775,7 +775,7 @@ sub _convert($$;$)
 
     } elsif (exists($docbook_misc_commands{$element->{'cmdname'}})) {
       # FIXME redo code to use directly commands and not be based on the
-      # %misc_commands type.  Also probably ignore %other_commands
+      # %misc_commands type.  Also probably ignore %nobrace_commands
       # right away
       #warn "  is dbk misc command\n";
       if ($docbook_global_commands{$element->{'cmdname'}}) {
@@ -942,7 +942,7 @@ sub _convert($$;$)
           # misc commands not handled especially are ignored here.
           return '';
         }
-      } elsif ($type eq 'skipline' or $type eq 'noarg') {
+      } elsif ($type eq 'skipline' or $type eq 'other') {
         if ($element->{'cmdname'} eq 'insertcopying') {
           if ($self->{'global_commands'}
               and $self->{'global_commands'}->{'copying'}) {
