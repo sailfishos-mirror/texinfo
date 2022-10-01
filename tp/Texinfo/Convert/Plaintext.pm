@@ -1306,7 +1306,7 @@ sub process_printindex($$;$)
     $line_nrs{$entry} = $line_nr;
   }
 
-  return '' if (scalar(%line_nrs) == 0);
+  return '' if (scalar(keys(%line_nrs)) == 0);
 
   my $result = '';
   $result .= _add_newline_if_needed($self);
