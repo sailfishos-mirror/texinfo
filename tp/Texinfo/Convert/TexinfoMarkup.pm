@@ -1220,13 +1220,12 @@ sub _convert($$;$)
                                     $end_command_space])
                    .${prepended_elements};
         if ($element->{'args'}) {
+          my $variadic_element = undef;
+          my $last_empty_element;
           my $end_line = '';
           if ($commands_args_elements{$element->{'cmdname'}}) {
             my $arg_index = 0;
-            my $variadic_element = undef;
-            while (defined($commands_args_elements{$element->{'cmdname'}}
-                                                                ->[$arg_index])
-                   or defined($variadic_element)) {
+            foreach my $arg_element (@{$element->{'args'}}) {
               my $format_element;
               if (defined($variadic_element)) {
                 $format_element = $variadic_element;
@@ -1237,13 +1236,23 @@ sub _convert($$;$)
                         = $commands_args_elements{$element->{'cmdname'}}
                                                                ->[$arg_index-1];
                   $format_element = $variadic_element;
+                  # the last argument was empty, it is the same argument
+                  # as the variadic argument, it needs to be output to have
+                  # it count as the last non variadic argument.
+                  if ($last_empty_element) {
+                    $result .= $last_empty_element;
+                    $last_empty_element = undef;
+                  }
                 } else {
                   $format_element
                     = $commands_args_elements{$element->{'cmdname'}}
                                                         ->[$arg_index];
                 }
               }
-              if (defined($element->{'args'}->[$arg_index])) {
+              my $spaces = [];
+              my $arg = '';
+              my $end_space = '';
+              if (defined($arg_element)) {
                 my $in_code;
                  $in_code = 1
                   if (defined($default_args_code_style{$element->{'cmdname'}})
@@ -1251,33 +1260,38 @@ sub _convert($$;$)
                                                                ->[$arg_index]);
                 push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
                   if ($in_code);
-                my ($arg, $end_space);
                 if ($arg_index+1 eq scalar(@{$element->{'args'}})) {
                   # last argument
                   ($arg, $end_space, $end_line)
                     = $self->_convert_argument_and_end_line($element);
                 } else {
-                  $arg = $self->_convert($element->{'args'}->[$arg_index]);
-                  $end_space = '';
-                }
-                my $spaces = [];
-                if ($arg_index != 0) {
-                  push @$spaces, _leading_spaces_arg(
-                                              $element->{'args'}->[$arg_index]);
-                }
-                if ($arg ne '' or scalar(@$spaces)) {
-                  $result .= $self->txi_markup_open_element($format_element, $spaces)
-                                     .$arg.$end_space
-                                     .$self->txi_markup_close_element($format_element);
-                } else {
-                  $result .= $end_space;
+                  $arg = $self->_convert($arg_element);
                 }
                 pop @{$self->{'document_context'}->[-1]->{'monospace'}}
                   if ($in_code);
+                if ($arg_index != 0) {
+                  push @$spaces, _leading_spaces_arg($arg_element);
+                }
+              }
+              # must add every variadic argument even if empty to get the correct count
+              if ($arg ne '' or scalar(@$spaces) or $variadic_element) {
+                $result .= $self->txi_markup_open_element($format_element, $spaces)
+                                   .$arg.$end_space
+                                   .$self->txi_markup_close_element($format_element);
+                $last_empty_element = undef;
               } else {
-                last;
+                $result .= $end_space;
+                if ($arg_index > 0) {
+                  # we keep the last empty argument to be able to prepend it to be able
+                  # to reconstitute trailing empty arguments in the original Texinfo code.
+                  $last_empty_element = $self->txi_markup_open_element($format_element)
+                                .$self->txi_markup_close_element($format_element);
+                }
               }
               $arg_index++;
+            }
+            if ($last_empty_element) {
+              $result .= $last_empty_element;
             }
             $result .= $end_line;
           } else {

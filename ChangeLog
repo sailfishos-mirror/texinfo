@@ -1,3 +1,14 @@
+2022-10-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): on block command
+	lines, output empty elements for all the variadic elements, including
+	the last non variadic element, which has the same name as the variadic
+	element, to have a correct count on elements, as the element name
+	appearing last cannot be used to add commas for empty elements.
+	Keep the last non-variadic empty argument to be able to prepend it to
+	be able to reconstitute trailing empty arguments in the original
+	Texinfo code.
+
 2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/LaTeX.pm (_latex_header):
