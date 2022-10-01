@@ -647,7 +647,30 @@ $result_converted{'plaintext'}->{'nested_example_and_comment'} = '     First lin
 ';
 
 
-$result_converted{'html_text'}->{'nested_example_and_comment'} = '<div class="example">
+$result_converted{'html'}->{'nested_example_and_comment'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="example">
 <pre class="example-preformatted">First line 0 </pre><div class="example">
 <pre class="example-preformatted">Nested example
 </pre></div>
@@ -664,7 +687,23 @@ $result_converted{'html_text'}->{'nested_example_and_comment'} = '<div class="ex
 <pre class="example-preformatted">First line 2 </pre><div class="example">
 <pre class="example-preformatted">Nested example </pre></div>
 <pre class="example-preformatted">In first one </pre></div>
+
+
+
+</body>
+</html>
 ';
+
+$result_converted_errors{'html'}->{'nested_example_and_comment'} = [
+  {
+    'error_line' => 'warning: must specify a title with a title command or @top
+',
+    'file_name' => 'nested_example_and_comment.texi',
+    'text' => 'must specify a title with a title command or @top',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'docbook'}->{'nested_example_and_comment'} = '<screen>First line 0 <!-- -->

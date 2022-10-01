@@ -140,11 +140,39 @@ $result_converted{'plaintext'}->{'titlefont_in_example'} = '     Title
 ';
 
 
-$result_converted{'html_text'}->{'titlefont_in_example'} = '<div class="example">
+$result_converted{'html'}->{'titlefont_in_example'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Title</title>
+
+<meta name="description" content="Title">
+<meta name="keywords" content="Title">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="example">
 <h1 class="titlefont">Title</h1><pre class="example-preformatted">
 
 Text.
 </pre></div>
+
+
+
+</body>
+</html>
 ';
 
 

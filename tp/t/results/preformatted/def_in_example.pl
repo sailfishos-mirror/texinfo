@@ -287,13 +287,55 @@ $result_converted{'plaintext'}->{'def_in_example'} = '      -- Function: name ar
 ';
 
 
-$result_converted{'html_text'}->{'def_in_example'} = '<div class="example">
+$result_converted{'html'}->{'def_in_example'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="example">
 <dl class="first-deffn first-defun-alias-first-deffn">
 <dt class="deffn defun-alias-deffn" id="index-name"><span class="category-def">Function: </span><span><strong class="def-name">name</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href=\'#index-name\'> &para;</a></span></dt>
 <dd><pre class="example-preformatted">in defun
 </pre></dd></dl>
 </div>
+
+
+
+</body>
+</html>
 ';
+
+$result_converted_errors{'html'}->{'def_in_example'} = [
+  {
+    'error_line' => 'warning: must specify a title with a title command or @top
+',
+    'file_name' => 'def_in_example.texi',
+    'text' => 'must specify a title with a title command or @top',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'docbook'}->{'def_in_example'} = '<synopsis><indexterm role="fn"><primary>name</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>name</function> <emphasis role="arg">arg</emphasis></synopsis>

@@ -419,7 +419,30 @@ $result_converted{'plaintext'}->{'text_on_example_command_line'} = '
 ';
 
 
-$result_converted{'html_text'}->{'text_on_example_command_line'} = '
+$result_converted{'html'}->{'text_on_example_command_line'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+
 <div class="example user-text-on-line-followed-by-text">
 <pre class="example-preformatted">normal text
 </pre></div>
@@ -428,7 +451,23 @@ $result_converted{'html_text'}->{'text_on_example_command_line'} = '
 <pre class="example-preformatted">in example
 </pre></div>
 
+
+
+
+</body>
+</html>
 ';
+
+$result_converted_errors{'html'}->{'text_on_example_command_line'} = [
+  {
+    'error_line' => 'warning: must specify a title with a title command or @top
+',
+    'file_name' => 'text_on_example_command_line.texi',
+    'text' => 'must specify a title with a title command or @top',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'docbook'}->{'text_on_example_command_line'} = '

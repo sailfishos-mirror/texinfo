@@ -343,7 +343,30 @@ $result_converted{'plaintext'}->{'nested_formats'} = '
 ';
 
 
-$result_converted{'html_text'}->{'nested_formats'} = '<div class="format">
+$result_converted{'html'}->{'nested_formats'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="format">
 <div class="example">
 <pre class="example-preformatted">
 
@@ -360,7 +383,23 @@ in -- example/format
 
 </pre></div>
 </div>
+
+
+
+</body>
+</html>
 ';
+
+$result_converted_errors{'html'}->{'nested_formats'} = [
+  {
+    'error_line' => 'warning: must specify a title with a title command or @top
+',
+    'file_name' => 'nested_formats.texi',
+    'text' => 'must specify a title with a title command or @top',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'docbook'}->{'nested_formats'} = '<screen>

@@ -308,7 +308,30 @@ float: caption
 ';
 
 
-$result_converted{'html_text'}->{'caption_in_example'} = '<div class="float">
+$result_converted{'html'}->{'caption_in_example'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="float">
 
 <div class="example">
 <pre class="example-preformatted">in example 
@@ -318,7 +341,23 @@ $result_converted{'html_text'}->{'caption_in_example'} = '<div class="float">
 
 After caption
 </pre></div>
-<div class="caption"><p><strong class="strong">float: </strong>caption</p></div></div>';
+<div class="caption"><p><strong class="strong">float: </strong>caption</p></div></div>
+
+
+</body>
+</html>
+';
+
+$result_converted_errors{'html'}->{'caption_in_example'} = [
+  {
+    'error_line' => 'warning: must specify a title with a title command or @top
+',
+    'file_name' => 'caption_in_example.texi',
+    'text' => 'must specify a title with a title command or @top',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'docbook'}->{'caption_in_example'} = '

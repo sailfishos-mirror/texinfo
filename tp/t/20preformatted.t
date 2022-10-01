@@ -200,10 +200,11 @@ after empty} line
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
-  push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'html';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'latex_text';
+  $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
 }
 
 run_all('preformatted', [@test_cases, @test_invalid]);
