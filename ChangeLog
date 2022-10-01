@@ -1,5 +1,10 @@
 2022-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* util/txixml2texi.pl: output spaces explicitly.  Output user-defined
+	index entry command name.
+
+2022-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* util/txixml2texi.pl: separate accent formatting.  Always output the
 	braces and the spaces right after command if they are specified for
 	an accent.

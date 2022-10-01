@@ -255,15 +255,24 @@ while ($reader->read) {
   }
   my $name = $reader->name;
   if ($reader->nodeType() eq XML_READER_TYPE_ELEMENT) {
+    my $user_defined_index_command;
     if (($name eq 'entry' or $name eq 'indexcommand')
         and $reader->hasAttributes()
         and defined($reader->getAttribute('command'))) {
       $name = $reader->getAttribute('command');
+      $user_defined_index_command = 1;
     } elsif ($name eq 'listitem') {
       $name = 'item';
     }
     if ($Texinfo::Convert::TexinfoMarkup::commands_args_elements{$name}) {
       push @commands_with_args_stack, 0;
+    }
+    my $spaces = $reader->getAttribute('spaces');
+    if (defined($spaces)) {
+      $spaces =~ s/\\n/\n/g;
+      $spaces =~ s/\\f/\f/g;
+    } else {
+      $spaces = '';
     }
     if ($name eq 'accent') {
       if ($reader->hasAttributes()) {
@@ -272,8 +281,6 @@ while ($reader->read) {
           print "\@$command"
             if (defined($command));
         }
-        my $spaces = $reader->getAttribute('spaces');
-        $spaces = '' if (!defined($spaces));
         print "$spaces";
         if (!(defined($reader->getAttribute('bracketed'))
               and $reader->getAttribute('bracketed') eq 'off')) {
@@ -299,6 +306,7 @@ while ($reader->read) {
           and defined($reader->getAttribute('delimiter'))) {
         print $reader->getAttribute('delimiter');
       }
+      print "$spaces";
     } elsif (exists($Texinfo::Common::block_commands{$name})) {
       print "\@$name";
       if ($name eq 'macro') {
@@ -306,9 +314,12 @@ while ($reader->read) {
           print $reader->getAttribute('line');
         }
         print "\n";
+      } else {
+        print "$spaces";
       }
     } elsif (defined($Texinfo::Common::line_commands{$name})
-             or defined($Texinfo::Common::nobrace_commands{$name})) {
+             or defined($Texinfo::Common::nobrace_commands{$name})
+             or $user_defined_index_command) {
       if ($reader->hasAttributes()
           and defined($reader->getAttribute('originalcommand'))) {
         $name = $reader->getAttribute('originalcommand');
@@ -326,6 +337,7 @@ while ($reader->read) {
         }
       }
       print "\@$name";
+      print "$spaces";
       if ($reader->hasAttributes() and defined($reader->getAttribute('line'))) {
         my $line = $reader->getAttribute('line');
         $line =~ s/\\\\/\x{1F}/g;
@@ -348,6 +360,7 @@ while ($reader->read) {
         $commands_with_args_stack[-1]++;
         print ',';
       }
+      print "$spaces";
     } elsif ($ignored_elements{$name}) {
       my $keep_indexterm = 0;
       if ($name eq 'indexterm') {
@@ -384,13 +397,6 @@ while ($reader->read) {
       if (defined($reader->getAttribute('bracketed'))
           and $reader->getAttribute('bracketed') eq 'on') {
         print '{';
-      }
-      if ($name ne 'accent'
-          and defined($reader->getAttribute('spaces'))) {
-        my $spaces = $reader->getAttribute('spaces');
-        $spaces =~ s/\\n/\n/g;
-        $spaces =~ s/\\f/\f/g;
-        print $spaces;
       }
       if (defined($reader->getAttribute('leadingtext'))) {
         print $reader->getAttribute('leadingtext');
