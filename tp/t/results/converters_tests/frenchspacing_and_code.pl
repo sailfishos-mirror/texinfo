@@ -2399,7 +2399,7 @@ $result_converted{'html_text'}->{'frenchspacing_and_code'} = '
 
 
 $result_converted{'xml'}->{'frenchspacing_and_code'} = '
-<frenchspacing value="on" line="on"></frenchspacing>
+<frenchspacing spaces=" " value="on" line="on"></frenchspacing>
 
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter frenchspacing</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
@@ -2424,7 +2424,7 @@ $result_converted{'xml'}->{'frenchspacing_and_code'} = '
 <definitionitem><para>defop
 </para></definitionitem></defop>
 
-<frenchspacing value="off" line="off"></frenchspacing>
+<frenchspacing spaces=" " value="off" line="off"></frenchspacing>
 </chapter>
 <node name="chap-no" spaces=" "><nodename>chap no</nodename><nodeprev automatic="on">chapter frenchspacing</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chap no</sectiontitle>

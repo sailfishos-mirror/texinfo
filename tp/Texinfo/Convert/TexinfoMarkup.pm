@@ -918,7 +918,7 @@ sub _convert($$;$)
         } else {
           $args_attributes = ['value'];
         }
-        my $attribute = [];
+        my $attribute = [_leading_spaces_arg($element)];
         my $arg_index = 0;
         if (defined($element->{'extra'})
             and defined($element->{'extra'}->{'misc_args'})) {

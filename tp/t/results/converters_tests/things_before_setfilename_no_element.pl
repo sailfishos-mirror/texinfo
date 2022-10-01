@@ -1406,7 +1406,7 @@ $result_converted{'xml'}->{'things_before_setfilename_no_element'} = '<preambleb
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry</indexterm></cindex>
 
-<printindex value="cp" line="cp"></printindex>
+<printindex spaces=" " value="cp" line="cp"></printindex>
 
 <listoffloats type="Text" spaces=" ">Text</listoffloats>
 

@@ -1525,7 +1525,7 @@ $result_converted{'xml'}->{'multiple'} = '<documentlanguage xml:lang="fr" spaces
 
 <insertcopying></insertcopying>
 
-<printindex value="vr" line="vr"></printindex>
+<printindex spaces=" " value="vr" line="vr"></printindex>
 </chapter>
 ';
 

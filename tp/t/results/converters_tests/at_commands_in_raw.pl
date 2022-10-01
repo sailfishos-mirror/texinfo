@@ -1519,8 +1519,8 @@ $result_converted{'xml'}->{'at_commands_in_raw'} = '<node name="Top" spaces=" ">
 </para>
 <para> newidx entry
 </para>
-<printindex value="cp" line="cp"></printindex>
-<printindex value="fn" line="fn"></printindex>
+<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex spaces=" " value="fn" line="fn"></printindex>
 
 <listoffloats type="Figs" spaces=" ">Figs</listoffloats>
 

@@ -1254,7 +1254,7 @@ $result_converted{'xml'}->{'punctuation_in_line_commands'} = '
 
 <center spaces=" ">center! After punc</center>
 
-<printindex value="cp" line="cp"></printindex>
+<printindex spaces=" " value="cp" line="cp"></printindex>
 
 <contents></contents>
 

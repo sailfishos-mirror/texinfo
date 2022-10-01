@@ -16,8 +16,8 @@
                            <command>cmd</command> <accent type="grave" bracketed="off">a</accent>
 </pre></menudescription></menuentry></direntry>
 
-<defindex value="truc" line="truc"></defindex>
-<defcodeindex value="codeidx" line="codeidx"></defcodeindex>
+<defindex spaces=" " value="truc" line="truc"></defindex>
+<defcodeindex spaces=" " value="codeidx" line="codeidx"></defcodeindex>
 
 <macro name="mymacro" line=" mymacro" endspaces=" ">
 &lt;
@@ -1408,12 +1408,12 @@ but , ,&noeos;
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
 </para>
 <para><code>&arobase;sp 2</code>&linebreak;
-</para><sp value="2" line="2"></sp>
+</para><sp spaces=" " value="2" line="2"></sp>
 <para><code>&arobase;page</code>&linebreak;
 </para><page></page>
 
 <para><code>need 1002</code>
-</para><need value="1002" line="1002"></need>
+</para><need spaces=" " value="1002" line="1002"></need>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
@@ -1486,7 +1486,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="code" line="code"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="code" line="code"></kbdinputstyle>
 <para><kbd>code kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="3" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
@@ -1499,7 +1499,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="example" line="example"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="example" line="example"></kbdinputstyle>
 <para><kbd>example kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="5" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
@@ -1512,7 +1512,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="distinct" line="distinct"></kbdinputstyle>
 <para><kbd>distinct kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="7" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
@@ -1817,7 +1817,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="17">deffnx</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>deffnx</deffunction> <defparam>before</defparam> <defparam>end</defparam> <defparam>deffn</defparam></definitionterm></deffnx>
 </deffn>
 
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="18">deffn</indexterm><defcategory>empty</defcategory> <deffunction>deffn</deffunction></definitionterm>
 </deffn>
@@ -1943,7 +1943,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>d&textndash;eftypemethod
 </para></definitionitem></deftypemethod>
 
-<deftypefnnewline value="on" line="on"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="on" line="on"></deftypefnnewline>
 
 <deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="37">name2</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
 <definitionitem><para>aaa2
@@ -1973,7 +1973,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>fff2
 </para></definitionitem></deffn>
 
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 <para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname spaces=" ">cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc spaces=" ">t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile spaces=" ">file n---ame&arobase;</xrefinfofile><xrefprintedname spaces=" ">ma&textmdash;nual&arobase;</xrefprintedname></xref>.
 <code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
@@ -2547,12 +2547,12 @@ but , ,&noeos;
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
 </para>
 <para><code>&arobase;sp 2</code>&linebreak;
-</para><sp value="2" line="2"></sp>
+</para><sp spaces=" " value="2" line="2"></sp>
 <para><code>&arobase;page</code>&linebreak;
 </para><page></page>
 
 <para><code>need 1002</code>
-</para><need value="1002" line="1002"></need>
+</para><need spaces=" " value="1002" line="1002"></need>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
@@ -2625,7 +2625,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="code" line="code"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="code" line="code"></kbdinputstyle>
 <para><kbd>code kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="27" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
@@ -2638,7 +2638,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="example" line="example"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="example" line="example"></kbdinputstyle>
 <para><kbd>example kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="29" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
@@ -2651,7 +2651,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="distinct" line="distinct"></kbdinputstyle>
 <para><kbd>distinct kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="31" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
@@ -2956,7 +2956,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="69">deffnx</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>deffnx</deffunction> <defparam>before</defparam> <defparam>end</defparam> <defparam>deffn</defparam></definitionterm></deffnx>
 </deffn>
 
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="70">deffn</indexterm><defcategory>empty</defcategory> <deffunction>deffn</deffunction></definitionterm>
 </deffn>
@@ -3082,7 +3082,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>d&textndash;eftypemethod
 </para></definitionitem></deftypemethod>
 
-<deftypefnnewline value="on" line="on"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="on" line="on"></deftypefnnewline>
 
 <deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="89">name2</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
 <definitionitem><para>aaa2
@@ -3112,7 +3112,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>fff2
 </para></definitionitem></deffn>
 
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 <para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname spaces=" ">cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc spaces=" ">t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile spaces=" ">file n---ame&arobase;</xrefinfofile><xrefprintedname spaces=" ">ma&textmdash;nual&arobase;</xrefprintedname></xref>.
 <code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
@@ -3713,12 +3713,12 @@ but , ,&noeos;
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
 </para>
 <para><code>&arobase;sp 2</code>&linebreak;
-</para><sp value="2" line="2"></sp>
+</para><sp spaces=" " value="2" line="2"></sp>
 <para><code>&arobase;page</code>&linebreak;
 </para><page></page>
 
 <para><code>need 1002</code>
-</para><need value="1002" line="1002"></need>
+</para><need spaces=" " value="1002" line="1002"></need>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
@@ -3791,7 +3791,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="code" line="code"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="code" line="code"></kbdinputstyle>
 <para><kbd>code kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="51" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
@@ -3804,7 +3804,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="example" line="example"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="example" line="example"></kbdinputstyle>
 <para><kbd>example kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="53" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
@@ -3817,7 +3817,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 
-<kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="distinct" line="distinct"></kbdinputstyle>
 <para><kbd>distinct kbdinputstyle</kbd>
 </para><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="55" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
@@ -4122,7 +4122,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="121">deffnx</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>deffnx</deffunction> <defparam>before</defparam> <defparam>end</defparam> <defparam>deffn</defparam></definitionterm></deffnx>
 </deffn>
 
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="122">deffn</indexterm><defcategory>empty</defcategory> <deffunction>deffn</deffunction></definitionterm>
 </deffn>
@@ -4248,7 +4248,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>d&textndash;eftypemethod
 </para></definitionitem></deftypemethod>
 
-<deftypefnnewline value="on" line="on"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="on" line="on"></deftypefnnewline>
 
 <deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="141">name2</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
 <definitionitem><para>aaa2
@@ -4278,7 +4278,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <definitionitem><para>fff2
 </para></definitionitem></deffn>
 
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 <para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname spaces=" ">cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc spaces=" ">t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile spaces=" ">file n---ame&arobase;</xrefinfofile><xrefprintedname spaces=" ">ma&textmdash;nual&arobase;</xrefprintedname></xref>.
 <code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
@@ -4847,12 +4847,12 @@ but , ,&noeos;
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
 
 <code>&arobase;sp 2</code>&linebreak;
-<sp value="2" line="2"></sp>
+<sp spaces=" " value="2" line="2"></sp>
 <code>&arobase;page</code>&linebreak;
 </pre><page></page>
 <pre xml:space="preserve">
 <code>need 1002</code>
-</pre><need value="1002" line="1002"></need>
+</pre><need spaces=" " value="1002" line="1002"></need>
 <pre xml:space="preserve">
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
@@ -4925,7 +4925,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 <pre xml:space="preserve">
-<kbdinputstyle value="code" line="code"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="code" line="code"></kbdinputstyle>
 <kbd>code kbdinputstyle</kbd>
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="75" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
@@ -4938,7 +4938,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 <pre xml:space="preserve">
-<kbdinputstyle value="example" line="example"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="example" line="example"></kbdinputstyle>
 <kbd>example kbdinputstyle</kbd>
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="77" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
@@ -4951,7 +4951,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </tableterm></tableentry></vtable>
 </example>
 <pre xml:space="preserve">
-<kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
+<kbdinputstyle spaces=" " value="distinct" line="distinct"></kbdinputstyle>
 <kbd>distinct kbdinputstyle</kbd>
 </pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="79" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
@@ -5256,7 +5256,7 @@ Less recent versions are also present.
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="173">deffnx</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>deffnx</deffunction> <defparam>before</defparam> <defparam>end</defparam> <defparam>deffn</defparam></definitionterm></deffnx>
 </deffn>
 <pre xml:space="preserve">
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 </pre><deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="174">deffn</indexterm><defcategory>empty</defcategory> <deffunction>deffn</deffunction></definitionterm>
 </deffn>
@@ -5382,7 +5382,7 @@ text in def item for second def item
 <definitionitem><pre xml:space="preserve">d--eftypemethod
 </pre></definitionitem></deftypemethod>
 <pre xml:space="preserve">
-<deftypefnnewline value="on" line="on"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="on" line="on"></deftypefnnewline>
 
 </pre><deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="193">name2</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
 <definitionitem><pre xml:space="preserve">aaa2
@@ -5412,7 +5412,7 @@ text in def item for second def item
 <definitionitem><pre xml:space="preserve">fff2
 </pre></definitionitem></deffn>
 <pre xml:space="preserve">
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 <code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname spaces=" ">cross r---ef name&arobase;</xrefinfoname><xrefprinteddesc spaces=" ">t---itle&arobase;</xrefprinteddesc><xrefinfofile spaces=" ">file n---ame&arobase;</xrefinfofile><xrefprintedname spaces=" ">ma---nual&arobase;</xrefprintedname></xref>.
 <code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
@@ -5836,7 +5836,7 @@ Various deff lines
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="222"><seealso>f---ccc</seealso> f---ddd</indexterm></findex>
 
-<syncodeindex from="vr" to="cp" line="vr cp"></syncodeindex>
+<syncodeindex spaces=" " from="vr" to="cp" line="vr cp"></syncodeindex>
 
 <para>Text<footnote><para>in footnote
 <cindex index="cp" spaces=" "><indexterm index="cp" number="42">index entry in footnote</indexterm></cindex>
@@ -5850,29 +5850,29 @@ Various deff lines
 </para>
 <para>truc
 </para>
-<printindex value="truc" line="truc"></printindex>
+<printindex spaces=" " value="truc" line="truc"></printindex>
 
 <para>codeidx
 </para>
-<printindex value="codeidx" line="codeidx"></printindex>
+<printindex spaces=" " value="codeidx" line="codeidx"></printindex>
 
 <para>cp
-</para><printindex value="cp" line="cp"></printindex>
+</para><printindex spaces=" " value="cp" line="cp"></printindex>
 
 <para>fn
-</para><printindex value="fn" line="fn"></printindex>
+</para><printindex spaces=" " value="fn" line="fn"></printindex>
 
 <para>vr
-</para><printindex value="vr" line="vr"></printindex>
+</para><printindex spaces=" " value="vr" line="vr"></printindex>
 
 <para>ky
-</para><printindex value="ky" line="ky"></printindex>
+</para><printindex spaces=" " value="ky" line="ky"></printindex>
 
 <para>pg
-</para><printindex value="pg" line="pg"></printindex>
+</para><printindex spaces=" " value="pg" line="pg"></printindex>
 
 <para>tp
-</para><printindex value="tp" line="tp"></printindex>
+</para><printindex spaces=" " value="tp" line="tp"></printindex>
 
 
 
@@ -5926,8 +5926,8 @@ Menu comment
 <node name="chapter2" spaces=" "><nodename>chapter2</nodename><nodeprev automatic="on">chapter</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <centerchap spaces=" "><sectiontitle>chapter 2</sectiontitle>
 
-<printindex value="cp" line="cp"></printindex>
-<printindex value="fn" line="fn"></printindex>
+<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex spaces=" " value="fn" line="fn"></printindex>
 
 <contents></contents>
 <shortcontents></shortcontents>

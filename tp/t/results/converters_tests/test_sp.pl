@@ -397,21 +397,21 @@ Now lone @sp:
 
 
 $result_converted{'xml'}->{'test_sp'} = '<para>Para
-</para><sp value="1" line="1"></sp>
+</para><sp spaces=" " value="1" line="1"></sp>
 <para>other para
 Now lone &arobase;sp:
 </para>
-<sp value="1" line="1"></sp>
+<sp spaces=" " value="1" line="1"></sp>
 
-<sp value="2" line="2"></sp>
+<sp spaces=" " value="2" line="2"></sp>
 <para>Para after sp
 </para>
 <para>A
-</para><sp value="2" line="2"></sp>
+</para><sp spaces=" " value="2" line="2"></sp>
 <para>B
 </para>
 <para>sp after para
-</para><sp value="1" line="1"></sp>
+</para><sp spaces=" " value="1" line="1"></sp>
 ';
 
 

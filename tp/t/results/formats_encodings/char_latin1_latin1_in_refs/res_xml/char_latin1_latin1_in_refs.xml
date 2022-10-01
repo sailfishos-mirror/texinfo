@@ -23,7 +23,7 @@
 <node name="_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc" spaces=" "><nodename>ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodename><nodenext automatic="on">é</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</sectiontitle>
 
-<printindex value="cp" line="cp"></printindex>
+<printindex spaces=" " value="cp" line="cp"></printindex>
 
 </chapter>
 <node name="_00e9" spaces=" "><nodename>é</nodename><nodenext automatic="on">à è ù</nodenext><nodeprev automatic="on">ä ë ï ö ü ÿ Ä Ë Ï Ö Ü</nodeprev><nodeup automatic="on">Top</nodeup></node>

@@ -3454,7 +3454,7 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 
 $result_converted{'xml'}->{'test_deftypefnnewline'} = '<setfilename file="test_deftypefnnewline.info" spaces=" ">test_deftypefnnewline.info</setfilename>
 
-<deftypefnnewline value="on" line="on"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="on" line="on"></deftypefnnewline>
 
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
@@ -3491,7 +3491,7 @@ $result_converted{'xml'}->{'test_deftypefnnewline'} = '<setfilename file="test_d
 <definitionitem><para>fff
 </para></definitionitem></deffn>
 
-<deftypefnnewline value="off" line="off"></deftypefnnewline>
+<deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
 <deftypefun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="6">name2</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deftype>data-type2</deftype> <deffunction>name2</deffunction> <defparamtype>arguments2...</defparamtype></definitionterm>
 <definitionitem><para>aaa2

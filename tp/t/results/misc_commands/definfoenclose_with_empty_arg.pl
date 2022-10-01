@@ -215,7 +215,7 @@ My something.
 
 
 $result_converted{'xml'}->{'definfoenclose_with_empty_arg'} = '
-<definfoenclose command="headword" open="" close=":" line="headword, , :"></definfoenclose>
+<definfoenclose spaces=" " command="headword" open="" close=":" line="headword, , :"></definfoenclose>
 
 <para>My <infoenclose command="headword" begin="" end=":">something</infoenclose>.
 </para>

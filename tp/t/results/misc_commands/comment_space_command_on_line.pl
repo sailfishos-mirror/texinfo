@@ -1273,15 +1273,15 @@ $result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle spaces=
 <node name="chap" spaces=" "><nodename trailingspaces=" ">chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node><!-- comment @node chap -->
 <chapter spaces=" "><sectiontitle>Chapter<spacecmd type="spc"/> </sectiontitle><!-- comment @chapter -->
 
-<frenchspacing value="on" line="on @c comment frenchspacing"></frenchspacing><!-- c comment frenchspacing -->
+<frenchspacing spaces=" " value="on" line="on @c comment frenchspacing"></frenchspacing><!-- c comment frenchspacing -->
 
-<microtype value="off" line="off@c comment microtype"></microtype><!-- c comment microtype -->
+<microtype spaces=" " value="off" line="off@c comment microtype"></microtype><!-- c comment microtype -->
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry <spacecmd type="spc"/></indexterm></cindex><!-- c index entry -->
 
 <heading spaces=" ">Heading <spacecmd type="spc"/>    </heading><!-- c heading -->
 
-<printindex value="cp" line="cp @c printindex "></printindex><!-- c printindex  -->
+<printindex spaces=" " value="cp" line="cp @c printindex "></printindex><!-- c printindex  -->
 
 <float name="label" type="Text" number="1.1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">label</floatname>
 <para>float

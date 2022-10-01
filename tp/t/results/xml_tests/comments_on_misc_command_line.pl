@@ -419,8 +419,8 @@ $result_floats{'comments_on_misc_command_line'} = {};
 
 
 $result_converted{'xml'}->{'comments_on_misc_command_line'} = '<setfilename file="comments_on_misc_command_line.info" spaces="  ">comments_on_misc_command_line.info  </setfilename><!-- c setfilename (text) -->
-<definfoenclose command="phoo" open=";" close=":" line="phoo,;,:  @c definfoenclose (number)"></definfoenclose><!-- c definfoenclose (number) -->
-<firstparagraphindent value="none" line="none @c c (number)"></firstparagraphindent><!-- c c (number) -->
+<definfoenclose spaces=" " command="phoo" open=";" close=":" line="phoo,;,:  @c definfoenclose (number)"></definfoenclose><!-- c definfoenclose (number) -->
+<firstparagraphindent spaces=" " value="none" line="none @c c (number)"></firstparagraphindent><!-- c c (number) -->
 <raisesections line=" @c raisesections (skipline)"></raisesections>
 <insertcopying line="  @comment  (noarg)"></insertcopying>
 <pagesizes spaces=" ">200mm </pagesizes><!-- c pagesizes  (line) -->

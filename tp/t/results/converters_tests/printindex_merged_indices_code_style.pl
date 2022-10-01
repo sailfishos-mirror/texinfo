@@ -1073,9 +1073,9 @@ $result_converted{'xml'}->{'printindex_merged_indices_code_style'} = '<node name
 <node name="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
 
-<synindex from="cp" to="fn" line="cp fn"></synindex>
+<synindex spaces=" " from="cp" to="fn" line="cp fn"></synindex>
 
-<synindex from="vr" to="fn" line="vr fn"></synindex>
+<synindex spaces=" " from="vr" to="fn" line="vr fn"></synindex>
 
 <cindex index="cp" spaces=" "><indexterm index="cp" number="1" mergedindex="fn">c&textldquo;b</indexterm></cindex>
 
@@ -1083,19 +1083,19 @@ $result_converted{'xml'}->{'printindex_merged_indices_code_style'} = '<node name
 
 <findex index="fn" spaces=" "><indexterm index="fn" number="1">f``g</indexterm></findex>
 
-<defcodeindex value="cdi" line="cdi"></defcodeindex>
+<defcodeindex spaces=" " value="cdi" line="cdi"></defcodeindex>
 
-<synindex from="cdi" to="fn" line="cdi fn"></synindex>
+<synindex spaces=" " from="cdi" to="fn" line="cdi fn"></synindex>
 
 <indexcommand command="cdiindex" index="cdi" spaces=" "><indexterm index="cdi" number="1" incode="0" mergedindex="fn">cdi&textldquo;h</indexterm></indexcommand>
 
-<defindex value="ddi" line="ddi"></defindex>
+<defindex spaces=" " value="ddi" line="ddi"></defindex>
 
-<syncodeindex from="ddi" to="cp" line="ddi cp"></syncodeindex>
+<syncodeindex spaces=" " from="ddi" to="cp" line="ddi cp"></syncodeindex>
 
 <indexcommand command="ddiindex" index="ddi" spaces=" "><indexterm index="ddi" number="1" incode="1" mergedindex="fn">ddi``g</indexterm></indexcommand>
 
-<printindex value="fn" line="fn"></printindex>
+<printindex spaces=" " value="fn" line="fn"></printindex>
 </chapter>
 ';
 
