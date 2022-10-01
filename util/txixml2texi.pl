@@ -162,9 +162,6 @@ foreach my $command (keys(%no_arg_commands_formatting)) {
   }
 }
 
-# FIXME select based on element name
-$element_at_commands{'accent'} = 0;
-
 my %arg_elements;
 foreach my $command (keys(%Texinfo::Convert::TexinfoMarkup::commands_args_elements)) {
   my $arg_index = 0;
@@ -268,23 +265,25 @@ while ($reader->read) {
     if ($Texinfo::Convert::TexinfoMarkup::commands_args_elements{$name}) {
       push @commands_with_args_stack, 0;
     }
-    if (exists $element_at_commands{$name}) {
-      if ($name eq 'accent') {
-        if ($reader->hasAttributes()) {
-          if (defined($reader->getAttribute('type'))) {
-            my $command = $accent_type_command{$reader->getAttribute('type')};
-            print "\@$command"
-              if (defined($command));
-          }
-          if (!defined($reader->getAttribute('spaces'))
-              and !(defined($reader->getAttribute('bracketed'))
-                    and $reader->getAttribute('bracketed') eq 'off')) {
-            print '{';
-          }
-        } else {
+    if ($name eq 'accent') {
+      if ($reader->hasAttributes()) {
+        if (defined($reader->getAttribute('type'))) {
+          my $command = $accent_type_command{$reader->getAttribute('type')};
+          print "\@$command"
+            if (defined($command));
+        }
+        my $spaces = $reader->getAttribute('spaces');
+        $spaces = '' if (!defined($spaces));
+        print "$spaces";
+        if (!(defined($reader->getAttribute('bracketed'))
+              and $reader->getAttribute('bracketed') eq 'off')) {
           print '{';
         }
-      } elsif (!ref($element_at_commands{$name})) {
+      } else {
+        print '{';
+      }
+    } elsif (exists $element_at_commands{$name}) {
+      if (!ref($element_at_commands{$name})) {
         print $element_at_commands{$name};
       } else {
         my ($attribute) = keys(%{$element_at_commands{$name}});
@@ -386,7 +385,8 @@ while ($reader->read) {
           and $reader->getAttribute('bracketed') eq 'on') {
         print '{';
       }
-      if (defined($reader->getAttribute('spaces'))) {
+      if ($name ne 'accent'
+          and defined($reader->getAttribute('spaces'))) {
         my $spaces = $reader->getAttribute('spaces');
         $spaces =~ s/\\n/\n/g;
         $spaces =~ s/\\f/\f/g;
@@ -434,9 +434,8 @@ while ($reader->read) {
     } elsif ($elements_end_attributes{$name}) {
       if ($name eq 'accent') {
         if ($reader->hasAttributes()) {
-          if (!defined($reader->getAttribute('spaces'))
-              and !(defined($reader->getAttribute('bracketed'))
-                    and $reader->getAttribute('bracketed') eq 'off')) {
+          if (!(defined($reader->getAttribute('bracketed'))
+                and $reader->getAttribute('bracketed') eq 'off')) {
             print '}';
           }
         } else {
