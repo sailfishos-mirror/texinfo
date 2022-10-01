@@ -1,5 +1,10 @@
 2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Contents): State that @shortcontents
+	is not implemented for LaTeX output.  From Patrice.
+
+2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Do not warn for @shortcontents in LaTeX
 
 	* tp/Texinfo/Convert/LaTeX.pm (convert) <@shortcontents>:

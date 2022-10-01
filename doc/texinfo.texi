@@ -2585,6 +2585,8 @@ corresponding entries in the full table of contents rather than the text
 of the document. The links in the full table of contents point to the
 main text of the document.
 
+@code{@@shortcontents} is not implemented for @LaTeX{} output.
+
 
 @node The Top Node
 @section The `Top' Node and Master Menu
