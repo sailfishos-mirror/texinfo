@@ -1,5 +1,9 @@
 2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: more advice on gnulib-tool --add-import
+
+2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Update gnulib.
 
 	* (top-level), tp/Texinfo/XS: Run gnulib-tool --add-import.

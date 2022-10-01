@@ -205,6 +205,7 @@ after installing new version of gettext)
 # Under the top level, and also under tp/Texinfo/XS, which uses
 # a separate gnulib import.
 gnulib-tool --add-import
+'git status -u' and add untracked files
 
 After upgrading automake/autoconf/gettext/gnulib, run ./autogen.sh
 and/or "autoreconf --verbose --force --install" and/or util/srclist-txi
