@@ -1,5 +1,11 @@
 2022-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): keep the last empty
+	argument of a brace command to be able to reconstitute trailing empty
+	arguments in the original Texinfo code.
+
+2022-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* util/texinfo.dtd: update for change in spaces attributes.
 
 2022-10-01  Patrice Dumas  <pertusus@free.fr>

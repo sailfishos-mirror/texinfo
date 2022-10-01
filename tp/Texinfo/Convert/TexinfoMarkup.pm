@@ -1031,6 +1031,7 @@ sub _convert($$;$)
       if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
         push @{$self->{'document_context'}}, {'monospace' => [0]};
       }
+      my $last_empty_element;
       my $args_or_one_arg_cmd = '';
       my $arg_index = 0;
       foreach my $format_element (@format_elements) {
@@ -1064,12 +1065,26 @@ sub _convert($$;$)
             $args_or_one_arg_cmd .=
                  $self->txi_markup_open_element($format_element, $attribute).$arg
                       .$self->txi_markup_close_element($format_element);
+            $last_empty_element = undef;
+          # we keep the last empty argument to be able to prepend it to be able
+          # to reconstitute trailing empty arguments in the original Texinfo code.
+          # For example, for @bracecmd{a,b,,c,,} we keep the last (6th argument)
+          # empty element.
+          # Not if in inline conditionals as we are not interested in empty ignored
+          # inline conditional arguments.
+          } elsif (defined($main_cmdname)
+                   and not $brace_commands{$element->{'cmdname'}} eq 'inline') {
+            $last_empty_element = $self->txi_markup_open_element($format_element)
+                                  .$self->txi_markup_close_element($format_element);
           }
           $attribute = [];
         } else {
           last;
         }
         $arg_index++;
+      }
+      if ($last_empty_element) {
+        $args_or_one_arg_cmd .= $last_empty_element;
       }
       if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
         pop @{$self->{'document_context'}};

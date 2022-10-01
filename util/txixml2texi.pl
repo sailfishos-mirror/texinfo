@@ -17,8 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# FIXME Space before subentry missing.  Space after columnfractions missing
-# 
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 use strict;
