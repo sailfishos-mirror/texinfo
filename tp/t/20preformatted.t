@@ -186,6 +186,54 @@ text
 text
 @end example
 '],
+['example_class',
+'@example perl
+foreach my $unclosed_file (keys(%unclosed_files)) @{
+  if (!close($unclosed_files@{$unclosed_file@})) @{
+    warn(sprintf("%s: error on closing %s: %s\n",
+                     $real_command_name, $unclosed_file, $!));
+    $error_count++;
+    _exit($error_count, \@@opened_files);
+  @}
+@}
+@end example
+'],
+['example_multi_class',
+'@example C++ , gothic, purple, embed
+void StateManager::deallocate() @{
+    if(buffer) @{
+        delete [] buffer;
+        buffer = NULL;
+    @}
+    if(tmp_state) @{
+        delete [] tmp_state;
+        tmp_state = NULL;
+    @}
+    if(in_state) @{
+        delete [] in_state;
+        in_state = NULL;
+    @}
+@}
+@end example
+'],
+['example_empty_arguments',
+'@example ,,,,,,
+example with empty args
+@end example
+
+@example , ,,  ,,, 
+example with empty args with spaces
+@end example
+
+@example ,,,nonempty,,,
+example with empty and non empty args mix
+@end example
+'],
+['example_at_commands_arguments',
+'@example some  thing @^e @TeX{} @exclamdown{} @code{---} @enddots{} !_- _---_ < " & @ @comma{},@@,0
+example with @@-commands and other special characters
+@end example
+'],
 );
 
 my @test_invalid = (

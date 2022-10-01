@@ -197,7 +197,7 @@ $result_trees{'example_multi_class'} = {
                 },
                 {
                   'parent' => {},
-                  'text' => ' 
+                  'text' => '
 '
                 }
               ],
@@ -309,7 +309,7 @@ void StateManager::deallocate() @{
         delete [] in_state;
         in_state = NULL;
     @}
-@} 
+@}
 @end example
 ';
 
@@ -327,7 +327,7 @@ $result_texts{'example_multi_class'} = 'void StateManager::deallocate() {
         delete [] in_state;
         in_state = NULL;
     }
-} 
+}
 ';
 
 $result_errors{'example_multi_class'} = [];
@@ -335,6 +335,23 @@ $result_errors{'example_multi_class'} = [];
 
 $result_floats{'example_multi_class'} = {};
 
+
+
+$result_converted{'plaintext'}->{'example_multi_class'} = '     void StateManager::deallocate() {
+         if(buffer) {
+             delete [] buffer;
+             buffer = NULL;
+         }
+         if(tmp_state) {
+             delete [] tmp_state;
+             tmp_state = NULL;
+         }
+         if(in_state) {
+             delete [] in_state;
+             in_state = NULL;
+         }
+     }
+';
 
 
 $result_converted{'html'}->{'example_multi_class'} = '<!DOCTYPE html>
@@ -374,7 +391,7 @@ div.example {margin-left: 3.2em}
         delete [] in_state;
         in_state = NULL;
     }
-} 
+}
 </pre></div>
 
 
@@ -393,5 +410,62 @@ $result_converted_errors{'html'}->{'example_multi_class'} = [
   }
 ];
 
+
+
+$result_converted{'docbook'}->{'example_multi_class'} = '<screen>void StateManager::deallocate() {
+    if(buffer) {
+        delete [] buffer;
+        buffer = NULL;
+    }
+    if(tmp_state) {
+        delete [] tmp_state;
+        tmp_state = NULL;
+    }
+    if(in_state) {
+        delete [] in_state;
+        in_state = NULL;
+    }
+}
+</screen>';
+
+
+$result_converted{'xml'}->{'example_multi_class'} = '<example spaces=" " endspaces=" "><examplelanguage>C++</examplelanguage><examplearg spaces=" ">gothic</examplearg><examplearg spaces=" ">purple</examplearg><examplearg spaces=" ">embed</examplearg>
+<pre xml:space="preserve">void StateManager::deallocate() &lbrace;
+    if(buffer) &lbrace;
+        delete [] buffer;
+        buffer = NULL;
+    &rbrace;
+    if(tmp_state) &lbrace;
+        delete [] tmp_state;
+        tmp_state = NULL;
+    &rbrace;
+    if(in_state) &lbrace;
+        delete [] in_state;
+        in_state = NULL;
+    &rbrace;
+&rbrace;
+</pre></example>
+';
+
+
+$result_converted{'latex_text'}->{'example_multi_class'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}%
+\\ttfamily void StateManager::deallocate() \\{
+\\    if(buffer) \\{
+\\        delete [] buffer;
+\\        buffer = NULL;
+\\    \\}
+\\    if(tmp\\_state) \\{
+\\        delete [] tmp\\_state;
+\\        tmp\\_state = NULL;
+\\    \\}
+\\    if(in\\_state) \\{
+\\        delete [] in\\_state;
+\\        in\\_state = NULL;
+\\    \\}
+\\}
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
+';
 
 1;

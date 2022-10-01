@@ -292,6 +292,10 @@ $result_floats{'example_at_commands_arguments'} = {};
 
 
 
+$result_converted{'plaintext'}->{'example_at_commands_arguments'} = '     example with @-commands and other special characters
+';
+
+
 $result_converted{'html'}->{'example_at_commands_arguments'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
@@ -335,5 +339,23 @@ $result_converted_errors{'html'}->{'example_at_commands_arguments'} = [
   }
 ];
 
+
+
+$result_converted{'docbook'}->{'example_at_commands_arguments'} = '<screen>example with @-commands and other special characters
+</screen>';
+
+
+$result_converted{'xml'}->{'example_at_commands_arguments'} = '<example spaces=" " endspaces=" "><examplelanguage>some  thing <accent type="circ" bracketed="off">e</accent> &tex; &iexcl; <code>---</code> &enddots; !_- _&textmdash;_ &lt; &quot; &amp; <spacecmd type="spc"/>&comma;</examplelanguage><examplearg>&arobase;</examplearg><examplearg>0</examplearg>
+<pre xml:space="preserve">example with &arobase;-commands and other special characters
+</pre></example>
+';
+
+
+$result_converted{'latex_text'}->{'example_at_commands_arguments'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}%
+\\ttfamily example with @-commands and other special characters
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
+';
 
 1;

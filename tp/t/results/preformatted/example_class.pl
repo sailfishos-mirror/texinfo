@@ -233,6 +233,17 @@ $result_floats{'example_class'} = {};
 
 
 
+$result_converted{'plaintext'}->{'example_class'} = '     foreach my $unclosed_file (keys(%unclosed_files)) {
+       if (!close($unclosed_files{$unclosed_file})) {
+         warn(sprintf("%s: error on closing %s: %s\\n",
+                          $real_command_name, $unclosed_file, $!));
+         $error_count++;
+         _exit($error_count, \\@opened_files);
+       }
+     }
+';
+
+
 $result_converted{'html'}->{'example_class'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
@@ -283,5 +294,44 @@ $result_converted_errors{'html'}->{'example_class'} = [
   }
 ];
 
+
+
+$result_converted{'docbook'}->{'example_class'} = '<screen>foreach my $unclosed_file (keys(%unclosed_files)) {
+  if (!close($unclosed_files{$unclosed_file})) {
+    warn(sprintf(&quot;%s: error on closing %s: %s\\n&quot;,
+                     $real_command_name, $unclosed_file, $!));
+    $error_count++;
+    _exit($error_count, \\@opened_files);
+  }
+}
+</screen>';
+
+
+$result_converted{'xml'}->{'example_class'} = '<example spaces=" " endspaces=" "><examplelanguage>perl</examplelanguage>
+<pre xml:space="preserve">foreach my $unclosed_file (keys(%unclosed_files)) &lbrace;
+  if (!close($unclosed_files&lbrace;$unclosed_file&rbrace;)) &lbrace;
+    warn(sprintf(&quot;%s: error on closing %s: %s\\n&quot;,
+                     $real_command_name, $unclosed_file, $!));
+    $error_count++;
+    _exit($error_count, \\&arobase;opened_files);
+  &rbrace;
+&rbrace;
+</pre></example>
+';
+
+
+$result_converted{'latex_text'}->{'example_class'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}%
+\\ttfamily foreach my \\$unclosed\\_file (keys(\\%unclosed\\_files)) \\{
+\\  if (!close(\\$unclosed\\_files\\{\\$unclosed\\_file\\})) \\{
+\\    warn(sprintf("\\%s:\\ error on closing \\%s:\\ \\%s\\textbackslash{}n",
+\\                     \\$real\\_command\\_name,\\ \\$unclosed\\_file,\\ \\$!));
+\\    \\$error\\_count++;
+\\    \\_exit(\\$error\\_count,\\ \\textbackslash{}@opened\\_files);
+\\  \\}
+\\}
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
+';
 
 1;

@@ -376,6 +376,14 @@ $result_floats{'example_empty_arguments'} = {};
 
 
 
+$result_converted{'plaintext'}->{'example_empty_arguments'} = '     example with empty args
+
+     example with empty args with spaces
+
+     example with empty and non empty args mix
+';
+
+
 $result_converted{'html'}->{'example_empty_arguments'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
@@ -427,5 +435,47 @@ $result_converted_errors{'html'}->{'example_empty_arguments'} = [
   }
 ];
 
+
+
+$result_converted{'docbook'}->{'example_empty_arguments'} = '<screen>example with empty args
+</screen>
+<screen>example with empty args with spaces
+</screen>
+<screen>example with empty and non empty args mix
+</screen>';
+
+
+$result_converted{'xml'}->{'example_empty_arguments'} = '<example spaces=" " endspaces=" "><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
+<pre xml:space="preserve">example with empty args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplearg spaces=" "></examplearg><examplearg></examplearg><examplearg spaces="  "></examplearg><examplearg></examplearg><examplearg></examplearg><examplearg> </examplearg>
+<pre xml:space="preserve">example with empty args with spaces
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplearg></examplearg><examplearg></examplearg><examplearg>nonempty</examplearg><examplearg></examplearg><examplearg></examplearg><examplearg></examplearg>
+<pre xml:space="preserve">example with empty and non empty args mix
+</pre></example>
+';
+
+
+$result_converted{'latex_text'}->{'example_empty_arguments'} = '\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}%
+\\ttfamily example with empty args
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
+
+\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}%
+\\ttfamily example with empty args with spaces
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
+
+\\begin{GNUTexinfoindented}
+\\begin{GNUTexinfopreformatted}%
+\\ttfamily example with empty and non empty args mix
+\\end{GNUTexinfopreformatted}
+\\end{GNUTexinfoindented}
+';
 
 1;
