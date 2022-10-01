@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-09-26.17}
+\def\texinfoversion{2022-10-01.10}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -9351,13 +9351,6 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \makevalueexpandable
   \ifvmode
     \imagevmodetrue
-  \else \ifx\centersub\centerV
-    % for @center @image, we need a vbox so we can have our vertical space
-    \imagevmodetrue
-    \vbox\bgroup % vbox has better behavior than vtop here
-  \fi\fi
-  %
-  \ifimagevmode
     \medskip
     % Usually we'll have text after the image which will insert
     % \parskip glue, so insert it here too to equalize the space
@@ -9369,14 +9362,16 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \vtop\bgroup \kern -\capheight \vskip-\parskip
   \fi
   %
-  % Enter horizontal mode so that indentation from an enclosing
-  %  environment such as @quotation is respected.
-  % However, if we're at the top level, we don't want the
-  %  normal paragraph indentation.
-  % On the other hand, if we are in the case of @center @image, we don't
-  %  want to start a paragraph, which will create a hsize-width box and
-  %  eradicate the centering.
-  \ifx\centersub\centerV \else \imageindent \fi
+  \ifx\centersub\centerV
+    % For @center @image, enter vertical mode and add vertical space
+    \vbox\bgroup\medskip\vskip\parskip
+  \else
+    % Enter horizontal mode so that indentation from an enclosing
+    %  environment such as @quotation is respected.
+    % However, if we're at the top level, we don't want the
+    %  normal paragraph indentation.
+    \imageindent
+  \fi
   %
   % Output the image.
   \ifpdf
