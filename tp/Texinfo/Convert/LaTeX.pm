@@ -3460,10 +3460,6 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
-      $self->line_warn($self,
-                     sprintf(__("\@%s not implemented for LaTeX output"),
-                             $cmdname),
-                       $element->{'source_info'});
       if ($self->{'structuring'}
             and $self->{'structuring'}->{'sectioning_root'}) {
         # TODO see notes at the beginning
