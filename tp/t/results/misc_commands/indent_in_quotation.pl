@@ -140,7 +140,6 @@ $result_converted{'latex'}->{'indent_in_quotation'} = '\\documentclass{book}
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

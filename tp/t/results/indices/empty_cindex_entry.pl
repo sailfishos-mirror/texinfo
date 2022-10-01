@@ -239,7 +239,6 @@ $result_converted{'latex'}->{'empty_cindex_entry'} = '\\documentclass{book}
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

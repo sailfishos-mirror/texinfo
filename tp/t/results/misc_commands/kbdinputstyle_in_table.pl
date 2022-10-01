@@ -2375,7 +2375,6 @@ $result_converted{'latex'}->{'kbdinputstyle_in_table'} = '\\documentclass{book}
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{enumitem}
 \\usepackage{titleps}

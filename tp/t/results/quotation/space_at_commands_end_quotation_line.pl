@@ -310,7 +310,6 @@ $result_converted{'latex'}->{'space_at_commands_end_quotation_line'} = '\\docume
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

@@ -1125,7 +1125,7 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
+\\usepackage[activate=false]{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

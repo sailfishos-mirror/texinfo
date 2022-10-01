@@ -798,7 +798,6 @@ $result_converted{'latex'}->{'multiple_index_text_sortas_seeentry_seealso'} = '\
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

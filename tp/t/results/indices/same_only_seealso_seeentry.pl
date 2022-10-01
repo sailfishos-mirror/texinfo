@@ -947,7 +947,6 @@ $result_converted{'latex'}->{'same_only_seealso_seeentry'} = '\\documentclass{bo
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

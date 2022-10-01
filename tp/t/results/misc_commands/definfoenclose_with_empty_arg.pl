@@ -172,7 +172,6 @@ $result_converted{'latex'}->{'definfoenclose_with_empty_arg'} = '\\documentclass
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

@@ -222,7 +222,6 @@ $result_converted{'latex'}->{'command_in_heading_footing'} = '\\documentclass{bo
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

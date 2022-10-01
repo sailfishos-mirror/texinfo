@@ -252,7 +252,6 @@ $result_converted{'latex'}->{'no_empty_line_between_headings'} = '\\documentclas
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

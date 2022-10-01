@@ -799,7 +799,6 @@ $result_converted{'latex'}->{'syncode_index_print_both'} = '\\documentclass{book
 \\usepackage[T1]{fontenc}
 \\usepackage{textcomp}
 \\usepackage{graphicx}
-\\usepackage{microtype}
 \\usepackage{etoolbox}
 \\usepackage{titleps}
 \\usepackage{float}

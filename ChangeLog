@@ -1,5 +1,10 @@
 2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header): Load microtype package
+	only if "@microtype" command was used in document.
+
+2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@center @image spacing
 
 	* doc/texinfo.tex (\image): Separate out the code for

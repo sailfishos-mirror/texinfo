@@ -1308,9 +1308,11 @@ sub _latex_header() {
 
   # disactivate microtype for fixed-width environments
   if ($self->{'fixed_width_environments'}) {
-    foreach my $no_microtype_environment (sort(keys(%{$self->{'fixed_width_environments'}}))) {
-      $header_code .= "\\AtBeginEnvironment{$no_microtype_environment}"
-                      ."{\\microtypesetup{activate=false}}\n";
+    if ($self->{'packages'}->{'microtype'}) {
+      foreach my $no_microtype_environment (sort(keys(%{$self->{'fixed_width_environments'}}))) {
+        $header_code .= "\\AtBeginEnvironment{$no_microtype_environment}"
+                        ."{\\microtypesetup{activate=false}}\n";
+      }
     }
     $header_code .= "\n";
   }
@@ -1397,7 +1399,7 @@ roundcorner=10pt}
   # In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
   # mdframed is used for the formatting of @cartouche,
-  # microtype is used for @microtype and set in the default case.
+  # microtype is used for @microtype
   # microtype requires cm-super installed, or to use lmodern package.
   # In texlive-latex-recommended in debian.
   # framemethod=TikZ is needed for roundcorner.
@@ -1419,8 +1421,9 @@ roundcorner=10pt}
   if ($self->{'packages'}->{'needspace'}) {
     $header .= "\\usepackage{needspace}\n";
   }
-  $header .= '\usepackage{microtype}
-';
+  if ($self->{'packages'}->{'microtype'}) {
+    $header .= "\\usepackage[activate=false]{microtype}\n";
+  }
   $header .= '\usepackage{etoolbox}
 ';
   if ($self->{'packages'}->{'array'}) {
@@ -3562,6 +3565,7 @@ sub _convert($$)
         } elsif ($microtype_spec eq 'off') {
           $result .= "\\microtypesetup{activate=false}%\n";
         }
+        $self->{'packages'}->{'microtype'} = 1;
       }
       return $result;
     } else {
