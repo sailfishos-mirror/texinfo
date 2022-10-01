@@ -1477,7 +1477,7 @@ sub _convert($$;$)
                 and ($arg->{'type'} eq 'bracketed_def_content'
                   or ($arg->{'type'} eq 'bracketed_inserted'))) {
               push @$attribute, ['bracketed', 'on'];
-              push @$attribute, _leading_spaces_arg($arg);
+              push @$attribute, _leading_trailing_spaces_arg($arg);
             }
             $result
               .= $self->txi_markup_open_element("def$format_element", $attribute)

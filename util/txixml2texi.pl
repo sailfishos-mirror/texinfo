@@ -434,6 +434,7 @@ while ($reader->read) {
       if (defined($reader->getAttribute('bracketed'))
           and $reader->getAttribute('bracketed') eq 'on') {
         print '{';
+        print "$spaces";
       }
       if (defined($reader->getAttribute('leadingtext'))) {
         print $reader->getAttribute('leadingtext');
@@ -449,9 +450,16 @@ while ($reader->read) {
     if ($Texinfo::Convert::TexinfoMarkup::commands_args_elements{$name}) {
       pop @commands_with_args_stack;
     }
+    my $trailingspaces = '';
+    if ($reader->hasAttributes()
+        and defined($reader->getAttribute('trailingspaces'))) {
+      $trailingspaces = $reader->getAttribute('trailingspaces');
+      $trailingspaces =~ s/\\f/\f/g;
+    }
     if ($reader->hasAttributes()) {
       if (defined($reader->getAttribute('bracketed'))
           and $reader->getAttribute('bracketed') eq 'on') {
+        print "$trailingspaces";
         print '}';
       }
     }
@@ -474,6 +482,7 @@ while ($reader->read) {
       if ($Texinfo::Common::root_commands{$name} and $name ne 'node') {
         $eat_space = 1;
       }
+      print "$trailingspaces";
     } elsif ($elements_end_attributes{$name}) {
       if ($name eq 'accent') {
         if ($reader->hasAttributes()) {
@@ -487,17 +496,12 @@ while ($reader->read) {
       } elsif ($reader->hasAttributes()
                and defined($reader->getAttribute('separator'))) {
         print $reader->getAttribute('separator');
+        print "$trailingspaces";
       }
     } elsif ($eat_space_elements{$name}) {
       $eat_space = 1;
     } else {
       print STDERR "END UNKNOWN $name\n" if ($debug);
-    }
-    if ($reader->hasAttributes()
-        and defined($reader->getAttribute('trailingspaces'))) {
-      my $trailingspaces = $reader->getAttribute('trailingspaces');
-      $trailingspaces =~ s/\\f/\f/g;
-      print $trailingspaces;
     }
   } elsif ($reader->nodeType() eq XML_READER_TYPE_ENTITY_REFERENCE) {
     if (defined($entity_texts{$name})) {
