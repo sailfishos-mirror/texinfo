@@ -276,6 +276,9 @@ $result_converted{'latex'}->{'no_empty_line_between_headings'} = '\\documentclas
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
+% allow line breaking at underscore
+\\let\\GNUTexinfounderscore\\_
+\\renewcommand{\\_}{\\GNUTexinfounderscore\\discretionary{}{}{}}
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 \\makeatother

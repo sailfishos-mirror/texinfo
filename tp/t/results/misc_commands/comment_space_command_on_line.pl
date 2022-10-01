@@ -1155,6 +1155,9 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
+% allow line breaking at underscore
+\\let\\GNUTexinfounderscore\\_
+\\renewcommand{\\_}{\\GNUTexinfounderscore\\discretionary{}{}{}}
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 \\makeatother

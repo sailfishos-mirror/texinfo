@@ -268,6 +268,9 @@ $result_converted{'latex'}->{'noindent_indent'} = '\\documentclass{book}
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
+% allow line breaking at underscore
+\\let\\GNUTexinfounderscore\\_
+\\renewcommand{\\_}{\\GNUTexinfounderscore\\discretionary{}{}{}}
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 \\makeatother

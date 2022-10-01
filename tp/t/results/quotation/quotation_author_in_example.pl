@@ -260,6 +260,9 @@ $result_converted{'latex'}->{'quotation_author_in_example'} = '\\documentclass{b
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
+% allow line breaking at underscore
+\\let\\GNUTexinfounderscore\\_
+\\renewcommand{\\_}{\\GNUTexinfounderscore\\discretionary{}{}{}}
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 \\makeatother

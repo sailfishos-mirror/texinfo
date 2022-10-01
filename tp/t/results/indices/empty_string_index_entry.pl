@@ -1097,6 +1097,9 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 % so it is turned off here, and turned on @def* lines
 \\EmbracOff{}%
 
+% allow line breaking at underscore
+\\let\\GNUTexinfounderscore\\_
+\\renewcommand{\\_}{\\GNUTexinfounderscore\\discretionary{}{}{}}
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 \\makeatother

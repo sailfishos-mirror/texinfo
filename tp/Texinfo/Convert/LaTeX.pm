@@ -17,12 +17,7 @@
 #
 # TODO
 #
-# LaTeX seems to always break at -, and never at _.  If @allowcodebreaks
-# is true \_ should be set to be a possible break point.  Seems that it
-# may be done with something like:
-#
-#   \let\underscore\_
-#   \newcommand{\myunderscore}{\renewcommand{\_}{\underscore\hspace{0pt}}}
+# RELEVANT BUT NOT DECISIVE
 #
 # If @allowcodebreaks is false, - should be set such that it is not a
 # breaking point anymore.  Maybe one way to do it:
@@ -35,7 +30,6 @@
 # or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
 #
-# RELEVANT BUT NOT DECISIVE
 #
 # breaking in urls is not implemented, maybe there is some support already in
 # hyperref.  @urefbreakstyle, @/
@@ -1377,6 +1371,12 @@ roundcorner=10pt}
 
 '
   }
+
+  $header_code .= '% allow line breaking at underscore
+\let\GNUTexinfounderscore\_
+\renewcommand{\_}{\GNUTexinfounderscore\discretionary{}{}{}}
+';
+
   # this is in order to be able to run pdflatex even
   # if files do not exist, or filenames cannot be
   # processed by LaTeX

@@ -1,5 +1,11 @@
 2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header):
+	Redefine \_ so to allow line breaking at underscore.  Update TODO
+	agendum.
+
+2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Contents): State that @shortcontents
 	is not implemented for LaTeX output.  From Patrice.
 
