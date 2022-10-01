@@ -160,14 +160,24 @@ foreach my $command (keys(%no_arg_commands_formatting)) {
 }
 
 my %arg_elements;
+my %variadic_elements;
+
 foreach my $command (keys(%Texinfo::Convert::TexinfoMarkup::commands_args_elements)) {
   my $arg_index = 0;
-  foreach my $element_argument
-        (@{$Texinfo::Convert::TexinfoMarkup::commands_args_elements{$command}}) {
+  my @element_arguments
+    = @{$Texinfo::Convert::TexinfoMarkup::commands_args_elements{$command}};
+  foreach my $element_argument (@element_arguments) {
     if ($element_argument ne '*') {
-      $arg_elements{$element_argument} = [$arg_index, $command];
-      $arg_index++;
+      # need to disambiguate by command as some markup argument elements
+      # are common, for @*ref, for example.  It should not matter, in general,
+      # if the argument indices are the same, which should be the case, but
+      # it is cleaner anyway.
+      $arg_elements{$element_argument}->{$command} = $arg_index;
+    } else {
+      my $previous_element_argument = $element_arguments[$arg_index - 1];
+      $variadic_elements{$previous_element_argument}->{$command} = $arg_index;
     }
+    $arg_index++;
   }
 }
 
@@ -218,10 +228,10 @@ while ($reader->read) {
 
   # ============================================================ begin debug
   if ($debug) {
-    printf STDERR "(args: @commands_with_args_stack) (eat_space $eat_space) %d %d %s %d", ($reader->depth,
-                           $reader->nodeType,
-                           $reader->name,
-                           $reader->isEmptyElement);
+    my $args_stack_str = join('|', map {'['.$_->[0].','.$_->[1].']'}
+                                        @commands_with_args_stack);
+    printf STDERR "(args: $args_stack_str) (eat_space $eat_space) %d %d %s %d", (
+          $reader->depth, $reader->nodeType, $reader->name, $reader->isEmptyElement);
     my $value = '';
     if ($reader->hasValue()) {
       $value = $reader->value();
@@ -262,7 +272,7 @@ while ($reader->read) {
       $name = 'item';
     }
     if ($Texinfo::Convert::TexinfoMarkup::commands_args_elements{$name}) {
-      push @commands_with_args_stack, 0;
+      push @commands_with_args_stack, [$name, 0];
     }
     my $spaces = $reader->getAttribute('spaces');
     if (defined($spaces)) {
@@ -353,10 +363,35 @@ while ($reader->read) {
         skip_until_end($reader, $name);
         next;
       }
-      while ($arg_elements{$name}->[0]
-             and $commands_with_args_stack[-1] < $arg_elements{$name}->[0]) {
-        $commands_with_args_stack[-1]++;
-        print ',';
+      my ($command, $current_index) = @{$commands_with_args_stack[-1]};
+      my $arg_element_index = $arg_elements{$name}->{$command};
+      if ($commands_with_args_stack[-1]->[1] < $arg_element_index) {
+        while ($commands_with_args_stack[-1]->[1] < $arg_element_index) {
+          $commands_with_args_stack[-1]->[1]++;
+          print ',';
+        }
+      } elsif ($commands_with_args_stack[-1]->[1] > 0) {
+        # the index is already at or above the argument index.  Either it is
+        # a variadic command, or an incorrect input.
+        if ($variadic_elements{$name}
+            and defined($variadic_elements{$name}->{$command})) {
+          $commands_with_args_stack[-1]->[1]++;
+          print ',';
+          # a debug consistency check
+          my $variadic_arg_index = $variadic_elements{$name}->{$command};
+          if ($commands_with_args_stack[-1]->[1] < $variadic_arg_index) {
+            print STDERR "BUG: $command: $name: current index < variadic_arg_index: "
+               ."$commands_with_args_stack[-1]->[1] < $variadic_arg_index\n"
+                  if ($debug);
+          }
+        } else {
+          # could happen with duplicate markup argument elements and
+          # markup argument elements in the wrong order
+          print STDERR "BAD INPUT: $command: $name(not variadic): "
+                 ."current index >= arg_element_index: "
+                 ."$commands_with_args_stack[-1]->[1] >= $arg_element_index\n"
+                       if ($debug);
+        }
       }
       print "$spaces";
     } elsif ($ignored_elements{$name}) {

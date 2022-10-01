@@ -1,5 +1,11 @@
 2022-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* util/txixml2texi.pl: handle variadic commands.  Disambiguate markup
+	argument elements with command name as the a markup argument element
+	can be associated to more than one @-command.
+
+2022-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (process_printindex): use scalar()
 	on hash keys, not on hash to detect if empty.
 
