@@ -1084,7 +1084,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
 
   enum command_id cmd = CM_NONE;
   /* remains set only if command is unknown, otherwise cmd is used */
-  char *command;
+  char *command = 0;
 
   /********* BLOCK_raw ******************/
   if (command_flags(current) & CF_block
