@@ -2501,8 +2501,7 @@ In text w: z? n; p. f
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{type:\\ t.\\ c name?\\ n.\\ d arg?\\ e:\\ f.\\  \\GNUTexinfocommandstyletextvar{v: g. h}\\ \\texttt{code?\\ is:\\ k}}& [cat: r. a on \\texttt{class:\\ MyC.\\ b}]
 \\end{tabularx}
 
@@ -2514,8 +2513,7 @@ deftypeop
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}& [vcat: r. z on \\texttt{vclass:\\ MyC.\\ u}]
 \\end{tabularx}
 
@@ -2541,8 +2539,7 @@ In text w: z? n; p. fn
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{type:\\ t.\\ c name?\\ n.\\ d narg?\\ e:\\ f.\\  \\GNUTexinfocommandstyletextvar{v: g. h}\\ \\texttt{code?\\ is:\\ k}}& [cat: r. a on \\texttt{class:\\ MyC.\\ b}]
 \\end{tabularx}
 
@@ -2554,8 +2551,7 @@ deftypeop n
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{vname?\\ n;\\ d \\EmbracOn{}\\textnormal{\\textsl{varg? ve: f. \\GNUTexinfocommandstyletextvar{vv: g? b} \\texttt{vcode?\\ is:\\ a}}}\\EmbracOff{}}& [vcat: r. z on \\texttt{nvclass:\\ MyC.\\ u}]
 \\end{tabularx}
 

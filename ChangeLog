@@ -1,3 +1,10 @@
+2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	LaTeX disable hyphenation on def line
+
+	* tp/Texinfo/Convert/LaTeX.on (_convert) <def line>:
+	Set \hyphenpenalty to 10000.
+
 2022-10-01  Patrice Dumas  <pertusus@free.fr>
 
 	Do not add empty isolated trailing spaces

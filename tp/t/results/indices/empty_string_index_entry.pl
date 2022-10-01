@@ -1121,16 +1121,14 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{\\hbox{} \\EmbracOn{}\\textnormal{\\textsl{ }}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{@\\texttt{\\hbox{}}}%
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{\\hbox{} \\EmbracOn{}\\textnormal{\\textsl{ }}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 

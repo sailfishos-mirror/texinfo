@@ -645,16 +645,14 @@ $result_converted{'latex_text'}->{'omit_def_space'} = '\\label{anchor:Top}%
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{function\\EmbracOn{}\\textnormal{\\textsl{(arg1, arg2)}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{function@\\texttt{function}}%
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{another\\EmbracOn{}\\textnormal{\\textsl{(aarg)}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 

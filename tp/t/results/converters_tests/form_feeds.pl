@@ -1462,8 +1462,7 @@ in center
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{machin \\EmbracOn{}\\textnormal{\\textsl{bidule  chose arg}}\\EmbracOff{}}& [truc]
 \\end{tabularx}
 

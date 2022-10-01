@@ -1758,16 +1758,14 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\end{GNUTexinfopreformatted}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{my def \\EmbracOn{}\\textnormal{\\textsl{args \\GNUTexinfocommandstyletextvar{arg} \\dots{}\\@}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{my def@\\texttt{my def}}%
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{other def \\EmbracOn{}\\textnormal{\\textsl{no args}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
@@ -1776,8 +1774,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\unskip{\\parskip=0pt\\noindent}%
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{name \\EmbracOn{}\\textnormal{\\textsl{and now the args}}\\EmbracOff{}}& [type]
 \\end{tabularx}
 
@@ -1786,8 +1783,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\unskip{\\parskip=0pt\\noindent}%
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{variables \\EmbracOn{}\\textnormal{\\textsl{variable-name}}\\EmbracOff{}}& [Variable]
 \\end{tabularx}
 
@@ -1797,8 +1793,7 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\end{GNUTexinfopreformatted}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{variables too \\EmbracOn{}\\textnormal{\\textsl{other-variable}}\\EmbracOff{}}& [Variable]
 \\end{tabularx}
 

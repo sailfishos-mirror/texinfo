@@ -312,8 +312,7 @@ $result_converted{'xml'}->{'def_in_example'} = '<example endspaces=" ">
 $result_converted{'latex_text'}->{'def_in_example'} = '\\begin{GNUTexinfoindented}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{name \\EmbracOn{}\\textnormal{\\textsl{arg}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 

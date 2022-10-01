@@ -466,8 +466,7 @@ $result_converted{'latex'}->{'empty_index_entry'} = '\\documentclass{book}
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
-\\rightskip=5em plus 1 fill
-\\hangindent=2em
+\\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
 \\texttt{}& []
 \\end{tabularx}
 

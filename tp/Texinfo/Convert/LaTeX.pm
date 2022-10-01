@@ -35,10 +35,6 @@
 # or two hyphen, no break between __ or hyphen.  See near \global\def\code
 # in texinfo.tex.
 #
-# In definition name, a @var{} argument may be hyphenated, it should be avoided
-# (example in customization_api.texi (Texinfo Tree Conversion Functions)
-# convert_tree_new_formatting_context)
-#
 # RELEVANT BUT NOT DECISIVE
 #
 # breaking in urls is not implemented, maybe there is some support already in
@@ -3643,10 +3639,13 @@ sub _convert($$)
 
         # This stops the definition line overlapping the category in
         # case it is hard to break the first line.
-        $def_line_result .= "\\rightskip=5em plus 1 fill\n";
+        $def_line_result .= "\\rightskip=5em plus 1 fill ";
 
         # In case definition "line" doesn't fit on one line.
-        $def_line_result .= "\\hangindent=2em\n";
+        $def_line_result .= "\\hangindent=2em ";
+
+        # turn off hyphenation
+        $def_line_result .= "\\hyphenpenalty=10000\n";
 
         $def_line_result .= '\texttt{';
 
