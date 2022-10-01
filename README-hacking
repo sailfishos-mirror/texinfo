@@ -200,7 +200,9 @@ Steps for making a release (pretest or official):
 check at latest automake/autoconf/gettext version, and mention in NEWS
 (to upgrade gettext, run
   gettextize -f --po-dir=po --po-dir=po_document
-after installing new version of gettext)
+after installing new version of gettext.
+check that this does not actually downgrade files due to files also
+being updated from gnulib --add-import)
 
 # Under the top level, and also under tp/Texinfo/XS, which uses
 # a separate gnulib import.
