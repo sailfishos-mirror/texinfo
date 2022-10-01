@@ -403,7 +403,7 @@ $result_converted{'html_text'}->{'empty_headitem'} = '<table class="multitable">
 ';
 
 
-$result_converted{'xml'}->{'empty_headitem'} = '<multitable spaces=" " endspaces=" "><columnfractions line=".1 .1 .1"><columnfraction value=".1"></columnfraction><columnfraction value=".1"></columnfraction><columnfraction value=".1"></columnfraction></columnfractions>
+$result_converted{'xml'}->{'empty_headitem'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line=".1 .1 .1"><columnfraction value=".1"></columnfraction><columnfraction value=".1"></columnfraction><columnfraction value=".1"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"> </entry><entry command="tab"> <para>Index </para></entry><entry command="tab"> <para>Value
 </para></entry></row></thead><tbody><row><entry command="item"> </entry><entry command="tab"> <para><code>3</code> </para></entry><entry command="tab"> <para><code>30</code>
 </para></entry></row></tbody></multitable>

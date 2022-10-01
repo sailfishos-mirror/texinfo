@@ -1678,7 +1678,7 @@ quotation
 </para></listitem><listitem> <para>second c
 </para></listitem></enumerate>
 
-<multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
+<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
@@ -2817,7 +2817,7 @@ quotation
 </para></listitem><listitem> <para>second c
 </para></listitem></enumerate>
 
-<multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
+<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
@@ -3983,7 +3983,7 @@ quotation
 </para></listitem><listitem> <para>second c
 </para></listitem></enumerate>
 
-<multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
+<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->
@@ -5117,7 +5117,7 @@ indent in quotation
 </pre></listitem><listitem><pre xml:space="preserve"> second c
 </pre></listitem></enumerate>
 <pre xml:space="preserve">
-</pre><multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
+</pre><multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 0.6 "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"><pre xml:space="preserve"> mu--ltitable headitem </pre></entry><entry command="tab"><pre xml:space="preserve"> another tab
 </pre></entry></row></thead><tbody><row><entry command="item"><pre xml:space="preserve"> mu--ltitable item </pre></entry><entry command="tab"><pre xml:space="preserve"> multitable tab
 <!-- c comment in multitable -->

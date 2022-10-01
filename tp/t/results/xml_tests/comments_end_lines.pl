@@ -1280,7 +1280,7 @@ $result_converted{'xml'}->{'comments_end_lines'} = '<itemize commandarg="bullet"
 <pre xml:space="preserve">in ex
 </pre></example> <!-- c comm -->
 
-<multitable spaces=" " endspaces=" "><columnfractions line="0.4 0.6"><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
+<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 0.6"><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
 <tbody><row><entry command="item"> <para>a </para></entry><entry command="tab"> <para>b
 </para></entry></row></tbody></multitable> <!-- c comm -->
 

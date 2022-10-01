@@ -748,7 +748,7 @@ $result_converted{'html_text'}->{'multitable'} = '
 
 
 $result_converted{'xml'}->{'multitable'} = '
-<multitable spaces=" " endspaces=" "><columnfractions line="0.6 0.4"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>
+<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.6 0.4"><columnfraction value="0.6"></columnfraction><columnfraction value="0.4"></columnfraction></columnfractions>
 <thead><row><entry command="headitem"> <para>mu&textndash;ltitable headitem </para></entry><entry command="tab"> <para>another tab
 </para></entry></row></thead><tbody><row><entry command="item"> <para>mu&textndash;ltitable item </para></entry><entry command="tab"> <para>multitable tab
 <!-- c comment in multitable -->

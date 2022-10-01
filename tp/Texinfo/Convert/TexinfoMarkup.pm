@@ -1345,7 +1345,8 @@ sub _convert($$;$)
                     last;
                   }
                 }
-                my $attribute = [$self->_texinfo_line($cmd)];
+                my $attribute = [_leading_spaces_arg($cmd),
+                                 $self->_texinfo_line($cmd)];
                 $result .= $self->txi_markup_open_element('columnfractions', $attribute);
                 foreach my $fraction (@{$element->{'extra'}->{'columnfractions'}
                                              ->{'extra'}->{'misc_args'}}) {

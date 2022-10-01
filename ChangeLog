@@ -1,5 +1,10 @@
 2022-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): set leading spaces
+	for columnfraction.
+
+2022-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): collect index
 	entry end line spaces, which is important to get space before
 	@subentry.
