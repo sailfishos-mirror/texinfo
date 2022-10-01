@@ -726,14 +726,17 @@ isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
            i--)
         trailing_spaces++;
 
-      new_spaces = new_element (spaces_type);
-      text_append_n (&new_spaces->text,
-                     text + text_len - trailing_spaces,
-                     trailing_spaces);
-      text[text_len - trailing_spaces] = '\0';
-      last_elt->text.end -= trailing_spaces;
+      if (trailing_spaces)
+        {
+          new_spaces = new_element (spaces_type);
+          text_append_n (&new_spaces->text,
+                         text + text_len - trailing_spaces,
+                         trailing_spaces);
+          text[text_len - trailing_spaces] = '\0';
+          last_elt->text.end -= trailing_spaces;
 
-      add_to_element_contents (current, new_spaces);
+          add_to_element_contents (current, new_spaces);
+        }
     }
 }
 

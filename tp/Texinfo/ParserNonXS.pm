@@ -2365,6 +2365,22 @@ sub _abort_empty_line {
   return 0;
 }
 
+sub _isolate_trailing_space($$)
+{
+  my $current = shift;
+  my $spaces_type = shift;
+
+  if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
+    $current->{'contents'}->[-1]->{'type'} = $spaces_type;
+  } else {
+    if ($current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//) {
+      my $new_spaces = { 'text' => $1, 'parent' => $current,
+        'type' => $spaces_type };
+      push @{$current->{'contents'}}, $new_spaces;
+    }
+  }
+}
+
 # isolate last space in a command to help expansion disregard unuseful spaces.
 sub _isolate_last_space
 {
@@ -2393,14 +2409,7 @@ sub _isolate_last_space
             or $current->{'contents'}->[-1]->{'text'} !~ /\s+$/;
 
   if ($current->{'type'} and $current->{'type'} eq 'menu_entry_node') {
-    if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
-      $current->{'contents'}->[-1]->{'type'} = 'space_at_end_menu_node';
-    } else {
-      $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
-      my $new_spaces = { 'text' => $1, 'parent' => $current,
-        'type' => 'space_at_end_menu_node' };
-      push @{$current->{'contents'}}, $new_spaces;
-    }
+    _isolate_trailing_space($current, 'space_at_end_menu_node');
   } else {
     # Store final spaces in 'spaces_after_argument'.
     #$current->{'extra'} = {} if (!$current->{'extra'});
@@ -4551,24 +4560,15 @@ sub _process_remaining_on_line($$$$)
         # the internal space type is not processed and remains as is in
         # the final tree.
         and _is_index_element($self, $current->{'parent'})) {
-      $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
-      # an internal and temporary space type that is converted to
-      # a normal space without type if followed by text or a
-      # "spaces_at_end" if followed by spaces only when the
-      # index or subentry command is done.
-      my $space_type = 'internal_spaces_before_brace_in_index';
       if ($command eq 'subentry') {
-        $space_type = 'spaces_at_end';
-      }
-      if ($1 ne '') {
-        if ($current->{'contents'}->[-1]->{'text'} eq '') {
-          $current->{'contents'}->[-1]->{'text'} = $1;
-          $current->{'contents'}->[-1]->{'type'} = $space_type;
-        } else {
-          my $new_spaces = { 'text' => $1, 'parent' => $current,
-            'type' => $space_type };
-          push @{$current->{'contents'}}, $new_spaces;
-        }
+        _isolate_trailing_space($current, 'spaces_at_end');
+      } else {
+        # an internal and temporary space type that is converted to
+        # a normal space without type if followed by text or a
+        # "spaces_at_end" if followed by spaces only when the
+        # index or subentry command is done.
+        _isolate_trailing_space($current,
+                                'internal_spaces_before_brace_in_index');
       }
     }
 

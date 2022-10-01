@@ -1,3 +1,14 @@
+2022-10-01  Patrice Dumas  <pertusus@free.fr>
+
+	Do not add empty isolated trailing spaces
+
+	* tp/Texinfo/ParserNonXS.pm (_isolate_trailing_space)
+	(_isolate_last_space, _process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/parser.c (isolate_trailing_space):
+	only add element when isolating trailing spaces if there
+	are indeed spaces to isolate.  Modify perl parser code to
+	be more like XS parser code.
+
 2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Warn for @shortcontents in LaTeX
