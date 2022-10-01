@@ -17,17 +17,6 @@
 #
 # TODO
 #
-# @shortcontent is not implemented.  Tried shorttoc package but it
-# has two limitations that are not in Texinfo, need a main \tableofcontents
-# and need to be before @contents.  A code snippet looked good for a
-# @shortcontents after @contents, but not before:
-#{
-#\renewcommand*{\contentsname}{Short contents}
-#\setcounter{tocdepth}{0}
-#\expandafter\def\csname @starttoc\endcsname#1{\InputIfFileExists{\jobname.#1}{}{}}%
-#\tableofcontents
-#}
-#
 # LaTeX seems to always break at -, and never at _.  If @allowcodebreaks
 # is true \_ should be set to be a possible break point.  Seems that it
 # may be done with something like:
@@ -98,6 +87,20 @@
 # using \usepackage{fontspec}\usepackage{unicode-math} instead.)
 # We can also imagine people wanting different euro symbols.
 # Maybe each one of the default \usepackage's should be configurable.
+#
+# @shortcontents is not implemented.  Tried shorttoc package but it
+# has two limitations that are not in Texinfo, need a main \tableofcontents
+# and need to be before @contents.  A code snippet looked good for a
+# @shortcontents after @contents, but not before:
+#{
+#\renewcommand*{\contentsname}{Short contents}
+#\setcounter{tocdepth}{0}
+#\expandafter\def\csname @starttoc\endcsname#1{\InputIfFileExists{\jobname.#1}{}{}}%
+#\tableofcontents
+#}
+#We could treat LaTeX like HTML with CONTENTS_OUTPUT_LOCATION=aftertop and
+#ignore both @contents and @shortcontents.
+#
 #
 # CAN WAIT
 #
@@ -3461,6 +3464,10 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'shortcontents' or $cmdname eq 'summarycontents') {
+      $self->line_warn($self,
+                     sprintf(__("\@%s not implemented for LaTeX output"),
+                             $cmdname),
+                       $element->{'source_info'});
       if ($self->{'structuring'}
             and $self->{'structuring'}->{'sectioning_root'}) {
         # TODO see notes at the beginning

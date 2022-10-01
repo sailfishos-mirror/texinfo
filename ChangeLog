@@ -1,5 +1,14 @@
 2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Warn for @shortcontents in LaTeX
+
+	* tp/Texinfo/Convert/LaTeX.pm (convert) <@shortcontents>:
+	Issue a warning if it @shortcontents or @summarycontents
+	is used.  Add a comment in TODO section saying that we may
+	not have to implement it.
+
+2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c: Initialize a variable that
 	we check is non-null.
 
