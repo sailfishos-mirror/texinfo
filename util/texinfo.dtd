@@ -802,7 +802,8 @@
 <!ELEMENT itemprepend (#PCDATA | %Inline.line; | formattingcommand)*>
 <!ELEMENT formattingcommand EMPTY>
 <!ATTLIST formattingcommand
-          command CDATA #REQUIRED>
+          command CDATA #REQUIRED
+          automatic (%onoff;) 'off'>
 <!ELEMENT beforefirstitem (%block;)*>
 
 <!-- Tables -->

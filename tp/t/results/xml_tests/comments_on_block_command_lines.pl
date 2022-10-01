@@ -2735,7 +2735,7 @@ $result_floats{'comments_on_block_command_lines'} = {
 
 
 
-$result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend>&bullet;</itemprepend><!-- c comm -->
+$result_converted{'xml'}->{'comments_on_block_command_lines'} = '<itemize commandarg="bullet" spaces=" " endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend><!-- c comm -->
 <listitem><prepend>&bullet;</prepend> <para>itemize it
 </para></listitem></itemize>
 

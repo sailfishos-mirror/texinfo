@@ -1257,7 +1257,7 @@ $result_floats{'comments_end_lines'} = {
 
 
 
-$result_converted{'xml'}->{'comments_end_lines'} = '<itemize commandarg="bullet" endspaces=" "><itemprepend>&bullet;</itemprepend>
+$result_converted{'xml'}->{'comments_end_lines'} = '<itemize commandarg="bullet" endspaces=" "><itemprepend><formattingcommand command="bullet" automatic="on"/></itemprepend>
 <listitem><prepend>&bullet;</prepend> <para>itemize it
 </para></listitem></itemize>  <!-- c comment itemize -->
 

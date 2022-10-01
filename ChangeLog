@@ -13,6 +13,15 @@
 
 2022-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert), util/texinfo.dtd,
+	util/txixml2texi.pl: if the default command as argument for itemize
+	is inserted, put it in a formattingcommand, with an automatic
+	attribute set to on.  Use that information in txixml2texi.
+
+	* util/txixml2texi.pl: handle rmacro.
+
+2022-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): add spaces attribute
 	for 'specific' line commands.
 

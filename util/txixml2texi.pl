@@ -17,8 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# FIXME space missing for comands like printindex.  Space before subentry
-# missing.
+# FIXME Space before subentry missing.  Space after columnfractions missing
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 
@@ -309,12 +308,13 @@ while ($reader->read) {
       print "$spaces";
     } elsif (exists($Texinfo::Common::block_commands{$name})) {
       print "\@$name";
-      if ($name eq 'macro') {
+      if ($name eq 'macro' or $name eq 'rmacro') {
         if ($reader->hasAttributes() and defined($reader->getAttribute('line'))) {
           print $reader->getAttribute('line');
         }
         print "\n";
       } else {
+        # leading spaces are already in the line attribute for (r)macro
         print "$spaces";
       }
     } elsif (defined($Texinfo::Common::line_commands{$name})
@@ -373,18 +373,22 @@ while ($reader->read) {
         }
       }
       if (!$keep_indexterm) {
+        #print STDERR "IGNORE $name\n" if ($debug);
         skip_until_end($reader, $name);
         next;
       }
     } elsif ($name eq 'formattingcommand') {
-      if ($reader->hasAttributes()
-          and defined($reader->getAttribute('command'))) {
-        print '@'.$reader->getAttribute('command');
+      if ($reader->hasAttributes()) {
+        if (defined($reader->getAttribute('command'))
+            and (not (defined($reader->getAttribute('automatic'))
+                      and $reader->getAttribute('automatic') eq 'on'))) {
+          print '@'.$reader->getAttribute('command');
+        }
       }
     # def* automatic
     } elsif ($reader->hasAttributes()
-          and defined($reader->getAttribute('automatic'))
-          and $reader->getAttribute('automatic') eq 'on') {
+             and defined($reader->getAttribute('automatic'))
+             and $reader->getAttribute('automatic') eq 'on') {
       skip_until_end($reader, $name);
       # eat the following space
       $reader->read();

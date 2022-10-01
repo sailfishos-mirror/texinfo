@@ -593,10 +593,13 @@ sub _convert($$;$)
                         [['command', $element->{'extra'}->{'clickstyle'}]]);
       }
       if ($self->{'itemize_line'} and $element->{'type'}
-          and $element->{'type'} eq 'command_as_argument'
+          and ($element->{'type'} eq 'command_as_argument'
+               or $element->{'type'} eq 'command_as_argument_inserted')
           and !$element->{'args'}) {
-        return $self->txi_markup_element('formattingcommand',
-                                      [['command', $element->{'cmdname'}]]);
+        my $arguments = [['command', $element->{'cmdname'}]];
+        push @$arguments, ['automatic', 'on']
+          if ($element->{'type'} eq 'command_as_argument_inserted');
+        return $self->txi_markup_element('formattingcommand', $arguments);
       }
       return $self->_format_command($element->{'cmdname'});
     } elsif ($accent_types{$element->{'cmdname'}}) {
