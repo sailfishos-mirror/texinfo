@@ -1,5 +1,9 @@
 2022-10-01  Patrice Dumas  <pertusus@free.fr>
 
+	* util/texinfo.dtd: update for change in spaces attributes.
+
+2022-10-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): set leading spaces
 	for columnfraction.
 

@@ -207,6 +207,8 @@
   "spaces CDATA #IMPLIED">
 <!ENTITY % lineattr
   "line CDATA #IMPLIED">
+<!ENTITY % linespaceattr
+  "%lineattr; %spacesattr;">
 <!ENTITY % bracketedattr
   "bracketed (%onoff;) #IMPLIED">
 <!-- block commands that have spaces also have endspaces -->
@@ -254,13 +256,13 @@
           name CDATA #REQUIRED>
 <!ELEMENT definfoenclose EMPTY>
 <!ATTLIST definfoenclose 
-          %lineattr;
+          %linespaceattr;
           command  NMTOKEN #REQUIRED
           open     CDATA   #IMPLIED
           close    CDATA   #IMPLIED>
 <!ELEMENT alias          EMPTY>
 <!ATTLIST alias
-          %lineattr;
+          %linespaceattr;
           new       NMTOKEN #REQUIRED
           existing  NMTOKEN #REQUIRED>
 <!ELEMENT clickstyle  (#PCDATA)>
@@ -298,32 +300,32 @@
           encoding CDATA #REQUIRED>
 <!ELEMENT everyheadingmarks EMPTY>
 <!ATTLIST everyheadingmarks
-          %lineattr;
+          %linespaceattr;
           value (%topbottom;) #REQUIRED>
 <!ELEMENT everyfootingmarks EMPTY>
 <!ATTLIST everyfootingmarks
-          %lineattr;
+          %linespaceattr;
           value (%topbottom;) #REQUIRED>
 <!ELEMENT evenheadingmarks EMPTY>
 <!ATTLIST evenheadingmarks
-          %lineattr;
+          %linespaceattr;
           value (%topbottom;) #REQUIRED>
 <!ELEMENT oddheadingmarks EMPTY>
 <!ATTLIST oddheadingmarks
-          %lineattr;
+          %linespaceattr;
           value (%topbottom;) #REQUIRED>
 <!ELEMENT evenfootingmarks EMPTY>
 <!ATTLIST evenfootingmarks
-          %lineattr;
+          %linespaceattr;
           value (%topbottom;) #REQUIRED>
 <!ELEMENT oddfootingmarks EMPTY>
 <!ATTLIST oddfootingmarks
-          %lineattr;
+          %linespaceattr;
           value (%topbottom;) #REQUIRED>
 <!-- "10|11" -->
 <!ELEMENT fonttextsize  EMPTY>
 <!ATTLIST fonttextsize
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT pagesizes (#PCDATA)>
 <!ATTLIST pagesizes
@@ -331,21 +333,21 @@
 <!ELEMENT setchapternewpage  EMPTY>
 <!-- "off|on|odd" -->
 <!ATTLIST setchapternewpage
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT footnotestyle      EMPTY>
 <!-- "end|separate" -->
 <!ATTLIST footnotestyle
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT allowcodebreaks    EMPTY>
 <!-- "false|true" -->
 <!ATTLIST allowcodebreaks
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT exampleindent      EMPTY>
 <!ATTLIST exampleindent
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT afourpaper      EMPTY>
 <!ATTLIST afourpaper
@@ -365,7 +367,7 @@
 <!ELEMENT headings        EMPTY>
 <!-- "off|on|single|double|singleafter|doubleafter" -->
 <!ATTLIST headings
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT everyheading        (#PCDATA | %Inline.headingline;)*>
 <!ATTLIST everyheading
@@ -400,41 +402,41 @@
           xml:lang (%languagecodes;) 'en'>
 <!ELEMENT frenchspacing (#PCDATA)> <!-- must be on or off -->
 <!ATTLIST frenchspacing 
-          %lineattr;
+          %linespaceattr;
           value (%onoff;) 'off'>
 <!ELEMENT kbdinputstyle   EMPTY>
 <!-- "code|example|distinct" -->
 <!ATTLIST kbdinputstyle
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT paragraphindent EMPTY>
 <!ATTLIST paragraphindent
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT firstparagraphindent EMPTY>
 <!ATTLIST firstparagraphindent
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT urefbreakstyle  EMPTY>
 <!-- "after|before|none" -->
 <!ATTLIST urefbreakstyle
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT xrefautomaticsectiontitle EMPTY>
 <!ATTLIST xrefautomaticsectiontitle
-          %lineattr;
+          %linespaceattr;
           value (%onoff;) #REQUIRED>
 <!ELEMENT deftypefnnewline EMPTY>
 <!ATTLIST deftypefnnewline
-          %lineattr;
+          %linespaceattr;
           value (%onoff;) #REQUIRED>
 <!ELEMENT codequoteundirected EMPTY>
 <!ATTLIST codequoteundirected
-          %lineattr;
+          %linespaceattr;
           value (%onoff;) #REQUIRED>
 <!ELEMENT codequotebacktick EMPTY>
 <!ATTLIST codequotebacktick
-          %lineattr;
+          %linespaceattr;
           value (%onoff;) #REQUIRED>
 <!ELEMENT raisesections   EMPTY>
 <!ATTLIST raisesections
@@ -465,14 +467,14 @@
 <!-- Formatting -->
 <!ELEMENT sp EMPTY>
 <!ATTLIST sp
-          %lineattr;
+          %linespaceattr;
           value CDATA #IMPLIED>
 <!ELEMENT page EMPTY>
 <!ATTLIST page
           %lineattr;>
 <!ELEMENT need EMPTY>
 <!ATTLIST need
-          %lineattr;
+          %linespaceattr;
           value CDATA #REQUIRED>
 <!ELEMENT indent   EMPTY>
 <!ELEMENT noindent EMPTY>
@@ -682,7 +684,7 @@
 <!-- Whitespace in these elements are always preserved -->
 <!ELEMENT verbatim     (#PCDATA)>
 <!ATTLIST verbatim 
-          %spacesattr;
+          %spacesblockattr;
           xml:space (preserve) #FIXED 'preserve'>
 
 <!-- author is there because it may happen in a quotation para -->
@@ -745,6 +747,8 @@
 <!ELEMENT formalarg (#PCDATA)>
 
 <!ELEMENT ignore (#PCDATA)>
+<!ATTLIST ignore
+          %spacesblockattr;>
 
 <!-- Negative indentation in blocks -->
 <!ELEMENT exdent       (#PCDATA | %Inline.fullline;)*>
@@ -847,7 +851,7 @@
           %blocktablearg;>
 <!ELEMENT columnfractions (columnfraction+)>
 <!ATTLIST columnfractions
-          %lineattr;>
+          %linespaceattr;>
 <!ELEMENT columnprototypes (columnprototype+)>
 <!ELEMENT columnfraction EMPTY>
 <!ATTLIST columnfraction
@@ -1236,20 +1240,20 @@
 
 <!ELEMENT defindex  EMPTY>
 <!ATTLIST defindex
-          %lineattr;
+          %linespaceattr;
           value     NMTOKEN #REQUIRED>
 <!ELEMENT defcodeindex  EMPTY>
 <!ATTLIST defcodeindex
-          %lineattr;
+          %linespaceattr;
           value     NMTOKEN #REQUIRED>
 <!ELEMENT synindex  EMPTY>
 <!ATTLIST synindex
-          %lineattr;
+          %linespaceattr;
           from      NMTOKEN #REQUIRED
           to        NMTOKEN #REQUIRED>
 <!ELEMENT syncodeindex  EMPTY>
 <!ATTLIST syncodeindex
-          %lineattr;
+          %linespaceattr;
           from      NMTOKEN #REQUIRED
           to        NMTOKEN #REQUIRED>
 <!ELEMENT indexterm (#PCDATA | %Inline.indexentryline;)*>
@@ -1289,7 +1293,7 @@
 
 <!ELEMENT printindex EMPTY>
 <!ATTLIST printindex
-          %lineattr;
+          %linespaceattr;
           value     NMTOKEN #REQUIRED>
 
 <!-- unusual insertions and other -->
