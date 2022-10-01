@@ -42,10 +42,10 @@ AC_DEFUN([gl_EARLY],
   AC_REQUIRE([gl_USE_SYSTEM_EXTENSIONS])
   AC_REQUIRE([gl_PROG_AR_RANLIB])
 
-  AC_REQUIRE([AM_PROG_CC_C_O])
   # Code from module absolute-header:
   # Code from module alloca-opt:
   # Code from module argz:
+  # Code from module assert-h:
   # Code from module attribute:
   # Code from module basename-lgpl:
   # Code from module btowc:
@@ -89,8 +89,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module iswxdigit:
   # Code from module langinfo:
   # Code from module largefile:
-  AC_REQUIRE([AC_SYS_LARGEFILE])
   AC_REQUIRE([gl_YEAR2038_EARLY])
+  AC_REQUIRE([AC_SYS_LARGEFILE])
   # Code from module libc-config:
   # Code from module limits-h:
   # Code from module localcharset:
@@ -142,6 +142,7 @@ AC_DEFUN([gl_EARLY],
   dnl for the builtin va_copy to work.  gl_PROG_CC_C99 arranges for this.
   gl_PROG_CC_C99
   # Code from module stdbool:
+  # Code from module stdckdint:
   # Code from module stddef:
   # Code from module stdint:
   # Code from module stdio:
@@ -214,6 +215,9 @@ AC_DEFUN([gl_INIT],
   gl_CONDITIONAL_HEADER([argz.h])
   AC_PROG_MKDIR_P
   gl_CONDITIONAL([GL_COND_OBJ_ARGZ], [test -n "$ARGZ_H"])
+  gl_ASSERT_H
+  gl_CONDITIONAL_HEADER([assert.h])
+  AC_PROG_MKDIR_P
   gl_FUNC_CALLOC_GNU
   if test $REPLACE_CALLOC_FOR_CALLOC_GNU = 1; then
     AC_LIBOBJ([calloc])
@@ -365,8 +369,14 @@ AC_DEFUN([gl_INIT],
   gl_STDARG_H
   gl_CONDITIONAL_HEADER([stdarg.h])
   AC_PROG_MKDIR_P
-  gl_STDBOOL_H
-  gl_CONDITIONAL_HEADER([stdbool.h])
+  gl_C_BOOL
+  AC_CHECK_HEADERS_ONCE([stdckdint.h])
+  if test $ac_cv_header_stdckdint_h = yes; then
+    GL_GENERATE_STDCKDINT_H=false
+  else
+    GL_GENERATE_STDCKDINT_H=true
+  fi
+  gl_CONDITIONAL_HEADER([stdckdint.h])
   AC_PROG_MKDIR_P
   gl_STDDEF_H
   gl_STDDEF_H_REQUIRE_DEFAULTS
@@ -494,6 +504,7 @@ AC_DEFUN([gl_INIT],
   gl_gnulib_enabled_fstat=false
   gl_gnulib_enabled_getdtablesize=false
   gl_gnulib_enabled_30838f5439487421042f2225bed3af76=false
+  gl_gnulib_enabled_intprops=false
   gl_gnulib_enabled_langinfo=false
   gl_gnulib_enabled_21ee726a3540c09237a8e70c0baf7467=false
   gl_gnulib_enabled_localcharset=false
@@ -523,6 +534,7 @@ AC_DEFUN([gl_INIT],
   gl_gnulib_enabled_c51beae7f4752ac2d6c54eac3a7029ea=false
   gl_gnulib_enabled_a5e6ab274f0fc9b913a905fdf64e92ec=false
   gl_gnulib_enabled_vasnprintf=false
+  gl_gnulib_enabled_verify=false
   gl_gnulib_enabled_wcrtomb=false
   gl_gnulib_enabled_503a4cb75d69c787103d0aa2ab7d8440=false
   gl_gnulib_enabled_68a4501daeca58988392c7e60b4917ab=false
@@ -606,6 +618,7 @@ AC_DEFUN([gl_INIT],
       AC_PROG_MKDIR_P
       gl_gnulib_enabled_dynarray=true
       func_gl_gnulib_m4code_37f71b604aa9c54446783d80f42fe547
+      func_gl_gnulib_m4code_intprops
       func_gl_gnulib_m4code_21ee726a3540c09237a8e70c0baf7467
     fi
   }
@@ -723,6 +736,12 @@ AC_DEFUN([gl_INIT],
       AC_SUBST([LIB_HARD_LOCALE])
       gl_gnulib_enabled_30838f5439487421042f2225bed3af76=true
       func_gl_gnulib_m4code_e7e881d32ca02f1c997b13c737c64bbd
+    fi
+  }
+  func_gl_gnulib_m4code_intprops ()
+  {
+    if ! $gl_gnulib_enabled_intprops; then
+      gl_gnulib_enabled_intprops=true
     fi
   }
   func_gl_gnulib_m4code_langinfo ()
@@ -920,6 +939,7 @@ AC_DEFUN([gl_INIT],
       gl_STAT_BIRTHTIME
       gl_gnulib_enabled_0137e3d3638b33e5819d132d0b23165c=true
       func_gl_gnulib_m4code_errno
+      func_gl_gnulib_m4code_intprops
       func_gl_gnulib_m4code_time
     fi
   }
@@ -1070,6 +1090,12 @@ AC_DEFUN([gl_INIT],
       func_gl_gnulib_m4code_xsize
     fi
   }
+  func_gl_gnulib_m4code_verify ()
+  {
+    if ! $gl_gnulib_enabled_verify; then
+      gl_gnulib_enabled_verify=true
+    fi
+  }
   func_gl_gnulib_m4code_wcrtomb ()
   {
     if ! $gl_gnulib_enabled_wcrtomb; then
@@ -1183,6 +1209,9 @@ AC_DEFUN([gl_INIT],
     func_gl_gnulib_m4code_dynarray
   fi
   if test $ac_use_included_regex = yes; then
+    func_gl_gnulib_m4code_intprops
+  fi
+  if test $ac_use_included_regex = yes; then
     func_gl_gnulib_m4code_langinfo
   fi
   if test $ac_use_included_regex = yes; then
@@ -1195,10 +1224,16 @@ AC_DEFUN([gl_INIT],
     func_gl_gnulib_m4code_nl_langinfo
   fi
   if test $ac_use_included_regex = yes; then
+    func_gl_gnulib_m4code_verify
+  fi
+  if test $ac_use_included_regex = yes; then
     func_gl_gnulib_m4code_wcrtomb
   fi
   if test $REPLACE_STRERROR = 1; then
     func_gl_gnulib_m4code_errno
+  fi
+  if test $REPLACE_STRERROR = 1; then
+    func_gl_gnulib_m4code_intprops
   fi
   if test $REPLACE_STRERROR = 1; then
     func_gl_gnulib_m4code_dbb57f49352be8fb86869629a254fb72
@@ -1234,6 +1269,7 @@ AC_DEFUN([gl_INIT],
   AM_CONDITIONAL([gl_GNULIB_ENABLED_fstat], [$gl_gnulib_enabled_fstat])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_getdtablesize], [$gl_gnulib_enabled_getdtablesize])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_30838f5439487421042f2225bed3af76], [$gl_gnulib_enabled_30838f5439487421042f2225bed3af76])
+  AM_CONDITIONAL([gl_GNULIB_ENABLED_intprops], [$gl_gnulib_enabled_intprops])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_langinfo], [$gl_gnulib_enabled_langinfo])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_21ee726a3540c09237a8e70c0baf7467], [$gl_gnulib_enabled_21ee726a3540c09237a8e70c0baf7467])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_localcharset], [$gl_gnulib_enabled_localcharset])
@@ -1263,6 +1299,7 @@ AC_DEFUN([gl_INIT],
   AM_CONDITIONAL([gl_GNULIB_ENABLED_c51beae7f4752ac2d6c54eac3a7029ea], [$gl_gnulib_enabled_c51beae7f4752ac2d6c54eac3a7029ea])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_a5e6ab274f0fc9b913a905fdf64e92ec], [$gl_gnulib_enabled_a5e6ab274f0fc9b913a905fdf64e92ec])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_vasnprintf], [$gl_gnulib_enabled_vasnprintf])
+  AM_CONDITIONAL([gl_GNULIB_ENABLED_verify], [$gl_gnulib_enabled_verify])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_wcrtomb], [$gl_gnulib_enabled_wcrtomb])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_503a4cb75d69c787103d0aa2ab7d8440], [$gl_gnulib_enabled_503a4cb75d69c787103d0aa2ab7d8440])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_68a4501daeca58988392c7e60b4917ab], [$gl_gnulib_enabled_68a4501daeca58988392c7e60b4917ab])
@@ -1450,6 +1487,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/argz.in.h
   lib/asnprintf.c
   lib/asprintf.c
+  lib/assert.in.h
   lib/attribute.h
   lib/basename-lgpl.c
   lib/basename-lgpl.h
@@ -1498,6 +1536,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/ialloc.c
   lib/ialloc.h
   lib/idx.h
+  lib/intprops-internal.h
   lib/intprops.h
   lib/inttypes.in.h
   lib/iswblank.c
@@ -1579,7 +1618,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/stat-w32.h
   lib/stat.c
   lib/stdarg.in.h
-  lib/stdbool.in.h
+  lib/stdckdint.in.h
   lib/stddef.in.h
   lib/stdint.in.h
   lib/stdio-read.c
@@ -1646,8 +1685,10 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/absolute-header.m4
   m4/alloca.m4
   m4/argz.m4
+  m4/assert_h.m4
   m4/btowc.m4
   m4/builtin-expect.m4
+  m4/c-bool.m4
   m4/calloc.m4
   m4/close.m4
   m4/codeset.m4
@@ -1732,7 +1773,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/stat.m4
   m4/std-gnu11.m4
   m4/stdarg.m4
-  m4/stdbool.m4
   m4/stddef_h.m4
   m4/stdint.m4
   m4/stdint_h.m4

@@ -54,7 +54,7 @@
 #  vasprintf \
 #  xalloc
 
-AUTOMAKE_OPTIONS = 1.11 gnits subdir-objects
+AUTOMAKE_OPTIONS = 1.14 gnits subdir-objects
 
 SUBDIRS =
 noinst_HEADERS =
@@ -135,6 +135,37 @@ endif
 EXTRA_DIST += argz.in.h
 
 ## end   gnulib module argz
+
+## begin gnulib module assert-h
+
+BUILT_SOURCES += $(ASSERT_H)
+
+# We need the following in order to create <assert.h> when the system
+# doesn't have one that works with the given compiler.
+if GL_GENERATE_ASSERT_H
+assert.h: assert.in.h verify.h $(top_builddir)/config.status
+	$(gl_V_at){ $(SED_HEADER_STDOUT) \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
+	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
+	      -e 's|@''NEXT_ASSERT_H''@|$(NEXT_ASSERT_H)|g' \
+	      < $(srcdir)/assert.in.h && \
+	  sed -e '/@assert.h omit start@/,/@assert.h omit end@/d' \
+	      -e 's|_gl_verify|_gl_static_assert|g' \
+	      -e 's|_GL_VERIFY|_GL_STATIC_ASSERT|g' \
+	      -e 's|_GL\(_STATIC_ASSERT_H\)|_GL\1|g' \
+	      < $(srcdir)/verify.h; \
+	} > $@-t
+	$(AM_V_at)mv $@-t $@
+else
+assert.h: $(top_builddir)/config.status
+	rm -f $@
+endif
+MOSTLYCLEANFILES += assert.h assert.h-t
+
+EXTRA_DIST += assert.in.h verify.h
+
+## end   gnulib module assert-h
 
 ## begin gnulib module attribute
 
@@ -540,8 +571,10 @@ libgnu_a_SOURCES += idx.h
 
 ## begin gnulib module intprops
 
+if gl_GNULIB_ENABLED_intprops
 
-EXTRA_DIST += intprops.h
+endif
+EXTRA_DIST += intprops-internal.h intprops.h
 
 ## end   gnulib module intprops
 
@@ -1112,27 +1145,26 @@ EXTRA_DIST += stdarg.in.h
 
 ## end   gnulib module stdarg
 
-## begin gnulib module stdbool
+## begin gnulib module stdckdint
 
-BUILT_SOURCES += $(STDBOOL_H)
+BUILT_SOURCES += $(STDCKDINT_H)
 
-# We need the following in order to create <stdbool.h> when the system
-# doesn't have one that works.
-if GL_GENERATE_STDBOOL_H
-stdbool.h: stdbool.in.h $(top_builddir)/config.status
+# We need the following in order to create <stdckdint.h> when the system
+# doesn't have one that works with the given compiler.
+if GL_GENERATE_STDCKDINT_H
+stdckdint.h: stdckdint.in.h $(top_builddir)/config.status
 	$(gl_V_at)$(SED_HEADER_STDOUT) \
-	  -e 's/@''HAVE__BOOL''@/$(HAVE__BOOL)/g' \
-	  $(srcdir)/stdbool.in.h > $@-t
+	  $(srcdir)/stdckdint.in.h > $@-t
 	$(AM_V_at)mv $@-t $@
 else
-stdbool.h: $(top_builddir)/config.status
+stdckdint.h: $(top_builddir)/config.status
 	rm -f $@
 endif
-MOSTLYCLEANFILES += stdbool.h stdbool.h-t
+MOSTLYCLEANFILES += stdckdint.h stdckdint.h-t
 
-EXTRA_DIST += stdbool.in.h
+EXTRA_DIST += intprops-internal.h stdckdint.in.h
 
-## end   gnulib module stdbool
+## end   gnulib module stdckdint
 
 ## begin gnulib module stddef
 
@@ -1782,6 +1814,7 @@ sys/stat.h: sys_stat.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNU
 	      -e 's|@''NEXT_SYS_STAT_H''@|$(NEXT_SYS_STAT_H)|g' \
 	      -e 's|@''WINDOWS_64_BIT_ST_SIZE''@|$(WINDOWS_64_BIT_ST_SIZE)|g' \
 	      -e 's|@''WINDOWS_STAT_TIMESPEC''@|$(WINDOWS_STAT_TIMESPEC)|g' \
+	      -e 's/@''GNULIB_CHMOD''@/$(GL_GNULIB_CHMOD)/g' \
 	      -e 's/@''GNULIB_FCHMODAT''@/$(GL_GNULIB_FCHMODAT)/g' \
 	      -e 's/@''GNULIB_FSTAT''@/$(GL_GNULIB_FSTAT)/g' \
 	      -e 's/@''GNULIB_FSTATAT''@/$(GL_GNULIB_FSTATAT)/g' \
@@ -1813,6 +1846,7 @@ sys/stat.h: sys_stat.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNU
 	      -e 's|@''HAVE_MKNOD''@|$(HAVE_MKNOD)|g' \
 	      -e 's|@''HAVE_MKNODAT''@|$(HAVE_MKNODAT)|g' \
 	      -e 's|@''HAVE_UTIMENSAT''@|$(HAVE_UTIMENSAT)|g' \
+	      -e 's|@''REPLACE_CHMOD''@|$(REPLACE_CHMOD)|g' \
 	      -e 's|@''REPLACE_FCHMODAT''@|$(REPLACE_FCHMODAT)|g' \
 	      -e 's|@''REPLACE_FSTAT''@|$(REPLACE_FSTAT)|g' \
 	      -e 's|@''REPLACE_FSTATAT''@|$(REPLACE_FSTATAT)|g' \
@@ -2082,6 +2116,7 @@ unistd.h: unistd.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	  sed -e 's|@''REPLACE_ACCESS''@|$(REPLACE_ACCESS)|g' \
 	      -e 's|@''REPLACE_CHOWN''@|$(REPLACE_CHOWN)|g' \
 	      -e 's|@''REPLACE_CLOSE''@|$(REPLACE_CLOSE)|g' \
+	      -e 's|@''REPLACE_COPY_FILE_RANGE''@|$(REPLACE_COPY_FILE_RANGE)|g' \
 	      -e 's|@''REPLACE_DUP''@|$(REPLACE_DUP)|g' \
 	      -e 's|@''REPLACE_DUP2''@|$(REPLACE_DUP2)|g' \
 	      -e 's|@''REPLACE_EXECL''@|$(REPLACE_EXECL)|g' \
@@ -2200,7 +2235,9 @@ EXTRA_libgnu_a_SOURCES += asprintf.c vasprintf.c
 
 ## begin gnulib module verify
 
+if gl_GNULIB_ENABLED_verify
 
+endif
 EXTRA_DIST += verify.h
 
 ## end   gnulib module verify

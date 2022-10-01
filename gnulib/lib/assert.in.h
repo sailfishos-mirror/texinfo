@@ -1,6 +1,5 @@
-/* reallocarray function that is glibc compatible.
-
-   Copyright (C) 2017-2022 Free Software Foundation, Inc.
+/* Substitute for and wrapper around <assert.h>
+   Copyright (C) 2011-2022 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -15,24 +14,14 @@
    You should have received a copy of the GNU Lesser General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
-/* written by Darshit Shah */
+/* Do not guard the include, since <assert.h> is supposed to define
+   the assert macro each time it is included.  */
 
-#include <config.h>
+#if __GNUC__ >= 3
+@PRAGMA_SYSTEM_HEADER@
+#endif
+@PRAGMA_COLUMNS@
 
-#include <stdckdint.h>
-#include <stdlib.h>
-#include <errno.h>
+#@INCLUDE_NEXT@ @NEXT_ASSERT_H@
 
-void *
-reallocarray (void *ptr, size_t nmemb, size_t size)
-{
-  size_t nbytes;
-  if (ckd_mul (&nbytes, nmemb, size))
-    {
-      errno = ENOMEM;
-      return NULL;
-    }
-
-  /* Rely on the semantics of GNU realloc.  */
-  return realloc (ptr, nbytes);
-}
+/* The definition of static_assert is copied here.  */

@@ -44,8 +44,8 @@ AC_DEFUN([gl_EARLY],
 
   # Code from module absolute-header:
   # Code from module alloca-opt:
+  # Code from module assert-h:
   # Code from module attribute:
-  # Code from module c99:
   # Code from module errno:
   # Code from module extensions:
   # Code from module extern-inline:
@@ -69,7 +69,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module snippet/c++defs:
   # Code from module snippet/warn-on-use:
   # Code from module ssize_t:
-  # Code from module std-gnu11:
   # Code from module stdalign:
   # Code from module stddef:
   # Code from module stdint:
@@ -87,7 +86,6 @@ AC_DEFUN([gl_EARLY],
   # Code from module uniwidth/width:
   # Code from module vasnprintf:
   # Code from module vasprintf:
-  # Code from module verify:
   # Code from module wchar:
   # Code from module wctype-h:
   # Code from module wcwidth:
@@ -113,6 +111,9 @@ AC_DEFUN([gl_INIT],
   gl_source_base_prefix=
   gl_FUNC_ALLOCA
   gl_CONDITIONAL_HEADER([alloca.h])
+  AC_PROG_MKDIR_P
+  gl_ASSERT_H
+  gl_CONDITIONAL_HEADER([assert.h])
   AC_PROG_MKDIR_P
   gl_HEADER_ERRNO_H
   gl_CONDITIONAL_HEADER([errno.h])
@@ -456,6 +457,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/arg-nonnull.h
   lib/asnprintf.c
   lib/asprintf.c
+  lib/assert.in.h
   lib/attribute.h
   lib/c++defs.h
   lib/errno.in.h
@@ -516,6 +518,7 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/00gnulib.m4
   m4/absolute-header.m4
   m4/alloca.m4
+  m4/assert_h.m4
   m4/codeset.m4
   m4/errno_h.m4
   m4/exponentd.m4
@@ -548,7 +551,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/rawmemchr.m4
   m4/size_max.m4
   m4/ssize_t.m4
-  m4/std-gnu11.m4
   m4/stdalign.m4
   m4/stddef_h.m4
   m4/stdint.m4

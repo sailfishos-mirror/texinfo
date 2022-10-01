@@ -101,6 +101,37 @@ EXTRA_DIST += alloca.in.h
 
 ## end   gnulib module alloca-opt
 
+## begin gnulib module assert-h
+
+BUILT_SOURCES += $(ASSERT_H)
+
+# We need the following in order to create <assert.h> when the system
+# doesn't have one that works with the given compiler.
+if GL_GENERATE_ASSERT_H
+assert.h: assert.in.h verify.h $(top_builddir)/config.status
+	$(gl_V_at){ $(SED_HEADER_STDOUT) \
+	      -e 's|@''INCLUDE_NEXT''@|$(INCLUDE_NEXT)|g' \
+	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
+	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
+	      -e 's|@''NEXT_ASSERT_H''@|$(NEXT_ASSERT_H)|g' \
+	      < $(srcdir)/assert.in.h && \
+	  sed -e '/@assert.h omit start@/,/@assert.h omit end@/d' \
+	      -e 's|_gl_verify|_gl_static_assert|g' \
+	      -e 's|_GL_VERIFY|_GL_STATIC_ASSERT|g' \
+	      -e 's|_GL\(_STATIC_ASSERT_H\)|_GL\1|g' \
+	      < $(srcdir)/verify.h; \
+	} > $@-t
+	$(AM_V_at)mv $@-t $@
+else
+assert.h: $(top_builddir)/config.status
+	rm -f $@
+endif
+MOSTLYCLEANFILES += assert.h assert.h-t
+
+EXTRA_DIST += assert.in.h verify.h
+
+## end   gnulib module assert-h
+
 ## begin gnulib module attribute
 
 
@@ -1190,13 +1221,6 @@ EXTRA_DIST += asprintf.c vasprintf.c
 EXTRA_libgnu_la_SOURCES += asprintf.c vasprintf.c
 
 ## end   gnulib module vasprintf
-
-## begin gnulib module verify
-
-
-EXTRA_DIST += verify.h
-
-## end   gnulib module verify
 
 ## begin gnulib module wchar
 

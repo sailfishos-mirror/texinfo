@@ -184,7 +184,11 @@ _GL_WARN_ON_USE (_Exit, "_Exit is unportable - "
 #   undef free
 #   define free rpl_free
 #  endif
+#  if defined __cplusplus && (__GLIBC__ + (__GLIBC_MINOR__ >= 14) > 2)
+_GL_FUNCDECL_RPL (free, void, (void *ptr) throw ());
+#  else
 _GL_FUNCDECL_RPL (free, void, (void *ptr));
+#  endif
 _GL_CXXALIAS_RPL (free, void, (void *ptr));
 # else
 _GL_CXXALIAS_SYS (free, void, (void *ptr));
@@ -222,7 +226,7 @@ _GL_FUNCDECL_SYS (aligned_alloc, void *,
 _GL_CXXALIAS_SYS (aligned_alloc, void *, (size_t alignment, size_t size));
 #  endif
 # endif
-# if @HAVE_ALIGNED_ALLOC@
+# if (__GLIBC__ >= 2) && @HAVE_ALIGNED_ALLOC@
 _GL_CXXALIASWARN (aligned_alloc);
 # endif
 #else
@@ -1359,7 +1363,9 @@ _GL_CXXALIAS_SYS (strtol, long,
                   (const char *restrict string, char **restrict endptr,
                    int base));
 # endif
+# if __GLIBC__ >= 2
 _GL_CXXALIASWARN (strtol);
+# endif
 #elif defined GNULIB_POSIXCHECK
 # undef strtol
 # if HAVE_RAW_DECL_STRTOL
@@ -1440,7 +1446,9 @@ _GL_CXXALIAS_SYS (strtoul, unsigned long,
                   (const char *restrict string, char **restrict endptr,
                    int base));
 # endif
+# if __GLIBC__ >= 2
 _GL_CXXALIASWARN (strtoul);
+# endif
 #elif defined GNULIB_POSIXCHECK
 # undef strtoul
 # if HAVE_RAW_DECL_STRTOUL
