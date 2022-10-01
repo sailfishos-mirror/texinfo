@@ -1370,6 +1370,29 @@ $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" 
 ';
 
 
+$result_converted{'xml'}->{'subentries'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter index</nodenext></node>
+<top><sectiontitle></sectiontitle>
+
+</top>
+<node name="chapter-index" spaces=" "><nodename>chapter index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Index</sectiontitle>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">a&textmdash;a</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">b&textmdash;b</indexterm></cindex> <subentry spaces=" ">c&textmdash;c</subentry>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">d&textmdash;dd</indexterm></cindex> <subentry spaces=" ">e&textmdash;ee </subentry><subentry spaces=" ">f&textmdash;ff</subentry>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="4">g&textmdash;gg</indexterm></cindex> <subentry spaces=" ">h&textmdash;hh jjj </subentry><subentry spaces=" ">k&textmdash;kk </subentry><subentry spaces=" ">l&textmdash;ll</subentry>
+
+<findex index="fn" spaces=" "><indexterm index="fn" number="1">f---aa</indexterm></findex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="2">f---bb</indexterm></findex> <subentry spaces=" ">f&textmdash;cc</subentry>
+<findex index="fn" spaces=" "><indexterm index="fn" number="3">f---ddd</indexterm></findex> <subentry spaces=" ">f&textmdash;eee </subentry><subentry spaces=" ">ffff</subentry>
+<findex index="fn" spaces=" "><indexterm index="fn" number="4">f---ggg</indexterm></findex> <subentry spaces=" ">f&textmdash;hhh fjjj </subentry><subentry spaces=" ">f&textmdash;kkk </subentry><subentry spaces=" ">f&textmdash;lll</subentry>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex spaces=" " value="fn" line="fn"></printindex>
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'subentries'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

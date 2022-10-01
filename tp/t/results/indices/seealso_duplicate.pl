@@ -471,6 +471,15 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="To
 ';
 
 
+$result_converted{'xml'}->{'seealso_duplicate'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1"><command>awk</command></indexterm></cindex> <subentry spaces=" ">POSIX and</subentry>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2"><command>awk</command></indexterm></cindex> <subentry spaces=" ">POSIX and <seealso>POSIX <command>awk</command></seealso></subentry>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
+
 $result_converted{'latex'}->{'seealso_duplicate'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

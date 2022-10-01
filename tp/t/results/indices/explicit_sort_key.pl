@@ -1109,6 +1109,28 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 ';
 
 
+$result_converted{'xml'}->{'explicit_sort_key'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+<top><sectiontitle></sectiontitle>
+
+<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+
+<defindex spaces=" " value="SK" line="SK"></defindex>
+
+<indexcommand command="SKindex" index="SK" spaces=" "><indexterm index="SK" number="1" incode="0"><sortas>A</sortas> bbbbbbb (first)</indexterm></indexcommand>
+<indexcommand command="SKindex" index="SK" spaces=" "><indexterm index="SK" number="2" incode="0"><sortas>B</sortas> aaaaaaa (second)</indexterm></indexcommand>
+<indexcommand command="SKindex" index="SK" spaces=" "><indexterm index="SK" number="3" incode="0"><sortas>0</sortas> zero sort key</indexterm></indexcommand>
+<indexcommand command="SKindex" index="SK" spaces=" "><indexterm index="SK" number="4" incode="0"><b>aaa <sortas>invalid nesting</sortas></b></indexterm></indexcommand>
+
+<para>in a reuglar para <sortas>foo</sortas>. <code>inside another <sortas>command</sortas></code>.
+</para>
+<para><sortas>and cmd <b>inside</b></sortas>.
+<url><urefurl>and cmd <sortas>inside</sortas></urefurl></url>.
+</para>
+<printindex spaces=" " value="SK" line="SK"></printindex>
+</top>
+';
+
+
 $result_converted{'latex'}->{'explicit_sort_key'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

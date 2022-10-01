@@ -408,6 +408,17 @@ $result_converted{'html_text'}->{'empty_index_entry'} = '<a class="node-id" id="
 ';
 
 
+$result_converted{'xml'}->{'empty_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+
+<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+
+<deffn spaces=" " endspaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on" spaces=" "></deffunction></definitionterm>
+</deffn>
+
+<printindex spaces=" " value="fn" line="fn"></printindex>
+';
+
+
 $result_converted{'latex'}->{'empty_index_entry'} = '\\documentclass{book}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

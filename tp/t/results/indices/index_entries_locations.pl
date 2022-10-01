@@ -604,4 +604,27 @@ end paragraph.
 </div>
 ';
 
+
+$result_converted{'xml'}->{'index_entries_locations'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<para>Initial paragraph.
+</para>
+<para>Paragraph
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">entry in paragraph</indexterm></cindex>
+end paragraph.
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">entry at end of paragraph.</indexterm></cindex>
+</para>
+<para>New paragraph.
+</para>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">Entry before paragraph</indexterm></cindex>
+<para>Another paragraph.
+</para>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="4">lone entry</indexterm></cindex>
+
+<para>Last paragraph.
+</para>
+<printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
 1;

@@ -1333,4 +1333,42 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 </div>
 ';
 
+
+$result_converted{'xml'}->{'printindex_index_entry_in_copying_no_insertcopying'} = '<copying endspaces=" ">
+
+<findex index="fn" spaces=" "><indexterm index="fn" number="1">Copying this document</indexterm></findex>
+
+<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="2">fun</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>fun</deffunction> <defparam>arg</defparam></definitionterm>
+<defunx spaces=" "><definitionterm><indexterm index="fn" number="3">xf</indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction>xf</deffunction> <defparam>arg</defparam></definitionterm></defunx>
+<definitionitem><para>Defun
+</para></definitionitem></defun>
+
+<ftable commandarg="asis" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="fn" number="4">ftable item</indexterm>ftable item</itemformat></item>
+<itemx spaces=" "><itemformat command="asis"><indexterm index="fn" number="5">xftable xitem</indexterm>xftable xitem</itemformat></itemx>
+</tableterm></tableentry></ftable>
+
+<printindex spaces=" " value="fn" line="fn"></printindex>
+
+</copying>
+
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<top spaces=" "><sectiontitle>top</sectiontitle>
+
+<para>Top.
+</para>
+<menu endspaces=" ">
+<menuentry leadingtext="* "><menunode separator="::">chapter</menunode><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+</top>
+<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+
+
+<printindex spaces=" " value="fn" line="fn"></printindex>
+
+</chapter>
+';
+
 1;

@@ -1018,6 +1018,29 @@ $result_converted{'html_text'}->{'same_seealso_seeentry'} = '<div class="top-lev
 ';
 
 
+$result_converted{'xml'}->{'same_seealso_seeentry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+<top spaces=" "><sectiontitle>top</sectiontitle>
+
+</top>
+<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>chap</sectiontitle>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">aaa <seealso>sss</seealso></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">aaa <seealso>123</seealso></indexterm></cindex>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">bbb <seeentry>yyy</seeentry></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="4">bbb <seeentry>ttt</seeentry></indexterm></cindex>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="5">ccc <seealso>also</seealso></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="6">ccc <seeentry>entry</seeentry></indexterm></cindex>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="7">entry</indexterm></cindex>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'same_seealso_seeentry'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

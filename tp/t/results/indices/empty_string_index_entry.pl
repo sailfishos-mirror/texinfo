@@ -1035,6 +1035,23 @@ $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
 
 
 
+$result_converted{'xml'}->{'empty_string_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+
+<findex index="fn" spaces=" "><indexterm index="fn" number="1"><w></w></indexterm></findex>
+
+<ftable commandarg="code" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="code"><indexterm index="fn" number="2"><w></w></indexterm><w></w></itemformat></item>
+</tableterm></tableentry></ftable>
+
+<defun spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3"><w></w></indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction bracketed="on"><w></w></deffunction> <defparam bracketed="on"></defparam> <defparam bracketed="on"></defparam></definitionterm>
+<defunx spaces=" "><definitionterm><indexterm index="fn" number="4"><w></w></indexterm><defcategory automatic="on" bracketed="on">Function</defcategory> <deffunction bracketed="on"><w></w></deffunction> <defparam bracketed="on"></defparam> <defparam bracketed="on"></defparam></definitionterm></defunx>
+</defun>
+
+<printindex spaces=" " value="fn" line="fn"></printindex>
+';
+
+
 $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

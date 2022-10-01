@@ -467,4 +467,18 @@ $result_converted{'html_text'}->{'w_lines_count'} = '<div class="top-level-exten
 </div>
 ';
 
+
+$result_converted{'xml'}->{'w_lines_count'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+<top><sectiontitle></sectiontitle>
+
+<para>xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.  
+<w><code>C-u</code></w> starts again from the beginning
+</para>
+<findex index="fn" spaces=" "><indexterm index="fn" number="1">compilation-next-error</indexterm></findex>
+<para>Compilation mode also defines the keys <key>SPC</key> and <key>DEL</key> to
+</para>
+<printindex spaces=" " value="fn" line="fn"></printindex>
+</top>
+';
+
 1;

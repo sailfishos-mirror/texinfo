@@ -276,4 +276,13 @@ $result_converted{'html_text'}->{'printindex_with_space_before'} = '<h1 class="n
 </div>
 ';
 
+
+$result_converted{'xml'}->{'printindex_with_space_before'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index</indexterm></cindex>
+
+<para>Text.
+</para><printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
 1;

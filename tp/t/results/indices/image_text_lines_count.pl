@@ -331,4 +331,14 @@ $result_converted_errors{'html_text'}->{'image_text_lines_count'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'image_text_lines_count'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<image><imagefile>count_image_text</imagefile></image>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry</indexterm></cindex>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
 1;

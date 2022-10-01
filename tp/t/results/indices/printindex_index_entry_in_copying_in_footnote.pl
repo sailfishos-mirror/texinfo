@@ -937,4 +937,35 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 </div>
 ';
 
+
+$result_converted{'xml'}->{'printindex_index_entry_in_copying_in_footnote'} = '<copying endspaces=" ">
+
+<para>Copying<footnote spaces="\\n"><para>In footnote
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">Copying this document</indexterm></cindex>
+</para>
+</footnote>.
+</para>
+<printindex spaces=" " value="cp" line="cp"></printindex>
+
+</copying>
+
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<top spaces=" "><sectiontitle>top</sectiontitle>
+
+<para>Top.
+</para><insertcopying></insertcopying>
+
+<menu endspaces=" ">
+<menuentry leadingtext="* "><menunode separator="::">chapter</menunode><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+</top>
+<node name="chapter" spaces=" "><nodename>chapter</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Chapter</sectiontitle>
+
+<insertcopying></insertcopying>
+
+</chapter>
+';
+
 1;

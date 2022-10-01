@@ -799,6 +799,25 @@ $result_converted{'html_text'}->{'seeentry'} = '<div class="top-level-extent" id
 ';
 
 
+$result_converted{'xml'}->{'seeentry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter index</nodenext></node>
+<top><sectiontitle></sectiontitle>
+
+</top>
+<node name="chapter-index" spaces=" "><nodename>chapter index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Index</sectiontitle>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">aaa <seeentry>bbb</seeentry></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2"><seealso>ccc</seealso> ddd</indexterm></cindex>
+
+<findex index="fn" spaces=" "><indexterm index="fn" number="1">f---aaa <seeentry>f---bbb</seeentry></indexterm></findex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="2"><seealso>f---ccc</seealso> f---ddd</indexterm></findex>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+<printindex spaces=" " value="fn" line="fn"></printindex>
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'seeentry'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

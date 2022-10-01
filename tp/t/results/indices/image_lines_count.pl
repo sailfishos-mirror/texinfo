@@ -319,4 +319,14 @@ $result_converted{'html_text'}->{'image_lines_count'} = '<h1 class="node" id="To
 </div>
 ';
 
+
+$result_converted{'xml'}->{'image_lines_count'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<image><imagefile>count_image</imagefile></image>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry</indexterm></cindex>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
 1;

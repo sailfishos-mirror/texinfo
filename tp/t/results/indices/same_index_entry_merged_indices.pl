@@ -773,4 +773,24 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 </div>
 ';
 
+
+$result_converted{'xml'}->{'same_index_entry_merged_indices'} = '<syncodeindex spaces=" " from="vr" to="fn" line="vr fn"></syncodeindex>
+
+<node name="Top" spaces=" "><nodename>Top</nodename></node>
+<top><sectiontitle></sectiontitle>
+
+<para>Text.
+</para>
+<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">mmm-mode</indexterm><defcategory>Command</defcategory> <deffunction>mmm-mode</deffunction> <defparam><var>arg</var></defparam></definitionterm>
+<definitionitem><para>Toggle the state of MMM Mode.
+</para></definitionitem></deffn>
+
+<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1" mergedindex="fn">mmm-mode</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>mmm-mode</defvariable></definitionterm>
+<definitionitem><para>This variable represents MMM Mode.
+</para></definitionitem></defvar>
+
+<printindex spaces=" " value="fn" line="fn"></printindex>
+</top>
+';
+
 1;

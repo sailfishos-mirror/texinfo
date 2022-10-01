@@ -693,4 +693,24 @@ $result_converted{'html_text'}->{'double_index_entry'} = '<a class="node-id" id=
 </div>
 ';
 
+
+$result_converted{'xml'}->{'double_index_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">other node</nodenext></node>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">aaa</indexterm></cindex>
+
+<para>Text
+</para>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">aaa</indexterm></cindex>
+
+<menu endspaces=" ">
+<menuentry leadingtext="* "><menunode separator="::">other node</menunode><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+<node name="other-node" spaces=" "><nodename>other node</nodename><nodenext></nodenext><nodeprev automatic="on">Top</nodeprev><nodeup>Top</nodeup></node>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">aaa</indexterm></cindex>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
 1;

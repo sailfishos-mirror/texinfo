@@ -102,4 +102,8 @@ $result_converted{'plaintext'}->{'def_existing_index'} = '';
 
 $result_converted{'html_text'}->{'def_existing_index'} = '';
 
+
+$result_converted{'xml'}->{'def_existing_index'} = '<defcodeindex spaces=" " line="cp"></defcodeindex>
+';
+
 1;

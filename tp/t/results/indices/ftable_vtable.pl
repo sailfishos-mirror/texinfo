@@ -982,4 +982,30 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node" id="Top">T
 
 ';
 
+
+$result_converted{'xml'}->{'ftable_vtable'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<ftable commandarg="emph" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="emph"><indexterm index="fn" number="1">function1</indexterm>function1</itemformat></item>
+<itemx spaces=" "><itemformat command="emph"><indexterm index="fn" number="2">function2x</indexterm>function2x</itemformat></itemx>
+</tableterm><tableitem><para>Text
+</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph"><indexterm index="fn" number="3">fun3</indexterm>fun3</itemformat></item>
+</tableterm></tableentry></ftable>
+
+<vtable commandarg="emph" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="emph"><indexterm index="vr" number="1">var1 &errorglyph;</indexterm>var1 &errorglyph;</itemformat></item>
+<itemx spaces=" "><itemformat command="emph"><indexterm index="vr" number="2">varx2</indexterm>varx2</itemformat></itemx>
+</tableterm><tableitem><para>Text
+</para></tableitem></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="emph"><indexterm index="vr" number="3">var3</indexterm>var3</itemformat></item>
+</tableterm></tableentry></vtable>
+
+<findex index="fn" spaces=" "><indexterm index="fn" number="4">function1</indexterm></findex>
+
+<printindex spaces=" " value="fn" line="fn"></printindex>
+
+<printindex spaces=" " value="vr" line="vr"></printindex>
+
+';
+
 1;

@@ -331,4 +331,14 @@ $result_converted{'html_text'}->{'index_entry_in_footnote'} = '<h1 class="node" 
 </div>
 ';
 
+
+$result_converted{'xml'}->{'index_entry_in_footnote'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<para>Top node<footnote><para>in footnote
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry in footnote</indexterm></cindex>
+</para></footnote>
+</para>
+<printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
 1;

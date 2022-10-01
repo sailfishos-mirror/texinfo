@@ -2118,6 +2118,74 @@ after
 ';
 
 
+$result_converted{'xml'}->{'def_syn_indices'} = '<syncodeindex spaces=" " from="cp" to="fn" line="cp fn"></syncodeindex>
+
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">Chapter index</nodenext></node>
+<top spaces=" "><sectiontitle>top</sectiontitle>
+
+</top>
+<node name="Chapter-index" spaces=" "><nodename>Chapter index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Index</sectiontitle>
+
+<para>definedx truc
+<defindex spaces=" " value="truc" line="truc"></defindex>
+after
+</para>
+<indexcommand command="trucindex" index="truc" spaces=" "><indexterm index="truc" number="1" incode="0" mergedindex="fn">index truc</indexterm></indexcommand>
+
+<defcodeindex spaces=" " value="codeidx" line="codeidx"></defcodeindex>
+
+<indexcommand command="codeidxindex" index="codeidx" spaces=" "><indexterm index="codeidx" number="1" incode="1">a <var>index entry</var> t<accent type="tilde" bracketed="off">e</accent> <accent type="circ"><dotless>i</dotless></accent></indexterm></indexcommand>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1" incode="1" mergedindex="fn">cindex entry</indexterm></cindex>
+
+<syncodeindex spaces=" " from="ky" to="pg" line="ky pg"></syncodeindex>
+
+<kindex index="ky" spaces=" "><indexterm index="ky" number="1" mergedindex="pg">truc kindex</indexterm></kindex>
+<pindex index="pg" spaces=" "><indexterm index="pg" number="1">pindex codeidx</indexterm></pindex>
+
+<synindex spaces=" " from="truc" to="cp" line="truc cp"></synindex>
+
+<defindex spaces=" " value="abc" line="abc"></defindex>
+<defindex spaces=" " value="defg" line="defg"></defindex>
+
+<synindex spaces=" " from="abc" to="defg" line="abc defg"></synindex>
+<synindex spaces=" " from="defg" to="ky" line="defg ky"></synindex>
+
+<indexcommand command="defgindex" index="defg" spaces=" "><indexterm index="defg" number="1" incode="0" mergedindex="pg">defg index entry</indexterm></indexcommand>
+
+<indexcommand command="abcindex" index="abc" spaces=" "><indexterm index="abc" number="1" incode="0" mergedindex="pg">abc index entry</indexterm></indexcommand>
+
+<para>pg
+</para><printindex spaces=" " value="pg" line="pg"></printindex>
+
+<para>ky
+</para><printindex spaces=" " value="ky" line="ky"></printindex>
+
+<para>truc
+</para><printindex spaces=" " value="truc" line="truc"></printindex>
+
+<para>value truc
+</para><printindex spaces=" " value="truc" line="truc"></printindex>
+
+<para>cp
+</para><printindex spaces=" " value="cp" line="cp"></printindex>
+
+<para>value cp
+</para><printindex spaces=" " value="cp" line="cp"></printindex>
+
+<para>defg
+</para><printindex spaces=" " value="defg" line="defg"></printindex>
+
+<para>abc
+</para><printindex spaces=" " value="abc" line="abc"></printindex>
+
+<para>fn
+</para><printindex spaces=" " value="fn" line="fn"></printindex>
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'def_syn_indices'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

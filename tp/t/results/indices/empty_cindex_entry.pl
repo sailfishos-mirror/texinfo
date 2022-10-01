@@ -232,6 +232,12 @@ $result_converted{'html_text'}->{'empty_cindex_entry'} = '<a class="node-id" id=
 ';
 
 
+$result_converted{'xml'}->{'empty_cindex_entry'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+<cindex></cindex>
+';
+
+
 $result_converted{'latex'}->{'empty_cindex_entry'} = '\\documentclass{book}
 \\usepackage{amsfonts}
 \\usepackage{amsmath}

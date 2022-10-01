@@ -961,6 +961,23 @@ $result_converted_errors{'html_text'}->{'double_seeentry_seealso'} = [
 
 
 
+$result_converted{'xml'}->{'double_seeentry_seealso'} = '<node name="Top" spaces=" "><nodename>top</nodename><nodenext automatic="on">node index</nodenext></node>
+<top spaces=" "><sectiontitle>top</sectiontitle>
+
+</top>
+<node name="node-index" spaces=" "><nodename>node index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Chapter Index</sectiontitle>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">aaa <seeentry>bbb</seeentry> <seeentry>ccc</seeentry></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2"><seealso>ccc</seealso> ddd <seealso>eee</seealso></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">ggg <seeentry>hhh</seeentry> <seealso>iii</seealso></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="4"><seealso>fff</seealso></indexterm></cindex> <subentry spaces=" ">subggg <seeentry>subhhh</seeentry></subentry>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

@@ -560,4 +560,20 @@ $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
 </div>
 ';
 
+
+$result_converted{'xml'}->{'syncodeindex_to_plain'} = '<syncodeindex spaces=" " from="ky" to="cp" line="ky cp"></syncodeindex>
+
+<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<kindex index="ky" spaces=" "><indexterm index="ky" number="1" mergedindex="cp">--k1</indexterm></kindex>
+<vindex index="vr" spaces=" "><indexterm index="vr" number="1">--v</indexterm></vindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">&textndash;c</indexterm></cindex>
+
+<para>cp index.
+</para><printindex spaces=" " value="cp" line="cp"></printindex>
+
+<para>vr index.
+</para><printindex spaces=" " value="vr" line="vr"></printindex>
+';
+
 1;

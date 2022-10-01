@@ -709,4 +709,26 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 </div>
 ';
 
+
+$result_converted{'xml'}->{'index_entry_in_footnote_different_node_end'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">First</nodenext></node>
+
+<menu endspaces=" ">
+<menuentry leadingtext="* "><menunode separator="::">First</menunode><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry></menu>
+
+<para>Top node<footnote><para>in footnote
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry in footnote</indexterm></cindex>
+</para>
+<para>Blah
+</para>
+<para>Blih
+</para>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">counting entry</indexterm></cindex>
+</footnote>
+</para>
+<node name="First" spaces=" "><nodename>First</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
 1;

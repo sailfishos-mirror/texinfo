@@ -791,6 +791,31 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 ';
 
 
+$result_converted{'xml'}->{'syncode_index_print_both'} = '<syncodeindex spaces=" " from="fn" to="cp" line="fn cp"></syncodeindex>
+
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter index</nodenext></node>
+<top spaces=" "><sectiontitle>top</sectiontitle>
+
+</top>
+<node name="chapter-index" spaces=" "><nodename>chapter index</nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>index</sectiontitle>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">c&textmdash;oncept</indexterm></cindex>
+<findex index="fn" spaces=" "><indexterm index="fn" number="1" mergedindex="cp">f---un</indexterm></findex>
+
+
+<para>Print fn
+</para>
+<printindex spaces=" " value="fn" line="fn"></printindex>
+
+<para>Print cp
+</para>
+<printindex spaces=" " value="cp" line="cp"></printindex>
+
+</chapter>
+';
+
+
 $result_converted{'latex'}->{'syncode_index_print_both'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

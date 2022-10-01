@@ -608,6 +608,22 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 ';
 
 
+$result_converted{'xml'}->{'transparent_sort_chars'} = '<set name="txiindexhyphenignore" line=" txiindexhyphenignore"></set>
+
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node</nodenext></node>
+<top><sectiontitle></sectiontitle>
+
+<node name="node" spaces=" "><nodename>node</nodename><nodeprev automatic="on">Top</nodeprev></node>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1"><code>--version</code>, for <command>install-info</command></indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">Source file format</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="3">Semantic markup</indexterm></cindex>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+</top>
+';
+
+
 $result_converted{'latex'}->{'transparent_sort_chars'} = '\\documentclass{book}
 \\usepackage{imakeidx}
 \\usepackage{amsfonts}

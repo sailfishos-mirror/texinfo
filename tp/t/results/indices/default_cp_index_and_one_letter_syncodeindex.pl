@@ -403,4 +403,15 @@ $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'}
 </div>
 ';
 
+
+$result_converted{'xml'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<syncodeindex spaces=" " from="cp" to="fn" line="cp fn"></syncodeindex>
+
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1" incode="1" mergedindex="fn">--cindex</indexterm></cindex>
+<cpindex index="cp" spaces=" "><indexterm index="cp" number="2" incode="1" mergedindex="fn">--cpindex</indexterm></cpindex>
+
+<printindex spaces=" " value="fn" line="fn"></printindex>
+';
+
 1;

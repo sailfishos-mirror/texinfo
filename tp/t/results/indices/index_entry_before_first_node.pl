@@ -305,4 +305,13 @@ $result_converted{'html_text'}->{'index_entry_before_first_node'} = '<a class="i
 </div>
 ';
 
+
+$result_converted{'xml'}->{'index_entry_before_first_node'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><cindex index="cp" spaces=" "><indexterm index="cp" number="1">before nodes</indexterm></cindex>
+
+<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<printindex spaces=" " value="cp" line="cp"></printindex>
+';
+
 1;

@@ -657,6 +657,20 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex fn
 ', {'test_formats' => ['docbook']}
 ],
+['subentry_and_sortas_spaces',
+'@node Top
+@top
+
+@node chapter index
+@chapter Index
+
+@cindex aaa @sortas{A---S}@subentry @sortas{C---S1}bbb sort as c
+@cindex aaa @subentry@sortas{B---S1} 
+@cindex aaa@subentry bbb @subentry ccc@sortas{D}
+@cindex aaa @subentry bbb@subentry ccc
+
+@printindex cp
+', {'test_formats' => ['docbook']}],
 # note that Texinfo TeX ignores everything after index brace commands,
 # texi2any parsers keep them and they end up in the entry.
 ['multiple_index_text_sortas_seeentry_seealso',
@@ -786,7 +800,9 @@ undef,
 my @latex_tests_cases_tests = ('syncode_index_print_both',
   'empty_index_entry', 'empty_cindex_entry', 'empty_string_index_entry',
   'explicit_sort_key', 'transparent_sort_chars',
-  'def_syn_indices', 'seeentry', 'subentry_and_sortas', 'subentries',
+  'def_syn_indices', 'seeentry', 'subentry_and_sortas',
+  'subentry_and_sortas_spaces',
+  'subentries',
   'double_seeentry_seealso', 'seealso_duplicate',
   'multiple_index_text_sortas_seeentry_seealso', 'same_seealso_seeentry',
   'same_only_seealso_seeentry');
@@ -795,6 +811,7 @@ foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'info';
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
   $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
