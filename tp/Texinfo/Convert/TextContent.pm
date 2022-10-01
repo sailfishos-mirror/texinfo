@@ -66,11 +66,11 @@ sub converter_initialize($)
 {
   my $self = shift;
   
-  %{$self->{'formatted_misc_commands'}}
-    = %Texinfo::Common::formatted_misc_commands;
+  %{$self->{'formatted_line_commands'}}
+    = %Texinfo::Common::formatted_line_commands;
   if ($self->get_conf('TEXTCONTENT_COMMENT')) {
-    $self->{'formatted_misc_commands'}->{'c'} = 1;
-    $self->{'formatted_misc_commands'}->{'comment'} = 1;
+    $self->{'formatted_line_commands'}->{'c'} = 1;
+    $self->{'formatted_line_commands'}->{'comment'} = 1;
   }
 }
 
@@ -108,12 +108,12 @@ sub _convert($$)
                      and (!$element->{'extra'}->{'format'}
                           or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
                  or ($element->{'cmdname'} eq 'menu' and $self->get_conf('FORMAT_MENU') eq 'nomenu')
-             # here ignore most of the misc commands
+             # here ignore most of the line commands
                  or ($element->{'args'} and $element->{'args'}->[0]
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'args'}->[0]->{'type'} eq 'misc_arg')
-                     and !$self->{'formatted_misc_commands'}->{$element->{'cmdname'}})))));
+                     and !$self->{'formatted_line_commands'}->{$element->{'cmdname'}})))));
   if (defined($element->{'text'})) {
     return $element->{'text'};
   }

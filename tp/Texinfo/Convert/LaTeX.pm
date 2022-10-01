@@ -198,9 +198,10 @@ $VERSION = '6.8dev';
 # could export convert_to_latex_math
 
 
-# misc commands that are of use for formatting.
-my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
-my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
+# commands that are of use for formatting.
+my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
+my %formatted_nobrace_commands = %Texinfo::Common::formatted_nobrace_commands;
+my %formattable_line_commands = %Texinfo::Common::formattable_line_commands;
 
 my %paper_geometry_commands = (
   'afourpaper' => 'papername=a4paper',
@@ -223,7 +224,8 @@ foreach my $command (keys (%Texinfo::Common::brace_commands)) {
     if ($Texinfo::Common::brace_commands{$command} eq 'noarg');
 }
 my %accent_commands = %Texinfo::Common::accent_commands;
-my %misc_commands = %Texinfo::Common::misc_commands;
+my %line_commands = %Texinfo::Common::line_commands;
+my %nobrace_commands = %Texinfo::Common::nobrace_commands;
 my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
@@ -244,15 +246,18 @@ my %unformatted_brace_command = %Texinfo::Common::unformatted_brace_command;
 my %preamble_commands = %Texinfo::Common::preamble_commands;
 
 foreach my $kept_command (keys(%informative_commands),
-  keys(%default_index_commands),
-  keys(%in_heading_spec_commands),
-  keys(%formattable_misc_commands),
-  'indent', 'noindent') {
-  $formatted_misc_commands{$kept_command} = 1;
+   keys(%default_index_commands),
+   keys(%formattable_line_commands)) {
+  $formatted_line_commands{$kept_command} = 1;
 }
 
 foreach my $def_command (keys(%def_commands)) {
-  $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
+  $formatted_line_commands{$def_command} = 1 if ($line_commands{$def_command});
+}
+
+foreach my $kept_command (keys(%in_heading_spec_commands),
+                                       'indent', 'noindent') {
+  $formatted_nobrace_commands{$kept_command} = 1;
 }
 
 # There are stacks that define the context.
@@ -269,10 +274,16 @@ foreach my $block_math_command (keys(%math_commands)) {
   }
 }
 
-my %ignored_misc_commands;
-foreach my $misc_command (keys(%misc_commands)) {
-  $ignored_misc_commands{$misc_command} = 1
-    unless ($formatted_misc_commands{$misc_command});
+my %ignored_line_commands;
+foreach my $line_command (keys(%line_commands)) {
+  $ignored_line_commands{$line_command} = 1
+    unless ($formatted_line_commands{$line_command});
+}
+
+my %ignored_nobrace_commands;
+foreach my $nobrace_command (keys(%nobrace_commands)) {
+  $ignored_nobrace_commands{$nobrace_command} = 1
+    unless ($formatted_nobrace_commands{$nobrace_command});
 }
 
 # from \def\Gin@extensions in graphics-def/pdftex.def
@@ -460,7 +471,7 @@ my %LaTeX_in_heading_spec_commands = (
   'thistitle' => '\GNUTexinfosettitle{}',
 );
 
-my %ignored_commands = %ignored_misc_commands;
+my %ignored_commands = (%ignored_line_commands, %ignored_nobrace_commands);
 # processed as part of the index command or type formatting
 foreach my $ignored_brace_commands (
   'sortas', 'seeentry', 'seealso') {

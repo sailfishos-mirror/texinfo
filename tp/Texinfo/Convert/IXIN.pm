@@ -86,17 +86,19 @@ sub _ixin_version($)
 }
 
 my %additional_setting_commands;
-# FIXME pagesizes is line
+# those commands are not line specific global/global_unique commands
+# but are considered to be settings.
+# FIXME some seem to be missing, 'smallbook', 'afourpaper', 'afivepaper',
+# 'afourlatex', 'afourwide', 'bsixpaper'
 foreach my $command ('pagesizes', 'everyheading', 'everyfooting',
                      'evenheading', 'evenfooting', 'oddheading', 'oddfooting',
                      'documentencoding', 'documentlanguage', 'clickstyle') {
   $additional_setting_commands{$command} = 1;
 }
 
-# Here are all the commands that are misc_commands with type matching \d
-# and are also global_unique_commands/global_multiple_commands
-# but are not setting commands.
-my %global_misc_not_setting_commands = (
+# Here are all the line specific global/global_unique commands
+# that are not setting commands.
+my %global_line_not_setting_commands = (
   'printindex' => 1,
 );
 
@@ -399,10 +401,10 @@ sub output_ixin($$)
   # FIXME this code is unclear and probably needs to be fixed if developemnt
   # resumes.  Maybe could be replaced by set_global_document_commands.
   foreach my $global_command (keys(%{$self->{'global_commands'}})) {
-    if ((($Texinfo::Common::misc_commands{$global_command}
-          and $Texinfo::Common::misc_commands{$global_command} =~ /^\d/)
+    if ((($Texinfo::Common::line_commands{$global_command}
+          and $Texinfo::Common::line_commands{$global_command} eq 'specific')
          or $additional_setting_commands{$global_command})
-        and !$global_misc_not_setting_commands{$global_command}) {
+        and !$global_line_not_setting_commands{$global_command}) {
       if (ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
         if (defined($Texinfo::Common::document_settable_multiple_at_commands{$global_command})) {
           $setting_commands_defaults{$global_command}
@@ -454,7 +456,9 @@ sub output_ixin($$)
       $result .= $self->ixin_open_element('setting');
       $result .= $self->ixin_symbol_element('settingname', $command_name);
       $result .= ' ';
-      if ($Texinfo::Common::misc_commands{$command_name} eq 'lineraw') {
+      # FIXME lineraw is most probably not the right type of line
+      # command.  Maybe should be specific?
+      if ($Texinfo::Common::line_commands{$command_name} eq 'lineraw') {
         $result .= $self->ixin_list_element('settingvalue',
                                    [['value', $settings{$command_name}]]);
       } else {
@@ -558,7 +562,9 @@ sub output_ixin($$)
         $nodes_index .= $self->ixin_open_element('nodetweak');
         $nodes_index .= $self->ixin_symbol_element('nodetweakname', $command_name);
         $nodes_index .= ' ';
-        if ($Texinfo::Common::misc_commands{$command_name} eq 'lineraw') {
+        # FIXME Probably not the right line type, lineraw commands are c,
+        # comment and vskip.
+        if ($Texinfo::Common::line_commands{$command_name} eq 'lineraw') {
           $nodes_index .= $self->ixin_list_element('nodetweakvalue',
             [['value', $node_tweaks{$normalized_node_name}->{$command_name}]]);
         } else {

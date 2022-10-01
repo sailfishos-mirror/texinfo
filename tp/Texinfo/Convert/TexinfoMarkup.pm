@@ -144,25 +144,30 @@ foreach my $accent (@other_accents) {
   $accent_types{$accent} = $accent;
 }
 
-my %misc_command_line_attributes = (
+my %line_command_line_attributes = (
   'setfilename' => 'file',
   'documentencoding' => 'encoding',
   'verbatiminclude' => 'file',
   'documentlanguage' => 'lang',
 );
 
-my %misc_command_numbered_arguments_attributes = (
+my %line_command_numbered_arguments_attributes = (
   'definfoenclose' => [ 'command', 'open', 'close' ],
   'alias' => [ 'new', 'existing' ],
   'syncodeindex' => [ 'from', 'to' ],
   'synindex' => [ 'from', 'to' ],
 );
 
-my %misc_commands = %Texinfo::Common::misc_commands;
+my %nobrace_commands = %Texinfo::Common::nobrace_commands;
+my %line_commands = %Texinfo::Common::line_commands;
 
-foreach my $command ('item', 'headitem', 'itemx', 'tab',
+foreach my $command ('item', 'headitem', 'tab') {
+  delete $nobrace_commands{$command};
+}
+
+foreach my $command ('item', 'itemx',
                       keys %Texinfo::Common::def_commands) {
-  delete $misc_commands{$command};
+  delete $line_commands{$command};
 }
 
 my %default_args_code_style
@@ -699,7 +704,7 @@ sub _convert($$;$)
     } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
       my $format_element;
       my $attribute = [];
-      if (exists $Texinfo::Common::misc_commands{$element->{'cmdname'}}) {
+      if (exists $line_commands{$element->{'cmdname'}}) {
         $format_element = $element->{'cmdname'};
       } else {
         $format_element = 'indexcommand';
@@ -714,15 +719,15 @@ sub _convert($$;$)
           .$self->_index_entry($element)
           .$self->txi_markup_close_element($format_element)
           .${end_line};
-    } elsif (exists($misc_commands{$element->{'cmdname'}})) {
+    } elsif (exists($line_commands{$element->{'cmdname'}})) {
       my $cmdname = $element->{'cmdname'};
-      my $type = $misc_commands{$cmdname};
+      my $type = $line_commands{$cmdname};
       if ($type eq 'text') {
         return '' if ($cmdname eq 'end');
         my $attribute;
-        if ($misc_command_line_attributes{$cmdname}) {
+        if ($line_command_line_attributes{$cmdname}) {
           if ($element->{'extra'} and defined($element->{'extra'}->{'text_arg'})) {
-            push @$attribute, [$misc_command_line_attributes{$cmdname},
+            push @$attribute, [$line_command_line_attributes{$cmdname},
                   $element->{'extra'}->{'text_arg'}];
           }
         }
@@ -850,13 +855,6 @@ sub _convert($$;$)
         }
         return $self->txi_markup_open_element($cmdname, $attribute)
                  .$self->txi_markup_close_element($cmdname)."\n";
-      } elsif ($type eq 'other' or $type eq 'skipspace') {
-        my $spaces = '';
-        $spaces = $element->{'extra'}->{'spaces_after_command'}
-          if ($element->{'extra'} and $element->{'extra'}->{'spaces_after_command'}
-              and $element->{'extra'}->{'spaces_after_command'} ne '');
-        return $self->txi_markup_open_element($cmdname)
-                .$self->txi_markup_close_element($cmdname).$spaces;
       } elsif ($type eq 'special') {
         if ($cmdname eq 'clear' or $cmdname eq 'set') {
           my $attribute = [];
@@ -912,11 +910,11 @@ sub _convert($$;$)
                     .$self->txi_markup_close_element($cmdname)."\n";
         }
       } else {
-        print STDERR "BUG: unknown misc_command style $type\n"
+        print STDERR "BUG: unknown line_command style $type\n"
            if ($type ne 'specific');
         my $args_attributes;
-        if ($misc_command_numbered_arguments_attributes{$cmdname}) {
-          $args_attributes = $misc_command_numbered_arguments_attributes{$cmdname};
+        if ($line_command_numbered_arguments_attributes{$cmdname}) {
+          $args_attributes = $line_command_numbered_arguments_attributes{$cmdname};
         } else {
           $args_attributes = ['value'];
         }
@@ -939,6 +937,16 @@ sub _convert($$;$)
         return $self->txi_markup_open_element($cmdname, $attribute)
                     .$self->txi_markup_close_element($cmdname).$end_line;
       }
+    } elsif (exists($nobrace_commands{$element->{'cmdname'}})) {
+      # other or skipspace, symbol commands should be selected above
+      # as being in no_arg_commands_formatting
+      my $cmdname = $element->{'cmdname'};
+      my $spaces = '';
+      $spaces = $element->{'extra'}->{'spaces_after_command'}
+        if ($element->{'extra'} and $element->{'extra'}->{'spaces_after_command'}
+            and $element->{'extra'}->{'spaces_after_command'} ne '');
+      return $self->txi_markup_open_element($cmdname)
+              .$self->txi_markup_close_element($cmdname).$spaces;
     } elsif ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command') {
       my $in_monospace_not_normal;

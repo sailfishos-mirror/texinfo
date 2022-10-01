@@ -16,6 +16,9 @@
 # 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FIXME space missing for comands like printindex.  Space before subentry
+# missing.
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 
@@ -113,7 +116,15 @@ my %elements_end_attributes = (
   'menutitle' => 1,
 );
 
+# keys are markup elements.  If the element is associated to one @-command
+# only, the value is a string, the corresponding @-command formatted.
+# If the element is associated to more than one element, the value is a
+# hash to select the command based on an attribute value.  They key of the
+# hash attribute is an attribute name and the value is another hash
+# reference which associates an attribute value to the formatted @-command
+# string.
 my %element_at_commands;
+# entities not associated to @-commands
 my %entity_texts = (
   'textldquo' => '``',
   'textrdquo' => "''",
@@ -127,6 +138,7 @@ my %entity_texts = (
   'attrformfeed' => "\f",
 );
 
+# contains nobrace symbol and brace noarg commands
 my %no_arg_commands_formatting
   = %Texinfo::Convert::TexinfoMarkup::no_arg_commands_formatting;
 
@@ -138,8 +150,8 @@ foreach my $command (keys(%no_arg_commands_formatting)) {
     my $spec = $no_arg_commands_formatting{$command};
     my $element = $spec->[0];
     if ($element eq 'spacecmd') {
-      if ($spec->[1] eq 'type') {
-        $element_at_commands{$element}->{"type"}->{$spec->[2]}
+      if ($spec->[1]->[0] eq 'type') {
+        $element_at_commands{$element}->{"type"}->{$spec->[1]->[1]}
           = command_with_braces($command);
       } else {
         die "BUG, bad spacecmd specification";
@@ -150,6 +162,7 @@ foreach my $command (keys(%no_arg_commands_formatting)) {
   }
 }
 
+# FIXME select based on element name
 $element_at_commands{'accent'} = 0;
 
 my %arg_elements;
@@ -295,7 +308,8 @@ while ($reader->read) {
         }
         print "\n";
       }
-    } elsif (defined($Texinfo::Common::misc_commands{$name})) {
+    } elsif (defined($Texinfo::Common::line_commands{$name})
+             or defined($Texinfo::Common::nobrace_commands{$name})) {
       if ($reader->hasAttributes()
           and defined($reader->getAttribute('originalcommand'))) {
         $name = $reader->getAttribute('originalcommand');
@@ -412,7 +426,8 @@ while ($reader->read) {
       }
       $end_spaces = ' ' if (!defined($end_spaces) or $end_spaces eq '');
       print "\@end".$end_spaces."$name";
-    } elsif (defined($Texinfo::Common::misc_commands{$name})) {
+    } elsif (defined($Texinfo::Common::line_commands{$name})
+             or defined($Texinfo::Common::nobrace_commands{$name})) {
       if ($Texinfo::Common::root_commands{$name} and $name ne 'node') {
         $eat_space = 1;
       }

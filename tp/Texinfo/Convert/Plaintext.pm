@@ -59,9 +59,10 @@ sub import {
 $VERSION = '6.8dev';
 
 
-# misc commands that are of use for formatting.
-my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
-my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
+# commands that are of use for formatting.
+my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
+my %formatted_nobrace_commands = %Texinfo::Common::formatted_nobrace_commands;
+my %formattable_line_commands = %Texinfo::Common::formattable_line_commands;
 my %brace_commands = %Texinfo::Common::brace_commands;
 
 
@@ -90,7 +91,8 @@ foreach my $command (keys (%brace_commands)) {
     if ($brace_commands{$command} eq 'noarg');
 }
 my %accent_commands = %Texinfo::Common::accent_commands;
-my %misc_commands = %Texinfo::Common::misc_commands;
+my %line_commands = %Texinfo::Common::line_commands;
+my %nobrace_commands = %Texinfo::Common::nobrace_commands;
 my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
@@ -108,18 +110,18 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 my @contents_commands = ('contents', 'shortcontents', 'summarycontents');
 
 foreach my $kept_command (keys (%informative_commands), @contents_commands,
-  keys (%default_index_commands), keys(%formattable_misc_commands)) {
-  $formatted_misc_commands{$kept_command} = 1;
+  keys (%default_index_commands), keys(%formattable_line_commands)) {
+  $formatted_line_commands{$kept_command} = 1;
 }
 
 # formatted/formattable @-commands not formatted in Plaintext/Info
-foreach my $non_formatted_misc_command ('page', 'need', 'vskip',
+foreach my $non_formatted_line_command ('page', 'need', 'vskip',
    'author', 'subtitle', 'title') {
-  delete $formatted_misc_commands{$non_formatted_misc_command};
+  delete $formatted_line_commands{$non_formatted_line_command};
 }
 
 foreach my $def_command (keys(%def_commands)) {
-  $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
+  $formatted_line_commands{$def_command} = 1 if ($line_commands{$def_command});
 }
 
 # There are 6 stacks that define the context.
@@ -181,13 +183,19 @@ foreach my $block_math_command (keys(%math_commands)) {
   }
 }
 
-my %ignored_misc_commands;
-foreach my $misc_command (keys(%misc_commands)) {
-  $ignored_misc_commands{$misc_command} = 1 
-    unless ($formatted_misc_commands{$misc_command});
+my %ignored_line_commands;
+foreach my $line_command (keys(%line_commands)) {
+  $ignored_line_commands{$line_command} = 1
+    unless ($formatted_line_commands{$line_command});
 }
 
-my %ignored_commands = %ignored_misc_commands;
+my %ignored_nobrace_commands;
+foreach my $nobrace_command (keys(%nobrace_commands)) {
+  $ignored_nobrace_commands{$nobrace_command} = 1
+    unless ($formatted_nobrace_commands{$nobrace_command});
+}
+
+my %ignored_commands = (%ignored_line_commands, %ignored_nobrace_commands);
 foreach my $ignored_brace_commands ('caption', 'shortcaption', 
   'hyphenation', 'sortas') {
   $ignored_commands{$ignored_brace_commands} = 1;

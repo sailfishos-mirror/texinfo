@@ -143,12 +143,12 @@ foreach my $accent_letter ('o','O','l','L') {
 
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
-my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
-# 'page' is a formatted_misc_commands and therefore is replaced by an empty line.
+my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
+# 'page' is a formatted_line_commands and therefore is replaced by an empty line.
 
-my %formattable_misc_commands;
+my %converted_formattable_line_commands;
 foreach my $command ('verbatiminclude', 'sp') {
-  $formattable_misc_commands{$command} = 1;
+  $converted_formattable_line_commands{$command} = 1;
 }
 
 my %ignored_types;
@@ -394,13 +394,13 @@ sub _convert($;$)
                                or !$options->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
                          or (!$Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
                              and !defined($element->{'extra'}->{'expand_index'}))))
-             # here ignore most of the misc commands
+             # here ignore most of the line commands
                  or ($element->{'args'} and $element->{'args'}->[0]
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'args'}->[0]->{'type'} eq 'misc_arg')
-                     and !$formatted_misc_commands{$element->{'cmdname'}}
-                     and !$formattable_misc_commands{$element->{'cmdname'}})))));
+                     and !$formatted_line_commands{$element->{'cmdname'}}
+                     and !$converted_formattable_line_commands{$element->{'cmdname'}})))));
   my $result = '';
   if (defined($element->{'text'})) {
     if ($element->{'type'} and $element->{'type'} eq 'untranslated'
@@ -543,7 +543,8 @@ sub _convert($;$)
       }
     } elsif ($options->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
       $options->{'raw'} = 1;
-    } elsif ($formatted_misc_commands{$element->{'cmdname'}} and $element->{'args'}) {
+    } elsif ($formatted_line_commands{$element->{'cmdname'}}
+             and $element->{'args'}) {
       if ($element->{'cmdname'} ne 'node') {
         if ($element->{'cmdname'} eq 'page') {
           $result = '';
@@ -559,7 +560,8 @@ sub _convert($;$)
           $result .= "\n";
         }
       }
-    } elsif ($formattable_misc_commands{$element->{'cmdname'}} and $element->{'args'}) {
+    } elsif ($converted_formattable_line_commands{$element->{'cmdname'}}
+             and $element->{'args'}) {
       if ($element->{'cmdname'} eq 'sp') {
         if ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
             and $element->{'extra'}->{'misc_args'}->[0]) {

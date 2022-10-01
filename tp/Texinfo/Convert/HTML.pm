@@ -94,13 +94,13 @@ sub import {
 
 
 # misc commands that are of use for formatting.
-my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
-my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
+my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
+my %formatted_nobrace_commands = %Texinfo::Common::formatted_nobrace_commands;
+my %formattable_line_commands = %Texinfo::Common::formattable_line_commands;
 my %nobrace_commands = %Texinfo::Common::nobrace_commands;
 my %line_commands = %Texinfo::Common::line_commands;
 my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %accent_commands = %Texinfo::Common::accent_commands;
-my %misc_commands = %Texinfo::Common::misc_commands;
 my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
 my %def_commands = %Texinfo::Common::def_commands;
 my %ref_commands = %Texinfo::Common::ref_commands;
@@ -121,7 +121,7 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 my %small_block_associated_command = %Texinfo::Common::small_block_associated_command;
 
 foreach my $def_command (keys(%def_commands)) {
-  $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
+  $formatted_line_commands{$def_command} = 1 if ($line_commands{$def_command});
 }
 
 # FIXME remove raw commands?
@@ -2204,26 +2204,31 @@ sub _noticed_line_warn($$$)
   return $self->line_warn($self, $text, $line_nr);
 }
 
-my %kept_misc_commands;
+my %kept_line_commands;
 
 my @informative_global_commands = ('documentlanguage', 'footnotestyle',
   'xrefautomaticsectiontitle', 'deftypefnnewline');
 
 my @contents_commands = ('contents', 'shortcontents', 'summarycontents');
 
-foreach my $misc_command (@informative_global_commands,
-        @contents_commands, keys(%formattable_misc_commands),
-        keys(%formatted_misc_commands),
+foreach my $line_command (@informative_global_commands,
+        @contents_commands, keys(%formattable_line_commands),
+        keys(%formatted_line_commands),
         keys(%default_index_commands)) {
-  $kept_misc_commands{$misc_command} = 1;
+  $kept_line_commands{$line_command} = 1;
 }
 
-foreach my $misc_command (keys(%misc_commands)) {
-  $default_commands_conversion{$misc_command} = undef
-    unless ($kept_misc_commands{$misc_command});
+foreach my $line_command (keys(%line_commands)) {
+  $default_commands_conversion{$line_command} = undef
+    unless ($kept_line_commands{$line_command});
 }
 
-# formatted/formattable @-commands that are not of converted in
+foreach my $nobrace_command (keys(%nobrace_commands)) {
+  $default_commands_conversion{$nobrace_command} = undef
+    unless ($formatted_nobrace_commands{$nobrace_command});
+}
+
+# formatted/formattable @-commands that are not converted in
 # HTML in the default case.
 $default_commands_conversion{'page'} = undef;
 $default_commands_conversion{'need'} = undef;
@@ -10200,8 +10205,8 @@ sub _convert($$;$)
       }
       my $args_formatted;
       if ($brace_commands{$command_name}
-          or ($misc_commands{$command_name}
-              and $misc_commands{$command_name} eq 'line')
+          or ($line_commands{$command_name}
+              and $line_commands{$command_name} eq 'line')
           or (($command_name eq 'item' or $command_name eq 'itemx')
                and ($element->{'parent'}->{'type'}
                     and $element->{'parent'}->{'type'} eq 'table_term'))

@@ -496,12 +496,6 @@ our %nobrace_symbol_text;
            '\\', '\\',  # should only appear in math
 );
 
-# commands never taking braces
-our %nobrace_commands;
-foreach my $nobrace_command (keys(%nobrace_symbol_text)) {
-  $nobrace_commands{$nobrace_command} = 'symbol';
-}
-
 # @-commands max number of arguments.  Not set for all commands,
 # in general it only matters if > 1, as commands with 0 args
 # are in specific categories, and default handling of commands
@@ -618,7 +612,7 @@ our %line_commands = (
   'need'              => 'specific', # 1: one numerical/real arg
   # formatting
   'exdent'            => 'line',
-  'item'              => 'line', # or skipspace, depending on the context
+  'item'              => 'line', # or nobrace skipspace, depending on the context
   'itemx'             => 'line',
   # not valid for info (should be in @iftex)
   'vskip'             => 'lineraw', # arg line in TeX
@@ -627,12 +621,12 @@ our %line_commands = (
 
 $commands_args_number{'node'} = 4;
 
-# commands that do not take the whole line as argument
+# commands never taking braces nor arguments on the line
 #
-# skipspace:   no argument, following spaces are skipped.
-# noarg:       no argument
-#
-my %other_commands = (
+# symbol: non-alphabetical one letter commands without braces.
+# skipspace:   following spaces are skipped.
+# other:       other.
+our %nobrace_commands = (
   # formatting
   'noindent'          => 'skipspace',
   'indent'            => 'skipspace',
@@ -642,6 +636,10 @@ my %other_commands = (
   'refill'            => 'other',     # obsolete
 );
 
+foreach my $nobrace_command (keys(%nobrace_symbol_text)) {
+  $nobrace_commands{$nobrace_command} = 'symbol';
+}
+
 # only valid in heading or footing specifications
 our %in_heading_spec_commands;
 foreach my $in_heading_command ('thischapter', 'thischaptername',
@@ -649,11 +647,7 @@ foreach my $in_heading_command ('thischapter', 'thischaptername',
    'thisfile', 'thispage', 'thistitle') {
   $in_heading_spec_commands{$in_heading_command} = 1;
 
-  $other_commands{$in_heading_command} = 'other';
-}
-
-foreach my $nobrace_command (keys(%other_commands)) {
-  $nobrace_commands{$nobrace_command} = $other_commands{$nobrace_command};
+  $nobrace_commands{$in_heading_command} = 'other';
 }
 
 # %in_heading_spec_commands and @| are only valid in the following @-commands
@@ -1140,35 +1134,38 @@ foreach my $sectioning_command (keys (%command_structuring_level)) {
 }
 
 
-# misc commands which arguments may be formatted as text.
+# line commands which arguments may be formatted as text.
 # index commands may be too, but index command may be added with
 # @def*index so they are not added here.
-our %formatted_misc_commands;
-foreach my $formatted_misc_command ('center', 'page',
-   'author', 'subtitle', 'title', 'exdent', 'headitem', 'item',
-   'itemx', 'tab', 'node', keys(%sectioning_heading_commands)) {
-  $formatted_misc_commands{$formatted_misc_command} = 1;
+our %formatted_line_commands;
+foreach my $formatted_line_command ('center', 'page',
+   'author', 'subtitle', 'title', 'exdent', 'item', 'itemx',
+   'node', keys(%sectioning_heading_commands)) {
+  $formatted_line_commands{$formatted_line_command} = 1;
 }
 
-# misc commands which may be formatted as text, but that
-# require constructing some replacement text
-# depending on the case, @contents, @shortcontents and
-# @summarycontents may be formattable_misc_commands too.
-# Since they already are global commands they are not in the
-# default formattable_misc_commands.
-our %formattable_misc_commands;
-foreach my $formattable_misc_command ('insertcopying',
+our %formatted_nobrace_commands;
+foreach my $formatted_command ('headitem', 'item', 'tab',
+                               keys(%nobrace_symbol_text)) {
+  $formatted_nobrace_commands{$formatted_command} = 1;
+}
+
+# line commands which may be formatted as text, but that
+# require constructing some replacement text.
+# Depending on the case, @contents, @shortcontents and
+# @summarycontents may be formattable_line_commands too, but
+# they are global commands and are, in general, processed as such in
+# converters, so they are not put in formattable_line_commands.
+our %formattable_line_commands;
+foreach my $formattable_line_command ('insertcopying',
   'printindex', 'listoffloats', 'need', 'sp', 'verbatiminclude',
   'vskip') {
-  $formattable_misc_commands{$formattable_misc_command} = 1;
+  $formattable_line_commands{$formattable_line_command} = 1;
 }
-
-# used in converters, not in the parser
-our %misc_commands = (%line_commands, %other_commands);
 
 $root_commands{'node'} = 1;
 
-# Not used, kept here as documenation.
+# Not used, kept here for completeness as documentation.
 # @txiinternalvalue is considered as a valid command only if a customization
 # option is set, such that it does not appear in user documents.
 our %internal_commands;
@@ -1176,8 +1173,8 @@ our %internal_commands;
   'txiinternalvalue' => 'brace',
 );
 
-# The internal commands are not in %all_commands, which includes user-settable
-# commands only.
+# %all_commands includes user-settable commands only.
+# The internal commands are not in %all_commands.
 # used in util/txicmdlist
 our %all_commands;
 foreach my $command (
@@ -1195,13 +1192,15 @@ foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',
        'inlineraw', '*', keys(%document_settable_at_commands),
        (grep {$block_commands{$_} eq 'format_raw'} keys(%block_commands)),
        keys(%inline_format_commands), keys(%inline_conditional_commands),
-       keys(%unformatted_block_commands), keys(%misc_commands),
+       keys(%unformatted_block_commands), keys(%line_commands),
+       keys(%nobrace_commands),
        keys(%region_commands)) {
   $preamble_commands{$preamble_command} = 1;
 }
 
 foreach my $formattable_or_formatted_misc_command (
-   keys(%formattable_misc_commands), keys(%formatted_misc_commands),
+   keys(%formattable_line_commands), keys(%formatted_line_commands),
+        keys(%formatted_nobrace_commands),
         keys(%default_index_commands), keys(%in_heading_spec_commands),
         keys(%def_commands)) {
   delete $preamble_commands{$formattable_or_formatted_misc_command};
@@ -1687,7 +1686,7 @@ sub _informative_command_value($)
 
   my $cmdname = $element->{'cmdname'};
 
-  if ($misc_commands{$cmdname} eq 'skipline') {
+  if ($line_commands{$cmdname} eq 'skipline') {
     return 1;
   } elsif (exists($element->{'extra'}->{'text_arg'})) {
     return $element->{'extra'}->{'text_arg'};
@@ -1899,9 +1898,15 @@ sub is_content_empty($;$)
           next;
         }
       }
-      if (exists($misc_commands{$content->{'cmdname'}})) {
-        if ($formatted_misc_commands{$content->{'cmdname'}}
-            or $formattable_misc_commands{$content->{'cmdname'}}) {
+      if (exists($line_commands{$content->{'cmdname'}})) {
+        if ($formatted_line_commands{$content->{'cmdname'}}
+            or $formattable_line_commands{$content->{'cmdname'}}) {
+          return 0;
+        } else {
+          next;
+        }
+      } elsif (exists($nobrace_commands{$content->{'cmdname'}})) {
+        if ($formatted_nobrace_commands{$content->{'cmdname'}}) {
           return 0;
         } else {
           next;
@@ -3121,20 +3126,33 @@ X<C<%math_commands>>
 
 @-commands which contains math, like C<@math> or C<@displaymath>.
 
-=item %misc_commands
-X<C<%misc_commands>>
+=item %line_commands
+X<C<%line_commands>>
 
-Command that do not take braces and are not block commands either, like
-C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>, C<@end>, C<@footnotestyle>,
-C<@set>, C<@settitle>, C<@indent>, C<@definfoenclose>, C<@comment> and many
-others.
+Command that do not take braces, take arguments on the command line and are
+not block commands either, like C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>,
+C<@end>, C<@footnotestyle>, C<@set>, C<@settitle>, C<@itemx>,
+C<@definfoenclose>, C<@comment> and many others.
+
+Note that C<@item> is in C<%line_commands> for its role in C<@table> and
+similar @-commands.
+
+=item %nobrace_commands
+X<C<%nobrace_commands>>
+
+Command that do not take braces, do not have argument on their line and
+are not block commands either.  The value is I<symbol> for single character
+non-alphabetical @-commands such as C<@@>, C<@ > or @C<@:>.  Other commands in that hash
+include C<@indent>, C<@tab> or C<@thissection>.
+
+Note that C<@item> is in C<%nobrace_commands> for its role in C<@multitable>,
+C<@itemize> and C<@enumerate>.
 
 =item %nobrace_symbol_text
 X<C<%nobrace_symbol_text>>
 
-Commands without brace with a single character as name, like C<*>
-or C<:>.  The value is an ASCII representation of the command.  It
-may be an empty string.
+Values are ASCII representation of single character non-alphabetical commands
+without brace such as C<*> or C<:>.  The value may be an empty string.
 
 =item %preformatted_commands
 
