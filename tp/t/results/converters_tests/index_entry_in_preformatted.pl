@@ -615,7 +615,7 @@ $result_converted{'xml'}->{'index_entry_in_preformatted'} = '<node name="Top" sp
 <pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="1">first</indexterm></cindex>
 text
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="2">other</indexterm></cindex><!-- c comment -->
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">other</indexterm></cindex> <!-- c comment -->
 text2
 <cindex index="cp" spaces=" "><indexterm index="cp" number="3">last</indexterm></cindex>
 </pre></example>

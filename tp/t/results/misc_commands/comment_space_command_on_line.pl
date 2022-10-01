@@ -1277,7 +1277,7 @@ $result_converted{'xml'}->{'comment_space_command_on_line'} = '<settitle spaces=
 
 <microtype spaces=" " value="off" line="off@c comment microtype"></microtype><!-- c comment microtype -->
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry <spacecmd type="spc"/></indexterm></cindex><!-- c index entry -->
+<cindex index="cp" spaces=" "><indexterm index="cp" number="1">index entry <spacecmd type="spc"/></indexterm></cindex> <!-- c index entry -->
 
 <heading spaces=" ">Heading <spacecmd type="spc"/>    </heading><!-- c heading -->
 

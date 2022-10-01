@@ -716,11 +716,13 @@ sub _convert($$;$)
       push @$attribute, ['index', $element->{'extra'}->{'index_entry'}->{'index_name'}];
       push @$attribute, _leading_spaces_arg($element);
 
+      # this is important to get the spaces before a @subentry
+      my $end_line_spaces = _end_line_spaces($self, $element);
       my $end_line = $self->format_comment_or_return_end_line($element);
 
       return $self->txi_markup_open_element($format_element, $attribute)
           .$self->_index_entry($element)
-          .$self->txi_markup_close_element($format_element)
+          .$self->txi_markup_close_element($format_element).$end_line_spaces
           .${end_line};
     } elsif (exists($line_commands{$element->{'cmdname'}})) {
       my $cmdname = $element->{'cmdname'};

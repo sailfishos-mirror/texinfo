@@ -3254,27 +3254,27 @@ $result_converted{'xml'}->{'inter_item_commands_in_table'} = '<node name="Top" s
 </tableitem></tableentry></ftable>
 
 <table commandarg="code" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="2">cindex in table</indexterm></cindex>
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="2">cindex in table</indexterm></cindex> 
 <!-- c comment in table -->
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">abb</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <table commandarg="code" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="3">cindex in table</indexterm></cindex>
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="3">cindex in table</indexterm></cindex> 
 <para>Texte before first item.
 </para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">abb</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="4">samp cindex in table</indexterm></cindex>
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="4">samp cindex in table</indexterm></cindex> 
 <!-- c samp comment in table -->
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine samp
 </para></tableitem></tableentry></table>
 
 <table commandarg="samp" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="5">samp cindex in table</indexterm></cindex>
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="5">samp cindex in table</indexterm></cindex> 
 <para>Texte before first item samp.
 </para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb</itemformat></item>
 </tableterm></tableentry></table>
