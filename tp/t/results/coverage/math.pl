@@ -634,7 +634,7 @@ Math with @-command
 $\\mathtt{math code} a < b \\sum_{i} q^{2}$
 
 Complex
-$\\underline{\\mathtt{math \\hbox{ code }}} \\i \\sum_{i}{\\underline{f}}$
+$\\underline{\\mathtt{math \\hbox{ code }}} \\backslash{}i \\sum_{i}{\\underline{f}}$
 
 @\\textbackslash{} outside of math
 \\textbackslash{}

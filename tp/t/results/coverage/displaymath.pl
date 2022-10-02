@@ -721,7 +721,7 @@ $$
 
 Complex
 $$
- \\underline{\\mathtt{math \\hbox{ code }}} \\i \\sum_{i}{\\underline{f}}
+ \\underline{\\mathtt{math \\hbox{ code }}} \\backslash{}i \\sum_{i}{\\underline{f}}
 $$
 
 With a comment

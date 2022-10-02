@@ -2362,6 +2362,10 @@ sub _convert($$)
           # always protect, even in math mode 
           $result .= "\\$cmdname";
         }
+      } elsif ($cmdname eq '\\'
+             and $self->{'formatting_context'}->[-1]->{'text_context'}->[-1]
+                 eq 'ctx_math') {
+        $result .= '\\backslash{}';
       } else {
         $result .= _protect_text($self, $nobrace_symbol_text{$cmdname});
       }
