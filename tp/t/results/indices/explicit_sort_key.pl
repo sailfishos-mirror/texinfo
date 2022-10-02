@@ -920,6 +920,15 @@ $result_errors{'explicit_sort_key'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @b should not appear in @sortas
+',
+    'file_name' => '',
+    'line_nr' => 15,
+    'macro' => '',
+    'text' => '@b should not appear in @sortas',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @sortas should only appear in an index entry
 ',
     'file_name' => '',

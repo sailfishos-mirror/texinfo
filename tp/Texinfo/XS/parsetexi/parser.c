@@ -931,7 +931,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
             && outer != CM_center
             && outer != CM_exdent)
       || ((outer_flags & CF_brace)
-           && command_data(outer).data == BRACE_arguments)
+           && command_data(outer).data == BRACE_arguments
+           && !(outer_flags & CF_contain_plain_text))
       || outer == CM_shortcaption
       || outer == CM_math
       || (outer_flags & CF_index_entry_command)
@@ -952,7 +953,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
            || outer == CM_itemx)
            && current->type != ET_line_arg)
     ok = 1;
-  else if (outer_flags & CF_accent)
+  else if (outer_flags & (CF_accent | CF_contain_plain_text))
     {
       if ((cmd_flags & CF_accent)
           || (cmd_flags & CF_nobrace

@@ -268,6 +268,7 @@ my %brace_commands            = %Texinfo::Common::brace_commands;
 my %commands_args_number      = %Texinfo::Common::commands_args_number;
 my %accent_commands           = %Texinfo::Common::accent_commands;
 my %context_brace_commands    = %Texinfo::Common::context_brace_commands;
+my %contain_plain_text_commands = %Texinfo::Common::contain_plain_text_commands;
 my %block_commands            = %Texinfo::Common::block_commands;
 my %blockitem_commands        = %Texinfo::Common::blockitem_commands;
 my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
@@ -442,6 +443,14 @@ foreach my $in_full_text_not_in_simple_text (keys(%in_heading_spec_commands)) {
 }
 
 
+# commands that only accept plain text, ie only accent, symbol and glyph commands
+my %plain_text_commands;
+
+foreach my $command (keys(%accent_commands),
+                     keys(%contain_plain_text_commands)) {
+  $plain_text_commands{$command} = 1;
+}
+
 # commands that only accept simple text as argument in any context.
 my %simple_text_commands;
 foreach my $line_command(keys(%line_commands)) {
@@ -464,7 +473,8 @@ delete $simple_text_commands{'center'};
 delete $simple_text_commands{'exdent'};
 
 foreach my $command (keys (%brace_commands)) {
-  if ($brace_commands{$command} eq 'arguments') {
+  if ($brace_commands{$command} eq 'arguments'
+      and not $contain_plain_text_commands{$command}) {
     $simple_text_commands{$command} = 1;
   }
 }
@@ -501,7 +511,7 @@ $full_line_commands{'itemx'} = 1;
 # Index entry commands are dynamically set as %in_simple_text_commands
 my %default_valid_nestings;
 
-foreach my $command (keys(%accent_commands)) {
+foreach my $command (keys(%plain_text_commands)) {
   $default_valid_nestings{$command} = \%in_plain_text_commands;
 }
 foreach my $command (keys(%simple_text_commands)) {

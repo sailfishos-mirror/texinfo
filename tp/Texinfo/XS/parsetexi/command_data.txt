@@ -294,7 +294,7 @@ env                     brace                           BRACE_style_code
 file                    brace                           BRACE_style_code
 indicateurl             brace                           BRACE_style_code
 kbd                     brace                           BRACE_style_code
-key                     brace                           BRACE_style_code
+key                     brace,contain_plain_text        BRACE_style_code
 option                  brace                           BRACE_style_code
 samp                    brace                           BRACE_style_code
 t                       brace                           BRACE_style_code
@@ -303,10 +303,10 @@ t                       brace                           BRACE_style_code
 r                       brace                           BRACE_style_no_code
 
 U                       brace                           BRACE_arguments     1
-hyphenation             brace,global                    BRACE_arguments     1
+hyphenation             brace,global,contain_plain_text BRACE_arguments     1
 anchor                  brace                           BRACE_arguments     1
 errormsg                brace                           BRACE_arguments     1
-sortas                  brace                           BRACE_arguments     1
+sortas                  brace,contain_plain_text        BRACE_arguments     1
 seeentry                brace                           BRACE_arguments     1
 seealso                 brace                           BRACE_arguments     1
 
@@ -315,7 +315,7 @@ verb                    brace                           BRACE_special
 w                       brace                           BRACE_special
 
 # other brace commands, leading and trailing spaces not ignored
-dmn                     brace                           BRACE_other         1
+dmn                     brace,contain_plain_text        BRACE_other         1
 titlefont               brace,global                    BRACE_other         1
 
 # context brace commands - commands that enclose full texts

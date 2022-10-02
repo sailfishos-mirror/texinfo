@@ -746,9 +746,7 @@ foreach my $command ('code', 'command', 'env', 'file', 'indicateurl', 'kbd',
   $brace_commands{$command} = 'style_code';
 }
 
-# FIXME Some commands should only contain text/accents and
-# could be checked for that: 'dmn', 'key', 'hyphenation', 'sortas'.
-# Some commands can contain @-commands, but not all, for example no @ref,
+# FIXME Some commands can contain @-commands, but not all, for example no @ref,
 # no @footnote: 'anchor', 'indicateurl', 'errormsg', 'seeentry', 'seealso'.
 # 'titlefont' may be less constrained.
 
@@ -758,6 +756,12 @@ foreach my $one_arg_command ('U', 'hyphenation',
     'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
   $brace_commands{$one_arg_command} = 'arguments';
   $commands_args_number{$one_arg_command} = 1;
+}
+
+# only accept plain text, ie only accent, symbol and glyph commands
+our %contain_plain_text_commands;
+foreach my $command ('dmn', 'key', 'hyphenation', 'sortas') {
+  $contain_plain_text_commands{$command} = 1;
 }
 
 # Leading and trailing spaces kept in main text.

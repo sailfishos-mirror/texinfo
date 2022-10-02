@@ -1,5 +1,15 @@
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%contain_plain_text_commands),
+	tp/Texinfo/ParserNonXS.pm (%plain_text_commands),
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h, tp/Texinfo/XS/parsetexi/parser.c
+	(check_valid_nesting): add a contain_plain_text flag/hash to warn
+	if 'dmn', 'key', 'hyphenation', 'sortas' contain anything else
+	than accent and glyph commands (similar as accent commands).
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	 * tp/Texinfo/XS/parsetexi/command_data.txt,
 	 tp/Texinfo/XS/parsetexi/commands.h: add BLOCK_preformatted and
 	 BLOCK_math for consistency with perl parser.
