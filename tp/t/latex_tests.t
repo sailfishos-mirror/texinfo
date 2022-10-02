@@ -682,6 +682,10 @@ Describe @error{}.
 CCC
 @end defun
 '],
+['vbar_in_index',
+'@findex A|B
+@cindex C|D
+']
 );
 
 foreach my $test (@test_cases) {

@@ -2139,6 +2139,8 @@ sub _index_entry($$)
       }
       my $result = '';
       if (defined($sortas)) {
+        # | in sort key breaks with hyperref
+        $sortas =~ s/\|//g;
         $result = _protect_text($self, $sortas).'@';
         $result =~ s/\\[{}]//g; # cannot have unmatched braces in index entry
       }
