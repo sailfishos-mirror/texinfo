@@ -421,14 +421,14 @@ copying                 block,global_unique             BLOCK_region
 documentdescription     block,global_unique             BLOCK_region
 
 # preformatted commands
-example                 block,preformatted,preformatted_code,variadic
-smallexample            block,preformatted,preformatted_code
-lisp                    block,preformatted,preformatted_code
-smalllisp               block,preformatted,preformatted_code
-display                 block,preformatted
-smalldisplay            block,preformatted
-format                  block,preformatted
-smallformat             block,preformatted
+example                 block,preformatted,preformatted_code,variadic   BLOCK_preformatted
+smallexample            block,preformatted,preformatted_code            BLOCK_preformatted
+lisp                    block,preformatted,preformatted_code            BLOCK_preformatted
+smalllisp               block,preformatted,preformatted_code            BLOCK_preformatted
+display                 block,preformatted              BLOCK_preformatted
+smalldisplay            block,preformatted              BLOCK_preformatted
+format                  block,preformatted              BLOCK_preformatted
+smallformat             block,preformatted              BLOCK_preformatted
 
 # format raw commands
 html                    block                           BLOCK_format_raw
@@ -452,7 +452,8 @@ quotation               block                           BLOCK_quotation       1
 smallquotation          block                           BLOCK_quotation       1
 
 float                   block                           BLOCK_float           2
-displaymath             block,math
+
+displaymath             block,math                      BLOCK_math
 
 ##################################################################
 # Conditional commands

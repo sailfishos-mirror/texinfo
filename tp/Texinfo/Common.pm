@@ -3009,6 +3009,10 @@ commands like C<@table> in which the C<@item> argument is on its line;
 menu @-commands, C<@menu>, C<@detailmenu>
 and C<@direntry>;
 
+=item I<math>
+
+Math block commands, like C<@displaymath>.
+
 =item I<multitable>
 
 C<@multitable>;
@@ -3016,6 +3020,10 @@ C<@multitable>;
 =item I<other>
 
 The remaining block commands.
+
+=item I<preformatted>
+
+Commands whose content should not be filled, like C<@example> or C<@display>.
 
 =item I<raw>
 
