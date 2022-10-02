@@ -2633,7 +2633,17 @@ TH d th ! ? #
 > o Euro -> <= >=
 ';
 
-$result_errors{'commands_in_math'} = [];
+$result_errors{'commands_in_math'} = [
+  {
+    'error_line' => '@| should only appear in heading or footing
+',
+    'file_name' => '',
+    'line_nr' => 12,
+    'macro' => '',
+    'text' => '@| should only appear in heading or footing',
+    'type' => 'error'
+  }
+];
 
 
 $result_floats{'commands_in_math'} = {};

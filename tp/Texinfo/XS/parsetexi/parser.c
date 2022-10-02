@@ -1006,7 +1006,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
           && command_data(cmd).data == BLOCK_conditional)
         ok = 1;
 
-      if (cmd_flags & CF_in_heading)
+      if (cmd_flags & CF_in_heading_spec)
         { /* in heading commands can only appear in headings and style
              brace commands */
           ok = 0;

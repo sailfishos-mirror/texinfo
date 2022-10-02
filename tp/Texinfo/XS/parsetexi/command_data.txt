@@ -31,7 +31,7 @@ txiinternalvalue        brace,internal                  INTERNAL_brace
 \t                      nobrace                         NOBRACE_symbol
 \n                      nobrace                         NOBRACE_symbol
 -                       nobrace                         NOBRACE_symbol
-|                       nobrace                         NOBRACE_symbol
+|                       nobrace,in_heading_spec         NOBRACE_symbol
 /                       nobrace                         NOBRACE_symbol
 :                       nobrace                         NOBRACE_symbol
 !                       nobrace                         NOBRACE_symbol
@@ -155,7 +155,7 @@ subentry                line                            LINE_line
 
 ##########################################################
 #
-# miscellaneous commands
+# no brace commands - miscellaneous commands
 #
 ##########################################################
 
@@ -166,15 +166,15 @@ headitem                nobrace                         NOBRACE_skipspace
 item                    nobrace                         NOBRACE_skipspace
 tab                     nobrace                         NOBRACE_skipspace
 # only valid in heading or footing
-thischapter             nobrace,in_heading              NOBRACE_other
-thischaptername         nobrace,in_heading              NOBRACE_other
-thischapternum          nobrace,in_heading              NOBRACE_other
-thissection             nobrace,in_heading              NOBRACE_other
-thissectionname         nobrace,in_heading              NOBRACE_other
-thissectionnum          nobrace,in_heading              NOBRACE_other
-thisfile                nobrace,in_heading              NOBRACE_other
-thispage                nobrace,in_heading              NOBRACE_other
-thistitle               nobrace,in_heading              NOBRACE_other
+thischapter             nobrace,in_heading_spec         NOBRACE_other
+thischaptername         nobrace,in_heading_spec         NOBRACE_other
+thischapternum          nobrace,in_heading_spec         NOBRACE_other
+thissection             nobrace,in_heading_spec         NOBRACE_other
+thissectionname         nobrace,in_heading_spec         NOBRACE_other
+thissectionnum          nobrace,in_heading_spec         NOBRACE_other
+thisfile                nobrace,in_heading_spec         NOBRACE_other
+thispage                nobrace,in_heading_spec         NOBRACE_other
+thistitle               nobrace,in_heading_spec         NOBRACE_other
 # obsolete @-commands.
 refill                  nobrace,deprecated              NOBRACE_other
 

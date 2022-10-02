@@ -60,7 +60,7 @@ void wipe_user_commands (void);
 #define CF_math			        0x0080
 #define CF_variadic		        0x0100
 #define CF_INFOENCLOSE  	        0x0200
-#define CF_in_heading     	        0x0400
+#define CF_in_heading_spec     	        0x0400
 #define CF_ref			        0x0800
 #define CF_ALIAS                        0x1000
 #define CF_block		        0x2000

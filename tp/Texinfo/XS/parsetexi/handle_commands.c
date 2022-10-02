@@ -94,7 +94,7 @@ handle_other_command (ELEMENT *current, char **line_inout,
       misc = new_element (ET_NONE);
       misc->cmd = cmd;
       add_to_element_contents (current, misc);
-      if (command_data(cmd).flags & CF_in_heading
+      if (command_data(cmd).flags & CF_in_heading_spec
           && !(command_data(current_context_command()).flags & CF_heading_spec))
         {
           line_error ("@%s should only appear in heading or footing",

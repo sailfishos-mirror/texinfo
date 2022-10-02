@@ -650,6 +650,8 @@ foreach my $in_heading_command ('thischapter', 'thischaptername',
   $nobrace_commands{$in_heading_command} = 'other';
 }
 
+$in_heading_spec_commands{'|'} = 1;
+
 # %in_heading_spec_commands and @| are only valid in the following @-commands
 our %heading_spec_commands;
 foreach my $headings_specification_command ('everyheading', 'everyfooting',

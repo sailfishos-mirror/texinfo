@@ -233,7 +233,6 @@ my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 my %heading_spec_commands = %Texinfo::Common::heading_spec_commands;
-my %in_heading_spec_commands = %Texinfo::Common::in_heading_spec_commands;
 my %unformatted_brace_command = %Texinfo::Common::unformatted_brace_command;
 
 my %preamble_commands = %Texinfo::Common::preamble_commands;
@@ -248,7 +247,24 @@ foreach my $def_command (keys(%def_commands)) {
   $formatted_line_commands{$def_command} = 1 if ($line_commands{$def_command});
 }
 
-foreach my $kept_command (keys(%in_heading_spec_commands),
+# TODO command that could be used for translation \sectionname does
+# not exist in the default case.  it is defined in the pagenote package together with
+# \pagename which is page in the default case, but it is unclear if this
+# can be used as a basis for translations
+my %LaTeX_in_heading_commands_formatting = (
+  'thischapter' => '\chaptername{} \thechapter{} \chaptertitle{}',
+  'thischaptername' => '\chaptertitle{}',
+  'thischapternum' => '\thechapter{}',
+  #'thissection' => '\sectionname{} \thesection{} \sectiontitle{}',
+  'thissection' => 'Section \thesection{} \sectiontitle{}',
+  'thissectionname' => '\sectiontitle{}',
+  'thissectionnum' => '\thesection{}',
+  'thisfile' => '',
+  'thispage' => '\thepage{}',
+  'thistitle' => '\GNUTexinfosettitle{}',
+);
+
+foreach my $kept_command (keys(%LaTeX_in_heading_commands_formatting),
                                        'indent', 'noindent') {
   $formatted_nobrace_commands{$kept_command} = 1;
 }
@@ -447,22 +463,6 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'cmd_math'}}) {
   }
 }
 
-# TODO command that could be used for translation \sectionname does
-# not exist in the default case.  it is defined in the pagenote package together with
-# \pagename which is page in the default case, but it is unclear if this
-# can be used as a basis for translations
-my %LaTeX_in_heading_spec_commands = (
-  'thischapter' => '\chaptername{} \thechapter{} \chaptertitle{}',
-  'thischaptername' => '\chaptertitle{}',
-  'thischapternum' => '\thechapter{}',
-  #'thissection' => '\sectionname{} \thesection{} \sectiontitle{}',
-  'thissection' => 'Section \thesection{} \sectiontitle{}',
-  'thissectionname' => '\sectiontitle{}',
-  'thissectionnum' => '\thesection{}',
-  'thisfile' => '',
-  'thispage' => '\thepage{}',
-  'thistitle' => '\GNUTexinfosettitle{}',
-);
 
 my %ignored_commands = (%ignored_line_commands, %ignored_nobrace_commands);
 # processed as part of the index command or type formatting
@@ -3405,8 +3405,8 @@ sub _convert($$)
         $result .= "\\needspace{${need_value}pt}%\n";
       }
       return $result;
-    } elsif ($in_heading_spec_commands{$cmdname}) {
-      $result .= $LaTeX_in_heading_spec_commands{$cmdname};
+    } elsif ($LaTeX_in_heading_commands_formatting{$cmdname}) {
+      $result .= $LaTeX_in_heading_commands_formatting{$cmdname};
       return $result;
     } elsif ($cmdname eq 'title') {
       my $title_text = _title_font($self, $element);
