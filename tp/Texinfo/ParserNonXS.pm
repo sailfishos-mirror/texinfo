@@ -207,9 +207,9 @@ my %parser_default_configuration = (
 #                         (html, xml, docbook...)
 #                         'ct_inlineraw' is added when in inlineraw
 #                         'ct_brace_command' is added when in footnote,
-#                         caption, or shortcaption (in %context_brace_commands
+#                         caption, or shortcaption (context brace_commands
 #                         that does not already start another context, ie not
-#                         not math).
+#                         math).
 # context_command_stack   the stack of @-commands. An @-command name can
 #                         be added each time a context is pushed on
 #                         'context_stack'.  Could be undef if there
@@ -1471,8 +1471,8 @@ sub _close_all_style_commands($$$;$$)
       $interrupting_command) = @_;
 
   while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-          and exists $self->{'brace_commands'}->{$current->{'parent'}->{'cmdname'}}
-          and !exists $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
+          and exists($self->{'brace_commands'}->{$current->{'parent'}->{'cmdname'}})
+          and $self->{'brace_commands'}->{$current->{'parent'}->{'cmdname'}} ne 'context') {
     print STDERR "CLOSING(_close_all_style_commands) \@$current->{'parent'}->{'cmdname'}\n"
          if ($self->{'DEBUG'});
     $current = _close_brace_command($self, $current->{'parent'}, $source_info,
@@ -1841,7 +1841,7 @@ sub _close_current($$$;$$)
     print STDERR "CLOSING(_close_current) \@$current->{'cmdname'}\n"
          if ($self->{'DEBUG'});
     if (exists($self->{'brace_commands'}->{$current->{'cmdname'}})) {
-      if (exists $context_brace_commands{$current->{'cmdname'}}) {
+      if ($self->{'brace_commands'}->{$current->{'cmdname'}} eq 'context') {
         my $expected_context;
         if ($math_commands{$current->{'cmdname'}}) {
           $expected_context = 'ct_math';
@@ -1938,7 +1938,7 @@ sub _close_commands($$$;$$)
          and not ($current->{'type'}
                   and $current->{'type'} eq 'before_node_section')
      # Stop if in a root command
-     # or in a context_brace_commands and searching for a specific
+     # or in a context brace_commands and searching for a specific
      # end block command (with $closed_block_command set).
      # This second condition means that a footnote is not closed when
      # looking for the end of a block command, but is closed when
@@ -1946,7 +1946,8 @@ sub _close_commands($$$;$$)
          and !($current->{'cmdname'}
                and ($root_commands{$current->{'cmdname'}}
                     or ($closed_block_command and $current->{'parent'}->{'cmdname'}
-                       and $context_brace_commands{$current->{'parent'}->{'cmdname'}})))){
+                       and (exists($brace_commands{$current->{'parent'}->{'cmdname'}})
+            and $brace_commands{$current->{'parent'}->{'cmdname'}} eq 'context'))))) {
     _close_command_cleanup($self, $current);
     $current = _close_current($self, $current, $source_info, $closed_block_command,
                               $interrupting_command);
@@ -5257,7 +5258,7 @@ sub _process_remaining_on_line($$$$)
         }
 
         $current = $current->{'args'}->[-1];
-        if ($context_brace_commands{$command}) {
+        if ($self->{'brace_commands'}->{$command} eq 'context') {
           if ($command eq 'caption' or $command eq 'shortcaption') {
             my $float;
             if (!$current->{'parent'}->{'parent'}
@@ -5382,7 +5383,7 @@ sub _process_remaining_on_line($$$$)
           and $current->{'parent'}->{'cmdname'}
           and exists $self->{'brace_commands'}->{$current->{'parent'}->{'cmdname'}}) {
         # for math and footnote out of paragraph
-        if ($context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
+        if ($self->{'brace_commands'}->{$current->{'parent'}->{'cmdname'}} eq 'context') {
           my $command_context = 'ct_brace_command';
           if ($math_commands{$current->{'parent'}->{'cmdname'}}) {
             $command_context = 'ct_math';
@@ -5600,7 +5601,8 @@ sub _process_remaining_on_line($$$$)
          $current = _end_paragraph($self, $current, $source_info);
          if ($current->{'parent'}
              and $current->{'parent'}->{'cmdname'}
-             and $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
+             and $self->{'brace_commands'}
+                  ->{$current->{'parent'}->{'cmdname'}} eq 'context') {
           $self->_pop_context(['ct_brace_command'], $source_info, $current,
                      "for brace isolated $current->{'parent'}->{'cmdname'}");
           print STDERR "CLOSING(context command) \@$current->{'parent'}->{'cmdname'}\n"

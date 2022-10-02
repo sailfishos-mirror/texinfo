@@ -1,5 +1,12 @@
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/ParserNonXS.pm: remove %context_brace_commands, instead
+	check if brace_commands type is set to context.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Texinfo/ParserNonXS.pm,
 	tp/maintain/regenerate_commands_perl_info.pl: generate
 	%commands_args_number in regenerate_commands_perl_info.pl, remove

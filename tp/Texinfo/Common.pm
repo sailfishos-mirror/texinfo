@@ -520,20 +520,6 @@ foreach my $command ('code', 'command', 'env', 'file', 'indicateurl', 'kbd',
 # brace style command that are not style code commands
 $brace_code_commands{'verb'} = 1;
 
-# Commands that enclose full texts not in the main document context.
-# They can contain multiple paragraphs.
-our %context_brace_commands;
-foreach my $context_brace_command ('footnote', 'caption',
-    'shortcaption') {
-  $context_brace_commands{$context_brace_command} = $context_brace_command;
-}
-
-# Commands that enclose math content, and, because of that, are not in the
-# main document context.
-foreach my $math_brace_command ('math') {
-  $context_brace_commands{$math_brace_command} = $math_brace_command;
-}
-
 our %explained_commands;
 foreach my $explained_command ('abbr', 'acronym') {
   $explained_commands{$explained_command} = 1;
@@ -1521,7 +1507,7 @@ foreach my $type (@inline_types) {
 }
 
 my %not_inline_commands = (%Texinfo::Commands::root_commands, %Texinfo::Commands::block_commands,
-                           %context_brace_commands);
+     grep {$Texinfo::Commands::brace_commands{$_} eq 'context'} keys(%Texinfo::Commands::brace_commands));
 
 # Return 1 if inline in a running text, 0 if right in top-level or block
 # environment, and undef otherwise.
@@ -2644,12 +2630,6 @@ X<C<%brace_code_commands>>
 
 Brace commands that have their argument in code style, like
 C<@code>.
-
-=item %context_brace_commands
-X<C<%context_brace_commands>>
-
-@-commands with brace like C<@footnote>, C<@caption> and C<@math>
-whose argument is outside of the main text flow in one way or another.
 
 =item %def_commands
 

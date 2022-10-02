@@ -108,7 +108,6 @@ my %preformatted_commands = %Texinfo::Commands::preformatted_commands;
 my %math_commands = %Texinfo::Commands::math_commands;
 my %preformatted_code_commands = %Texinfo::Commands::preformatted_code_commands;
 
-my %context_brace_commands = %Texinfo::Common::context_brace_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
 my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
@@ -10152,7 +10151,8 @@ sub _convert($$;$)
     }
     if (exists($self->{'commands_conversion'}->{$command_name})) {
       my $convert_to_latex;
-      if (exists($context_brace_commands{$command_name})) {
+      if (exists($brace_commands{$command_name})
+          and $brace_commands{$command_name} eq 'context') {
         $self->_new_document_context($command_name);
       }
       if (exists($format_context_commands{$command_name})) {
@@ -10309,7 +10309,8 @@ sub _convert($$;$)
       if (exists($format_context_commands{$command_name})) {
         pop @{$self->{'document_context'}->[-1]->{'formatting_context'}};
       }
-      if (exists($context_brace_commands{$command_name})) {
+      if (exists($brace_commands{$command_name})
+          and $brace_commands{$command_name} eq 'context') {
         $self->_pop_document_context();
       }
 

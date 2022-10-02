@@ -1025,11 +1025,11 @@ sub _convert($$;$)
         # element for the first argument
         @format_elements = ($element->{'cmdname'});
         # leading spaces are directly associated to the @-command for @-command
-        # in context_brace_commands
+        # in context brace_commands
         push @$attribute, _leading_spaces_arg($element);
       }
 
-      if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
+      if ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'context') {
         push @{$self->{'document_context'}}, {'monospace' => [0]};
       }
       my $last_empty_element;
@@ -1037,7 +1037,7 @@ sub _convert($$;$)
       my $arg_index = 0;
       foreach my $format_element (@format_elements) {
         if (defined($element->{'args'}->[$arg_index])) {
-          # Leading spaces are gathered here except for context_brace_commands
+          # Leading spaces are gathered here except for context brace_commands
           # (gathered just above).
           push @$attribute,
             _leading_spaces_arg($element->{'args'}->[$arg_index]);
@@ -1087,7 +1087,7 @@ sub _convert($$;$)
       if ($last_empty_element) {
         $args_or_one_arg_cmd .= $last_empty_element;
       }
-      if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
+      if ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'context') {
         pop @{$self->{'document_context'}};
       }
       if (not defined($main_cmdname)) {
@@ -1148,9 +1148,9 @@ sub _convert($$;$)
         }
       }
       # this never happens as there is no @-commands with more than one
-      # argument that is also a context_brace_commands.  Leading spaces
+      # argument that is also a context brace_commands.  Leading spaces
       # after the command brace opening are only associated with command
-      # if a context_brace_commands, therefore they are with the first argument.
+      # if a context brace_commands, therefore they are with the first argument.
       push @$attribute, _leading_spaces_arg($element);
       return $self->txi_markup_open_element($main_cmdname, $attribute)
                  .$args_or_one_arg_cmd.$self->txi_markup_close_element($main_cmdname);

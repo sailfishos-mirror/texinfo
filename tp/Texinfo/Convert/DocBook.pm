@@ -963,7 +963,7 @@ sub _convert($$;$)
              and exists($Texinfo::Commands::brace_commands{$element->{'cmdname'}})) {
       #Texinfo::Common::debug_list(" brace command with args", $element->{'args'});
       if ($style_commands_formatting{$element->{'cmdname'}}) {
-        if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
+        if ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'context') {
           push (@{$self->{'document_context'}},
                 {'monospace' => [0], 'upper_case' => [0]});
         }
@@ -1002,7 +1002,7 @@ sub _convert($$;$)
         }
         pop @{$self->{'document_context'}->[-1]->{'monospace'}}
           if (defined($in_monospace_not_normal));
-        if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
+        if ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'context') {
           pop @{$self->{'document_context'}};
         }
         if ($element->{'cmdname'} eq 'w') {

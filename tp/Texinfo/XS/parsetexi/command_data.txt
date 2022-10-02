@@ -381,6 +381,7 @@ dmn                     brace,contain_plain_text        BRACE_other         1
 titlefont               brace,global                    BRACE_other         1
 
 # context brace commands - commands that enclose full texts
+# not in the main document context.  They can contain multiple paragraphs.
 footnote                brace,global                    BRACE_context
 caption                 brace                           BRACE_context
 shortcaption            brace                           BRACE_context
