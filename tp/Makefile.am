@@ -80,7 +80,8 @@ dist_noinst_DATA = \
  Texinfo/ModulePath.pm.in
 
 modules_DATA = \
- Texinfo/ModulePath.pm
+ Texinfo/ModulePath.pm \
+ Texinfo/Commands.pm
 
 convertersdir = $(pkgdatadir)/Texinfo/Convert
 dist_converters_DATA = \
@@ -318,6 +319,10 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	    -e 's|[@]USE_EXTERNAL_EASTASIANWIDTH[@]|$(USE_EXTERNAL_EASTASIANWIDTH)|' \
 	    -e 's|[@]USE_EXTERNAL_UNIDECODE[@]|$(USE_EXTERNAL_UNIDECODE)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
+
+Texinfo/Commands.pm: Texinfo/XS/parsetexi/command_data.txt
+	$(MKDIR_P) Texinfo
+	$(srcdir)/maintain/regenerate_perl_command_infos.pl < $< > $@
 
 libsrcdir = $(srcdir)/maintain/lib
 

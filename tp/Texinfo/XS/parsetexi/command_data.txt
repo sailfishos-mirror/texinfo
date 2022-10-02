@@ -20,7 +20,7 @@
 ##############################################################
 # Internal commands
 # invalid if not accept_internalvalue set in configuration
-txiinternalvalue        brace,internal                  INTERNAL_brace
+txiinternalvalue        internal,brace                  INTERNAL_brace
 
 ##############################################################
 # no brace commands - single letter commands

@@ -234,6 +234,7 @@ tp/*.log
 tp/*.html
 tp/test.*
 
+tp/Texinfo/Commands.pm
 tp/Texinfo/ModulePath.pm
 tp/Texinfo/*.html
 

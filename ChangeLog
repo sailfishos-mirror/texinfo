@@ -8,6 +8,14 @@
 
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	Generate automatically perl commands information hashes
+
+	* maintain/regenerate_perl_command_infos.pl, Makefile.am: generate
+	automatically Texinfo/Commands.pm using the information from
+	tp/Texinfo/XS/parsetexi/command_data.txt.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	Warn if @-commands other than accent, glyphs and symbols appear in @w
 
 	* tp/Texinfo/Common.pm (%contain_plain_text_commands),
