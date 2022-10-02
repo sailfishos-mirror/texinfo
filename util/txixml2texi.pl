@@ -81,8 +81,8 @@ BEGIN
 
 use XML::LibXML::Reader;
 
+use Texinfo::Commands;
 # gather information on Texinfo markup language elements
-use Texinfo::Common;
 use Texinfo::Convert::TexinfoMarkup;
 
 my $debug = 0;
@@ -307,14 +307,14 @@ while ($reader->read) {
             $element_at_commands{$name}->{$attribute}->{$reader->getAttribute($attribute)};
         }
       }
-    } elsif (exists($Texinfo::Common::brace_commands{$name})) {
+    } elsif (exists($Texinfo::Commands::brace_commands{$name})) {
       print "\@${name}\{";
       if ($name eq 'verb' and $reader->hasAttributes()
           and defined($reader->getAttribute('delimiter'))) {
         print $reader->getAttribute('delimiter');
       }
       print "$spaces";
-    } elsif (exists($Texinfo::Common::block_commands{$name})) {
+    } elsif (exists($Texinfo::Commands::block_commands{$name})) {
       print "\@$name";
       if ($name eq 'macro' or $name eq 'rmacro') {
         if ($reader->hasAttributes() and defined($reader->getAttribute('line'))) {
@@ -325,8 +325,8 @@ while ($reader->read) {
         # leading spaces are already in the line attribute for (r)macro
         print "$spaces";
       }
-    } elsif (defined($Texinfo::Common::line_commands{$name})
-             or defined($Texinfo::Common::nobrace_commands{$name})
+    } elsif (defined($Texinfo::Commands::line_commands{$name})
+             or defined($Texinfo::Commands::nobrace_commands{$name})
              or $user_defined_index_command) {
       if ($reader->hasAttributes()
           and defined($reader->getAttribute('originalcommand'))) {
@@ -440,8 +440,8 @@ while ($reader->read) {
         print $reader->getAttribute('leadingtext');
       }
     }
-    if ($Texinfo::Common::block_commands{$name}
-        and $Texinfo::Common::block_commands{$name} eq 'item_line'
+    if ($Texinfo::Commands::block_commands{$name}
+        and $Texinfo::Commands::block_commands{$name} eq 'item_line'
         and $reader->hasAttributes()
         and defined($reader->getAttribute('commandarg'))) {
       print '@'.$reader->getAttribute('commandarg');
@@ -463,13 +463,13 @@ while ($reader->read) {
         print '}';
       }
     }
-    if (exists ($Texinfo::Common::brace_commands{$name})) {
+    if (exists ($Texinfo::Commands::brace_commands{$name})) {
       if ($name eq 'verb' and $reader->hasAttributes()
           and defined($reader->getAttribute('delimiter'))) {
         print $reader->getAttribute('delimiter');
       }
       print '}';
-    } elsif (exists($Texinfo::Common::block_commands{$name})) {
+    } elsif (exists($Texinfo::Commands::block_commands{$name})) {
       my $end_spaces;
       if ($reader->hasAttributes()
           and defined($reader->getAttribute('endspaces'))) {
@@ -477,9 +477,9 @@ while ($reader->read) {
       }
       $end_spaces = ' ' if (!defined($end_spaces) or $end_spaces eq '');
       print "\@end".$end_spaces."$name";
-    } elsif (defined($Texinfo::Common::line_commands{$name})
-             or defined($Texinfo::Common::nobrace_commands{$name})) {
-      if ($Texinfo::Common::root_commands{$name} and $name ne 'node') {
+    } elsif (defined($Texinfo::Commands::line_commands{$name})
+             or defined($Texinfo::Commands::nobrace_commands{$name})) {
+      if ($Texinfo::Commands::root_commands{$name} and $name ne 'node') {
         $eat_space = 1;
       }
       print "$trailingspaces";

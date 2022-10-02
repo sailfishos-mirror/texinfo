@@ -126,15 +126,21 @@ sub definition_category_tree($$)
        'args' => [{'type' => 'brace_command_arg', 'contents' => [$arg_class]}]};
   }
   
-  my $style = $Texinfo::Common::command_index{$current->{'extra'}->{'def_command'}};
-  if ($style eq 'fn') {
+  my $def_command = $current->{'extra'}->{'def_command'};
+  if ($def_command eq 'defop'
+      or $def_command eq 'deftypeop'
+      or $def_command eq 'defmethod'
+      or $def_command eq 'deftypemethod') {
     if ($self) {
       return $self->gdt('{category} on @code{{class}}', { 'category' => $arg_category,
                                           'class' => $arg_class });
     } else {
       return {'contents' => [$arg_category, {'text' => ' on '}, $arg_class_code]};
     }
-  } elsif ($style eq 'vr') {
+  } elsif ($def_command eq 'defivar'
+           or $def_command eq 'deftypeivar'
+           or $def_command eq 'defcv'
+           or $def_command eq 'deftypecv') {
     if ($self) {
       return $self->gdt('{category} of @code{{class}}', { 'category' => $arg_category,
                                           'class' => $arg_class });

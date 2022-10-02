@@ -1,5 +1,21 @@
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/Utils.pm
+	(definition_category_tree), tp/Texinfo/ParserNonXS.pm
+	(_process_remaining_on_line),
+	tp/maintain/regenerate_commands_perl_info.pl: define %command_index
+	in ParserNonXS.pm, not in Common.pm.  Update
+	definition_category_tree() to use directly the command names.
+	Remove %deprecated_commands from Common.pm, do not use values
+	of %deprecated_commands, only the keys.  Generate %index_names
+	in regenerate_commands_perl_info.pl and output code that adds
+	default index commands to %line_commands.
+
+	* util/txixml2texi.pl, tp/Texinfo/ParserNonXS.pm: use information
+	from Texinfo::Commands.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am, maintain/regenerate_commands_perl_info.pl:
 	hardcode output file name in regenerate_commands_perl_info.pl, to
 	avoid emptying the result file because of the redirection if the

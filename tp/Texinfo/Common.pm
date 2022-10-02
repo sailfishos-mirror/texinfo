@@ -667,13 +667,6 @@ foreach my $in_index_command ('sortas', 'seeentry', 'seealso', 'subentry') {
   $in_index_commands{$in_index_command} = 1;
 }
 
-
-# Keys are commmands, values are names of indices.
-our %command_index;
-
-$command_index{'vtable'} = 'vr';
-$command_index{'ftable'} = 'fn';
-
 our %index_names = (
  'cp' => {'in_code' => 0},
  'fn' => {'in_code' => 1},
@@ -693,8 +686,7 @@ foreach my $index_name (keys (%index_names)) {
   my $one_letter_prefix = substr($index_name, 0, 1);
   foreach my $prefix ($index_name, $one_letter_prefix) {
     $line_commands{$prefix.'index'} = 'line';
-    $default_index_commands{$prefix.'index'} = 1;
-    $command_index{$prefix.'index'} = $index_name;
+    $default_index_commands{$prefix.'index'} = $index_name;
   }
 }
 
@@ -890,19 +882,6 @@ our %def_map = (
     'deftypemethod', {'deftypeop' => gdt('Method')},
 );
 
-# the type of index, fn: function, vr: variable, tp: type
-my %index_type_def = (
- 'fn' => ['deffn', 'deftypefn', 'deftypeop', 'defop'],
- 'vr' => ['defvr', 'deftypevr', 'defcv', 'deftypecv' ],
- 'tp' => ['deftp']
-);
-
-foreach my $index_type (keys %index_type_def) {
-  foreach my $def (@{$index_type_def{$index_type}}) {
-    $command_index{$def} = $index_type;
-  }
-}
-
 our %def_commands;
 our %def_aliases;
 # consistent with XS parser flag
@@ -912,7 +891,6 @@ our %def_no_var_arg_commands;
 foreach my $def_command(keys %def_map) {
   if (ref($def_map{$def_command}) eq 'HASH') {
     my ($real_command) = keys (%{$def_map{$def_command}});
-    $command_index{$def_command} = $command_index{$real_command};
     $def_aliases{$def_command} = $real_command;
     $def_aliases{$def_command.'x'} = $real_command.'x';
     $def_alias_commands{$def_command} = 1;
@@ -921,7 +899,6 @@ foreach my $def_command(keys %def_map) {
   $line_commands{$def_command.'x'} = 'line';
   $def_commands{$def_command} = 1;
   $def_commands{$def_command.'x'} = 1;
-  $command_index{$def_command.'x'} = $command_index{$def_command};
   $def_no_var_arg_commands{$def_command} = 1 if ($def_command =~ /^deftype/);
 }
 
@@ -1037,13 +1014,6 @@ foreach my $close_paragraph_command ('titlefont', 'insertcopying', 'sp',
 foreach my $close_paragraph_command (keys(%def_commands)) {
   $close_paragraph_commands{$close_paragraph_command} = 1;
 }
-
-our %deprecated_commands = (
-  'definfoenclose' => '',
-  'refill' => '',
-  'inforef' => '',
-  'centerchap' => '',
-);
 
 my %unformatted_block_commands;
 foreach my $unformatted_block_command ('ignore', 'macro', 'rmacro') {
@@ -2942,7 +2912,7 @@ Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
 
 TODO: undocumented
-%null_device_file %default_parser_customization_values %document_settable_multiple_at_commands %document_settable_unique_at_commands %default_converter_command_line_options %default_main_program_customization_options %default_converter_customization @variable_string_settables %document_settable_at_commands %def_map %command_index %close_paragraph_commands %command_structuring_level %level_to_structuring_command
+%null_device_file %default_parser_customization_values %document_settable_multiple_at_commands %document_settable_unique_at_commands %default_converter_command_line_options %default_main_program_customization_options %default_converter_customization @variable_string_settables %document_settable_at_commands %def_map %close_paragraph_commands %command_structuring_level %level_to_structuring_command
 
 =over
 

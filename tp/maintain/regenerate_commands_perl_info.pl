@@ -26,6 +26,16 @@ BEGIN
   $^W = 1;
 }
 
+# need this information to fill in automatically the index commands
+my %index_in_code = (
+ 'cp' => 0,
+ 'fn' => 1,
+ 'vr' => 1,
+ 'ky' => 1,
+ 'pg' => 1,
+ 'tp' => 1,
+);
+
 my %command_categories;
 my %flags_hashes;
 
@@ -104,5 +114,30 @@ foreach my $hash_flag (sort(keys(%flags_hashes))) {
   }
   print OUT ");\n\n";
 }
+
+print OUT "\n";
+print OUT "# indices\n";
+print OUT "our %index_names = (\n";
+foreach my $index_name (sort(keys(%index_in_code))) {
+  my $in_code = $index_in_code{$index_name};
+  print OUT "'$index_name' => {'in_code' => $in_code},\n";
+}
+print OUT ");\n\n";
+
+# add code that sets %line_commands for index commands based on %index_names
+print OUT 'foreach my $index (keys(%index_names)) {
+  $index_names{$index}->{"name"} = $index;
+  $index_names{$index}->{"contained_indices"} = {$index => 1};
+}
+
+our %default_index_commands;
+foreach my $index_name (keys (%index_names)) {
+  my $one_letter_prefix = substr($index_name, 0, 1);
+  foreach my $prefix ($index_name, $one_letter_prefix) {
+    $line_commands{$prefix."index"} = "line";
+    $default_index_commands{$prefix."index"} = $index_name;
+  }
+}
+';
 
 print OUT "1;\n";

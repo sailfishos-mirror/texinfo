@@ -263,35 +263,69 @@ my %initialization_overrides = (
   'documentlanguage' => 1,
 );
 
-my %nobrace_commands          = %Texinfo::Common::nobrace_commands;
-my %line_commands             = %Texinfo::Common::line_commands;
-my %brace_commands            = %Texinfo::Common::brace_commands;
+my %nobrace_commands          = %Texinfo::Commands::nobrace_commands;
+my %line_commands             = %Texinfo::Commands::line_commands;
+my %brace_commands            = %Texinfo::Commands::brace_commands;
 my %commands_args_number      = %Texinfo::Common::commands_args_number;
-my %accent_commands           = %Texinfo::Common::accent_commands;
+my %accent_commands           = %Texinfo::Commands::accent_commands;
 my %context_brace_commands    = %Texinfo::Common::context_brace_commands;
-my %contain_plain_text_commands = %Texinfo::Common::contain_plain_text_commands;
+my %contain_plain_text_commands = %Texinfo::Commands::contain_plain_text_commands;
 my %contain_simple_text_commands = %Texinfo::Commands::contain_simple_text_commands;
-my %block_commands            = %Texinfo::Common::block_commands;
-my %blockitem_commands        = %Texinfo::Common::blockitem_commands;
+my %block_commands            = %Texinfo::Commands::block_commands;
+my %blockitem_commands        = %Texinfo::Commands::blockitem_commands;
 my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
+my %def_commands              = %Texinfo::Commands::def_commands;
 my %def_map                   = %Texinfo::Common::def_map;
-my %def_commands              = %Texinfo::Common::def_commands;
 my %def_aliases               = %Texinfo::Common::def_aliases;
-my %def_alias_commands        = %Texinfo::Common::def_alias_commands;
-my %preformatted_commands     = %Texinfo::Common::preformatted_commands;
-my %math_commands             = %Texinfo::Common::math_commands;
-my %deprecated_commands       = %Texinfo::Common::deprecated_commands;
-my %root_commands             = %Texinfo::Common::root_commands;
-my %sectioning_heading_commands     = %Texinfo::Common::sectioning_heading_commands;
-my %command_index             = %Texinfo::Common::command_index;
-my %ref_commands              = %Texinfo::Common::ref_commands;
-my %heading_spec_commands     = %Texinfo::Common::heading_spec_commands;
-my %in_heading_spec_commands  = %Texinfo::Common::in_heading_spec_commands;
+my %def_alias_commands        = %Texinfo::Commands::def_alias_commands;
+my %preformatted_commands     = %Texinfo::Commands::preformatted_commands;
+my %math_commands             = %Texinfo::Commands::math_commands;
+my %deprecated_commands       = %Texinfo::Commands::deprecated_commands;
+my %root_commands             = %Texinfo::Commands::root_commands;
+my %sectioning_heading_commands     = %Texinfo::Commands::sectioning_heading_commands;
+my %ref_commands              = %Texinfo::Commands::ref_commands;
+my %heading_spec_commands     = %Texinfo::Commands::heading_spec_commands;
+my %in_heading_spec_commands  = %Texinfo::Commands::in_heading_spec_commands;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
 my %explained_commands        = %Texinfo::Common::explained_commands;
 my %inline_format_commands    = %Texinfo::Common::inline_format_commands;
-my %variadic_commands         = %Texinfo::Common::variadic_commands;
+my %variadic_commands         = %Texinfo::Commands::variadic_commands;
 my %all_commands              = %Texinfo::Common::all_commands;
+my %default_index_commands    = %Texinfo::Commands::default_index_commands;
+
+
+# Keys are commmands, values are names of indices.  User-defined
+# index commands are added dynamically.
+my %command_index;
+
+$command_index{'vtable'} = 'vr';
+$command_index{'ftable'} = 'fn';
+
+foreach my $index_command (keys(%default_index_commands)) {
+  $command_index{$index_command} = $default_index_commands{$index_command};
+}
+
+# the type of index, fn: function, vr: variable, tp: type
+my %index_type_def = (
+ 'fn' => ['deffn', 'deftypefn', 'deftypeop', 'defop'],
+ 'vr' => ['defvr', 'deftypevr', 'defcv', 'deftypecv' ],
+ 'tp' => ['deftp']
+);
+
+foreach my $index_type (keys %index_type_def) {
+  foreach my $def (@{$index_type_def{$index_type}}) {
+    $command_index{$def} = $index_type;
+  }
+}
+
+foreach my $def_command(keys %def_map) {
+  if (ref($def_map{$def_command}) eq 'HASH') {
+    my ($real_command) = keys (%{$def_map{$def_command}});
+    $command_index{$def_command} = $command_index{$real_command};
+  }
+  $command_index{$def_command.'x'} = $command_index{$def_command};
+}
+
 
 # equivalence between a @set flag and an @@-command
 my %set_flag_command_equivalent = (
@@ -542,7 +576,7 @@ foreach my $command (keys(%block_commands)) {
 }
 
 # default indices
-my %index_names = %Texinfo::Common::index_names;
+my %index_names = %Texinfo::Commands::index_names;
 
 # index names that cannot be set by the user.
 my %forbidden_index_name = ();
@@ -4527,15 +4561,8 @@ sub _process_remaining_on_line($$$$)
     }
 
     if (defined($deprecated_commands{$command})) {
-      if ($deprecated_commands{$command} eq '') {
-        $self->_line_warn(sprintf(__("%c%s is obsolete"),
-                            ord('@'), $command), $source_info);
-      } else {
-        $self->_line_warn(sprintf(__("%c%s is obsolete; %s"),
-                                  ord('@'), $command,
-                                  __($deprecated_commands{$command})),
-                          $source_info);
-      }
+      $self->_line_warn(sprintf(__("%c%s is obsolete"),
+                          ord('@'), $command), $source_info);
     }
 
     # special case with @ followed by a newline protecting end of lines
