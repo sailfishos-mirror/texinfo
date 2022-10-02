@@ -1,5 +1,12 @@
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am, maintain/regenerate_commands_perl_info.pl:
+	hardcode output file name in regenerate_commands_perl_info.pl, to
+	avoid emptying the result file because of the redirection if the
+	command failed completely.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS, tp/Texinfo/ParserNonXS.pm,
 	tp/Texinfo/XS/parsetexi/command_data.txt,
 	tp/Texinfo/XS/parsetexi/commands.h, tp/Texinfo/XS/parsetexi/parser.c
@@ -10394,7 +10401,7 @@
 	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
 	tp/Texinfo/Convert/TexinfoXML.pm, tp/Texinfo/Convert/Text.pm,
 	tp/init/chm.pm, tp/texi2any.pl:
-	move the opened output file registration API completly to
+	move the opened output file registration API completely to
 	Texinfo::Common, renaming open_out() as output_files_open_out()
 	and moving converter_unclosed_files(), register_close_file()
 	converter_opened_files() from Convert::Converter to 

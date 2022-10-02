@@ -76,33 +76,33 @@ while (<>) {
   }
 }
 
-#open (OUT, ">Texinfo/Commands.pm") or die "Open Texinfo/Commands.pm: $!\n";
+open (OUT, ">Texinfo/Commands.pm") or die "Open Texinfo/Commands.pm: $!\n";
 
-print STDOUT "# Automatically generated from $0\n\n";
+print OUT "# Automatically generated from $0\n\n";
 
-print STDOUT "package Texinfo::Commands;\n\n";
+print OUT "package Texinfo::Commands;\n\n";
 
 foreach my $category (sort(keys(%command_categories))) {
-  print STDOUT "our %${category}_commands = (\n";
+  print OUT "our %${category}_commands = (\n";
   foreach my $type (sort(keys(%{$command_categories{$category}}))) {
     foreach my $command (sort(@{$command_categories{$category}->{$type}})) {
-      print STDOUT '  '.sprintf('%-25s', '"'.$command.'"')." => '$type',\n";
+      print OUT '  '.sprintf('%-25s', '"'.$command.'"')." => '$type',\n";
     }
   }
-  print STDOUT ");\n\n";
+  print OUT ");\n\n";
 }
 
-print STDOUT "\n";
-print STDOUT "# flag hashes\n";
+print OUT "\n";
+print OUT "# flag hashes\n";
 
 foreach my $hash_flag (sort(keys(%flags_hashes))) {
   # happens for 'txiinternalvalue' which is also brace
   next if ($command_categories{$hash_flag});
-  print STDOUT "our %${hash_flag}_commands = (\n";
+  print OUT "our %${hash_flag}_commands = (\n";
   foreach my $command (sort(@{$flags_hashes{$hash_flag}})) {
-    print STDOUT '  '.sprintf('%-25s', '"'.$command.'"')." => 1,\n";
+    print OUT '  '.sprintf('%-25s', '"'.$command.'"')." => 1,\n";
   }
-  print STDOUT ");\n\n";
+  print OUT ");\n\n";
 }
 
-print STDOUT "1;\n";
+print OUT "1;\n";

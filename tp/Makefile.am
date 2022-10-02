@@ -323,7 +323,7 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 
 Texinfo/Commands.pm: Texinfo/XS/parsetexi/command_data.txt
 	$(MKDIR_P) Texinfo
-	$(srcdir)/maintain/regenerate_commands_perl_info.pl < $< > $@
+	$(srcdir)/maintain/regenerate_commands_perl_info.pl < $<
 
 libsrcdir = $(srcdir)/maintain/lib
 
