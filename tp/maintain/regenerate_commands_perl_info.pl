@@ -38,6 +38,7 @@ my %index_in_code = (
 
 my %command_categories;
 my %flags_hashes;
+my %command_args_nr;
 
 while (<>) {
   if (not (/^#/ or /^ *$/)) {
@@ -73,9 +74,15 @@ while (<>) {
     # remove _LINE in item_LINE
     my $uc_category = uc($category);
     $command =~ s/_$uc_category$//;
+
+    if (defined($args_nr) and $args_nr ne '') {
+      $command_args_nr{$command} = $args_nr;
+    }
+
     $command_categories{$category}->{$type} = []
         if not ($command_categories{$category}->{$type});
     push @{$command_categories{$category}->{$type}}, $command;
+
     # gives the same result as {$_ ne $category} as the
     # command with multiple categories, txiinternalvalue appears
     # at the very beginning of the file
@@ -114,6 +121,20 @@ foreach my $hash_flag (sort(keys(%flags_hashes))) {
   }
   print OUT ");\n\n";
 }
+
+print OUT "\n";
+print OUT '# @-commands max number of arguments.  Not set for all commands,
+# in general it only matters if > 1, as commands with 0 args
+# are in specific categories, and default handling of commands
+# ignore commas as argument delimiter, which corresponds to commands
+# with 1 argument.  Only used in Parser.
+our %commands_args_number = (
+';
+foreach my $args_command (sort(keys(%command_args_nr))) {
+  my $args_nr = $command_args_nr{$args_command};
+  print OUT '  '.sprintf('%-25s', '"'.$args_command.'"')." => $args_nr,\n";
+}
+print OUT ");\n\n";
 
 print OUT "\n";
 print OUT "# indices\n";

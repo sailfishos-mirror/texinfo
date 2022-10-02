@@ -266,7 +266,7 @@ my %initialization_overrides = (
 my %nobrace_commands          = %Texinfo::Commands::nobrace_commands;
 my %line_commands             = %Texinfo::Commands::line_commands;
 my %brace_commands            = %Texinfo::Commands::brace_commands;
-my %commands_args_number      = %Texinfo::Common::commands_args_number;
+my %commands_args_number      = %Texinfo::Commands::commands_args_number;
 my %accent_commands           = %Texinfo::Commands::accent_commands;
 my %context_brace_commands    = %Texinfo::Common::context_brace_commands;
 my %contain_plain_text_commands = %Texinfo::Commands::contain_plain_text_commands;
@@ -275,8 +275,6 @@ my %block_commands            = %Texinfo::Commands::block_commands;
 my %blockitem_commands        = %Texinfo::Commands::blockitem_commands;
 my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
 my %def_commands              = %Texinfo::Commands::def_commands;
-my %def_map                   = %Texinfo::Common::def_map;
-my %def_aliases               = %Texinfo::Common::def_aliases;
 my %def_alias_commands        = %Texinfo::Commands::def_alias_commands;
 my %preformatted_commands     = %Texinfo::Commands::preformatted_commands;
 my %math_commands             = %Texinfo::Commands::math_commands;
@@ -286,12 +284,14 @@ my %sectioning_heading_commands     = %Texinfo::Commands::sectioning_heading_com
 my %ref_commands              = %Texinfo::Commands::ref_commands;
 my %heading_spec_commands     = %Texinfo::Commands::heading_spec_commands;
 my %in_heading_spec_commands  = %Texinfo::Commands::in_heading_spec_commands;
+my %variadic_commands         = %Texinfo::Commands::variadic_commands;
+my %default_index_commands    = %Texinfo::Commands::default_index_commands;
+my %def_map                   = %Texinfo::Common::def_map;
+my %def_aliases               = %Texinfo::Common::def_aliases;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
 my %explained_commands        = %Texinfo::Common::explained_commands;
 my %inline_format_commands    = %Texinfo::Common::inline_format_commands;
-my %variadic_commands         = %Texinfo::Commands::variadic_commands;
 my %all_commands              = %Texinfo::Common::all_commands;
-my %default_index_commands    = %Texinfo::Commands::default_index_commands;
 
 
 # Keys are commmands, values are names of indices.  User-defined

@@ -497,15 +497,6 @@ our %nobrace_symbol_text;
            '\\', '\\',  # should only appear in math
 );
 
-# @-commands max number of arguments.  Not set for all commands,
-# in general it only matters if > 1, as commands with 0 args
-# are in specific categories, and default handling of commands
-# ignore commas as argument delimiter, which corresponds to commands
-# with 1 argument.  Only used in Parser.
-our %commands_args_number;
-
-$commands_args_number{'node'} = 4;
-
 # only valid in index entries
 our %in_index_commands;
 foreach my $in_index_command ('sortas', 'seeentry', 'seealso', 'subentry') {
@@ -529,11 +520,6 @@ foreach my $command ('code', 'command', 'env', 'file', 'indicateurl', 'kbd',
 # brace style command that are not style code commands
 $brace_code_commands{'verb'} = 1;
 
-foreach my $one_arg_command ('U', 'hyphenation',
-    'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
-  $commands_args_number{$one_arg_command} = 1;
-}
-
 # Commands that enclose full texts not in the main document context.
 # They can contain multiple paragraphs.
 our %context_brace_commands;
@@ -551,42 +537,21 @@ foreach my $math_brace_command ('math') {
 our %explained_commands;
 foreach my $explained_command ('abbr', 'acronym') {
   $explained_commands{$explained_command} = 1;
-  $commands_args_number{$explained_command} = 2;
 }
 
 our %inline_format_commands;
 foreach my $inline_format_command ('inlineraw', 'inlinefmt',
         'inlinefmtifelse') {
   $inline_format_commands{$inline_format_command} = 1;
-  $commands_args_number{$inline_format_command} = 2;
 }
-
-$commands_args_number{'inlinefmtifelse'} = 3;
 
 our %inline_conditional_commands;
 foreach my $inline_conditional_command ('inlineifclear', 'inlineifset') {
   $inline_conditional_commands{$inline_conditional_command} = 1;
-  $commands_args_number{$inline_conditional_command} = 2;
-}
-
-foreach my $two_arg_command('email') {
-  $commands_args_number{$two_arg_command} = 2;
-}
-
-foreach my $three_arg_command('uref','url','inforef') {
-  $commands_args_number{$three_arg_command} = 3;
-}
-
-foreach my $five_arg_command('xref','ref','pxref','image') {
-  $commands_args_number{$five_arg_command} = 5;
 }
 
 
 # some classification to help converters
-our %ref_commands;
-foreach my $ref_command ('xref','ref','pxref','inforef') {
-  $ref_commands{$ref_command} = 1;
-}
 
 # brace command that is not replaced with text.
 my %unformatted_brace_commands;
@@ -649,20 +614,6 @@ foreach my $format_raw_command('html', 'tex', 'xml', 'docbook', 'latex') {
 foreach my $output_format_command ('info', 'plaintext') {
   $texinfo_output_formats{$output_format_command} = $output_format_command;
 }
-
-foreach my $item_container_command ('itemize', 'enumerate') {
-  $commands_args_number{$item_container_command} = 1;
-}
-
-foreach my $item_line_command ('table', 'ftable', 'vtable') {
-  $commands_args_number{$item_line_command} = 1;
-}
-
-foreach my $block_command_one_arg('quotation', 'smallquotation') {
-  $commands_args_number{$block_command_one_arg} = 1;
-}
-
-$commands_args_number{'float'} = 2;
 
 # commands that forces closing an opened paragraph.
 our %close_paragraph_commands;
