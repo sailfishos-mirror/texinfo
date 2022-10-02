@@ -451,7 +451,7 @@ begin_paragraph (ELEMENT *current)
               if (child->type == ET_empty_line
                   || child->type == ET_paragraph)
                 break;
-              if (close_paragraph_command(child->cmd))
+              if (command_data(child->cmd).flags & CF_close_paragraph)
                 break;
               if (child->cmd == CM_indent
                   || child->cmd == CM_noindent)
@@ -1820,7 +1820,7 @@ value_invalid:
 
       if (cmd)
         {
-          if (close_paragraph_command (cmd))
+          if (command_data(cmd).flags & CF_close_paragraph)
             current = end_paragraph (current, 0, 0);
           if (close_preformatted_command (cmd))
             current = end_preformatted (current, 0, 0);

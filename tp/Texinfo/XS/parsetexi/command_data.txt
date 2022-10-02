@@ -94,23 +94,23 @@ alias                   line                            LINE_specific  2
 # number of arguments is not known in advance.
 columnfractions         line                            LINE_specific
 # file names
-setfilename             line,global_unique              LINE_text
-verbatiminclude         line                            LINE_text
-include                 line                            LINE_text
+setfilename             line,close_paragraph,global_unique   LINE_text
+verbatiminclude         line,close_paragraph                 LINE_text
+include                 line                                 LINE_text
 
 raisesections           line                            LINE_skipline
 lowersections           line                            LINE_skipline
-contents                line,global                     LINE_skipline
-shortcontents           line,global                     LINE_skipline
-summarycontents         line,global                     LINE_skipline
-insertcopying           line,global                     LINE_skipline
+contents                line,close_paragraph,global     LINE_skipline
+shortcontents           line,close_paragraph,global     LINE_skipline
+summarycontents         line,close_paragraph,global     LINE_skipline
+insertcopying           line,close_paragraph,global     LINE_skipline
 # arg should be an @-command
 clickstyle              line,global                     LINE_special
 # more relevant in preamble
 documentencoding        line,global                     LINE_text
 novalidate              line,global_unique              LINE_skipline
 # Position with regard with direntry is significant
-dircategory             line                            LINE_line
+dircategory             line,close_paragraph            LINE_line
 # arg like 200mm,150mm or 11.5in
 pagesizes               line,global_unique              LINE_line
 finalout                line                            LINE_skipline
@@ -180,9 +180,9 @@ evenfootingmarks        line,global_unique              LINE_specific  1
 oddfootingmarks         line,global_unique              LINE_specific  1
 
 # formatting
-center                  line                            LINE_line
-printindex              line,global                     LINE_specific  1
-listoffloats            line,global                     LINE_line
+center                  line,close_paragraph            LINE_line
+printindex              line,close_paragraph,global     LINE_specific  1
+listoffloats            line,close_paragraph,global     LINE_line
 # especially in titlepage
 #  shorttitle
 shorttitlepage          line,global_unique              LINE_line
@@ -191,19 +191,19 @@ author                  line,global                     LINE_line
 subtitle                line,global                     LINE_line
 title                   line,global_unique              LINE_line
 # numerical arg
-sp                      line                            LINE_specific  1
-page                    line                            LINE_skipline
+sp                      line,close_paragraph            LINE_specific  1
+page                    line,close_paragraph            LINE_skipline
 # one numerical/real arg
-need                    line                            LINE_specific  1
+need                    line,close_paragraph            LINE_specific  1
 
 # not valid for info (should be in @iftex)
 vskip                   line                            LINE_lineraw
 
-exdent                  line                            LINE_line
+exdent                  line,close_paragraph            LINE_line
 
 # or nobrace skipspace, depending on the context
-item_LINE               line                            LINE_line
-itemx                   line                            LINE_line
+item_LINE               line,close_paragraph            LINE_line
+itemx                   line,close_paragraph            LINE_line
 
 subentry                line                            LINE_line
 
@@ -216,9 +216,9 @@ subentry                line                            LINE_line
 # formatting
 noindent                nobrace                         NOBRACE_skipspace
 indent                  nobrace                         NOBRACE_skipspace
-headitem                nobrace                         NOBRACE_skipspace
-item                    nobrace                         NOBRACE_skipspace
-tab                     nobrace                         NOBRACE_skipspace
+headitem                nobrace,close_paragraph         NOBRACE_skipspace
+item                    nobrace,close_paragraph         NOBRACE_skipspace
+tab                     nobrace,close_paragraph         NOBRACE_skipspace
 # only valid in heading or footing
 thischapter             nobrace,in_heading_spec         NOBRACE_other
 thischaptername         nobrace,in_heading_spec         NOBRACE_other
@@ -378,13 +378,13 @@ w                       brace,contain_simple_text       BRACE_special
 
 # other brace commands, leading and trailing spaces kept in main text
 dmn                     brace,contain_plain_text        BRACE_other         1
-titlefont               brace,global                    BRACE_other         1
+titlefont               brace,close_paragraph,global    BRACE_other         1
 
 # context brace commands - commands that enclose full texts
 # not in the main document context.  They can contain multiple paragraphs.
 footnote                brace,global                    BRACE_context
-caption                 brace                           BRACE_context
-shortcaption            brace                           BRACE_context
+caption                 brace,close_paragraph           BRACE_context
+shortcaption            brace,close_paragraph           BRACE_context
 # Commands that enclose math content, and, because of that, are not in the
 # main document context.
 math                    brace,math                      BRACE_context
@@ -419,107 +419,107 @@ image                   brace                           BRACE_arguments     5
 # commands delimiting blocks, with an @end.
 
 # def* commands
-deffn                   block,def                       BLOCK_def
-defvr                   block,def                       BLOCK_def
-deftypefn               block,def                       BLOCK_def
-deftypeop               block,def                       BLOCK_def
-deftypevr               block,def                       BLOCK_def
-defcv                   block,def                       BLOCK_def
-deftypecv               block,def                       BLOCK_def
-defop                   block,def                       BLOCK_def
-deftp                   block,def                       BLOCK_def
+deffn                   block,def,close_paragraph       BLOCK_def
+defvr                   block,def,close_paragraph       BLOCK_def
+deftypefn               block,def,close_paragraph       BLOCK_def
+deftypeop               block,def,close_paragraph       BLOCK_def
+deftypevr               block,def,close_paragraph       BLOCK_def
+defcv                   block,def,close_paragraph       BLOCK_def
+deftypecv               block,def,close_paragraph       BLOCK_def
+defop                   block,def,close_paragraph       BLOCK_def
+deftp                   block,def,close_paragraph       BLOCK_def
 #   shortcuts
-defun                   block,def,def_alias             BLOCK_def
-defmac                  block,def,def_alias             BLOCK_def
-defspec                 block,def,def_alias             BLOCK_def
-defvar                  block,def,def_alias             BLOCK_def
-defopt                  block,def,def_alias             BLOCK_def
-deftypefun              block,def,def_alias             BLOCK_def
-deftypevar              block,def,def_alias             BLOCK_def
-defivar                 block,def,def_alias             BLOCK_def
-deftypeivar             block,def,def_alias             BLOCK_def
-defmethod               block,def,def_alias             BLOCK_def
-deftypemethod           block,def,def_alias             BLOCK_def
+defun                   block,def,def_alias,close_paragraph    BLOCK_def
+defmac                  block,def,def_alias,close_paragraph    BLOCK_def
+defspec                 block,def,def_alias,close_paragraph    BLOCK_def
+defvar                  block,def,def_alias,close_paragraph    BLOCK_def
+defopt                  block,def,def_alias,close_paragraph    BLOCK_def
+deftypefun              block,def,def_alias,close_paragraph    BLOCK_def
+deftypevar              block,def,def_alias,close_paragraph    BLOCK_def
+defivar                 block,def,def_alias,close_paragraph    BLOCK_def
+deftypeivar             block,def,def_alias,close_paragraph    BLOCK_def
+defmethod               block,def,def_alias,close_paragraph    BLOCK_def
+deftypemethod           block,def,def_alias,close_paragraph    BLOCK_def
 
 # def*x
-deffnx                  line,def                        LINE_line
-defvrx                  line,def                        LINE_line
-deftypefnx              line,def                        LINE_line
-deftypeopx              line,def                        LINE_line
-deftypevrx              line,def                        LINE_line
-defcvx                  line,def                        LINE_line
-deftypecvx              line,def                        LINE_line
-defopx                  line,def                        LINE_line
-deftpx                  line,def                        LINE_line
+deffnx                  line,def,close_paragraph        LINE_line
+defvrx                  line,def,close_paragraph        LINE_line
+deftypefnx              line,def,close_paragraph        LINE_line
+deftypeopx              line,def,close_paragraph        LINE_line
+deftypevrx              line,def,close_paragraph        LINE_line
+defcvx                  line,def,close_paragraph        LINE_line
+deftypecvx              line,def,close_paragraph        LINE_line
+defopx                  line,def,close_paragraph        LINE_line
+deftpx                  line,def,close_paragraph        LINE_line
 #   shortcuts
-defunx                  line,def,def_alias              LINE_line
-defmacx                 line,def,def_alias              LINE_line
-defspecx                line,def,def_alias              LINE_line
-defvarx                 line,def,def_alias              LINE_line
-defoptx                 line,def,def_alias              LINE_line
-deftypefunx             line,def,def_alias              LINE_line
-deftypevarx             line,def,def_alias              LINE_line
-defivarx                line,def,def_alias              LINE_line
-deftypeivarx            line,def,def_alias              LINE_line
-defmethodx              line,def,def_alias              LINE_line
-deftypemethodx          line,def,def_alias              LINE_line
+defunx                  line,def,def_alias,close_paragraph     LINE_line
+defmacx                 line,def,def_alias,close_paragraph     LINE_line
+defspecx                line,def,def_alias,close_paragraph     LINE_line
+defvarx                 line,def,def_alias,close_paragraph     LINE_line
+defoptx                 line,def,def_alias,close_paragraph     LINE_line
+deftypefunx             line,def,def_alias,close_paragraph     LINE_line
+deftypevarx             line,def,def_alias,close_paragraph     LINE_line
+defivarx                line,def,def_alias,close_paragraph     LINE_line
+deftypeivarx            line,def,def_alias,close_paragraph     LINE_line
+defmethodx              line,def,def_alias,close_paragraph     LINE_line
+deftypemethodx          line,def,def_alias,close_paragraph     LINE_line
 
-multitable              block,blockitem                 BLOCK_multitable
+multitable              block,close_paragraph,blockitem BLOCK_multitable
 
 # menu commands in which menu entry and menu comments appear
-menu                    block                           BLOCK_menu
-detailmenu              block,global                    BLOCK_menu
-direntry                block                           BLOCK_menu
+menu                    block,close_paragraph           BLOCK_menu
+detailmenu              block,close_paragraph,global    BLOCK_menu
+direntry                block,close_paragraph           BLOCK_menu
 
 # align commands
-raggedright             block
-flushleft               block
-flushright              block
-indentedblock           block
-smallindentedblock      block
+raggedright             block,close_paragraph
+flushleft               block,close_paragraph
+flushright              block,close_paragraph
+indentedblock           block,close_paragraph
+smallindentedblock      block,close_paragraph
 
-cartouche               block
-group                   block
+cartouche               block,close_paragraph
+group                   block,close_paragraph
 
 # region commands
-titlepage               block,global_unique             BLOCK_region
-copying                 block,global_unique             BLOCK_region
-documentdescription     block,global_unique             BLOCK_region
+titlepage               block,close_paragraph,global_unique       BLOCK_region
+copying                 block,close_paragraph,global_unique       BLOCK_region
+documentdescription     block,close_paragraph,global_unique       BLOCK_region
 
 # preformatted commands
-example                 block,preformatted,preformatted_code,variadic   BLOCK_preformatted
-smallexample            block,preformatted,preformatted_code            BLOCK_preformatted
-lisp                    block,preformatted,preformatted_code            BLOCK_preformatted
-smalllisp               block,preformatted,preformatted_code            BLOCK_preformatted
-display                 block,preformatted              BLOCK_preformatted
-smalldisplay            block,preformatted              BLOCK_preformatted
-format                  block,preformatted              BLOCK_preformatted
-smallformat             block,preformatted              BLOCK_preformatted
+example           block,close_paragraph,preformatted,preformatted_code,variadic   BLOCK_preformatted
+smallexample      block,close_paragraph,preformatted,preformatted_code            BLOCK_preformatted
+lisp              block,close_paragraph,preformatted,preformatted_code            BLOCK_preformatted
+smalllisp         block,close_paragraph,preformatted,preformatted_code            BLOCK_preformatted
+display           block,close_paragraph,preformatted      BLOCK_preformatted
+smalldisplay      block,close_paragraph,preformatted      BLOCK_preformatted
+format            block,close_paragraph,preformatted      BLOCK_preformatted
+smallformat       block,close_paragraph,preformatted      BLOCK_preformatted
 
 # format raw commands
-html                    block                           BLOCK_format_raw
-tex                     block                           BLOCK_format_raw
-xml                     block                           BLOCK_format_raw
-docbook                 block                           BLOCK_format_raw
-latex                   block                           BLOCK_format_raw
+html                    block                             BLOCK_format_raw
+tex                     block                             BLOCK_format_raw
+xml                     block                             BLOCK_format_raw
+docbook                 block                             BLOCK_format_raw
+latex                   block                             BLOCK_format_raw
 
 # raw commands
-verbatim                block                           BLOCK_raw
-ignore                  block                           BLOCK_raw
-macro                   block                           BLOCK_raw
-rmacro                  block                           BLOCK_raw
+verbatim                block,close_paragraph             BLOCK_raw
+ignore                  block                             BLOCK_raw
+macro                   block                             BLOCK_raw
+rmacro                  block                             BLOCK_raw
 
-table                   block,blockitem                 BLOCK_item_line       1
-ftable                  block,blockitem                 BLOCK_item_line       1
-vtable                  block,blockitem                 BLOCK_item_line       1
-itemize                 block,blockitem                 BLOCK_item_container  1
-enumerate               block,blockitem                 BLOCK_item_container  1
-quotation               block                           BLOCK_quotation       1
-smallquotation          block                           BLOCK_quotation       1
+table                   block,close_paragraph,blockitem   BLOCK_item_line       1
+ftable                  block,close_paragraph,blockitem   BLOCK_item_line       1
+vtable                  block,close_paragraph,blockitem   BLOCK_item_line       1
+itemize                 block,close_paragraph,blockitem   BLOCK_item_container  1
+enumerate               block,close_paragraph,blockitem   BLOCK_item_container  1
+quotation               block,close_paragraph             BLOCK_quotation       1
+smallquotation          block,close_paragraph             BLOCK_quotation       1
 
-float                   block                           BLOCK_float           2
+float                   block,close_paragraph             BLOCK_float           2
 
-displaymath             block,math                      BLOCK_math
+displaymath             block,close_paragraph,math        BLOCK_math
 
 ##################################################################
 # Conditional commands
@@ -544,27 +544,27 @@ ifcommandnotdefined     block                           BLOCK_conditional
 
 ##########################################################
 # Root commands
-node                    root,line                               LINE_line     4
-top                     root,line,sectioning_heading,global_unique   LINE_line
-chapter                 root,line,sectioning_heading            LINE_line
-unnumbered              root,line,sectioning_heading            LINE_line
-chapheading             line,sectioning_heading                 LINE_line
-appendix                root,line,sectioning_heading            LINE_line
-section                 root,line,sectioning_heading            LINE_line
-unnumberedsec           root,line,sectioning_heading            LINE_line
-heading                 line,sectioning_heading                 LINE_line
-appendixsec             root,line,sectioning_heading            LINE_line
-subsection              root,line,sectioning_heading            LINE_line
-unnumberedsubsec        root,line,sectioning_heading            LINE_line
-subheading              line,sectioning_heading                 LINE_line
-appendixsubsec          root,line,sectioning_heading            LINE_line
-subsubsection           root,line,sectioning_heading            LINE_line
-unnumberedsubsubsec     root,line,sectioning_heading            LINE_line
-subsubheading           line,sectioning_heading                 LINE_line
-appendixsubsubsec       root,line,sectioning_heading            LINE_line
+node                    line,root                                  LINE_line     4
+top                     line,root,sectioning_heading,global_unique   LINE_line
+chapter                 line,root,sectioning_heading               LINE_line
+unnumbered              line,root,sectioning_heading               LINE_line
+chapheading             line,sectioning_heading,close_paragraph    LINE_line
+appendix                line,root,sectioning_heading               LINE_line
+section                 line,root,sectioning_heading               LINE_line
+unnumberedsec           line,root,sectioning_heading               LINE_line
+heading                 line,sectioning_heading,close_paragraph    LINE_line
+appendixsec             line,root,sectioning_heading               LINE_line
+subsection              line,root,sectioning_heading               LINE_line
+unnumberedsubsec        line,root,sectioning_heading               LINE_line
+subheading              line,sectioning_heading,close_paragraph    LINE_line
+appendixsubsec          line,root,sectioning_heading               LINE_line
+subsubsection           line,root,sectioning_heading               LINE_line
+unnumberedsubsubsec     line,root,sectioning_heading               LINE_line
+subsubheading           line,sectioning_heading,close_paragraph    LINE_line
+appendixsubsubsec       line,root,sectioning_heading               LINE_line
 
-part                    root,line,sectioning_heading,global     LINE_line
-appendixsection         root,line,sectioning_heading            LINE_line
-majorheading            line,sectioning_heading                 LINE_line
-centerchap              root,line,sectioning_heading,deprecated LINE_line
+part                    line,root,sectioning_heading,global        LINE_line
+appendixsection         line,root,sectioning_heading               LINE_line
+majorheading            line,sectioning_heading,close_paragraph    LINE_line
+centerchap              line,root,sectioning_heading,deprecated    LINE_line
 

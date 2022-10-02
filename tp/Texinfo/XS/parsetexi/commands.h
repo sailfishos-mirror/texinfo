@@ -39,7 +39,6 @@ enum command_id lookup_command (char *cmdname);
 #define command_flags(e) (!(e) ? 0 : (command_data((e)->cmd).flags))
 #define command_name(cmd) (command_data(cmd).cmdname)
 
-int close_paragraph_command (enum command_id cmd_id);
 int close_preformatted_command (enum command_id cmd_id);
 int item_line_command (enum command_id cmd_id);
 enum command_id add_texinfo_command (char *name);
@@ -77,8 +76,8 @@ void wipe_user_commands (void);
 #define CF_def_alias	        	0x00040000
 /* only accept plain text, ie only accent, symbol and glyph commands */
 #define CF_contain_plain_text		0x00080000
-/* CF_align is not used */
-#define CF_align			0x00100000
+/* CF_close_paragraph commands that forces closing an opened paragraph */
+#define CF_close_paragraph		0x00100000
 #define CF_contain_simple_text        	0x00200000
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000
@@ -96,9 +95,6 @@ void wipe_user_commands (void);
 #define CF_global_unique		0x80000000
 
 /* NOTE: We often run out of spaces for flags
-
-   Candidates for flags:
-     CF_close_paragraph
 
    Could combine CF_MACRO, CF_ALIAS, and CF_INFOENCLOSE into 2 bits.
  */

@@ -586,36 +586,10 @@ foreach my $def_command(keys %def_map) {
 }
 
 our %texinfo_output_formats;
-foreach my $format_raw_command('html', 'tex', 'xml', 'docbook', 'latex') {
-  $texinfo_output_formats{$format_raw_command} = $format_raw_command;
-}
-
-foreach my $output_format_command ('info', 'plaintext') {
+foreach my $output_format_command ('info', 'plaintext',
+       grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
+            keys(%Texinfo::Commands::block_commands)) {
   $texinfo_output_formats{$output_format_command} = $output_format_command;
-}
-
-# commands that forces closing an opened paragraph.
-our %close_paragraph_commands;
-
-foreach my $block_command (keys(%Texinfo::Commands::block_commands)) {
-  $close_paragraph_commands{$block_command} = 1
-     unless ($Texinfo::Commands::block_commands{$block_command} eq 'raw'
-             or $Texinfo::Commands::block_commands{$block_command} eq 'conditional'
-             or $Texinfo::Commands::block_commands{$block_command} eq 'format_raw');
-}
-
-$close_paragraph_commands{'verbatim'} = 1;
-
-foreach my $close_paragraph_command ('titlefont', 'insertcopying', 'sp',
-  'verbatiminclude', 'need', 'page', 'item', 'itemx', 'tab', 'headitem',
-  'printindex', 'listoffloats', 'center', 'dircategory', 'contents',
-  'shortcontents', 'summarycontents', 'caption', 'shortcaption',
-  'setfilename', 'exdent') {
-  $close_paragraph_commands{$close_paragraph_command} = 1;
-}
-
-foreach my $close_paragraph_command (keys(%Texinfo::Commands::def_commands)) {
-  $close_paragraph_commands{$close_paragraph_command} = 1;
 }
 
 my %unformatted_block_commands;
@@ -688,13 +662,6 @@ our %level_to_structuring_command;
     }
     $level_to_structuring_command{$command}->[$command_level]
       = $command;
-  }
-}
-
-
-foreach my $sectioning_command (keys (%command_structuring_level)) {
-  if ($sectioning_command =~ /heading/) {
-    $close_paragraph_commands{$sectioning_command} = 1;
   }
 }
 
@@ -1499,8 +1466,14 @@ foreach my $type (@inline_types) {
   $inline_types{$type} = 1;
 }
 
-my %not_inline_commands = (%Texinfo::Commands::root_commands, %Texinfo::Commands::block_commands,
-     grep {$Texinfo::Commands::brace_commands{$_} eq 'context'} keys(%Texinfo::Commands::brace_commands));
+my %not_inline_commands;
+foreach my $command (
+     keys(%Texinfo::Commands::root_commands),
+     keys(%Texinfo::Commands::block_commands),
+     grep {$Texinfo::Commands::brace_commands{$_} eq 'context'}
+           keys(%Texinfo::Commands::brace_commands)) {
+  $not_inline_commands{$command} = 1;
+}
 
 # Return 1 if inline in a running text, 0 if right in top-level or block
 # environment, and undef otherwise.
@@ -2499,7 +2472,7 @@ Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
 
 TODO: undocumented
-%null_device_file %default_parser_customization_values %document_settable_multiple_at_commands %document_settable_unique_at_commands %default_converter_command_line_options %default_main_program_customization_options %default_converter_customization @variable_string_settables %document_settable_at_commands %def_map %close_paragraph_commands %command_structuring_level %level_to_structuring_command
+%null_device_file %default_parser_customization_values %document_settable_multiple_at_commands %document_settable_unique_at_commands %default_converter_command_line_options %default_main_program_customization_options %default_converter_customization @variable_string_settables %document_settable_at_commands %def_map %command_structuring_level %level_to_structuring_command
 
 =over
 

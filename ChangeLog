@@ -1,5 +1,15 @@
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm, tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.c (close_preformatted_command),
+	tp/Texinfo/XS/parsetexi/commands.h, tp/Texinfo/XS/parsetexi/parser.c
+	(begin_paragraph, process_remaining_on_line): add close_paragraph
+	flag in command_data.txt.  Remove %close_paragraph_commands from
+	Texinfo::Common.  Remove the close_paragraph_command function.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm,
 	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
 	tp/Texinfo/Convert/NodeNameNormalization.pm,
