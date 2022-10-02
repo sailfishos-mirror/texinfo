@@ -55,10 +55,10 @@ void wipe_user_commands (void);
 #define CF_root			        0x0004
 #define CF_sectioning_heading	        0x0008
 #define CF_brace		        0x0010
-/* CF_letter_no_arg is not used, in Common */
+/* CF_letter_no_arg is not used in XS parser, used in perl */
 #define CF_letter_no_arg	        0x0020
 #define CF_accent		        0x0040
-/* CF_math is not used, used in perl */
+/* CF_math is not used in XS parser, used in perl */
 #define CF_math			        0x0080
 #define CF_variadic		        0x0100
 #define CF_INFOENCLOSE  	        0x0200

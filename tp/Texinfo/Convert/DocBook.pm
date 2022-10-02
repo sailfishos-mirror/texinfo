@@ -704,8 +704,8 @@ sub _convert($$;$)
           and defined($element->{'extra'}->{'clickstyle'})) {
         $command = $element->{'extra'}->{'clickstyle'};
       } elsif ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]
-               and $Texinfo::Common::letter_no_arg_commands{$element->{'cmdname'}}
-               and $Texinfo::Common::letter_no_arg_commands{uc($element->{'cmdname'})}) {
+               and $Texinfo::Commands::letter_no_arg_commands{$element->{'cmdname'}}
+               and $Texinfo::Commands::letter_no_arg_commands{uc($element->{'cmdname'})}) {
         $command = uc($element->{'cmdname'})
       } else {
         $command = $element->{'cmdname'};

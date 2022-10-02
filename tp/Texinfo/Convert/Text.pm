@@ -269,7 +269,7 @@ sub brace_no_arg_command($;$)
       $result = $text_brace_no_arg_commands{$command};
     }
   }
-  if ($options and $Texinfo::Common::letter_no_arg_commands{$command}) {
+  if ($options and $Texinfo::Commands::letter_no_arg_commands{$command}) {
     if ($options->{'sc'}) {
       $result = uc($result);
     } elsif ($options->{'lc'}) {

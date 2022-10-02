@@ -34,6 +34,7 @@ use Text::Unidecode;
 
 # commands classes
 use Texinfo::Commands;
+# for nobrace_symbol_text
 use Texinfo::Common;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
@@ -262,7 +263,7 @@ sub _convert($;$)
           and defined($element->{'extra'}->{'clickstyle'})
           and defined($normalize_node_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
       my $result = $normalize_node_brace_no_arg_commands{$command};
-      if ($in_sc and $Texinfo::Common::letter_no_arg_commands{$command}) {
+      if ($in_sc and $Texinfo::Commands::letter_no_arg_commands{$command}) {
         $result = uc($result);
       }
       return $result;

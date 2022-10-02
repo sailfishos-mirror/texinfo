@@ -107,8 +107,7 @@ my %root_commands = %Texinfo::Commands::root_commands;
 my %preformatted_commands = %Texinfo::Commands::preformatted_commands;
 my %math_commands = %Texinfo::Commands::math_commands;
 my %preformatted_code_commands = %Texinfo::Commands::preformatted_code_commands;
-
-my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
+my %letter_no_arg_commands = %Texinfo::Commands::letter_no_arg_commands;
 
 my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
 my %formatted_nobrace_commands = %Texinfo::Common::formatted_nobrace_commands;

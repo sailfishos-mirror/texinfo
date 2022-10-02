@@ -503,13 +503,6 @@ foreach my $in_index_command ('sortas', 'seeentry', 'seealso', 'subentry') {
   $in_index_commands{$in_index_command} = 1;
 }
 
-# commands with braces.
-our %letter_no_arg_commands;
-foreach my $letter_no_arg_command ('aa','AA','ae','oe','AE','OE','o','O',
-                                   'ss','l','L','DH','dh','TH','th') {
-  $letter_no_arg_commands{$letter_no_arg_command} = 1;
-}
-
 # also style_code brace commands
 our %brace_code_commands;
 foreach my $command ('code', 'command', 'env', 'file', 'indicateurl', 'kbd',

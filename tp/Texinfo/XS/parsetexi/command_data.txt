@@ -241,21 +241,21 @@ refill                  nobrace,deprecated              NOBRACE_other
 ##########################################################
 
 # letter_no_arg_commands
-aa                      brace                           BRACE_noarg
-AA                      brace                           BRACE_noarg
-ae                      brace                           BRACE_noarg
-oe                      brace                           BRACE_noarg
-AE                      brace                           BRACE_noarg
-OE                      brace                           BRACE_noarg
-o                       brace                           BRACE_noarg
-O                       brace                           BRACE_noarg
-ss                      brace                           BRACE_noarg
-l                       brace                           BRACE_noarg
-L                       brace                           BRACE_noarg
-DH                      brace                           BRACE_noarg
-dh                      brace                           BRACE_noarg
-TH                      brace                           BRACE_noarg
-th                      brace                           BRACE_noarg
+aa                      brace,letter_no_arg             BRACE_noarg
+AA                      brace,letter_no_arg             BRACE_noarg
+ae                      brace,letter_no_arg             BRACE_noarg
+oe                      brace,letter_no_arg             BRACE_noarg
+AE                      brace,letter_no_arg             BRACE_noarg
+OE                      brace,letter_no_arg             BRACE_noarg
+o                       brace,letter_no_arg             BRACE_noarg
+O                       brace,letter_no_arg             BRACE_noarg
+ss                      brace,letter_no_arg             BRACE_noarg
+l                       brace,letter_no_arg             BRACE_noarg
+L                       brace,letter_no_arg             BRACE_noarg
+DH                      brace,letter_no_arg             BRACE_noarg
+dh                      brace,letter_no_arg             BRACE_noarg
+TH                      brace,letter_no_arg             BRACE_noarg
+th                      brace,letter_no_arg             BRACE_noarg
 
 # no arg commands
 TeX                     brace                           BRACE_noarg
