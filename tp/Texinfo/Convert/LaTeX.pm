@@ -176,12 +176,12 @@ use File::Spec;
 
 use Carp qw(cluck confess);
 
-use Texinfo::Convert::Converter;
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization;
-
 use Texinfo::Convert::Text;
+use Texinfo::Convert::Converter;
 
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
@@ -210,29 +210,30 @@ foreach my $informative_command (keys (%Texinfo::Common::document_settable_at_co
   $informative_commands{$informative_command} = 1;
 }
 
-my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %brace_no_arg_commands;
-foreach my $command (keys (%Texinfo::Common::brace_commands)) {
+foreach my $command (keys (%Texinfo::Commands::brace_commands)) {
   $brace_no_arg_commands{$command} = 1
-    if ($Texinfo::Common::brace_commands{$command} eq 'noarg');
+    if ($Texinfo::Commands::brace_commands{$command} eq 'noarg');
 }
-my %accent_commands = %Texinfo::Common::accent_commands;
-my %line_commands = %Texinfo::Common::line_commands;
-my %nobrace_commands = %Texinfo::Common::nobrace_commands;
-my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
-my %def_commands = %Texinfo::Common::def_commands;
-my %ref_commands = %Texinfo::Common::ref_commands;
-my %block_commands = %Texinfo::Common::block_commands;
-my %root_commands = %Texinfo::Common::root_commands;
-my %preformatted_commands = %Texinfo::Common::preformatted_commands;
-my %math_commands = %Texinfo::Common::math_commands;
+my %accent_commands = %Texinfo::Commands::accent_commands;
+my %line_commands = %Texinfo::Commands::line_commands;
+my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
+my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
+my %def_commands = %Texinfo::Commands::def_commands;
+my %ref_commands = %Texinfo::Commands::ref_commands;
+my %block_commands = %Texinfo::Commands::block_commands;
+my %root_commands = %Texinfo::Commands::root_commands;
+my %preformatted_commands = %Texinfo::Commands::preformatted_commands;
+my %math_commands = %Texinfo::Commands::math_commands;
+my %preformatted_code_commands = %Texinfo::Commands::preformatted_code_commands;
+my %default_index_commands = %Texinfo::Commands::default_index_commands;
+my %heading_spec_commands = %Texinfo::Commands::heading_spec_commands;
+
+my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
+my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
-my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
-my %default_index_commands = %Texinfo::Common::default_index_commands;
-my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
-my %heading_spec_commands = %Texinfo::Common::heading_spec_commands;
 my %unformatted_brace_command = %Texinfo::Common::unformatted_brace_command;
 
 my %preamble_commands = %Texinfo::Common::preamble_commands;
@@ -2223,8 +2224,8 @@ sub _convert($$)
   if ((defined($type) and $self->{'ignored_types'}->{$type})
        or (defined($cmdname)
             and ($self->{'ignored_commands'}->{$cmdname}
-                 or ($Texinfo::Common::brace_commands{$cmdname}
-                     and $Texinfo::Common::brace_commands{$cmdname} eq 'inline'
+                 or ($Texinfo::Commands::brace_commands{$cmdname}
+                     and $Texinfo::Commands::brace_commands{$cmdname} eq 'inline'
                      and $cmdname ne 'inlinefmtifelse'
                      and (($inline_format_commands{$cmdname}
                           and (!$element->{'extra'}->{'format'}
@@ -2984,8 +2985,8 @@ sub _convert($$)
         }
       }
       return $result;
-    } elsif ($Texinfo::Common::brace_commands{$cmdname}
-             and $Texinfo::Common::brace_commands{$cmdname} eq 'inline') {
+    } elsif ($Texinfo::Commands::brace_commands{$cmdname}
+             and $Texinfo::Commands::brace_commands{$cmdname} eq 'inline') {
       my $arg_index = 1;
       if ($cmdname eq 'inlinefmtifelse'
           and (!$element->{'extra'}->{'format'}

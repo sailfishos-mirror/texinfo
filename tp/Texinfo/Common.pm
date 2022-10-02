@@ -37,6 +37,7 @@ use Encode;
 use Locale::Messages;
 
 use Texinfo::Documentlanguages;
+use Texinfo::Commands;
 
 # debugging
 use Carp qw(cluck confess);
@@ -474,7 +475,7 @@ sub valid_tree_transformation ($)
 }
 
 
-# @-commands classifications and other information on @-commands
+# information on @-commands
 
 our %nobrace_symbol_text;
 %nobrace_symbol_text = (
@@ -503,163 +504,7 @@ our %nobrace_symbol_text;
 # with 1 argument.  Only used in Parser.
 our %commands_args_number;
 
-# commands taking a line as argument or no argument.
-# sectioning commands and def* commands are added below.
-# index commands are added dynamically.
-#
-# The values signification is:
-# special:     no value and macro expansion, all the line is used, and
-#              analysed during parsing (_parse_special_misc_command)
-# lineraw:     no value and macro expansion, the line is kept as-is, not
-#              analysed
-# skipline:    no argument, everything else on the line is skipped
-# text:        the line is parsed as texinfo, and the argument is converted
-#              to simple text (in _end_line)
-# line:        the line is parsed as texinfo
-# a number:    the line is parsed as texinfo and the result should be plain
-#              text maybe followed by a comment; the result is analysed
-#              during parsing (_parse_line_command_args).
-#              The number is an indication of the number of arguments of
-#              the command.
-#
-# Beware that @item may be a 'line' command or an 'other' command
-# depending on the context.
-our %line_commands = (
-  'node'              => 'line', # special arg
-  'bye'               => 'skipline', # no arg
-  'end'               => 'text',
-  # set, clear
-  'set'               => 'special', # special arg
-  'clear'             => 'special', # special arg
-  'unmacro'           => 'special',
-  # comments
-  'comment'           => 'lineraw',
-  'c'                 => 'lineraw',
-  # special
-  'definfoenclose'    => 'specific', # 3
-  'alias'             => 'specific', # 2
-  # number of arguments is not known in advance.
-  'columnfractions'   => 'specific',
-  # file names
-  'setfilename'       => 'text',
-  'verbatiminclude'   => 'text',
-  'include'           => 'text',
-
-  'raisesections'     => 'skipline',  # no arg
-  'lowersections'     => 'skipline', # no arg
-  'contents'          => 'skipline', # no arg
-  'shortcontents'     => 'skipline', # no arg
-  'summarycontents'   => 'skipline', # no arg
-  'insertcopying'     => 'skipline', # no arg
-  'clickstyle'        => 'special', # arg should be an @-command
-  # more relevant in preamble
-  'documentencoding'  => 'text', # or 'specific'?
-  'novalidate'        => 'skipline', # no arg
-  'dircategory'       => 'line', # line. Position with regard
-                                 # with direntry is significant
-  'pagesizes'         => 'line', # can have 2 args
-                           # or one? 200mm,150mm 11.5in
-  'finalout'          => 'skipline', # no arg
-  'paragraphindent'   => 'specific', # 1: arg none asis
-                       # or a number and forbids anything else on the line
-  'firstparagraphindent' => 'specific', # 1: none insert
-  'frenchspacing'     => 'specific', # 1: on off
-  'codequoteundirected'       => 'specific', # 1: on off
-  'codequotebacktick'         => 'specific', # 1: on off
-  'xrefautomaticsectiontitle' => 'specific', # 1: on off
-  'deftypefnnewline'  => 'specific', # 1: on off
-  'microtype'         => 'specific', # 1: on off
-  'fonttextsize'      => 'specific', # 1: 10 11
-  'allowcodebreaks'   => 'specific', # 1: false or true
-  'exampleindent'     => 'specific', # 1: asis or a number
-  'footnotestyle'     => 'specific', # 1: end and separate, nothing else on the line
-  'urefbreakstyle'    => 'specific', # 1: after|before|none
-  'smallbook'         => 'skipline', # no arg
-  'afourpaper'        => 'skipline', # no arg
-  'afivepaper'        => 'skipline', # no arg
-  'afourlatex'        => 'skipline', # no arg
-  'afourwide'         => 'skipline', # no arg
-  'bsixpaper'         => 'skipline', # no arg
-  'headings'          => 'specific', # 1: off on single double singleafter doubleafter
-                            # interacts with setchapternewpage
-  'setchapternewpage' => 'specific', # 1: off on odd
-
-  'syncodeindex'      => 'specific', # 2: args are index identifiers
-  'synindex'          => 'specific', # 2
-  'defindex'          => 'specific', # 1: one identifier arg
-  'defcodeindex'      => 'specific', # 1: one identifier arg
-  'documentlanguage'  => 'text',     # language code arg
-  'kbdinputstyle'     => 'specific', # 1: code example distinct
-  'everyheadingmarks' => 'specific', # 1: top bottom
-  'everyfootingmarks' => 'specific', # 1:
-  'evenheadingmarks'  => 'specific', # 1:
-  'oddheadingmarks'   => 'specific', # 1:
-  'evenfootingmarks'  => 'specific', # 1:
-  'oddfootingmarks'   => 'specific', # 1:
-  'shorttitlepage'    => 'line',
-  'settitle'          => 'line',
-
-  # formatting
-  'center'            => 'line',
-  'printindex'        => 'specific', # 1:
-  'listoffloats'      => 'line',
-  # especially in titlepage
-  'author'            => 'line',
-  'subtitle'          => 'line',
-  'title'             => 'line',
-  'sp'                => 'specific', # 1: numerical arg
-  'page'              => 'skipline', # no arg (pagebreak)
-  'need'              => 'specific', # 1: one numerical/real arg
-  # formatting
-  'exdent'            => 'line',
-  'item'              => 'line', # or nobrace skipspace, depending on the context
-  'itemx'             => 'line',
-  # not valid for info (should be in @iftex)
-  'vskip'             => 'lineraw', # arg line in TeX
-  'subentry'          => 'line',
-);
-
 $commands_args_number{'node'} = 4;
-
-# commands never taking braces nor arguments on the line
-#
-# symbol: non-alphabetical one letter commands without braces.
-# skipspace:   following spaces are skipped.
-# other:       other.
-our %nobrace_commands = (
-  # formatting
-  'noindent'          => 'skipspace',
-  'indent'            => 'skipspace',
-  'headitem'          => 'skipspace',
-  'item'              => 'skipspace', # or line, depending on the context
-  'tab'               => 'skipspace',
-  'refill'            => 'other',     # obsolete
-);
-
-foreach my $nobrace_command (keys(%nobrace_symbol_text)) {
-  $nobrace_commands{$nobrace_command} = 'symbol';
-}
-
-# only valid in heading or footing specifications
-our %in_heading_spec_commands;
-foreach my $in_heading_command ('thischapter', 'thischaptername',
-   'thischapternum', 'thissection', 'thissectionname', 'thissectionnum',
-   'thisfile', 'thispage', 'thistitle') {
-  $in_heading_spec_commands{$in_heading_command} = 1;
-
-  $nobrace_commands{$in_heading_command} = 'other';
-}
-
-$in_heading_spec_commands{'|'} = 1;
-
-# %in_heading_spec_commands and @| are only valid in the following @-commands
-our %heading_spec_commands;
-foreach my $headings_specification_command ('everyheading', 'everyfooting',
-  'evenheading', 'evenfooting', 'oddheading', 'oddfooting') {
-  $heading_spec_commands{$headings_specification_command} = 1;
-
-  $line_commands{$headings_specification_command} = 'line';
-}
 
 # only valid in index entries
 our %in_index_commands;
@@ -667,108 +512,27 @@ foreach my $in_index_command ('sortas', 'seeentry', 'seealso', 'subentry') {
   $in_index_commands{$in_index_command} = 1;
 }
 
-our %index_names = (
- 'cp' => {'in_code' => 0},
- 'fn' => {'in_code' => 1},
- 'vr' => {'in_code' => 1},
- 'ky' => {'in_code' => 1},
- 'pg' => {'in_code' => 1},
- 'tp' => {'in_code' => 1},
-);
-
-foreach my $index (keys(%index_names)) {
-  $index_names{$index}->{'name'} = $index;
-  $index_names{$index}->{'contained_indices'} = {$index => 1};
-}
-
-our %default_index_commands;
-foreach my $index_name (keys (%index_names)) {
-  my $one_letter_prefix = substr($index_name, 0, 1);
-  foreach my $prefix ($index_name, $one_letter_prefix) {
-    $line_commands{$prefix.'index'} = 'line';
-    $default_index_commands{$prefix.'index'} = $index_name;
-  }
-}
-
 # commands with braces.
-our %brace_commands;
 our %letter_no_arg_commands;
 foreach my $letter_no_arg_command ('aa','AA','ae','oe','AE','OE','o','O',
                                    'ss','l','L','DH','dh','TH','th') {
   $letter_no_arg_commands{$letter_no_arg_command} = 1;
-  $brace_commands{$letter_no_arg_command} = 'noarg';
 }
 
-foreach my $no_arg_command ('TeX','LaTeX','bullet','copyright',
-  'registeredsymbol','dots','enddots','equiv','error','expansion','arrow',
-  'minus','point','print','result','today',
-  'exclamdown','questiondown','pounds','ordf','ordm',
-  'atchar', 'lbracechar', 'rbracechar', 'backslashchar', 'hashchar', 'comma',
-  'ampchar',
-  'euro', 'geq','leq','tie','textdegree','click',
-  'quotedblleft','quotedblright','quoteleft','quoteright','quotedblbase',
-  'quotesinglbase','guillemetleft','guillemetright','guillemotleft',
-  'guillemotright','guilsinglleft','guilsinglright') {
-  $brace_commands{$no_arg_command} = 'noarg';
-}
-
-# accent commands. They may be called with and without braces.
-our %accent_commands;
-foreach my $accent_command ('"','~','^','`',"'",',','=',
-                           'ringaccent','H','dotaccent','u','ubaraccent',
-                           'udotaccent','v','ogonek','tieaccent', 'dotless') {
-  $accent_commands{$accent_command} = 1;
-  $brace_commands{$accent_command} = 'accent';
-}
-
-foreach my $style_command ('asis', 'cite', 'clicksequence',
-  'dfn', 'emph', 'sc', 'var', 'headitemfont', 'strong', 'sub', 'sup',
-  'i', 'b', 'sansserif', 'slanted') {
-  $brace_commands{$style_command} = 'style_other';
-}
-
-foreach my $command ('r') {
-  $brace_commands{$command} = 'style_no_code';
-}
-
-our %brace_code_commands; # contains also non style commands, see below
+# also style_code brace commands
+our %brace_code_commands;
 foreach my $command ('code', 'command', 'env', 'file', 'indicateurl', 'kbd',
    'key', 'option', 'samp', 't') {
   $brace_code_commands{$command} = 1;
-  $brace_commands{$command} = 'style_code';
 }
 
-# in this category, the leading and trailing spaces are put in specific
-# text with type, but commas do not delimitate arguments.
-# As other arguments brace_commands, they can only contain simple text,
-# ie not ref, footnote, titlefont, anchor, verb.
-# Parsers have specific checks for U content.
+# brace style command that are not style code commands
+$brace_code_commands{'verb'} = 1;
+
 foreach my $one_arg_command ('U', 'hyphenation',
     'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
-  $brace_commands{$one_arg_command} = 'arguments';
   $commands_args_number{$one_arg_command} = 1;
 }
-
-# Leading and trailing spaces kept in main text.
-# verb is treated especially, it should not matter much in which category it is.
-# value also is treated especially.
-foreach my $special_arg_command ('w', 'verb', 'value') {
-  $brace_commands{$special_arg_command} = 'special';
-}
-
-# Leading and trailing spaces kept in main text.
-foreach my $other_arg_command ('titlefont', 'dmn') {
-  $brace_commands{$other_arg_command} = 'other';
-}
-
-# only accept plain text, ie only accent, symbol and glyph commands
-our %contain_plain_text_commands;
-foreach my $command ('dmn', 'hyphenation', 'key', 'sortas', 'w') {
-  $contain_plain_text_commands{$command} = 1;
-}
-
-# brace style command that are not style commands
-$brace_code_commands{'verb'} = 1;
 
 # Commands that enclose full texts not in the main document context.
 # They can contain multiple paragraphs.
@@ -776,22 +540,17 @@ our %context_brace_commands;
 foreach my $context_brace_command ('footnote', 'caption',
     'shortcaption') {
   $context_brace_commands{$context_brace_command} = $context_brace_command;
-  $brace_commands{$context_brace_command} = 'context';
 }
 
-our %math_commands;
 # Commands that enclose math content, and, because of that, are not in the
 # main document context.
 foreach my $math_brace_command ('math') {
   $context_brace_commands{$math_brace_command} = $math_brace_command;
-  $brace_commands{$math_brace_command} = 'context';
-  $math_commands{$math_brace_command} = 1;
 }
 
 our %explained_commands;
 foreach my $explained_command ('abbr', 'acronym') {
   $explained_commands{$explained_command} = 1;
-  $brace_commands{$explained_command} = 'arguments';
   $commands_args_number{$explained_command} = 2;
 }
 
@@ -800,7 +559,6 @@ foreach my $inline_format_command ('inlineraw', 'inlinefmt',
         'inlinefmtifelse') {
   $inline_format_commands{$inline_format_command} = 1;
   $commands_args_number{$inline_format_command} = 2;
-  $brace_commands{$inline_format_command} = 'inline';
 }
 
 $commands_args_number{'inlinefmtifelse'} = 3;
@@ -809,22 +567,18 @@ our %inline_conditional_commands;
 foreach my $inline_conditional_command ('inlineifclear', 'inlineifset') {
   $inline_conditional_commands{$inline_conditional_command} = 1;
   $commands_args_number{$inline_conditional_command} = 2;
-  $brace_commands{$inline_conditional_command} = 'inline';
 }
 
 foreach my $two_arg_command('email') {
   $commands_args_number{$two_arg_command} = 2;
-  $brace_commands{$two_arg_command} = 'arguments';
 }
 
 foreach my $three_arg_command('uref','url','inforef') {
   $commands_args_number{$three_arg_command} = 3;
-  $brace_commands{$three_arg_command} = 'arguments';
 }
 
 foreach my $five_arg_command('xref','ref','pxref','image') {
   $commands_args_number{$five_arg_command} = 5;
-  $brace_commands{$five_arg_command} = 'arguments';
 }
 
 
@@ -840,13 +594,6 @@ foreach my $unformatted_brace_command ('anchor', 'shortcaption',
     'caption', 'hyphenation', 'errormsg') {
   $unformatted_brace_commands{$unformatted_brace_command} = 1;
 }
-
-# commands delimiting blocks, with an @end.
-# Type of command, 'raw', 'def', 'conditional', 'multitable'...
-our %block_commands;
-
-# commands that have a possible content before an item
-our %blockitem_commands;
 
 # Do nothing, used to mark translations for gettext.  The strings
 # are marked to be translated in the parsers with type 'untranslated'.
@@ -882,77 +629,20 @@ our %def_map = (
     'deftypemethod', {'deftypeop' => gdt('Method')},
 );
 
-our %def_commands;
-our %def_aliases;
-# consistent with XS parser flag
-our %def_alias_commands;
 # Argument not metasyntactic variables only.
 our %def_no_var_arg_commands;
+our %def_aliases;
 foreach my $def_command(keys %def_map) {
   if (ref($def_map{$def_command}) eq 'HASH') {
     my ($real_command) = keys (%{$def_map{$def_command}});
     $def_aliases{$def_command} = $real_command;
     $def_aliases{$def_command.'x'} = $real_command.'x';
-    $def_alias_commands{$def_command} = 1;
   }
-  $block_commands{$def_command} = 'def';
-  $line_commands{$def_command.'x'} = 'line';
-  $def_commands{$def_command} = 1;
-  $def_commands{$def_command.'x'} = 1;
   $def_no_var_arg_commands{$def_command} = 1 if ($def_command =~ /^deftype/);
-}
-
-$block_commands{'multitable'} = 'multitable';
-$blockitem_commands{'multitable'} = 1;
-
-# block commands in which menu entry and menu comments appear
-foreach my $menu_command ('menu', 'detailmenu', 'direntry') {
-  $block_commands{$menu_command} = 'menu';
-};
-
-foreach my $align_command('raggedright', 'flushleft', 'flushright',
-   'indentedblock', 'smallindentedblock',
-   'cartouche', 'group') {
-  $block_commands{$align_command} = 'other';
-}
-
-foreach my $block_command('titlepage', 'copying', 'documentdescription') {
-  $block_commands{$block_command} = 'region';
-}
-
-our %preformatted_commands;
-our %preformatted_code_commands;
-foreach my $preformatted_command(
-    'example', 'smallexample', 'lisp', 'smalllisp') {
-  $block_commands{$preformatted_command} = 'preformatted';
-  $preformatted_commands{$preformatted_command} = 1;
-  $preformatted_code_commands{$preformatted_command} = 1;
-}
-
-# unlimited arguments
-our %variadic_commands = (
-  'example' => 1,
-);
-
-foreach my $preformatted_command(
-    'display', 'smalldisplay', 'format', 'smallformat') {
-  $block_commands{$preformatted_command} = 'preformatted';
-  $preformatted_commands{$preformatted_command} = 1;
-}
-
-foreach my $block_math_command('displaymath') {
-  $block_commands{$block_math_command} = 'math';
-  $math_commands{$block_math_command} = 1;
-}
-
-# macro/rmacro are special
-foreach my $raw_command ('verbatim', 'ignore', 'macro', 'rmacro') {
-  $block_commands{$raw_command} = 'raw';
 }
 
 our %texinfo_output_formats;
 foreach my $format_raw_command('html', 'tex', 'xml', 'docbook', 'latex') {
-  $block_commands{$format_raw_command} = 'format_raw';
   $texinfo_output_formats{$format_raw_command} = $format_raw_command;
 }
 
@@ -960,45 +650,28 @@ foreach my $output_format_command ('info', 'plaintext') {
   $texinfo_output_formats{$output_format_command} = $output_format_command;
 }
 
-foreach my $command (keys(%texinfo_output_formats)) {
-  $block_commands{'if' . $command} = 'conditional';
-  $block_commands{'ifnot' . $command} = 'conditional';
-}
-
-$block_commands{'ifset'} = 'conditional';
-$block_commands{'ifclear'} = 'conditional';
-
-$block_commands{'ifcommanddefined'} = 'conditional';
-$block_commands{'ifcommandnotdefined'} = 'conditional';
-
 foreach my $item_container_command ('itemize', 'enumerate') {
-  $block_commands{$item_container_command} = 'item_container';
   $commands_args_number{$item_container_command} = 1;
-  $blockitem_commands{$item_container_command} = 1;
 }
 
 foreach my $item_line_command ('table', 'ftable', 'vtable') {
-  $block_commands{$item_line_command} = 'item_line';
   $commands_args_number{$item_line_command} = 1;
-  $blockitem_commands{$item_line_command} = 1;
 }
 
 foreach my $block_command_one_arg('quotation', 'smallquotation') {
-  $block_commands{$block_command_one_arg} = 'quotation';
   $commands_args_number{$block_command_one_arg} = 1;
 }
 
-$block_commands{'float'} = 'float';
 $commands_args_number{'float'} = 2;
 
 # commands that forces closing an opened paragraph.
 our %close_paragraph_commands;
 
-foreach my $block_command (keys(%block_commands)) {
+foreach my $block_command (keys(%Texinfo::Commands::block_commands)) {
   $close_paragraph_commands{$block_command} = 1
-     unless ($block_commands{$block_command} eq 'raw'
-             or $block_commands{$block_command} eq 'conditional'
-             or $block_commands{$block_command} eq 'format_raw');
+     unless ($Texinfo::Commands::block_commands{$block_command} eq 'raw'
+             or $Texinfo::Commands::block_commands{$block_command} eq 'conditional'
+             or $Texinfo::Commands::block_commands{$block_command} eq 'format_raw');
 }
 
 $close_paragraph_commands{'verbatim'} = 1;
@@ -1011,7 +684,7 @@ foreach my $close_paragraph_command ('titlefont', 'insertcopying', 'sp',
   $close_paragraph_commands{$close_paragraph_command} = 1;
 }
 
-foreach my $close_paragraph_command (keys(%def_commands)) {
+foreach my $close_paragraph_command (keys(%Texinfo::Commands::def_commands)) {
   $close_paragraph_commands{$close_paragraph_command} = 1;
 }
 
@@ -1028,8 +701,6 @@ for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
 
 # commands that should only appear at the root level and contain up to
 # the next root command.  @node and sectioning commands.
-our %root_commands;
-
 our %command_structuring_level = (
               'top'               => 0,
               'part'              => 0, # out of the main hierarchy
@@ -1091,16 +762,10 @@ our %level_to_structuring_command;
 }
 
 
-our %sectioning_heading_commands;
-
 foreach my $sectioning_command (keys (%command_structuring_level)) {
-  $line_commands{$sectioning_command} = 'line';
   if ($sectioning_command =~ /heading/) {
     $close_paragraph_commands{$sectioning_command} = 1;
-  } else {
-    $root_commands{$sectioning_command} = 1;
   }
-  $sectioning_heading_commands{$sectioning_command} = 1;
 }
 
 
@@ -1110,7 +775,7 @@ foreach my $sectioning_command (keys (%command_structuring_level)) {
 our %formatted_line_commands;
 foreach my $formatted_line_command ('center', 'page',
    'author', 'subtitle', 'title', 'exdent', 'item', 'itemx',
-   'node', keys(%sectioning_heading_commands)) {
+   'node', keys(%Texinfo::Commands::sectioning_heading_commands)) {
   $formatted_line_commands{$formatted_line_command} = 1;
 }
 
@@ -1133,25 +798,15 @@ foreach my $formattable_line_command ('insertcopying',
   $formattable_line_commands{$formattable_line_command} = 1;
 }
 
-$root_commands{'node'} = 1;
-
-# Not used, kept here for completeness as documentation.
-# @txiinternalvalue is considered as a valid command only if a customization
-# option is set, such that it does not appear in user documents.
-our %internal_commands;
-%internal_commands = (
-  'txiinternalvalue' => 'brace',
-);
-
 # %all_commands includes user-settable commands only.
 # The internal commands are not in %all_commands.
 # used in util/txicmdlist
 our %all_commands;
 foreach my $command (
-  keys(%Texinfo::Common::block_commands),
-  keys(%Texinfo::Common::brace_commands),
-  keys(%Texinfo::Common::line_commands),
-  keys(%Texinfo::Common::nobrace_commands),
+  keys(%Texinfo::Commands::block_commands),
+  keys(%Texinfo::Commands::brace_commands),
+  keys(%Texinfo::Commands::line_commands),
+  keys(%Texinfo::Commands::nobrace_commands),
  ) {
   $all_commands{$command} = 1;
 }
@@ -1160,19 +815,21 @@ foreach my $command (
 our %preamble_commands;
 foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',
        'inlineraw', '*', keys(%document_settable_at_commands),
-       (grep {$block_commands{$_} eq 'format_raw'
-              or $block_commands{$_} eq 'region'} keys(%block_commands)),
+       (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'
+              or $Texinfo::Commands::block_commands{$_} eq 'region'}
+                                      keys(%Texinfo::Commands::block_commands)),
        keys(%inline_format_commands), keys(%inline_conditional_commands),
-       keys(%unformatted_block_commands), keys(%line_commands),
-       keys(%nobrace_commands)) {
+       keys(%unformatted_block_commands), keys(%Texinfo::Commands::line_commands),
+       keys(%Texinfo::Commands::nobrace_commands)) {
   $preamble_commands{$preamble_command} = 1;
 }
 
 foreach my $formattable_or_formatted_misc_command (
    keys(%formattable_line_commands), keys(%formatted_line_commands),
         keys(%formatted_nobrace_commands),
-        keys(%default_index_commands), keys(%in_heading_spec_commands),
-        keys(%def_commands)) {
+        keys(%Texinfo::Commands::default_index_commands),
+        keys(%Texinfo::Commands::in_heading_spec_commands),
+        keys(%Texinfo::Commands::def_commands)) {
   delete $preamble_commands{$formattable_or_formatted_misc_command};
 }
 
@@ -1656,7 +1313,7 @@ sub _informative_command_value($)
 
   my $cmdname = $element->{'cmdname'};
 
-  if ($line_commands{$cmdname} eq 'skipline') {
+  if ($Texinfo::Commands::line_commands{$cmdname} eq 'skipline') {
     return 1;
   } elsif (exists($element->{'extra'}->{'text_arg'})) {
     return $element->{'extra'}->{'text_arg'};
@@ -1868,14 +1525,14 @@ sub is_content_empty($;$)
           next;
         }
       }
-      if (exists($line_commands{$content->{'cmdname'}})) {
+      if (exists($Texinfo::Commands::line_commands{$content->{'cmdname'}})) {
         if ($formatted_line_commands{$content->{'cmdname'}}
             or $formattable_line_commands{$content->{'cmdname'}}) {
           return 0;
         } else {
           next;
         }
-      } elsif (exists($nobrace_commands{$content->{'cmdname'}})) {
+      } elsif (exists($Texinfo::Commands::nobrace_commands{$content->{'cmdname'}})) {
         if ($formatted_nobrace_commands{$content->{'cmdname'}}) {
           return 0;
         } else {
@@ -1912,7 +1569,7 @@ foreach my $type (@inline_types) {
   $inline_types{$type} = 1;
 }
 
-my %not_inline_commands = (%root_commands, %block_commands,
+my %not_inline_commands = (%Texinfo::Commands::root_commands, %Texinfo::Commands::block_commands,
                            %context_brace_commands);
 
 # Return 1 if inline in a running text, 0 if right in top-level or block
@@ -2062,10 +1719,10 @@ sub find_parent_root_command($$)
   my $root_command;
   while (1) {
     if ($current->{'cmdname'}) {
-      if ($root_commands{$current->{'cmdname'}}) {
+      if ($Texinfo::Commands::root_commands{$current->{'cmdname'}}) {
         return $current;
-      } elsif ($block_commands{$current->{'cmdname'}}
-               and $block_commands{$current->{'cmdname'}} eq 'region') {
+      } elsif ($Texinfo::Commands::block_commands{$current->{'cmdname'}}
+               and $Texinfo::Commands::block_commands{$current->{'cmdname'}} eq 'region') {
         if ($current->{'cmdname'} eq 'copying' and $self
             and $self->{'global_commands'}
             and $self->{'global_commands'}->{'insertcopying'}) {

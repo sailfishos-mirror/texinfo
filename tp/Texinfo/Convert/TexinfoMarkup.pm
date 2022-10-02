@@ -32,6 +32,7 @@ package Texinfo::Convert::TexinfoMarkup;
 use 5.00405;
 use strict;
 
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::Unicode;
@@ -99,7 +100,7 @@ our %no_arg_commands_formatting = (
            'guillemotright'  => 'guillemotright',
 );
 
-my %brace_commands = %Texinfo::Common::brace_commands;
+my %brace_commands = %Texinfo::Commands::brace_commands;
 
 # use default XML formatting to complete the hash, removing XML
 # specific formatting.  This avoids some code duplication.
@@ -158,15 +159,15 @@ my %line_command_numbered_arguments_attributes = (
   'synindex' => [ 'from', 'to' ],
 );
 
-my %nobrace_commands = %Texinfo::Common::nobrace_commands;
-my %line_commands = %Texinfo::Common::line_commands;
+my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
+my %line_commands = %Texinfo::Commands::line_commands;
 
 foreach my $command ('item', 'headitem', 'tab') {
   delete $nobrace_commands{$command};
 }
 
 foreach my $command ('item', 'itemx',
-                      keys %Texinfo::Common::def_commands) {
+                      keys(%Texinfo::Commands::def_commands)) {
   delete $line_commands{$command};
 }
 
@@ -200,8 +201,8 @@ foreach my $explained_command (keys(%Texinfo::Common::explained_commands)) {
                                                  "${explained_command}desc"];
 }
 
-foreach my $brace_command (keys(%Texinfo::Common::brace_commands)) {
-  if ($Texinfo::Common::brace_commands{$brace_command} eq 'inline') {
+foreach my $brace_command (keys(%Texinfo::Commands::brace_commands)) {
+  if ($Texinfo::Commands::brace_commands{$brace_command} eq 'inline') {
     if ($brace_command eq 'inlinefmtifelse') {
       $commands_args_elements{$brace_command} = ["${brace_command}format",
              "${brace_command}contentif", "${brace_command}contentelse"];
@@ -267,8 +268,8 @@ sub converter_initialize($)
 
   $self->{'document_context'} = [{'monospace' => [0]}];
   $self->{'context_block_commands'} = {%default_context_block_commands};
-  foreach my $raw (grep {$Texinfo::Common::block_commands{$_} eq 'format_raw'}
-                        keys(%Texinfo::Common::block_commands)) {
+  foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
+                        keys(%Texinfo::Commands::block_commands)) {
     $self->{'context_block_commands'}->{$raw} = 1
          if $self->{'expanded_formats_hash'}->{$raw};
   }
@@ -375,8 +376,8 @@ sub _index_entry($$)
     if ($self->{'indices_information'}) {
       my $in_code
          = $self->{'indices_information'}->{$index_entry->{'index_name'}}->{'in_code'};
-      if (!$Texinfo::Common::index_names{$index_entry->{'index_name'}}
-          or $in_code != $Texinfo::Common::index_names{$index_entry->{'index_name'}}->{'in_code'}) {
+      if (!$Texinfo::Commands::index_names{$index_entry->{'index_name'}}
+          or $in_code != $Texinfo::Commands::index_names{$index_entry->{'index_name'}}->{'in_code'}) {
         push @$attribute, ['incode', $in_code];
       }
       if ($self->{'indices_information'}->{$index_entry->{'index_name'}}->{'merged_in'}) {
@@ -802,7 +803,7 @@ sub _convert($$;$)
           }
           $result .= $self->format_comment_or_return_end_line($element);
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-        } elsif ($Texinfo::Common::root_commands{$cmdname}) {
+        } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
           my $attribute = [_leading_spaces_arg($element)];
           my $level_adjusted_cmdname
             = Texinfo::Structuring::section_level_adjusted_command_name($element);
@@ -1099,7 +1100,7 @@ sub _convert($$;$)
         if (Texinfo::Common::element_is_inline($element)) {
           push @$attribute, ['where', 'inline'];
         }
-      } elsif ($Texinfo::Common::ref_commands{$element->{'cmdname'}}) {
+      } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
         if ($element->{'args'}) {
           my $normalized;
           if ($element->{'extra'}->{'node_argument'}
@@ -1153,7 +1154,7 @@ sub _convert($$;$)
       push @$attribute, _leading_spaces_arg($element);
       return $self->txi_markup_open_element($main_cmdname, $attribute)
                  .$args_or_one_arg_cmd.$self->txi_markup_close_element($main_cmdname);
-    } elsif (exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
+    } elsif (exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {
       if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {
         push @{$self->{'document_context'}}, {'monospace' => [0]};
       }
@@ -1498,8 +1499,8 @@ sub _convert($$;$)
   if ($element->{'contents'}) {
     my $in_code;
     if ($element->{'cmdname'}
-        and ($Texinfo::Common::preformatted_code_commands{$element->{'cmdname'}}
-             or $Texinfo::Common::math_commands{$element->{'cmdname'}})) {
+        and ($Texinfo::Commands::preformatted_code_commands{$element->{'cmdname'}}
+             or $Texinfo::Commands::math_commands{$element->{'cmdname'}})) {
       $in_code = 1;
     }
     push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
@@ -1553,7 +1554,7 @@ sub _convert($$;$)
     $result .= $self->txi_markup_close_element($format_element);
   }
   if ($element->{'cmdname'}
-      and exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
+      and exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {
     if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
     } else {
       if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0
@@ -1575,7 +1576,7 @@ sub _convert($$;$)
              and !($element->{'extra'}->{'unit_command'}->{'cmdname'}
                    and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'))
             or ($element->{'cmdname'}
-                and $Texinfo::Common::root_commands{$element->{'cmdname'}}
+                and $Texinfo::Commands::root_commands{$element->{'cmdname'}}
                 and $element->{'cmdname'} ne 'node'
                 and !($element->{'structure'}->{'associated_unit'}
                      and $element->{'structure'}->{'associated_unit'}->{'extra'}

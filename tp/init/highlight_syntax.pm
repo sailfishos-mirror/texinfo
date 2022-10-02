@@ -20,6 +20,7 @@ use strict;
 
 use File::Spec;
 
+use Texinfo::Commands;
 # also for __(
 use Texinfo::Common;
 use Texinfo::Convert::Text;
@@ -389,8 +390,8 @@ sub highlight_preformatted_command($$$$$)
           # FIXME maybe add   or $pre_class eq 'menu'  to override
           # 'menu' with 'menu-comment'?
           $pre_class = $class unless ($pre_class
-                    and $Texinfo::Common::preformatted_code_commands{$pre_class}
-                    and !($Texinfo::Common::preformatted_code_commands{$class}
+                    and $Texinfo::Commands::preformatted_code_commands{$pre_class}
+                    and !($Texinfo::Commands::preformatted_code_commands{$class}
                                    or $class eq 'menu'));
         }
         $pre_class = $pre_class.'-preformatted';

@@ -33,6 +33,7 @@ use strict;
 # debugging
 use Carp qw(cluck);
 
+use Texinfo::Commands;
 use Texinfo::Common;
 # only needed in debugging comments.  Ok to keep it here anyway.
 use Texinfo::Convert::Texinfo;
@@ -161,7 +162,7 @@ sub find_innermost_accent_contents($)
   while (1) {
     # the following can happen if called with a bad tree
     if (!$current->{'cmdname'}
-        or !$Texinfo::Common::accent_commands{$current->{'cmdname'}}) {
+        or !$Texinfo::Commands::accent_commands{$current->{'cmdname'}}) {
       #print STDERR "BUG: Not an accent command in accent\n";
       cluck "BUG: Not an accent command in accent\n";
       #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
@@ -183,7 +184,7 @@ sub find_innermost_accent_contents($)
       if (!($content->{'cmdname'} and ($content->{'cmdname'} eq 'c'
                                        or $content->{'cmdname'} eq 'comment'))) {
         if ($content->{'cmdname'}
-            and $Texinfo::Common::accent_commands{$content->{'cmdname'}}) {
+            and $Texinfo::Commands::accent_commands{$content->{'cmdname'}}) {
           $current = $content;
           next ACCENT;
         } else {

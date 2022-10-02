@@ -28,6 +28,7 @@ use Data::Dumper;
 use Carp qw(cluck carp);
 use Encode qw(decode);
 
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
 # for debugging
@@ -141,7 +142,7 @@ foreach my $accent_letter ('o','O','l','L') {
   $sort_brace_no_arg_commands{$accent_letter} = $accent_letter;
 }
 
-my %accent_commands = %Texinfo::Common::accent_commands;
+my %accent_commands = %Texinfo::Commands::accent_commands;
 my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
 # 'page' is a formatted_line_commands and therefore is replaced by an empty line.
@@ -386,8 +387,8 @@ sub _convert($;$)
                  or ($ignored_block_commands{$element->{'cmdname'}}
                      and !(defined($options->{'expanded_formats_hash'})
                            and $options->{'expanded_formats_hash'}->{$element->{'cmdname'}}))
-                 or ($Texinfo::Common::brace_commands{$element->{'cmdname'}}
-                     and $Texinfo::Common::brace_commands{$element->{'cmdname'}} eq 'inline'
+                 or ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
+                     and $Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline'
                      and $element->{'cmdname'} ne 'inlinefmtifelse'
                      and (($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
                           and (!$element->{'extra'}->{'format'}
@@ -495,8 +496,8 @@ sub _convert($;$)
       } else {
         return _convert($element->{'args'}->[0], $options);
       }
-    } elsif ($Texinfo::Common::brace_commands{$element->{'cmdname'}}
-             and $Texinfo::Common::brace_commands{$element->{'cmdname'}} eq 'inline') {
+    } elsif ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
+             and $Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline') {
       $options->{'raw'} = 1 if ($element->{'cmdname'} eq 'inlineraw');
       my $arg_index = 1;
       if ($element->{'cmdname'} eq 'inlinefmtifelse'
@@ -512,13 +513,13 @@ sub _convert($;$)
     } elsif ($element->{'args'} and $element->{'args'}->[0]
            and (($element->{'args'}->[0]->{'type'}
                 and $element->{'args'}->[0]->{'type'} eq 'brace_command_arg')
-                or ($Texinfo::Common::math_commands{$element->{'cmdname'}}
-                    and defined($Texinfo::Common::brace_commands{$element->{'cmdname'}})))) {
+                or ($Texinfo::Commands::math_commands{$element->{'cmdname'}}
+                    and defined($Texinfo::Commands::brace_commands{$element->{'cmdname'}})))) {
       my $result;
       my $in_code;
       $options->{'sc'}++ if ($element->{'cmdname'} eq 'sc');
       if ($Texinfo::Common::brace_code_commands{$element->{'cmdname'}}
-               or $Texinfo::Common::math_commands{$element->{'cmdname'}}) {
+               or $Texinfo::Commands::math_commands{$element->{'cmdname'}}) {
         $in_code = 1;
       }
       $options->{_code_options}++ if ($in_code);
@@ -551,7 +552,7 @@ sub _convert($;$)
         } else {
           $result = _convert($element->{'args'}->[0], $options);
         }
-        if ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
+        if ($Texinfo::Commands::sectioning_heading_commands{$element->{'cmdname'}}) {
           $result = text_heading($element, $result, $options->{'converter'},
                                  $options->{'NUMBER_SECTIONS'});
         } else {
@@ -629,10 +630,10 @@ sub _convert($;$)
   if ($element->{'contents'}) {
     my $in_code;
     if ($element->{'cmdname'}
-        and ($Texinfo::Common::preformatted_code_commands{$element->{'cmdname'}}
-             or $Texinfo::Common::math_commands{$element->{'cmdname'}}
-             or (defined($Texinfo::Common::block_commands{$element->{'cmdname'}})
-                 and $Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'raw'))) {
+        and ($Texinfo::Commands::preformatted_code_commands{$element->{'cmdname'}}
+             or $Texinfo::Commands::math_commands{$element->{'cmdname'}}
+             or (defined($Texinfo::Commands::block_commands{$element->{'cmdname'}})
+                 and $Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'raw'))) {
       $in_code = 1;
     }
     if (ref($element->{'contents'}) ne 'ARRAY') {

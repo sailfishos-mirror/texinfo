@@ -26,7 +26,7 @@ use strict;
 use Carp qw(cluck confess);
 
 # commands definitions
-use Texinfo::Common;
+use Texinfo::Commands;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
@@ -42,12 +42,12 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 $VERSION = '6.8dev';
 
 
-my %brace_commands           = %Texinfo::Common::brace_commands;
-my %block_commands           = %Texinfo::Common::block_commands;
-my %def_commands             = %Texinfo::Common::def_commands;
+my %brace_commands           = %Texinfo::Commands::brace_commands;
+my %block_commands           = %Texinfo::Commands::block_commands;
+my %def_commands             = %Texinfo::Commands::def_commands;
 
 # used in root_heading_command_to_texinfo
-my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
+my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
 
 my @ignored_types = ('spaces_inserted', 'bracketed_inserted',
 'command_as_argument_inserted');

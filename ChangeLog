@@ -1,5 +1,15 @@
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/*.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm,
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h, tp/init/book.pm,
+	tp/init/highlight_syntax.pm: use information from Texinfo::Commands,
+	remove the corresponding hashes from Texinfo::Common.  Move comments
+	from Common.pm to command_data.txt and commands.h.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/Utils.pm
 	(definition_category_tree), tp/Texinfo/ParserNonXS.pm
 	(_process_remaining_on_line),

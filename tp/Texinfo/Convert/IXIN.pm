@@ -66,10 +66,11 @@ use 5.00405;
 use strict;
 
 use MIME::Base64;
-use Texinfo::Convert::TexinfoSXML;
-use Texinfo::Common;
-
 use Carp qw(cluck);
+
+use Texinfo::Commands;
+use Texinfo::Common;
+use Texinfo::Convert::TexinfoSXML;
 
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
@@ -245,7 +246,7 @@ sub _get_element($$)
       }
     }
     if ($current->{'cmdname'}) {
-      if ($Texinfo::Common::root_commands{$current->{'cmdname'}}) {
+      if ($Texinfo::Commands::root_commands{$current->{'cmdname'}}) {
         $root_command = $current;
         return ($element, $root_command) if defined($element);
       }
@@ -401,8 +402,8 @@ sub output_ixin($$)
   # FIXME this code is unclear and probably needs to be fixed if developemnt
   # resumes.  Maybe could be replaced by set_global_document_commands.
   foreach my $global_command (keys(%{$self->{'global_commands'}})) {
-    if ((($Texinfo::Common::line_commands{$global_command}
-          and $Texinfo::Common::line_commands{$global_command} eq 'specific')
+    if ((($Texinfo::Commands::line_commands{$global_command}
+          and $Texinfo::Commands::line_commands{$global_command} eq 'specific')
          or $additional_setting_commands{$global_command})
         and !$global_line_not_setting_commands{$global_command}) {
       if (ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
@@ -458,7 +459,7 @@ sub output_ixin($$)
       $result .= ' ';
       # FIXME lineraw is most probably not the right type of line
       # command.  Maybe should be specific?
-      if ($Texinfo::Common::line_commands{$command_name} eq 'lineraw') {
+      if ($Texinfo::Commands::line_commands{$command_name} eq 'lineraw') {
         $result .= $self->ixin_list_element('settingvalue',
                                    [['value', $settings{$command_name}]]);
       } else {
@@ -564,7 +565,7 @@ sub output_ixin($$)
         $nodes_index .= ' ';
         # FIXME Probably not the right line type, lineraw commands are c,
         # comment and vskip.
-        if ($Texinfo::Common::line_commands{$command_name} eq 'lineraw') {
+        if ($Texinfo::Commands::line_commands{$command_name} eq 'lineraw') {
           $nodes_index .= $self->ixin_list_element('nodetweakvalue',
             [['value', $node_tweaks{$normalized_node_name}->{$command_name}]]);
         } else {

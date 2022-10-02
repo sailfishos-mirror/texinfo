@@ -52,6 +52,7 @@ use Storable;
 
 use Encode qw(find_encoding decode encode);
 
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Config;
 use Texinfo::Convert::Unicode;
@@ -93,29 +94,30 @@ sub import {
 
 
 
-# misc commands that are of use for formatting.
+my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
+my %line_commands = %Texinfo::Commands::line_commands;
+my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
+my %accent_commands = %Texinfo::Commands::accent_commands;
+my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
+my %def_commands = %Texinfo::Commands::def_commands;
+my %ref_commands = %Texinfo::Commands::ref_commands;
+my %brace_commands = %Texinfo::Commands::brace_commands;
+my %block_commands = %Texinfo::Commands::block_commands;
+my %root_commands = %Texinfo::Commands::root_commands;
+my %preformatted_commands = %Texinfo::Commands::preformatted_commands;
+my %math_commands = %Texinfo::Commands::math_commands;
+my %preformatted_code_commands = %Texinfo::Commands::preformatted_code_commands;
+
+my %context_brace_commands = %Texinfo::Common::context_brace_commands;
+my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
+
 my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
 my %formatted_nobrace_commands = %Texinfo::Common::formatted_nobrace_commands;
 my %formattable_line_commands = %Texinfo::Common::formattable_line_commands;
-my %nobrace_commands = %Texinfo::Common::nobrace_commands;
-my %line_commands = %Texinfo::Common::line_commands;
-my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
-my %accent_commands = %Texinfo::Common::accent_commands;
-my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
-my %def_commands = %Texinfo::Common::def_commands;
-my %ref_commands = %Texinfo::Common::ref_commands;
-my %brace_commands = %Texinfo::Common::brace_commands;
-my %block_commands = %Texinfo::Common::block_commands;
-my %root_commands = %Texinfo::Common::root_commands;
-my %preformatted_commands = %Texinfo::Common::preformatted_commands;
-my %math_commands = %Texinfo::Common::math_commands;
 my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
-my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
-my %default_index_commands = %Texinfo::Common::default_index_commands;
-my %context_brace_commands = %Texinfo::Common::context_brace_commands;
-my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
+my %default_index_commands = %Texinfo::Commands::default_index_commands;
 my %small_block_associated_command = %Texinfo::Common::small_block_associated_command;
 
 foreach my $def_command (keys(%def_commands)) {
@@ -3654,7 +3656,7 @@ sub _convert_heading_command($$$$$)
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
-  if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
+  if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
       and $element->{'structure'}->{'associated_unit'}) {
     $tree_unit = $element->{'structure'}->{'associated_unit'};
   }
@@ -3689,7 +3691,7 @@ sub _convert_heading_command($$$$$)
   }
 
   if ($self->get_conf('NO_TOP_NODE_OUTPUT')
-      and $Texinfo::Common::root_commands{$cmdname}) {
+      and $Texinfo::Commands::root_commands{$cmdname}) {
     my $in_skipped_node_top
       = $self->shared_conversion_state('in_skipped_node_top', 0);
     my $node_element;
@@ -3744,7 +3746,7 @@ sub _convert_heading_command($$$$$)
            # the section was opened before when the node was encountered
            and not $element->{'extra'}->{'associated_node'}
            # to avoid *heading* @-commands
-           and $Texinfo::Common::root_commands{$cmdname}) {
+           and $Texinfo::Commands::root_commands{$cmdname}) {
     $opening_section = $element;
     $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
@@ -3816,7 +3818,7 @@ sub _convert_heading_command($$$$$)
 
   if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
-        and $Texinfo::Common::root_commands{$cmdname}
+        and $Texinfo::Commands::root_commands{$cmdname}
         and $sectioning_heading_commands{$cmdname}) {
       my $content_href = $self->command_contents_href($element, 'contents');
       if ($content_href ne '') {

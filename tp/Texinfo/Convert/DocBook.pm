@@ -22,6 +22,7 @@ package Texinfo::Convert::DocBook;
 use 5.00405;
 use strict;
 
+use Texinfo::Commands;
 use Texinfo::Common;
 
 # for debugging
@@ -41,7 +42,7 @@ use vars qw($VERSION @ISA);
 
 $VERSION = '6.8dev';
 
-my %brace_commands = %Texinfo::Common::brace_commands;
+my %brace_commands = %Texinfo::Commands::brace_commands;
 
 my $nbsp = '&#'.hex('00A0').';';
 
@@ -171,14 +172,14 @@ my %docbook_line_elements_with_arg_map = (
   'center' => 'simpara role="center"',
 );
 
-my %docbook_nobrace_commands = %Texinfo::Common::nobrace_commands;
+my %docbook_nobrace_commands = %Texinfo::Commands::nobrace_commands;
 foreach my $command ('item', 'headitem', 'tab',
    keys(%docbook_no_arg_commands_formatting)) {
   delete $docbook_nobrace_commands{$command};
 }
 
-my %docbook_line_commands = %Texinfo::Common::line_commands;
-foreach my $command ('itemx', keys %Texinfo::Common::def_commands) {
+my %docbook_line_commands = %Texinfo::Commands::line_commands;
+foreach my $command ('itemx', keys %Texinfo::Commands::def_commands) {
   delete $docbook_line_commands{$command};
 }
 
@@ -274,8 +275,8 @@ sub converter_initialize($)
 
   $self->{'document_context'} = [{'monospace' => [0], 'upper_case' => [0]}];
   $self->{'context_block_commands'} = {%default_context_block_commands};
-  foreach my $raw (grep {$Texinfo::Common::block_commands{$_} eq 'format_raw'}
-                        keys(%Texinfo::Common::block_commands)) {
+  foreach my $raw (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
+                        keys(%Texinfo::Commands::block_commands)) {
     $self->{'context_block_commands'}->{$raw} = 1
          if $self->{'expanded_formats_hash'}->{$raw};
   }
@@ -718,7 +719,7 @@ sub _convert($$;$)
       }
     } elsif ($element->{'cmdname'} eq 'today') {
       return $self->_convert(Texinfo::Convert::Utils::expand_today($self));
-    } elsif ($Texinfo::Common::accent_commands{$element->{'cmdname'}}) {
+    } elsif ($Texinfo::Commands::accent_commands{$element->{'cmdname'}}) {
       return $self->xml_accents($element,
                $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
     } elsif ($element->{'cmdname'} eq 'item' or $element->{'cmdname'} eq 'itemx'
@@ -785,7 +786,7 @@ sub _convert($$;$)
         Texinfo::Common::set_informative_command_value($self, $element);
         return '';
       }
-      if ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
+      if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}) {
         if ($self->get_conf('NO_TOP_NODE_OUTPUT')) {
           my $node_element;
           if ($element->{'cmdname'} eq 'node') {
@@ -901,7 +902,7 @@ sub _convert($$;$)
         }
       } elsif ($element->{'cmdname'} eq 'c' or $element->{'cmdname'} eq 'comment') {
         return $self->xml_comment($element->{'args'}->[0]->{'text'})
-      } elsif ($Texinfo::Common::sectioning_heading_commands{$element->{'cmdname'}}) {
+      } elsif ($Texinfo::Commands::sectioning_heading_commands{$element->{'cmdname'}}) {
         if ($element->{'args'} and $element->{'args'}->[0]) {
           my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
           $result .=
@@ -959,7 +960,7 @@ sub _convert($$;$)
       $result .= $arg;
 
     } elsif ($element->{'args'}
-             and exists($Texinfo::Common::brace_commands{$element->{'cmdname'}})) {
+             and exists($Texinfo::Commands::brace_commands{$element->{'cmdname'}})) {
       #Texinfo::Common::debug_list(" brace command with args", $element->{'args'});
       if ($style_commands_formatting{$element->{'cmdname'}}) {
         if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
@@ -1014,7 +1015,7 @@ sub _convert($$;$)
         } else {
           return '';
         }
-      } elsif ($Texinfo::Common::ref_commands{$element->{'cmdname'}}) {
+      } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
         if ($element->{'args'}) {
           my $cmdname;
           my $book_contents;
@@ -1376,7 +1377,7 @@ sub _convert($$;$)
         }
         return $result;
 
-      } elsif ($Texinfo::Common::brace_commands{$element->{'cmdname'}} eq 'inline') {
+      } elsif ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline') {
         my $expand = 0;
         if ($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}) {
           if ($element->{'cmdname'} eq 'inlinefmtifelse'
@@ -1419,7 +1420,7 @@ sub _convert($$;$)
     } elsif ($element->{'cmdname'} eq 'w') {
       return $w_command_mark;
 
-    } elsif (exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
+    } elsif (exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {
       if ($ignored_block_commands{$element->{'cmdname'}}) {
         return '';
       }
@@ -1449,7 +1450,7 @@ sub _convert($$;$)
           $numeration = 'arabic';
         }
         push @attributes, " numeration=\"$numeration\"";
-      } elsif ($Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'item_line') {
+      } elsif ($Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'item_line') {
         push @format_elements, 'variablelist';
       } elsif ($element->{'cmdname'} eq 'itemize') {
         push @format_elements, 'itemizedlist';
@@ -1530,13 +1531,13 @@ sub _convert($$;$)
         }
         $format_element = 'blockquote' if (!defined($format_element));
         push @format_elements, $format_element;
-      } elsif ($Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'format_raw') {
+      } elsif ($Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'format_raw') {
         return '' if (!$self->{'expanded_formats_hash'}->{$element->{'cmdname'}});
         # the context is here only for the command, so this is forgotten
         # once all the raw internal text has been formatted
         $self->{'document_context'}->[-1]->{'raw'} = 1;
-      } elsif ($Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'raw'
-               or $Texinfo::Common::block_commands{$element->{'cmdname'}} eq 'menu') {
+      } elsif ($Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'raw'
+               or $Texinfo::Commands::block_commands{$element->{'cmdname'}} eq 'menu') {
         return '';
       }
       foreach my $format_element (@format_elements) {
@@ -1610,8 +1611,8 @@ sub _convert($$;$)
     #warn " have contents $element->{'contents'}\n";
     my $in_code;
     if ($element->{'cmdname'}
-        and ($Texinfo::Common::preformatted_code_commands{$element->{'cmdname'}}
-             or $Texinfo::Common::math_commands{$element->{'cmdname'}})) {
+        and ($Texinfo::Commands::preformatted_code_commands{$element->{'cmdname'}}
+             or $Texinfo::Commands::math_commands{$element->{'cmdname'}})) {
       $in_code = 1;
     }
     push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
@@ -1652,7 +1653,7 @@ sub _convert($$;$)
   }
   
   if ($element->{'cmdname'}
-      and exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
+      and exists($Texinfo::Commands::block_commands{$element->{'cmdname'}})) {
     # a pending_prepend still there may happen if a quotation is empty.
     delete $self->{'pending_prepend'};
     #$result .= "</$element->{'cmdname'}>\n";
@@ -1672,7 +1673,7 @@ sub _convert($$;$)
       if ($format ne $docbook_preformatted_formats{$element->{'type'}});
   # close sectioning command
   } elsif ($element->{'cmdname'} and $element->{'cmdname'} ne 'node'
-           and $Texinfo::Common::root_commands{$element->{'cmdname'}}) {
+           and $Texinfo::Commands::root_commands{$element->{'cmdname'}}) {
     my $docbook_sectioning_element = $self->_docbook_section_element($element);
     if ($docbook_sectioning_element eq 'part'
         and not ($element->{'extra'}
@@ -1707,7 +1708,7 @@ sub _convert($$;$)
   }
 
   if ($element->{'cmdname'}
-      and $Texinfo::Common::root_commands{$element->{'cmdname'}}
+      and $Texinfo::Commands::root_commands{$element->{'cmdname'}}
       and defined($self->{'in_skipped_node_top'})
       and $self->{'in_skipped_node_top'} == 1) {
     return '';

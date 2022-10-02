@@ -22,6 +22,14 @@
 # invalid if not accept_internalvalue set in configuration
 txiinternalvalue        internal,brace                  INTERNAL_brace
 
+# nobrace:
+# commands never taking braces nor arguments on the line
+#
+# symbol: non-alphabetical one letter commands without braces.
+# skipspace:   following spaces are skipped.
+# other:       other.
+
+
 ##############################################################
 # no brace commands - single letter commands
 
@@ -48,12 +56,32 @@ txiinternalvalue        internal,brace                  INTERNAL_brace
 # line commands
 #
 ##########################################################
+
+# commands taking a line as argument or no argument.
+# index commands are added dynamically.
+#
+# The values signification is:
+# special:     no value and macro expansion, all the line is used, and
+#              analysed during parsing (_parse_special_misc_command)
+# lineraw:     no value and macro expansion, the line is kept as-is, not
+#              analysed
+# skipline:    no argument, everything else on the line is skipped
+# text:        the line is parsed as texinfo, and the argument is converted
+#              to simple text (in _end_line)
+# line:        the line is parsed as texinfo
+# specific:    the line is parsed as texinfo and the result should be plain
+#              text maybe followed by a comment; the result is analysed
+#              during parsing (parse_line_command_args).
+#
+# Beware that @item may be a 'line' command or a 'nobrace' command
+# depending on the context.
+
 # line commands number of arguments is only set for LINE_specific commands
 # and is not used anywhere in the code, it is here as documentation only
 node                    line                            LINE_line
 bye                     line                            LINE_skipline
 end                     line                            LINE_text
-# set, clear
+# set, clear, special argument
 set                     line                            LINE_special
 clear                   line                            LINE_special
 unmacro                 line                            LINE_special
@@ -76,27 +104,40 @@ contents                line,global                     LINE_skipline
 shortcontents           line,global                     LINE_skipline
 summarycontents         line,global                     LINE_skipline
 insertcopying           line,global                     LINE_skipline
+# arg should be an @-command
 clickstyle              line,global                     LINE_special
 # more relevant in preamble
 documentencoding        line,global                     LINE_text
 novalidate              line,global_unique              LINE_skipline
+# Position with regard with direntry is significant
 dircategory             line                            LINE_line
-# with direntry is significant
+# arg like 200mm,150mm or 11.5in
 pagesizes               line,global_unique              LINE_line
-# or one? 200mm,150mm 11.5in
 finalout                line                            LINE_skipline
-paragraphindent         line,global                     LINE_specific  1
+# arg none asis
 # or a number and forbids anything else on the line
+paragraphindent         line,global                     LINE_specific  1
+# arg none insert
 firstparagraphindent    line,global                     LINE_specific  1
+# arg on off
 frenchspacing           line,global                     LINE_specific  1
+# arg on off
 codequoteundirected     line,global                     LINE_specific  1
+# arg on off
 codequotebacktick       line,global                     LINE_specific  1
+# arg on off
 xrefautomaticsectiontitle line,global                   LINE_specific  1
+# arg on off
 deftypefnnewline        line,global                     LINE_specific  1
+# arg 10 11
 fonttextsize            line,global_unique              LINE_specific  1
+# arg false or true
 allowcodebreaks         line,global                     LINE_specific  1
+# arg asis or a number
 exampleindent           line,global                     LINE_specific  1
+# args end and separate, nothing else on the line
 footnotestyle           line,global_unique              LINE_specific  1
+# arg after|before|none
 urefbreakstyle          line,global                     LINE_specific  1
 smallbook               line,global_unique              LINE_skipline
 afourpaper              line,global_unique              LINE_skipline
@@ -104,8 +145,12 @@ afivepaper              line,global_unique              LINE_skipline
 afourlatex              line,global_unique              LINE_skipline
 afourwide               line,global_unique              LINE_skipline
 bsixpaper               line,global_unique              LINE_skipline
+# arg off on single double singleafter doubleafter
+# interacts with setchapternewpage
 headings                line,global                     LINE_specific  1
+# arg off on odd
 setchapternewpage       line,global_unique              LINE_specific  1
+# arg on off
 microtype               line,global                     LINE_specific  1
 
 everyheading            line,global,heading_spec        LINE_line
@@ -115,12 +160,18 @@ evenfooting             line,global,heading_spec        LINE_line
 oddheading              line,global,heading_spec        LINE_line
 oddfooting              line,global,heading_spec        LINE_line
 
+# args are index identifiers
 syncodeindex            line                            LINE_specific  2
 synindex                line                            LINE_specific  2
+# one identifier arg
 defindex                line                            LINE_specific  1
+# one identifier arg
 defcodeindex            line                            LINE_specific  1
+# language code arg
 documentlanguage        line,global                     LINE_text
+# arg code example distinct
 kbdinputstyle           line,global                     LINE_specific  1
+# arg top bottom
 everyheadingmarks       line,global_unique              LINE_specific  1
 everyfootingmarks       line,global_unique              LINE_specific  1
 evenheadingmarks        line,global_unique              LINE_specific  1
@@ -139,8 +190,10 @@ settitle                line,global_unique              LINE_line
 author                  line,global                     LINE_line
 subtitle                line,global                     LINE_line
 title                   line,global_unique              LINE_line
+# numerical arg
 sp                      line                            LINE_specific  1
 page                    line                            LINE_skipline
+# one numerical/real arg
 need                    line                            LINE_specific  1
 
 # not valid for info (should be in @iftex)
@@ -148,6 +201,7 @@ vskip                   line                            LINE_lineraw
 
 exdent                  line                            LINE_line
 
+# or nobrace skipspace, depending on the context
 item_LINE               line                            LINE_line
 itemx                   line                            LINE_line
 
@@ -302,6 +356,11 @@ t                       brace                           BRACE_style_code
 # No code style commands
 r                       brace                           BRACE_style_no_code
 
+# in this category, the leading and trailing spaces are put in specific
+# text with type, but commas do not delimitate arguments.
+# As other arguments brace_commands, they can only contain simple text,
+# ie not ref, footnote, titlefont, anchor, verb.
+# Parsers have specific checks for U content.
 U                       brace                           BRACE_arguments     1
 hyphenation             brace,global,contain_plain_text BRACE_arguments     1
 anchor                  brace                           BRACE_arguments     1
@@ -310,11 +369,14 @@ sortas                  brace,contain_plain_text        BRACE_arguments     1
 seeentry                brace                           BRACE_arguments     1
 seealso                 brace                           BRACE_arguments     1
 
+# Leading and trailing spaces kept in main text.
+# verb is treated especially, it should not matter much in which category it is.
+# value also is treated especially.
 value                   brace                           BRACE_special
 verb                    brace                           BRACE_special
 w                       brace,contain_simple_text       BRACE_special
 
-# other brace commands, leading and trailing spaces not ignored
+# other brace commands, leading and trailing spaces kept in main text
 dmn                     brace,contain_plain_text        BRACE_other         1
 titlefont               brace,global                    BRACE_other         1
 
@@ -322,6 +384,8 @@ titlefont               brace,global                    BRACE_other         1
 footnote                brace,global                    BRACE_context
 caption                 brace                           BRACE_context
 shortcaption            brace                           BRACE_context
+# Commands that enclose math content, and, because of that, are not in the
+# main document context.
 math                    brace,math                      BRACE_context
 
 # explained commands
@@ -351,6 +415,7 @@ image                   brace                           BRACE_arguments     5
 
 
 ##########################################################
+# commands delimiting blocks, with an @end.
 
 # def* commands
 deffn                   block,def                       BLOCK_def
@@ -400,7 +465,7 @@ deftypemethodx          line,def,def_alias              LINE_line
 
 multitable              block,blockitem                 BLOCK_multitable
 
-# menu commands
+# menu commands in which menu entry and menu comments appear
 menu                    block                           BLOCK_menu
 detailmenu              block,global                    BLOCK_menu
 direntry                block                           BLOCK_menu

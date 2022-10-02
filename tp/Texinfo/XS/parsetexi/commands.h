@@ -50,20 +50,24 @@ void wipe_user_commands (void);
 
 #define CF_line			        0x0001
 #define CF_deprecated   	        0x0002
+/* commands that should only appear at the root level and contain up to
+   the next root command.  @node and sectioning commands. */
 #define CF_root			        0x0004
 #define CF_sectioning_heading	        0x0008
 #define CF_brace		        0x0010
 /* CF_letter_no_arg is not used, in Common */
 #define CF_letter_no_arg	        0x0020
 #define CF_accent		        0x0040
-/* CF_math is not used, in Common */
+/* CF_math is not used, used in perl */
 #define CF_math			        0x0080
 #define CF_variadic		        0x0100
 #define CF_INFOENCLOSE  	        0x0200
+/* in_heading_spec only valid in heading or footing specifications */
 #define CF_in_heading_spec     	        0x0400
 #define CF_ref			        0x0800
 #define CF_ALIAS                        0x1000
 #define CF_block		        0x2000
+/* in_heading_spec commands are only valid in heading_spec */
 #define CF_heading_spec		        0x4000
 /* CF_internal is not used in code, but it should be kept as internal
  * commands marker */
@@ -71,6 +75,7 @@ void wipe_user_commands (void);
 #define CF_global			0x00010000
 #define CF_def		        	0x00020000
 #define CF_def_alias	        	0x00040000
+/* only accept plain text, ie only accent, symbol and glyph commands */
 #define CF_contain_plain_text		0x00080000
 /* CF_align is not used */
 #define CF_align			0x00100000
@@ -82,6 +87,7 @@ void wipe_user_commands (void);
 /* CF_item_line is not used */
 #define CF_item_line			0x02000000
 #define CF_nobrace			0x04000000
+/* blockitem commands have a possible content before an item */
 #define CF_blockitem			0x08000000
 /* CF_inline is not used */
 #define CF_inline			0x10000000

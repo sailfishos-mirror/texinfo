@@ -30,6 +30,7 @@ use strict;
 
 use Carp qw(cluck);
 
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Translations;
 use Texinfo::Structuring;
@@ -82,7 +83,7 @@ sub fill_gaps_in_sectioning($)
   my @sections_list;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-        and $Texinfo::Common::root_commands{$content->{'cmdname'}}) {
+        and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
       push @sections_list, $content;
     }
   }
@@ -162,7 +163,7 @@ sub _reference_to_arg($$$)
   my $current = shift;
 
   if ($current->{'cmdname'} and
-      $Texinfo::Common::ref_commands{$current->{'cmdname'}}
+      $Texinfo::Commands::ref_commands{$current->{'cmdname'}}
       and $current->{'args'}) {
     my @args_try_order;
     if ($current->{'cmdname'} eq 'inforef') {
@@ -358,7 +359,7 @@ sub insert_nodes_for_sectioning_commands($$$$)
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
         and $content->{'cmdname'} ne 'part'
-        and $Texinfo::Common::root_commands{$content->{'cmdname'}}
+        and $Texinfo::Commands::root_commands{$content->{'cmdname'}}
         and not ($content->{'extra'}
                  and $content->{'extra'}->{'associated_node'})) {
       my $new_node_tree;
@@ -757,8 +758,8 @@ sub menu_to_simple_menu($)
         }
       }
     } elsif ($content->{'cmdname'}
-             and $Texinfo::Common::block_commands{$content->{'cmdname'}}
-  and $Texinfo::Common::block_commands{$content->{'cmdname'}} eq 'menu') {
+             and $Texinfo::Commands::block_commands{$content->{'cmdname'}}
+  and $Texinfo::Commands::block_commands{$content->{'cmdname'}} eq 'menu') {
       menu_to_simple_menu($content);
       push @contents, $content;
     } else {

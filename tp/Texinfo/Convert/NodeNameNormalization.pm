@@ -33,6 +33,7 @@ use Unicode::Normalize;
 use Text::Unidecode;
 
 # commands classes
+use Texinfo::Commands;
 use Texinfo::Common;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
@@ -65,7 +66,7 @@ my %normalize_node_nobrace_symbol_text
   = %Texinfo::Common::nobrace_symbol_text;
 $normalize_node_nobrace_symbol_text{'*'} = ' ';
 
-my %accent_commands = %Texinfo::Common::accent_commands;
+my %accent_commands = %Texinfo::Commands::accent_commands;
 
 my %ignored_brace_commands;
 foreach my $ignored_brace_command ('anchor', 'footnote', 'shortcaption',
@@ -285,7 +286,7 @@ sub _convert($;$)
       }
     #} elsif ($element->{'cmdname'} eq 'image') {
     #  return _convert($element->{'args'}->[0]);
-    } elsif ($Texinfo::Common::ref_commands{$element->{'cmdname'}}) {
+    } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
       my @args_try_order;
       if ($element->{'cmdname'} eq 'inforef') {
         @args_try_order = (0, 1, 2);

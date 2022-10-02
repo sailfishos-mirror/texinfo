@@ -33,6 +33,8 @@ use strict;
 
 use Carp qw(cluck confess);
 
+# for %root_commands
+use Texinfo::Commands;
 use Texinfo::Common;
 
 # for error messages
@@ -922,7 +924,7 @@ sub split_by_section($)
         push @$tree_units, $current;
       }
     } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-             and $Texinfo::Common::root_commands{$content->{'cmdname'}}) {
+             and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
       if (not defined($current->{'extra'})
                or not defined($current->{'extra'}->{'unit_command'})) {
         #$current->{'extra'} = {} if (! $current->{'extra'});

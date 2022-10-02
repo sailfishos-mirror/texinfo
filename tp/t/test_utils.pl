@@ -58,6 +58,7 @@ use Storable qw(dclone); # standard in 5.007003
 use Getopt::Long qw(GetOptions);
 use Locale::Messages ();
 
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Config;
@@ -985,7 +986,7 @@ sub test($$)
 
   # take the initial values to record only if there is something new
   # do a copy to compare the values and not the references
-  my $initial_index_names = dclone(\%Texinfo::Common::index_names);
+  my $initial_index_names = dclone(\%Texinfo::Commands::index_names);
   my $tree;
   if (!$test_file) {
     if ($full_document) {

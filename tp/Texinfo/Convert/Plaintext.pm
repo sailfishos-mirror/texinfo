@@ -30,6 +30,7 @@ use if $] >= 5.014, re => '/a';
 
 use strict;
 
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Utils;
@@ -63,7 +64,7 @@ $VERSION = '6.8dev';
 my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
 my %formatted_nobrace_commands = %Texinfo::Common::formatted_nobrace_commands;
 my %formattable_line_commands = %Texinfo::Common::formattable_line_commands;
-my %brace_commands = %Texinfo::Common::brace_commands;
+my %brace_commands = %Texinfo::Commands::brace_commands;
 
 
 my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
@@ -84,28 +85,29 @@ sub get_informative_global_commands($)
   return @informative_global_commands;
 }
 
-my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %brace_no_arg_commands;
 foreach my $command (keys (%brace_commands)) {
   $brace_no_arg_commands{$command} = 1 
     if ($brace_commands{$command} eq 'noarg');
 }
-my %accent_commands = %Texinfo::Common::accent_commands;
-my %line_commands = %Texinfo::Common::line_commands;
-my %nobrace_commands = %Texinfo::Common::nobrace_commands;
-my %sectioning_heading_commands = %Texinfo::Common::sectioning_heading_commands;
-my %def_commands = %Texinfo::Common::def_commands;
-my %ref_commands = %Texinfo::Common::ref_commands;
-my %block_commands = %Texinfo::Common::block_commands;
-my %root_commands = %Texinfo::Common::root_commands;
-my %preformatted_commands = %Texinfo::Common::preformatted_commands;
-my %math_commands = %Texinfo::Common::math_commands;
+my %accent_commands = %Texinfo::Commands::accent_commands;
+my %line_commands = %Texinfo::Commands::line_commands;
+my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
+my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
+my %def_commands = %Texinfo::Commands::def_commands;
+my %ref_commands = %Texinfo::Commands::ref_commands;
+my %block_commands = %Texinfo::Commands::block_commands;
+my %root_commands = %Texinfo::Commands::root_commands;
+my %preformatted_commands = %Texinfo::Commands::preformatted_commands;
+my %math_commands = %Texinfo::Commands::math_commands;
+my %preformatted_code_commands = %Texinfo::Commands::preformatted_code_commands;
+my %default_index_commands = %Texinfo::Commands::default_index_commands;
+
+my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
+my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
-my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
-my %default_index_commands = %Texinfo::Common::default_index_commands;
-my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
 my @contents_commands = ('contents', 'shortcontents', 'summarycontents');
 

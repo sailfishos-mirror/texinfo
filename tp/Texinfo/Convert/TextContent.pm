@@ -22,6 +22,7 @@ package Texinfo::Convert::TextContent;
 use 5.00405;
 use strict;
 
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
@@ -130,7 +131,7 @@ sub _convert($$)
       return "$Texinfo::Convert::Utils::MONTH_NAMES[$mon] $mday, $year";
     } elsif (defined($Texinfo::Convert::Text::text_brace_no_arg_commands{$element->{'cmdname'}})) {
       return Texinfo::Convert::Text::brace_no_arg_command($element, undef);
-    } elsif ($Texinfo::Common::accent_commands{$element->{'cmdname'}}) {
+    } elsif ($Texinfo::Commands::accent_commands{$element->{'cmdname'}}) {
       my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self);
       my $result = Texinfo::Convert::Text::text_accents($element,
                                         $options{'enabled_encoding'});
@@ -140,7 +141,7 @@ sub _convert($$)
   my $result = '';
   if ($element->{'args'}
       and (!$element->{'cmdname'}
-           or !$Texinfo::Common::blockitem_commands{$element->{'cmdname'}})) {
+           or !$Texinfo::Commands::blockitem_commands{$element->{'cmdname'}})) {
     my $args;
     if ($element->{'cmdname'}
         and $Texinfo::Common::inline_format_commands{$element->{'cmdname'}}) {

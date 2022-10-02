@@ -21,6 +21,7 @@
 
 use strict;
 
+use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Structuring;
@@ -187,7 +188,7 @@ sub book_convert_heading_command($$$$$)
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
-  if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
+  if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}
       and $element->{'structure'}->{'associated_unit'}) {
     $tree_unit = $element->{'structure'}->{'associated_unit'};
   }
@@ -220,7 +221,7 @@ sub book_convert_heading_command($$$$$)
       and @{$element->{'structure'}->{'section_childs'}}
       # FIXME why not @top?
       and $cmdname ne 'top'
-      and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
+      and $Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
     $sub_toc .= $self->html_attribute_class('ul', [$toc_numbered_mark_class]).">\n";
     $sub_toc .= book_print_sub_toc($self, $element,
                                   $element->{'structure'}->{'section_childs'}->[0]);
@@ -228,7 +229,7 @@ sub book_convert_heading_command($$$$$)
   }
 
   if ($self->get_conf('NO_TOP_NODE_OUTPUT')
-      and $Texinfo::Common::root_commands{$cmdname}) {
+      and $Texinfo::Commands::root_commands{$cmdname}) {
     my $in_skipped_node_top
       = $self->shared_conversion_state('in_skipped_node_top', 0);
     if ($cmdname eq 'node') {
@@ -276,7 +277,7 @@ sub book_convert_heading_command($$$$$)
            # the section was opened before when the node was encountered
            and not $element->{'extra'}->{'associated_node'}
            # to avoid *heading* @-commands
-           and $Texinfo::Common::root_commands{$cmdname}) {
+           and $Texinfo::Commands::root_commands{$cmdname}) {
     $opening_section = $element;
     $level_corrected_opening_section_cmdname = $level_corrected_cmdname;
   }
@@ -348,8 +349,8 @@ sub book_convert_heading_command($$$$$)
 
   if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
-        and $Texinfo::Common::root_commands{$cmdname}
-        and $Texinfo::Common::sectioning_heading_commands{$cmdname}) {
+        and $Texinfo::Commands::root_commands{$cmdname}
+        and $Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
       my $content_href = $self->command_contents_href($element, 'contents');
       if ($content_href ne '') {
         $heading = "<a href=\"$content_href\">$heading</a>";
@@ -385,7 +386,7 @@ sub book_convert_heading_command($$$$$)
   return $result;
 }
 
-foreach my $command (keys(%Texinfo::Common::sectioning_heading_commands),
+foreach my $command (keys(%Texinfo::Commands::sectioning_heading_commands),
                                                                   'node') {
   texinfo_register_command_formatting($command,
                                 \&book_convert_heading_command);
