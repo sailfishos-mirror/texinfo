@@ -288,6 +288,7 @@ my %in_heading_spec_commands  = %Texinfo::Common::in_heading_spec_commands;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
 my %explained_commands        = %Texinfo::Common::explained_commands;
 my %inline_format_commands    = %Texinfo::Common::inline_format_commands;
+my %variadic_commands         = %Texinfo::Common::variadic_commands;
 my %all_commands              = %Texinfo::Common::all_commands;
 
 # equivalence between a @set flag and an @@-command
@@ -5012,7 +5013,7 @@ sub _process_remaining_on_line($$$$)
           if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(c|comment)((\@|\s+).*)?)?$/) {
             my $name = $1;
             my $command_is_defined = (
-              exists($Texinfo::Common::all_commands{$name})
+              exists($all_commands{$name})
               or $self->{'macros'}->{$name}
               or $self->{'definfoenclose'}->{$name}
               or $self->{'aliases'}->{$name}
@@ -5160,14 +5161,12 @@ sub _process_remaining_on_line($$$$)
            'parent' => $current } ];
 
         if ($commands_args_number{$command}) {
-          if ($commands_args_number{$command} =~ /^\d+$/) {
-            if ($commands_args_number{$command} - 1 > 0) {
-              $current->{'remaining_args'}
-                = $commands_args_number{$command} - 1;
-            }
-          } elsif ($commands_args_number{$command} eq 'variadic') {
-            $current->{'remaining_args'} = -1; # unlimited args
+          if ($commands_args_number{$command} - 1 > 0) {
+            $current->{'remaining_args'}
+              = $commands_args_number{$command} - 1;
           }
+        } elsif ($variadic_commands{$command}) {
+          $current->{'remaining_args'} = -1; # unlimited args
         }
         $current = $current->{'args'}->[-1];
         $self->_push_context('ct_line', $command)

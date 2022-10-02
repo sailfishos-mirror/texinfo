@@ -312,7 +312,7 @@ seealso                 brace                           BRACE_arguments     1
 
 value                   brace                           BRACE_special
 verb                    brace                           BRACE_special
-w                       brace                           BRACE_special
+w                       brace,contain_plain_text        BRACE_special
 
 # other brace commands, leading and trailing spaces not ignored
 dmn                     brace,contain_plain_text        BRACE_other         1

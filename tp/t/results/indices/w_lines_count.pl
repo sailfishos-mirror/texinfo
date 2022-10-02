@@ -392,7 +392,17 @@ $result_menus{'w_lines_count'} = {
   }
 };
 
-$result_errors{'w_lines_count'} = [];
+$result_errors{'w_lines_count'} = [
+  {
+    'error_line' => 'warning: @code should not appear in @w
+',
+    'file_name' => '',
+    'line_nr' => 5,
+    'macro' => '',
+    'text' => '@code should not appear in @w',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'w_lines_count'} = {};

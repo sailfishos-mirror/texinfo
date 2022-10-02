@@ -1,5 +1,17 @@
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	Warn if @-commands other than accent, glyphs and symbols appear in @w
+
+	* tp/Texinfo/Common.pm (%contain_plain_text_commands),
+	tp/Texinfo/XS/parsetexi/command_data.txt, NEWS: add w to contain_plain_text.
+
+	* tp/Texinfo/Common.pm (%variadic_commands),
+	tp/Texinfo/ParserNonXS.pm: use the %variadic_commands hash for
+	variadic commands instead of setting %commands_args_number to
+	variadic.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%contain_plain_text_commands),
 	tp/Texinfo/ParserNonXS.pm (%plain_text_commands),
 	tp/Texinfo/XS/parsetexi/command_data.txt,

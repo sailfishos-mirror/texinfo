@@ -746,22 +746,15 @@ foreach my $command ('code', 'command', 'env', 'file', 'indicateurl', 'kbd',
   $brace_commands{$command} = 'style_code';
 }
 
-# FIXME Some commands can contain @-commands, but not all, for example no @ref,
-# no @footnote: 'anchor', 'indicateurl', 'errormsg', 'seeentry', 'seealso'.
-# 'titlefont' may be less constrained.
-
 # in this category, the leading and trailing spaces are put in specific
-# text with type, but commas do not delimitate arguments
+# text with type, but commas do not delimitate arguments.
+# As other arguments brace_commands, they can only contain simple text,
+# ie not ref, footnote, titlefont, anchor, verb.
+# Parsers have specific checks for U content.
 foreach my $one_arg_command ('U', 'hyphenation',
     'anchor', 'errormsg', 'sortas', 'seeentry', 'seealso') {
   $brace_commands{$one_arg_command} = 'arguments';
   $commands_args_number{$one_arg_command} = 1;
-}
-
-# only accept plain text, ie only accent, symbol and glyph commands
-our %contain_plain_text_commands;
-foreach my $command ('dmn', 'key', 'hyphenation', 'sortas') {
-  $contain_plain_text_commands{$command} = 1;
 }
 
 # Leading and trailing spaces kept in main text.
@@ -771,9 +764,15 @@ foreach my $special_arg_command ('w', 'verb', 'value') {
   $brace_commands{$special_arg_command} = 'special';
 }
 
-# Leading and trailing spaces kept in main text, nothing special.
+# Leading and trailing spaces kept in main text.
 foreach my $other_arg_command ('titlefont', 'dmn') {
   $brace_commands{$other_arg_command} = 'other';
+}
+
+# only accept plain text, ie only accent, symbol and glyph commands
+our %contain_plain_text_commands;
+foreach my $command ('dmn', 'hyphenation', 'key', 'sortas', 'w') {
+  $contain_plain_text_commands{$command} = 1;
 }
 
 # brace style command that are not style commands
@@ -952,7 +951,11 @@ foreach my $preformatted_command(
   $preformatted_commands{$preformatted_command} = 1;
   $preformatted_code_commands{$preformatted_command} = 1;
 }
-$commands_args_number{'example'} = 'variadic'; # unlimited arguments
+
+# unlimited arguments
+our %variadic_commands = (
+  'example' => 1,
+);
 
 foreach my $preformatted_command(
     'display', 'smalldisplay', 'format', 'smallformat') {
@@ -1034,7 +1037,6 @@ foreach my $close_paragraph_command ('titlefont', 'insertcopying', 'sp',
 foreach my $close_paragraph_command (keys(%def_commands)) {
   $close_paragraph_commands{$close_paragraph_command} = 1;
 }
-
 
 our %deprecated_commands = (
   'definfoenclose' => '',
@@ -3042,10 +3044,10 @@ Other values for other block line commands.
 X<C<%commands_args_number>>
 
 Set to the number of arguments separated by commas that may appear in braces or
-on the @-command line, or to I<variadic> if there is an unlimited number of
-arguments.  That means 0 or unset in most block command cases, 1 for
-C<@quotation>, 2 for C<@float> and C<variadic> for C<@example>, 1 for most
-brace commands, 2 for C<@email> or C<@abbr>, 5 for C<@image> of C<@ref>.
+on the @-command line.  That means 0 or unset in most block command cases,
+including C<@example> which has an unlimited (variadic) number of arguments, 1
+for C<@quotation>, 2 for C<@float>, 1 for most brace commands, 2 for C<@email>
+or C<@abbr>, 5 for C<@image> of C<@ref>.
 
 Values are not necessarily set for all the commands, as commands are
 also classified by type of command, some type of commands implying a
@@ -3192,6 +3194,11 @@ X<C<%small_block_associated_command>>
 
 Associate small command like C<smallexample> to the regular command
 C<example>.
+
+=item %variadic_commands
+X<C<%variadic_commands>>
+
+Commands with unlimited arguments, like C<@example>.
 
 =back
 

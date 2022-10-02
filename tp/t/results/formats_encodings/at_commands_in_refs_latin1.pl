@@ -21896,6 +21896,15 @@ $result_menus{'at_commands_in_refs_latin1'}{'structure'}{'menu_child'}{'structur
 
 $result_errors{'at_commands_in_refs_latin1'} = [
   {
+    'error_line' => 'warning: @b should not appear in @w
+',
+    'file_name' => '',
+    'line_nr' => 28,
+    'macro' => '',
+    'text' => '@b should not appear in @w',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @node
 ',
     'file_name' => '',
@@ -21914,12 +21923,39 @@ $result_errors{'at_commands_in_refs_latin1'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: @b should not appear in @w
+',
+    'file_name' => '',
+    'line_nr' => 103,
+    'macro' => '',
+    'text' => '@b should not appear in @w',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @b should not appear in @w
+',
+    'file_name' => '',
+    'line_nr' => 104,
+    'macro' => '',
+    'text' => '@b should not appear in @w',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @verb should not appear in @ref
 ',
     'file_name' => '',
     'line_nr' => 165,
     'macro' => '',
     'text' => '@verb should not appear in @ref',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: @b should not appear in @w
+',
+    'file_name' => '',
+    'line_nr' => 168,
+    'macro' => '',
+    'text' => '@b should not appear in @w',
     'type' => 'warning'
   }
 ];
