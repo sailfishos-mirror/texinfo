@@ -903,17 +903,7 @@ convention should be followed in Texinfo files.  TeX converts
 two single quotes to left- and right-hand doubled.
 ';
 
-$result_errors{'test_w'} = [
-  {
-    'error_line' => 'warning: @t should not appear in @w
-',
-    'file_name' => '',
-    'line_nr' => 34,
-    'macro' => '',
-    'text' => '@t should not appear in @w',
-    'type' => 'warning'
-  }
-];
+$result_errors{'test_w'} = [];
 
 
 $result_floats{'test_w'} = {};

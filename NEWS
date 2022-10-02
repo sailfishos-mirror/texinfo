@@ -13,7 +13,7 @@ See the manual for detailed information.
 * texi2any
  . LaTeX added as an output format, selected with --latex
  . EPUB 3 added as an output format, selected with --epub3
- . Warn if @-commands other than accent, glyphs and symbols appear in @w
+ . Warn if full text commands (@ref, @footnote, @anchor) appear in @w
  . reform throughout the code in general
  . thorough review of character encoding issues
  . new customization variables involved with character encoding:

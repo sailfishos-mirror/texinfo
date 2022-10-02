@@ -72,10 +72,9 @@ void wipe_user_commands (void);
 #define CF_def		        	0x00020000
 #define CF_def_alias	        	0x00040000
 #define CF_contain_plain_text		0x00080000
-/* CF_align is not used, in Common */
+/* CF_align is not used */
 #define CF_align			0x00100000
-/* CF_other is not used */
-#define CF_other	        	0x00200000
+#define CF_contain_simple_text        	0x00200000
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000
 /* CF_item_container is not used */

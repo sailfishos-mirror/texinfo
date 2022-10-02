@@ -922,7 +922,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   // much TODO here.
 
-  if ((outer_flags & CF_line
+  if (outer_flags & CF_contain_simple_text
+      || (outer_flags & CF_line
             && (command_data(outer).data == LINE_specific
                 || (command_data(outer).data == LINE_line
                     && !(outer_flags & (CF_def | CF_sectioning_heading)))

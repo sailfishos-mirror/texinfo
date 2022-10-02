@@ -76,6 +76,7 @@ use Storable qw(dclone); # standard in 5.007003
 
 # commands definitions
 use Texinfo::Common;
+use Texinfo::Commands;
 # Error reporting and counting
 use Texinfo::Report;
 
@@ -269,6 +270,7 @@ my %commands_args_number      = %Texinfo::Common::commands_args_number;
 my %accent_commands           = %Texinfo::Common::accent_commands;
 my %context_brace_commands    = %Texinfo::Common::context_brace_commands;
 my %contain_plain_text_commands = %Texinfo::Common::contain_plain_text_commands;
+my %contain_simple_text_commands = %Texinfo::Commands::contain_simple_text_commands;
 my %block_commands            = %Texinfo::Common::block_commands;
 my %blockitem_commands        = %Texinfo::Common::blockitem_commands;
 my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
@@ -478,6 +480,8 @@ foreach my $command (keys (%brace_commands)) {
       and not $contain_plain_text_commands{$command}) {
     $simple_text_commands{$command} = 1;
   }
+  $simple_text_commands{$command} = 1
+    if $contain_simple_text_commands{$command};
 }
 
 # %brace_commands 'context'

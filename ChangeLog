@@ -1,5 +1,14 @@
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS, tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h, tp/Texinfo/XS/parsetexi/parser.c
+	(check_valid_nesting): add contain_simple_text flag.  Set @w to be
+	contain_simple_text, plain text is too restrictive, there are many
+	uses of indicatric commands in @w in the Texinfo manual.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	* maintain/regenerate_commands_perl_info.pl, Makefile.am: rename
 	maintain/regenerate_perl_command_infos.pl as
 	maintain/regenerate_commands_perl_info.pl.  Distribute the script.
