@@ -288,6 +288,7 @@ maintenance_files = \
   maintain/regenerate_documentlanguages-iana.pl \
   maintain/regenerate_documentlanguages-loc.pl \
   maintain/regenerate_file_lists.pl \
+  maintain/regenerate_commands_perl_info.pl \
   maintain/template.pod \
   maintain/catalog.xml.in
 
@@ -322,7 +323,7 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 
 Texinfo/Commands.pm: Texinfo/XS/parsetexi/command_data.txt
 	$(MKDIR_P) Texinfo
-	$(srcdir)/maintain/regenerate_perl_command_infos.pl < $< > $@
+	$(srcdir)/maintain/regenerate_commands_perl_info.pl < $< > $@
 
 libsrcdir = $(srcdir)/maintain/lib
 
@@ -368,4 +369,4 @@ distclean-local:
 	rm -rf blib po po_document
 
 CLEANFILES = texi2any makeinfo texi2any-perl Texinfo/ModulePath.pm
-DISTCLEANFILES = maintain/catalog.xml pm_to_blib Makefile.old
+DISTCLEANFILES = maintain/catalog.xml pm_to_blib Makefile.old Texinfo/Commands.pm

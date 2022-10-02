@@ -60,6 +60,9 @@ while (<>) {
       }
       $category = $categories[0];
     }
+    # remove _LINE in item_LINE
+    my $uc_category = uc($category);
+    $command =~ s/_$uc_category$//;
     $command_categories{$category}->{$type} = []
         if not ($command_categories{$category}->{$type});
     push @{$command_categories{$category}->{$type}}, $command;

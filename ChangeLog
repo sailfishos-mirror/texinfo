@@ -1,3 +1,10 @@
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
+	* maintain/regenerate_commands_perl_info.pl, Makefile.am: rename
+	maintain/regenerate_perl_command_infos.pl as
+	maintain/regenerate_commands_perl_info.pl.  Distribute the script.
+	Remove _LINE in item_LINE.
+
 2022-10-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/LaTeX.pm (index_entry): Strip | from
