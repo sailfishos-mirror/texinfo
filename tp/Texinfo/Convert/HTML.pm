@@ -114,8 +114,6 @@ my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
-my %align_commands = %Texinfo::Common::align_commands;
-my %region_commands = %Texinfo::Common::region_commands;
 my %context_brace_commands = %Texinfo::Common::context_brace_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 my %small_block_associated_command = %Texinfo::Common::small_block_associated_command;
@@ -131,8 +129,13 @@ foreach my $misc_context_command('tab', 'item', 'itemx', 'headitem') {
   $format_context_commands{$misc_context_command} = 1;
 }
 
+my %HTML_align_commands;
+foreach my $align_command('raggedright', 'flushleft', 'flushright', 'center') {
+  $HTML_align_commands{$align_command} = 1;
+}
+
 my %composition_context_commands = (%preformatted_commands, %root_commands,
-  %align_commands);
+  %HTML_align_commands);
 $composition_context_commands{'float'} = 1;
 my %format_raw_commands;
 foreach my $block_command (keys(%block_commands)) {
@@ -144,6 +147,7 @@ foreach my $block_command (keys(%block_commands)) {
 
 # FIXME allow customization? (also in DocBook)
 my %upper_case_commands = ( 'sc' => 1 );
+
 
 # API for html formatting
 
@@ -581,7 +585,7 @@ sub in_align($)
   my $self = shift;
   my $context
        = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
-  if ($align_commands{$context}) {
+  if ($HTML_align_commands{$context}) {
     return $context;
   } else {
     return undef;
@@ -5407,7 +5411,7 @@ sub _convert_paragraph_type($$$$)
 
   if ($content =~ /\S/) {
     my $align = $self->in_align();
-    if ($align and $align_commands{$align}) {
+    if ($align and $HTML_align_commands{$align}) {
       return $self->html_attribute_class('p', [$align.'-paragraph']).">"
                              .$content."</p>";
     } else {
@@ -7642,7 +7646,8 @@ sub _html_get_tree_root_element($$;$)
         $root_command = $current;
         #print STDERR "CMD ROOT $current->{'cmdname'}\n" if ($debug);
         return ($root_element, $root_command) if defined($root_element);
-      } elsif ($region_commands{$current->{'cmdname'}}) {
+      } elsif ($block_commands{$current->{'cmdname'}}
+               and $block_commands{$current->{'cmdname'}} eq 'region') {
         if ($current->{'cmdname'} eq 'copying'
             and $self->{'global_commands'}
             and $self->{'global_commands'}->{'insertcopying'}) {

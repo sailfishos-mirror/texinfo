@@ -5,6 +5,35 @@
 
 2022-10-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%def_alias_commands),
+	tp/Texinfo/ParserNonXS.pm (_parse_def): add %def_alias_commands
+	and use for consistency with XS parser.
+
+	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/HTML.pm
+	(%HTML_align_commands), tp/Texinfo/ParserNonXS.pm: remove
+	%region_commands and %align_commands.  Set %HTML_align_commands in
+	HTML.pm as the set of align commands choosen is not generic.
+
+	* tp/Texinfo/Common.pm (%block_commands): set align and other
+	block commands to type 'other'.
+
+	* tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h: add BLOCK_def for consistency
+	with perl parser.
+
+	* tp/Texinfo/ParserNonXS.pm (_pop_block_command_contexts)
+	(_close_brace_command, _close_all_style_commands, _end_paragraph)
+	(_end_preformatted, _close_current, _close_commands),
+	tp/Texinfo/XS/parsetexi/close.c (pop_block_command_contexts)
+	(close_brace_command, close_all_style_commands, close_current)
+	(close_commands), tp/Texinfo/XS/parsetexi/parser.c (end_paragraph)
+	(end_preformatted): add pop_block_command_contexts to pop block
+	commands context when closing block commands.  Change variable names
+	to closed_block_command to show that the argument can only be a block
+	command.
+
+2022-10-02  Patrice Dumas  <pertusus@free.fr>
+
 	Warn if @| appears out of a heading specification
 
 	* tp/Texinfo/Common.pm (%in_heading_spec_commands),

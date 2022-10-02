@@ -147,7 +147,8 @@ my %parser_state_initialization = (
                               # as obtained by parsing the @macro
   'macro_stack' => [],        # stack of macros being expanded (more recent first)
   'merged_indices' => {},     # the key is merged in the value
-  'regions_stack' => [],      # a stack of regions commands elements (in %region_commands)
+  'regions_stack' => [],      # a stack of regions commands elements (block
+                              # region commands)
   'sections_level' => 0,      # modified by raise/lowersections
   'targets' => [],            # array of elements used to build 'labels'
   # initialization of information returned by global_information()
@@ -273,6 +274,7 @@ my %close_paragraph_commands  = %Texinfo::Common::close_paragraph_commands;
 my %def_map                   = %Texinfo::Common::def_map;
 my %def_commands              = %Texinfo::Common::def_commands;
 my %def_aliases               = %Texinfo::Common::def_aliases;
+my %def_alias_commands        = %Texinfo::Common::def_alias_commands;
 my %preformatted_commands     = %Texinfo::Common::preformatted_commands;
 my %math_commands             = %Texinfo::Common::math_commands;
 my %deprecated_commands       = %Texinfo::Common::deprecated_commands;
@@ -280,7 +282,6 @@ my %root_commands             = %Texinfo::Common::root_commands;
 my %sectioning_heading_commands     = %Texinfo::Common::sectioning_heading_commands;
 my %command_index             = %Texinfo::Common::command_index;
 my %ref_commands              = %Texinfo::Common::ref_commands;
-my %region_commands           = %Texinfo::Common::region_commands;
 my %heading_spec_commands     = %Texinfo::Common::heading_spec_commands;
 my %in_heading_spec_commands  = %Texinfo::Common::in_heading_spec_commands;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
@@ -1346,19 +1347,19 @@ sub _command_error($$$$;@)
   }
 }
 
-# currently doesn't do much more than
+# register error messages, but otherwise doesn't do much more than
 # return $_[1]->{'parent'}
 sub _close_brace_command($$$;$$)
 {
-  my ($self, $current, $source_info, $closed_command,
+  my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
   if ($current->{'cmdname'} ne 'verb'
       or $current->{'extra'}->{'delimiter'} eq '') {
-    if (defined($closed_command)) {
+    if (defined($closed_block_command)) {
       $self->_command_error($current, $source_info,
         __("\@end %s seen before \@%s closing brace"),
-                  $closed_command, $current->{'cmdname'});
+                  $closed_block_command, $current->{'cmdname'});
     } elsif (defined($interrupting_command)) {
       $self->_command_error($current, $source_info,
         __("\@%s seen before \@%s closing brace"),
@@ -1417,7 +1418,7 @@ sub _kbd_formatted_as_code($$)
 # close brace commands, that don't set a new context (ie @caption, @footnote)
 sub _close_all_style_commands($$$;$$)
 {
-  my ($self, $current, $source_info, $closed_command,
+  my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
   while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
@@ -1426,7 +1427,7 @@ sub _close_all_style_commands($$$;$$)
     print STDERR "CLOSING(_close_all_style_commands) \@$current->{'parent'}->{'cmdname'}\n"
          if ($self->{'DEBUG'});
     $current = _close_brace_command($self, $current->{'parent'}, $source_info,
-                                    $closed_command, $interrupting_command);
+                                    $closed_block_command, $interrupting_command);
   }
   return $current;
 }
@@ -1434,11 +1435,11 @@ sub _close_all_style_commands($$$;$$)
 # close brace commands except for @caption, @footnote then the paragraph
 sub _end_paragraph($$$;$$)
 {
-  my ($self, $current, $source_info, $closed_command,
+  my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
   $current = _close_all_style_commands($self, $current, $source_info,
-                                       $closed_command, $interrupting_command);
+                                       $closed_block_command, $interrupting_command);
   if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
     print STDERR "CLOSE PARA\n" if ($self->{'DEBUG'});
     $current = $current->{'parent'};
@@ -1449,11 +1450,11 @@ sub _end_paragraph($$$;$$)
 # close brace commands except for @caption, @footnote then the preformatted
 sub _end_preformatted($$$;$$)
 {
-  my ($self, $current, $source_info, $closed_command,
+  my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
   $current = _close_all_style_commands($self, $current, $source_info,
-                                       $closed_command, $interrupting_command);
+                                       $closed_block_command, $interrupting_command);
 
   if ($current->{'type'} and $current->{'type'} eq 'preformatted') {
     print STDERR "CLOSE PREFORMATTED\n" if ($self->{'DEBUG'});
@@ -1757,13 +1758,34 @@ sub _close_command_cleanup($$) {
   }
 }
 
+sub _pop_block_command_contexts($$$;$)
+{
+  my $self = shift;
+  my $current = shift;
+  my $source_info = shift;
+  my $context_string = shift;
+  if ($preformatted_commands{$current->{'cmdname'}}
+      or $block_commands{$current->{'cmdname'}} eq 'menu') {
+    $self->_pop_context(['ct_preformatted'], $source_info, $current,
+                        $context_string);
+  } elsif ($block_commands{$current->{'cmdname'}} eq 'format_raw') {
+    $self->_pop_context(['ct_rawpreformatted'], $source_info, $current,
+                        $context_string);
+  } elsif ($math_commands{$current->{'cmdname'}}) {
+    $self->_pop_context(['ct_math'], $source_info, $current,
+                        $context_string);
+  } elsif ($block_commands{$current->{'cmdname'}} eq 'region') {
+    pop @{$self->{'regions_stack'}};
+  }
+}
+
 # close the current command, with error messages and give the parent.
 # If the last argument is given it is the command being closed if
 # hadn't there be an error, currently only block command, used for a
 # better error message.
 sub _close_current($$$;$$)
 {
-  my ($self, $current, $source_info, $closed_command,
+  my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
   if ($current->{'cmdname'}) {
@@ -1780,11 +1802,11 @@ sub _close_current($$$;$$)
         $self->_pop_context([$expected_context], $source_info, $current);
       }
       $current = _close_brace_command($self, $current, $source_info,
-                                      $closed_command, $interrupting_command);
+                                      $closed_block_command, $interrupting_command);
     } elsif (exists($block_commands{$current->{'cmdname'}})) {
-      if (defined($closed_command)) {
+      if (defined($closed_block_command)) {
         $self->_line_error(sprintf(__("`\@end' expected `%s', but saw `%s'"),
-                                   $current->{'cmdname'}, $closed_command),
+                                   $current->{'cmdname'}, $closed_block_command),
                            $source_info);
       } elsif ($interrupting_command) {
         $self->_line_error(sprintf(__("\@%s seen before \@end %s"),
@@ -1799,16 +1821,7 @@ sub _close_current($$$;$$)
           _pop_element_from_contents($current->{'parent'});
         }
       }
-      if ($preformatted_commands{$current->{'cmdname'}}
-          or $block_commands{$current->{'cmdname'}} eq 'menu') {
-        $self->_pop_context(['ct_preformatted'], $source_info, $current);
-      } elsif ($block_commands{$current->{'cmdname'}} eq 'format_raw') {
-        $self->_pop_context(['ct_rawpreformatted'], $source_info, $current);
-      } elsif ($math_commands{$current->{'cmdname'}}) {
-        $self->_pop_context(['ct_math'], $source_info, $current);
-      }
-      pop @{$self->{'regions_stack'}}
-         if ($region_commands{$current->{'cmdname'}});
+      _pop_block_command_contexts($self, $current, $source_info);
       # empty non-closed block commands at the end of the document
       delete $current->{'contents'}
         if ($current->{'contents'} and scalar(@{$current->{'contents'}}) == 0);
@@ -1859,17 +1872,17 @@ sub _close_current($$$;$$)
 # is found.
 sub _close_commands($$$;$$)
 {
-  my ($self, $current, $source_info, $closed_command,
+  my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
-  $current = _end_paragraph($self, $current, $source_info, $closed_command,
-                            $interrupting_command);
-  $current = _end_preformatted($self, $current, $source_info, $closed_command,
-                               $interrupting_command);
+  $current = _end_paragraph($self, $current, $source_info,
+                            $closed_block_command, $interrupting_command);
+  $current = _end_preformatted($self, $current, $source_info,
+                               $closed_block_command, $interrupting_command);
 
         # stop if the command is found
-  while (!($closed_command and $current->{'cmdname'}
-           and $current->{'cmdname'} eq $closed_command)
+  while (!($closed_block_command and $current->{'cmdname'}
+           and $current->{'cmdname'} eq $closed_block_command)
          # Stop if at the root
          and $current->{'parent'}
          # Stop if at a type at the root
@@ -1877,40 +1890,29 @@ sub _close_commands($$$;$$)
                   and $current->{'type'} eq 'before_node_section')
      # Stop if in a root command
      # or in a context_brace_commands and searching for a specific
-     # end block command (with $closed_command set).
+     # end block command (with $closed_block_command set).
      # This second condition means that a footnote is not closed when
      # looking for the end of a block command, but is closed when
      # completly closing the stack.
          and !($current->{'cmdname'}
                and ($root_commands{$current->{'cmdname'}}
-                    or ($closed_command and $current->{'parent'}->{'cmdname'}
+                    or ($closed_block_command and $current->{'parent'}->{'cmdname'}
                        and $context_brace_commands{$current->{'parent'}->{'cmdname'}})))){
     _close_command_cleanup($self, $current);
-    $current = _close_current($self, $current, $source_info, $closed_command,
+    $current = _close_current($self, $current, $source_info, $closed_block_command,
                               $interrupting_command);
   }
 
   my $closed_element;
-  if ($closed_command and $current->{'cmdname'}
-      and $current->{'cmdname'} eq $closed_command) {
-    if ($preformatted_commands{$current->{'cmdname'}}
-        or $block_commands{$current->{'cmdname'}} eq 'menu') {
-      $self->_pop_context(['ct_preformatted'], $source_info, $current,
-                          "for $closed_command");
-    } elsif ($block_commands{$current->{'cmdname'}} eq 'format_raw') {
-      $self->_pop_context(['ct_rawpreformatted'], $source_info, $current,
-                          "for $closed_command");
-    } elsif ($math_commands{$current->{'cmdname'}}) {
-      $self->_pop_context(['ct_math'], $source_info, $current,
-                          "for $closed_command");
-    }
-    pop @{$self->{'regions_stack'}}
-       if ($region_commands{$current->{'cmdname'}});
+  if ($closed_block_command and $current->{'cmdname'}
+      and $current->{'cmdname'} eq $closed_block_command) {
+    _pop_block_command_contexts($self, $current, $source_info,
+                                "for $closed_block_command");
     $closed_element = $current;
     $current = $current->{'parent'};
-  } elsif ($closed_command) {
+  } elsif ($closed_block_command) {
     $self->_line_error(sprintf(__("unmatched `%c%s'"),
-                       ord('@'), "end $closed_command"), $source_info);
+                       ord('@'), "end $closed_block_command"), $source_info);
   }
   return ($closed_element, $current);
 }
@@ -2537,7 +2539,8 @@ sub _parse_def($$$)
   my @new_contents;
   my @contents = @$contents;
 
-  if ($def_aliases{$command}) {
+  # could have used def_aliases, but use code more similar with the XS parser
+  if ($def_alias_commands{$command}) {
     my $real_command = $def_aliases{$command};
     my $prepended = $def_map{$command}->{$real_command};
 
@@ -5105,7 +5108,7 @@ sub _process_remaining_on_line($$$$)
         } elsif ($block_commands{$command} eq 'format_raw') {
           $self->_push_context('ct_rawpreformatted', $command);
         }
-        if ($region_commands{$command}) {
+        if ($block_commands{$command} eq 'region') {
           if (@{$self->{'regions_stack'}}) {
             $self->_line_error(
         sprintf(__("region %s inside region %s is not allowed"),
@@ -5711,7 +5714,7 @@ sub _process_remaining_on_line($$$$)
     } elsif ($separator eq "\f" and $current->{'type'}
              and $current->{'type'} eq 'paragraph') {
       # form feed stops and restart a paragraph.
-      $current = $self->_end_paragraph($current);
+      $current = _end_paragraph($self, $current, $source_info);
       push @{$current->{'contents'}}, {'text' => $separator,
                                        'type' => 'empty_line',
                                         'parent' => $current };

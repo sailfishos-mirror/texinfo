@@ -492,11 +492,11 @@ begin_preformatted (ELEMENT *current)
 
 ELEMENT *
 end_paragraph (ELEMENT *current,
-               enum command_id closed_command,
+               enum command_id closed_block_command,
                enum command_id interrupting_command)
 {
-  current = close_all_style_commands (current,
-                                      closed_command, interrupting_command);
+  current = close_all_style_commands (current, closed_block_command,
+                                      interrupting_command);
   if (current->type == ET_paragraph)
     {
       debug ("CLOSE PARA");
@@ -508,11 +508,11 @@ end_paragraph (ELEMENT *current,
 
 ELEMENT *
 end_preformatted (ELEMENT *current,
-                  enum command_id closed_command,
+                  enum command_id closed_block_command,
                   enum command_id interrupting_command)
 {
-  current = close_all_style_commands (current,
-                                      closed_command, interrupting_command);
+  current = close_all_style_commands (current, closed_block_command,
+                                      interrupting_command);
   if (current->type == ET_preformatted)
     {
       debug ("CLOSE PREFORMATTED");

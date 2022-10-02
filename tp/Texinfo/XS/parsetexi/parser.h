@@ -107,13 +107,13 @@ typedef struct GLOBAL_INFO {
 
 /* In close.c */
 void close_command_cleanup (ELEMENT *current);
-ELEMENT *close_commands (ELEMENT *current, enum command_id closed_command,
+ELEMENT *close_commands (ELEMENT *current, enum command_id closed_block_command,
                          ELEMENT **closed_element, enum command_id);
 ELEMENT *close_all_style_commands (ELEMENT *current,
-                               enum command_id closed_command,
+                               enum command_id closed_block_command,
                                enum command_id interrupting_command);
 ELEMENT *close_current (ELEMENT *current,
-                        enum command_id closed_command,
+                        enum command_id closed_block_command,
                         enum command_id interrupting_command);
 
 /* In end_line.c */
@@ -149,7 +149,7 @@ extern size_t conditional_number;
 ELEMENT *parse_texi_document (void);
 int abort_empty_line (ELEMENT **current_inout, char *additional);
 ELEMENT *end_paragraph (ELEMENT *current,
-                        enum command_id closed_command,
+                        enum command_id closed_block_command,
                         enum command_id interrupting_command);
 void isolate_last_space (ELEMENT *current);
 int kbd_formatted_as_code (ELEMENT *current);
@@ -157,7 +157,7 @@ int parent_of_command_as_argument (ELEMENT *current);
 void register_command_as_argument (ELEMENT *cmd_as_arg);
 ELEMENT *begin_preformatted (ELEMENT *current);
 ELEMENT *end_preformatted (ELEMENT *current,
-                           enum command_id closed_command,
+                           enum command_id closed_block_command,
                            enum command_id interrupting_command);
 char *read_command_name (char **ptr);
 char *read_flag_name (char **ptr);

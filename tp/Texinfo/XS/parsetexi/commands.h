@@ -107,7 +107,7 @@ void wipe_user_commands (void);
 #define LINE_text -6
 #define LINE_line -7
 
-/* Types of command without brace nor on line (has CF_nobrace flag). */
+/* Types of command without brace nor argument on line (has CF_nobrace flag). */
 #define NOBRACE_symbol 0
 #define NOBRACE_skipspace -1
 #define NOBRACE_other -2
@@ -118,11 +118,15 @@ void wipe_user_commands (void);
 #define BLOCK_multitable -3
 #define BLOCK_region -4
 #define BLOCK_item_line -5
+/* not used in code but consistent with type in perl hash */
 #define BLOCK_item_container -6
+/* not used in code but consistent with type in perl hash */
 #define BLOCK_quotation -7
 #define BLOCK_float -8
 #define BLOCK_menu -9
 #define BLOCK_format_raw -10
+/* not used in code but consistent with type in perl hash */
+#define BLOCK_def -11
 
 /* Types of brace command (CF_brace). */
 #define BRACE_arguments 1

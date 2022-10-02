@@ -353,27 +353,27 @@ image                   brace                           BRACE_arguments     5
 ##########################################################
 
 # def* commands
-deffn                   block,def
-defvr                   block,def
-deftypefn               block,def
-deftypeop               block,def
-deftypevr               block,def
-defcv                   block,def
-deftypecv               block,def
-defop                   block,def
-deftp                   block,def
+deffn                   block,def                       BLOCK_def
+defvr                   block,def                       BLOCK_def
+deftypefn               block,def                       BLOCK_def
+deftypeop               block,def                       BLOCK_def
+deftypevr               block,def                       BLOCK_def
+defcv                   block,def                       BLOCK_def
+deftypecv               block,def                       BLOCK_def
+defop                   block,def                       BLOCK_def
+deftp                   block,def                       BLOCK_def
 #   shortcuts
-defun                   block,def,def_alias
-defmac                  block,def,def_alias
-defspec                 block,def,def_alias
-defvar                  block,def,def_alias
-defopt                  block,def,def_alias
-deftypefun              block,def,def_alias
-deftypevar              block,def,def_alias
-defivar                 block,def,def_alias
-deftypeivar             block,def,def_alias
-defmethod               block,def,def_alias
-deftypemethod           block,def,def_alias
+defun                   block,def,def_alias             BLOCK_def
+defmac                  block,def,def_alias             BLOCK_def
+defspec                 block,def,def_alias             BLOCK_def
+defvar                  block,def,def_alias             BLOCK_def
+defopt                  block,def,def_alias             BLOCK_def
+deftypefun              block,def,def_alias             BLOCK_def
+deftypevar              block,def,def_alias             BLOCK_def
+defivar                 block,def,def_alias             BLOCK_def
+deftypeivar             block,def,def_alias             BLOCK_def
+defmethod               block,def,def_alias             BLOCK_def
+deftypemethod           block,def,def_alias             BLOCK_def
 
 # def*x
 deffnx                  line,def                        LINE_line

@@ -902,6 +902,8 @@ foreach my $index_type (keys %index_type_def) {
 
 our %def_commands;
 our %def_aliases;
+# consistent with XS parser flag
+our %def_alias_commands;
 # Argument not metasyntactic variables only.
 our %def_no_var_arg_commands;
 foreach my $def_command(keys %def_map) {
@@ -910,6 +912,7 @@ foreach my $def_command(keys %def_map) {
     $command_index{$def_command} = $command_index{$real_command};
     $def_aliases{$def_command} = $real_command;
     $def_aliases{$def_command.'x'} = $real_command.'x';
+    $def_alias_commands{$def_command} = 1;
   }
   $block_commands{$def_command} = 'def';
   $line_commands{$def_command.'x'} = 'line';
@@ -927,25 +930,14 @@ foreach my $menu_command ('menu', 'detailmenu', 'direntry') {
   $block_commands{$menu_command} = 'menu';
 };
 
-our %align_commands;
-foreach my $align_command('raggedright', 'flushleft', 'flushright') {
-  $block_commands{$align_command} = 'align';
-  $align_commands{$align_command} = 1;
-}
-$align_commands{'center'} = 1;
-
-foreach my $block_command('indentedblock', 'smallindentedblock') {
-  $block_commands{$block_command} = 'align';
+foreach my $align_command('raggedright', 'flushleft', 'flushright',
+   'indentedblock', 'smallindentedblock',
+   'cartouche', 'group') {
+  $block_commands{$align_command} = 'other';
 }
 
-foreach my $block_command('cartouche', 'group') {
-  $block_commands{$block_command} = 'other';
-}
-
-our %region_commands;
 foreach my $block_command('titlepage', 'copying', 'documentdescription') {
   $block_commands{$block_command} = 'region';
-  $region_commands{$block_command} = 1;
 }
 
 our %preformatted_commands;
@@ -1192,11 +1184,11 @@ foreach my $command (
 our %preamble_commands;
 foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',
        'inlineraw', '*', keys(%document_settable_at_commands),
-       (grep {$block_commands{$_} eq 'format_raw'} keys(%block_commands)),
+       (grep {$block_commands{$_} eq 'format_raw'
+              or $block_commands{$_} eq 'region'} keys(%block_commands)),
        keys(%inline_format_commands), keys(%inline_conditional_commands),
        keys(%unformatted_block_commands), keys(%line_commands),
-       keys(%nobrace_commands),
-       keys(%region_commands)) {
+       keys(%nobrace_commands)) {
   $preamble_commands{$preamble_command} = 1;
 }
 
@@ -2096,7 +2088,8 @@ sub find_parent_root_command($$)
     if ($current->{'cmdname'}) {
       if ($root_commands{$current->{'cmdname'}}) {
         return $current;
-      } elsif ($region_commands{$current->{'cmdname'}}) {
+      } elsif ($block_commands{$current->{'cmdname'}}
+               and $block_commands{$current->{'cmdname'}} eq 'region') {
         if ($current->{'cmdname'} eq 'copying' and $self
             and $self->{'global_commands'}
             and $self->{'global_commands'}->{'insertcopying'}) {
@@ -2983,11 +2976,6 @@ X<C<%accent_commands>>
 Accent @-commands taking an argument, like C<@'> or C<@ringaccent>,
 including C<@dotless> and C<@tieaccent>.
 
-=item %align_commands
-X<C<%align_commands>>
-
-@-commands related with alignement of text.
-
 =item %block_commands
 X<C<%block_commands>>
 
@@ -3024,6 +3012,10 @@ and C<@direntry>;
 =item I<multitable>
 
 C<@multitable>;
+
+=item I<other>
+
+The remaining block commands.
 
 =item I<raw>
 
@@ -3170,11 +3162,6 @@ for code, it is also in I<%preformatted_code_commands>, like C<@example>.
 X<C<%ref_commands>>
 
 Cross reference @-command referencing nodes, like C<@xref>.
-
-=item %region_commands
-X<C<%region_commands>>
-
-Block @-commands that enclose full text regions, like C<@titlepage>.
 
 =item %root_commands
 X<C<%root_commands>>
