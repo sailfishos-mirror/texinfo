@@ -52,6 +52,7 @@ void wipe_user_commands (void);
 /* commands that should only appear at the root level and contain up to
    the next root command.  @node and sectioning commands. */
 #define CF_root			        0x0004
+/* sectioning and heading commands */
 #define CF_sectioning_heading	        0x0008
 #define CF_brace		        0x0010
 /* CF_letter_no_arg is not used in XS parser, used in perl */
@@ -59,6 +60,7 @@ void wipe_user_commands (void);
 #define CF_accent		        0x0040
 /* CF_math is not used in XS parser, used in perl */
 #define CF_math			        0x0080
+/* commands with an unlimited number of arguments */
 #define CF_variadic		        0x0100
 #define CF_INFOENCLOSE  	        0x0200
 /* in_heading_spec only valid in heading or footing specifications */
@@ -76,8 +78,10 @@ void wipe_user_commands (void);
 #define CF_def_alias	        	0x00040000
 /* only accept plain text, ie only accent, symbol and glyph commands */
 #define CF_contain_plain_text		0x00080000
-/* CF_close_paragraph commands that forces closing an opened paragraph */
+/* CF_close_paragraph commands force closing an opened paragraph */
 #define CF_close_paragraph		0x00100000
+/* for commands containing simple text only, corresponding to paragraph
+   text without @ref, @footnote, @titlefont, @anchor nor @verb. */
 #define CF_contain_simple_text        	0x00200000
 #define CF_preformatted	        	0x00400000
 #define CF_preformatted_code		0x00800000

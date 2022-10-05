@@ -2447,14 +2447,17 @@ __END__
 
 =head1 NAME
 
-Texinfo::Common - Classification of commands and miscellaneous methods
+Texinfo::Common - Texinfo modules common data and miscellaneous methods
 
 =head1 SYNOPSIS
 
   use Texinfo::Common;
-  if ($Texinfo::Common::accent_commands{$a_command}) {
-    print STDERR "$a_command is an accent command\n";
-  }
+
+
+  my @commands_to_collect = ('math');
+  my $collected_commands
+    = Texinfo::Common::collect_commands_in_tree($document_root,
+                                             \@commands_to_collect);
 
 =head1 NOTES
 
@@ -2463,8 +2466,9 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Common holds hashes with miscellaneous information and hashes
-classifying Texinfo @-commands, as well as miscellaneous methods.
+Texinfo::Common holds hashes with miscellaneous information and some
+hashes with information on Texinfo @-commands, as well as miscellaneous
+methods.
 
 =head1 MISC INFORMATION
 
@@ -2476,12 +2480,6 @@ TODO: undocumented
 
 =over
 
-=item %index_names
-X<C<%index_names>>
-
-Hash describing the default Texinfo indices.  The format of this hash is
-described in L<Texinfo::Parser/indices_information>.
-
 =item %texinfo_output_formats
 X<C<%texinfo_output_formats>>
 
@@ -2491,7 +2489,7 @@ and C<plaintext>.
 
 =back
 
-=head1 @-COMMAND CLASSES
+=head1 @-COMMAND INFORMATION
 
 Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
@@ -2506,108 +2504,20 @@ X<C<%all_commands>>
 
 All the @-commands.
 
-=item %accent_commands
-X<C<%accent_commands>>
-
-Accent @-commands taking an argument, like C<@'> or C<@ringaccent>,
-including C<@dotless> and C<@tieaccent>.
-
-=item %block_commands
-X<C<%block_commands>>
-
-Commands delimiting a block with a closing C<@end>.  The values are:
-
-=over
-
-=item I<conditional>
-
-C<@if*> commands;
-
-=item I<def>
-
-Definition commands like C<@deffn>;
-
-=item I<format_raw>
-
-raw output format commands such as C<@html> or C<@info>;
-
-=item I<item_container>
-
-commands  with C<@item> containing
-any content, C<@itemize> and C<@enumerate>;
-
-=item I<item_line>
-
-commands like C<@table> in which the C<@item> argument is on its line;
-
-=item I<menu>
-
-menu @-commands, C<@menu>, C<@detailmenu>
-and C<@direntry>;
-
-=item I<math>
-
-Math block commands, like C<@displaymath>.
-
-=item I<multitable>
-
-C<@multitable>;
-
-=item I<other>
-
-The remaining block commands.
-
-=item I<preformatted>
-
-Commands whose content should not be filled, like C<@example> or C<@display>.
-
-=item I<raw>
-
-@-commands that have no expansion
-of @-commands in their bodies (C<@macro>, C<@verbatim> and C<@ignore>);
-
-=back
-
-Other values for other block line commands.
-
-=item %commands_args_number
-X<C<%commands_args_number>>
-
-Set to the number of arguments separated by commas that may appear in braces or
-on the @-command line.  That means 0 or unset in most block command cases,
-including C<@example> which has an unlimited (variadic) number of arguments, 1
-for C<@quotation>, 2 for C<@float>, 1 for most brace commands, 2 for C<@email>
-or C<@abbr>, 5 for C<@image> of C<@ref>.
-
-Values are not necessarily set for all the commands, as commands are
-also classified by type of command, some type of commands implying a
-number of arguments, and the number of arguments may not be set if it
-coorresponds to the default (0 for block commands, 1 for other commands).
-
-=item %brace_commands
-X<C<%brace_commands>>
-
-The commands that take braces. Value is I<noarg> for brace commands without
-argument such as C<@AA>, C<@TeX>, or C<@equiv>.  Other values include
-I<accent>, I<arguments>, I<context> and other values.
-
 =item %brace_code_commands
 X<C<%brace_code_commands>>
 
 Brace commands that have their argument in code style, like
 C<@code>.
 
-=item %def_commands
-
 =item %def_aliases
 
 =item %def_no_var_arg_commands
-X<C<%def_commands>>
 X<C<%def_aliases>>
 X<C<%def_no_var_arg_commands>>
 
-Definition commands.  C<%def_aliases> associates an aliased command
-to the original command, for example C<defun> is associated to C<deffn>.
+C<%def_aliases> associates an aliased command to the original command, for
+example C<defun> is associated to C<deffn>.
 
 C<%def_no_var_arg_commands> associates a definition command name with
 a true value if the I<argument> on the definition command line can contain
@@ -2615,28 +2525,11 @@ non-metasyntactic variables.  For instance, it is true for C<deftypevr>
 but false for C<defun>, since C<@defun> I<argument> is supposed to contain
 metasyntactic variables only.
 
-=item %default_index_commands
-X<C<%default_index_commands>>
-
-Index entry commands corresponding to default indices. For example
-C<@cindex>.
-
 =item %explained_commands
 X<C<%explained_commands>>
 
 @-commands whose second argument explain first argument and further
 @-command call without first argument, as C<@abbr> and C<@acronym>.
-
-=item %heading_spec_commands
-X<C<%heading_spec_commands>>
-
-@-commands used to specify custom headings, like C<@everyheading>.
-
-=item %in_heading_spec_commands
-X<C<%in_heading_spec_commands>>
-
-Special @-commands appearing in custom headings, such as C<@thischapter>
-or C<@thistitle>.
 
 =item %inline_conditional_commands
 
@@ -2647,82 +2540,17 @@ X<C<%inline_format_commands>>
 Inline conditional commands, like C<@inlineifclear>, and inline format
 commands like C<inlineraw> and C<inlinefmt>.
 
-=item %letter_no_arg_commands
-X<C<%letter_no_arg_commands>>
-
-@-commands with braces but no argument corresponding to letters,
-like C<@AA{}> or C<@ss{}> or C<@o{}>.
-
-=item %math_commands
-X<C<%math_commands>>
-
-@-commands which contains math, like C<@math> or C<@displaymath>.
-
-=item %line_commands
-X<C<%line_commands>>
-
-Command that do not take braces, take arguments on the command line and are
-not block commands either, like C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>,
-C<@end>, C<@footnotestyle>, C<@set>, C<@settitle>, C<@itemx>,
-C<@definfoenclose>, C<@comment> and many others.
-
-Note that C<@item> is in C<%line_commands> for its role in C<@table> and
-similar @-commands.
-
-=item %nobrace_commands
-X<C<%nobrace_commands>>
-
-Command that do not take braces, do not have argument on their line and
-are not block commands either.  The value is I<symbol> for single character
-non-alphabetical @-commands such as C<@@>, C<@ > or @C<@:>.  Other commands in that hash
-include C<@indent>, C<@tab> or C<@thissection>.
-
-Note that C<@item> is in C<%nobrace_commands> for its role in C<@multitable>,
-C<@itemize> and C<@enumerate>.
-
 =item %nobrace_symbol_text
 X<C<%nobrace_symbol_text>>
 
 Values are ASCII representation of single character non-alphabetical commands
 without brace such as C<*> or C<:>.  The value may be an empty string.
 
-=item %preformatted_commands
-
-=item %preformatted_code_commands
-X<C<%preformatted_commands>>
-X<C<%preformatted_code_commands>>
-
-I<%preformatted_commands> is for commands whose content should not
-be filled, like C<@example> or C<@display>.  If the command is meant
-for code, it is also in I<%preformatted_code_commands>, like C<@example>.
-
-=item %ref_commands
-X<C<%ref_commands>>
-
-Cross reference @-command referencing nodes, like C<@xref>.
-
-=item %root_commands
-X<C<%root_commands>>
-
-Commands that are at the root of a Texinfo document, namely
-C<@node> and sectioning commands, except heading commands
-like C<@heading>.
-
-=item %sectioning_heading_commands
-X<C<%sectioning_heading_commands>>
-
-All the sectioning and heading commands.
-
 =item %small_block_associated_command
 X<C<%small_block_associated_command>>
 
 Associate small command like C<smallexample> to the regular command
 C<example>.
-
-=item %variadic_commands
-X<C<%variadic_commands>>
-
-Commands with unlimited arguments, like C<@example>.
 
 =back
 
@@ -2936,7 +2764,7 @@ X<C<split_custom_heading_command_contents>>
 Split the I<$contents> array reference at C<@|> in at max three parts.
 Return an array reference containing the split parts.  The I<$contents>
 array reference is supposed to be C<< $element->{'args'}->[0]->{'contents'} >>
-of C<%heading_spec_commands> commands such as C<@everyheading>.
+of C<%Texinfo::Commands::heading_spec_commands> commands such as C<@everyheading>.
 
 =item trim_spaces_comment_from_content($contents)
 X<C<trim_spaces_comment_from_content>>

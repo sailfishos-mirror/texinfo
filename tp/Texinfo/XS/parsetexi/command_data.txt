@@ -15,7 +15,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Information from tp/Texinfo/Common.pm
+# this information is used to setup both the XS Parser commands
+# builtin_command_data and the perl Parser commands classification
+# hashes.
+
+# Some documentation of the flags (second column) is in commands.h.
 
 ##############################################################
 # Internal commands
