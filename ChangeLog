@@ -1,5 +1,17 @@
 2022-10-08  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_texinfo_handle_element_start, _texinfo_handle_text)
+	(_texinfo_handle_element_end): use handle functions similar to
+	those used in Pod::Simple to be able to use the different Pod::Simple
+	parser styles more easily.  Put @accumulated_output
+	in $self->{'texinfo_accumulated'} and @format_stack in
+	$self->{'texinfo_stack'}.  Replace token modification after <X>
+	to remove a leading space by setting
+	$self->{'texinfo_ignore_leading_spaces'}.
+
+2022-10-08  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm,
 	Pod-Simple-Texinfo/pod2texi.pl: add comments to explain the issue with
 	formatting section in L.  Also add code in comment to show the Pod::Simple
