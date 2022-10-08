@@ -1628,6 +1628,10 @@ sub _protect_index_text($)
 {
   my $text = shift;
   $text =~ s/([!|"@])/"$1/g;
+
+  # if " is preceded by \ it does not quote the next character unless the
+  # \ itself is preceded by ".
+  $text =~ s/\\"/"\\"/g;
   return $text;
 }
 
@@ -1636,12 +1640,9 @@ sub _protect_text($$)
 {
   my ($self, $text) = @_;
 
-  # FIXME are there some special characters to protect in math mode,
-  # for instance # and ~?
   if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'ctx_math') {
-    if ($self->{'formatting_context'}->[-1]->{'index'}) {
-      $text = _protect_index_text($text);
-    }
+    # FIXME are there any special characters to protect in math mode,
+    # for instance # and ~?
   } elsif ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1]
              ne 'ctx_raw') {
     # temporarily replace \ with a control character
@@ -1654,9 +1655,6 @@ sub _protect_text($$)
 
     $text =~ s/\x08/\\textbackslash{}/g;
 
-    if ($self->{'formatting_context'}->[-1]->{'index'}) {
-      $text = _protect_index_text($text);
-    }
     if ($self->{'formatting_context'}->[-1]->{'code'}->[-1]) {
       # Prevent extra space after punctuation.  (We could use \frenchspacing
       # in the output, but this can break in section titles with hyperref.)
@@ -2142,13 +2140,14 @@ sub _index_entry($$)
       if (defined($sortas)) {
         # | in sort key breaks with hyperref
         $sortas =~ s/\|//g;
-        $result = _protect_text($self, $sortas).'@';
+        $result = _protect_text($self, $sortas);
         $result =~ s/\\[{}]//g; # cannot have unmatched braces in index entry
+        $result = _protect_index_text($result).'@';
       }
       if ($in_code) {
-        $result .= "\\texttt{$index_entry}";
+        $result .= "\\texttt{" . _protect_index_text($index_entry) . "}";
       } else {
-        $result .= $index_entry;
+        $result .= _protect_index_text($index_entry);
       }
       push @result, $result;
     }

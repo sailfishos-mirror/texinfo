@@ -1,3 +1,10 @@
+2022-10-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/LaTeX.pm (_protect_index_text):
+	Protect \ before ", so @"a outputs as "\""a.
+	(_protect_text): Do not call _protect_index_text.
+	(_index_entry): Call _protect_index_test as needed.
+
 2022-10-08  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
