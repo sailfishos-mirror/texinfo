@@ -2126,7 +2126,7 @@ sub _index_entry($$)
       if ($in_code) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
       }
-      # always setup a string to sort with code as we may use commands
+      # always setup a string to sort with as we may use commands
       $sortas = Texinfo::Structuring::index_entry_sort_string($entry,
                                $subentry, $subentry_sortas, $options);
       my $result = '';
