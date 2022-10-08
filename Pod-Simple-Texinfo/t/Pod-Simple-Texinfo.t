@@ -6,7 +6,7 @@
 # change 'tests => 1' to 'tests => last_test_to_print';
 
 use Test::More;
-BEGIN { plan tests => 20 };
+BEGIN { plan tests => 21 };
 use Pod::Simple::Texinfo;
 ok(1); # If we made it this far, we're ok.
 
@@ -276,6 +276,17 @@ L</head C<extra>>
 @ref{head @code{extra}}
 
 ', 'code in reference');
+
+run_test('=head1 head
+
+L<Pod::deC<code>>
+
+', '@chapter head
+@anchor{head}
+
+@ref{,,, Pod-decode}
+
+', 'link to external module');
 
 run_test('=head1 head
 
