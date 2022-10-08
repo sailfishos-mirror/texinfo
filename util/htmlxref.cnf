@@ -60,7 +60,7 @@ auctex		node	${GS}/auctex/manual/auctex/
 autoconf	mono	${GS}/autoconf/manual/autoconf.html
 autoconf	node	${GS}/autoconf/manual/html_node/
 
-autogen		mono	${GS}/autogen/manual/html_mono/autogen.html
+autogen		mono	${GS}/autogen/manual/autogen.html
 autogen		chapter	${GS}/autogen/manual/html_chapter/
 autogen		node	${GS}/autoconf/manual/html_node/
 
@@ -110,8 +110,8 @@ cpio		node	${GS}/cpio/manual/html_node/
 cssc		node	${GS}/cssc/manual/
 
 CVS = ${GS}/trans-coord/manual
-cvs            mono    ${CVS}/cvs/cvs.html
-cvs            node    ${CVS}/cvs/html_node/
+cvs		mono	${CVS}/cvs/cvs.html
+cvs		node	${CVS}/cvs/html_node/
 
 ddd		mono	${GS}/ddd/manual/html_mono/ddd.html
 
@@ -119,7 +119,7 @@ ddrescue	mono	${GS}/ddrescue/manual/ddrescue_manual.html
 
 dejagnu         node    ${GS}/dejagnu/manual/
 
-DICO = https://puszcza.gnu.org.ua/software/dico/manual
+DICO = https://www.gnu.org.ua/software/dico/manual
 dico		mono	${DICO}/dico.html
 dico		chapter	${DICO}/html_chapter/
 dico		section	${DICO}/html_section/
@@ -127,9 +127,6 @@ dico		node	${DICO}/html_node/
 
 diffutils	mono	${GS}/diffutils/manual/diffutils
 diffutils	node	${GS}/diffutils/manual/html_node/
-
-dmd		mono	${GS}/dmd/manual/dmd
-dmd		node	${GS}/dmd/manual/html_node/
 
 ed		mono	${GS}/ed/manual/ed_manual.html
 
@@ -359,10 +356,7 @@ gdb		node	${GDB}/gdb/
  stabs		node	${GDB}/stabs/
 
 GDBM = http://www.gnu.org.ua/software/gdbm/manual
-gdbm		mono	${GDBM}/gdbm.html
-gdbm		chapter	${GDBM}/html_chapter/
-gdbm		section ${GDBM}/html_section/
-gdbm		node	${GDBM}/html_node/
+gdbm		node	${GDBM}/
 
 gettext		mono	${GS}/gettext/manual/gettext.html
 gettext		node	${GS}/gettext/manual/html_node/
@@ -427,12 +421,15 @@ grep		node	${GS}/grep/manual/html_node/
 
 groff		node	${GS}/groff/manual/html_node/
 
-GRUB = ${GS}/grub/manual
-  grub		mono	${GRUB}/grub.html
-  grub		node	${GRUB}/html_node/
+GRUB = ${GS}/grub/manual/
+  grub		mono	${GRUB}/grub/grub.html
+  grub		node	${GRUB}/grub/html_node/
   #
   multiboot	mono	${GRUB}/multiboot/multiboot.html
   multiboot	node	${GRUB}/multiboot/html_node/
+  #
+  grub-dev	mono	${GRUB}/grub-dev/grub-dev.html
+  grub-dev	node	${GRUB}/grub-dev/html_node/
 
 gsasl		mono	${GS}/gsasl/manual/gsasl.html
 gsasl		node	${GS}/gsasl/manual/html_node/
@@ -578,11 +575,9 @@ motti		node	${GS}/motti/manual/
 
 mpc		node	http://www.multiprecision.org/index.php?prog=mpc&page=html
 
-mpfr		mono	http://www.mpfr.org/mpfr-current/mpfr.html
+mpfr		mono	https://www.mpfr.org/mpfr-current/mpfr.html
 
 mtools		mono	${GS}/mtools/manual/mtools.html
-
-myserver	mono	http://www.myserverproject.net/doc.php
 
 nano		mono	https://www.nano-editor.org/dist/latest/nano.html
 
@@ -593,17 +588,12 @@ ocrad		mono	${GS}/ocrad/manual/ocrad_manual.html
 parted		mono	${GS}/parted/manual/parted.html
 parted		node	${GS}/parted/manual/html_node/
 
-pascal		mono	http://www.gnu-pascal.de/gpc/
+pascal		node	https://www.gnu-pascal.de/gpc/
 
 # can't use pcb since url's contain dates --30nov10
 
-perl		mono	${GS}/perl/manual/perldoc-all.html
-
 PIES = http://www.gnu.org.ua/software/pies/manual
-pies		mono	${PIES}/pies.html
-pies 		chapter	${PIES}/html_chapter/
-pies 		section	${PIES}/html_section/
-pies		node	${PIES}/html_node/
+pies		node	${PIES}/
 
 plotutils	mono	${GS}/plotutils/manual/en/plotutils.html
 plotutils	node	${GS}/plotutils/manual/en/html_node/
@@ -629,11 +619,12 @@ rcs		mono	${GS}/rcs/manual/rcs.html
 rcs		node	${GS}/rcs/manual/html_node/
 
 READLINE = https://tiswww.cwru.edu/php/chet/readline
-readline        mono    ${READLINE}/readline.html
- rluserman      mono    ${READLINE}/rluserman.html
- history        mono    ${READLINE}/history.html
+readline	mono	${READLINE}/readline.html
+ rluserman	mono	${READLINE}/rluserman.html
+ history	mono	${READLINE}/history.html
 
-recode		mono	http://recode.progiciels-bpi.ca/manual/index.html
+# no manual for Recode found.  Most recent fork seems to be at
+# https://github.com/rrthomas/recode/
 
 recutils	mono	${GS}/recutils/manual/recutils.html
 recutils	node	${GS}/recutils/manual/html_node/
@@ -659,9 +650,13 @@ screen		node	${GS}/screen/manual/html_node/
 sed		mono	${GS}/sed/manual/sed.html
 sed		node	${GS}/sed/manual/html_node/
 
-sharutils	mono	${GS}/sharutils/manual/html_mono/sharutils.html
+sharutils	mono	${GS}/sharutils/manual/sharutils.html
 sharutils	chapter	${GS}/sharutils/manual/html_chapter/
 sharutils	node	${GS}/sharutils/manual/html_node/
+
+# replaces dmd
+shepherd	mono	${GS}/shepherd/manual/shepherd.html
+shepherd	node	${GS}/shepherd/manual/html_node/
 
 # can't use mono files since they have generic names
 SMALLTALK = ${GS}/smalltalk
