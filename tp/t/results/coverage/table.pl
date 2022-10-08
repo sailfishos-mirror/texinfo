@@ -892,7 +892,7 @@ In table
 \\end{description}
 
 \\begin{description}
-\\item[] \\index[cp]{index entry}%
+\\item[] \\index[cp]{index entry@index entry}%
 
 \\item[{\\parbox[b]{\\linewidth}{%
 \\GNUTexinfotablestylesamp{vtable item}\\\\

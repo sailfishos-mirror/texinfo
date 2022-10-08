@@ -870,7 +870,7 @@ $result_converted{'latex'}->{'syncode_index_print_both'} = '\\documentclass{book
 \\chapter{{index}}
 \\label{anchor:chapter-index}%
 
-\\index[cp]{c---oncept}%
+\\index[cp]{c--oncept@c---oncept}%
 \\index[cp]{f---un@\\texttt{f{-}{-}{-}un}}%
 
 

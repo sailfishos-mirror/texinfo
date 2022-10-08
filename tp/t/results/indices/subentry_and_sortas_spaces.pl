@@ -1010,9 +1010,9 @@ $result_converted{'latex'}->{'subentry_and_sortas_spaces'} = '\\documentclass{bo
 \\label{anchor:chapter-index}%
 
 \\index[cp]{A---S@aaa!C---S1@bbb sort as c}%
-\\index[cp]{aaa!B---S1@}%
-\\index[cp]{aaa!bbb!D@ccc}%
-\\index[cp]{aaa!bbb!ccc}%
+\\index[cp]{aaa@aaa!B---S1@}%
+\\index[cp]{aaa@aaa!bbb@bbb!D@ccc}%
+\\index[cp]{aaa@aaa!bbb@bbb!ccc@ccc}%
 
 \\printindex[cp]
 \\end{document}

@@ -1196,7 +1196,7 @@ $result_converted{'latex'}->{'explicit_sort_key'} = '\\documentclass{book}
 \\index[SK]{A@bbbbbbb (first)}%
 \\index[SK]{B@aaaaaaa (second)}%
 \\index[SK]{0@zero sort key}%
-\\index[SK]{\\textbf{aaa }}%
+\\index[SK]{aaa @\\textbf{aaa }}%
 
 in a reuglar para . \\texttt{inside another }.
 

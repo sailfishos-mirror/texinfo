@@ -861,7 +861,7 @@ $result_converted{'latex'}->{'multiple_index_text_sortas_seeentry_seealso'} = '\
 
 \\index[cp]{A---S@aaa continue aagain|see{other second}}%
 \\index[cp]{BB@other second}%
-\\index[cp]{entry secret|see{something else}}%
+\\index[cp]{entry secret@entry secret|see{something else}}%
 
 \\printindex[cp]
 \\end{document}

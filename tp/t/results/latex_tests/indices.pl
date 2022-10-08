@@ -1324,7 +1324,7 @@ $result_converted{'latex_text'}->{'indices'} = '
 \\index[cp]{\\textbackslash{}cmd@totocmd}%
 
 
-\\index[cp]{\\textbackslash{}some\\textbackslash{}command for \\texttt{file}}%
+\\index[cp]{\\textbackslash{}some\\textbackslash{}command for file@\\textbackslash{}some\\textbackslash{}command for \\texttt{file}}%
 
 \\index[fn]{the person index aa@\\texttt{the \\textnormal{person}\\ index \\texttt{aa}}}%
 

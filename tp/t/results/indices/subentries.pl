@@ -1447,10 +1447,10 @@ $result_converted{'latex'}->{'subentries'} = '\\documentclass{book}
 \\chapter{{Index}}
 \\label{anchor:chapter-index}%
 
-\\index[cp]{a---a}%
-\\index[cp]{b---b!c---c}%
-\\index[cp]{d---dd!e---ee!f---ff}%
-\\index[cp]{g---gg!h---hh jjj!k---kk!l---ll}%
+\\index[cp]{a--a@a---a}%
+\\index[cp]{b--b@b---b!c--c@c---c}%
+\\index[cp]{d--dd@d---dd!e--ee@e---ee!f--ff@f---ff}%
+\\index[cp]{g--gg@g---gg!h--hh jjj@h---hh jjj!k--kk@k---kk!l--ll@l---ll}%
 
 \\index[fn]{f---aa@\\texttt{f{-}{-}{-}aa}}%
 \\index[fn]{f---bb@\\texttt{f{-}{-}{-}bb}!f---cc@\\texttt{f{-}{-}{-}cc}}%

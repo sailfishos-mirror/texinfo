@@ -1,3 +1,9 @@
+2022-10-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/LaTeX.pm (_index_entry): Always output
+	a sort key for cases like '@cindex @code{aaa} bbb' where the
+	index text uses \commands.
+
 2022-10-08  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm

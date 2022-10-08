@@ -1031,10 +1031,10 @@ $result_converted{'latex'}->{'double_seeentry_seealso'} = '\\documentclass{book}
 \\chapter{{Chapter Index}}
 \\label{anchor:node-index}%
 
-\\index[cp]{aaa|see{ccc}}%
-\\index[cp]{ddd|seealso{eee}}%
-\\index[cp]{ggg|see{hhh}}%
-\\index[cp]{!subggg|seealso{fff}}%
+\\index[cp]{aaa@aaa|see{ccc}}%
+\\index[cp]{ddd@ddd|seealso{eee}}%
+\\index[cp]{ggg@ggg|see{hhh}}%
+\\index[cp]{@!subggg@subggg|seealso{fff}}%
 
 \\printindex[cp]
 \\end{document}

@@ -2248,7 +2248,7 @@ $result_converted{'latex'}->{'def_syn_indices'} = '\\documentclass{book}
 definedx truc
 after
 
-\\index[fn]{index truc}%
+\\index[fn]{index truc@index truc}%
 
 
 \\index[codeidx]{a index entry te\\~{} i\\^{}@\\texttt{a \\GNUTexinfocommandstyletextvar{index entry}\\ t\\~{e}\\ \\^{\\i{}}}}%
@@ -2262,9 +2262,9 @@ after
 
 
 
-\\index[pg]{defg index entry}%
+\\index[pg]{defg index entry@defg index entry}%
 
-\\index[pg]{abc index entry}%
+\\index[pg]{abc index entry@abc index entry}%
 
 pg
 \\printindex[pg]

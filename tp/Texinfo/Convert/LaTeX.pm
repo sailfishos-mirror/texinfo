@@ -2125,19 +2125,10 @@ sub _index_entry($$)
       my $index_entry = _convert($self, $subentry);
       if ($in_code) {
         pop @{$self->{'formatting_context'}->[-1]->{'code'}};
-        # always setup a string to sort with code as we use a command
-        $sortas = Texinfo::Structuring::index_entry_sort_string($entry,
-                                 $subentry, $subentry_sortas, $options);
-      } else {
-        if (defined($subentry_sortas)) {
-          $sortas = $subentry_sortas;
-        } elsif (exists($entry->{'index_ignore_chars'})
-                 and scalar(keys(%{$entry->{'index_ignore_chars'}}) > 0)) {
-          # setup a sort string if some characters are ignored
-          $sortas = Texinfo::Structuring::index_entry_sort_string($entry,
-                                   $subentry, $subentry_sortas, $options);
-        }
       }
+      # always setup a string to sort with code as we may use commands
+      $sortas = Texinfo::Structuring::index_entry_sort_string($entry,
+                               $subentry, $subentry_sortas, $options);
       my $result = '';
       if (defined($sortas)) {
         # | in sort key breaks with hyperref

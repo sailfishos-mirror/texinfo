@@ -768,7 +768,7 @@ $result_converted{'latex_text'}->{'multitable'} = '
 mu--ltitable headitem &another tab\\\\
 mu--ltitable item &multitable tab\\\\
 mu--ltitable item 2 &multitable tab 2
-\\index[cp]{index entry within multitable}%
+\\index[cp]{index entry within multitable@index entry within multitable}%
 \\\\
 lone mu--ltitable item&\\\\
 \\end{tabular}%

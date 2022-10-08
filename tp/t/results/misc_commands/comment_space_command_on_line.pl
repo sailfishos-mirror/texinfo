@@ -1178,7 +1178,7 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 
 \\microtypesetup{activate=false}%
 
-\\index[cp]{index entry \\ {}}%
+\\index[cp]{index entry  @index entry \\ {}}%
 
 \\section*{{Heading \\ {}}}
 

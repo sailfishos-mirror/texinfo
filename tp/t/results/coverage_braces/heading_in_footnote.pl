@@ -229,7 +229,7 @@ $result_converted{'html_text'}->{'heading_in_footnote'} = '<p>T<a class="footnot
 
 $result_converted{'latex_text'}->{'heading_in_footnote'} = 'T\\footnote{AAA
 \\section*{{H1}}
-\\index[cp]{ind e}%
+\\index[cp]{ind e@ind e}%
 BBB
 }
 ';

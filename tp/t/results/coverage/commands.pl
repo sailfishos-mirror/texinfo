@@ -605,7 +605,7 @@ File $\\rightarrow{}$ Open\\@.
 \\href{mailto:a}{b} \\texttt{code {-}{-}{-} {-}{-} {\'}{\'} {`}{`}}
 --- -- \'\' ``. \\textsc{small caps}.
 
-\\index[cp]{index entry ``in text\'\' \\LaTeX{}}%
+\\index[cp]{index entry ""in text"" LaTeX@index entry ``in text\'\' \\LaTeX{}}%
 
 \\GNUTexinfonopagebreakheading{\\chapter*}{{majorheading \\textbf{in b}}}
 ';

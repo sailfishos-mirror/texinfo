@@ -639,12 +639,12 @@ $result_converted{'latex_text'}->{'index_entry_in_preformatted'} = '\\label{anch
 
 \\begin{GNUTexinfoindented}
 \\begin{GNUTexinfopreformatted}%
-\\ttfamily \\index[cp]{first}%
+\\ttfamily \\index[cp]{first@first}%
 text
 
-\\index[cp]{other}%
+\\index[cp]{other@other}%
 text2
-\\index[cp]{last}%
+\\index[cp]{last@last}%
 \\end{GNUTexinfopreformatted}
 \\end{GNUTexinfoindented}
 ';

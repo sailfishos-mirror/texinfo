@@ -1295,7 +1295,7 @@ In float with caption.
 
 \\listof{TexinfoFloatfloattypeAfterpunc}{}
 
-\\index[cp]{index"! After punc}%
+\\index[cp]{index"! After punc@index"! After punc}%
 
 \\section*{{heading! After punc}}
 

@@ -1013,14 +1013,14 @@ $result_converted{'latex'}->{'same_only_seealso_seeentry'} = '\\documentclass{bo
 \\chapter{{chap}}
 \\label{anchor:node}%
 
-\\index[cp]{aaa|seealso{sss}}%
-\\index[cp]{aaa|seealso{123}}%
+\\index[cp]{aaa@aaa|seealso{sss}}%
+\\index[cp]{aaa@aaa|seealso{123}}%
 
-\\index[cp]{bbb|see{yyy}}%
-\\index[cp]{bbb|see{ttt}}%
+\\index[cp]{bbb@bbb|see{yyy}}%
+\\index[cp]{bbb@bbb|see{ttt}}%
 
-\\index[cp]{ccc|seealso{also}}%
-\\index[cp]{ccc|see{entry}}%
+\\index[cp]{ccc@ccc|seealso{also}}%
+\\index[cp]{ccc@ccc|see{entry}}%
 
 \\printindex[cp]
 \\end{document}

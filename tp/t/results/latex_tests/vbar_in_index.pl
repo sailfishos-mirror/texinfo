@@ -161,7 +161,7 @@ $result_indices_sort_strings{'vbar_in_index'} = {
 
 $result_converted{'latex_text'}->{'vbar_in_index'} = '\\begin{document}
 \\index[fn]{AB@\\texttt{A"|B}}%
-\\index[cp]{C"|D}%
+\\index[cp]{CD@C"|D}%
 ';
 
 1;

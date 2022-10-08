@@ -669,11 +669,11 @@ $$
 \\{
 $$
 
-\\index[cp]{\\textbraceleft{}}%
+\\index[cp]{@\\textbraceleft{}}%
 
-\\index[cp]{$\\lbrace{}$}%
+\\index[cp]{@$\\lbrace{}$}%
 
-\\index[cp]{`\\texttt{\\textbraceleft{}}\'}%
+\\index[cp]{@`\\texttt{\\textbraceleft{}}\'}%
 
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}

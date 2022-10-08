@@ -872,8 +872,8 @@ $result_converted{'latex'}->{'seeentry'} = '\\documentclass{book}
 \\chapter{{Index}}
 \\label{anchor:chapter-index}%
 
-\\index[cp]{aaa|see{bbb}}%
-\\index[cp]{ddd|seealso{ccc}}%
+\\index[cp]{aaa@aaa|see{bbb}}%
+\\index[cp]{ddd@ddd|seealso{ccc}}%
 
 \\index[fn]{f---aaa@\\texttt{f{-}{-}{-}aaa}|see{f---bbb}}%
 \\index[fn]{f---ddd@\\texttt{f{-}{-}{-}ddd}|seealso{f---ccc}}%
