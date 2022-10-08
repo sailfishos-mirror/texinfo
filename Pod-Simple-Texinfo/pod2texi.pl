@@ -23,6 +23,9 @@ use Getopt::Long qw(GetOptions);
 use File::Basename;
 use File::Spec;
 
+#use Pod::Simple::SimpleTree;
+#use Data::Dumper;
+
 Getopt::Long::Configure("gnu_getopt");
 #use Pod::Simple::Debug (4);
 
@@ -419,6 +422,9 @@ foreach my $file (@input_files) {
       $outfile = $outfile_name;
     }
   }
+
+  #my $pod_simple_tree = Pod::Simple::SimpleTree->new->parse_file($file)->root;
+  #print STDERR Data::Dumper->Dump([$pod_simple_tree])."\n";
 
   my $new = Pod::Simple::Texinfo->new();
 

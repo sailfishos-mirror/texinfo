@@ -6,7 +6,7 @@
 # change 'tests => 1' to 'tests => last_test_to_print';
 
 use Test::More;
-BEGIN { plan tests => 19 };
+BEGIN { plan tests => 20 };
 use Pod::Simple::Texinfo;
 ok(1); # If we made it this far, we're ok.
 
@@ -266,6 +266,16 @@ L</A::b. c> L</D::E. f>
 
 ',
 'colon and dot in node name');
+
+run_test('=head1 head C<extra>
+
+L</head C<extra>>
+', '@chapter head @code{extra}
+@anchor{head @code{extra}}
+
+@ref{head extra}
+
+', 'code in reference');
 
 run_test('=head1 head
 

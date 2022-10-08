@@ -29,6 +29,9 @@ use Carp qw(cluck);
 #use Pod::Simple::Debug (3);
 use Pod::Simple::PullParser ();
 
+# for parselink()
+#use Pod::ParseLink;
+
 use Texinfo::Convert::NodeNameNormalization qw(normalize_node);
 use Texinfo::Parser qw(parse_texi_line parse_texi_text);
 use Texinfo::Convert::Texinfo;
@@ -566,8 +569,10 @@ sub _convert_pod($)
       if ($context_tags{$tagname}) {
         if ($tagname eq 'L') {
           my $linktype = $token->attr('type');
+          # set when the link text is redundant with the to argument.
           my $content_implicit = $token->attr('content-implicit');
-          #print STDERR " L: $linktype\n";
+          #print STDERR " L: $linktype CI: "
+          #           .($content_implicit ? $content_implicit : 'NOCI')."\n";
           #my @attrs = keys %{$token->attr_hash};
           #print STDERR "  @attrs\n";
           #my $raw_L = $token->attr('raw').'';
@@ -607,11 +612,30 @@ sub _convert_pod($)
             # string and not an object.
             $url_arg = _protect_comma(_protect_text($token->attr('to').'', 0, 1));
           } elsif ($linktype eq 'pod') {
+            # FIXME the section is available from $token->attr('section') as a
+            # tree (not a token, looks like the same output as
+            # Pod::Simple::SimpleTree), or as a plain text string with formatting
+            # removed.  The tokens obtained from the argument correspond, depending
+            # on the cases, to 'name', or '"section" in name' (based on perlpodspec)
+            # which is not practical for conversion to Texinfo as section and
+            # name should be available separately, both converted to Texinfo.
+            # It is possible to get the equivalent parsing in term of pod strings with
+            # parselink(), which returns the same as the pullparser argument as
+            # text, but also returns separately the section and name.
+            # However, it is not possible to simply convert the section or
+            # name string with the Texinfo pullparser parser, as a full pod text is
+            # expected, starting whith a =head* while we would want to parse a
+            # string only.
+            #my ($l_text, $l_inferred, $l_name, $l_section, $l_type) = parselink($token->attr('raw'));
             my $manual = $token->attr('to');
             my $section = $token->attr('section');
+            # the section as tree
+            #print STDERR "S ".Data::Dumper->Dump([$section])."\n";
             $manual .= '' if (defined($manual));
+            # coerce to string
             $section .= '' if (defined($section));
             if (0) {
+            #if (1) {
               my $section_text = 'UNDEF';
               $section_text = $section if (defined($section));
               my $manual_text = 'UNDEF';
@@ -711,6 +735,7 @@ sub _convert_pod($)
                     (@format_stack and $format_stack[-1] eq 'in_code'));
         }
       }
+      #print STDERR "T: !$text!\n";
       _output($fh, \@accumulated_output, $text);
     } elsif ($type eq 'end') {
       my $tagname = $token->tagname();
