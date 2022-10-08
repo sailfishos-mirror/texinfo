@@ -20,9 +20,7 @@
 # RELEVANT BUT NOT DECISIVE
 #
 # If @allowcodebreaks is false, - should be set such that it is not a
-# breaking point anymore.  Maybe one way to do it:
-#
-#   \mbox{-}\nobreak\hspace{0pt}
+# breaking point anymore.
 #
 # Note that the texinfo.tex code does more, for instance turns off normal
 # hyphenation, sets plainfrenchspacing (see \tclose), and sets line breaks
