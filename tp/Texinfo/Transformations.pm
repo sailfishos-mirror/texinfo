@@ -1000,7 +1000,7 @@ C<get_conf>.  If both I<$registrar> and I<$customization_information> are
 defined they are used for error reporting in case an hash character could not
 be protected because it appeared in a raw environment.
 
-=item $modified_tree reference_to_arg_in_tree($tree)
+=item $modified_tree = reference_to_arg_in_tree($tree)
 X<C<reference_to_arg_in_tree>>
 
 Modify I<$tree> by converting reference @-commands to simple text using one of

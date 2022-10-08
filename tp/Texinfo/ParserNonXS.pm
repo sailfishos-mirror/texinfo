@@ -6966,7 +6966,7 @@ The user macro name the @-command is expanded from.
 =item extra
 
 A hash reference holding any other information.
-See L</Information available in the extra key>.
+See L</Information available in the C<extra> key>.
 
 =back
 
@@ -7539,7 +7539,7 @@ I<code> is set depending on the context and C<@kbdinputstyle>.
 I<invalid_syntax> is set if there was an error on the C<@macro>
 line.  I<arg_line> holds the line after C<@macro>.
 
-=item <menu_entry>
+=item C<menu_entry>
 
 The I<menu_entry_description> and I<menu_entry_name> keys
 are associated with the corresponding tree elements. The

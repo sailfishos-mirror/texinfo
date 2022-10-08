@@ -28,7 +28,7 @@ use Locale::Messages;
 
 # note that there is a circular dependency with the parser module, as
 # the parser uses complete_indices() from this modules, while this modules
-# can use a parser.  There is not problematic, however, as the
+# can use a parser.  This is not problematic, however, as the
 # modules do not setup data such that their order of loading is not
 # important, as long as they load after their dependencies.
 
@@ -420,7 +420,7 @@ Texinfo to other formats.  There is no promise of API stability.
 The C<Texinfo::Translations> module helps with translations
 in output documents.
 
-Translation of error messages uses another interface which
+Translation of error messages uses another interface, which
 is the classical gettext based perl interface.  It is not
 described as it is described in details elsewhere, some
 elements are in L<Texinfo::Common C<__> and C<__p>|Texinfo::Common/$translated_string = __($msgid)>.

@@ -1642,7 +1642,7 @@ X<C<brace_no_arg_command>>
 
 Return the Unicode representation of a command with brace and no argument
 I<$command_name> (like C<@bullet{}>, C<@aa{}> or C<@guilsinglleft{}>),
-or C<undef> if there the Unicode representation cannot be converted to encoding
+or C<undef> if the Unicode representation cannot be converted to encoding
 I<$encoding>.
 
 =item $possible_conversion = check_unicode_point_conversion($arg, $output_debug)
@@ -1701,7 +1701,8 @@ X<C<unicode_point_decoded_in_encoding>>
 Return true if the I<$unicode_point> will be encoded in the encoding
 I<$encoding>.  The I<$unicode_point> should be specified as a four letter
 string describing an hexadecimal number with letters in upper case
-(such as C<201D>).
+(such as C<201D>).  Tables are used to determine if the I<$unicode_point>
+will be encoded, when the encoding does not cover the whole Unicode range.
 
 If the encoding is not supported in Texinfo, the result will always be false.
 

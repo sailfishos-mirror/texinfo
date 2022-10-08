@@ -5,7 +5,7 @@ Texinfo::Commands - Classification of commands
 =head1 SYNOPSIS
 
   use Texinfo::Commands;
-  if ($Texinfo::Common::accent_commands{$a_command}) {
+  if ($Texinfo::Commands::accent_commands{$a_command}) {
     print STDERR "$a_command is an accent command\n";
   }
 
@@ -16,7 +16,7 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Common holds a few hashes with information on @-commands 
+Texinfo::Commands holds a few hashes with information on @-commands
 and hashes classifying Texinfo @-commands.
 
 =head1 @-COMMAND INFORMATION
@@ -189,7 +189,7 @@ X<C<%nobrace_commands>>
 
 Command that do not take braces, do not have argument on their line and
 are not block commands either.  The value is I<symbol> for single character
-non-alphabetical @-commands such as C<@@>, C<@ > or @C<@:>.  Other commands in that hash
+non-alphabetical @-commands such as C<@@>, C<@ > or C<@:>.  Other commands in that hash
 include C<@indent>, C<@tab> or C<@thissection>.
 
 Note that C<@item> is in C<%nobrace_commands> for its role in C<@multitable>,

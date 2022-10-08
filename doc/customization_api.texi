@@ -2443,14 +2443,14 @@ Returns an array containing the block preformatted @@-commands such as
 @@ and the HTML attribute class preformatted container names, in order of appearance.
 @end deftypefun
 
-The @code{%Texinfo::Common::preformatted_code_commands}
+The @code{%Texinfo::Commands::preformatted_code_commands}
 hash can be used to determine if a preformatted command is to be formatted
-as code (@pxref{Texinfo::Common %preformatted_code_commands,,,tp_api}).
+as code (@pxref{Texinfo::Commands %preformatted_code_commands,,,tp_api}).
 
 @example
 my @@pre_classes = $converter->preformatted_classes_stack();
 foreach my $pre_class (@@pre_classes) @{
-  if ($Texinfo::Common::preformatted_code_commands@{$pre_class@}) @{
+  if ($Texinfo::Commands::preformatted_code_commands@{$pre_class@}) @{
     $result = '<code>' .$result. '</code>';
     last;
   @}

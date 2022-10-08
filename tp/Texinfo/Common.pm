@@ -1161,7 +1161,7 @@ sub locate_include_file($$)
   #print STDERR "$customization_information $input_file_path ".
   # @{$customization_information->get_conf('INCLUDE_DIRECTORIES')}\n";
   # If the path is absolute or begins with . or .., do not search in
-  # include directories.
+  # include directories.  This is consistent with Kpathsea for Texinfo TeX.
   if (File::Spec->file_name_is_absolute($input_file_path)) {
     $ignore_include_directories = 1;
   } else {
@@ -2618,7 +2618,7 @@ check the element itself, in addition to the parent context.
 Encode the I<$file_name> text string to a binary string I<$encoded_file_name>
 based on I<$input_encoding>.  Also returns the I<$encoding> name actually
 used which may have undergone some normalization.  This function is mostly
-a wrapper around L<Encode::encode> which avoids calling the module if not
+a wrapper around L<Encode::encode|Encode/encode> which avoids calling the module if not
 needed.  Do nothing if I<$input_encoding> is C<undef>.
 
 =item $text = enumerate_item_representation($specification, $number)
