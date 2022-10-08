@@ -15258,21 +15258,15 @@ before the @code{@@titlepage} command:
 produce different output formats and is highly customizable.  It
 supports these formats:
 
-@table @asis
-@item Info (by default, or with @option{--info}),
-
-@item HTML (with @option{--html}),
-
-@item EPUB 3 (with @option{--epub3}),
-
-@item plain text (with @option{--plaintext}),
-
-@item @LaTeX{} (with @option{--latex}),
-
-@item DocBook (with @option{--docbook}),
-
-@item Texinfo XML (with @option{--xml}).
-@end table
+@display
+Info (by default, or with @option{--info}),
+HTML (with @option{--html}),
+EPUB 3 (with @option{--epub3}),
+plain text (with @option{--plaintext}),
+@LaTeX{} (with @option{--latex}),
+DocBook (with @option{--docbook}),
+Texinfo XML (with @option{--xml}).
+@end display
 
 @command{makeinfo} is an alias for @command{texi2any}.  By default,
 both @command{texi2any} and @command{makeinfo} generate Info output;
