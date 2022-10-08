@@ -834,7 +834,9 @@ $result_converted{'latex'}->{'syncode_index_print_both'} = '\\documentclass{book
 \\makeatletter
 \\newcommand{\\GNUTexinfosettitle}{No Title}%
 
-\\makeindex[name=cp]%
+% no index headers or page break
+\\indexsetup{level=\\relax,toclevel=section,noclearpage}%
+\\makeindex[name=cp,title=]%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page

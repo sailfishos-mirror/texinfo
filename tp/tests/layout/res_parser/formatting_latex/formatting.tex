@@ -23,11 +23,13 @@
 \makeatletter
 \newcommand{\GNUTexinfosettitle}{No Title}%
 
-\makeindex[name=codeidx]%
-\makeindex[name=cp]%
-\makeindex[name=fn]%
-\makeindex[name=tp]%
-\makeindex[name=truc]%
+% no index headers or page break
+\indexsetup{level=\relax,toclevel=section,noclearpage}%
+\makeindex[name=codeidx,title=]%
+\makeindex[name=cp,title=]%
+\makeindex[name=fn,title=]%
+\makeindex[name=tp,title=]%
+\makeindex[name=truc,title=]%
 
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%

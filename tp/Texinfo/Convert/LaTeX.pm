@@ -1243,8 +1243,12 @@ sub _latex_header() {
     }
   }
   if ($self->{'index_entries'}) {
+    $header_code .= "% no index headers or page break\n";
+    $header_code .=
+"\\indexsetup{level=\\relax,toclevel=section,noclearpage}%\n";
+
     foreach my $index_name (sort(keys(%{$self->{'index_entries'}}))) {
-      $header_code .= "\\makeindex[name=$index_name]%\n";
+      $header_code .= "\\makeindex[name=$index_name,title=]%\n";
     }
     $header_code .= "\n";
   }

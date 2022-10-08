@@ -2204,9 +2204,11 @@ $result_converted{'latex'}->{'def_syn_indices'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\GNUTexinfosettitle}{No Title}%
 
-\\makeindex[name=codeidx]%
-\\makeindex[name=fn]%
-\\makeindex[name=pg]%
+% no index headers or page break
+\\indexsetup{level=\\relax,toclevel=section,noclearpage}%
+\\makeindex[name=codeidx,title=]%
+\\makeindex[name=fn,title=]%
+\\makeindex[name=pg,title=]%
 
 % style command for var in \'cmd_text\' formatting context
 \\newcommand\\GNUTexinfocommandstyletextvar[1]{{\\normalfont{}\\textsl{#1}}}%

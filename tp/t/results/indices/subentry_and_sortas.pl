@@ -832,8 +832,10 @@ $result_converted{'latex'}->{'subentry_and_sortas'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\GNUTexinfosettitle}{No Title}%
 
-\\makeindex[name=cp]%
-\\makeindex[name=fn]%
+% no index headers or page break
+\\indexsetup{level=\\relax,toclevel=section,noclearpage}%
+\\makeindex[name=cp,title=]%
+\\makeindex[name=fn,title=]%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page

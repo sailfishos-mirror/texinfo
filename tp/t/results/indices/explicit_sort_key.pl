@@ -1158,7 +1158,9 @@ $result_converted{'latex'}->{'explicit_sort_key'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\GNUTexinfosettitle}{No Title}%
 
-\\makeindex[name=SK]%
+% no index headers or page break
+\\indexsetup{level=\\relax,toclevel=section,noclearpage}%
+\\makeindex[name=SK,title=]%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page

@@ -1,5 +1,10 @@
 2022-10-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header) <indices>:
+	Avoid extra heading before indices.
+
+2022-10-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_protect_index_text):
 	Protect \ before ", so @"a outputs as "\""a.
 	(_protect_text): Do not call _protect_index_text.

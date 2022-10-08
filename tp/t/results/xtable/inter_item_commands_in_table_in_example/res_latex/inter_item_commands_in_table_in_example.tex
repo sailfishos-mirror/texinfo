@@ -17,7 +17,9 @@
 \makeatletter
 \newcommand{\GNUTexinfosettitle}{No Title}%
 
-\makeindex[name=cp]%
+% no index headers or page break
+\indexsetup{level=\relax,toclevel=section,noclearpage}%
+\makeindex[name=cp,title=]%
 
 % style command for var in 'cmd_text' formatting context
 \newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%

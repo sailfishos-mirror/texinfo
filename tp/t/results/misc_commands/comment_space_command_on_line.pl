@@ -1139,7 +1139,9 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 % new float for type `Text\'
 \\newfloat{TexinfoFloatText}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatText}{}
-\\makeindex[name=cp]%
+% no index headers or page break
+\\indexsetup{level=\\relax,toclevel=section,noclearpage}%
+\\makeindex[name=cp,title=]%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
