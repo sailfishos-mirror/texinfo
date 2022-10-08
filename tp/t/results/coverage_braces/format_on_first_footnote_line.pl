@@ -305,11 +305,11 @@ in quotation on the first footnote line
 \\end{quote}
 }.
 
-Last text \\footnote{\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+Last text \\footnote{\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily in example
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
 }
 ';

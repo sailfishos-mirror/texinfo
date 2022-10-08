@@ -129,7 +129,7 @@ $result_floats{'two_setchapternewpage_odd_on'} = {};
 $result_converted{'latex_text'}->{'two_setchapternewpage_odd_on'} = '\\pagestyle{double}%
 
 \\makeatletter
-\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 \\pagestyle{single}%
 \\begin{document}

@@ -457,8 +457,8 @@ sp after para
 </screen>';
 
 
-$result_converted{'latex_text'}->{'sp_in_example'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'sp_in_example'} = '\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily Para
 \\vskip 1\\baselineskip %
 other para
@@ -475,8 +475,8 @@ B
 
 sp after para
 \\vskip 1\\baselineskip %
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

@@ -1,5 +1,11 @@
 2022-10-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/LaTeX.pm: Change \GNUTexinfo- prefix
+	to \Texinfo- throughout, both for brevity and to make it
+	easier for others to make their own non-GNU version of Texinfo.
+
+2022-10-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Generic Translator texi2any):
 	Change @table @asis to @display to compress vertical spacing
 	in LaTeX output.

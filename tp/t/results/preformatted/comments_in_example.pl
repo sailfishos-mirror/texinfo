@@ -508,24 +508,24 @@ second line
 
 
 $result_converted{'latex_text'}->{'comments_in_example'} = 'Example with comments 2 lines
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily line second line \\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily line second line \\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
 Example with comments 1 line
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily line \\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily line \\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
 Example with newline after comment
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily line 
 second line
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

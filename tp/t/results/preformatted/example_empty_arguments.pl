@@ -459,23 +459,23 @@ $result_converted{'xml'}->{'example_empty_arguments'} = '<example spaces=" " end
 ';
 
 
-$result_converted{'latex_text'}->{'example_empty_arguments'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'example_empty_arguments'} = '\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily example with empty args
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily example with empty args with spaces
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily example with empty and non empty args mix
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

@@ -279,19 +279,19 @@ $result_floats{'example_in_cartouche'} = {};
 
 
 $result_converted{'latex_text'}->{'example_in_cartouche'} = '\\begin{document}
-\\begin{mdframed}[style=GNUTexinfocartouche]
+\\begin{mdframed}[style=Texinfocartouche]
 Normal cartouche
 
 New para
 \\end{mdframed}
 
-\\begin{mdframed}[style=GNUTexinfocartouche]
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{mdframed}[style=Texinfocartouche]
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily \\% pwd
 /usr/local/share/emacs
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 \\end{mdframed}
 ';
 

@@ -610,32 +610,32 @@ $result_converted{'xml'}->{'comment_example_and_blank_lines'} = '<para>Para.
 
 $result_converted{'latex_text'}->{'comment_example_and_blank_lines'} = 'Para.
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily comment,\\ blank after \\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily comment,\\ blank after \\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
 Para.
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily comment,\\ no blank after \\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily comment,\\ no blank after \\end{Texinfopreformatted}
+\\end{Texinfoindented}
 Para.
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily no comment,\\ blank after
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
 Para.
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily no comment,\\ no blank after
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 Para.
 ';
 

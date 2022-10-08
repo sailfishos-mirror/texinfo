@@ -1582,14 +1582,14 @@ $result_converted{'latex_text'}->{'at_commands_in_raw'} = '\\label{anchor:Top}%
 
 <b>in b\\footnote{in footnote}.</b>
 \\label{anchor:anchor-in-html}%
-\\GNUTexinfocommandstyletextkbd{in kbd before tex}\\footnote{second footnote}.
+\\Texinfocommandstyletextkbd{in kbd before tex}\\footnote{second footnote}.
 
 
 
 
 \\{No value for `flag\'\\}.
 
-\\GNUTexinfocommandstyletextkbd{in kbd after tex}.
+\\Texinfocommandstyletextkbd{in kbd after tex}.
 
 See \\hyperref[anchor:anchor-in-html]{[anchor in html], page~\\pageref*{anchor:anchor-in-html}}.
 

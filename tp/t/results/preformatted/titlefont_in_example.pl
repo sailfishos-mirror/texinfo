@@ -188,12 +188,12 @@ Text.
 ';
 
 
-$result_converted{'latex_text'}->{'titlefont_in_example'} = '\\begin{GNUTexinfoindented}
-{\\huge \\bfseries Title}\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'titlefont_in_example'} = '\\begin{Texinfoindented}
+{\\huge \\bfseries Title}\\begin{Texinfopreformatted}%
 \\ttfamily 
 Text.
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

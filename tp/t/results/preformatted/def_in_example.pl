@@ -351,7 +351,7 @@ $result_converted{'xml'}->{'def_in_example'} = '<example endspaces=" ">
 ';
 
 
-$result_converted{'latex_text'}->{'def_in_example'} = '\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'def_in_example'} = '\\begin{Texinfoindented}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
@@ -361,11 +361,11 @@ $result_converted{'latex_text'}->{'def_in_example'} = '\\begin{GNUTexinfoindente
 \\index[fn]{name@\\texttt{name}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily in defun
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\end{quote}
-\\end{GNUTexinfoindented}
+\\end{Texinfoindented}
 ';
 
 1;

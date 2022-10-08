@@ -1066,7 +1066,7 @@ $result_converted{'latex_text'}->{'custom_headings'} = '\\newpagestyle{custom}{%
 \\renewpagestyle{custom}{%
 \\sethead[\\thepage{} \\sectiontitle{}][\\thesection{} Section \\thesection{} \\sectiontitle{}][\\chaptertitle{} \\thechapter{}]%
 {}{}{}%
-\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\GNUTexinfosettitle{}][][\\texttt{\\chaptertitle{}}]%
+\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\Texinfosettitle{}][][\\texttt{\\chaptertitle{}}]%
 {}{}{}%
 }%
 \\pagestyle{custom}%
@@ -1093,7 +1093,7 @@ after ch--ap second page
 \\renewpagestyle{custom}{%
 \\sethead[toto][titi][]%
 {toto}{titi}{}%
-\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\GNUTexinfosettitle{}][][\\texttt{\\chaptertitle{}}]%
+\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\Texinfosettitle{}][][\\texttt{\\chaptertitle{}}]%
 {}{}{}%
 }%
 \\pagestyle{custom}%

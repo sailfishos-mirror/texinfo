@@ -320,8 +320,8 @@ $result_converted{'xml'}->{'example_class'} = '<example spaces=" " endspaces=" "
 ';
 
 
-$result_converted{'latex_text'}->{'example_class'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'example_class'} = '\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily foreach my \\$unclosed\\_file (keys(\\%unclosed\\_files)) \\{
 \\  if (!close(\\$unclosed\\_files\\{\\$unclosed\\_file\\})) \\{
 \\    warn(sprintf("\\%s:\\ error on closing \\%s:\\ \\%s\\textbackslash{}n",
@@ -330,8 +330,8 @@ $result_converted{'latex_text'}->{'example_class'} = '\\begin{GNUTexinfoindented
 \\    \\_exit(\\$error\\_count,\\ \\textbackslash{}@opened\\_files);
 \\  \\}
 \\}
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

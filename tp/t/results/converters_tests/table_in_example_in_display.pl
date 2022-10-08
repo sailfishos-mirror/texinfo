@@ -321,17 +321,17 @@ $result_converted{'docbook'}->{'table_in_example_in_display'} = '<variablelist><
 </screen></listitem></varlistentry></variablelist>';
 
 
-$result_converted{'latex_text'}->{'table_in_example_in_display'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfoindented}
+$result_converted{'latex_text'}->{'table_in_example_in_display'} = '\\begin{Texinfoindented}
+\\begin{Texinfoindented}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 item}}]
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily Line
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\end{description}
-\\end{GNUTexinfoindented}
-\\end{GNUTexinfoindented}
+\\end{Texinfoindented}
+\\end{Texinfoindented}
 ';
 
 1;

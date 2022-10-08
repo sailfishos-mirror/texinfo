@@ -217,7 +217,7 @@ $result_converted{'xml'}->{'cartouche_in_quotation'} = '<quotation endspaces=" "
 
 $result_converted{'latex_text'}->{'cartouche_in_quotation'} = '\\begin{quote}
 In quotation
-\\begin{mdframed}[style=GNUTexinfocartouche]
+\\begin{mdframed}[style=Texinfocartouche]
 In cartouche in quotation
 \\end{mdframed}
 end quotation

@@ -215,19 +215,19 @@ $result_converted{'xml'}->{'cartouche_in_example'} = '<example endspaces=" ">
 ';
 
 
-$result_converted{'latex_text'}->{'cartouche_in_example'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'cartouche_in_example'} = '\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily In example
-\\end{GNUTexinfopreformatted}
-\\begin{mdframed}[style=GNUTexinfocartouche]
-\\begin{GNUTexinfopreformatted}%
+\\end{Texinfopreformatted}
+\\begin{mdframed}[style=Texinfocartouche]
+\\begin{Texinfopreformatted}%
 \\ttfamily In cartouche in example
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\end{mdframed}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily end example
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 

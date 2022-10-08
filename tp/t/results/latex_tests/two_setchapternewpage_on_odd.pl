@@ -127,12 +127,12 @@ $result_floats{'two_setchapternewpage_on_odd'} = {};
 
 
 $result_converted{'latex_text'}->{'two_setchapternewpage_on_odd'} = '\\makeatletter
-\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 \\pagestyle{single}%
 
 \\makeatletter
-\\patchcmd{\\chapter}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{}{}
+\\patchcmd{\\chapter}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{}{}
 \\makeatother
 \\pagestyle{double}%
 \\begin{document}

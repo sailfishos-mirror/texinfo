@@ -21,7 +21,7 @@
 \usepackage[utf8]{inputenc}
 
 \makeatletter
-\newcommand{\GNUTexinfosettitle}{No Title}%
+\newcommand{\Texinfosettitle}{No Title}%
 
 % no index headers or page break
 \indexsetup{level=\relax,toclevel=section,noclearpage}%
@@ -32,24 +32,24 @@
 \makeindex[name=truc,title=]%
 
 % command used in \description format for samp
-\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+\newcommand\Texinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
 
 % style command for cite in 'cmd_text' formatting context
-\newcommand\GNUTexinfocommandstyletextcite[1]{{\normalfont{}\textsl{#1}}}%
+\newcommand\Texinfocommandstyletextcite[1]{{\normalfont{}\textsl{#1}}}%
 
 % style command for kbd in 'cmd_text' formatting context
-\newcommand\GNUTexinfocommandstyletextkbd[1]{{\ttfamily\textsl{#1}}}%
+\newcommand\Texinfocommandstyletextkbd[1]{{\ttfamily\textsl{#1}}}%
 
 % style command for var in 'cmd_text' formatting context
-\newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
+\newcommand\Texinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
-\newenvironment{GNUTexinfopreformatted}{%
+\newenvironment{Texinfopreformatted}{%
   \par\GNUTobeylines\obeyspaces\frenchspacing\parskip=\z@\parindent=\z@}{}
 {\catcode`\^^M=13 \gdef\GNUTobeylines{\catcode`\^^M=13 \def^^M{\null\par}}}
-\newenvironment{GNUTexinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
+\newenvironment{Texinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
 
 
 % set defaults for lists that match Texinfo TeX formatting
@@ -58,16 +58,16 @@
 \setlist[enumerate]{label=\arabic*.}
 
 % used for substitutions in commands
-\newcommand{\GNUTexinfoplaceholder}[1]{}
+\newcommand{\Texinfoplaceholder}[1]{}
 
 \newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
 
 % avoid pagebreak and headings setting for a sectioning command
-\newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}
+\newcommand{\Texinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\Texinfoplaceholder #1{#2}}}
 
 % the mdframed style for @cartouche
-\mdfdefinestyle{GNUTexinfocartouche}{
+\mdfdefinestyle{Texinfocartouche}{
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
 
@@ -76,14 +76,14 @@ roundcorner=10pt}
 \EmbracOff{}%
 
 % allow line breaking at underscore
-\let\GNUTexinfounderscore\_
-\renewcommand{\_}{\GNUTexinfounderscore\discretionary{}{}{}}
+\let\Texinfounderscore\_
+\renewcommand{\_}{\Texinfounderscore\discretionary{}{}{}}
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 \makeatother
 % set default for @setchapternewpage
 \makeatletter
-\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\Texinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
 \makeatother
 
 % no headings before titlepage
@@ -121,7 +121,7 @@ In titlepage
 code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
+kbd: \Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
@@ -236,7 +236,7 @@ but , ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 \texttt{@asis\{{-}{-}a\}} --a
 \texttt{@b\{{-}{-}a\}} \textbf{--a}
-\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
+\texttt{@cite\{{-}{-}a\}} \Texinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{--a}
@@ -248,7 +248,7 @@ but , ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{--a}
-\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
+\texttt{@kbd\{{-}{-}a\}} \Texinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -271,7 +271,7 @@ but , ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
-\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
+\texttt{@var\{{-}{-}a\}} \Texinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -355,24 +355,24 @@ $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
-\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
+\Texinfocommandstyletextkbd{default kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example default kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \texttt{code kbdinputstyle}
 \begin{description}
@@ -381,17 +381,17 @@ $$
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily \texttt{in example code kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
 \index[cp]{vtable i--tem in example code kbdinputstyle@\texttt{vtable i{-}{-}tem in example code kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \texttt{example kbdinputstyle}
 \begin{description}
@@ -400,36 +400,36 @@ $$
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example example kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example example kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
 \index[cp]{vtable i--tem in example example kbdinputstyle@\texttt{vtable i{-}{-}tem in example example kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
-\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{distinct kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example distinct kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \begin{quote}
 A quot---ation
@@ -620,151 +620,151 @@ lone mu--ltitable item&\\
 truc &bidule\\
 \end{tabular}%
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily e{-}{-}xample  some
 \   text
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example one arg
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example two args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example three args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example four args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example five args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily The something \'{e}\ \TeX{}\ is here.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily A @\ at the end of the @example line.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty and non empty args mix
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Exam{-}{-}{-}ple
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 Other li---ne
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily not exdented
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
+\begin{Texinfoindented}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented  and dash --- in example
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented one
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented two
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented two
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Example   Hoho.
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Nested Other line
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented nested other line
 \\
-\end{GNUTexinfoindented}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}mallexample
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \texttt{@noindent} after smallexample.
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \noindent{}Less recent versions are also present.
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 d--isplay
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \footnotesize s--malldisplay
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}isp
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}malllisp
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--ormat
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \footnotesize s--mallformat
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
@@ -793,10 +793,10 @@ def--fn
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 \index[cp]{index entry within deffn@index entry within deffn}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
@@ -928,10 +928,10 @@ def--fn
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -1457,27 +1457,27 @@ Value--table code
 \begin{description}
 \item[] Title
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylesamp{a{-}{-}samp}\\
-\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
+\Texinfotablestylesamp{a{-}{-}samp}\\
+\Texinfotablestylesamp{a2{-}{-}samp}}}]
 Value--table samp
 \end{description}
 
-\begin{mdframed}[style=GNUTexinfocartouche]
+\begin{mdframed}[style=Texinfocartouche]
 c--artouche
 \end{mdframed}
 
 \begin{flushleft}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--lushleft
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushleft}
 
 \begin{flushright}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--lushright
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushright}
 
 \begin{center}
@@ -1513,9 +1513,9 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
-\GNUTexinfonopagebreakheading{\chapter*}{{majorheading}}
+\Texinfonopagebreakheading{\chapter*}{{majorheading}}
 
-\GNUTexinfonopagebreakheading{\chapter*}{{chapheading}}
+\Texinfonopagebreakheading{\chapter*}{{chapheading}}
 
 \section*{{heading}}
 
@@ -1688,10 +1688,10 @@ Various deff lines
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
+\texttt{\Texinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
 \end{tabularx}
 
-\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
+\index[fn]{invalid@\texttt{\Texinfocommandstyletextvar{invalid}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -1773,7 +1773,7 @@ In copying
 code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
+kbd: \Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
@@ -1888,7 +1888,7 @@ but , ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 \texttt{@asis\{{-}{-}a\}} --a
 \texttt{@b\{{-}{-}a\}} \textbf{--a}
-\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
+\texttt{@cite\{{-}{-}a\}} \Texinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{--a}
@@ -1900,7 +1900,7 @@ but , ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{--a}
-\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
+\texttt{@kbd\{{-}{-}a\}} \Texinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -1923,7 +1923,7 @@ but , ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
-\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
+\texttt{@var\{{-}{-}a\}} \Texinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -2004,24 +2004,24 @@ $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
-\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
+\Texinfocommandstyletextkbd{default kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example default kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \texttt{code kbdinputstyle}
 \begin{description}
@@ -2030,17 +2030,17 @@ $$
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily \texttt{in example code kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
 \index[cp]{vtable i--tem in example code kbdinputstyle@\texttt{vtable i{-}{-}tem in example code kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \texttt{example kbdinputstyle}
 \begin{description}
@@ -2049,36 +2049,36 @@ $$
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example example kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example example kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
 \index[cp]{vtable i--tem in example example kbdinputstyle@\texttt{vtable i{-}{-}tem in example example kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
-\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{distinct kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example distinct kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \begin{quote}
 A quot---ation
@@ -2269,151 +2269,151 @@ lone mu--ltitable item&\\
 truc &bidule\\
 \end{tabular}%
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily e{-}{-}xample  some
 \   text
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example one arg
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example two args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example three args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example four args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example five args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily The something \'{e}\ \TeX{}\ is here.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily A @\ at the end of the @example line.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty and non empty args mix
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Exam{-}{-}{-}ple
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 Other li---ne
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily not exdented
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
+\begin{Texinfoindented}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented  and dash --- in example
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented one
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented two
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented two
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Example   Hoho.
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Nested Other line
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented nested other line
 \\
-\end{GNUTexinfoindented}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}mallexample
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \texttt{@noindent} after smallexample.
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \noindent{}Less recent versions are also present.
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 d--isplay
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \footnotesize s--malldisplay
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}isp
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}malllisp
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--ormat
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \footnotesize s--mallformat
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
@@ -2442,10 +2442,10 @@ def--fn
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 \index[cp]{index entry within deffn@index entry within deffn}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
@@ -2577,10 +2577,10 @@ def--fn
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -3106,27 +3106,27 @@ Value--table code
 \begin{description}
 \item[] Title
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylesamp{a{-}{-}samp}\\
-\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
+\Texinfotablestylesamp{a{-}{-}samp}\\
+\Texinfotablestylesamp{a2{-}{-}samp}}}]
 Value--table samp
 \end{description}
 
-\begin{mdframed}[style=GNUTexinfocartouche]
+\begin{mdframed}[style=Texinfocartouche]
 c--artouche
 \end{mdframed}
 
 \begin{flushleft}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--lushleft
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushleft}
 
 \begin{flushright}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--lushright
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushright}
 
 \begin{center}
@@ -3162,9 +3162,9 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
-\GNUTexinfonopagebreakheading{\chapter*}{{majorheading}}
+\Texinfonopagebreakheading{\chapter*}{{majorheading}}
 
-\GNUTexinfonopagebreakheading{\chapter*}{{chapheading}}
+\Texinfonopagebreakheading{\chapter*}{{chapheading}}
 
 \section*{{heading}}
 
@@ -3337,10 +3337,10 @@ Various deff lines
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
+\texttt{\Texinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
 \end{tabularx}
 
-\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
+\index[fn]{invalid@\texttt{\Texinfocommandstyletextvar{invalid}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -3443,7 +3443,7 @@ In copying
 code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
+kbd: \Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
@@ -3558,7 +3558,7 @@ but , ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 \texttt{@asis\{{-}{-}a\}} --a
 \texttt{@b\{{-}{-}a\}} \textbf{--a}
-\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
+\texttt{@cite\{{-}{-}a\}} \Texinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{--a}
@@ -3570,7 +3570,7 @@ but , ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{--a}
-\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
+\texttt{@kbd\{{-}{-}a\}} \Texinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -3593,7 +3593,7 @@ but , ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
-\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
+\texttt{@var\{{-}{-}a\}} \Texinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -3674,24 +3674,24 @@ $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
-\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
+\Texinfocommandstyletextkbd{default kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example default kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \texttt{code kbdinputstyle}
 \begin{description}
@@ -3700,17 +3700,17 @@ $$
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily \texttt{in example code kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
 \index[cp]{vtable i--tem in example code kbdinputstyle@\texttt{vtable i{-}{-}tem in example code kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \texttt{example kbdinputstyle}
 \begin{description}
@@ -3719,36 +3719,36 @@ $$
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example example kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example example kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
 \index[cp]{vtable i--tem in example example kbdinputstyle@\texttt{vtable i{-}{-}tem in example example kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
-\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{distinct kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example distinct kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \begin{quote}
 A quot---ation
@@ -3939,151 +3939,151 @@ lone mu--ltitable item&\\
 truc &bidule\\
 \end{tabular}%
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily e{-}{-}xample  some
 \   text
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example one arg
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example two args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example three args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example four args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example five args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily The something \'{e}\ \TeX{}\ is here.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily A @\ at the end of the @example line.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty and non empty args mix
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Exam{-}{-}{-}ple
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 Other li---ne
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily not exdented
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
+\begin{Texinfoindented}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented  and dash --- in example
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented one
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented two
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented two
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Example   Hoho.
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Nested Other line
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented nested other line
 \\
-\end{GNUTexinfoindented}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}mallexample
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \texttt{@noindent} after smallexample.
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \noindent{}Less recent versions are also present.
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 d--isplay
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \footnotesize s--malldisplay
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}isp
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}malllisp
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--ormat
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \footnotesize s--mallformat
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
@@ -4112,10 +4112,10 @@ def--fn
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 \index[cp]{index entry within deffn@index entry within deffn}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
@@ -4247,10 +4247,10 @@ def--fn
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -4776,27 +4776,27 @@ Value--table code
 \begin{description}
 \item[] Title
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylesamp{a{-}{-}samp}\\
-\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
+\Texinfotablestylesamp{a{-}{-}samp}\\
+\Texinfotablestylesamp{a2{-}{-}samp}}}]
 Value--table samp
 \end{description}
 
-\begin{mdframed}[style=GNUTexinfocartouche]
+\begin{mdframed}[style=Texinfocartouche]
 c--artouche
 \end{mdframed}
 
 \begin{flushleft}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--lushleft
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushleft}
 
 \begin{flushright}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--lushright
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushright}
 
 \begin{center}
@@ -4832,9 +4832,9 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
-\GNUTexinfonopagebreakheading{\chapter*}{{majorheading}}
+\Texinfonopagebreakheading{\chapter*}{{majorheading}}
 
-\GNUTexinfonopagebreakheading{\chapter*}{{chapheading}}
+\Texinfonopagebreakheading{\chapter*}{{chapheading}}
 
 \section*{{heading}}
 
@@ -5007,10 +5007,10 @@ Various deff lines
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
+\texttt{\Texinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
 \end{tabularx}
 
-\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
+\index[fn]{invalid@\texttt{\Texinfocommandstyletextvar{invalid}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -5091,7 +5091,7 @@ Normal text
 code: \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 asis: ``simple-double--three---four----'' \leavevmode{}\\
 strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
-kbd: \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
+kbd: \Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}} \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
@@ -5206,7 +5206,7 @@ but , ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}} \'{E}--.\@ ,A.\@
 \texttt{@asis\{{-}{-}a\}} --a
 \texttt{@b\{{-}{-}a\}} \textbf{--a}
-\texttt{@cite\{{-}{-}a\}} \GNUTexinfocommandstyletextcite{--a}
+\texttt{@cite\{{-}{-}a\}} \Texinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \textsl{--a}
@@ -5218,7 +5218,7 @@ but , ,\@
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}} \textit{--a}
-\texttt{@kbd\{{-}{-}a\}} \GNUTexinfocommandstyletextkbd{{-}{-}a}
+\texttt{@kbd\{{-}{-}a\}} \Texinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}} $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -5241,7 +5241,7 @@ but , ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
-\texttt{@var\{{-}{-}a\}} \GNUTexinfocommandstyletextvar{--a}
+\texttt{@var\{{-}{-}a\}} \Texinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
 \texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -5322,24 +5322,24 @@ $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
 
-\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
+\Texinfocommandstyletextkbd{default kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example default kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \texttt{code kbdinputstyle}
 \begin{description}
@@ -5348,17 +5348,17 @@ $$
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily \texttt{in example code kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
 \index[cp]{vtable i--tem in example code kbdinputstyle@\texttt{vtable i{-}{-}tem in example code kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \texttt{example kbdinputstyle}
 \begin{description}
@@ -5367,36 +5367,36 @@ $$
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example example kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example example kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
 \index[cp]{vtable i--tem in example example kbdinputstyle@\texttt{vtable i{-}{-}tem in example example kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
-\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{distinct kbdinputstyle}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example distinct kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
 
 \begin{quote}
 A quot---ation
@@ -5587,151 +5587,151 @@ lone mu--ltitable item&\\
 truc &bidule\\
 \end{tabular}%
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily e{-}{-}xample  some
 \   text
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example one arg
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example two args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example three args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example four args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example five args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily The something \'{e}\ \TeX{}\ is here.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily A @\ at the end of the @example line.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty and non empty args mix
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Exam{-}{-}{-}ple
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 Other li---ne
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily not exdented
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
+\begin{Texinfoindented}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented  and dash --- in example
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented one
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented two
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented two
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Example   Hoho.
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Nested Other line
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented nested other line
 \\
-\end{GNUTexinfoindented}
-\end{GNUTexinfoindented}
+\end{Texinfoindented}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}mallexample
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \texttt{@noindent} after smallexample.
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \noindent{}Less recent versions are also present.
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 d--isplay
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \footnotesize s--malldisplay
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}isp
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}malllisp
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--ormat
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \footnotesize s--mallformat
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
@@ -5760,10 +5760,10 @@ def--fn
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 \index[cp]{index entry within deffn@index entry within deffn}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
@@ -5895,10 +5895,10 @@ def--fn
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -6424,27 +6424,27 @@ Value--table code
 \begin{description}
 \item[] Title
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylesamp{a{-}{-}samp}\\
-\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
+\Texinfotablestylesamp{a{-}{-}samp}\\
+\Texinfotablestylesamp{a2{-}{-}samp}}}]
 Value--table samp
 \end{description}
 
-\begin{mdframed}[style=GNUTexinfocartouche]
+\begin{mdframed}[style=Texinfocartouche]
 c--artouche
 \end{mdframed}
 
 \begin{flushleft}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--lushleft
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushleft}
 
 \begin{flushright}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 f--lushright
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushright}
 
 \begin{center}
@@ -6480,9 +6480,9 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
-\GNUTexinfonopagebreakheading{\chapter*}{{majorheading}}
+\Texinfonopagebreakheading{\chapter*}{{majorheading}}
 
-\GNUTexinfonopagebreakheading{\chapter*}{{chapheading}}
+\Texinfonopagebreakheading{\chapter*}{{chapheading}}
 
 \section*{{heading}}
 
@@ -6655,10 +6655,10 @@ Various deff lines
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
+\texttt{\Texinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
 \end{tabularx}
 
-\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
+\index[fn]{invalid@\texttt{\Texinfocommandstyletextvar{invalid}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -6727,8 +6727,8 @@ g--roupe
 
 
 In example.
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
 <
 >
@@ -6741,7 +6741,7 @@ In example.
 code:\ \texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}\ \leavevmode{}\\
 asis:\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}\ \leavevmode{}\\
 strong:\ \textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}\ \leavevmode{}\\
-kbd:\ \GNUTexinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}\ \leavevmode{}\\
+kbd:\ \Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{'}{'}}\ \leavevmode{}\\
 
 `\hbox{}`simple-double-\hbox{}-three{-}{-}{-}four{-}{-}{-}-'\hbox{}'\leavevmode{}\\
 
@@ -6856,7 +6856,7 @@ but ,\ ,\@
 \texttt{@abbr\{@'E{-}{-}.\ @comma\{\}A.\}}\ \'{E}{-}{-}.\@\ ,A.\@
 \texttt{@asis\{{-}{-}a\}}\ {-}{-}a
 \texttt{@b\{{-}{-}a\}}\ \textbf{{-}{-}a}
-\texttt{@cite\{{-}{-}a\}}\ \GNUTexinfocommandstyletextcite{--a}
+\texttt{@cite\{{-}{-}a\}}\ \Texinfocommandstyletextcite{--a}
 \texttt{@code\{{-}{-}a\}}\ \texttt{{-}{-}a}
 \texttt{@command\{{-}{-}a\}}\ \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}}\ \textsl{{-}{-}a}
@@ -6868,7 +6868,7 @@ but ,\ ,\@
 \texttt{@env\{{-}{-}a\}}\ \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}}\ \texttt{{-}{-}a}
 \texttt{@i\{{-}{-}a\}}\ \textit{{-}{-}a}
-\texttt{@kbd\{{-}{-}a\}}\ \GNUTexinfocommandstyletextkbd{{-}{-}a}
+\texttt{@kbd\{{-}{-}a\}}\ \Texinfocommandstyletextkbd{{-}{-}a}
 \texttt{@key\{{-}{-}a\}}\ \texttt{{-}{-}a}
 \texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\}\ @minus\{\}\}}\ $--a {\frac{1}{2}} -$
 \texttt{@option\{{-}{-}a\}}\ \texttt{{-}{-}a}
@@ -6879,8 +6879,8 @@ but ,\ ,\@
 \texttt{@t\{{-}{-}a\}}\ \texttt{{-}{-}a}
 \texttt{@sansserif\{{-}{-}a\}}\ \textsf{{-}{-}a}
 \texttt{@slanted\{{-}{-}a\}}\ \textsl{{-}{-}a}
-\texttt{@titlefont\{{-}{-}a\}}\ \end{GNUTexinfopreformatted}
-{\huge \bfseries --a}\begin{GNUTexinfopreformatted}%
+\texttt{@titlefont\{{-}{-}a\}}\ \end{Texinfopreformatted}
+{\huge \bfseries --a}\begin{Texinfopreformatted}%
 \ttfamily 
 \texttt{@indicateurl\{{-}{-}a\}}\ `\texttt{{-}{-}a}'
 \texttt{@uref\{{-}{-}a,{-}{-}b\}}\ \href{--a}{{-}{-}b (\nolinkurl{--a})}
@@ -6893,7 +6893,7 @@ but ,\ ,\@
 \texttt{@url\{{-}{-}a,{-}{-}b\}}\ \href{--a}{{-}{-}b (\nolinkurl{--a})}
 \texttt{@url\{{-}{-}a,\}}\ \url{--a}
 \texttt{@url\{,{-}{-}b\}}\ {-}{-}b
-\texttt{@var\{{-}{-}a\}}\ \GNUTexinfocommandstyletextvar{--a}
+\texttt{@var\{{-}{-}a\}}\ \Texinfocommandstyletextvar{--a}
 \texttt{@verb\{:{-}{-}a:\}}\ \verb:--a:
 \texttt{@verb\{:a  < \& @\ \% " {-}{-}    b:\}}\ \verb:a  < & @ % " --    b:
 \texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}}\ \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
@@ -6924,36 +6924,36 @@ but ,\ ,\@
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \newpage{}%
 \phantom{blabla}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
 \texttt{need 1002}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \needspace{1.002pt}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
 \texttt{@clicksequence\{click @click\{\}\ A\}}\ click $\rightarrow{}$\ A
 After clickstyle $\Rightarrow{}$
 \texttt{@clicksequence\{click @click\{\}\ A\}}\ click $\Rightarrow{}$\ A
 
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 \imath{} \jmath{}
 \mathord{\text{\l{}}} \textsl{\c{c}}
@@ -6961,9 +6961,9 @@ $$
  \ {}\ {} \ {}\-{}  ! @ \} \{ 
 \today{}
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 \rightarrow{}
 u
@@ -6973,666 +6973,666 @@ u
 \mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
 \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
 \mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
 \mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
 \mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} slanted
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\GNUTexinfocommandstyletextkbd{default kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\Texinfocommandstyletextkbd{default kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example default kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example default kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
 \texttt{code kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem code kbdinputstyle}
 \index[cp]{vtable i--tem code kbdinputstyle@\texttt{vtable i{-}{-}tem code kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily \texttt{in example code kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{vtable i{-}{-}tem in example code kbdinputstyle}
 \index[cp]{vtable i--tem in example code kbdinputstyle@\texttt{vtable i{-}{-}tem in example code kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\GNUTexinfocommandstyletextkbd{example kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\Texinfocommandstyletextkbd{example kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem example kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example example kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example example kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example example kbdinputstyle}
 \index[cp]{vtable i--tem in example example kbdinputstyle@\texttt{vtable i{-}{-}tem in example example kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\GNUTexinfocommandstyletextkbd{distinct kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\Texinfocommandstyletextkbd{distinct kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextkbd{in example distinct kbdinputstyle}
-\end{GNUTexinfopreformatted}
+\begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextkbd{in example distinct kbdinputstyle}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
+\Texinfocommandstyletextkbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily A quot{-}{-}{-}ation
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{Note:} \begin{GNUTexinfopreformatted}%
+\textbf{Note:} \begin{Texinfopreformatted}%
 \ttfamily A Note
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{note:} \begin{GNUTexinfopreformatted}%
+\textbf{note:} \begin{Texinfopreformatted}%
 \ttfamily A note
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{Caution:} \begin{GNUTexinfopreformatted}%
+\textbf{Caution:} \begin{Texinfopreformatted}%
 \ttfamily Caution
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{Important:} \begin{GNUTexinfopreformatted}%
+\textbf{Important:} \begin{Texinfopreformatted}%
 \ttfamily Important
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{Tip:} \begin{GNUTexinfopreformatted}%
+\textbf{Tip:} \begin{Texinfopreformatted}%
 \ttfamily a Tip
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{Warning:} \begin{GNUTexinfopreformatted}%
+\textbf{Warning:} \begin{Texinfopreformatted}%
 \ttfamily a Warning.
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{something \'{e} \TeX{}:} \begin{GNUTexinfopreformatted}%
+\textbf{something \'{e} \TeX{}:} \begin{Texinfopreformatted}%
 \ttfamily The something \'{e}\ \TeX{}\ is here.
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{@ at the end of line \ {}:} \begin{GNUTexinfopreformatted}%
+\textbf{@ at the end of line \ {}:} \begin{Texinfopreformatted}%
 \ttfamily A @\ at the end of the @quotation line.
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{something, other thing:} \begin{GNUTexinfopreformatted}%
+\textbf{something, other thing:} \begin{Texinfopreformatted}%
 \ttfamily something,\ other thing
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\textbf{Note, the note:} \begin{GNUTexinfopreformatted}%
+\textbf{Note, the note:} \begin{Texinfopreformatted}%
 \ttfamily Note,\ the note
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \textbf{Empty:} \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \textbf{:} \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \textbf{\leavevmode{}\\:} \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily aaa quotation
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
 \begin{center}
 --- \emph{quotation author}
 \end{center}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily indent in quotation
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented quotation line   and dash --- in quotation
 \\
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented followed by exdented
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented quotation line
 \\
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented quotation line
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Followed by not exdented 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily quotation1
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 in exdented protected eol \ {}
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily following
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 in exdented a @* \leavevmode{}\\ and following
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily after exdented
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily A small quot{-}{-}{-}ation
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{footnotesize}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
-\textbf{Note:} \begin{GNUTexinfopreformatted}%
+\textbf{Note:} \begin{Texinfopreformatted}%
 \ttfamily A small Note
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{footnotesize}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{quote}
 \begin{footnotesize}
-\textbf{something, other thing:} \begin{GNUTexinfopreformatted}%
+\textbf{something, other thing:} \begin{Texinfopreformatted}%
 \ttfamily something,\ other thing
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{footnotesize}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily i{-}{-}temize
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=+]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily i{-}{-}tem +
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=\textbullet{}]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily b{-}{-}ullet
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=-]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily minu{-}{-}s
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=\emph{after emph}]
-\item \begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily e{-}{-}mph item
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=\textbullet{} a--n itemize line]
-\item \begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily \index[cp]{index entry within itemize@index entry within itemize}%
 i{-}{-}tem 1
-\end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily i{-}{-}tem 2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label={}]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily with w a{-}{-}b
-\end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily with w c{-}{-}d
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=\hbox{} on a line]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily line w a{-}{-}b
-\end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily line with w c{-}{-}d
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{enumerate}[start=1]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily e{-}{-}numerate
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{enumerate}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{enumerate}[start=3]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily first third
-\end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily second third
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{enumerate}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{enumerate}[label=\alph*.]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily e{-}{-}numerate
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{enumerate}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{enumerate}[label=\alph*.,start=3]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily first c
-\end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily second c
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{enumerate}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
-\begin{GNUTexinfopreformatted}%
-\ttfamily mu{-}{-}ltitable headitem \end{GNUTexinfopreformatted}&
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
+\ttfamily mu{-}{-}ltitable headitem \end{Texinfopreformatted}&
+\begin{Texinfopreformatted}%
 \ttfamily another tab
-\end{GNUTexinfopreformatted}\\
-\begin{GNUTexinfopreformatted}%
-\ttfamily mu{-}{-}ltitable item \end{GNUTexinfopreformatted}&
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}\\
+\begin{Texinfopreformatted}%
+\ttfamily mu{-}{-}ltitable item \end{Texinfopreformatted}&
+\begin{Texinfopreformatted}%
 \ttfamily multitable tab
-\end{GNUTexinfopreformatted}\\
-\begin{GNUTexinfopreformatted}%
-\ttfamily mu{-}{-}ltitable item 2 \end{GNUTexinfopreformatted}&
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}\\
+\begin{Texinfopreformatted}%
+\ttfamily mu{-}{-}ltitable item 2 \end{Texinfopreformatted}&
+\begin{Texinfopreformatted}%
 \ttfamily multitable tab 2
 \index[cp]{index entry within multitable@index entry within multitable}%
-\end{GNUTexinfopreformatted}\\
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}\\
+\begin{Texinfopreformatted}%
 \ttfamily lone mu{-}{-}ltitable item
-\end{GNUTexinfopreformatted}&\\
+\end{Texinfopreformatted}&\\
 \end{tabular}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{tabular}{m{0.4\textwidth} m{0.6\textwidth}}%
-\begin{GNUTexinfopreformatted}%
-\ttfamily truc \end{GNUTexinfopreformatted}&
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
+\ttfamily truc \end{Texinfopreformatted}&
+\begin{Texinfopreformatted}%
 \ttfamily bidule
-\end{GNUTexinfopreformatted}\\
+\end{Texinfopreformatted}\\
 \end{tabular}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily e{-}{-}xample  some
 \   text
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example one arg
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example two args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example three args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example four args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example five args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily The something \'{e}\ \TeX{}\ is here.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily A @\ at the end of the @example line.
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty args
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily example with empty and non empty args mix
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Exam{-}{-}{-}ple
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 Other li---ne
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily not exdented
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented  and dash --- in example
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented one
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented two
 \\
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Not exdented two
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Example   Hoho.
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily Nested Other line
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \leavevmode{}\\
 \hbox{\kern -\leftmargin}%
 exdented nested other line
 \\
-\end{GNUTexinfoindented}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfoindented}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}mallexample
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily 
 \texttt{@noindent}\ after smallexample.
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily \noindent{}Less recent versions are also present.
 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 d--isplay
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \footnotesize s--malldisplay
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}isp
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\end{Texinfoindented}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily \footnotesize s{-}{-}malllisp
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 f--ormat
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \footnotesize s--mallformat
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7642,13 +7642,13 @@ f--ormat
 \index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}effn
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7658,23 +7658,23 @@ f--ormat
 \index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily def{-}{-}fn
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
-\begin{GNUTexinfopreformatted}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
+\begin{Texinfopreformatted}%
 \ttfamily \index[cp]{index entry within deffn@index entry within deffn}%
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7757,8 +7757,8 @@ f--ormat
 \end{tabularx}
 
 \index[fn]{followed@\texttt{followed}}%
-\begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
+\begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7779,10 +7779,10 @@ f--ormat
 \end{tabularx}
 
 \index[fn]{deffnx@\texttt{deffnx}}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7790,9 +7790,9 @@ f--ormat
 \end{tabularx}
 
 \index[fn]{deffn@\texttt{deffn}}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7800,8 +7800,8 @@ f--ormat
 \end{tabularx}
 
 \index[fn]{deffn@\texttt{deffn}}%
-\begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
+\begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7809,16 +7809,16 @@ f--ormat
 \end{tabularx}
 
 \index[fn]{deffnx@\texttt{deffnx}}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
+\texttt{\Texinfocommandstyletextvar{i} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fset]
 \end{tabularx}
 
-\index[fn]{i@\texttt{\GNUTexinfocommandstyletextvar{i}}}%
+\index[fn]{i@\texttt{\Texinfocommandstyletextvar{i}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7828,14 +7828,14 @@ f--ormat
 \index[fn]{truc@\texttt{truc}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily text in def item for second def item
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7845,13 +7845,13 @@ f--ormat
 \index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efvr
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7861,13 +7861,13 @@ f--ormat
 \index[fn]{n--ame@\texttt{n{-}{-}ame}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}effn
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7877,13 +7877,13 @@ f--ormat
 \index[fn]{n--ame@\texttt{n{-}{-}ame}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}effn no arg
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7893,13 +7893,13 @@ f--ormat
 \index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypefn
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7909,13 +7909,13 @@ f--ormat
 \index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypefn no arg
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7925,13 +7925,13 @@ f--ormat
 \index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypeop
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7941,13 +7941,13 @@ f--ormat
 \index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypeop no arg
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7957,13 +7957,13 @@ f--ormat
 \index[cp]{d--eftypevr\_name@\texttt{d{-}{-}eftypevr\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypevr
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7973,13 +7973,13 @@ f--ormat
 \index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efcv
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -7989,13 +7989,13 @@ f--ormat
 \index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efcv with arguments
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8005,13 +8005,13 @@ f--ormat
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypecv
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8021,13 +8021,13 @@ f--ormat
 \index[cp]{d--eftypecv\_name of c--lass@\texttt{d{-}{-}eftypecv\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypecv with arguments
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8037,13 +8037,13 @@ f--ormat
 \index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efop
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8053,13 +8053,13 @@ f--ormat
 \index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efop no arg
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8069,13 +8069,13 @@ f--ormat
 \index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftp
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8085,13 +8085,13 @@ f--ormat
 \index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efun
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8101,13 +8101,13 @@ f--ormat
 \index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efmac
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8117,13 +8117,13 @@ f--ormat
 \index[fn]{d--efspec\_name@\texttt{d{-}{-}efspec\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efspec
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8133,13 +8133,13 @@ f--ormat
 \index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efvar
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8149,13 +8149,13 @@ f--ormat
 \index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efvar with args
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8165,13 +8165,13 @@ f--ormat
 \index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efopt
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8181,13 +8181,13 @@ f--ormat
 \index[fn]{d--eftypefun\_name@\texttt{d{-}{-}eftypefun\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypefun
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8197,13 +8197,13 @@ f--ormat
 \index[cp]{d--eftypevar\_name@\texttt{d{-}{-}eftypevar\_name}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypevar
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8213,13 +8213,13 @@ f--ormat
 \index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efivar
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8229,13 +8229,13 @@ f--ormat
 \index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name\ of c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypeivar
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8245,13 +8245,13 @@ f--ormat
 \index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}efmethod
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8261,14 +8261,14 @@ f--ormat
 \index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name\ on c{-}{-}lass}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypemethod
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8278,13 +8278,13 @@ f--ormat
 \index[fn]{name2@\texttt{name2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily aaa2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8294,13 +8294,13 @@ f--ormat
 \index[fn]{d--eftypefn\_name2@\texttt{d{-}{-}eftypefn\_name2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypefn no arg2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8310,13 +8310,13 @@ f--ormat
 \index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypeop2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8326,13 +8326,13 @@ f--ormat
 \index[fn]{d--eftypeop\_name2 on c--lass2@\texttt{d{-}{-}eftypeop\_name2\ on c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypeop no arg2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8342,13 +8342,13 @@ f--ormat
 \index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypecv2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8358,13 +8358,13 @@ f--ormat
 \index[cp]{d--eftypecv\_name2 of c--lass2@\texttt{d{-}{-}eftypecv\_name2\ of c{-}{-}lass2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily d{-}{-}eftypecv with arguments2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8374,11 +8374,11 @@ f--ormat
 \index[fn]{arg2@\texttt{arg2}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily fff2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{quote}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
 
 \texttt{@xref\{c{-}{-}{-}hapter@@,\ cross r{-}{-}{-}ef name@@,\ t{-}{-}{-}itle@@,\ file n{-}{-}{-}ame@@,\ ma{-}{-}{-}nual@@\}}\ See Section ``t{-}{-}{-}itle@'' in \textsl{ma{-}{-}{-}nual@}.
@@ -8446,19 +8446,19 @@ Section ``s{-}{-}ect,ion'' in \texttt{a comma,\ in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textsl{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
-\item[] \begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
+\item[] \begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \textbf{a--strong}}}]
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}ine
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{description}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 a--asis\\
@@ -8466,13 +8466,13 @@ a--asis\\
 b
 \index[cp]{b@\texttt{b}}%
 }}]
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}ine
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{description}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 \emph{a}\\
@@ -8481,85 +8481,85 @@ b
 \emph{b}
 \index[fn]{b@\texttt{b}}%
 }}]
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}ine
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{description}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
-\item[] \begin{GNUTexinfopreformatted}%
+\item[] \begin{Texinfopreformatted}%
 \ttfamily Title
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 \texttt{a{-}{-}code}}}]
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Value{-}{-}table code
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{description}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
-\item[] \begin{GNUTexinfopreformatted}%
+\item[] \begin{Texinfopreformatted}%
 \ttfamily Title
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
-\GNUTexinfotablestylesamp{a{-}{-}samp}\\
-\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
-\begin{GNUTexinfopreformatted}%
+\Texinfotablestylesamp{a{-}{-}samp}\\
+\Texinfotablestylesamp{a2{-}{-}samp}}}]
+\begin{Texinfopreformatted}%
 \ttfamily Value{-}{-}table samp
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{description}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{mdframed}[style=GNUTexinfocartouche]
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{mdframed}[style=Texinfocartouche]
+\begin{Texinfopreformatted}%
 \ttfamily c{-}{-}artouche
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{mdframed}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{flushleft}
-\begin{GNUTexinfopreformatted}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily f{-}{-}lushleft
 more text
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushleft}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{flushright}
-\begin{GNUTexinfopreformatted}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily f{-}{-}lushright
 more text
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushright}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{center}
 ce--ntered line
 \end{center}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{flushleft}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily r{-}{-}raggedright
 more text
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{flushleft}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
 
@@ -8573,13 +8573,13 @@ This is a very simple texi manual @  <>.
 
 @bye
 \end{verbatim}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{verbatim}
 in verbatim ''
 \end{verbatim}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
 
 
@@ -8587,25 +8587,25 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
-\end{GNUTexinfopreformatted}
-\GNUTexinfonopagebreakheading{\chapter*}{{majorheading}}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\Texinfonopagebreakheading{\chapter*}{{majorheading}}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\GNUTexinfonopagebreakheading{\chapter*}{{chapheading}}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\Texinfonopagebreakheading{\chapter*}{{chapheading}}
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \section*{{heading}}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \subsection*{{subheading}}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \subsubsection*{{subsubheading}}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
 
 \texttt{@acronym\{{-}{-}a,an accronym @comma\{\}\ @enddots\{\}\}}\ {-}{-}a\ (an accronym ,\ \dots{})
@@ -8663,90 +8663,90 @@ Invalid use of @':\leavevmode{}\\
 
 {\bfseries author}%
 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 \ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
 \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \check{a}
  ? .
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 $$
 \mathtt{t} 
 $$
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=\emph{}]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily e{-}{-}mph item
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=\emph{} after emph]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily e{-}{-}mph item
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label=\textbullet{} a--n itemize line]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily i{-}{-}tem 1
-\end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily i{-}{-}tem 2
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{itemize}[label={}]
-\item \begin{GNUTexinfopreformatted}%
+\item \begin{Texinfopreformatted}%
 \ttfamily without brace w a{-}{-}b
-\end{GNUTexinfopreformatted}
-\item \begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\item \begin{Texinfopreformatted}%
 \ttfamily without brace w c{-}{-}d
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{itemize}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
-\item[] \begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
+\item[] \begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 a}}]
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}ine
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{description}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
-\item[] \begin{GNUTexinfopreformatted}%
-\ttfamily \end{GNUTexinfopreformatted}
+\item[] \begin{Texinfopreformatted}%
+\ttfamily \end{Texinfopreformatted}
 \item[{\parbox[b]{\linewidth}{%
 a--missing style formatting}}]
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}ine
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{description}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
 a\\
@@ -8755,13 +8755,13 @@ a\\
 b
 \index[fn]{b@\texttt{b}}%
 }}]
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily l{-}{-}ine
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 \end{description}
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8803,9 +8803,9 @@ b
 \end{tabularx}
 
 \index[fn]{followed@\texttt{followed}}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily Various deff lines
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8813,16 +8813,16 @@ b
 \end{tabularx}
 
 \index[fn]{after@\texttt{after}}%
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
+\end{Texinfopreformatted}
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{\GNUTexinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
+\texttt{\Texinfocommandstyletextvar{invalid} \EmbracOn{}\textnormal{\textsl{a g}}\EmbracOff{}}& [fsetinv]
 \end{tabularx}
 
-\index[fn]{invalid@\texttt{\GNUTexinfocommandstyletextvar{invalid}}}%
+\index[fn]{invalid@\texttt{\Texinfocommandstyletextvar{invalid}}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
@@ -8848,13 +8848,13 @@ b
 \texttt{}& [truc]
 \end{tabularx}
 
-\begin{GNUTexinfopreformatted}%
+\begin{Texinfopreformatted}%
 \ttfamily 
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily g{-}{-}roupe
-\end{GNUTexinfopreformatted}
-\begin{GNUTexinfopreformatted}%
+\end{Texinfopreformatted}
+\begin{Texinfopreformatted}%
 \ttfamily 
 \texttt{@ref\{node\}}\ node
 
@@ -8894,8 +8894,8 @@ b
 \texttt{@inforef\{\}}\ 
 
 
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 
 \index[cp]{t-ruc@t--ruc}%
 \index[cp]{T-ruc@T--ruc}%
@@ -8928,7 +8928,7 @@ b
 
 \index[fn]{@\texttt{\hbox{}}}%
 
-\index[codeidx]{a index---entry te\~{} --- i\^{}@\texttt{a \GNUTexinfocommandstyletextvar{index---entry}\ t\~{e}\ {-}{-}{-} \^{\i{}}}}%
+\index[codeidx]{a index---entry te\~{} --- i\^{}@\texttt{a \Texinfocommandstyletextvar{index---entry}\ t\~{e}\ {-}{-}{-} \^{\i{}}}}%
 
 \index[truc]{truc@truc}%
 

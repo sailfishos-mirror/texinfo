@@ -746,41 +746,41 @@ $result_converted{'xml'}->{'nested_example_and_comment'} = '<example endspaces="
 ';
 
 
-$result_converted{'latex_text'}->{'nested_example_and_comment'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily First line 0 \\end{GNUTexinfopreformatted}
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'nested_example_and_comment'} = '\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily First line 0 \\end{Texinfopreformatted}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily Nested example
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily In first one
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily First line 1 \\end{GNUTexinfopreformatted}
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily Nested example \\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily First line 1 \\end{Texinfopreformatted}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily Nested example \\end{Texinfopreformatted}
+\\end{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily In first one
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily First line 2 \\end{GNUTexinfopreformatted}
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily Nested example \\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
-\\ttfamily In first one \\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily First line 2 \\end{Texinfopreformatted}
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily Nested example \\end{Texinfopreformatted}
+\\end{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily In first one \\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

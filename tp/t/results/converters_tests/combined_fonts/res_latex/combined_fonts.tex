@@ -13,41 +13,41 @@
 \usepackage[utf8]{inputenc}
 
 \makeatletter
-\newcommand{\GNUTexinfosettitle}{No Title}%
+\newcommand{\Texinfosettitle}{No Title}%
 
 % style command for cite in 'cmd_text' formatting context
-\newcommand\GNUTexinfocommandstyletextcite[1]{{\normalfont{}\textsl{#1}}}%
+\newcommand\Texinfocommandstyletextcite[1]{{\normalfont{}\textsl{#1}}}%
 
 % style command for kbd in 'cmd_text' formatting context
-\newcommand\GNUTexinfocommandstyletextkbd[1]{{\ttfamily\textsl{#1}}}%
+\newcommand\Texinfocommandstyletextkbd[1]{{\ttfamily\textsl{#1}}}%
 
 % style command for var in 'cmd_text' formatting context
-\newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
+\newcommand\Texinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
-\newenvironment{GNUTexinfopreformatted}{%
+\newenvironment{Texinfopreformatted}{%
   \par\GNUTobeylines\obeyspaces\frenchspacing\parskip=\z@\parindent=\z@}{}
 {\catcode`\^^M=13 \gdef\GNUTobeylines{\catcode`\^^M=13 \def^^M{\null\par}}}
-\newenvironment{GNUTexinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
+\newenvironment{Texinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
 
 
 % used for substitutions in commands
-\newcommand{\GNUTexinfoplaceholder}[1]{}
+\newcommand{\Texinfoplaceholder}[1]{}
 
 \newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
 
 % allow line breaking at underscore
-\let\GNUTexinfounderscore\_
-\renewcommand{\_}{\GNUTexinfounderscore\discretionary{}{}{}}
+\let\Texinfounderscore\_
+\renewcommand{\_}{\Texinfounderscore\discretionary{}{}{}}
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 \makeatother
 % set default for @setchapternewpage
 \makeatletter
-\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\Texinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
 \makeatother
 \pagestyle{single}%
 
@@ -57,19 +57,19 @@
 \chapter{{chapter}}
 \label{anchor:chapter}%
 
-\texttt{c{-}{-}ode}, \textsl{d--fn}, \GNUTexinfocommandstyletextvar{v--ar}, \textbf{s--trong}, \GNUTexinfocommandstyletextkbd{k{-}{-}bd}, `\texttt{s{-}{-}amp}'.
+\texttt{c{-}{-}ode}, \textsl{d--fn}, \Texinfocommandstyletextvar{v--ar}, \textbf{s--trong}, \Texinfocommandstyletextkbd{k{-}{-}bd}, `\texttt{s{-}{-}amp}'.
 
 \texttt{\textsl{d{-}{-}fn in code}}
-\GNUTexinfocommandstyletextvar{\texttt{c{-}{-}ode in var}}
-\texttt{\GNUTexinfocommandstyletextvar{v--ar in code}}
-\textbf{\GNUTexinfocommandstyletextkbd{k{-}{-}bd in strong}}
+\Texinfocommandstyletextvar{\texttt{c{-}{-}ode in var}}
+\texttt{\Texinfocommandstyletextvar{v--ar in code}}
+\textbf{\Texinfocommandstyletextkbd{k{-}{-}bd in strong}}
 `\texttt{\textbf{s{-}{-}trong in samp}}'
 \textbf{`\texttt{s{-}{-}amp in strong}'}
 
-\GNUTexinfocommandstyletextcite{c--ite}
+\Texinfocommandstyletextcite{c--ite}
 
-\texttt{\GNUTexinfocommandstyletextcite{c--ite in code}}
-\GNUTexinfocommandstyletextcite{\texttt{c{-}{-}ode in cite}}
+\texttt{\Texinfocommandstyletextcite{c--ite in code}}
+\Texinfocommandstyletextcite{\texttt{c{-}{-}ode in cite}}
 
 \texttt{c{-}{-}ode} \textsl{s--lanted} \textbf{b--} \texttt{t{-}{-}}
 
@@ -79,13 +79,13 @@
 \textsl{\textbf{b-- in slanted}}
 \texttt{\textsl{s{-}{-}lanted in t}}
 \textsl{\texttt{t{-}{-} in slanted}}
-\texttt{\GNUTexinfocommandstyletextvar{v--ar in t}}
-\GNUTexinfocommandstyletextvar{\texttt{t{-}{-} in var}}
+\texttt{\Texinfocommandstyletextvar{v--ar in t}}
+\Texinfocommandstyletextvar{\texttt{t{-}{-} in var}}
 
-\begin{GNUTexinfoindented}
-\begin{GNUTexinfopreformatted}%
-\ttfamily \GNUTexinfocommandstyletextvar{v--ar in example}
-\GNUTexinfocommandstyletextcite{c--ite in example}
-\end{GNUTexinfopreformatted}
-\end{GNUTexinfoindented}
+\begin{Texinfoindented}
+\begin{Texinfopreformatted}%
+\ttfamily \Texinfocommandstyletextvar{v--ar in example}
+\Texinfocommandstyletextcite{c--ite in example}
+\end{Texinfopreformatted}
+\end{Texinfoindented}
 \end{document}

@@ -486,25 +486,25 @@ in exdented a @* \\leavevmode{}\\\\ and following
 after exdented
 \\end{quote}
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily example
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\leavevmode{}\\\\
 \\hbox{\\kern -\\leftmargin}%
 in exdented protected eol \\ {}
 \\\\
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily following
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\leavevmode{}\\\\
 \\hbox{\\kern -\\leftmargin}%
 in exdented a @* \\leavevmode{}\\\\ and following
 \\\\
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily after exdented
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 

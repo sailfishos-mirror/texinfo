@@ -516,7 +516,7 @@ $result_converted{'latex_text'}->{'informative_commands_in_top_node'} = '\\begin
 \\label{anchor:Top}%
 \\setlength{\\parindent}{5em}
 \\newpagestyle{custom}{%
-\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\GNUTexinfosettitle{}][][\\texttt{\\chaptertitle{}}]%
+\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\Texinfosettitle{}][][\\texttt{\\chaptertitle{}}]%
 {}{}{}%
 }%
 \\pagestyle{custom}%

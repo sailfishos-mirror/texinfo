@@ -1445,11 +1445,11 @@ cc \\par{}
 
 See \\hyperref[anchor:first-node]{[firstnode], page~\\pageref*{anchor:first-node}}
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily in example
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
 \\begin{center}
 around center

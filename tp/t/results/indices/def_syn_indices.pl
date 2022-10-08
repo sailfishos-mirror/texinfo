@@ -2202,7 +2202,7 @@ $result_converted{'latex'}->{'def_syn_indices'} = '\\documentclass{book}
 \\usepackage[utf8]{inputenc}
 
 \\makeatletter
-\\newcommand{\\GNUTexinfosettitle}{No Title}%
+\\newcommand{\\Texinfosettitle}{No Title}%
 
 % no index headers or page break
 \\indexsetup{level=\\relax,toclevel=section,noclearpage}%
@@ -2211,31 +2211,31 @@ $result_converted{'latex'}->{'def_syn_indices'} = '\\documentclass{book}
 \\makeindex[name=pg,title=]%
 
 % style command for var in \'cmd_text\' formatting context
-\\newcommand\\GNUTexinfocommandstyletextvar[1]{{\\normalfont{}\\textsl{#1}}}%
+\\newcommand\\Texinfocommandstyletextvar[1]{{\\normalfont{}\\textsl{#1}}}%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
 \\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
-\\newenvironment{GNUTexinfopreformatted}{%
+\\newenvironment{Texinfopreformatted}{%
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
-\\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+\\newenvironment{Texinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
 
 % used for substitutions in commands
-\\newcommand{\\GNUTexinfoplaceholder}[1]{}
+\\newcommand{\\Texinfoplaceholder}[1]{}
 
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
 % allow line breaking at underscore
-\\let\\GNUTexinfounderscore\\_
-\\renewcommand{\\_}{\\GNUTexinfounderscore\\discretionary{}{}{}}
+\\let\\Texinfounderscore\\_
+\\renewcommand{\\_}{\\Texinfounderscore\\discretionary{}{}{}}
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 \\makeatother
 % set default for @setchapternewpage
 \\makeatletter
-\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 \\pagestyle{single}%
 
@@ -2251,7 +2251,7 @@ after
 \\index[fn]{index truc@index truc}%
 
 
-\\index[codeidx]{a index entry te\\~{} i\\^{}@\\texttt{a \\GNUTexinfocommandstyletextvar{index entry}\\ t\\~{e}\\ \\^{\\i{}}}}%
+\\index[codeidx]{a index entry te\\~{} i\\^{}@\\texttt{a \\Texinfocommandstyletextvar{index entry}\\ t\\~{e}\\ \\^{\\i{}}}}%
 
 \\index[fn]{cindex entry@\\texttt{cindex entry}}%
 

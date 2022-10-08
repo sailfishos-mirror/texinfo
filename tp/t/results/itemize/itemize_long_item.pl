@@ -648,21 +648,21 @@ empty line.
 
 $result_converted{'latex_text'}->{'itemize_long_item'} = '\\begin{itemize}[label=youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc]
 \\item first item
-\\item \\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\item \\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily In example
 
 end example.
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 \\item 
 empty line.
 \\item 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily In second example
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 \\item \\begin{quote}
 Quotation
 \\end{quote}

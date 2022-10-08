@@ -351,11 +351,11 @@ $result_converted{'xml'}->{'example_at_commands_arguments'} = '<example spaces="
 ';
 
 
-$result_converted{'latex_text'}->{'example_at_commands_arguments'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'example_at_commands_arguments'} = '\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily example with @-commands and other special characters
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

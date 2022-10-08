@@ -192,40 +192,40 @@ $result_converted{'latex'}->{'noindent_after_smallexample'} = '\\documentclass{b
 \\usepackage[utf8]{inputenc}
 
 \\makeatletter
-\\newcommand{\\GNUTexinfosettitle}{No Title}%
+\\newcommand{\\Texinfosettitle}{No Title}%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
 \\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
-\\newenvironment{GNUTexinfopreformatted}{%
+\\newenvironment{Texinfopreformatted}{%
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
-\\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+\\newenvironment{Texinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
 
 
 % used for substitutions in commands
-\\newcommand{\\GNUTexinfoplaceholder}[1]{}
+\\newcommand{\\Texinfoplaceholder}[1]{}
 
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
 % allow line breaking at underscore
-\\let\\GNUTexinfounderscore\\_
-\\renewcommand{\\_}{\\GNUTexinfounderscore\\discretionary{}{}{}}
+\\let\\Texinfounderscore\\_
+\\renewcommand{\\_}{\\Texinfounderscore\\discretionary{}{}{}}
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 \\makeatother
 % set default for @setchapternewpage
 \\makeatletter
-\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 \\pagestyle{single}%
 
 To obtain.
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily \\footnotesize \\$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\\&content-type=text/plain\'
 \\$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\\&content-type=text/plain\'
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\noindent{}Less recent versions are also present.
 \\end{document}
 ';

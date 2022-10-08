@@ -564,25 +564,25 @@ $result_converted{'html_text'}->{'kbd'} = '<p>kbd: <code class="code">in kbd</co
 
 $result_converted{'latex_text'}->{'kbd'} = 'kbd: \\texttt{in kbd}.
 
-kbd in code: \\texttt{in first \\GNUTexinfocommandstyletextkbd{in nested kbd}}.
+kbd in code: \\texttt{in first \\Texinfocommandstyletextkbd{in nested kbd}}.
 
-kbd in kbd: \\GNUTexinfocommandstyletextkbd{in top kbd \\GNUTexinfocommandstyletextkbd{in nested kbd}}.
+kbd in kbd: \\Texinfocommandstyletextkbd{in top kbd \\Texinfocommandstyletextkbd{in nested kbd}}.
 
 kbd in @example:
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily in example
 \\texttt{in example in kbd}.
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
 kbd in @format:
 
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 in format
 \\texttt{in format in kbd}.
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 ';
 
 1;

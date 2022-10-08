@@ -1752,14 +1752,14 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
 
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily deffs
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
-\\texttt{my def \\EmbracOn{}\\textnormal{\\textsl{args \\GNUTexinfocommandstyletextvar{arg} \\dots{}\\@}}\\EmbracOff{}}& [Function]
+\\texttt{my def \\EmbracOn{}\\textnormal{\\textsl{args \\Texinfocommandstyletextvar{arg} \\dots{}\\@}}\\EmbracOff{}}& [Function]
 \\end{tabularx}
 
 \\index[fn]{my def@\\texttt{my def}}%
@@ -1788,9 +1788,9 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\end{tabularx}
 
 \\index[vr]{variables@\\texttt{variables}}%
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily 
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
@@ -1800,33 +1800,33 @@ $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
 \\index[vr]{variables too@\\texttt{variables too}}%
 \\begin{quote}
 \\unskip{\\parskip=0pt\\noindent}%
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily THis is the defvar
 
 A table within the def
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 item}}]
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily text
 
 more text
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\item[{\\parbox[b]{\\linewidth}{%
 second item}}]
 \\end{description}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily 
 explanation
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\end{quote}
 \\end{quote}
 \\end{quote}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 \\ttfamily 
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

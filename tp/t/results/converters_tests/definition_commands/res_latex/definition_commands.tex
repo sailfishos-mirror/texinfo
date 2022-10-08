@@ -17,7 +17,7 @@
 \usepackage[utf8]{inputenc}
 
 \makeatletter
-\newcommand{\GNUTexinfosettitle}{No Title}%
+\newcommand{\Texinfosettitle}{No Title}%
 
 % no index headers or page break
 \indexsetup{level=\relax,toclevel=section,noclearpage}%
@@ -25,18 +25,18 @@
 \makeindex[name=vr,title=]%
 
 % style command for var in 'cmd_text' formatting context
-\newcommand\GNUTexinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
+\newcommand\Texinfocommandstyletextvar[1]{{\normalfont{}\textsl{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
-\newenvironment{GNUTexinfopreformatted}{%
+\newenvironment{Texinfopreformatted}{%
   \par\GNUTobeylines\obeyspaces\frenchspacing\parskip=\z@\parindent=\z@}{}
 {\catcode`\^^M=13 \gdef\GNUTobeylines{\catcode`\^^M=13 \def^^M{\null\par}}}
-\newenvironment{GNUTexinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
+\newenvironment{Texinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
 
 % used for substitutions in commands
-\newcommand{\GNUTexinfoplaceholder}[1]{}
+\newcommand{\Texinfoplaceholder}[1]{}
 
 \newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
@@ -46,14 +46,14 @@
 \EmbracOff{}%
 
 % allow line breaking at underscore
-\let\GNUTexinfounderscore\_
-\renewcommand{\_}{\GNUTexinfounderscore\discretionary{}{}{}}
+\let\Texinfounderscore\_
+\renewcommand{\_}{\Texinfounderscore\discretionary{}{}{}}
 \renewcommand{\includegraphics}[1]{\fbox{FIG \detokenize{#1}}}
 
 \makeatother
 % set default for @setchapternewpage
 \makeatletter
-\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\Texinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
 \makeatother
 \pagestyle{single}%
 
@@ -71,19 +71,19 @@
 \index[fn]{fname@\texttt{fname}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-deffn no var for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocommandstyletextvar{a--rg2}
+deffn no var for \Texinfocommandstyletextvar{a---rg1} and \Texinfocommandstyletextvar{a--rg2}
 \end{quote}
 
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{fname \EmbracOn{}\textnormal{\textsl{\GNUTexinfocommandstyletextvar{a---rg1} \GNUTexinfocommandstyletextvar{a--rg2}}}\EmbracOff{}}& [Func]
+\texttt{fname \EmbracOn{}\textnormal{\textsl{\Texinfocommandstyletextvar{a---rg1} \Texinfocommandstyletextvar{a--rg2}}}\EmbracOff{}}& [Func]
 \end{tabularx}
 
 \index[fn]{fname@\texttt{fname}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-deffn explict var for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocommandstyletextvar{a--rg2}
+deffn explict var for \Texinfocommandstyletextvar{a---rg1} and \Texinfocommandstyletextvar{a--rg2}
 \end{quote}
 
 
@@ -95,7 +95,7 @@ deffn explict var for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocom
 \index[fn]{fname@\texttt{fname}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-deffn r slanted for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocommandstyletextvar{a--rg2}
+deffn r slanted for \Texinfocommandstyletextvar{a---rg1} and \Texinfocommandstyletextvar{a--rg2}
 \end{quote}
 
 
@@ -115,7 +115,7 @@ deffn r slanted for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocomma
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \GNUTexinfocommandstyletextvar{[}from to \GNUTexinfocommandstyletextvar{[}inc\GNUTexinfocommandstyletextvar{]]}) var}}\EmbracOff{}}& [Special Form]
+\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \Texinfocommandstyletextvar{[}from to \Texinfocommandstyletextvar{[}inc\Texinfocommandstyletextvar{]]}) var}}\EmbracOff{}}& [Special Form]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
@@ -150,7 +150,7 @@ deffn r slanted for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocomma
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracOff{}\textnormal{\GNUTexinfocommandstyletextvar{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\GNUTexinfocommandstyletextvar{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\GNUTexinfocommandstyletextvar{]]}}\EmbracOn{}) r:var}}\EmbracOff{}}& [Special Form]
+\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \EmbracOff{}\textnormal{\Texinfocommandstyletextvar{[}}\EmbracOn{}from to \EmbracOff{}\textnormal{\Texinfocommandstyletextvar{[}}\EmbracOn{}inc\EmbracOff{}\textnormal{\Texinfocommandstyletextvar{]]}}\EmbracOn{}) r:var}}\EmbracOff{}}& [Special Form]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
@@ -178,14 +178,14 @@ deffn r slanted for \GNUTexinfocommandstyletextvar{a---rg1} and \GNUTexinfocomma
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \texttt{\GNUTexinfocommandstyletextvar{[}}from to \texttt{\GNUTexinfocommandstyletextvar{[}}inc\texttt{\GNUTexinfocommandstyletextvar{]]}}) code:var}}\EmbracOff{}}& [Special Form]
+\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \texttt{\Texinfocommandstyletextvar{[}}from to \texttt{\Texinfocommandstyletextvar{[}}inc\texttt{\Texinfocommandstyletextvar{]]}}) code:var}}\EmbracOff{}}& [Special Form]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \texttt{\GNUTexinfocommandstyletextvar{[}}from to \texttt{\GNUTexinfocommandstyletextvar{[}}inc\texttt{\GNUTexinfocommandstyletextvar{]]}}) t:var}}\EmbracOff{}}& [Special Form]
+\texttt{foobar \EmbracOn{}\textnormal{\textsl{(var \texttt{\Texinfocommandstyletextvar{[}}from to \texttt{\Texinfocommandstyletextvar{[}}inc\texttt{\Texinfocommandstyletextvar{]]}}) t:var}}\EmbracOff{}}& [Special Form]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
@@ -218,7 +218,7 @@ separators
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{foobar \EmbracOn{}\textnormal{\textsl{\GNUTexinfocommandstyletextvar{va---riable} var}}\EmbracOff{}}& [Special Form]
+\texttt{foobar \EmbracOn{}\textnormal{\textsl{\Texinfocommandstyletextvar{va---riable} var}}\EmbracOff{}}& [Special Form]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
@@ -260,7 +260,7 @@ separators
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{\GNUTexinfocommandstyletextvar{va---riable}}\EmbracOn{} r:var}}\EmbracOff{}}& [Special Form]
+\texttt{foobar \EmbracOn{}\textnormal{\textsl{\EmbracOff{}\textnormal{\Texinfocommandstyletextvar{va---riable}}\EmbracOn{} r:var}}\EmbracOff{}}& [Special Form]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
@@ -288,14 +288,14 @@ separators
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{foobar \EmbracOn{}\textnormal{\textsl{\texttt{\GNUTexinfocommandstyletextvar{va---riable}} code:var}}\EmbracOff{}}& [Special Form]
+\texttt{foobar \EmbracOn{}\textnormal{\textsl{\texttt{\Texinfocommandstyletextvar{va---riable}} code:var}}\EmbracOff{}}& [Special Form]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{foobar \EmbracOn{}\textnormal{\textsl{\texttt{\GNUTexinfocommandstyletextvar{va---riable}} t:var}}\EmbracOff{}}& [Special Form]
+\texttt{foobar \EmbracOn{}\textnormal{\textsl{\texttt{\Texinfocommandstyletextvar{va---riable}} t:var}}\EmbracOff{}}& [Special Form]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
@@ -356,8 +356,8 @@ name
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
 The \texttt{ft} request and the \texttt{\textbackslash{}f} escape change the current font
-to \GNUTexinfocommandstyletextvar{font} (one-character name~\GNUTexinfocommandstyletextvar{f}, two-character name
-\GNUTexinfocommandstyletextvar{fn}).
+to \Texinfocommandstyletextvar{font} (one-character name~\Texinfocommandstyletextvar{f}, two-character name
+\Texinfocommandstyletextvar{fn}).
 \end{quote}
 
 
@@ -382,13 +382,13 @@ test formatting of separators
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo},\ float\ \GNUTexinfocommandstyletextvar{b--ar})}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo},\ float\ \Texinfocommandstyletextvar{b--ar})}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\dots{}\@ with var for \GNUTexinfocommandstyletextvar{f---oo} and \GNUTexinfocommandstyletextvar{b--ar}
+\dots{}\@ with var for \Texinfocommandstyletextvar{f---oo} and \Texinfocommandstyletextvar{b--ar}
 \end{quote}
 
 
@@ -400,7 +400,7 @@ test formatting of separators
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\dots{}\@ with r slanted for \GNUTexinfocommandstyletextvar{f---oo} and \GNUTexinfocommandstyletextvar{b--ar}
+\dots{}\@ with r slanted for \Texinfocommandstyletextvar{f---oo} and \Texinfocommandstyletextvar{b--ar}
 \end{quote}
 
 \noindent{}produces:
@@ -432,13 +432,13 @@ test formatting of separators
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{foo},\ float\ \GNUTexinfocommandstyletextvar{bar})}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{foo},\ float\ \Texinfocommandstyletextvar{bar})}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\dots{}\@ for \GNUTexinfocommandstyletextvar{foo} and \GNUTexinfocommandstyletextvar{bar}
+\dots{}\@ for \Texinfocommandstyletextvar{foo} and \Texinfocommandstyletextvar{bar}
 \end{quote}
 \end{quote}
 
@@ -451,7 +451,7 @@ test formatting of separators
 \index[fn]{apply@\texttt{apply}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-\texttt{apply} calls no var \GNUTexinfocommandstyletextvar{function} with \GNUTexinfocommandstyletextvar{arguments}
+\texttt{apply} calls no var \Texinfocommandstyletextvar{function} with \Texinfocommandstyletextvar{arguments}
 \end{quote}
 
 
@@ -463,13 +463,13 @@ test formatting of separators
 \index[fn]{apply@\texttt{apply}}%
 \begin{quote}
 \unskip{\parskip=0pt\noindent}%
-explicit keyword marking, no var \GNUTexinfocommandstyletextvar{function} with \GNUTexinfocommandstyletextvar{arguments}
+explicit keyword marking, no var \Texinfocommandstyletextvar{function} with \Texinfocommandstyletextvar{arguments}
 \end{quote}
 
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{name \EmbracOn{}\textnormal{\textsl{argument \texttt{int} \texttt{a{-}{-}b} \GNUTexinfocommandstyletextvar{v--ar1}, word \texttt{{-}{-}} (\texttt{type o{-}{-}ther}, \GNUTexinfocommandstyletextvar{v---ar2}  [\texttt{float} [\GNUTexinfocommandstyletextvar{var4}]])}}\EmbracOff{}}& [Category]
+\texttt{name \EmbracOn{}\textnormal{\textsl{argument \texttt{int} \texttt{a{-}{-}b} \Texinfocommandstyletextvar{v--ar1}, word \texttt{{-}{-}} (\texttt{type o{-}{-}ther}, \Texinfocommandstyletextvar{v---ar2}  [\texttt{float} [\Texinfocommandstyletextvar{var4}]])}}\EmbracOff{}}& [Category]
 \end{tabularx}
 
 \index[fn]{name@\texttt{name}}%
@@ -481,105 +481,105 @@ In deffn with code and var used
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ default}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ default}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\textnormal{[},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\textnormal{]})\ r}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\textnormal{[},\ float\ \Texinfocommandstyletextvar{b--ar}\textnormal{]})\ r}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\GNUTexinfocommandstyletextvar{[},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\GNUTexinfocommandstyletextvar{]})\ var}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\Texinfocommandstyletextvar{[},\ float\ \Texinfocommandstyletextvar{b--ar}\Texinfocommandstyletextvar{]})\ var}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\textsl{[},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\textsl{]})\ slanted}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\textsl{[},\ float\ \Texinfocommandstyletextvar{b--ar}\textsl{]})\ slanted}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\texttt{[},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\texttt{]})\ code}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\texttt{[},\ float\ \Texinfocommandstyletextvar{b--ar}\texttt{]})\ code}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\texttt{[},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\texttt{]})\ t}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\texttt{[},\ float\ \Texinfocommandstyletextvar{b--ar}\texttt{]})\ t}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\texttt{\textbf{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\texttt{\textbf{]}})\ t:b}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\texttt{\textbf{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\texttt{\textbf{]}})\ t:b}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\textnormal{\GNUTexinfocommandstyletextvar{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\textnormal{\GNUTexinfocommandstyletextvar{]}})\ r:var}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\textnormal{\Texinfocommandstyletextvar{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\textnormal{\Texinfocommandstyletextvar{]}})\ r:var}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\textnormal{\textsl{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\textnormal{\textsl{]}})\ r:slanted}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\textnormal{\textsl{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\textnormal{\textsl{]}})\ r:slanted}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\textnormal{\texttt{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\textnormal{\texttt{]}})\ r:code}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\textnormal{\texttt{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\textnormal{\texttt{]}})\ r:code}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\textnormal{\texttt{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\textnormal{\texttt{]}})\ r:t}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\textnormal{\texttt{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\textnormal{\texttt{]}})\ r:t}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\texttt{\GNUTexinfocommandstyletextvar{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\texttt{\GNUTexinfocommandstyletextvar{]}})\ code:var}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\texttt{\Texinfocommandstyletextvar{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\texttt{\Texinfocommandstyletextvar{]}})\ code:var}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\texttt{\GNUTexinfocommandstyletextvar{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\texttt{\GNUTexinfocommandstyletextvar{]}})\ t:var}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\texttt{\Texinfocommandstyletextvar{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\texttt{\Texinfocommandstyletextvar{]}})\ t:var}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\texttt{\textsl{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\texttt{\textsl{]}})\ code:slanted}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\texttt{\textsl{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\texttt{\textsl{]}})\ code:slanted}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (int\ \GNUTexinfocommandstyletextvar{f---oo}\texttt{\textsl{[}},\ float\ \GNUTexinfocommandstyletextvar{b--ar}\texttt{\textsl{]}})\ t:slanted}& [Library Function]
+\texttt{int foobar (int\ \Texinfocommandstyletextvar{f---oo}\texttt{\textsl{[}},\ float\ \Texinfocommandstyletextvar{b--ar}\texttt{\textsl{]}})\ t:slanted}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
@@ -591,105 +591,105 @@ separators
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (i{-}{-}nt\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ default}& [Library Function]
+\texttt{int foobar (i{-}{-}nt\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ default}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\textnormal{i--nt}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ r}& [Library Function]
+\texttt{int foobar (\textnormal{i--nt}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ r}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\GNUTexinfocommandstyletextvar{i--nt}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ var}& [Library Function]
+\texttt{int foobar (\Texinfocommandstyletextvar{i--nt}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ var}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\textsl{i{-}{-}nt}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ slanted}& [Library Function]
+\texttt{int foobar (\textsl{i{-}{-}nt}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ slanted}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\texttt{i{-}{-}nt}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ code}& [Library Function]
+\texttt{int foobar (\texttt{i{-}{-}nt}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ code}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\texttt{i{-}{-}nt}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ t}& [Library Function]
+\texttt{int foobar (\texttt{i{-}{-}nt}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ t}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\texttt{\textbf{i{-}{-}nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ t:b}& [Library Function]
+\texttt{int foobar (\texttt{\textbf{i{-}{-}nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ t:b}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\textnormal{\GNUTexinfocommandstyletextvar{i--nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ r:var}& [Library Function]
+\texttt{int foobar (\textnormal{\Texinfocommandstyletextvar{i--nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ r:var}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\textnormal{\textsl{i--nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ r:slanted}& [Library Function]
+\texttt{int foobar (\textnormal{\textsl{i--nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ r:slanted}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\textnormal{\texttt{i{-}{-}nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ r:code}& [Library Function]
+\texttt{int foobar (\textnormal{\texttt{i{-}{-}nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ r:code}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\textnormal{\texttt{i{-}{-}nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ r:t}& [Library Function]
+\texttt{int foobar (\textnormal{\texttt{i{-}{-}nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ r:t}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\texttt{\GNUTexinfocommandstyletextvar{i--nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ code:var}& [Library Function]
+\texttt{int foobar (\texttt{\Texinfocommandstyletextvar{i--nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ code:var}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\texttt{\GNUTexinfocommandstyletextvar{i--nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ t:var}& [Library Function]
+\texttt{int foobar (\texttt{\Texinfocommandstyletextvar{i--nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ t:var}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\texttt{\textsl{i{-}{-}nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ code:slanted}& [Library Function]
+\texttt{int foobar (\texttt{\textsl{i{-}{-}nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ code:slanted}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%
 
 \noindent\begin{tabularx}{\linewidth}{@{}Xr}
 \rightskip=5em plus 1 fill \hangindent=2em \hyphenpenalty=10000
-\texttt{int foobar (\texttt{\textsl{i{-}{-}nt}}\ \GNUTexinfocommandstyletextvar{f---oo}[,\ float\ \GNUTexinfocommandstyletextvar{b--ar}])\ t:slanted}& [Library Function]
+\texttt{int foobar (\texttt{\textsl{i{-}{-}nt}}\ \Texinfocommandstyletextvar{f---oo}[,\ float\ \Texinfocommandstyletextvar{b--ar}])\ t:slanted}& [Library Function]
 \end{tabularx}
 
 \index[fn]{foobar@\texttt{foobar}}%

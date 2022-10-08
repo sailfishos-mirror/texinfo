@@ -425,23 +425,23 @@ in table in format
 
 
 $result_converted{'latex_text'}->{'preformatted'} = '
-\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily e{-}{-}xample  some  
 
 \\   text
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{item in table in format}
 \\index[vr]{item in table in format@\\texttt{item in table in format}}%
 }}]
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
 
 in table in format
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\end{description}
 ';
 

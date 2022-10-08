@@ -265,18 +265,18 @@ still second
 
 
 $result_converted{'latex_text'}->{'enumerate_in_example'} = '
-\\begin{GNUTexinfoindented}
+\\begin{Texinfoindented}
 \\begin{enumerate}[start=1]
-\\item \\begin{GNUTexinfopreformatted}%
+\\item \\begin{Texinfopreformatted}%
 \\ttfamily first item
-\\end{GNUTexinfopreformatted}
-\\item \\begin{GNUTexinfopreformatted}%
+\\end{Texinfopreformatted}
+\\item \\begin{Texinfopreformatted}%
 \\ttfamily second  item
 
 still second
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\end{enumerate}
-\\end{GNUTexinfoindented}
+\\end{Texinfoindented}
 ';
 
 1;

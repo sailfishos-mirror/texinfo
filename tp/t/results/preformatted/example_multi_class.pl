@@ -448,8 +448,8 @@ $result_converted{'xml'}->{'example_multi_class'} = '<example spaces=" " endspac
 ';
 
 
-$result_converted{'latex_text'}->{'example_multi_class'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'example_multi_class'} = '\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily void StateManager::deallocate() \\{
 \\    if(buffer) \\{
 \\        delete [] buffer;
@@ -464,8 +464,8 @@ $result_converted{'latex_text'}->{'example_multi_class'} = '\\begin{GNUTexinfoin
 \\        in\\_state = NULL;
 \\    \\}
 \\}
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;

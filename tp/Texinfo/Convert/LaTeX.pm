@@ -260,7 +260,7 @@ my %LaTeX_in_heading_commands_formatting = (
   'thissectionnum' => '\thesection{}',
   'thisfile' => '',
   'thispage' => '\thepage{}',
-  'thistitle' => '\GNUTexinfosettitle{}',
+  'thistitle' => '\Texinfosettitle{}',
 );
 
 foreach my $kept_command (keys(%LaTeX_in_heading_commands_formatting),
@@ -305,9 +305,9 @@ my %section_map = (
    'section' => 'section',
    'subsection' => 'subsection',
    'subsubsection' => 'subsubsection',
-   # embed in a \GNUTexinfonopagebreakheading call to remove pagebreaks
-   'chapheading' => 'GNUTexinfonopagebreakheading{\chapter*}',
-   'majorheading' => 'GNUTexinfonopagebreakheading{\chapter*}',
+   # embed in a \Texinfonopagebreakheading call to remove pagebreaks
+   'chapheading' => 'Texinfonopagebreakheading{\chapter*}',
+   'majorheading' => 'Texinfonopagebreakheading{\chapter*}',
    'heading' => 'section*',
    'subheading' => 'subsection*',
    'subsubheading' => 'subsubsection*',
@@ -503,8 +503,8 @@ my $small_font_size = 'footnotesize';
 
 my %LaTeX_environment_commands = (
   'raggedright' => ['flushleft'],
-  'flushleft' => ['flushleft', 'GNUTexinfopreformatted'],
-  'flushright' => ['flushright', 'GNUTexinfopreformatted'],
+  'flushleft' => ['flushleft', 'Texinfopreformatted'],
+  'flushright' => ['flushright', 'Texinfopreformatted'],
   'quotation' => ['quote'],
   'smallquotation' => ['quote', $small_font_size],
   'indentedblock' => ['quote'],
@@ -515,13 +515,13 @@ my %LaTeX_environment_commands = (
   'table' => ['description'],
   'vtable' => ['description'],
   'ftable' => ['description'],
-  'example' => ['GNUTexinfoindented'],
-  'lisp' => ['GNUTexinfoindented'],
-  'display' => ['GNUTexinfoindented'],
+  'example' => ['Texinfoindented'],
+  'lisp' => ['Texinfoindented'],
+  'display' => ['Texinfoindented'],
 );
 
 my %LaTeX_environment_options = (
-  'cartouche' => {'mdframed' => 'style=GNUTexinfocartouche'},
+  'cartouche' => {'mdframed' => 'style=Texinfocartouche'},
 );
 
 my %LaTeX_environment_packages = (
@@ -530,7 +530,7 @@ my %LaTeX_environment_packages = (
 
 my %LaTeX_fixed_width_environments = (
   'verbatim' => 1,
-  'GNUTexinfopreformatted' => 1,
+  'Texinfopreformatted' => 1,
 );
 
 foreach my $environment_command (@LaTeX_same_block_commands) {
@@ -572,7 +572,7 @@ foreach my $ignored_type(keys(%ignored_types)) {
 # seems to be in italic.  it is better to look at the results with
 # \usepackage{lmodern}.
 
-my $style_command_new_commands_prefix = 'GNUTexinfocommandstyle';
+my $style_command_new_commands_prefix = 'Texinfocommandstyle';
 # if new commands are setup for styles, they are in this hash
 my %style_brace_format_command_new_commands;
 
@@ -715,7 +715,7 @@ foreach my $quoted_command (@quoted_commands) {
 # are defined for every style command if needed.
 my %description_command_format;
 
-my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
+my $description_command_new_commands_prefix = 'Texinfotablestyle';
 
 # if new commands are setup for descriptions, they are in this hash
 my %description_command_new_commands = ();
@@ -1171,22 +1171,22 @@ my %front_main_matter_definitions = (
 );
 
 # not used as it is complicated to use section and chapter title
-# NB this will not work any more as the \GNUTexinfoset... macros are
+# NB this will not work any more as the \Texinfoset... macros are
 # not used, and \pagestyle is used directly.
 my $fancyhdr_preamble =
 '% called when setting single headers
 % use \nouppercase to match with Texinfo TeX style
-\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{fancy}
+\newcommand{\Texinfosetsingleheader}{\pagestyle{fancy}
 \fancyhf{}
 \lhead{\nouppercase{\leftmark}}
 \rhead{\thepage}
 }
 
 % called when setting double headers
-\newcommand{\GNUTexinfosetdoubleheader}{\pagestyle{fancy}
+\newcommand{\Texinfosetdoubleheader}{\pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{\GNUTexinfosettitle}
+\fancyhead[RE]{\Texinfosettitle}
 \fancyhead[LO]{\nouppercase{\leftmark}}
 }
 
@@ -1216,7 +1216,7 @@ sub _latex_header() {
   $header_code .= "\\makeatletter\n";
 
   # for @thistitle and headers
-  $header_code .= "\\newcommand{\\GNUTexinfosettitle}{$settitle}%\n";
+  $header_code .= "\\newcommand{\\Texinfosettitle}{$settitle}%\n";
   $header_code .= "\n";
 
   if ($self->{'floats'}) {
@@ -1281,13 +1281,13 @@ sub _latex_header() {
   }
 
   $header_code .=
-'\newenvironment{GNUTexinfopreformatted}{%
+'\newenvironment{Texinfopreformatted}{%
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\catcode`\^^M=13 \gdef\GNUTobeylines{\catcode`\^^M=13 \def^^M{\null\par}}}
 ';
 
   $header_code .=
-'\newenvironment{GNUTexinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
+'\newenvironment{Texinfoindented}{\begin{list}{}{}\item\relax}{\end{list}}
 
 ';
 
@@ -1327,7 +1327,7 @@ sub _latex_header() {
     $header_code .= "\n";
   }
   $header_code .= '% used for substitutions in commands
-\newcommand{\GNUTexinfoplaceholder}[1]{}
+\newcommand{\Texinfoplaceholder}[1]{}
 
 ';
 
@@ -1341,23 +1341,23 @@ sub _latex_header() {
 
   if ($self->{'page_styles'}->{'double'}) {
     $header_code .=
-'\newpagestyle{double}{\sethead[\thepage{}][][\GNUTexinfosettitle]
+'\newpagestyle{double}{\sethead[\thepage{}][][\Texinfosettitle]
                               {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
 
 ';
   }
 
-  if ($self->{'extra_definitions'}->{'GNUTexinfonopagebreakheading'}) {
+  if ($self->{'extra_definitions'}->{'Texinfonopagebreakheading'}) {
     $header_code .=
 '% avoid pagebreak and headings setting for a sectioning command
-\newcommand{\GNUTexinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}}
+\newcommand{\Texinfonopagebreakheading}[2]{{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\Texinfoplaceholder #1{#2}}}
 
 ';
   }
 
   if ($self->{'packages'}->{'mdframed'}) {
    $header_code .= '% the mdframed style for @cartouche
-\mdfdefinestyle{GNUTexinfocartouche}{
+\mdfdefinestyle{Texinfocartouche}{
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
 
@@ -1376,8 +1376,8 @@ roundcorner=10pt}
   }
 
   $header_code .= '% allow line breaking at underscore
-\let\GNUTexinfounderscore\_
-\renewcommand{\_}{\GNUTexinfounderscore\discretionary{}{}{}}
+\let\Texinfounderscore\_
+\renewcommand{\_}{\Texinfounderscore\discretionary{}{}{}}
 ';
 
   # this is in order to be able to run pdflatex even
@@ -1817,7 +1817,7 @@ my $default_chapter_page_code = $odd_chapter_new_page_code;
 # distinctive code that does nothing.  This is needed when
 # code is simply removed or when simple code is substituted.
 my $chapter_new_page_marking_placeholder
-   = '\GNUTexinfoplaceholder{setchapternewpage placeholder}';
+   = '\Texinfoplaceholder{setchapternewpage placeholder}';
 
 my %setchapternewpage_new_page_spec_code = (
   'on' => $chapter_new_page_marking_placeholder.'\clearpage',
@@ -1880,8 +1880,8 @@ sub _open_preformatted($$)
   }
 
   my $result = '';
-  $result .= '\\begin{GNUTexinfopreformatted}%'."\n";
-  $self->{'fixed_width_environments'}->{'GNUTexinfopreformatted'} = 1;
+  $result .= '\\begin{Texinfopreformatted}%'."\n";
+  $self->{'fixed_width_environments'}->{'Texinfopreformatted'} = 1;
   # The % comments out the newline to avoid extra vertical space.
 
   if ($preformatted_code_commands{$command}) {
@@ -1902,7 +1902,7 @@ sub _close_preformatted($$)
   if ($preformatted_code_commands{$command}) {
     pop @{$self->{'formatting_context'}->[-1]->{'code'}};
   }
-  return '\\end{GNUTexinfopreformatted}'."\n";
+  return '\\end{Texinfopreformatted}'."\n";
 }
 
 sub _open_preformatted_command($$)
@@ -3119,7 +3119,7 @@ sub _convert($$)
           # For @flushright and @flushleft, which don't use 'preformatted'
           # elements, unlike @display and @format.  This comments out the
           # newline.
-          $result .= '%' if $environment eq 'GNUTexinfopreformatted';
+          $result .= '%' if $environment eq 'Texinfopreformatted';
           $result .= "\n";
         }
         if ($LaTeX_environment_packages{$cmdname}) {
@@ -3244,8 +3244,8 @@ sub _convert($$)
           }
           # NOTE we used an extra layer of { } to avoid buggy interactions with
           # square brackets when the titleps package is being used.
-          $self->{'extra_definitions'}->{'GNUTexinfonopagebreakheading'} = 1
-            if $section_cmd =~ /^GNUTexinfonopagebreakheading\{/;
+          $self->{'extra_definitions'}->{'Texinfonopagebreakheading'} = 1
+            if $section_cmd =~ /^Texinfonopagebreakheading\{/;
         }
         # we add a label even if in_skipped_node_top (should only
         # be for the Top node, as another node ends in_skipped_node_top).

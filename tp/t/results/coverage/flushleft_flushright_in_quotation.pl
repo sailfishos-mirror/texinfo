@@ -292,15 +292,15 @@ $result_converted{'xml'}->{'flushleft_flushright_in_quotation'} = '
 $result_converted{'latex_text'}->{'flushleft_flushright_in_quotation'} = '
 \\begin{quote}
 \\begin{flushleft}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
    f l
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\end{flushleft}
 
 \\begin{flushright}
-\\begin{GNUTexinfopreformatted}%
+\\begin{Texinfopreformatted}%
   f r
-\\end{GNUTexinfopreformatted}
+\\end{Texinfopreformatted}
 \\end{flushright}
 \\end{quote}
 ';

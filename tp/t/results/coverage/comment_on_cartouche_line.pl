@@ -139,7 +139,7 @@ $result_converted{'xml'}->{'comment_on_cartouche_line'} = '<cartouche spaces=" "
 ';
 
 
-$result_converted{'latex_text'}->{'comment_on_cartouche_line'} = '\\begin{mdframed}[style=GNUTexinfocartouche]
+$result_converted{'latex_text'}->{'comment_on_cartouche_line'} = '\\begin{mdframed}[style=Texinfocartouche]
 in cartouche.
 \\end{mdframed}
 ';

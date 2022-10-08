@@ -895,10 +895,10 @@ In table
 \\item[] \\index[cp]{index entry@index entry}%
 
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfotablestylesamp{vtable item}\\\\
+\\Texinfotablestylesamp{vtable item}\\\\
 \\index[vr]{vtable item@\\texttt{vtable item}}%
 \\index[ky]{key@\\texttt{key}}%
-\\GNUTexinfotablestylesamp{itemx vtable}
+\\Texinfotablestylesamp{itemx vtable}
 \\index[vr]{itemx vtable@\\texttt{itemx vtable}}%
 }}]
 

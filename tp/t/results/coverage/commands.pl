@@ -607,7 +607,7 @@ File $\\rightarrow{}$ Open\\@.
 
 \\index[cp]{index entry ""in text"" LaTeX@index entry ``in text\'\' \\LaTeX{}}%
 
-\\GNUTexinfonopagebreakheading{\\chapter*}{{majorheading \\textbf{in b}}}
+\\Texinfonopagebreakheading{\\chapter*}{{majorheading \\textbf{in b}}}
 ';
 
 

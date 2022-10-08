@@ -2536,10 +2536,10 @@ def--fn
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000
-\\texttt{\\GNUTexinfocommandstyletextvar{i} \\EmbracOn{}\\textnormal{\\textsl{a g}}\\EmbracOff{}}& [fset]
+\\texttt{\\Texinfocommandstyletextvar{i} \\EmbracOn{}\\textnormal{\\textsl{a g}}\\EmbracOff{}}& [fset]
 \\end{tabularx}
 
-\\index[fn]{i@\\texttt{\\GNUTexinfocommandstyletextvar{i}}}%
+\\index[fn]{i@\\texttt{\\Texinfocommandstyletextvar{i}}}%
 
 \\noindent\\begin{tabularx}{\\linewidth}{@{}Xr}
 \\rightskip=5em plus 1 fill \\hangindent=2em \\hyphenpenalty=10000

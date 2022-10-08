@@ -2384,37 +2384,37 @@ $result_converted{'latex'}->{'kbdinputstyle_in_table'} = '\\documentclass{book}
 \\usepackage[utf8]{inputenc}
 
 \\makeatletter
-\\newcommand{\\GNUTexinfosettitle}{No Title}%
+\\newcommand{\\Texinfosettitle}{No Title}%
 
 % style command for kbd in \'cmd_text\' formatting context
-\\newcommand\\GNUTexinfocommandstyletextkbd[1]{{\\ttfamily\\textsl{#1}}}%
+\\newcommand\\Texinfocommandstyletextkbd[1]{{\\ttfamily\\textsl{#1}}}%
 
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
 \\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
-\\newenvironment{GNUTexinfopreformatted}{%
+\\newenvironment{Texinfopreformatted}{%
   \\par\\GNUTobeylines\\obeyspaces\\frenchspacing\\parskip=\\z@\\parindent=\\z@}{}
 {\\catcode`\\^^M=13 \\gdef\\GNUTobeylines{\\catcode`\\^^M=13 \\def^^M{\\null\\par}}}
-\\newenvironment{GNUTexinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
+\\newenvironment{Texinfoindented}{\\begin{list}{}{}\\item\\relax}{\\end{list}}
 
 % set defaults for lists that match Texinfo TeX formatting
 \\setlist[description]{style=nextline, font=\\normalfont}
 
 % used for substitutions in commands
-\\newcommand{\\GNUTexinfoplaceholder}[1]{}
+\\newcommand{\\Texinfoplaceholder}[1]{}
 
 \\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
                               {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
 
 % allow line breaking at underscore
-\\let\\GNUTexinfounderscore\\_
-\\renewcommand{\\_}{\\GNUTexinfounderscore\\discretionary{}{}{}}
+\\let\\Texinfounderscore\\_
+\\renewcommand{\\_}{\\Texinfounderscore\\discretionary{}{}{}}
 \\renewcommand{\\includegraphics}[1]{\\fbox{FIG \\detokenize{#1}}}
 
 \\makeatother
 % set default for @setchapternewpage
 \\makeatletter
-\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
+\\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\Texinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 \\pagestyle{single}%
 
@@ -2433,7 +2433,7 @@ $result_converted{'latex'}->{'kbdinputstyle_in_table'} = '\\documentclass{book}
 \\end{description}
 
 in example
-\\begin{GNUTexinfoindented}
+\\begin{Texinfoindented}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{i{-}{-}tem in example}}}]
@@ -2442,7 +2442,7 @@ in example
 \\item[{\\parbox[b]{\\linewidth}{%
 \\texttt{braced i{-}{-}tem in example}}}]
 \\end{description}
-\\end{GNUTexinfoindented}
+\\end{Texinfoindented}
 
 @kbdinputstyle example
 
@@ -2458,41 +2458,41 @@ in example
 \\end{description}
 
 in example
-\\begin{GNUTexinfoindented}
+\\begin{Texinfoindented}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfocommandstyletextkbd{i{-}{-}tem in example}}}]
+\\Texinfocommandstyletextkbd{i{-}{-}tem in example}}}]
 \\end{description}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem in example}}}]
+\\Texinfocommandstyletextkbd{braced i{-}{-}tem in example}}}]
 \\end{description}
-\\end{GNUTexinfoindented}
+\\end{Texinfoindented}
 
 @kbdinputstyle distinct
 
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfocommandstyletextkbd{i{-}{-}tem out of example}}}]
+\\Texinfocommandstyletextkbd{i{-}{-}tem out of example}}}]
 \\end{description}
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem out of example}}}]
+\\Texinfocommandstyletextkbd{braced i{-}{-}tem out of example}}}]
 \\end{description}
 
 in example
-\\begin{GNUTexinfoindented}
+\\begin{Texinfoindented}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfocommandstyletextkbd{i{-}{-}tem in example}}}]
+\\Texinfocommandstyletextkbd{i{-}{-}tem in example}}}]
 \\end{description}
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\GNUTexinfocommandstyletextkbd{braced i{-}{-}tem in example}}}]
+\\Texinfocommandstyletextkbd{braced i{-}{-}tem in example}}}]
 \\end{description}
-\\end{GNUTexinfoindented}
+\\end{Texinfoindented}
 \\end{document}
 ';
 

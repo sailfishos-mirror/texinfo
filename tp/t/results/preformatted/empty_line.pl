@@ -186,13 +186,13 @@ after empty line
 ';
 
 
-$result_converted{'latex_text'}->{'empty_line'} = '\\begin{GNUTexinfoindented}
-\\begin{GNUTexinfopreformatted}%
+$result_converted{'latex_text'}->{'empty_line'} = '\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
 \\ttfamily example
 
 after empty line
-\\end{GNUTexinfopreformatted}
-\\end{GNUTexinfoindented}
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
 ';
 
 1;
