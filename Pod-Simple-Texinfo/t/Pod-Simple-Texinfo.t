@@ -273,7 +273,7 @@ L</head C<extra>>
 ', '@chapter head @code{extra}
 @anchor{head @code{extra}}
 
-@ref{head extra}
+@ref{head @code{extra}}
 
 ', 'code in reference');
 
@@ -365,7 +365,7 @@ L<F<--->|F<-->/C<--->>
 
 @code{--- @ref{---, @asis{}-@asis{}-@asis{}-@asis{},, --}}
 
-@ref{---, @file{---},, --}
+@ref{@code{---}, @file{---},, --}
 
 ', 'protected -');
 

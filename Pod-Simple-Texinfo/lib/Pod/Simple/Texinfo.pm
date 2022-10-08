@@ -17,6 +17,14 @@
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts from L<Pod::Simple::HTML>.
+#
+#
+# The code could easily be used directly as a Pod::Simple subclass
+# by renaming _texinfo_handle_element_start and the two other
+# similar functions as _handle_element_start, or as a
+# Pod::Simple::SimpleTree subclass, using _convert_pod_simple_tree.
+# We prefer a Pod::Simple::PullParser subclassing to be able to use
+# get_short_title().
 
 
 package Pod::Simple::Texinfo;
@@ -181,11 +189,13 @@ sub run
     }
   }
 
+  $self->{'texinfo_nodes'} = {};
+
   if ($self->bare_output()) {
-    $self->_convert_pod();
+    $self->_convert_pod_tokens();
   } else {
     $self->_preamble();
-    $self->_convert_pod();
+    $self->_convert_pod_tokens();
     $self->_postamble();
   }
 }
@@ -201,6 +211,7 @@ sub _preamble($)
   my $fh = $self->{'output_fh'};
 
   if (!defined($self->texinfo_short_title())) {
+    # from Pod::Simple::PullParser
     my $short_title = $self->get_short_title();
     if (defined($short_title) and $short_title =~ m/\S/) {
       $self->texinfo_short_title($short_title);
@@ -368,15 +379,17 @@ sub _reference_to_text_in_texi($)
   return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
-sub _prepend_internal_section_manual($$$;$)
+sub _prepend_internal_section_manual($$$;$$)
 {
   my $manual = shift;
   my $section = shift;
   my $base_level = shift;
+  my $protect_text = shift;
   my $in_code = shift;
 
   if (defined($manual) and $base_level > 0) {
-    return _protect_text($manual, 1, $in_code). " $section";
+    $manual = _protect_text($manual, 1, $in_code) if ($protect_text);
+    return "$manual $section";
   } else {
     return $section;
   }
@@ -456,7 +469,7 @@ sub _node_name($$)
   $texinfo_node_name
    = _prepend_internal_section_manual($self->texinfo_short_title(),
                                   $texinfo_node_name,
-                                  $self->texinfo_sectioning_base_level(), 1);
+                                  $self->texinfo_sectioning_base_level(), 1, 1);
   # also change refs to text
   return _reference_to_text_in_texi($texinfo_node_name);
 }
@@ -610,10 +623,11 @@ sub _texinfo_handle_element_start($$$)
         # string and not an object.
         $url_arg = _protect_comma(_protect_text($attr_hash->{'to'}.'', 0, 1));
       } elsif ($linktype eq 'pod') {
-        # FIXME the section is available from $attr_hash->{'section'} as a
-        # tree (not a token, looks like the same output as
-        # Pod::Simple::SimpleTree), or as a plain text string with formatting
-        # removed.  The tokens obtained from the argument correspond, depending
+        # The section is available from $attr_hash->{'section'} as a
+        # tree (not a token, a Pod::Simple::SimpleTree), or as a plain text
+        # string with formatting removed when coerced to be a string.
+        # Same for the name/manual obtained from $attr_hash->{'to'}.
+        # The tokens obtained from the argument correspond, depending
         # on the cases, to 'name', or '"section" in name' (based on perlpodspec)
         # which is not practical for conversion to Texinfo as section and
         # name should be available separately, both converted to Texinfo.
@@ -625,57 +639,91 @@ sub _texinfo_handle_element_start($$$)
         # expected, starting whith a =head* while we would want to parse a
         # string only.
         #my ($l_text, $l_inferred, $l_name, $l_section, $l_type) = parselink($attr_hash->{'raw'});
+        # To obtain the equivalent Texinfo, the Pod::Simple::SimpleTree
+        # is converted with _convert_pod_simple_tree, which calls the
+        # same functions as the pull parser implementation.
         my $manual = $attr_hash->{'to'};
         my $section = $attr_hash->{'section'};
-        # the section as tree
-        #print STDERR "S ".Data::Dumper->Dump([$section])."\n";
-        $manual .= '' if (defined($manual));
-        # coerce to string
-        $section .= '' if (defined($section));
+        my ($section_text, $section_texi, $section_out);
+        if (defined($section)) {
+          # convert the section presented as tree to Texinfo
+          _begin_context($self->{'texinfo_accumulated'}, 'L section');
+          $self->_convert_pod_simple_tree($section);
+          ($section_texi, $section_out)
+            = _end_context($self->{'texinfo_accumulated'});
+          # coerce to string
+          $section_text = $section.'';
+        }
+        my ($manual_text, $manual_texi, $manual_out);
+        if (defined($manual)) {
+          # convert the manual presented as tree to Texinfo
+          _begin_context($self->{'texinfo_accumulated'}, 'L manual');
+          $self->_convert_pod_simple_tree($manual);
+          ($manual_texi, $manual_out)
+            = _end_context($self->{'texinfo_accumulated'});
+          # coerce to string
+          $manual_text = $manual.'';
+        }
         if (0) {
         #if (1) {
-          my $section_text = 'UNDEF';
-          $section_text = $section if (defined($section));
-          my $manual_text = 'UNDEF';
-          $manual_text = $manual if (defined($manual));
-          print STDERR "L,M/S: $linktype $manual_text/$section_text\n";
+          my $section_text_str = 'UNDEF';
+          my $section_texi_str = 'UNDEF';
+          if (defined($section_text)) {
+            $section_text_str = $section_text;
+            $section_texi_str = $section_texi;
+          }
+          $section_text_str = $section_text if (defined($section_text));
+          my $manual_text_str = 'UNDEF';
+          my $manual_texi_str = 'UNDEF';
+          if (defined($manual_text)) {
+            $manual_text_str = $manual_text;
+            $manual_texi_str = $manual_texi;
+          }
+          print STDERR "L,M/S: $linktype $manual_text_str/$section_text_str\n";
+          print STDERR "     texinfo:  $manual_texi_str/$section_texi_str\n";
         }
         if (defined($manual)) {
-          if (! defined($section) or $section !~ m/\S/) {
-            if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual}) {
-              $section = 'NAME';
+          if (! defined($section) or $section_text !~ m/\S/) {
+            # use plain text string without formatting to match with what should
+            # be given through texinfo_internal_pod_manuals().
+            if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual_text}) {
+              $section_texi = 'NAME';
               # use the manual name as texinfo section name, otherwise
               # it will be the section associated with the node, which is
               # the non informative 'NAME' section name
               $texinfo_section = _normalize_texinfo_name(
-                 _protect_comma(_protect_text($manual)), 'section');
+                 _protect_comma($manual_texi), 'section');
             }
           }
-          if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual}) {
+          # use plain text string without formatting to match with what should
+          # be given through texinfo_internal_pod_manuals().
+          if ($self->{'texinfo_internal_pod_manuals_hash'}->{$manual_text}) {
             $texinfo_node =
-             _prepend_internal_section_manual($manual, $section,
-                                 $self->texinfo_sectioning_base_level(), 1);
+             _prepend_internal_section_manual($manual_texi, $section_texi,
+                                 $self->texinfo_sectioning_base_level());
           } else {
-            $texinfo_manual = _protect_text(_pod_title_to_file_name($manual), 0, 1);
+            $texinfo_manual = _protect_text(
+                        _pod_title_to_file_name($manual_text), 0, 1);
             if (defined($section)) {
-              $texinfo_node = $section;
+              $texinfo_node = $section_texi;
             } else {
               $texinfo_node = '';
             }
           }
-        } elsif (defined($section) and $section =~ m/\S/) {
+        } elsif (defined($section_text) and $section_text =~ m/\S/) {
           $texinfo_node =
            _prepend_internal_section_manual(
-                                 $self->texinfo_short_title(), $section,
-                                 $self->texinfo_sectioning_base_level(), 1);
+                                 $self->texinfo_short_title(), $section_texi,
+                                 $self->texinfo_sectioning_base_level(), 1, 1);
           $texinfo_section = _normalize_texinfo_name(
-             _protect_comma(_protect_text($section)), 'section');
+                                _protect_comma($section_texi), 'section');
           #print STDERR "L: internal: $texinfo_node/$texinfo_section\n";
         }
+        #print STDERR "L: not normalized node: $texinfo_node\n";
         $texinfo_node = _normalize_texinfo_name(
                 _protect_colon(
                 # FIXME remove end of lines?
-                _protect_comma(_protect_text($texinfo_node, 0, 1))), 'anchor');
+                _protect_comma($texinfo_node)), 'anchor');
         #print STDERR "L: normalized node: $texinfo_node\n";
 
         # for pod, 'to' is the pod manual name.  Then 'section' is the
@@ -683,6 +731,7 @@ sub _texinfo_handle_element_start($$$)
       }
       push @{$self->{'texinfo_stack'}}, [$linktype, $content_implicit, $url_arg,
                            $texinfo_manual, $texinfo_node, $texinfo_section];
+      #print STDERR join('|', @{$self->{'texinfo_stack'}->[-1]}) . "\n";
       #if (defined($to)) {
       #  print STDERR " | $to\n";
       #} else {
@@ -802,7 +851,7 @@ sub _texinfo_handle_element_end($$$)
           # man pages conventions.
           $command_argument = _prepend_internal_section_manual(
                        $self->texinfo_short_title(), $command_argument,
-                                $self->texinfo_sectioning_base_level());
+                                $self->texinfo_sectioning_base_level(), 1);
         }
 
         my $anchor = '';
@@ -903,7 +952,7 @@ sub _texinfo_handle_element_end($$$)
 
 # does not appear as parsed token
 # E entity/character
-sub _convert_pod($)
+sub _convert_pod_tokens($)
 {
   my $self = shift;
 
@@ -939,6 +988,27 @@ sub _postamble($)
     #print STDERR "$fh\n";
     print $fh "\@bye\n";
   }
+}
+
+# convert a tree, for instance a tree produced by
+# Pod::Simple::SimpleTree, or Pod::Simple::LinkSection trees.
+sub _convert_pod_simple_tree($$)
+{
+  my $self = shift;
+  my $simple_tree = shift;
+
+  my @simple_tree = @$simple_tree;
+  my $tagname = shift @simple_tree;
+  my $attr_hash = shift @simple_tree;
+  $self->_texinfo_handle_element_start($tagname, $attr_hash);
+  foreach my $content (@simple_tree) {
+    if (ref($content) eq '') {
+      $self->_texinfo_handle_text($content);
+    } else {
+      $self->_convert_pod_simple_tree($content);
+    }
+  }
+  $self->_texinfo_handle_element_end($tagname, $attr_hash);
 }
 
 1;
@@ -994,7 +1064,8 @@ The argument should be a reference on an array containing the short
 titles (usually the module names) of all the Pod documents that are
 converted together and should be internal in the Texinfo document obtained
 by including all those Pod documents.  References to those documents use
-the internal reference commands formatting in Texinfo.
+the internal reference commands formatting in Texinfo.  The formatting commands
+should not be present in the short titles.
 
 Corresponds to L<texinfo_sectioning_base_level> set to anything else than 0.
 

@@ -13,6 +13,20 @@
 2022-10-08  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_texinfo_handle_element_start, _prepend_internal_section_manual)
+	(_convert_pod_simple_tree): add _convert_pod_simple_tree to convert a
+	Pod::Simple::SimpleTree, or Pod::Simple::LinkSection trees to Texinfo
+	using the same functions as the pull parser.  Use that function
+	to convert L manual and L section to Texinfo code.  Add an argument to
+	_prepend_internal_section_manual to avoid protection in case manual
+	argument is already Texinfo.
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_convert_pod_tokens):
+	rename _convert_pod as _convert_pod_tokens.
+
+2022-10-08  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_texinfo_handle_element_start, _texinfo_handle_text)
 	(_texinfo_handle_element_end): use handle functions similar to
 	those used in Pod::Simple to be able to use the different Pod::Simple

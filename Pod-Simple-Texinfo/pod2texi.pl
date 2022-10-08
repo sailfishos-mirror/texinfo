@@ -460,6 +460,7 @@ foreach my $file (@input_files) {
     $new->texinfo_sectioning_style('heading');
   }
   if ($base_level > 0 and @manuals) {
+    # names without formatting from Pod::Simple::PullParser->get_short_title
     $new->texinfo_internal_pod_manuals(\@manuals);
   }
   
