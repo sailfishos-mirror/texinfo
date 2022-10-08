@@ -25,6 +25,11 @@
 # Pod::Simple::SimpleTree subclass, using _convert_pod_simple_tree.
 # We prefer a Pod::Simple::PullParser subclassing to be able to use
 # get_short_title().
+#
+#
+# TODO: it could be relevant to convert L<...> referring to external modules to
+# urls to Metacpan, or similar websites, using @url instead of @ref, which
+# is very unlikely to lead to other modules documentation.
 
 
 package Pod::Simple::Texinfo;
@@ -892,10 +897,10 @@ sub _texinfo_handle_element_end($$$)
           if (defined($texinfo_manual)) {
             $explanation = '' if (!defined($explanation));
             _output($fh, $self->{'texinfo_accumulated'},
-                     "\@ref{$texinfo_node,$explanation,, $texinfo_manual}");
+                     "\@ref{$texinfo_node,,$explanation, $texinfo_manual}");
           } elsif (defined($explanation)) {
             _output($fh, $self->{'texinfo_accumulated'},
-                   "\@ref{$texinfo_node,$explanation,$explanation}");
+                   "\@ref{$texinfo_node,,$explanation}");
           } else {
             if (defined($texinfo_section)
                 and $texinfo_section ne $texinfo_node) {

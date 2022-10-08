@@ -198,10 +198,10 @@ run_test('=over
 
 =back
 ', '@table @asis
-@item a @ref{, pod2text,, pod2text}
+@item a @ref{,, pod2text, pod2text}
 @anchor{a pod2text}
 
-@item a @ref{, pod2latex,, pod2latex}
+@item a @ref{,, pod2latex, pod2latex}
 @anchor{a pod2latex}
 
 @end table
@@ -374,9 +374,9 @@ L<F<--->|F<-->/C<--->>
 ','@chapter @asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}
 @anchor{@asis{}-@asis{}-@asis{}-@asis{}- @asis{}-@asis{}-@asis{} @code{---}}
 
-@code{--- @ref{---, @asis{}-@asis{}-@asis{}-@asis{},, --}}
+@code{--- @ref{---,, @asis{}-@asis{}-@asis{}-@asis{}, --}}
 
-@ref{@code{---}, @file{---},, --}
+@ref{@code{---},, @file{---}, --}
 
 ', 'protected -');
 

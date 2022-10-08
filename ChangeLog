@@ -1,3 +1,10 @@
+2022-10-08  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_texinfo_handle_element_end): set explanation to the third argument
+	of @ref and not the second such that it is used for all the output
+	formats.
+
 2022-10-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/LaTeX.pm (_latex_header) <indices>:
