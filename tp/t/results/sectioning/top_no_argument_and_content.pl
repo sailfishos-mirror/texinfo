@@ -49,7 +49,6 @@ $result_trees{'top_no_argument_and_content'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {},
       'parent' => {},
       'source_info' => {
         'file_name' => '',
@@ -83,7 +82,6 @@ $result_sectioning{'top_no_argument_and_content'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}

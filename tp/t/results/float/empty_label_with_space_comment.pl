@@ -144,8 +144,7 @@ $result_floats{'empty_label_with_space_comment'} = {
           ],
           'normalized' => 'Type'
         }
-      },
-      'structure' => {}
+      }
     }
   ]
 };

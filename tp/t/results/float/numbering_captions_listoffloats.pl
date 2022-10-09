@@ -7306,8 +7306,7 @@ $result_floats{'numbering_captions_listoffloats'} = {
           ],
           'normalized' => 'Text'
         }
-      },
-      'structure' => {}
+      }
     },
     {
       'cmdname' => 'float',

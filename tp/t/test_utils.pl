@@ -640,8 +640,6 @@ sub convert_to_html($$$$$$;$)
                                           %$converter_options });
   my $result;
   if ($format eq 'html_text') {
-    # this is needed for CSS rules output, in case $arg_output is set
-    $converter->{'current_filename'} = '';
     $result = $converter->convert($tree);
   } else {
     $result = $converter->output($tree);

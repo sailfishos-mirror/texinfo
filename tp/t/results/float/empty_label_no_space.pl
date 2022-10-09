@@ -125,8 +125,7 @@ $result_floats{'empty_label_no_space'} = {
           ],
           'normalized' => 'Type'
         }
-      },
-      'structure' => {}
+      }
     }
   ]
 };

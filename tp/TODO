@@ -17,6 +17,8 @@ global document_settable_multiple_at_commands
 ./contents//res_parser/double_contents_after_title_book_chapter/double_contents.2
  texi2any: warning: could not read init file book.init
 
+check separate elements and also SPLIT with convert(), in tests html_text.
+
 
 Add in_math (for /)?
 

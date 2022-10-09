@@ -1018,8 +1018,7 @@ $result_floats{'equivalent_nodes_no_node'} = {
           ],
           'normalized' => 'Figure'
         }
-      },
-      'structure' => {}
+      }
     }
   ]
 };

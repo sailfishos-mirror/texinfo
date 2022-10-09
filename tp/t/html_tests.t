@@ -606,6 +606,8 @@ node name}
 
 @node nnn the node name
 '],
+['mathjax_with_texinfo_html_text',
+$mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
 );
 
 my @test_cases_file_text = (
