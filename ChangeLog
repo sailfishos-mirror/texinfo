@@ -1,5 +1,12 @@
 2022-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Text.pm
+	(brace_no_arg_command, _convert), tp/Texinfo/Convert/Unicode.pm,
+	tp/Texinfo/Convert/Utils.pm: avoid autovivification if not needed.
+	Only put @def* name element in contents to be converted if defined.
+
+2022-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/TexinfoMarkup.pm:
 	avoid autovivification if not needed.
 

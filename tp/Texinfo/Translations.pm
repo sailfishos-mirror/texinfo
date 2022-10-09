@@ -22,6 +22,9 @@ package Texinfo::Translations;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Encode;
 use POSIX qw(setlocale LC_ALL);
 use Locale::Messages;

@@ -65,6 +65,9 @@ package Texinfo::Convert::IXIN;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use MIME::Base64;
 use Carp qw(cluck);
 
@@ -279,7 +282,7 @@ sub _associated_node_id($$$;$)
 
     if ($root_command) {
       if (!$root_command->{'cmdname'} or $root_command->{'cmdname'} ne 'node') {
-        if ($element->{'extra'}->{'unit_command'}
+        if ($element and $element->{'extra'}
             and $element->{'extra'}->{'unit_command'}
             and $element->{'extra'}->{'unit_command'}->{'cmdname'}
             and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
@@ -414,8 +417,9 @@ sub output_ixin($$)
         foreach my $command (@{$self->{'global_commands'}->{$global_command}}) {
           my ($element, $root_command) = _get_element($self, $command);
           # before first node
-          if (!defined($root_command->{'extra'})
-              or !defined($root_command->{'extra'}->{'normalized'})) {
+          if (not $root_command
+              or not defined($root_command->{'extra'})
+              or not defined($root_command->{'extra'}->{'normalized'})) {
             $setting_commands{$global_command} = $command;
           } else {
             # register the setting value at the end of the node
@@ -683,6 +687,7 @@ sub output_ixin($$)
                                            $self, $merged_index_entries);
     # first do the dts_text as the counts are needed for the dts index
     foreach my $index_name (sort(keys(%$entries))) {
+      $dts_information{$index_name} = {};
       my $dts_text_result = '';
       my $dts_entries_nr = 0;
       my $dts_in_code = $index_names->{$index_name}->{'in_code'};
@@ -726,6 +731,7 @@ sub output_ixin($$)
       if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}
           and defined($command->{'extra'}->{'misc_args'}->[0])) {
         my $index_name = $command->{'extra'}->{'misc_args'}->[0];
+        $dts_information{$index_name} = {} if (!$dts_information{$index_name});
         push @{$dts_information{$index_name}->{'node_id'}}, $associated_node_id;
       }
     }

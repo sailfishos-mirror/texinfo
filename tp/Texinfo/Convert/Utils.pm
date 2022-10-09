@@ -30,6 +30,9 @@ package Texinfo::Convert::Utils;
 
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 # debugging
 use Carp qw(cluck);
 
@@ -288,7 +291,8 @@ sub add_heading_number($$$;$)
   my $numbered = shift;
 
   my $number;
-  if (defined($current->{'structure'}->{'section_number'})
+  if ($current->{'structure'}
+      and defined($current->{'structure'}->{'section_number'})
       and ($numbered or !defined($numbered))) {
     $number = $current->{'structure'}->{'section_number'};
   }
@@ -351,7 +355,8 @@ sub translated_command_tree($$)
 {
   my $self = shift;
   my $cmdname = shift;
-  if ($self->{'translated_commands'}->{$cmdname}) {
+  if ($self->{'translated_commands'}
+      and $self->{'translated_commands'}->{$cmdname}) {
     return $self->gdt($self->{'translated_commands'}->{$cmdname});
   }
   return undef;

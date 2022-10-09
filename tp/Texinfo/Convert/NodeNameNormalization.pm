@@ -29,6 +29,9 @@ use strict;
 # used to match Unicode character classes.
 use if $] >= 5.014, re => '/a';
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Unicode::Normalize;
 use Text::Unidecode;
 

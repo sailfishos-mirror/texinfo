@@ -22,6 +22,9 @@ package Texinfo::Convert::TextContent;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Utils;

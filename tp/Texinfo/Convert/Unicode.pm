@@ -26,6 +26,9 @@ package Texinfo::Convert::Unicode;
 use 5.007_003;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Carp qw(cluck);
 
 use Encode;
@@ -1445,7 +1448,8 @@ sub _format_eight_bit_accents_stack($$$$$;$)
 
   # handle the remaining accents, that have not been converted to 8bit
   # compatible unicode
-  shift @results_stack if (!defined($results_stack[0]->[1]));
+  shift @results_stack if (scalar(@results_stack)
+                           and !defined($results_stack[0]->[1]));
   while (@results_stack) {
     $result = &$convert_accent($converter, $result,
                                $results_stack[0]->[1],

@@ -28,6 +28,9 @@ use strict;
 
 use if $] >= 5.014, re => '/a';  # ASCII-only character classes in regexes
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Unicode::EastAsianWidth;
 use Texinfo::Convert::Unicode;
 use Carp qw(cluck);

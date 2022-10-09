@@ -22,10 +22,13 @@ package Texinfo::Convert::Text;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use File::Basename;
 
 use Data::Dumper;
-use Carp qw(cluck carp);
+use Carp qw(cluck carp confess);
 use Encode qw(decode);
 
 use Texinfo::Commands;
@@ -249,7 +252,7 @@ sub brace_no_arg_command($;$)
       and defined($element->{'extra'}->{'clickstyle'})
       and defined($text_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
   my $result;
-  if (!$options->{'ascii_punctuation'}
+  if (!($options and $options->{'ascii_punctuation'})
         or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command})) {
     $result = Texinfo::Convert::Unicode::brace_no_arg_command($command, $encoding);
   }
@@ -313,7 +316,8 @@ sub text_heading($$$;$$)
     $indent_length = 0;
   }
   my $section_level;
-  if (!defined($current->{'structure'}->{'section_level'})) {
+  if (!defined($current->{'structure'})
+      or !defined($current->{'structure'}->{'section_level'})) {
     $section_level = Texinfo::Common::section_level($current);
   } else {
     $section_level = $current->{'structure'}->{'section_level'};
@@ -380,6 +384,12 @@ sub _convert($;$)
   my $element = shift;
   my $options = shift;
 
+  $options = {} if (!defined($options));
+
+  if (!defined($element)) {
+    confess("Texinfo::Convert::Text::_convert: element undef");
+  }
+
   return '' if (!($element->{'type'} and $element->{'type'} eq 'def_line')
      and (($element->{'type'} and $ignored_types{$element->{'type'}})
           or ($element->{'cmdname'}
@@ -391,8 +401,9 @@ sub _convert($;$)
                      and $Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline'
                      and $element->{'cmdname'} ne 'inlinefmtifelse'
                      and (($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
-                          and (!$element->{'extra'}->{'format'}
-                               or !$options->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
+                           and (!$element->{'extra'}->{'format'}
+                                or !$options->{'expanded_formats_hash'}
+                                or !$options->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
                          or (!$Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
                              and !defined($element->{'extra'}->{'expand_index'}))))
              # here ignore most of the line commands
@@ -502,6 +513,7 @@ sub _convert($;$)
       my $arg_index = 1;
       if ($element->{'cmdname'} eq 'inlinefmtifelse'
           and (!$element->{'extra'}->{'format'}
+               or !$options->{'expanded_formats_hash'}
                or !$options->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}})) {
         $arg_index = 2;
       }
@@ -542,7 +554,8 @@ sub _convert($;$)
         chomp ($result);
         $result .= "\n" if ($result =~ /\S/);
       }
-    } elsif ($options->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
+    } elsif ($options->{'expanded_formats_hash'}
+             and $options->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
       $options->{'raw'} = 1;
     } elsif ($formatted_line_commands{$element->{'cmdname'}}
              and $element->{'args'}) {
@@ -589,7 +602,7 @@ sub _convert($;$)
   if ($element->{'type'} and $element->{'type'} eq 'def_line') {
     #print STDERR "$element->{'extra'}->{'def_command'}\n";
     if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
-             and %{$element->{'extra'}->{'def_parsed_hash'}}) {
+             and scalar(keys(%{$element->{'extra'}->{'def_parsed_hash'}}))) {
       my $parsed_definition_category
         = Texinfo::Convert::Utils::definition_category_tree($options->{'converter'},
                                                        $element);
@@ -598,7 +611,9 @@ sub _convert($;$)
         push @contents, ($element->{'extra'}->{'def_parsed_hash'}->{'type'},
                          {'text' => ' '});
       }
-      push @contents, $element->{'extra'}->{'def_parsed_hash'}->{'name'};
+      if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
+        push @contents, $element->{'extra'}->{'def_parsed_hash'}->{'name'};
+      }
 
       my $arguments = Texinfo::Convert::Utils::definition_arguments_content($element);
       if ($arguments) {
@@ -679,7 +694,7 @@ sub converter($)
     #print STDERR "CTe ".join("|", sort(keys(%{$conf})))."\n";
   }
 
-  my $expanded_formats = $converter->{'EXPANDED_FORMATS'};;
+  my $expanded_formats = $converter->{'EXPANDED_FORMATS'};
   if ($converter->{'parser'}) {
     $converter->{'parser_info'} = $converter->{'parser'}->global_information();
     $converter->{'global_commands'}
@@ -703,6 +718,7 @@ sub converter($)
     delete $converter->{'parser'};
   }
   if ($expanded_formats) {
+    $converter->{'expanded_formats_hash'} = {};
     foreach my $expanded_format(@$expanded_formats) {
       $converter->{'expanded_formats_hash'}->{$expanded_format} = 1;
     }

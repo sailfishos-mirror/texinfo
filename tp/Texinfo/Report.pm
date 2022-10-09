@@ -22,6 +22,9 @@ package Texinfo::Report;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 # for fileparse
 use File::Basename;
 
