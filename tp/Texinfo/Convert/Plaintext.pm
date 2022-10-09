@@ -30,6 +30,9 @@ use if $] >= 5.014, re => '/a';
 
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -537,7 +540,9 @@ sub convert($$)
   my $result = '';
 
   my $tree_units = Texinfo::Structuring::split_by_node($root);
+  $self->{'seenmenus'} = {};
   $self->{'empty_lines_count'} = 1;
+  $self->{'index_entries_line_location'} = {};
   if (!defined($tree_units)) {
     $result = $self->_convert($root);
     $self->count_context_bug_message('no element ');
@@ -554,6 +559,8 @@ sub convert($$)
   return $result;
 }
 
+# the initialization of module specific state is not done in output()
+# as output() is generic, so it needs to be done here
 sub convert_tree($$)
 {
   my ($self, $root) = @_;
@@ -563,6 +570,10 @@ sub convert_tree($$)
     # something done (a newline added) if equal to 0.
     $self->{'empty_lines_count'} = 1;
   }
+  $self->{'seenmenus'} = {}
+    if (!$self->{'seenmenus'});
+  $self->{'index_entries_line_location'} = {}
+    if (!$self->{'index_entries_line_location'});
   my $result;
   if ($root->{'type'} and $root->{'type'} eq 'unit') {
     $result = _convert_root_element($self, $root);
@@ -637,8 +648,11 @@ sub new_formatter($$;$)
 {
   my ($self, $type, $conf) = @_;
 
-  my $first_indent_length = $conf->{'first_indent_length'};
-  delete $conf->{'first_indent_length'};
+  my $first_indent_length;
+  if ($conf) {
+    $first_indent_length = $conf->{'first_indent_length'};
+    delete $conf->{'first_indent_length'};
+  }
   
   my $container;
   my $container_conf = {
@@ -697,8 +711,13 @@ sub new_formatter($$;$)
                    'font_type_stack' => [{}],
                    'w' => 0, 'type' => $type,
               'frenchspacing_stack' => [$self->get_conf('frenchspacing')],
-              'suppress_styles' => $conf->{'suppress_styles'},
-              'no_added_eol' => $conf->{'no_added_eol'}};
+              'suppress_styles' => undef,
+              'no_added_eol' => undef};
+  if ($conf) {
+    foreach my $configuration ('suppress_styles', 'no_added_eol') {
+      $formatter->{$configuration} = $conf->{$configuration};
+    }
+  }
 
   if ($type eq 'unfilled') {
     foreach my $context (reverse(@{$self->{'context'}})) {
@@ -1213,14 +1232,15 @@ sub _normalize_top_node($)
 sub node_line($$)
 {
   my ($self, $node) = @_;
+  $self->{'node_lines_text'} = {} if (!$self->{'node_lines_text'});
   if (!$self->{'node_lines_text'}->{$node}) {
     my $node_text = {'type' => '_code',
               'contents' => $node->{'extra'}->{'node_content'}};
     push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-    $self->{'node_lines_text'}->{$node}->{'text'} 
-       = _normalize_top_node($self->convert_line($node_text,
+    $self->{'node_lines_text'}->{$node}
+      = {'text' => _normalize_top_node($self->convert_line($node_text,
                                                  {'suppress_styles' => 1,
-                                                  'no_added_eol' => 1,}));
+                                                  'no_added_eol' => 1,}))};
     update_count_context($self);
     my $end_context = pop @{$self->{'count_context'}};
     $self->{'node_lines_text'}->{$node}->{'count'} 
@@ -1276,7 +1296,8 @@ sub process_printindex($$;$)
     }
     my $line_nr;
 
-    if (defined ($self->{'index_entries_line_location'}->{$entry->{'entry_element'}})) {
+    if ($self->{'index_entries_line_location'}
+        and defined($self->{'index_entries_line_location'}->{$entry->{'entry_element'}})) {
       $line_nr = $self->{'index_entries_line_location'}->{$entry->{'entry_element'}}->{'lines'};
       # ignore index entries in special regions that haven't been seen
     } elsif ($entry->{'entry_region'}) {
@@ -1287,7 +1308,9 @@ sub process_printindex($$;$)
     my $node;
     # priority given to the location determined dynamically as the
     # index entry may be in footnote.
-    if (defined($self->{'index_entries_line_location'}->{$entry->{'entry_element'}}->{'node'})) {
+    if ($self->{'index_entries_line_location'}
+        and $self->{'index_entries_line_location'}->{$entry->{'entry_element'}}
+        and defined($self->{'index_entries_line_location'}->{$entry->{'entry_element'}}->{'node'})) {
       $node = $self->{'index_entries_line_location'}->{$entry->{'entry_element'}}->{'node'};
     } elsif (defined($entry->{'entry_node'})) {
       $node = $entry->{'entry_node'};
@@ -1394,8 +1417,8 @@ sub process_printindex($$;$)
       if (!$self->{'outside_of_any_node_text'}) {
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
         my $node_text = $self->gdt('(outside of any node)');
-        $self->{'outside_of_any_node_text'}->{'text'} 
-          = $self->convert_line($node_text);
+        $self->{'outside_of_any_node_text'}
+          = {'text' => $self->convert_line($node_text)};
         update_count_context($self);
         my $end_context = pop @{$self->{'count_context'}};
         $self->{'outside_of_any_node_text'}->{'count'} 
@@ -2342,7 +2365,7 @@ sub _convert($$)
          and defined($element->{'args'}->[$arg_index])
          and $element->{'args'}->[$arg_index]->{'contents'}
          and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
-        my $argument;
+        my $argument = {};
         if ($command eq 'inlineraw') {
           $argument->{'type'} = '_code';
         }
@@ -2836,7 +2859,7 @@ sub _convert($$)
   if ($element->{'type'}) {
     if ($element->{'type'} eq 'paragraph') {
       $self->{'empty_lines_count'} = 0;
-      my $conf;
+      my $conf = {};
       # indent. Not first paragraph.
       if ($self->{'format_context'}->[-1]->{'cmdname'} eq '_top_format'
           and $self->get_conf('paragraphindent') ne 'asis' 
@@ -3235,11 +3258,13 @@ sub _convert($$)
       }
 
       $cell_idx = 0;
-      my $cell_updated_locations;
+      my $cell_updated_locations = [];
       my @row_locations;
       foreach my $cell_locations (@{$self->{'format_context'}->[-1]->{'row_counts'}}) {
         foreach my $location (@{$cell_locations->{'locations'}}) {
           next unless (defined($location->{'bytes'}) and defined($location->{'lines'}));
+          $cell_updated_locations->[$cell_idx] = {}
+            if (!$cell_updated_locations->[$cell_idx]);
           push @{$cell_updated_locations->[$cell_idx]->{$location->{'lines'}}},
                  $location;
           $max_lines = $location->{'lines'}+1 
@@ -3261,7 +3286,8 @@ sub _convert($$)
         my $last_cell = 0;
         for (my $cell_idx = 0; $cell_idx < $max_cell; $cell_idx++) {
           $last_cell = $cell_idx+1 if (defined($cell_lines[$cell_idx]->[$line_idx])
-                                       or defined($cell_updated_locations->[$cell_idx]->{$line_idx}));
+                                       or ($cell_updated_locations->[$cell_idx]
+                                           and defined($cell_updated_locations->[$cell_idx]->{$line_idx})));
         }
 
         for (my $cell_idx = 0; $cell_idx < $last_cell; $cell_idx++) {
@@ -3276,7 +3302,8 @@ sub _convert($$)
             $bytes_count += count_bytes($self, $cell_text);
             $line_width += Texinfo::Convert::Unicode::string_width($cell_text);
           }
-          if (defined($cell_updated_locations->[$cell_idx]->{$line_idx})) {
+          if ($cell_updated_locations->[$cell_idx]
+              and defined($cell_updated_locations->[$cell_idx]->{$line_idx})) {
             foreach my $location (@{$cell_updated_locations->[$cell_idx]->{$line_idx}}) {
               $location->{'bytes'} = $bytes_count;
             }
@@ -3356,8 +3383,10 @@ sub _convert($$)
   if ($command) {
     if ($command eq 'float') {
       if ($element->{'extra'}
-          and ($element->{'extra'}->{'type'}->{'normalized'} ne ''
-               or defined($element->{'structure'}->{'float_number'})
+          and (($element->{'extra'}->{'type'}
+                and $element->{'extra'}->{'type'}->{'normalized'} ne '')
+               or ($element->{'structure'}
+                   and defined($element->{'structure'}->{'float_number'}))
                or $element->{'extra'}->{'caption'} or $element->{'extra'}->{'shortcaption'})) {
         
         $result .= _add_newline_if_needed($self);

@@ -1,5 +1,11 @@
 2022-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Plaintext.pm (convert_tree, convert): avoid
+	autovivification if not needed.  Better initialization of conversion
+	state.
+
+2022-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_initialize_output_state): avoid
 	autovivification if not needed.  Add _initialize_output_state
 	to initialize conversion state for a document output.

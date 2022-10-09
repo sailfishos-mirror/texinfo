@@ -25,6 +25,9 @@ package Texinfo::Convert::Info;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Texinfo::Common;
 use Texinfo::Convert::Plaintext;
 use Texinfo::Convert::Text;
