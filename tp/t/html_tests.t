@@ -608,6 +608,25 @@ node name}
 '],
 ['mathjax_with_texinfo_html_text',
 $mathjax_with_texinfo, {}, {'HTML_MATH' => 'mathjax'}],
+['split_html_text',
+'@node Top
+@top top
+In top
+
+@node chap
+@chapter Chap
+', {'test_split' => 'node'}, {'SPLIT' => 'node'}],
+['footnotestyle_separate_html_text_no_monolithic',
+'@footnotestyle separate
+
+@node Top
+@top top
+In top@footnote{Additional text}.
+
+@node chap
+@chapter Chap
+
+',{}, {'MONOLITHIC' => 0},],
 );
 
 my @test_cases_file_text = (

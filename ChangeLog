@@ -1,5 +1,15 @@
 2022-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files)
+	(_prepare_special_elements, output): do not call set_tree_unit_file
+	in _prepare_special_elements, it will be called in
+	_html_set_pages_files if needed.  Initialize file counters in
+	_html_set_pages_files.  If $document_name is not set in
+	_prepare_special_elements, do not try to set a separate special
+	element file name.
+
+2022-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Text.pm
 	(brace_no_arg_command, _convert), tp/Texinfo/Convert/Unicode.pm,
 	tp/Texinfo/Convert/Utils.pm: avoid autovivification if not needed.

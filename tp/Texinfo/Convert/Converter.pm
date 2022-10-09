@@ -784,8 +784,6 @@ sub set_tree_unit_file($$$$;$)
   }
   $tree_unit->{'structure'} = {} if (!($tree_unit->{'structure'}));
   if (exists($tree_unit->{'structure'}->{'unit_filename'})) {
-    # FIXME happens for added elements, also no_monolithic, but probably also
-    # for added elements.
     # FIXME happens in navigation_test_misc_file_collision, to investigate
     if ($tree_unit->{'structure'}->{'unit_filename'} eq $filename) {
       print STDERR "set_tree_unit_file: already set: $filename\n"

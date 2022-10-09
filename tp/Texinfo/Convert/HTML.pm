@@ -7779,6 +7779,8 @@ sub _html_set_pages_files($$$$$$$$)
   # Ensure that the document has pages
   return undef if (!defined($tree_units) or !@$tree_units);
 
+  $self->initialize_tree_units_files();
+
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION')
             if (defined($self->get_conf('EXTENSION'))
@@ -8035,7 +8037,9 @@ sub _prepare_special_elements($$$$)
 
     my $target = $self->{'special_elements_targets'}->{$special_element_variety};
     my $default_filename;
-    if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')) {
+    if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
+        # in general $document_name not defined means called through convert
+        and defined($document_name)) {
       $default_filename = $document_name.
         $self->{'special_elements_file_string'}->{$special_element_variety};
       $default_filename .= '.'.$extension if (defined($extension));
@@ -8059,13 +8063,6 @@ sub _prepare_special_elements($$$$)
       $fileout = 'UNDEF' if (!defined($fileout));
       print STDERR "Add special $element $special_element_variety: target $target,\n".
         "    filename $fileout\n";
-    }
-    if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
-        or (defined($filename) ne defined($default_filename))
-        or (defined($filename) and $filename ne $default_filename)) {
-      $self->set_tree_unit_file($element, $filename, $destination_directory);
-      print STDERR "NEW page for $special_element_variety ($filename)\n"
-        if ($self->get_conf('DEBUG'));
     }
     $self->{'targets'}->{$element} = {'target' => $target,
                                       'special_element_filename' => $filename,
@@ -9434,9 +9431,6 @@ sub convert($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-  # FIXME set_tree_unit_file is called in _prepare_conversion_tree_units
-  # but there should not be files if called with convert.  There is probably
-  # some trouble only if MONOLITHIC is false or SPLIT.
   my ($tree_units, $special_elements)
     = $self->_prepare_conversion_tree_units($root, undef, undef);
 
@@ -9713,12 +9707,6 @@ sub output($$)
   # Some information is not available yet.
   $self->_reset_info();
 
-  # FIXME set_tree_unit_file is called in _prepare_conversion_tree_units
-  # and may or most probably will be called again in _html_set_pages_files.
-  $self->initialize_tree_units_files();
-  # only in HTML, not in Texinfo::Convert::Converter
-  $self->{'elements_in_file_count'} = {};
-
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
   my ($tree_units, $special_elements)
@@ -9762,10 +9750,15 @@ sub output($$)
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
   
-  # 'file_counters' is dynamic, decreased when the element is encountered
-  # 'elements_in_file_count' is not modified afterwards
-  foreach my $filename (keys(%{$self->{'file_counters'}})) {
-    $self->{'elements_in_file_count'}->{$filename} = $self->{'file_counters'}->{$filename};
+  # only in HTML, not in Texinfo::Convert::Converter
+  $self->{'elements_in_file_count'} = {};
+  # condition could also be based on $output_file ne ''
+  if ($self->{'file_counters'}) {
+    # 'file_counters' is dynamic, decreased when the element is encountered
+    # 'elements_in_file_count' is not modified afterwards
+    foreach my $filename (keys(%{$self->{'file_counters'}})) {
+      $self->{'elements_in_file_count'}->{$filename} = $self->{'file_counters'}->{$filename};
+    }
   }
 
   # set information, to have it ready for
@@ -9931,6 +9924,7 @@ sub output($$)
     my $encoded_no_page_out_filepath;
     my $no_page_out_filepath;
     if ($self->{'current_filename'} ne ''
+        and $self->{'out_filepaths'}
         and defined($self->{'out_filepaths'}->{$self->{'current_filename'}})) {
       my $path_encoding;
       $no_page_out_filepath
