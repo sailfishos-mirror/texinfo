@@ -383,7 +383,6 @@ $result_trees{'fonttextsize'} = {
           ],
           'cmdname' => 'fonttextsize',
           'extra' => {
-            'misc_args' => [],
             'spaces_before_argument' => ' '
           },
           'parent' => {},
@@ -465,7 +464,6 @@ $result_trees{'fonttextsize'} = {
           ],
           'cmdname' => 'fonttextsize',
           'extra' => {
-            'misc_args' => [],
             'spaces_before_argument' => ' '
           },
           'parent' => {},

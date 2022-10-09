@@ -494,8 +494,7 @@ $result_floats{'empty_caption'} = {
         'type' => {
           'normalized' => ''
         }
-      },
-      'structure' => {}
+      }
     }
   ],
   'a' => [

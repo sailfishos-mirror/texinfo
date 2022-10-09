@@ -1,5 +1,11 @@
 2022-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_prepare_conversion): avoid
+	autovivification if not needed.  Better initialization of conversion
+	state in _prepare_conversion().
+
+2022-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Plaintext.pm (convert_tree, convert): avoid
 	autovivification if not needed.  Better initialization of conversion
 	state.

@@ -586,8 +586,7 @@ $result_floats{'empty_listoffloats_with_floats'} = {
         'type' => {
           'normalized' => ''
         }
-      },
-      'structure' => {}
+      }
     },
     {
       'cmdname' => 'float',
@@ -601,8 +600,7 @@ $result_floats{'empty_listoffloats_with_floats'} = {
         'type' => {
           'normalized' => ''
         }
-      },
-      'structure' => {}
+      }
     }
   ]
 };

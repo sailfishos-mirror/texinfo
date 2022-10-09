@@ -170,6 +170,9 @@ use if $] >= 5.012, feature => qw(unicode_strings);
 
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use File::Spec;
 
 use Carp qw(cluck confess);
@@ -629,6 +632,10 @@ my %LaTeX_style_brace_commands = (
   }
 );
 
+foreach my $context (keys(%LaTeX_style_brace_commands)) {
+  $style_brace_format_command_new_commands{$context} = {};
+}
+
 # embrac does not propagate in these commands.  But we want
 # upside braces in these commands.  So we make them known to
 # embrac.  Only locally, otherwise other commands can be broken.
@@ -851,6 +858,8 @@ sub _prepare_floats($)
 {
   my $self = shift;
   if ($self->{'floats'}) {
+    $self->{'normalized_float_latex'} = {};
+    $self->{'latex_floats'} = {};
     foreach my $normalized_float_type (sort(keys(%{$self->{'floats'}}))) {
       my $latex_variable_float_name = $normalized_float_type;
       # note that with that transformation, some float types
@@ -885,12 +894,15 @@ sub _prepare_indices($)
     my $merged_index_entries
         = Texinfo::Structuring::merge_indices($index_names);
     # select non empty indices
-    foreach my $index_name (keys(%{$merged_index_entries})) {
-      # print STDERR "PI $index_name\n";
-      # print STDERR "".$merged_index_entries->{$index_name}."\n";
-      #print STDERR " -> ".join("|", @{$merged_index_entries->{$index_name}})."\n";
-      if (scalar(@{$merged_index_entries->{$index_name}})) {
-        $self->{'index_entries'}->{$index_name} = $merged_index_entries->{$index_name};
+    if ($merged_index_entries) {
+      $self->{'index_entries'} = {};
+      foreach my $index_name (keys(%{$merged_index_entries})) {
+        # print STDERR "PI $index_name\n";
+        # print STDERR "".$merged_index_entries->{$index_name}."\n";
+        #print STDERR " -> ".join("|", @{$merged_index_entries->{$index_name}})."\n";
+        if (scalar(@{$merged_index_entries->{$index_name}})) {
+          $self->{'index_entries'}->{$index_name} = $merged_index_entries->{$index_name};
+        }
       }
     }
   }
@@ -901,6 +913,22 @@ sub _prepare_conversion($;$)
 {
   my $self = shift;
   my $root = shift;
+
+  $self->{'page_styles'} = {};
+  $self->{'list_environments'} = {};
+  $self->{'description_format_commands'} = {};
+  $self->{'style_brace_format_commands'} = {};
+  foreach my $context (keys(%style_brace_format_command_new_commands)) {
+    $self->{'style_brace_format_commands'}->{$context} = {};
+  }
+  $self->{'packages'} = {};
+  $self->{'extra_definitions'} = {};
+  $self->{'fixed_width_environments'} = {};
+  # something different is done for the first custom heading.
+  # Not sure that values could be there, but delete anyway
+  # to be clear.
+  delete($self->{'custom_heading'});
+  delete($self->{'index_entries'});
 
   if (defined($root)) {
     $self->_associate_other_nodes_to_sections($root);
@@ -1014,7 +1042,7 @@ sub output($$)
         $node_element = $element_content->{'extra'}->{'part_following_node'};
       }
       if ($node_element or $cmdname eq 'part') {
-        if ($node_element->{'extra'}
+        if ($node_element and $node_element->{'extra'}
             and $node_element->{'extra'}->{'normalized'}
             and $node_element->{'extra'}->{'normalized'} eq 'Top') {
           $in_top_node = 1;
@@ -1240,10 +1268,10 @@ sub _latex_header() {
       }
     }
   }
-  if ($self->{'index_entries'}) {
+  if ($self->{'index_entries'}
+      and scalar(keys(%{$self->{'index_entries'}}))) {
     $header_code .= "% no index headers or page break\n";
-    $header_code .=
-"\\indexsetup{level=\\relax,toclevel=section,noclearpage}%\n";
+    $header_code .= "\\indexsetup{level=\\relax,toclevel=section,noclearpage}%\n";
 
     foreach my $index_name (sort(keys(%{$self->{'index_entries'}}))) {
       $header_code .= "\\makeindex[name=$index_name,title=]%\n";
@@ -1303,7 +1331,7 @@ sub _latex_header() {
   }
 
   # disactivate microtype for fixed-width environments
-  if ($self->{'fixed_width_environments'}) {
+  if (scalar(keys(%{$self->{'fixed_width_environments'}}))) {
     if ($self->{'packages'}->{'microtype'}) {
       foreach my $no_microtype_environment (sort(keys(%{$self->{'fixed_width_environments'}}))) {
         $header_code .= "\\AtBeginEnvironment{$no_microtype_environment}"
@@ -1313,7 +1341,7 @@ sub _latex_header() {
     $header_code .= "\n";
   }
 
-  if ($self->{'list_environments'}) {
+  if (scalar(keys(%{$self->{'list_environments'}}))) {
     $header_code .= "% set defaults for lists that match Texinfo TeX formatting\n";
     if ($self->{'list_environments'}->{'description'}) {
       $header_code .= "\\setlist[description]{style=nextline, font=\\normalfont}\n";
@@ -1410,7 +1438,8 @@ roundcorner=10pt}
   # titleps is used and not fancyhdr as with fancyhdr it is hard to get
   # the section or chapter title
   my $header = "\\documentclass{$documentclass}\n";
-  if ($self->{'index_entries'}) {
+  if ($self->{'index_entries'}
+      and scalar(keys(%{$self->{'index_entries'}}))) {
     $header .= "\\usepackage{imakeidx}\n";
   }
   $header .= '\usepackage{amsfonts}
@@ -1445,7 +1474,7 @@ roundcorner=10pt}
   if ($self->{'packages'}->{'fontsize'}) {
     $header .= "\\usepackage{fontsize}\n";
   }
-  if ($self->{'list_environments'}) {
+  if (scalar(keys(%{$self->{'list_environments'}}))) {
     $header .= "\\usepackage{enumitem}\n";
   }
   if ($self->{'packages'}->{'geometry'}) {
@@ -1484,6 +1513,7 @@ roundcorner=10pt}
 sub _latex_begin_output($)
 {
   my $self = shift;
+
   my $header = '';
   # setup defaults
   $header .= "% set default for \@setchapternewpage\n";
@@ -1758,7 +1788,12 @@ sub _set_custom_headings($$$)
     @replaced_specs = ($page_spec);
   }
   my $first_custom_heading;
-  $first_custom_heading = 1 if (not exists($self->{'custom_heading'}));
+  if (not exists($self->{'custom_heading'})) {
+    $first_custom_heading = 1;
+    $self->{'custom_heading'} = {$head_or_foot => {}};
+  } elsif (!exists($self->{'custom_heading'}->{$head_or_foot})) {
+    $self->{'custom_heading'}->{$head_or_foot} = {};
+  }
   foreach my $spec (@replaced_specs) {
     $self->{'custom_heading'}->{$head_or_foot}->{$spec} = \@headings;
   }
@@ -2050,7 +2085,8 @@ sub _finish_front_cover_page($)
 {
   my $self = shift;
   my $result = '';
-  if ($self->{'titlepage_formatting'}->{'in_front_cover'}) {
+  if ($self->{'titlepage_formatting'}
+      and $self->{'titlepage_formatting'}->{'in_front_cover'}) {
     # add a rule if there was a @title (same as in Texinfo TeX)
     if ($self->{'titlepage_formatting'}->{'title'}) {
       delete $self->{'titlepage_formatting'}->{'title'};
@@ -2730,7 +2766,8 @@ sub _convert($$)
         # in parentheses
         if (defined($args[3])) {
           $file_contents = $args[3];
-        } elsif ($element->{'extra'}->{'node_argument'}
+        } elsif ($element->{'extra'}
+                 and $element->{'extra'}->{'node_argument'}
                  and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
                  and $element->{'extra'}->{'node_argument'}->{'manual_content'}) {
           $file_contents = $element->{'extra'}->{'node_argument'}->{'manual_content'};
@@ -2743,6 +2780,7 @@ sub _convert($$)
         }
         
         if ($cmdname ne 'inforef' and $book eq '' and $filename eq ''
+            and $element->{'extra'}
             and $element->{'extra'}->{'node_argument'}
             and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
             and !$element->{'extra'}->{'node_argument'}->{'manual_content'}
@@ -3207,7 +3245,7 @@ sub _convert($$)
                and $element->{'extra'}->{'part_following_node'}) {
         $node_element = $element->{'extra'}->{'part_following_node'};
       }
-      if ($node_element->{'extra'}
+      if ($node_element and $node_element->{'extra'}
           and $node_element->{'extra'}->{'normalized'}
           and $node_element->{'extra'}->{'normalized'} eq 'Top') {
         $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'} = 1;
@@ -3413,7 +3451,10 @@ sub _convert($$)
       $result .= "{\\raggedright $title_text}\n";
       # same formatting for the rule as in Texinfo TeX
       $result .= "\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt\n";
-      $self->{'titlepage_formatting'}->{'title'} = 1;
+      # TODO warn if not in titlepage?  Or even not in
+      # $self->{'titlepage_formatting'}->{'in_front_cover'}
+      $self->{'titlepage_formatting'}->{'title'} = 1
+         if ($self->{'titlepage_formatting'});
     } elsif ($cmdname eq 'subtitle') {
       my $subtitle_text = _convert($self,
                {'contents' => $element->{'args'}->[0]->{'contents'}});
@@ -3426,7 +3467,8 @@ sub _convert($$)
       if (not $self->{'formatting_context'}->[-1]->{'in_quotation'}) {
         my $author_name = _convert($self,
                        {'contents' => $element->{'args'}->[0]->{'contents'}});
-        if ($self->{'titlepage_formatting'}->{'in_front_cover'}) {
+        if ($self->{'titlepage_formatting'}
+            and $self->{'titlepage_formatting'}->{'in_front_cover'}) {
           if (not $self->{'titlepage_formatting'}->{'author'}) {
             # first author, add space before
             $self->{'titlepage_formatting'}->{'author'} = 1;
@@ -3547,6 +3589,8 @@ sub _convert($$)
         my $headings_spec = $element->{'extra'}->{'misc_args'}->[0];
         $result .= _set_headings($self, $headings_spec);
       } elsif ($cmdname eq 'fonttextsize'
+               and $element->{'extra'}
+               and $element->{'extra'}->{'misc_args'}
                and $element->{'extra'}->{'misc_args'}->[0]) {
         my $fontsize = $element->{'extra'}->{'misc_args'}->[0];
         # default dimension for changefontsize is pt
