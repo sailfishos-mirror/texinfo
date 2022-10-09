@@ -5,6 +5,9 @@
 
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 my $default_footnotestyle = texinfo_get_conf('footnotestyle');
 my $main_program_footnotestyle;
 if (not defined($default_footnotestyle)) {

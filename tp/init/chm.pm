@@ -31,6 +31,9 @@ package Texinfo::Config;
 
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use File::Spec;
 
 # Also for __(

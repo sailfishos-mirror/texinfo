@@ -27,6 +27,9 @@
 require 5.0;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Cwd;
 use File::Copy;
 use File::Spec;

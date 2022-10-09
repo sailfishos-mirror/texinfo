@@ -35,7 +35,7 @@ info_TEXINFOS = tp_api.texi
 TEXINFO_TEX = ../texinfo.tex
 
 # dependencies are in api_includes/ directory but we do not want to list
-# them explicitely
+# them explicitly
 tp_api_TEXINFOS = tp_api_indices.texi
 #dist_tp_api_TEXINFOS = 
 EXTRA_DIST = api_includes

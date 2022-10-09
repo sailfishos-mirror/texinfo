@@ -1,3 +1,16 @@
+2022-10-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/ext/*.pm, tp/init/*.pm: check that there is no incorrect
+	autovivification, initialize explicitly.
+
+	* tp/init/highlight_syntax.pm: update to match with changes in
+	default example formatting.
+
+	* tp/Texinfo/Convert/HTML.pm, tp/init/highlight_syntax.pm:
+	reindent.
+
+	Correct spelling of explicitly in different files.
+
 2022-10-08  Patrice Dumas  <pertusus@free.fr>
 
 	* util/htmlxref.cnf: corrections reported by Tzvetelin Katchov.
@@ -1477,7 +1490,7 @@
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
 	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line):
-	do not add explicitely an end command after a macro, verbatim or
+	do not add explicitly an end command after a macro, verbatim or
 	ignore @end, but let it be done by the code handling all the @end
 	commands.
 
@@ -2521,7 +2534,7 @@
 	tp/Texinfo/Convert/TexinfoXML.pm, tp/Texinfo/Convert/Unicode.pm
 	(%unicode_accented_letters, %transliterate_map, unicode_accent):
 	add dotless command to the unicode accents map, and handle
-	explicitely when needed. Handle @dotless j similarly with i.
+	explicitly when needed. Handle @dotless j similarly with i.
 
 2022-08-17  Patrice Dumas  <pertusus@free.fr>
 
@@ -6151,7 +6164,7 @@
 
 	* tp/texi2any.pl: decode more input from command line that are
 	combined with messages or strings from document.
-	Import Encode symbols explicitely.
+	Import Encode symbols explicitly.
 
 2022-02-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
@@ -10366,7 +10379,7 @@
 	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm,
 	tp/Texinfo/Convert/Unicode.pm, tp/Texinfo/Structuring.pm,
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm, tp/init/chm.pm: load
-	needed used modules explicitely.
+	needed used modules explicitly.
 	* tp/Texinfo/Convert/Text.pm: do not inherit
 	Texinfo::Convert::Converter.
 

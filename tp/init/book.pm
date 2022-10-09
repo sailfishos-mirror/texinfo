@@ -21,6 +21,9 @@
 
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -411,7 +414,8 @@ sub book_element_file_name($$$)
   if ($element->{'extra'}->{'unit_command'}) {
     if ($element->{'extra'}->{'unit_command'}->{'cmdname'} ne 'node') {
       $command = $element->{'extra'}->{'unit_command'};
-    } elsif ($element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}) {
+    } elsif ($element->{'extra'}->{'unit_command'}->{'extra'}
+             and $element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}) {
       $command = $element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'};
     }
   }

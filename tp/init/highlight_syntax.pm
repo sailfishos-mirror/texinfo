@@ -18,6 +18,9 @@
 require 5.0;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use File::Spec;
 
 use Texinfo::Commands;
@@ -72,15 +75,16 @@ if (defined($highlighted_languages_list)) {
     texinfo_register_command_formatting('example', \&highlight_preformatted_command);
 
     # normally this is done in preformatted type, but preformatted
-    # types in example are ignored in highlight_preformatted_command,
-    # so register a replacement.
-    # register inline pending content when opening an example block
-    texinfo_register_command_opening('example', \&highlight_open_inline_container_type);
+    # types conversion output in example is discarded in
+    # highlight_preformatted_command, so register a replacement.
+    # Register inline pending content when opening an example block.
+    texinfo_register_command_opening('example',
+                                     \&highlight_open_inline_container_type);
   } else {
     # important if $cmd returns no output to have a message.  If there
     # is some output, there will already be some line parse error messages.
     texinfo_register_init_loading_warning(sprintf(__(
-      '%s: no highlighted language found'), $cmd));
+                              '%s: no highlighted language found'), $cmd));
   }
 }
 
@@ -127,7 +131,8 @@ sub _get_language($$$)
 }
 
 # the end of the string was randomly generated once for all.
-my $range_separator = '_______________________________________ highlight texinfo _GT Haib0aik zei4YieH';
+my $range_separator
+  = '_______________________________________ highlight texinfo _GT Haib0aik zei4YieH';
 
 my %commands;
 
@@ -161,12 +166,24 @@ sub highlight_process($$)
       foreach my $element (@{$collected_commands->{$cmdname}}) {
         my $language = _get_language($self, $cmdname, $element);
         if (defined($language)) {
-          $languages{$language} = {'counter' => 0}
-                 if (not exists($languages{$language}));
+          $languages{$language} = {'counter' => 0, 'commands' => [],
+                                   'line_ranges' => []}
+            if (not exists($languages{$language}));
           $languages{$language}->{'counter'}++;
           my $counter = $languages{$language}->{'counter'};
-          $languages{$language}->{'commands'}->[$counter-1] = [$element, $cmdname];
-          $commands{$cmdname}->{'input_languages_counters'}->{$language}++;
+          $languages{$language}->{'commands'}->[$counter-1]
+                                                 = [$element, $cmdname];
+          $commands{$cmdname} = {'input_languages_counters' => {},
+                                 'results' => {},
+                                 'retrieved_languages_counters'  => {},
+                                 'output_languages_counters' => {}}
+            if (not exists($commands{$cmdname}));
+          if (not exists($commands{$cmdname}
+                              ->{'input_languages_counters'}->{$language})) {
+            $commands{$cmdname}->{'input_languages_counters'}->{$language} = 0;
+            $commands{$cmdname}->{'retrieved_languages_counters'}->{$language} = 0;
+            $commands{$cmdname}->{'output_languages_counters'}->{$language} = 0;
+          }
         }
       }
     }
@@ -230,7 +247,9 @@ sub highlight_process($$)
       print HIGHLIGHT_LANG_IN "_______________________ $counter\n";
       print HIGHLIGHT_LANG_IN $text;
       print HIGHLIGHT_LANG_IN "_______________________ $counter\n";
-      $languages{$language}->{'line_ranges'}->[$counter] = [$highlight_lang_in_line_nr+1 +1, $highlight_lang_in_line_nr + $text_lines_nr+1];
+      $languages{$language}->{'line_ranges'}->[$counter]
+                    = [$highlight_lang_in_line_nr+1 +1,
+                       $highlight_lang_in_line_nr + $text_lines_nr+1];
       $highlight_lang_in_line_nr += 2 + $text_lines_nr;
       $counter ++;
     }
@@ -244,7 +263,10 @@ sub highlight_process($$)
       push @option_line_ranges, '"'.$line_range->[0].'-'.$line_range->[1].'"';
     }
     my $option_line_range_str = join(',', @option_line_ranges);
-    my $cmd = "source-highlight ${version_option}--src-lang=$language --out-format=html5 -i '$input_language_path_name' -o '$html_result_path_name' --line-range=$option_line_range_str --range-separator='$range_separator'";
+    my $cmd = "source-highlight ${version_option}"
+       ."--src-lang=$language --out-format=html5 "
+       ."-i '$input_language_path_name' -o '$html_result_path_name' "
+   ."--line-range=$option_line_range_str --range-separator='$range_separator'";
 
     my $encoding = $self->get_conf('MESSAGE_ENCODING');
     my $encoded_cmd;
@@ -282,7 +304,8 @@ sub highlight_process($$)
         $separators_count++;
         if (defined($text)) {
           $got_count++;
-          my $element_command = $languages{$language}->{'commands'}->[$got_count-1];
+          my $element_command
+              = $languages{$language}->{'commands'}->[$got_count-1];
           my $element = $element_command->[0];
           my $cmdname = $element_command->[1];
           $commands{$cmdname}->{'results'}->{$element} = $text;
@@ -302,7 +325,7 @@ sub highlight_process($$)
     if ($separators_count != $language_fragments_nr +1) {
       $self->document_warn($self, sprintf(__(
        "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments +1"),
-                            $language, $separators_count, $language_fragments_nr+1));
+                      $language, $separators_count, $language_fragments_nr+1));
     }
     if (defined($text) and $text ne '') {
       my $element_command = $languages{$language}->{'commands'}->[$got_count-1];
@@ -335,7 +358,8 @@ sub highlight_open_inline_container_type($$$)
   my $pending_formatted = $self->get_pending_formatted_inline_content();
 
   if (defined($pending_formatted)) {
-    $self->associate_pending_formatted_inline_content($command, $pending_formatted);
+    $self->associate_pending_formatted_inline_content($command,
+                                                      $pending_formatted);
   }
   return '';
 }
@@ -359,7 +383,7 @@ sub highlight_preformatted_command($$$$$)
 
       if (not defined($language)) {
         $self->document_warn($self, sprintf(__(
-         "highlight_syntax.pm: output has HTML item for \@%s but no language %s"),
+       "highlight_syntax.pm: output has HTML item for \@%s but no language %s"),
                                     $cmdname, $command));
       } else {
         $commands{$cmdname}->{'output_languages_counters'}->{$language}++;
@@ -370,12 +394,14 @@ sub highlight_preformatted_command($$$$$)
 
         # need to do all the formatting done for content inside
         # of @example as it is discarded.  So need to do the preformatted
-        # type formatting, from _convert_preformatted_type() and _preformatted_class()
-        # since we are formatting @example itself, it is not in the preformatted
+        # type formatting, from _convert_preformatted_type() and
+        # _preformatted_class().
+        # Since we are formatting @example itself, it is not in the preformatted
         # context anymore, so we readd.
         my @pre_classes = $self->preformatted_classes_stack();
-        # NOTE $pre_class_format is setup to match as $pre_class_commands{$cmdname}
-        # which is private
+        # NOTE $pre_class_format is setup below to correspond to
+        # $pre_class_commands{$cmdname}, which cannot be used directly,
+        # as it is private.
         my $pre_class_format = $cmdname;
         my $main_cmdname = $cmdname;
         if (defined($Texinfo::Common::small_block_associated_command{$cmdname})) {
@@ -390,13 +416,14 @@ sub highlight_preformatted_command($$$$$)
           # FIXME maybe add   or $pre_class eq 'menu'  to override
           # 'menu' with 'menu-comment'?
           $pre_class = $class unless ($pre_class
-                    and $Texinfo::Commands::preformatted_code_commands{$pre_class}
-                    and !($Texinfo::Commands::preformatted_code_commands{$class}
+                 and $Texinfo::Commands::preformatted_code_commands{$pre_class}
+                 and !($Texinfo::Commands::preformatted_code_commands{$class}
                                    or $class eq 'menu'));
         }
         $pre_class = $pre_class.'-preformatted';
 
-        # FIXME not clear on that.  What to do with @example arguments?
+        # Add classes as done in the default conversion function.
+        # TODO is it correct?  What should be done with @example arguments?
         my @classes;
         if ($cmdname eq 'example') {
           if ($command->{'args'}) {
@@ -407,7 +434,7 @@ sub highlight_preformatted_command($$$$$)
                = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
                                                                    $example_arg);
               if ($converted_arg ne '') {
-                push @classes, $converted_arg;
+                push @classes, 'user-' . $converted_arg;
               }
             }
           }
@@ -418,7 +445,8 @@ sub highlight_preformatted_command($$$$$)
         unshift @classes, $main_cmdname;
 
         my $result_content = $commands{$cmdname}->{'results'}->{$command};
-        # do it here, it is not done in preformatted.  It was correctly registered
+        # do it here, what was done in preformatted is discarded.
+        # It should have been correctly registered
         # through highlight_open_inline_container_type.
         $result_content = $self->get_associated_formatted_inline_content($command)
                               . $result_content;
@@ -436,8 +464,9 @@ sub highlight_preformatted_command($$$$$)
          = $commands{$cmdname}->{'input_languages_counters'}->{$language};
       my $cmd_language_retrieved_count
          = $commands{$cmdname}->{'retrieved_languages_counters'}->{$language};
-      # message if the counters are equal, meaning language processed without failure.
-      # If they are not equal there should have been a message already
+      # Output an message only if the counters are equal, meaning language
+      # was processed without failure.
+      # If they are not equal there should have been a message already.
       if ($cmd_language_input_count == $cmd_language_retrieved_count) {
         $self->document_warn($self, sprintf(__(
                 "highlight_syntax.pm: output has no HTML item for \@%s %s %s"),

@@ -80,6 +80,9 @@ use strict;
 # for accented character in a comment
 use utf8;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use File::Path;
 use File::Spec;
 use File::Copy;

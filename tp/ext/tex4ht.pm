@@ -32,6 +32,9 @@
 
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Cwd;
 use Encode qw(encode);
 
@@ -114,12 +117,21 @@ sub tex4ht_prepare($$)
   my $document_name = $self->get_info('document_name');
   my $tex4ht_basename = "${document_name}_tex4ht";
 
-  $commands{'math'}->{'style'} = $Texinfo::TeX4HT::STYLE_MATH;
-  $commands{'tex'}->{'style'} = $Texinfo::TeX4HT::STYLE_TEX;
-  $commands{'displaymath'}->{'style'} = $Texinfo::TeX4HT::STYLE_TEX;
-  $formats{'tex'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_tex;
-  $formats{'latex'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_latex;
-  $formats{'texi'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_texi;
+  $commands{'math'} = {'style' => $Texinfo::TeX4HT::STYLE_MATH,
+                       'results' => {}};
+  $commands{'tex'} = {'style' => $Texinfo::TeX4HT::STYLE_TEX,
+                      'results' => {}};
+  $commands{'displaymath'} = {'style' => $Texinfo::TeX4HT::STYLE_TEX,
+                              'results' => {}};
+  $formats{'tex'} = {'exec' => $Texinfo::TeX4HT::tex4ht_command_tex,
+                     'commands' => [],
+                     'results' => {}};
+  $formats{'latex'} = {'exec' => $Texinfo::TeX4HT::tex4ht_command_latex,
+                       'commands' => [],
+                       'results' => {}};
+  $formats{'texi'} = {'exec' => $Texinfo::TeX4HT::tex4ht_command_texi,
+                      'commands' => [],
+                     'results' => {}};
   my @replaced_commands = sort(keys(%commands));
   my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
                                         $document_root, \@replaced_commands);
@@ -368,7 +380,8 @@ sub tex4ht_process_format($$) {
         if ($line =~ /!-- tex4ht_end $formats{$format}->{'basename'} $cmdname $count --/) {
           $got_count++;
           chomp($text) if ($cmdname eq 'math');
-          $commands{$cmdname}->{'results'}->{$formats{$format}->{'commands'}->[$count-1]} = $text;
+          $commands{$cmdname}->{'results'}->{
+                           $formats{$format}->{'commands'}->[$count-1]} = $text;
           $end_found = 1;
           last;
         } else {

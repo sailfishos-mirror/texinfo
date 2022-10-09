@@ -4078,7 +4078,8 @@ sub _convert_verbatiminclude_command($$$$)
   my $verbatim_include_verbatim
     = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $command);
   if (defined($verbatim_include_verbatim)) {
-    return $self->convert_tree($verbatim_include_verbatim, 'convert verbatiminclude');
+    return $self->convert_tree($verbatim_include_verbatim,
+                               'convert verbatiminclude');
   } else {
     return '';
   }
@@ -6753,7 +6754,7 @@ sub _load_htmlxref_files {
     unshift @htmlxref_dirs, '.';
 
     my @texinfo_htmlxref_files;
-    # no htmlxref for tests, unless explicitely specified
+    # no htmlxref for tests, unless explicitly specified
     if ($self->get_conf('TEST')) {
       if (defined($self->get_conf('HTMLXREF_FILE'))) {
         $htmlxref_file_name = $self->get_conf('HTMLXREF_FILE');

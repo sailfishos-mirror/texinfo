@@ -4678,7 +4678,7 @@ sub _process_remaining_on_line($$$$)
             $current = _begin_preformatted($self, $current);
           # @*table
           } elsif ($parent = _item_line_parent($current)) {
-            # @item and _item_line_parent is explicitely avoided in the if above
+            # @item and _item_line_parent is explicitly avoided in the if above
             $self->_line_error(sprintf(__(
                   "\@%s not meaningful inside `\@%s' block"),
                 $command, $parent->{'cmdname'}), $source_info);
