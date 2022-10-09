@@ -1,5 +1,18 @@
 2022-10-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (initialize_tree_units_files)
+	(set_tree_unit_file, _set_tree_units_files, table_item_content_tree),
+	tp/Texinfo/Convert/HTML.pm (_html_set_pages_files, output):
+	add a function, initialize_tree_units_files to initialize hashes used
+	in set_tree_unit_file and 'file_counters'.  Add a file path argument
+	to set_tree_unit_file and use the function to set file path when non
+	split too.  Initialize structures more explicitly.
+
+	* tp/Texinfo/Convert/Converter.pm (output): use a hash directly,
+	renamed as %files_filehandle from %files to associate filehandles.
+
+2022-10-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/*.pm, tp/init/*.pm: check that there is no incorrect
 	autovivification, initialize explicitly.
 

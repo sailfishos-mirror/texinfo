@@ -10,8 +10,13 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+check same keys for
 global_unique document_settable_unique_at_commands
 global document_settable_multiple_at_commands
+
+./contents//res_parser/double_contents_after_title_book_chapter/double_contents.2
+ texi2any: warning: could not read init file book.init
+
 
 Add in_math (for /)?
 

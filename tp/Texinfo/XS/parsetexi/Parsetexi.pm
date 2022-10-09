@@ -49,6 +49,9 @@ use 5.00405;
 use strict;
 use warnings;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Storable qw(dclone); # standard in 5.007003
 use Encode qw(decode);
 

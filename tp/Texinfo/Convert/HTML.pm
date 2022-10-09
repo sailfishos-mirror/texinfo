@@ -7715,10 +7715,8 @@ sub _html_set_pages_files($$$$$$$$)
 
   if (!$self->get_conf('SPLIT')) {
     foreach my $tree_unit (@$tree_units) {
-      if (!defined($tree_unit->{'structure'}->{'unit_filename'})) {
-        $tree_unit->{'structure'}->{'unit_filename'} = $output_filename;
-        $self->{'out_filepaths'}->{$output_filename} = $output_file;
-      }
+      $self->set_tree_unit_file($tree_unit, $output_filename, undef,
+                                $output_file);
     }
   } else {
     my $node_top;
@@ -7811,11 +7809,14 @@ sub _html_set_pages_files($$$$$$$$)
       $self->set_tree_unit_file($tree_unit, $filename, $destination_directory)
          if (defined($filename));
     }
-    $self->{'file_counters'}->{$tree_unit->{'structure'}->{'unit_filename'}}++;
+    my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
+    $self->{'file_counters'}->{$tree_unit_filename} = 0
+       if (!exists($self->{'file_counters'}->{$tree_unit_filename}));
+    $self->{'file_counters'}->{$tree_unit_filename}++;
     print STDERR "Page $tree_unit "
       .Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit)
-      .": $tree_unit->{'structure'}->{'unit_filename'}($self->{'file_counters'}->{$tree_unit->{'structure'}->{'unit_filename'}})\n"
-      if ($self->get_conf('DEBUG'));
+      .": $tree_unit_filename($self->{'file_counters'}->{$tree_unit_filename})\n"
+             if ($self->get_conf('DEBUG'));
   }
   if ($special_elements) {
     my $previous_tree_unit = $tree_units->[-1];
@@ -7823,10 +7824,14 @@ sub _html_set_pages_files($$$$$$$$)
       my $filename
        = $self->{'targets'}->{$special_element}->{'special_element_filename'};
       if (defined($filename)) {
-        $self->set_tree_unit_file($special_element, $filename, $destination_directory);
-        $self->{'file_counters'}->{$special_element->{'structure'}->{'unit_filename'}}++;
-        print STDERR "Special page $special_element: $special_element->{'structure'}->{'unit_filename'}($self->{'file_counters'}->{$special_element->{'structure'}->{'unit_filename'}})\n"
-          if ($self->get_conf('DEBUG'));
+        $self->set_tree_unit_file($special_element, $filename,
+                                  $destination_directory);
+        $self->{'file_counters'}->{$filename} = 0
+           if (!exists($self->{'file_counters'}->{$filename}));
+        $self->{'file_counters'}->{$filename}++;
+        print STDERR "Special page $special_element: "
+            ."$filename($self->{'file_counters'}->{$filename})\n"
+                 if ($self->get_conf('DEBUG'));
       }
       $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
       $previous_tree_unit->{'structure'}->{'unit_next'} = $special_element;
@@ -9303,6 +9308,8 @@ sub convert($$)
   # Some information is not available yet.
   $self->_reset_info();
 
+  # FIXME set_tree_unit_file is called in _prepare_conversion_tree_units
+  # but there should not be files if called with convert.
   my ($tree_units, $special_elements)
     = $self->_prepare_conversion_tree_units($root, undef, undef);
 
@@ -9578,6 +9585,9 @@ sub output($$)
   # Some information is not available yet.
   $self->_reset_info();
 
+  # FIXME set_tree_unit_file is called in _prepare_conversion_tree_units
+  # and may or most probably will be called again in _html_set_pages_files.
+  $self->initialize_tree_units_files();
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
   my ($tree_units, $special_elements)
@@ -9607,6 +9617,7 @@ sub output($$)
   # This may only happen if not split.
   if ($special_elements
       and $tree_units and $tree_units->[0]
+      and $tree_units->[0]->{'structure'}
       and defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     foreach my $special_element (@$special_elements) {
       if (!defined($special_element->{'structure'}->{'unit_filename'})) {
@@ -9783,7 +9794,7 @@ sub output($$)
 
   my $output = '';
 
-  if (!$tree_units
+  if (!$tree_units or !$tree_units->[0]->{'structure'}
       or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     my $fh;
     my $encoded_no_page_out_filepath;

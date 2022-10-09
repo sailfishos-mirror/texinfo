@@ -22,6 +22,9 @@ package Texinfo::Convert::Converter;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 # for fileparse
 use File::Basename;
 # for file names portability
@@ -192,6 +195,7 @@ sub converter(;$)
     $defaults{$key} = $all_converters_defaults{$key}
                           if (!exists($defaults{$key}));
   }
+  $converter->{'conf'} = {};
   foreach my $key (keys(%defaults)) {
     if (Texinfo::Common::valid_customization_option($key)) {
       $converter->{'conf'}->{$key} = $defaults{$key};
@@ -244,6 +248,7 @@ sub converter(;$)
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
   my $expanded_formats = $converter->get_conf('EXPANDED_FORMATS');
+  $converter->{'expanded_formats_hash'} = {};
   if (defined($expanded_formats)) {
     foreach my $expanded_format (@{$converter->get_conf('EXPANDED_FORMATS')}) {
       $converter->{'expanded_formats_hash'}->{$expanded_format} = 1;
@@ -355,7 +360,8 @@ sub output($$)
   # Now do the output
   my $fh;
   my $output = '';
-  if (!$tree_units or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
+  if (!$tree_units or !$tree_units->[0]->{'structure'}
+      or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     # no page
     my $outfile_name;
     my $encoded_outfile_name;
@@ -423,14 +429,14 @@ sub output($$)
     # output with pages
     print STDERR "DO Elements with filenames\n"
       if ($self->get_conf('DEBUG'));
-    my %files;
+    my %files_filehandle;
     
     foreach my $tree_unit (@$tree_units) {
       my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
       my $out_filepath = $self->{'out_filepaths'}->{$tree_unit_filename};
       my $file_fh;
       # open the file and output the elements
-      if (!$files{$tree_unit_filename}->{'fh'}) {
+      if (!exists($files_filehandle{$tree_unit_filename})) {
         my $error_message;
         ($file_fh, $error_message) = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
@@ -441,9 +447,9 @@ sub output($$)
                        $out_filepath, $error_message));
           return undef;
         }
-        $files{$tree_unit_filename}->{'fh'} = $file_fh;
+        $files_filehandle{$tree_unit_filename} = $file_fh;
       } else {
-        $file_fh = $files{$tree_unit_filename}->{'fh'};
+        $file_fh = $files_filehandle{$tree_unit_filename};
       }
       my $tree_unit_text = $self->convert_tree($tree_unit);
       print $file_fh $tree_unit_text;
@@ -739,13 +745,28 @@ sub node_information_filename($$)
   return $filename;
 }
 
+sub initialize_tree_units_files($)
+{
+  my $self = shift;
+
+  $self->{'out_filepaths'} = {};
+  $self->{'file_counters'} = {};
+
+  if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
+    $self->{'filenames'} = {};
+  }
+}
+
 # sets out_filepaths converter state
-sub set_tree_unit_file($$$$)
+# $FILEPATH can be given explicitly, otherwise it is based on $FILENAME
+# and $DESTINATION_DIRECTORY
+sub set_tree_unit_file($$$$;$)
 {
   my $self = shift;
   my $tree_unit = shift;
   my $filename = shift;
   my $destination_directory = shift;
+  my $filepath = shift;
 
   if (!defined($filename)) {
     cluck("set_tree_unit_file: filename not defined\n");
@@ -761,8 +782,26 @@ sub set_tree_unit_file($$$$)
       $self->{'filenames'}->{lc($filename)} = $filename;
     }
   }
+  $tree_unit->{'structure'} = {} if (!($tree_unit->{'structure'}));
+  if (exists($tree_unit->{'structure'}->{'unit_filename'})) {
+    # FIXME happens for added elements, also no_monolithic, but probably also
+    # for added elements.
+    # FIXME happens in navigation_test_misc_file_collision, to investigate
+    if ($tree_unit->{'structure'}->{'unit_filename'} eq $filename) {
+      print STDERR "set_tree_unit_file: already set: $filename\n"
+         #if (1);
+         if ($self->get_conf('DEBUG'));
+    } else {
+      # happens in HTML if the user changes the file names
+      print STDERR  "set_tree_unit_file: unit_filename reset: "
+        .$tree_unit->{'structure'}->{'unit_filename'}.", $filename\n"
+           if ($self->get_conf('DEBUG'));
+    }
+  }
   $tree_unit->{'structure'}->{'unit_filename'} = $filename;
-  if (defined($destination_directory) and $destination_directory ne '') {
+  if (defined($filepath)) {
+    $self->{'out_filepaths'}->{$filename} = $filepath;
+  } elsif (defined($destination_directory) and $destination_directory ne '') {
     $self->{'out_filepaths'}->{$filename} =
       File::Spec->catfile($destination_directory, $filename);
   } else {
@@ -816,7 +855,6 @@ sub _get_root_element($$)
 }
 
 # set file_counters converter state
-# sets out_filepaths converter state
 sub _set_tree_units_files($$$$$$)
 {
   my $self = shift;
@@ -829,6 +867,8 @@ sub _set_tree_units_files($$$$$$)
   # Ensure that the document has pages
   return undef if (!defined($tree_units) or !@$tree_units);
 
+  $self->initialize_tree_units_files();
+
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION')
             if (defined($self->get_conf('EXTENSION'))
@@ -836,10 +876,8 @@ sub _set_tree_units_files($$$$$$)
 
   if (!$self->get_conf('SPLIT')) {
     foreach my $tree_unit (@$tree_units) {
-      if (!defined($tree_unit->{'structure'}->{'unit_filename'})) {
-        $tree_unit->{'structure'}->{'unit_filename'} = $output_filename;
-        $self->{'out_filepaths'}->{$output_filename} = $output_file;
-      }
+      $self->set_tree_unit_file($tree_unit, $output_filename, undef,
+                                $output_file);
     }
   } else {
     my $node_top;
@@ -857,7 +895,8 @@ sub _set_tree_units_files($$$$$$)
     my $previous_page;
     foreach my $tree_unit (@$tree_units) {
       # For Top node.
-      next if (defined($tree_unit->{'structure'}->{'unit_filename'}));
+      next if ($tree_unit->{'structure'}
+               and defined($tree_unit->{'structure'}->{'unit_filename'}));
       if (!$tree_unit->{'extra'}->{'first_in_page'}) {
         cluck ("No first_in_page for $tree_unit\n");
       }
@@ -916,11 +955,14 @@ sub _set_tree_units_files($$$$$$)
   }
 
   foreach my $tree_unit (@$tree_units) {
-    $self->{'file_counters'}->{$tree_unit->{'structure'}->{'unit_filename'}}++;
+    my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
+    $self->{'file_counters'}->{$tree_unit_filename} = 0
+       if (!exists($self->{'file_counters'}->{$tree_unit_filename}));
+    $self->{'file_counters'}->{$tree_unit_filename}++;
     print STDERR "Page $tree_unit "
      .Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit)
-     .": $tree_unit->{'structure'}->{'unit_filename'}($self->{'file_counters'}->{$tree_unit->{'structure'}->{'unit_filename'}})\n"
-      if ($self->get_conf('DEBUG'));
+     .": $tree_unit_filename($self->{'file_counters'}->{$tree_unit_filename})\n"
+              if ($self->get_conf('DEBUG'));
   }
 }
 
@@ -1178,7 +1220,8 @@ sub float_name_caption($$)
   my $prepended;
   if ($type) {
     if ($caption) {
-      if (defined($element->{'structure'}->{'float_number'})) {
+      if ($element->{'structure'}
+          and defined($element->{'structure'}->{'float_number'})) {
         $prepended = $self->gdt('{float_type} {float_number}: ',
             {'float_type' => $type,
              'float_number' => $element->{'structure'}->{'float_number'}});
@@ -1187,7 +1230,8 @@ sub float_name_caption($$)
           {'float_type' => $type});
       }
     } else {
-      if (defined($element->{'structure'}->{'float_number'})) {
+      if ($element->{'structure'}
+          and defined($element->{'structure'}->{'float_number'})) {
         $prepended = $self->gdt("{float_type} {float_number}\n",
             {'float_type' => $type,
               'float_number' => $element->{'structure'}->{'float_number'}});
@@ -1196,7 +1240,8 @@ sub float_name_caption($$)
             {'float_type' => $type});
       }
     }
-  } elsif (defined($element->{'structure'}->{'float_number'})) {
+  } elsif ($element->{'structure'}
+           and defined($element->{'structure'}->{'float_number'})) {
     if ($caption) {
       $prepended = $self->gdt('{float_number}: ',
           {'float_number' => $element->{'structure'}->{'float_number'}});
@@ -1252,10 +1297,12 @@ sub table_item_content_tree($$$)
                'source_info' => $element->{'source_info'},
                'parent' => $table_item_tree };
     if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
+      $command->{'extra'} = {} if (!$command->{'extra'});
       $command->{'extra'}->{'code'} = 1;
     }
     if ($command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
+      $command->{'extra'} = {} if (!$command->{'extra'});
       $command->{'extra'}->{'begin'} = $command_as_argument->{'extra'}->{'begin'};
       $command->{'extra'}->{'end'} = $command_as_argument->{'extra'}->{'end'};
     }
