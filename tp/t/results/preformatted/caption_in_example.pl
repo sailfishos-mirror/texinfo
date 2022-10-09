@@ -289,8 +289,7 @@ $result_floats{'caption_in_example'} = {
           ],
           'normalized' => 'float'
         }
-      },
-      'structure' => {}
+      }
     }
   ]
 };

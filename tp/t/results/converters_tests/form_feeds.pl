@@ -1250,8 +1250,7 @@ $result_floats{'form_feeds'} = {
         'type' => {
           'normalized' => ''
         }
-      },
-      'structure' => {}
+      }
     }
   ]
 };

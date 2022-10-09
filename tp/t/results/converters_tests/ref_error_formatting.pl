@@ -163,7 +163,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -239,7 +238,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -319,7 +317,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -403,7 +400,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1898,7 +1894,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1984,7 +1979,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2074,7 +2068,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2166,7 +2159,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2262,7 +2254,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2370,7 +2361,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2456,7 +2446,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2546,7 +2535,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2648,7 +2636,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2738,7 +2725,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2825,7 +2811,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2901,7 +2886,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -2986,7 +2970,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -3044,7 +3027,6 @@ $result_trees{'ref_error_formatting'} = {
                 }
               ],
               'cmdname' => 'inforef',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

@@ -32,6 +32,9 @@ package Texinfo::Convert::TexinfoMarkup;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Texinfo::Commands;
 use Texinfo::Common;
 use Texinfo::Convert::Converter;
@@ -845,7 +848,9 @@ sub _convert($$;$)
         # the command associated with an element is closed at the end of the
         # element. @bye is withing the element, but we want it to appear after
         # the command closing.  So we delay the output of @bye, and store it.
-        if ($cmdname eq 'bye' and $element->{'structure'}->{'associated_unit'}
+        if ($cmdname eq 'bye' and $element->{'structure'}
+            and $element->{'structure'}->{'associated_unit'}
+            and $element->{'structure'}->{'associated_unit'}->{'extra'}
             and defined($element->{'structure'}->{'associated_unit'}->{'extra'}->{'unit_command'})) {
           $self->{'pending_bye'} = $self->txi_markup_open_element($cmdname)
                     .$self->txi_markup_close_element($cmdname)."\n";
@@ -1103,7 +1108,8 @@ sub _convert($$;$)
       } elsif ($Texinfo::Commands::ref_commands{$element->{'cmdname'}}) {
         if ($element->{'args'}) {
           my $normalized;
-          if ($element->{'extra'}->{'node_argument'}
+          if ($element->{'extra'}
+              and $element->{'extra'}->{'node_argument'}
               and $element->{'extra'}->{'node_argument'}->{'node_content'}) {
             my $normalized;
             if (defined($element->{'extra'}->{'node_argument'}->{'normalized'})) {
@@ -1130,7 +1136,8 @@ sub _convert($$;$)
                  {'code' => 1,
                   Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
           }
-          if (!defined($manual) and $element->{'extra'}->{'node_argument'}
+          if (!defined($manual) and $element->{'extra'}
+              and $element->{'extra'}->{'node_argument'}
               and $element->{'extra'}->{'node_argument'}->{'manual_content'}) {
             $manual = Texinfo::Convert::Text::convert_to_text({'contents'
                    => $element->{'extra'}->{'node_argument'}->{'manual_content'}},
@@ -1180,7 +1187,8 @@ sub _convert($$;$)
             defined($element->{'extra'}->{'type'}->{'normalized'})) {
           push @$attribute, ['type', $element->{'extra'}->{'type'}->{'normalized'}];
         }
-        if (defined($element->{'structure'}->{'float_number'})) {
+        if ($element->{'structure'}
+            and defined($element->{'structure'}->{'float_number'})) {
           push @$attribute, ['number', $element->{'structure'}->{'float_number'}];
         }
       } elsif ($element->{'cmdname'} eq 'verbatim') {

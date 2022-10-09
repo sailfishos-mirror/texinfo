@@ -22,6 +22,9 @@ package Texinfo::Convert::DocBook;
 use 5.00405;
 use strict;
 
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
+
 use Texinfo::Commands;
 use Texinfo::Common;
 
@@ -1172,7 +1175,8 @@ sub _convert($$;$)
             return '';
           } else {
             my $linkend = '';
-            if ($element->{'extra'}->{'node_argument'}
+            if ($element->{'extra'}
+                and $element->{'extra'}->{'node_argument'}
                 and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
                 and !$element->{'extra'}->{'node_argument'}->{'manual_content'}) {
               $linkend = " linkend=\"$element->{'extra'}->{'node_argument'}->{'normalized'}\"";

@@ -748,8 +748,7 @@ $result_floats{'double_node_anchor_float'} = {
           ],
           'normalized' => 'Text'
         }
-      },
-      'structure' => {}
+      }
     },
     {
       'cmdname' => 'float',
@@ -762,8 +761,7 @@ $result_floats{'double_node_anchor_float'} = {
           ],
           'normalized' => 'Text'
         }
-      },
-      'structure' => {}
+      }
     },
     {
       'cmdname' => 'float',

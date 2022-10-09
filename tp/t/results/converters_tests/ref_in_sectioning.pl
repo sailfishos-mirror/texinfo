@@ -1352,7 +1352,6 @@ $result_trees{'ref_in_sectioning'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1425,7 +1424,6 @@ $result_trees{'ref_in_sectioning'} = {
                 }
               ],
               'cmdname' => 'ref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1687,7 +1685,6 @@ $result_trees{'ref_in_sectioning'} = {
                 }
               ],
               'cmdname' => 'pxref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',
@@ -1839,7 +1836,6 @@ $result_trees{'ref_in_sectioning'} = {
                 }
               ],
               'cmdname' => 'xref',
-              'extra' => {},
               'parent' => {},
               'source_info' => {
                 'file_name' => '',

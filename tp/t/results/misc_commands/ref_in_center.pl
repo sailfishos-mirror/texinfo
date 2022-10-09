@@ -255,7 +255,6 @@ $result_trees{'ref_in_center'} = {
                     }
                   ],
                   'cmdname' => 'ref',
-                  'extra' => {},
                   'parent' => {},
                   'source_info' => {
                     'file_name' => '',
