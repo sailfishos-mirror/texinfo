@@ -1,5 +1,14 @@
 2022-10-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm: add code (not active) to check
+	that settable commands are contained in global commands.
+
+	* tp/Texinfo/ParserNonXS.pm: set %global_multiple_commands
+	and %global_unique_commands using the corresponding Texinfo::Commands
+	hashes.
+
+2022-10-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): call
 	set_tree_unit_file only once per tree unit, gather file names and
 	file paths in a hash.

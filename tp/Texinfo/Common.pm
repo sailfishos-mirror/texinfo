@@ -35,13 +35,16 @@ use File::Spec;
 # for find_encoding, resolve_alias and maybe utf8 related functions
 use Encode;
 
+# debugging
+use Carp qw(cluck confess);
+
+# uncomment to check that settable commands are contained in global commands
+#use List::Compare;
+
 use Locale::Messages;
 
 use Texinfo::Documentlanguages;
 use Texinfo::Commands;
-
-# debugging
-use Carp qw(cluck confess);
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
@@ -142,6 +145,10 @@ our %document_settable_multiple_at_commands = (
   'documentencoding' => 'us-ascii',
   'documentlanguage' => 'en', # or undef?  Documented as en.
                               # --document-language
+  'everyheading'      => undef,
+  'everyfooting'      => undef,
+  'evenheading'       => undef,
+  'evenfooting'       => undef,
   # is N ems in TeX, 0.4 in.
   'exampleindent' => 5,
   'firstparagraphindent' => 'none',
@@ -149,22 +156,22 @@ our %document_settable_multiple_at_commands = (
   'headings' => 'on',
   'kbdinputstyle' => 'distinct',
   'microtype' => 'on',
+  'oddheading'        => undef,
+  'oddfooting'        => undef,
   'paragraphindent' => 3,
   'shortcontents' => 0,
   'summarycontents' => 0,
-  'contents' => undef,
   'urefbreakstyle' => 'after',
   'xrefautomaticsectiontitle' => 'off',
-  'everyheading'      => undef,
-  'everyfooting'      => undef,
-  'evenheading'       => undef,
-  'evenfooting'       => undef,
-  'oddheading'        => undef,
-  'oddfooting'        => undef,
 );
 
 # @-commands that should be unique.  Associated with customization values too.
 our %document_settable_unique_at_commands = (
+  'afivepaper' => undef,
+  'afourpaper' => undef,
+  'afourlatex' => undef,
+  'afourwide' => undef,
+  'bsixpaper' => undef,
   # when passed through a configuration variable, documentdescription
   # should be already formatted for HTML.  There is no default,
   # what is determined to be the title is used if not set.
@@ -181,13 +188,27 @@ our %document_settable_unique_at_commands = (
   'pagesizes' => undef,
   'setchapternewpage' => 'on',
   'setfilename' => undef,
-  'afourpaper' => undef,
-  'afourlatex' => undef,
-  'afourwide' => undef,
-  'afivepaper' => undef,
-  'bsixpaper' => undef,
   'smallbook' => undef,
 );
+
+# check that settable commands are contained in global commands
+# from command_data.txt
+if (0) {
+#if (1) {
+  my @global_unique_settable = keys(%document_settable_unique_at_commands);
+  my @global_unique_commands = keys(%Texinfo::Commands::global_unique_commands);
+  my $lcu = List::Compare->new(\@global_unique_settable, \@global_unique_commands);
+  if (scalar($lcu->get_unique)) {
+    warn 'BUG: Unique settable not global: '.join(',',$lcu->get_unique)."\n";
+  }
+
+  my @global_multi_settable = keys(%document_settable_multiple_at_commands);
+  my @global_multi_commands = keys(%Texinfo::Commands::global_commands);
+  my $lcm = List::Compare->new(\@global_multi_settable, \@global_multi_commands);
+  if (scalar($lcm->get_unique)) {
+    warn 'BUG: Multi settable not global: '.join(',',$lcm->get_unique)."\n";
+  }
+}
 
 # a value corresponds to defaults that are the same for every output format
 # otherwise undef is used

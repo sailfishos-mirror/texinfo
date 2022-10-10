@@ -285,6 +285,8 @@ my %heading_spec_commands     = %Texinfo::Commands::heading_spec_commands;
 my %in_heading_spec_commands  = %Texinfo::Commands::in_heading_spec_commands;
 my %variadic_commands         = %Texinfo::Commands::variadic_commands;
 my %default_index_commands    = %Texinfo::Commands::default_index_commands;
+my %global_multiple_commands  = %Texinfo::Commands::global_commands;
+my %global_unique_commands    = %Texinfo::Commands::global_unique_commands;
 
 my %def_map                   = %Texinfo::Common::def_map;
 my %def_aliases               = %Texinfo::Common::def_aliases;
@@ -352,22 +354,6 @@ my %command_ignore_space_after;
 foreach my $command ('anchor', 'hyphenation', 'caption', 'shortcaption',
                      'sortas', 'seeentry', 'seealso') {
   $command_ignore_space_after{$command} = 1;
-}
-
-my %global_multiple_commands;
-foreach my $global_multiple_command (
-  'footnote', 'hyphenation', 'insertcopying', 'printindex',
-  'subtitle','titlefont', 'listoffloats', 'detailmenu', 'part',
-  keys(%Texinfo::Common::document_settable_multiple_at_commands), ) {
-  $global_multiple_commands{$global_multiple_command} = 1;
-}
-
-my %global_unique_commands;
-foreach my $global_unique_command (
-  'copying', 'settitle',
-  'shorttitlepage', 'title', 'titlepage', 'top',
-  keys(%Texinfo::Common::document_settable_unique_at_commands), ) {
-  $global_unique_commands{$global_unique_command} = 1;
 }
 
 # @-commands that do not start a paragraph
