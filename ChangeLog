@@ -1,3 +1,12 @@
+2022-10-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): call
+	set_tree_unit_file only once per tree unit, gather file names and
+	file paths in a hash.
+
+	* tp/Texinfo/Convert/HTML.pm (tree_unit_file_name), tp/init/book.pm:
+	allow to customize both the file name and the file path.
+
 2022-10-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files)

@@ -395,13 +395,18 @@ foreach my $command (keys(%Texinfo::Commands::sectioning_heading_commands),
                                 \&book_convert_heading_command);
 }
 
-sub book_element_file_name($$$)
+sub book_element_file_name($$$$)
 {
   my $converter = shift;
   my $element = shift;
   my $filename = shift;
+  my $filepath = shift;
 
-  return undef if (!$converter->get_conf('SPLIT'));
+  return (undef, undef) if (!$converter->get_conf('SPLIT'));
+
+  # should only happen if ! SPLIT, so should be redundant with the
+  # condition above
+  return ($filename, $filepath) if (defined($filepath));
 
   if (defined($book_previous_default_filename)
       and ($filename eq $book_previous_default_filename)) {
@@ -433,7 +438,7 @@ sub book_element_file_name($$$)
   }
   $book_previous_default_filename = $filename;
   $book_previous_file_name = $new_file_name;
-  return $new_file_name;
+  return ($new_file_name, $filepath);
 }
 
 texinfo_register_file_id_setting_function('tree_unit_file_name',

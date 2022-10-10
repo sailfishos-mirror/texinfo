@@ -3,11 +3,14 @@ use strict;
 texinfo_register_file_id_setting_function('tree_unit_file_name',
                                           \&test_misc_file_name);
 
-sub test_misc_file_name($$$)
+sub test_misc_file_name($$$$)
 {
   my $converter = shift;
   my $element = shift;
   my $filename = shift;
+  my $filepath = shift;
+
+  return ($filename, $filepath) if (defined($filepath));
 
   if ($converter->element_is_tree_unit_top($element)
       or ($converter->{'tree_units'}->[2]
@@ -17,7 +20,7 @@ sub test_misc_file_name($$$)
     $filename = "${prefix}_abt"
       . ((defined($extension)) ? ".$extension" : '');
   }
-  return $filename;
+  return ($filename, $filepath);
 }
 
 texinfo_set_from_init_file('DO_ABOUT', 1);

@@ -1792,12 +1792,17 @@ customize the file names associated with each element unit, and the name of
 the file associated with the special elements (@pxref{Output Element
 Units}).
 
-@deftypefn {Function Reference} @var{$file} tree_unit_file_name (@var{$converter}, @
-                                      @var{\%unit_element}, @var{$file_name})
+@deftypefn {Function Reference} {(@var{$file}, @var{$path})} tree_unit_file_name (@var{$converter}, @
+                  @var{\%unit_element}, @var{$file_name}, @var{$file_path})
 @var{$converter} is a converter object.  @var{\%unit_element} is the Texinfo
 element corresponding to the unit element.  @var{$file_name} is the file
-name that has been already set.  The function should return the file name for
-the unit element (@var{$file}).
+name that has been already set.  @var{$file_path} is the file path that has
+been already set.  @var{$file_path} is @samp{undef} if the file is relative to
+the output directory, which is the case if the output is split.  The
+function should return the file name for the unit element, @var{$file}, and the
+file path for the unit element, @var{$path}, which should be @samp{undef} if
+the file path is to be constructed by putting @var{$file} in the destination
+directory.
 @end deftypefn
 
 In the user defined functions, the information that a unit element

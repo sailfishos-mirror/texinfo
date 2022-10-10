@@ -783,14 +783,13 @@ sub set_tree_unit_file($$$$;$)
     }
   }
   $tree_unit->{'structure'} = {} if (!($tree_unit->{'structure'}));
+  # This should never happen, set_tree_unit_file is called once per
+  # tree unit.
   if (exists($tree_unit->{'structure'}->{'unit_filename'})) {
-    # FIXME happens in navigation_test_misc_file_collision, to investigate
     if ($tree_unit->{'structure'}->{'unit_filename'} eq $filename) {
       print STDERR "set_tree_unit_file: already set: $filename\n"
-         #if (1);
          if ($self->get_conf('DEBUG'));
     } else {
-      # happens in HTML if the user changes the file names
       print STDERR  "set_tree_unit_file: unit_filename reset: "
         .$tree_unit->{'structure'}->{'unit_filename'}.", $filename\n"
            if ($self->get_conf('DEBUG'));

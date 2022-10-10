@@ -7786,35 +7786,33 @@ sub _html_set_pages_files($$$$$$$$)
             if (defined($self->get_conf('EXTENSION'))
                 and $self->get_conf('EXTENSION') ne '');
 
+  my %unit_file_name_paths;
   if (!$self->get_conf('SPLIT')) {
     foreach my $tree_unit (@$tree_units) {
-      $self->set_tree_unit_file($tree_unit, $output_filename, undef,
-                                $output_file);
+      $unit_file_name_paths{$tree_unit} = [$output_filename, $output_file];
     }
   } else {
     my $node_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
   
     my $top_node_filename = $self->top_node_filename($document_name);
+    my $node_top_tree_unit;
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
       my ($node_top_tree_unit) = $self->_html_get_tree_root_element($node_top);
-      die "BUG: No element for top node" if (!defined($node_top));
-      $self->set_tree_unit_file($node_top_tree_unit, $top_node_filename,
-                               $destination_directory);
+      die "BUG: No element for top node" if (!defined($node_top_tree_unit));
+      $unit_file_name_paths{$node_top_tree_unit} = [$top_node_filename, undef];
     }
     my $file_nr = 0;
     my $previous_page;
     foreach my $tree_unit (@$tree_units) {
       # For Top node.
-      next if ($tree_unit->{'structure'}
-               and defined($tree_unit->{'structure'}->{'unit_filename'}));
-      if (!$tree_unit->{'extra'}->{'first_in_page'}) {
+      next if (exists($unit_file_name_paths{$tree_unit}));
+      my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
+      if (!$file_tree_unit) {
         cluck ("No first_in_page for $tree_unit\n");
       }
-      if (not $tree_unit->{'extra'}->{'first_in_page'}->{'structure'}
-          or not defined($tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'})) {
-        my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
+      if (not exists($unit_file_name_paths{$file_tree_unit})) {
         foreach my $root_command (@{$file_tree_unit->{'contents'}}) {
           if ($root_command->{'cmdname'}
               and $root_command->{'cmdname'} eq 'node') {
@@ -7836,55 +7834,59 @@ sub _html_set_pages_files($$$$$$$$)
               $node_filename
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
             }
-            $self->set_tree_unit_file($file_tree_unit, $node_filename,
-                                      $destination_directory);
+            $unit_file_name_paths{$file_tree_unit} = [$node_filename, undef];
             last;
           }
         }
-        if (not $file_tree_unit->{'structure'}
-            or not defined($file_tree_unit->{'structure'}->{'unit_filename'})) {
+        if (not defined($unit_file_name_paths{$file_tree_unit})) {
           # use section to do the file name if there is no node
           my $command = $self->tree_unit_element_command($file_tree_unit);
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
-              $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
-                                        $destination_directory);
+              $unit_file_name_paths{$file_tree_unit}
+                                     = [$top_node_filename, undef];
             } else {
-              $self->set_tree_unit_file($file_tree_unit,
-                 $self->{'targets'}->{$command}->{'section_filename'},
-                                        $destination_directory);
+              $unit_file_name_paths{$file_tree_unit}
+                = [$self->{'targets'}->{$command}->{'section_filename'}, undef];
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top
                 and defined($top_node_filename)) {
-              $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
-                                        $destination_directory);
+              $unit_file_name_paths{$file_tree_unit}
+                                      = [$top_node_filename, undef];
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
-              $self->set_tree_unit_file($tree_unit, $filename,
-                                        $destination_directory);
+              $unit_file_name_paths{$file_tree_unit} = [$filename, undef];
             }
             $file_nr++;
           }
         }
       }
-      $tree_unit->{'structure'}->{'unit_filename'}
-         = $tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'};
+      if (not exists($unit_file_name_paths{$tree_unit})) {
+        $unit_file_name_paths{$tree_unit}
+           = $unit_file_name_paths{$file_tree_unit}
+      }
     }
   }
 
   foreach my $tree_unit (@$tree_units) {
+    my ($filename, $filepath) = @{$unit_file_name_paths{$tree_unit}};
     if (defined($self->{'file_id_setting'}->{'tree_unit_file_name'})) {
       # NOTE the information that it is associated with @top or @node Top
       # may be determined with $self->element_is_tree_unit_top($tree_unit);
-      my $filename = &{$self->{'file_id_setting'}->{'tree_unit_file_name'}}(
-               $self, $tree_unit, $tree_unit->{'structure'}->{'unit_filename'});
-      $self->set_tree_unit_file($tree_unit, $filename, $destination_directory)
-         if (defined($filename));
+      my ($user_filename, $user_filepath)
+         = &{$self->{'file_id_setting'}->{'tree_unit_file_name'}}(
+               $self, $tree_unit, $filename, $filepath);
+      if (defined($user_filename)) {
+        $filename = $user_filename;
+        $filepath = $user_filepath;
+      }
     }
+    $self->set_tree_unit_file($tree_unit, $filename, $destination_directory,
+                              $filepath);
     my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
     $self->{'file_counters'}->{$tree_unit_filename} = 0
        if (!exists($self->{'file_counters'}->{$tree_unit_filename}));

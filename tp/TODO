@@ -14,8 +14,6 @@ check same keys for
 global_unique document_settable_unique_at_commands
 global document_settable_multiple_at_commands
 
-FIXME in set_tree_unit_file
-
 Add in_math (for /)?
 
 Bugs
