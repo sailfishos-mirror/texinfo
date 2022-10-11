@@ -757,20 +757,13 @@ sub initialize_tree_units_files($)
   }
 }
 
-# sets out_filepaths converter state
-# $FILEPATH can be given explicitly, otherwise it is based on $FILENAME
-# and $DESTINATION_DIRECTORY
-sub set_tree_unit_file($$$$;$)
+# If CASE_INSENSITIVE_FILENAMES is set, reuse the first
+# filename with the same name insensitive to the case.
+sub _normalize_filename_case($$)
 {
   my $self = shift;
-  my $tree_unit = shift;
   my $filename = shift;
-  my $destination_directory = shift;
-  my $filepath = shift;
 
-  if (!defined($filename)) {
-    cluck("set_tree_unit_file: filename not defined\n");
-  }
   if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
     if (exists($self->{'filenames'}->{lc($filename)})) {
       if ($self->get_conf('DEBUG')) {
@@ -782,7 +775,24 @@ sub set_tree_unit_file($$$$;$)
       $self->{'filenames'}->{lc($filename)} = $filename;
     }
   }
+  return $filename;
+}
+
+# Sets $tree_unit->{'structure'}->{'unit_filename'}.
+sub set_tree_unit_file($$$)
+{
+  my $self = shift;
+  my $tree_unit = shift;
+  my $filename = shift;
+
+  if (!defined($filename)) {
+    cluck("set_tree_unit_file: filename not defined\n");
+  }
+
+  $filename = $self->_normalize_filename_case($filename);
+
   $tree_unit->{'structure'} = {} if (!($tree_unit->{'structure'}));
+
   # This should never happen, set_tree_unit_file is called once per
   # tree unit.
   if (exists($tree_unit->{'structure'}->{'unit_filename'})) {
@@ -796,14 +806,45 @@ sub set_tree_unit_file($$$$;$)
     }
   }
   $tree_unit->{'structure'}->{'unit_filename'} = $filename;
-  if (defined($filepath)) {
-    $self->{'out_filepaths'}->{$filename} = $filepath;
-  } elsif (defined($destination_directory) and $destination_directory ne '') {
-    $self->{'out_filepaths'}->{$filename} =
-      File::Spec->catfile($destination_directory, $filename);
-  } else {
-    $self->{'out_filepaths'}->{$filename} = $filename;
+}
+
+# sets out_filepaths converter state, associating a file name
+# to a file path.
+# $FILEPATH can be given explicitly, otherwise it is based on $FILENAME
+# and $DESTINATION_DIRECTORY
+sub set_file_path($$$;$)
+{
+  my $self = shift;
+  my $filename = shift;
+  my $destination_directory = shift;
+  my $filepath = shift;
+
+  if (!defined($filename)) {
+    cluck("set_file_path: filename not defined\n");
   }
+
+  $filename = $self->_normalize_filename_case($filename);
+
+  if (not defined($filepath)) {
+    if (defined($destination_directory) and $destination_directory ne '') {
+      $filepath = File::Spec->catfile($destination_directory, $filename);
+    } else {
+      $filepath = $filename;
+    }
+  }
+  # should not happen, the file path should be set only once
+  # per file name.
+  if (defined($self->{'out_filepaths'}->{$filename})) {
+    if ($self->{'out_filepaths'}->{$filename} eq $filepath) {
+      print STDERR "set_file_path: filepath set: $filepath\n"
+         if ($self->get_conf('DEBUG'));
+    } else {
+      print STDERR  "set_file_path: filepath reset: "
+        .$self->{'out_filepaths'}->{$filename}.", $filepath\n"
+         if ($self->get_conf('DEBUG'));
+    }
+  }
+  $self->{'out_filepaths'}->{$filename} = $filepath;
 }
 
 sub top_node_filename($$)
@@ -872,9 +913,9 @@ sub _set_tree_units_files($$$$$$)
                 and $self->get_conf('EXTENSION') ne '');
 
   if (!$self->get_conf('SPLIT')) {
+    $self->set_file_path($output_filename, undef, $output_file);
     foreach my $tree_unit (@$tree_units) {
-      $self->set_tree_unit_file($tree_unit, $output_filename, undef,
-                                $output_file);
+      $self->set_tree_unit_file($tree_unit, $output_filename);
     }
   } else {
     my $node_top;
@@ -885,8 +926,8 @@ sub _set_tree_units_files($$$$$$)
     if ($node_top and defined($top_node_filename)) {
       my ($node_top_unit) = $self->_get_root_element($node_top);
       die "BUG: No element for top node" if (!defined($node_top));
-      $self->set_tree_unit_file($node_top_unit, $top_node_filename,
-                                $destination_directory);
+      $self->set_file_path($top_node_filename, $destination_directory);
+      $self->set_tree_unit_file($node_top_unit, $top_node_filename);
     }
     my $file_nr = 0;
     my $previous_page;
@@ -912,8 +953,8 @@ sub _set_tree_units_files($$$$$$)
                = $self->node_information_filename($root_command->{'extra'});
             }
             $node_filename .= $extension;
-            $self->set_tree_unit_file($file_tree_unit, $node_filename,
-                                      $destination_directory);
+            $self->set_file_path($node_filename,$destination_directory);
+            $self->set_tree_unit_file($file_tree_unit, $node_filename);
             last;
           }
         }
@@ -923,31 +964,31 @@ sub _set_tree_units_files($$$$$$)
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
-              $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
-                                        $destination_directory);
+              $self->set_file_path($top_node_filename, $destination_directory);
+              $self->set_tree_unit_file($file_tree_unit, $top_node_filename);
             } else {
               my ($normalized_name, $filename)
                  = $self->normalized_sectioning_command_filename($command);
-              $self->set_tree_unit_file($file_tree_unit, $filename,
-                                        $destination_directory);
+              $self->set_file_path($filename, $destination_directory);
+              $self->set_tree_unit_file($file_tree_unit, $filename);
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top and defined($top_node_filename)) {
-              $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
-                                        $destination_directory);
+              $self->set_file_path($top_node_filename, $destination_directory);
+              $self->set_tree_unit_file($file_tree_unit, $top_node_filename);
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
-              $self->set_tree_unit_file($tree_unit, $filename,
-                                        $destination_directory);
+              $self->set_file_path($filename, $destination_directory);
+              $self->set_tree_unit_file($tree_unit, $filename);
             }
             $file_nr++;
           }
         }
       }
-      $tree_unit->{'structure'}->{'unit_filename'}
-        = $file_tree_unit->{'structure'}->{'unit_filename'};
+      $self->set_tree_unit_file($tree_unit,
+                    $file_tree_unit->{'structure'}->{'unit_filename'});
     }
   }
 

@@ -817,6 +817,10 @@ sub output_files_open_out($$$;$$)
   my $use_binmode = shift;
   my $output_encoding = shift;
 
+  #if (!defined($file_path)) {
+  #  cluck('output_files_open_out: file_path undef');
+  #}
+
   my $encoding;
   if (defined($output_encoding)) {
     $encoding = $output_encoding;

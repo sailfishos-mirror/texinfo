@@ -1,5 +1,16 @@
 2022-10-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (_normalize_filename_case)
+	(set_tree_unit_file, set_file_path, _set_tree_units_files),
+	tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): split set_file_path
+	out of set_tree_unit_file to set file path for each file name,
+	which should be done for each file name, and therefore with a
+	different function than set_tree_unit_file, which is called for each
+	tree unit element.  Add _normalize_filename_case to be used in both
+	set_tree_unit_file and set_file_path.
+
+2022-10-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_set_root_commands_targets_node_files):
 	handle undef returned by user defined node_file_name by reusing
 	the default file name.

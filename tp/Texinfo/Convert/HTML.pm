@@ -7800,10 +7800,12 @@ sub _html_set_pages_files($$$$$$$$)
             if (defined($self->get_conf('EXTENSION'))
                 and $self->get_conf('EXTENSION') ne '');
 
+  my %filenames_paths;
   my %unit_file_name_paths;
   if (!$self->get_conf('SPLIT')) {
+    $filenames_paths{$output_filename} = $output_file;
     foreach my $tree_unit (@$tree_units) {
-      $unit_file_name_paths{$tree_unit} = [$output_filename, $output_file];
+      $unit_file_name_paths{$tree_unit} = $output_filename;
     }
   } else {
     my $node_top;
@@ -7815,7 +7817,8 @@ sub _html_set_pages_files($$$$$$$$)
     if ($node_top and defined($top_node_filename)) {
       my ($node_top_tree_unit) = $self->_html_get_tree_root_element($node_top);
       die "BUG: No element for top node" if (!defined($node_top_tree_unit));
-      $unit_file_name_paths{$node_top_tree_unit} = [$top_node_filename, undef];
+      $filenames_paths{$top_node_filename} = undef;
+      $unit_file_name_paths{$node_top_tree_unit} = $top_node_filename;
     }
     my $file_nr = 0;
     my $previous_page;
@@ -7842,7 +7845,8 @@ sub _html_set_pages_files($$$$$$$$)
               $node_filename
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
             }
-            $unit_file_name_paths{$file_tree_unit} = [$node_filename, undef];
+            $filenames_paths{$node_filename} = undef;
+            $unit_file_name_paths{$file_tree_unit} = $node_filename;
             last;
           }
         }
@@ -7852,22 +7856,25 @@ sub _html_set_pages_files($$$$$$$$)
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
-              $unit_file_name_paths{$file_tree_unit}
-                                     = [$top_node_filename, undef];
+              $filenames_paths{$top_node_filename} = undef;
+              $unit_file_name_paths{$file_tree_unit} = $top_node_filename;
             } else {
-              $unit_file_name_paths{$file_tree_unit}
-                = [$self->{'targets'}->{$command}->{'section_filename'}, undef];
+              my $section_filename
+                   = $self->{'targets'}->{$command}->{'section_filename'};
+              $filenames_paths{$section_filename} = undef;
+              $unit_file_name_paths{$file_tree_unit} = $section_filename;
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top
                 and defined($top_node_filename)) {
-              $unit_file_name_paths{$file_tree_unit}
-                                      = [$top_node_filename, undef];
+              $filenames_paths{$top_node_filename} = undef;
+              $unit_file_name_paths{$file_tree_unit} = $top_node_filename;
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
-              $unit_file_name_paths{$file_tree_unit} = [$filename, undef];
+              $filenames_paths{$filename} = undef;
+              $unit_file_name_paths{$file_tree_unit} = $filename;
             }
             $file_nr++;
           }
@@ -7881,7 +7888,8 @@ sub _html_set_pages_files($$$$$$$$)
   }
 
   foreach my $tree_unit (@$tree_units) {
-    my ($filename, $filepath) = @{$unit_file_name_paths{$tree_unit}};
+    my $filename = $unit_file_name_paths{$tree_unit};
+    my $filepath = $filenames_paths{$filename};
     if (defined($self->{'file_id_setting'}->{'tree_unit_file_name'})) {
       # NOTE the information that it is associated with @top or @node Top
       # may be determined with $self->element_is_tree_unit_top($tree_unit);
@@ -7890,11 +7898,10 @@ sub _html_set_pages_files($$$$$$$$)
                $self, $tree_unit, $filename, $filepath);
       if (defined($user_filename)) {
         $filename = $user_filename;
-        $filepath = $user_filepath;
+        $filenames_paths{$filename} = $user_filepath;
       }
     }
-    $self->set_tree_unit_file($tree_unit, $filename, $destination_directory,
-                              $filepath);
+    $self->set_tree_unit_file($tree_unit, $filename);
     my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
     $self->{'file_counters'}->{$tree_unit_filename} = 0
        if (!exists($self->{'file_counters'}->{$tree_unit_filename}));
@@ -7910,8 +7917,8 @@ sub _html_set_pages_files($$$$$$$$)
       my $filename
        = $self->{'targets'}->{$special_element}->{'special_element_filename'};
       if (defined($filename)) {
-        $self->set_tree_unit_file($special_element, $filename,
-                                  $destination_directory);
+        $filenames_paths{$filename} = undef;
+        $self->set_tree_unit_file($special_element, $filename);
         $self->{'file_counters'}->{$filename} = 0
            if (!exists($self->{'file_counters'}->{$filename}));
         $self->{'file_counters'}->{$filename}++;
@@ -7923,6 +7930,10 @@ sub _html_set_pages_files($$$$$$$$)
       $previous_tree_unit->{'structure'}->{'unit_next'} = $special_element;
       $previous_tree_unit = $special_element;
     }
+  }
+  foreach my $filename (keys(%filenames_paths)) {
+    $self->set_file_path($filename, $destination_directory,
+                         $filenames_paths{$filename});
   }
 }
 

@@ -12,12 +12,6 @@ Before next release
 
 Add in_math (for /)?
 
-set_tree_unit_file should also only be called once per file. HTML
-needs to be changed and a check added to set_tree_unit_file.
-Also maybe do not set $tree_unit->{'structure'}->{'unit_filename'}
-in set_tree_unit_file and change the name of the function.  Maybe
-split in two.
-
 Bugs
 ====
 
