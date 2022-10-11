@@ -1,3 +1,15 @@
+2022-10-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_set_root_commands_targets_node_files):
+	handle undef returned by user defined node_file_name by reusing
+	the default file name.
+
+	* tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): always use
+	targets node_filename to determine a node file name.
+
+	* tp/Texinfo/Convert/Converter.pm (_set_tree_units_files): use
+	a variable in code for clarity.
+
 2022-10-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm: add code (not active) to check

@@ -31,6 +31,12 @@ pt @error{}.
 );
 
 my @file_tests = (
+['undefined_node_filename',
+'@node Top
+
+@node Other
+',{'init_files' => ['undef_node_file_name.init'],
+}, {'VERBOSE' => 1}],
 ['documentation_examples',
 '
 @settitle @email{someone@@example.com, me} @sansserif{in--title} @error{}

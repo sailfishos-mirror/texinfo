@@ -894,11 +894,11 @@ sub _set_tree_units_files($$$$$$)
       # For Top node.
       next if ($tree_unit->{'structure'}
                and defined($tree_unit->{'structure'}->{'unit_filename'}));
-      if (!$tree_unit->{'extra'}->{'first_in_page'}) {
+      my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
+      if (!$file_tree_unit) {
         cluck ("No first_in_page for $tree_unit\n");
       }
-      if (!defined($tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'})) {
-        my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
+      if (!defined($file_tree_unit->{'structure'}->{'unit_filename'})) {
         foreach my $root_command (@{$file_tree_unit->{'contents'}}) {
           if ($root_command->{'cmdname'}
               and $root_command->{'cmdname'} eq 'node') {
@@ -947,7 +947,7 @@ sub _set_tree_units_files($$$$$$)
         }
       }
       $tree_unit->{'structure'}->{'unit_filename'}
-        = $tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'};
+        = $file_tree_unit->{'structure'}->{'unit_filename'};
     }
   }
 

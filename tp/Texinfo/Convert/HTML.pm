@@ -7659,8 +7659,22 @@ sub _set_root_commands_targets_node_files($$)
         = $self->_normalized_label_id_file($label_element->{'extra'});
       $node_filename .= $extension;
       if (defined($self->{'file_id_setting'}->{'node_file_name'})) {
-        $node_filename = &{$self->{'file_id_setting'}->{'node_file_name'}}(
+        # a non defined filename is ok if called with convert, but not
+        # if output in files.  We reset if undef, silently unless verbose
+        # in case called by convert.
+        my $user_node_filename
+              = &{$self->{'file_id_setting'}->{'node_file_name'}}(
                                        $self, $label_element, $node_filename);
+        if (defined($user_node_filename)) {
+          $node_filename = $user_node_filename;
+        } elsif ($self->get_conf('VERBOSE')) {
+          $self->document_warn($self, sprintf(__(
+              "user-defined node file name not set for `%s'"),
+              $node_filename));
+
+        } elsif ($self->get_conf('DEBUG')) {
+          warn "user-defined node file name undef for `$node_filename'\n";
+        }
       }
       if ($self->get_conf('DEBUG')) {
         print STDERR "Label($label_element) \@$label_element->{'cmdname'} $target, $node_filename\n";
@@ -7823,14 +7837,8 @@ sub _html_set_pages_files($$$$$$$$)
               $node_filename = 'unknown_node';
               $node_filename .= $extension;
             } else {
-              if (!defined($self->{'targets'}->{$root_command})
-                  or !defined($self->{'targets'}->{$root_command}->{'node_filename'})) {
-                # Could have been a double node, thus use equivalent node.
-                # However since double nodes are not normalized, in fact it
-                # never happens.
-                $root_command
-                  = $self->{'labels'}->{$root_command->{'extra'}->{'normalized'}};
-              }
+              # Nodes with {'extra'}->{'normalized'} should always be in
+              # 'labels', and thus in targets.  It is a bug otherwise.
               $node_filename
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
             }

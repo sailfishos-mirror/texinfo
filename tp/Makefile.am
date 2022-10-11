@@ -162,19 +162,20 @@ test_files = \
  t/include/incl-incl.txi \
  t/include/macro_included.texi \
  t/include/section_file.texi \
+ t/init/command_translation_modified.init \
  t/init/cvs.init \
+ t/init/icons.init \
+ t/init/ignore_and_comments_output.init \
+ t/init/l2h.init \
+ t/init/mini_ker_t2h.init \
+ t/init/misc_file_collision.init \
  t/init/only_toc_out.init \
  t/init/redefine_need.init \
- t/init/icons.init \
  t/init/t2h_singular.init \
- t/init/ignore_and_comments_output.init \
  t/init/test_directions.init \
- t/init/mini_ker_t2h.init \
  t/init/test_renamed_nodes.init \
- t/init/misc_file_collision.init \
- t/init/l2h.init \
- t/init/command_translation_modified.init \
  t/init/translate_txiinternalvalue_macro.init \
+ t/init/undef_node_file_name.init \
  t/test_utils.pl \
  t/input_files/all_spaces.texi \
  t/input_files/bib-example.texi \
