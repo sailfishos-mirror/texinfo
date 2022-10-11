@@ -1,5 +1,11 @@
 2022-10-11  Patrice Dumas  <pertusus@free.fr>
 
+	* util/htmlxref.cnf: corrections reported by Tzvetelin Katchov.
+	Remove old reftex, fix coreutils, cpio, diffutils and gtypist mono
+	urls, fix mono type of emacs-muse.
+
+2022-10-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (_normalize_filename_case)
 	(set_tree_unit_file, set_file_path, _set_tree_units_files),
 	tp/Texinfo/Convert/HTML.pm (_html_set_pages_files): split set_file_path
@@ -177,8 +183,8 @@
 
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm,
 	Pod-Simple-Texinfo/pod2texi.pl: add comments to explain the issue with
-	formatting section in L.  Also add code in comment to show the Pod::Simple
-	tree.
+	formatting section in L.  Also add code in comment to show the
+	Pod::Simple tree.
 
 2022-10-05  Patrice Dumas  <pertusus@free.fr>
 

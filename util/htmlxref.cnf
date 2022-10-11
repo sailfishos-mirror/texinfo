@@ -1,6 +1,6 @@
 # htmlxref.cnf - reference file for free Texinfo manuals on the web.
 
-htmlxrefversion=2022-10-11.14; # UTC
+htmlxrefversion=2022-10-11.20; # UTC
 
 # Copyright 2010-2022 Free Software Foundation, Inc.
 # 
@@ -101,10 +101,10 @@ combine		node	${GS}/combine/manual/html_node/
 complexity	mono	${GS}/complexity/manual/complexity.html
 complexity	node	${GS}/complexity/manual/html_node/
 
-coreutils	mono	${GS}/coreutils/manual/coreutils
+coreutils	mono	${GS}/coreutils/manual/coreutils.html
 coreutils	node	${GS}/coreutils/manual/html_node/
 
-cpio		mono	${GS}/cpio/manual/cpio
+cpio		mono	${GS}/cpio/manual/cpio.html
 cpio		node	${GS}/cpio/manual/html_node/
 
 cssc		node	${GS}/cssc/manual/
@@ -125,7 +125,7 @@ dico		chapter	${DICO}/html_chapter/
 dico		section	${DICO}/html_section/
 dico		node	${DICO}/html_node/
 
-diffutils	mono	${GS}/diffutils/manual/diffutils
+diffutils	mono	${GS}/diffutils/manual/diffutils.html
 diffutils	node	${GS}/diffutils/manual/html_node/
 
 ed		mono	${GS}/ed/manual/ed_manual.html
@@ -312,7 +312,7 @@ emacs		node	${EMACS}/html_node/emacs/
 easejs		mono	${GS}/easejs/manual/easejs.html
 easejs		node	${GS}/easejs/manual/
 
-emacs-muse	node	${GS}/emacs-muse/manual/muse.html
+emacs-muse	mono	${GS}/emacs-muse/manual/muse.html
 emacs-muse	node	${GS}/emacs-muse/manual/html_node/
 
 emms		node	${GS}/emms/manual/
@@ -442,7 +442,7 @@ gsrc		node	${GS}/gsrc/manual/html_node/
 gss		mono	${GS}/gss/manual/gss.html
 gss		node	${GS}/gss/manual/html_node/
 
-gtypist		mono	${GS}/gtypist/doc/
+gtypist		mono	${GS}/gtypist/doc/gtypist.html
 
 guile		mono	${GS}/guile/manual/guile.html
 guile		node	${GS}/guile/manual/html_node/
@@ -628,9 +628,6 @@ readline	mono	${READLINE}/readline.html
 
 recutils	mono	${GS}/recutils/manual/recutils.html
 recutils	node	${GS}/recutils/manual/html_node/
-
-reftex		mono	${GS}/auctex/manual/reftex.html
-reftex		node	${GS}/auctex/manual/reftex/
 
 remotecontrol	mono	${GS}/remotecontrol/manual/remotecontrol.html
 remotecontrol	node	${GS}/remotecontrol/manual/html_node/
