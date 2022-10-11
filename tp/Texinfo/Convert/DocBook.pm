@@ -1418,7 +1418,6 @@ sub _convert($$;$)
         #warn "  returning empty string for ignored braced cmd\n";
         return '';
       }
-
 
     # special case to ensure that @w leads to something even if empty
     } elsif ($element->{'cmdname'} eq 'w') {

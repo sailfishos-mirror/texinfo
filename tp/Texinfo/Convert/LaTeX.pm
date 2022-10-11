@@ -469,7 +469,7 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'cmd_math'}}) {
 my %ignored_commands = (%ignored_line_commands, %ignored_nobrace_commands);
 # processed as part of the index command or type formatting
 foreach my $ignored_brace_commands (
-  'sortas', 'seeentry', 'seealso') {
+  'sortas', 'seeentry', 'seealso', 'errormsg') {
   $ignored_commands{$ignored_brace_commands} = 1;
 }
 
@@ -3442,7 +3442,7 @@ sub _convert($$)
         $result .= "\\needspace{${need_value}pt}%\n";
       }
       return $result;
-    } elsif ($LaTeX_in_heading_commands_formatting{$cmdname}) {
+    } elsif (defined($LaTeX_in_heading_commands_formatting{$cmdname})) {
       $result .= $LaTeX_in_heading_commands_formatting{$cmdname};
       return $result;
     } elsif ($cmdname eq 'title') {
