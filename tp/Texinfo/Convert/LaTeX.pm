@@ -271,14 +271,6 @@ foreach my $kept_command (keys(%LaTeX_in_heading_commands_formatting),
   $formatted_nobrace_commands{$kept_command} = 1;
 }
 
-# There are stacks that define the context.
-# formatting_context: for a whole context, for instance in a footnote.
-#       text_context: relevant for math versus text mode or raw
-#                (no text protection). Inside formatting_context.
-#
-# See _push_new_context for the list of items set in formatting_context.
-
-
 my %block_math_commands;
 foreach my $block_math_command (keys(%math_commands)) {
   if (exists($block_commands{$block_math_command})) {
@@ -458,8 +450,6 @@ my %LaTeX_accent_commands = (
   }
 );
 
-# accent in math and not in text is the same in
-# Texinfo and LaTeX.
 foreach my $accent_command (keys %{$LaTeX_accent_commands{'cmd_math'}}) {
   if (not exists($LaTeX_accent_commands{'cmd_text'}->{$accent_command})) {
     $LaTeX_accent_commands{'cmd_text'}->{$accent_command} = $accent_command;
@@ -468,7 +458,7 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'cmd_math'}}) {
 
 
 my %ignored_commands = (%ignored_line_commands, %ignored_nobrace_commands);
-# processed as part of the index command or type formatting
+# processed as part of the index command or type formatting, or ignored.
 foreach my $ignored_brace_commands (
   'sortas', 'seeentry', 'seealso', 'errormsg') {
   $ignored_commands{$ignored_brace_commands} = 1;
@@ -561,13 +551,14 @@ foreach my $ignored_type(keys(%ignored_types)) {
   $ignorable_types{$ignored_type} = 1;
 }
 
-# The following code is not much used.  It was designed to
-# setup combined fonts similar to texinfo.tex fonts, corresponding to
-# cmmands like \ttsl, combining typewriter and slanted.  The idea was to use
-# constructs like \ttfamily\textsl to have a cumulative effect.  However,
-# it seems that a constructs like \texttt{\textsl{cumulate}} do combine the
-# styles, nothing more is needed.  It is used to define style commands
-# with more complex code more generally.
+# The following code is used to define style commands with more
+# complex code than a LaTeX command.
+#
+# It was designed initially to setup combined fonts similar to texinfo.tex
+# fonts, corresponding to code like \ttsl, combining typewriter and slanted.
+# The idea was to use constructs like \ttfamily\textsl to have a cumulative
+# effect.  However, it seems that a constructs like \texttt{\textsl{cumulate}}
+# do combine the styles, so nothing complex is needed for that case.
 #
 # As a side note it is not so easy to check the font type combinations
 # results as they depend on the fonts.  With \usepackage[T1]{fontenc},
@@ -732,34 +723,34 @@ foreach my $command (keys(%{$LaTeX_style_brace_commands{'cmd_text'}})) {
   # avoids hyphenation @-command
   next if ($unformatted_brace_command{$command});
   my $description_format = $LaTeX_style_brace_commands{'cmd_text'}->{$command};
-  if ($description_format ne '') {
+
+  if ($quotes_map{$command}) {
+    # Setup command used to format in tables for quoted commands.  Note that
+    # the quotes used in that context are not modified by OUTPUT_ENCODING_NAME
+    # nor *_QUOTE_SYMBOL.
+    my $specific_format_command
+      = "\\${description_command_new_commands_prefix}$command";
+    # does not happen currently
+    if ($description_format eq '') {
+      $description_command_new_commands{$command} =
+            "$specific_format_command\[1]{\\ifstrempty{#1}{}{{`#1'}}";
+    } else {
+      # We use \ifstrempty to avoid outputting an empty
+      # quotation if there is no item.  Note that it does
+      # not work as intended if there is no optional parameter
+      # for item, like
+      #   \item some text
+      # but works for
+      #   \item[] some text
+      $description_command_new_commands{$command}
+        = "$specific_format_command\[1]{\\ifstrempty{#1}{}{`$description_format\{#1}'}}";
+    }
+    $description_command_format{$command} = $specific_format_command;
+  } elsif ($description_format ne '') {
     $description_command_format{$command} = $description_format;
   }
 }
 
-# Setup command used to format in tables for quoted commands.
-foreach my $quoted_command (@quoted_commands) {
-  delete $description_command_format{$quoted_command};
-  my $specific_format_command
-    = "\\${description_command_new_commands_prefix}$quoted_command";
-  my $description_format = $LaTeX_style_brace_commands{'cmd_text'}->{$quoted_command};
-  # does not happen currently
-  if ($description_format eq '') {
-    $description_command_new_commands{$quoted_command} =
-            "$specific_format_command\[1]{\\ifstrempty{#1}{}{{`#1'}}";
-  } else {
-    # We use \ifstrempty to avoid outputting an empty
-    # quotation if there is no item.  Note that it does
-    # not work as intended if there is no optional parameter
-    # for item, like
-    #   \item some text
-    # but works for
-    #   \item[] some text
-    $description_command_new_commands{$quoted_command}
-      = "$specific_format_command\[1]{\\ifstrempty{#1}{}{`$description_format\{#1}'}}";
-  }
-  $description_command_format{$quoted_command} = $specific_format_command;
-}
 
 my %defaults = (
   'ENABLE_ENCODING'      => 0,
@@ -786,12 +777,27 @@ sub converter_defaults($$)
   return %defaults;
 }
 
-# other keys:
-#  description_format_commands
-#  packages
-#  list_environments
-#  normalized_float_latex
-#  style_brace_format_commands
+# Converter state keys:
+#
+# custom_heading
+# description_format_commands
+# extra_definitions: Texinfo specific LaTeX command definitions that
+#                     need to be output based on the commands used to
+#                     format the Texinfo code
+# fixed_width_environments: fixed width environment used for formatting
+# formatting_context: formatting context information for a whole context,
+#                     for instance in a footnote.  See _push_new_context
+#                     for the list of items set in formatting_context.
+# index_entries
+# indices_information
+# list_environments
+# latex_floats
+# normalized_float_latex
+# normalized_nodes_associated_section: associates anchor and node not already
+#                     associated to section to the next or previous section.
+# packages: packages needed by the LaTeX formatting of Texinfo code
+# page_styles
+# style_brace_format_commands
 
 sub converter_initialize($)
 {
@@ -1616,6 +1622,7 @@ sub _push_new_context($$)
        'no_eol' => [],
        'nr_table_items_context' => [],
        'preformatted_context' => [],
+       # can be ctx_text, ctx_math or ctx_raw
        'text_context' => ['ctx_text'],
        'table_command_format' => [],
      };
