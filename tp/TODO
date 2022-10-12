@@ -16,10 +16,6 @@ Bugs
 HTML API
 ========
 
-document Texinfo::Convert::HTML
-url_protect_file_text
-url_protect_url_text
-
 Issues
 ------
 

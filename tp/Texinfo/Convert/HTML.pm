@@ -7265,9 +7265,9 @@ sub url_protect_url_text($$)
 
 # FIXME document as part of the API.  Make it a mandatory called function?
 # a format_* function?
-# # protect a file path used in an url, in which characters with specific
-# meaning in url do not have their special meaning, except for characters
-# also appearing in file paths.
+# protect a file path used in an url.  Characters appearing in file paths
+# are not protected.   All the other characters that can be percent
+# protected are protected, including characters with specific meaning in url.
 sub url_protect_file_text($$)
 {
   my $self = shift;

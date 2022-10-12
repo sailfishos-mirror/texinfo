@@ -1511,7 +1511,7 @@ my $result = $converter->convert_tree(@{'type' => '_code',
 @end example
 
 There is no context for plain text, but the conversion to plain
-text can be achived by using the @code{Texinfo::Text} converter
+text can be achieved by using the @code{Texinfo::Text} converter
 (@pxref{Texinfo::Convert::Text,,,tp_api}).  For example, to convert
 the Texinfo tree element @var{$element} to plain text:
 
@@ -2330,8 +2330,58 @@ abide to, in order to comply with customization option values, and also
 to have information correctly registered in the converter.
 
 
-@node Formatting HTML Element with Classes Opening
-@section Formatting HTML Element with Classes Opening
+@node Protection of URLs
+@section Protection of URLs
+
+URLs need to be ``percent-encoded'' to protect non-ASCII characters, spaces and
+other ASCII characters.  Percent-encoding also allows to have characters be
+interpreted as part of a path and not as characters with a special role in
+URLs.  For example, @samp{?} has a special role in URLs as it starts a query
+string.  To have it considered as part of a file path, instead of a marker of
+the beginning of a query, it needs to be percent encoded.
+
+To protect a whole URL, in which characters with a special role in URL
+are left as is, use @code{url_protect_url_text}.  To protect file path in URL,
+including characters with a special role in URLs,
+use @code{url_protect_file_text}.
+
+@deftypefun {@var{$protected_url} =} @var{$converter}->url_protect_url_text(@var{$input_string})
+Percent-encode @var{$input_string}, leaving as is all the characters with a
+special role in URLs, such as @samp{:}, @samp{/}, @samp{?}, @samp{&}, @samp{#}
+or @samp{%} (and a few other).  HTML reserved characters and form feeds
+protected are also protected as entities (@pxref{Basic Formatting
+Customization,,@code{format_protect_text}}).  This is typically used on
+complete URLs pointing to diverse internet resources, such as the @code{@@url}
+URL argument.
+
+for example
+@example
+return $self->html_attribute_class('a', [$cmdname])
+     .' href="'.$self->url_protect_url_text($url)."\">$text</a>";
+@end example
+@end deftypefun
+
+@deftypefun {@var{$protected_path} =} @var{$converter}->url_protect_file_text(@var{$input_string})
+Percent-encode @var{$input_string} leaving as is character appearing in file
+paths only, such as @samp{/}, @samp{.}, @samp{-} or @samp{_}.  All the other
+characters that can be percent-protected are protected, including characters
+with a special role in URLs.  For example, @samp{?}, @samp{&} and @samp{%} are
+percent-protected.  HTML reserved characters and form feeds protected are also
+protected as entities (@pxref{Basic Formatting Customization,,
+@code{format_protect_text}}).  This is typically used on file names
+corresponding to actual files, used in the path portion of an URL, such as the
+image file path in @code{@@image}.
+
+For example
+@example
+$self->html_attribute_class('img', [$cmdname])
+   . ' src="'.$self->url_protect_file_text($image_file)."\");
+@end example
+@end deftypefun
+
+
+@node Formatting HTML Element with Classes
+@section Formatting HTML Element with Classes
 
 Opening an HTML element with one or more classes should always be done through
 @code{html_attribute_class}:
@@ -2582,12 +2632,15 @@ string.
 @item format_protect_text
 @deftypefn {Function Reference} @var{$text} format_protect_text  @
                                         (@var{$converter}, @var{$input_text})
-Return @var{$input_text} with HTML special characters and form feeds
+Return @var{$input_text} with HTML reserved characters and form feeds
 protected.
 
 For performance reasons, this function reference may not be called everywhere
-text is protected.  For those cases, the calling function could be
-redefined too to call @code{&@{$self->formatting_function('format_protect_text')@}(...)}.
+text is protected.  For those cases, the calling function should also be
+redefined to call @code{&@{$self->formatting_function('format_protect_text')@}(...)}
+instead of another function@footnote{The function called is actually the
+function referenced as @code{$self->formatting_function('format_protect_text')}
+in the default case, but it is called directly to avoid an indirection}.
 @end deftypefn
 
 @xref{Texinfo::Convert::Converter $protected_text = $converter->xml_protect_text($text),,
@@ -3609,8 +3662,8 @@ otherwise @code{simpletitle} is used (@pxref{Conversion General Information}).
 @xref{Simple Customization of CSS} for information on CSS customization.
 
 The CSS @var{element}.@var{class} that appeared in a file, gathered through
-@code{html_attribute_class} calls (@pxref{Formatting HTML Element with Classes
-Opening}) are available through the @code{html_get_css_elements_classes}
+@code{html_attribute_class} calls (@pxref{Formatting HTML Element with
+Classes}) are available through the @code{html_get_css_elements_classes}
 function:
 
 @deftypefun {@var{@@css_element_classes} =} @var{$converter}->html_get_css_elements_classes @
