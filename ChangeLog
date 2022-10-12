@@ -1,3 +1,11 @@
+2022-10-12  Patrice Dumas  <pertusus@free.fr>
+
+	Document that microtype is off in the default case in LaTeX output
+
+	* doc/texinfo.texi(Microtypography): explain that LaTeX font may not
+	be scalable, that microtypography is off in the default case, how to
+	turn it on and get scalable fonts.
+
 2022-10-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm (%ignored_commands, _convert):

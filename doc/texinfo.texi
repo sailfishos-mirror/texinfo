@@ -23555,13 +23555,14 @@ and producing a more consistent typographic color.
 available.  You can turn microtype off by specifying @samp{@@microtype off}
 in your input file; likewise, @samp{@@microtype on} turns microtype back on.
 
-Microtypography is also setup for @LaTeX{} output.  The default fonts used in
-@LaTeX{} are not scalable and therefore do not support microtypography.  An
-error will be triggered by conversion of @LaTeX{} output when scalable fonts
-are needed by microtype.  You need to install the @code{cm-super} fonts package
-or use scalable fonts for microtypography in @LaTeX{}.  It is also possible to
-disable microtypography with @samp{@@microtype off} at the beginning of the
-document.
+@cindex CM-Super fonts @subentry for @LaTeX{}
+The fonts used in @LaTeX{} output may not be scalable.  If fonts are not
+scalable, using microtypography could trigger an error when converting the
+@LaTeX{} output.  Therefore microtypography is not turned on in the default
+case in @LaTeX{} output.  It is possible to turn it on with @samp{@@microtype
+on}.  A way to get scalable fonts for the font used in the default @LaTeX{}
+output is to install the CM-Super font package
+(@url{http://ctan.org/pkg/cm-super}).
 
 The @code{@@microtype} command does nothing for other output formats.
 
