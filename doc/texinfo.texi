@@ -10040,8 +10040,7 @@ braces, like this:
 like @math{\partial_\alpha \partial^\alpha A^\beta = \mu_0 J^\beta} in
 this example.
 The @code{@@math} command has no special effect on the Info
-output or (by default) the HTML output, merely outputting
-the contents verbatim.
+output, merely outputting the contents verbatim.
 
 For printed output, @code{@@math} switches into @TeX{} ``math mode''.
 In that context, @samp{\} must be used instead of @samp{@@}
