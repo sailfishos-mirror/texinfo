@@ -1,5 +1,10 @@
 2022-10-12  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_push_new_context): initialize
+	all the possible keys.  Changes in comments.
+
+2022-10-12  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Inserting Math): do not described twice the
 	output for HTML.  Report from Vincent Lefèvre.
 

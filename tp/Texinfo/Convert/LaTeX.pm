@@ -86,8 +86,12 @@
 #\expandafter\def\csname @starttoc\endcsname#1{\InputIfFileExists{\jobname.#1}{}{}}%
 #\tableofcontents
 #}
-#We could treat LaTeX like HTML with CONTENTS_OUTPUT_LOCATION=aftertop and
-#ignore both @contents and @shortcontents.
+# We could treat LaTeX like HTML with CONTENTS_OUTPUT_LOCATION=aftertop and
+# ignore both @contents and @shortcontents.
+#
+# it seems that \indent only works with \setlength{\parindent}{0pt}
+# which makes it quite different from Texinfo @indent.  Implement
+# something differently to have the expected output with @indent?
 #
 #
 # CAN WAIT
@@ -103,7 +107,7 @@
 # seems to change in the text, but only 10pt, and does not seems to change
 # sections font sizes.
 #
-# The \listof result does not seems very good.  Also it does not use the type
+# The \listof formatting does not look so good.  Also it does not use the type
 # (name) of float.
 #
 # in TeX, acronym is in a smaller font (1pt less). Can this be easily done in
@@ -124,7 +128,7 @@
 # The support of \global\urefurlonlylinktrue would be rather easy, but
 # need to make it a proper @-command first.  Similar for
 # \global\def\linkcolor and \global\def\urlcolor.  There are options for
-# colors in hyperref, like linkbordercolor but it is unlear whether it
+# colors in hyperref, like linkbordercolor but it is unclear whether it
 # can be used to distinguish links and urls.
 #
 # In the manual it is said that majorheading generates a larger vertical
@@ -156,10 +160,6 @@
 #
 # @def* body should not have a wider right margin.  The wider margin
 # is because they are in quote environment.
-#
-# it seems that \indent only works with \setlength{\parindent}{0pt}
-# which makes it quite different from Texinfo @indent.  Implement
-# something differently to have the expected output with @indent?
 
 package Texinfo::Convert::LaTeX;
 
@@ -250,9 +250,9 @@ foreach my $def_command (keys(%def_commands)) {
 }
 
 # TODO command that could be used for translation \sectionname does
-# not exist in the default case.  it is defined in the pagenote package together with
-# \pagename which is page in the default case, but it is unclear if this
-# can be used as a basis for translations
+# not exist in the default case.  it is defined in the pagenote package
+# together with \pagename which is page in the default case, but it is unclear
+# if this can be used as a basis for translations
 my %LaTeX_in_heading_commands_formatting = (
   'thischapter' => '\chaptername{} \thechapter{} \chaptertitle{}',
   'thischaptername' => '\chaptertitle{}',
@@ -272,10 +272,11 @@ foreach my $kept_command (keys(%LaTeX_in_heading_commands_formatting),
 }
 
 # There are stacks that define the context.
-# formatting_context: for a whole context, for instance in a
-#                footnote.
+# formatting_context: for a whole context, for instance in a footnote.
 #       text_context: relevant for math versus text mode or raw
 #                (no text protection). Inside formatting_context.
+#
+# See _push_new_context for the list of items set in formatting_context.
 
 
 my %block_math_commands;
@@ -914,6 +915,7 @@ sub _prepare_conversion($;$)
   my $self = shift;
   my $root = shift;
 
+  # initialization for a new output
   $self->{'page_styles'} = {};
   $self->{'list_environments'} = {};
   $self->{'description_format_commands'} = {};
@@ -983,9 +985,9 @@ sub _associate_other_nodes_to_sections($$)
     }
   }
   # If there are no sectioning commands and there are nodes,
-  # $pending_nodes won't be empty and none of the nodes are
-  # associated.
-  #print STDERR "No sectioning commands but nodes\n" if (scalar(@$pending_nodes) > 0);
+  # $pending_nodes won't be empty and no node is associated.
+  #print STDERR "No sectioning commands but nodes\n"
+  #  if (scalar(@$pending_nodes) > 0);
   $self->{'normalized_nodes_associated_section'}
     = $additional_node_section_associations;
 }
@@ -1603,14 +1605,18 @@ sub _push_new_context($$)
 
   push @{$self->{'formatting_context'}},
      {
-       'text_context' => ['ctx_text'],
-       'preformatted_context' => [],
-       'math_style' => [],
        'code' => [0],
+       'context_name' => $context_name,
        'dot_not_end_sentence' => 0,
+       'embrac' => [],
        'in_quotation' => 0,
-       'type' => $context_name,
+       'in_sectioning_command_heading' => 0,
+       'in_skipped_node_top' => 0,
+       'math_style' => [],
+       'no_eol' => [],
        'nr_table_items_context' => [],
+       'preformatted_context' => [],
+       'text_context' => ['ctx_text'],
        'table_command_format' => [],
      };
 }
@@ -2278,7 +2284,7 @@ sub _convert($$)
                   and $node_element->{'extra'}->{'normalized'} eq 'Top'))
          or (defined($type) and $type eq 'ignored_top_node_paragraph')
         or (defined($cmdname) and $cmdname eq 'part')) {
-      delete $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'};
+      $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'} = 0;
     } elsif (not ((defined($cmdname)
                    and ($informative_commands{$cmdname}
                         or $sectioning_heading_commands{$cmdname}
@@ -2933,7 +2939,7 @@ sub _convert($$)
                   .= "\\hyperref[$reference_label]{\\chaptername~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               }
             } else {
-              # anchor
+              # anchor or document without sectioning commands
               # TODO translation
               $reference_result
                 .= "\\hyperref[$reference_label]{[$name_text], page~\\pageref*{$reference_label}}";
@@ -3270,7 +3276,7 @@ sub _convert($$)
             # may be different for that case, for instance with \texorpdfstring
             $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 1;
             $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
-            delete $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'};
+            $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 0;
           }
           my $section_cmd = $section_map{$cmdname};
           die "BUG: no section_map for $cmdname"

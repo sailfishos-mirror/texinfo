@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Add in_math (for /)?
-
 Bugs
 ====
 
@@ -30,17 +28,6 @@ Some private function used in conversion
   _translate_names
  _convert_printindex_command
   _new_document_context
-
-
-Profiling
-=========
-
-profiling: package on debian:
-libdevel-nytprof-perl
-In doc:
-perl -d:NYTProf ../tp/texi2any.pl texinfo.texi
-nytprofhtml
-# firefox nytprof/index.html
 
 
 Missing documentation
@@ -222,6 +209,9 @@ anchor in flushright, on an empty line, with a current byte offset.
 
 Future features
 ===============
+
+Add in_math (for /) as flag in command_data.txt?
+
 
 From Gavin on the preamble_before_beginning implementation:
 Another way might be to add special input code to trim off and return
@@ -703,6 +693,13 @@ export XML_CATALOG_FILES=~/src/texinfo/tp/maintain/catalog.xml
 xmllint --nonet --noout --valid commands.xml
 
 tidy -qe *.html
+
+profiling: package on debian:
+libdevel-nytprof-perl
+In doc:
+perl -d:NYTProf ../tp/texi2any.pl texinfo.texi
+nytprofhtml
+# firefox nytprof/index.html
 
 Test with 8bit locale:
 export LANG=fr_FR; export LANGUAGE=fr_FR; export LC_ALL=fr_FR
