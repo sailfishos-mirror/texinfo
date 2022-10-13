@@ -349,7 +349,7 @@ $result_floats{'mathjax_with_texinfo_html_text'} = {};
 
 $result_converted{'html_text'}->{'mathjax_with_texinfo_html_text'} = '<div class="displaymath"><em class="tex2jax_process">\\[a<sup class="sup">b - \\frac{\\xi}{phi &copy;}</sup> &inodot;
 \\]</em></div>
-<p>Some <em class="math tex2jax_process">\\(a - b &ge; &Aring; &ecirc;\\)</em>.
+<p>Some <em class="math tex2jax_process">\\(a &minus; b &ge; &Aring; &ecirc;\\)</em>.
 </p>';
 
 1;

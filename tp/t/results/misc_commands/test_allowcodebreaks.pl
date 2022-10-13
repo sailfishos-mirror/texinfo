@@ -2701,7 +2701,7 @@ Out of code &mdash; out-of-code.
 <code class="code">1aaa</code> <code class="code">2aaa-</code> <code class="code">-3bbb</code> <code class="code">4aaa-bbb</code> 
 <code class="code"> 5aaa-bb</code> <code class="code">6aaa-bb </code> <code class="code">ccc 7aaa-bbb</code> <code class="code">ccc 8aaa-bbb ddd</code>
 <code class="code">9aaa-bbb rrr_vv</code>
-&lsquo;<samp class="samp">fff-- --- minus-b aa-tt&eacute;ff_gg aa<span class="r">r-oman</span> 
+&lsquo;<samp class="samp">fff-- --- minus&minus;b aa-tt&eacute;ff_gg aa<span class="r">r-oman</span> 
 anc-hor<a class="anchor" id="A-node0"></a></samp>&rsquo;
 </p>
 <div class="example">
@@ -2713,7 +2713,7 @@ Out of code &mdash; out-of-code.
 <code class="code">1aaa</code> <code class="code">2aaa-</code> <code class="code">-3bbb</code> <code class="code">4aaa-bbb</code> 
 <code class="code"> 5aaa-bb</code> <code class="code">6aaa-bb </code> <code class="code">ccc 7aaa-bbb</code> <code class="code">ccc 8aaa-bbb ddd</code>
 <code class="code">9aaa-bbb rrr_vv</code>
-&lsquo;<samp class="samp">fff-- --- minus-b aa-tt&eacute;ff_gg aa<span class="r">r-oman</span> 
+&lsquo;<samp class="samp">fff-- --- minus&minus;b aa-tt&eacute;ff_gg aa<span class="r">r-oman</span> 
 anc-hor<a class="anchor" id="A-node1"></a></samp>&rsquo;
 </p>
 <div class="example">
@@ -2721,7 +2721,7 @@ anc-hor<a class="anchor" id="A-node1"></a></samp>&rsquo;
 </pre></div>
 
 <p>In w:
-Out&nbsp;of&nbsp;code&nbsp;&mdash;&nbsp;<span class="w-nolinebreak-text">out-of-code.</span>&nbsp;<code class="code">1aaa</code>&nbsp;<code class="code"><span class="w-nolinebreak-text">2aaa-</span></code>&nbsp;<code class="code"><span class="w-nolinebreak-text">-3bbb</span></code>&nbsp;<code class="code"><span class="w-nolinebreak-text">4aaa-bbb</span></code>&nbsp;&nbsp;<code class="code">&nbsp;<span class="w-nolinebreak-text">5aaa-bb</span></code>&nbsp;<code class="code"><span class="w-nolinebreak-text">6aaa-bb</span>&nbsp;</code>&nbsp;<code class="code">ccc&nbsp;<span class="w-nolinebreak-text">7aaa-bbb</span></code>&nbsp;<code class="code">ccc&nbsp;<span class="w-nolinebreak-text">8aaa-bbb</span>&nbsp;ddd</code>&nbsp;<code class="code"><span class="w-nolinebreak-text">9aaa-bbb</span>&nbsp;<span class="w-nolinebreak-text">rrr_vv</span></code>&nbsp;&lsquo;<samp class="samp"><span class="w-nolinebreak-text">fff--</span>&nbsp;<span class="w-nolinebreak-text">---</span>&nbsp;minus-b&nbsp;<span class="w-nolinebreak-text">aa-tt</span>&eacute;<span class="w-nolinebreak-text">ff_gg</span>&nbsp;aa<span class="r"><span class="w-nolinebreak-text">r-oman</span></span>&nbsp;&nbsp;<span class="w-nolinebreak-text">anc-hor</span><a class="anchor" id="A-nodew"></a></samp>&rsquo;&nbsp;<!-- /@w -->
+Out&nbsp;of&nbsp;code&nbsp;&mdash;&nbsp;<span class="w-nolinebreak-text">out-of-code.</span>&nbsp;<code class="code">1aaa</code>&nbsp;<code class="code"><span class="w-nolinebreak-text">2aaa-</span></code>&nbsp;<code class="code"><span class="w-nolinebreak-text">-3bbb</span></code>&nbsp;<code class="code"><span class="w-nolinebreak-text">4aaa-bbb</span></code>&nbsp;&nbsp;<code class="code">&nbsp;<span class="w-nolinebreak-text">5aaa-bb</span></code>&nbsp;<code class="code"><span class="w-nolinebreak-text">6aaa-bb</span>&nbsp;</code>&nbsp;<code class="code">ccc&nbsp;<span class="w-nolinebreak-text">7aaa-bbb</span></code>&nbsp;<code class="code">ccc&nbsp;<span class="w-nolinebreak-text">8aaa-bbb</span>&nbsp;ddd</code>&nbsp;<code class="code"><span class="w-nolinebreak-text">9aaa-bbb</span>&nbsp;<span class="w-nolinebreak-text">rrr_vv</span></code>&nbsp;&lsquo;<samp class="samp"><span class="w-nolinebreak-text">fff--</span>&nbsp;<span class="w-nolinebreak-text">---</span>&nbsp;minus&minus;b&nbsp;<span class="w-nolinebreak-text">aa-tt</span>&eacute;<span class="w-nolinebreak-text">ff_gg</span>&nbsp;aa<span class="r"><span class="w-nolinebreak-text">r-oman</span></span>&nbsp;&nbsp;<span class="w-nolinebreak-text">anc-hor</span><a class="anchor" id="A-nodew"></a></samp>&rsquo;&nbsp;<!-- /@w -->
 </p>
 <div class="example">
 <pre class="example-preformatted"><code class="code">in-example</code><!-- /@w -->
@@ -2732,7 +2732,7 @@ Out of code &mdash; out-of-code.
 <code class="code">1aaa</code> <code class="code">2aaa-</code> <code class="code">-3bbb</code> <code class="code">4aaa-bbb</code> 
 <code class="code"> 5aaa-bb</code> <code class="code">6aaa-bb </code> <code class="code">ccc 7aaa-bbb</code> <code class="code">ccc 8aaa-bbb ddd</code>
 <code class="code">9aaa-bbb rrr_vv</code>
-&lsquo;<samp class="samp">fff-- --- minus-b aa-tt&eacute;ff_gg aa<span class="r">r-oman</span> 
+&lsquo;<samp class="samp">fff-- --- minus&minus;b aa-tt&eacute;ff_gg aa<span class="r">r-oman</span> 
 anc-hor<a class="anchor" id="A-node2"></a></samp>&rsquo;
 </p>
 <div class="example">

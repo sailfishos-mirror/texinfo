@@ -1,3 +1,11 @@
+2022-10-13  Patrice Dumas  <pertusus@free.fr>
+
+	Use &minus; for @minus{} in HTML output
+
+	* tp/Texinfo/Convert/Converter.pm
+	(%xml_text_entity_no_arg_commands_formatting): use &minus; for
+	@minus{}.  Report from Vincent Lefèvre.
+
 2022-10-12  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm: setup %description_command_format in

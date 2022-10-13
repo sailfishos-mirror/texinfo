@@ -1736,7 +1736,7 @@ $result_converted{'html_text'}->{'test_accents_sc_default_latin1'} = '
 </p>
 <p>&ge; <small class="enddots">...</small> &Aring; &eacute; &#550; &#322;. &copy;. error&rarr;.
 &ldquo; in quotes &rdquo;. &rarr;
-- &reg;
+&minus; &reg;
 </p>
 
 <p>&ndash;a&#774;

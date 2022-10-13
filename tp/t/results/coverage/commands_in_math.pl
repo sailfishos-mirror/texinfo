@@ -2691,7 +2691,7 @@ a sunny day
 <div class="displaymath"><em>&rarr;
 &#x0075;
 TeX LaTeX &bull; &copy; &hellip; ... &equiv;
-error&rarr; &rarr; - &lowast; -| &rArr;
+error&rarr; &rarr; &minus; &lowast; -| &rArr;
 &aring; &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH;
 &THORN; &eth; &thorn; &iexcl; &iquest; &pound;
 &reg; &ordf; &ordm; , 
