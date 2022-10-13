@@ -38,7 +38,6 @@ use strict;
 
 use Texinfo::Common;
 
-use Texinfo::Convert::Converter qw(xml_protect_text);
 use Texinfo::Convert::Text;
 
 
@@ -71,14 +70,30 @@ texinfo_set_from_init_file('MENU_SYMBOL', '*');
 texinfo_set_from_init_file('OPEN_QUOTE_SYMBOL', '`');
 texinfo_set_from_init_file('CLOSE_QUOTE_SYMBOL', "'");
 
+
+# &quot; is not in html 3.2
+sub html32_format_protect_text($$)
+{
+  my $converter = shift;
+  my $text = shift;
+  $text =~ s/&/&amp;/g;
+  $text =~ s/</&lt;/g;
+  $text =~ s/>/&gt;/g;
+  $text =~ s/\"/&#34;/g;
+  $text =~ s/\f/&#12;/g;
+  return $text;
+}
+
+texinfo_register_formatting_function('format_protect_text', \&html32_format_protect_text);
+
+
 foreach my $command ('euro', 'geq', 'leq',
-   'bullet', 'equiv', 'expansion', 'point', 'result', 'arrow',
+   'bullet', 'equiv', 'expansion', 'minus', 'point', 'result', 'arrow',
    'quotedblleft', 'quotedblright',
    'quoteleft', 'quoteright',
    'quotedblbase', 'quotesinglbase', 'guillemetleft', 'guillemetright',
    'guillemotleft', 'guillemotright', 'guilsinglleft', 'guilsinglright') {
-  
-  my $formatted_command = xml_protect_text(undef,
+  my $formatted_command = html32_format_protect_text(undef,
              $Texinfo::Convert::Text::text_brace_no_arg_commands{$command});
   texinfo_register_no_arg_command_formatting($command, undef, $formatted_command);
 }
@@ -111,21 +126,6 @@ sub html32_setup($)
   return 0;
 }
 
-
-# &quot; is not in html 3.2
-sub html32_format_protect_text($$)
-{
-  my $converter = shift;
-  my $text = shift;
-  $text =~ s/&/&amp;/g;
-  $text =~ s/</&lt;/g;
-  $text =~ s/>/&gt;/g;
-  $text =~ s/\"/&#34;/g;
-  $text =~ s/\f/&#12;/g;
-  return $text;
-}
-
-texinfo_register_formatting_function('format_protect_text', \&html32_format_protect_text);
 
 sub html32_format_separate_anchor($$;$)
 {

@@ -1,5 +1,10 @@
 2022-10-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/html32.pm: do not use &minus;, protect with
+	html32_format_protect_text to avoid &quot;.
+
+2022-10-13  Patrice Dumas  <pertusus@free.fr>
+
 	Use &minus; for @minus{} in HTML output
 
 	* tp/Texinfo/Convert/Converter.pm
