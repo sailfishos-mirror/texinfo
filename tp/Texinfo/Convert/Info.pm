@@ -265,7 +265,7 @@ sub output($)
     my ($label_text, $byte_count) = $self->node_line($label->{'root'});
 
     if ($seen_anchors{$label_text}) {
-      $self->line_error($self, sprintf(__("\@%s output more than once: %s"),
+      $self->converter_line_error($self, sprintf(__("\@%s output more than once: %s"),
           $label->{'root'}->{'cmdname'},
           Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' =>
               $label->{'root'}->{'extra'}->{'node_content'}})),
@@ -420,7 +420,7 @@ sub format_error_outside_of_any_node($$)
   my $self = shift;
   my $element = shift;
   if (!$self->{'current_node'}) {
-    $self->line_warn($self,
+    $self->converter_line_warn($self,
          sprintf(__("\@%s outside of any node"),
                  $element->{'cmdname'}), $element->{'source_info'});
   }
@@ -436,7 +436,7 @@ sub format_node($$)
   return '' if (!defined($node->{'extra'}->{'node_content'}));
   if (!$self->{'empty_lines_count'}) {
     $result .= "\n";
-    $self->add_text_count("\n");
+    $self->add_text_to_count("\n");
     # if in the first node, complete the 'text_before_first_node' too.
     if (!$self->{'first_node_done'}) {
       $self->{'text_before_first_node'} .= "\n";
@@ -457,13 +457,13 @@ sub format_node($$)
   $self->add_location($node);
   my $node_begin = "\x{1F}\nFile: $output_filename,  Node: ";
   $result .= $node_begin;
-  $self->add_text_count($node_begin);
+  $self->add_text_to_count($node_begin);
   my ($node_text, $byte_count) = $self->node_line($node);
   my $pre_quote = '';
   my $post_quote = '';
   if ($node_text =~ /,/) {
     if ($self->{'info_special_chars_warning'}) {
-      $self->line_warn($self, sprintf(__(
+      $self->converter_line_warn($self, sprintf(__(
                  "\@node name should not contain `,': %s"), $node_text),
                                $node->{'source_info'});
     }
@@ -479,7 +479,7 @@ sub format_node($$)
     if ($node->{'structure'}->{'node_'.lc($direction)}) {
       my $node_direction = $node->{'structure'}->{'node_'.lc($direction)};
       my $text = ",  $direction: ";
-      $self->add_text_count($text);
+      $self->add_text_to_count($text);
       $result .= $text;
       if ($node_direction->{'extra'}->{'manual_content'}) {
         $result .= $self->convert_line({'type' => '_code',
@@ -499,7 +499,7 @@ sub format_node($$)
               # warn only for external nodes, internal nodes should already
               # trigger a warning when defined
               and $node_direction->{'extra'}->{'manual_content'}) {
-            $self->line_warn($self, sprintf(__(
+            $self->converter_line_warn($self, sprintf(__(
                  "\@node %s name should not contain `,': %s"),
                                            $direction, $node_text),
                              $node->{'source_info'});
@@ -515,12 +515,12 @@ sub format_node($$)
     } elsif ($direction eq 'Up' and $node->{'extra'}->{'normalized'} eq 'Top') {
       # add an up direction for Top node
       my $text = ",  $direction: ".$self->get_conf('TOP_NODE_UP');
-      $self->add_text_count($text);
+      $self->add_text_to_count($text);
       $result .= $text;
     }
   }
   $result .="\n\n";
-  $self->add_text_count("\n\n");
+  $self->add_text_to_count("\n\n");
   $self->{'count_context'}->[-1]->{'lines'} = 3;
   $self->{'empty_lines_count'} = 1;
 

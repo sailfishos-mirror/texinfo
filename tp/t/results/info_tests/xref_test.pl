@@ -449,8 +449,8 @@ $result_converted{'info'}->{'xref_test'} = 'This is , produced from .
 File: ,  Node: Top,  Up: (dir)
 
 *Note (m)in xref::.  *Note (m)bad xref:: after xref.  ‘*Note (m)bad
-nested xref::’.  *Note name: (m)in ref ending with a dot. !  after xref
-and dot inside.  .*Note (m)in ref followed by symbol::# g.
+nested xref::’.  *Note name: (m)in ref ending with a dot.. !  after xref
+and dot inside.  *Note (m)in ref followed by symbol::# g.
 
 
 Tag Table:
@@ -475,12 +475,12 @@ $result_converted_errors{'info'}->{'xref_test'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
+    'error_line' => 'warning: `.\' or `,\' must follow @xref, not !
 ',
     'file_name' => '',
     'line_nr' => 6,
     'macro' => '',
-    'text' => '`.\' or `,\' must follow @xref',
+    'text' => '`.\' or `,\' must follow @xref, not !',
     'type' => 'warning'
   }
 ];

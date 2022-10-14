@@ -1,3 +1,21 @@
+2022-10-14  Patrice Dumas  <pertusus@free.fr>
+
+	Format @*ref node out of main document to determine if quoted
+
+	* tp/Texinfo/Convert/Info.pm (converter_line_warn)
+	(converter_line_error), tp/Texinfo/Convert/Plaintext.pm
+	(converter_line_warn, converter_line_error, _convert):
+	add converter_line_warn and converter_line_error to intercept calls
+	to line_warn and line_error in case a silent conversion is needed,
+	with 'silent' set for converter.
+	Convert the @*ref commands node outside of the main document
+	formatting before converting the node normally, to determine if it
+	needs to be quoted.
+
+	* tp/Texinfo/Convert/Info.pm (add_text_to_count),
+	tp/Texinfo/Convert/Plaintext.pm(add_text_to_count): rename
+	add_text_count to add_text_to_count.
+
 2022-10-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/init/html32.pm: do not use &minus;, protect with

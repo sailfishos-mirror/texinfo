@@ -737,6 +737,31 @@ sub new_formatter($$;$)
   return $formatter;
 }
 
+# intercept messages, in case some Texinfo is processed twice
+sub converter_line_warn($$$$)
+{
+  my $self = shift;
+  my $configuration_information = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+
+  if (!$self->{'silent'}) {
+    $self->line_warn($configuration_information, $text, $error_location_info);
+  }
+}
+
+sub converter_line_error($$$$)
+{
+  my $self = shift;
+  my $configuration_information = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+
+  if (!$self->{'silent'}) {
+    $self->line_error($configuration_information, $text, $error_location_info);
+  }
+}
+
 sub convert_line($$;$)
 {
   my ($self, $converted, $conf) = @_;
@@ -770,7 +795,7 @@ sub count_bytes($$)
                                       $self->{'output_perl_encoding'});
 }
 
-sub add_text_count($$)
+sub add_text_to_count($$)
 {
   my ($self, $text) = @_;
   if (!$self->{'count_context'}->[-1]->{'pending_text'}) {
@@ -787,7 +812,7 @@ sub _add_lines_count($$)
 
 # Update $SELF->{'count_context'}->[-1]->{'bytes'} by counting the text that
 # hasn't been counted yet.  It is faster to count the text all together than
-# piece by piece in add_text_count.
+# piece by piece in add_text_to_count.
 sub update_count_context($)
 {
   my $self = shift;
@@ -860,7 +885,7 @@ sub _add_newline_if_needed($) {
   my $self = shift;
   if (defined($self->{'empty_lines_count'}) 
        and $self->{'empty_lines_count'} == 0) {
-    add_text_count($self, "\n");
+    add_text_to_count($self, "\n");
     _add_lines_count($self, 1);
     $self->{'empty_lines_count'} = 1;
     return "\n";
@@ -909,7 +934,7 @@ sub process_footnotes($;$)
     if ($self->get_conf('footnotestyle') eq 'end' or !defined($element)) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
       $result .= $footnotes_header;
-      add_text_count($self, $footnotes_header);
+      add_text_to_count($self, $footnotes_header);
       _add_lines_count($self, 2);
       $self->{'empty_lines_count'} = 1;
     } else {
@@ -953,7 +978,7 @@ sub process_footnotes($;$)
       $result .= $footnote_text;
       $self->{'text_element_context'}->[-1]->{'counter'} +=
          Texinfo::Convert::Unicode::string_width($footnote_text);
-      add_text_count($self, $footnote_text);
+      add_text_to_count($self, $footnote_text);
       $self->{'empty_lines_count'} = 0;
 
       $result .= $self->_convert($footnote->{'root'}->{'args'}->[0]); 
@@ -1205,7 +1230,7 @@ sub _menu($$)
 
   if ($menu_command->{'cmdname'} eq 'menu') {
     my $result = "* Menu:\n\n";
-    add_text_count($self, $result);
+    add_text_to_count($self, $result);
     _add_lines_count($self, 2);
     if ($self->{'current_node'}) {
       $self->{'seenmenus'}->{$self->{'current_node'}} = 1;
@@ -1338,13 +1363,13 @@ sub process_printindex($$;$)
   if ($in_info) {
     my $info_printindex_magic = "\x{00}\x{08}[index\x{00}\x{08}]\n";
     $result .= $info_printindex_magic;
-    add_text_count($self, $info_printindex_magic);
+    add_text_to_count($self, $info_printindex_magic);
     _add_lines_count($self, 1);
   }
   my $heading = "* Menu:\n\n";
 
   $result .= $heading;
-  add_text_count($self, $heading);
+  add_text_to_count($self, $heading);
   _add_lines_count($self, 2);
 
   # this is used to count entries that are the same
@@ -1384,7 +1409,7 @@ sub process_printindex($$;$)
     # protected, however, as done below, such that : in the node are not
     # mistaken as being part of the index entry.
     if ($entry_text =~ /:/ and $self->get_conf('INDEX_SPECIAL_CHARS_WARNING')) {
-      $self->line_warn ($self,
+      $self->converter_line_warn ($self,
         sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
                 $entry->{'index_at_command'},
                 Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)),
@@ -1397,17 +1422,17 @@ sub process_printindex($$;$)
     } else {
       $entry_counts{$entry_text}++;
       $entry_nr = ' <'.$entry_counts{$entry_text}.'>';
-      add_text_count($self, $entry_nr);
+      add_text_to_count($self, $entry_nr);
     }
     my $entry_line = "* $entry_text${entry_nr}: ";
-    add_text_count($self, "* ".": ");
+    add_text_to_count($self, "* ".": ");
     
     my $line_width = Texinfo::Convert::Unicode::string_width($entry_line);
     my $entry_line_addition = '';
     if ($line_width < $index_length_to_node) {
       my $spaces = ' ' x ($index_length_to_node - $line_width);
       $entry_line_addition .= $spaces;
-      add_text_count($self, $spaces);
+      add_text_to_count($self, $spaces);
     }
     my $node = $entry_nodes{$entry};
 
@@ -1431,7 +1456,7 @@ sub process_printindex($$;$)
       # done by the Parser.
       # Warn, only once.
       if (!$self->{'index_entries_no_node'}->{$entry}) {
-        $self->line_warn($self,
+        $self->converter_line_warn($self,
              sprintf(__("entry for index `%s' outside of any node"),
                         $index_name), $entry->{'entry_element'}->{'source_info'});
         $self->{'index_entries_no_node'}->{$entry} = 1;
@@ -1447,7 +1472,7 @@ sub process_printindex($$;$)
         if ($self->{'info_special_chars_warning'}) {
           # Warn only once
           if (! $self->{'index_entry_node_colon'}->{$node_line}) {
-            $self->line_warn($self, sprintf(__(
+            $self->converter_line_warn($self, sprintf(__(
              "node name with index entries should not contain `%s'"),
                                             $warned_char),
                            $node->{'source_info'});
@@ -1464,7 +1489,7 @@ sub process_printindex($$;$)
       $entry_line_addition .= $node_line;
     }
     $entry_line_addition .= '.';
-    add_text_count($self, '.');
+    add_text_to_count($self, '.');
 
     $entry_line .= $entry_line_addition;
     $result .= $entry_line;
@@ -1484,12 +1509,12 @@ sub process_printindex($$;$)
            . "$line_part\n";
     }
     _add_lines_count($self, 1);
-    add_text_count($self, $line_part);
+    add_text_to_count($self, $line_part);
     $result .= $line_part;
   }
 
   $result .= "\n"; 
-  add_text_count($self, "\n");
+  add_text_to_count($self, "\n");
   _add_lines_count($self, 1);
   
   return $result;
@@ -1537,7 +1562,7 @@ sub ensure_end_of_line($$)
   }
   $text .= "\n";
   $self->{'text_element_context'}->[-1]->{'counter'} = 0;
-  add_text_count($self, "\n");
+  add_text_to_count($self, "\n");
   _add_lines_count($self, 1);
   return $text;
 }
@@ -1556,7 +1581,7 @@ sub image_formatted_text($$$$)
       {'contents' => $element->{'args'}->[3]->{'contents'}},
       $self->{'convert_text_options'}) .']';
   } else {
-    $self->line_warn($self, sprintf(__(
+    $self->converter_line_warn($self, sprintf(__(
                     "could not find \@image file `%s.txt' nor alternate text"),
                              $basefile), $element->{'source_info'});
     $result = '['.$basefile.']';
@@ -1634,7 +1659,7 @@ sub _convert($$)
       # relevant to keep form feeds in other ignorable spaces.
       $result = _get_form_feeds($element->{'text'});
     }
-    add_text_count($self, $result);
+    add_text_to_count($self, $result);
     return $result;
   }
 
@@ -1650,7 +1675,7 @@ sub _convert($$)
       $result = "";
       if ($element->{'text'} =~ /\f/) {
         $result .= _get_form_feeds($element->{'text'});
-        add_text_count($self, $result);
+        add_text_to_count($self, $result);
       }
       $result .= _count_added($self, $formatter->{'container'},
                 add_text($formatter->{'container'}, "\n"));
@@ -1675,7 +1700,7 @@ sub _convert($$)
         return $result;
       # the following is only possible if paragraphindent is set to asis
       } elsif ($type and $type eq 'spaces_before_paragraph') {
-        add_text_count($self, $element->{'text'});
+        add_text_to_count($self, $element->{'text'});
         return $element->{'text'};
       # ignore text outside of any format, but warn if ignored text not empty
       } elsif ($element->{'text'} =~ /\S/) {
@@ -1930,7 +1955,7 @@ sub _convert($$)
              and $element->{'args'}->[0]->{'contents'}->[0]->{'text'} =~ /^Note\s/i
              and $self->{'converted_format'}
              and $self->{'converted_format'} eq 'info') {
-          $self->line_warn($self, __(
+          $self->converter_line_warn($self, __(
     "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"), 
                            $element->{'source_info'});
         }
@@ -1983,7 +2008,7 @@ sub _convert($$)
       add_next($formatter->{'container'},'');
       my ($image, $lines_count) = $self->format_image($element);
       _add_lines_count($self, $lines_count);
-      add_text_count($self, $image);
+      add_text_to_count($self, $image);
       if ($image ne '' and $formatter->{'type'} ne 'paragraph') {
         $self->{'empty_lines_count'} = 0;
       }
@@ -2182,7 +2207,7 @@ sub _convert($$)
           my $quoting_required = 0;
           if ($name_text_checked =~ /:/m) { 
             if ($self->{'info_special_chars_warning'}) {
-              $self->line_warn($self, sprintf(__(
+              $self->converter_line_warn($self, sprintf(__(
                  "\@%s cross-reference name should not contain `:'"),
                                        $command), $element->{'source_info'});
             }
@@ -2205,20 +2230,17 @@ sub _convert($$)
           $result .= _convert($self, {'contents' => $file});
         }
 
-        # node name
-        $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
-        my $maybe_file
-          = get_pending($self->{'formatters'}->[-1]->{'container'});
-        my $node_text = _convert($self, {'type' => '_code',
-                                         'contents' => $node_content});
-        delete $self->{'formatters'}->[-1]->{'suppress_styles'};
-
-        my $node_text_checked = $node_text
-           .get_pending($self->{'formatters'}->[-1]->{'container'});
-        $maybe_file =~ s/^\s*//;
-        $maybe_file = quotemeta $maybe_file;
-        $node_text_checked =~ s/^\s*$maybe_file//;
-        my $quoting_required = 0;
+        # format ref node argument outside of the document context to determine
+        # if it should be quoted
+        $self->{'silent'} = 0 if (!defined($self->{'silent'}));
+        $self->{'silent'}++;
+        push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+        my $node_line_name = $self->convert_line({'type' => '_code',
+                                         'contents' => $node_content},
+                                       {'suppress_styles' => 1,
+                                         'no_added_eol' => 1});
+        pop @{$self->{'count_context'}};
+        $self->{'silent'}--;
 
         my $check_chars;
         if ($name) {
@@ -2227,9 +2249,10 @@ sub _convert($$)
           $check_chars = quotemeta ":";
         }
 
-        if ($node_text_checked =~ /([$check_chars])/m){
+        my $quoting_required = 0;
+        if ($node_line_name =~ /([$check_chars])/m) {
           if ($self->{'info_special_chars_warning'}) {
-            $self->line_warn($self, sprintf(__(
+            $self->converter_line_warn($self, sprintf(__(
                "\@%s node name should not contain `%s'"), $command, $1),
                              $element->{'source_info'});
           }
@@ -2237,8 +2260,21 @@ sub _convert($$)
             $quoting_required = 1;
           }
         }
+
         my $pre_quote = $quoting_required ? "\x{7f}" : '';
         my $post_quote = $pre_quote;
+
+        # node name
+        my $node_text = '';
+        $node_text .= _count_added($self,
+          $self->{'formatters'}[-1]{'container'},
+          add_next($self->{'formatters'}->[-1]->{'container'}, $pre_quote))
+               if $pre_quote;
+
+        $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
+        $node_text .= _convert($self, {'type' => '_code',
+                                         'contents' => $node_content});
+        delete $self->{'formatters'}->[-1]->{'suppress_styles'};
 
         $node_text .= _count_added($self,
           $self->{'formatters'}[-1]{'container'},
@@ -2251,42 +2287,15 @@ sub _convert($$)
             add_next($self->{'formatters'}->[-1]->{'container'}, '::'));
         }
 
-        my $following = '';
-        my $maybe_leading
-          = get_pending($self->{'formatters'}->[-1]->{'container'});
-
-        if ($pre_quote) {
-          # Try to output enough that the node name is output so we can
-          # insert $pre_quote before it.
-          # We could use add_pending_word, but this could lead to
-          # the line being broken too late.
-          my $next = $self->{'current_contents'}->[-1]->[0];
-          if ($next) {
-            $following = _convert($self, $next);
-            $node_text .= $following;
-            shift @{$self->{'current_contents'}->[-1]};
-          }
-
-          $node_text =~ s/(^(\s*$maybe_file\s*))/$1$pre_quote/;
-          _count_added($self,$self->{'formatters'}[-1]{'container'},
-                       $pre_quote);
-        }
         $result .= $node_text;
 
-        # Check if punctuation follows the ref command.  If we converted
-        # past the ref command, check if the excess starts with one of the
-        # characters.  Do this by stripping off the leading text that
-        # contains the output from the ref command.
+        # Check if punctuation follows the ref command.
         #
         # FIXME: is @xref really special here?  Original comment:
         # "If command is @xref, the punctuation must always follow the
         # command, for other commands it may be in the argument..."
 
-        $following .= get_pending($self->{'formatters'}->[-1]->{'container'});
-        $maybe_leading = quotemeta $maybe_leading;
-        $following =~ s/^$maybe_leading//;
-
-        if ($name and $following !~ /^[\.,]/) {
+        if ($name) {
           my $next = $self->{'current_contents'}->[-1]->[0];
           if (!($next and $next->{'text'} and $next->{'text'} =~ /^[\.,]/)) {
             if ($command eq 'xref') {
@@ -2294,11 +2303,11 @@ sub _convert($$)
                 my $text = $next->{'text'};
                 $text =~ s/^\s*//;
                 my $char = substr($text, 0, 1);
-                $self->line_warn($self, sprintf(__(
+                $self->converter_line_warn($self, sprintf(__(
                             "`.' or `,' must follow \@xref, not %s"),
                                          $char), $element->{'source_info'});
               } else {
-                $self->line_warn($self,
+                $self->converter_line_warn($self,
                            __("`.' or `,' must follow \@xref"),
                                  $element->{'source_info'});
               }
@@ -2396,7 +2405,7 @@ sub _convert($$)
           ($self->{'format_context'}->[-1]->{'indent_level'}) * $indent_length);
       $result =~ s/\n$//; # final newline has its own tree element
       $self->{'empty_lines_count'} = 0 unless ($result eq '');
-      add_text_count($self, $result);
+      add_text_to_count($self, $result);
       _add_lines_count($self, 1);
       return $result;
 
@@ -2585,7 +2594,7 @@ sub _convert($$)
                                            * $indent_length);
         $result .= _add_newline_if_needed($self);
         $self->{'empty_lines_count'} = 0 unless ($heading_underlined eq '');
-        add_text_count($self, $heading_underlined);
+        add_text_to_count($self, $heading_underlined);
         $result .= $heading_underlined;
         if ($heading_underlined ne '') {
           _add_lines_count($self, 2);
@@ -2789,7 +2798,7 @@ sub _convert($$)
         pop @{$self->{'count_context'}};
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
-      add_text_count($self, $result);
+      add_text_to_count($self, $result);
       _add_lines_count($self, $lines_count);
       return $result;
     } elsif ($command eq 'sp') {
@@ -2815,7 +2824,7 @@ sub _convert($$)
             = $self->format_contents($self->{'structuring'}->{'sectioning_root'}, 
                               'contents');
         _add_lines_count($self, $lines_count);
-        add_text_count($self, $result);
+        add_text_to_count($self, $result);
       }
       return $result;
     } elsif ($command eq 'shortcontents' 
@@ -2827,7 +2836,7 @@ sub _convert($$)
               = $self->format_contents($self->{'structuring'}->{'sectioning_root'}, 
                               'shortcontents');
         _add_lines_count($self, $lines_count);
-        add_text_count($self, $result);
+        add_text_to_count($self, $result);
       }
       return $result;
     # all the @-commands that have an information for the formatting, like
@@ -3135,7 +3144,7 @@ sub _convert($$)
           if ($entry_name_seen) {
             if ($node_text =~ /([,\t]|\.\s)/) {
               if ($self->{'info_special_chars_warning'}) {
-                $self->line_warn($self, sprintf(__(
+                $self->converter_line_warn($self, sprintf(__(
                    "menu entry node name should not contain `%s'"), $1),
                                $element->{'source_info'});
               }
@@ -3146,7 +3155,7 @@ sub _convert($$)
           } else {
             if ($node_text =~ /:/) {
               if ($self->{'info_special_chars_warning'}) {
-                $self->line_warn($self, __(
+                $self->converter_line_warn($self, __(
                  "menu entry node name should not contain `:'"),
                                $element->{'source_info'});
               }
@@ -3168,7 +3177,7 @@ sub _convert($$)
           $pre_quote = $post_quote = '';
           if ($entry_name =~ /:/) {
             if ($self->{'info_special_chars_warning'}) {
-              $self->line_warn($self, __(
+              $self->converter_line_warn($self, __(
                  "menu entry name should not contain `:'"),
                                $element->{'source_info'});
             }

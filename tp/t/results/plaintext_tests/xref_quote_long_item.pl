@@ -348,21 +348,8 @@ $result_converted{'plaintext'}->{'xref_quote_long_item'} = 'â€˜@verbatimincludeâ
      *Note Texinfo::Convert::Utils::expand_verbatiminclude:
      (tp_api)Texinfo::Convert::Utils $tree =
      expand_verbatiminclude($registrar, $configuration_information,
-     $verbatiminclude).  .
+     $verbatiminclude).
 
 ';
-
-$result_converted_errors{'plaintext'}->{'xref_quote_long_item'} = [
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  }
-];
-
 
 1;
