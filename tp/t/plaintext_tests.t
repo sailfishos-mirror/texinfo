@@ -645,6 +645,17 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @xref{no:de,,, manual,Manual}
 {'INFO_SPECIAL_CHARS_QUOTE' => 1,
  'INFO_SPECIAL_CHARS_WARNING' => 0,}
 ],
+['xref_quote_long_item',
+'@table @asis
+
+@item @code{@@verbatiminclude}
+@xref{Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar@comma{} $configuration_information@comma{} $verbatiminclude),,
+Texinfo::Convert::Utils::expand_verbatiminclude, tp_api}.
+
+@end table
+',{},
+{'INFO_SPECIAL_CHARS_QUOTE' => 1,
+ 'INFO_SPECIAL_CHARS_WARNING' => 0,}],
 );
 
 my $insert_copying_and_paragraph = 
