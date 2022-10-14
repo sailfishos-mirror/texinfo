@@ -113,6 +113,9 @@ foreach my $context ('preformatted', 'normal') {
   texinfo_register_style_command_formatting('t', 'tt', undef, $context);
 }
 
+# no inodot in HTML3.2
+texinfo_register_accent_command_formatting('dotless', '', '');
+
 
 # reset BIG_RULE to HTML3.2 compatible rule if in TEXI2HTML mode
 texinfo_register_handler('setup', \&html32_setup);

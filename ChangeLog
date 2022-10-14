@@ -1,5 +1,27 @@
 2022-10-14  Patrice Dumas  <pertusus@free.fr>
 
+	Add simple customization of accent commands formatting in HTML
+
+	* doc/customization_api.texi, tp/Texinfo/Config.pm
+	($GNUT_accent_command_formatting_info)
+	(texinfo_register_accent_command_formatting)
+	(GNUT_get_accent_command_formatting), tp/Texinfo/Convert/Converter.pm
+	(xml_numeric_entity_accent), tp/Texinfo/Convert/HTML.pm
+	(_accent_entities_html_accent)
+	(_accent_entities_numeric_entities_accent, _convert_accent_command)
+	(converter_initialize), tp/init/html32.pm: add
+	texinfo_register_accent_command_formatting and
+	GNUT_get_accent_command_formatting to register simple accent
+	formatting information.  Rename Texinfo::Convert::Converter
+	_format_numeric_entities_accent as xml_numeric_entity_accent.
+	Add _accent_entities_html_accent() and
+	_accent_entities_numeric_entities_accent() functions in
+	HTML.pm called by _convert_accent_command that are similar with
+	XML accent formatting functions in Texinfo::Convert::Converter, but
+	use the simple accent formatting information registered by the user.
+
+2022-10-14  Patrice Dumas  <pertusus@free.fr>
+
 	Format @*ref node out of main document to determine if quoted
 
 	* tp/Texinfo/Convert/Info.pm (converter_line_warn)

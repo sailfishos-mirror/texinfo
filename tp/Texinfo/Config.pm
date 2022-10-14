@@ -394,6 +394,7 @@ my $GNUT_types_conversion = {};
 my $GNUT_types_open = {};
 my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
+my $GNUT_accent_command_formatting_info = {};
 my $GNUT_types_formatting_info = {};
 
 # called from init files
@@ -558,6 +559,7 @@ sub GNUT_get_no_arg_command_formatting($;$)
   return undef;
 }
 
+# called from init files
 sub texinfo_register_style_command_formatting($$;$$)
 {
   my $command = shift;
@@ -600,6 +602,28 @@ sub GNUT_get_style_command_formatting($;$)
     return $GNUT_style_commands_formatting_info->{$context}->{$command};
   }
   return undef;
+}
+
+# called from init files
+sub texinfo_register_accent_command_formatting($$$)
+{
+  my $command = shift;
+  my $accent_command_entity = shift;
+  my $accent_command_text_with_entities = shift;
+
+  $GNUT_accent_command_formatting_info->{$command}
+    = [$accent_command_entity, $accent_command_text_with_entities];
+  return 1;
+}
+
+# called from the Converter
+sub GNUT_get_accent_command_formatting($)
+{
+  my $command = shift;
+  if (exists($GNUT_accent_command_formatting_info->{$command})) {
+    return @{$GNUT_accent_command_formatting_info->{$command}};
+  }
+  return (undef, undef);
 }
 
 # need to give both arguments

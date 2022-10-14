@@ -27,6 +27,8 @@ texinfo_register_style_command_formatting('sansserif', 'code', 0, 'normal');
 texinfo_register_style_command_formatting('sansserif', 'code', 0, 'preformatted');
 texinfo_register_style_command_formatting('sansserif', undef, 1, 'string');
 
+texinfo_register_accent_command_formatting('dotless', 'nodot', 'ij');
+
 my $shown_styles;
 my $footnotestyle;
 sub my_function_set_some_css {

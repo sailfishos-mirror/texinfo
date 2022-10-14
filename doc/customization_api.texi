@@ -571,6 +571,44 @@ foreach my $context ('normal', 'example', string') @{
 @end example
 
 
+@node Simple Customization of Accent Commands
+@section Simple Customization of Accent Commands
+
+@cindex HTML customization for accent commands
+@cindex Accent commands, customizing HTML for
+@cindex Accent command named entities
+
+The formatting of accent commands (@code{@@'}, @code{@@ringaccent},
+@code{@@dotless}) can be customized with @code{USE_NUMERIC_ENTITY}.
+It is also possible to change how accented commands are converted
+to named entities.  The accent named entities are obtained by combining
+a letter to be accented, such as @samp{e} and a postfix based on the
+accent command name, for example @samp{acute} for the acute accent
+@code{@@'}.  For example, @samp{@@'e} is converted to the @samp{&eacute;}
+named entity in the default case.
+
+The association of accent @@-command and named entity postfix and
+the list of letters that can be prepended can be changed with
+@code{texinfo_register_accent_command_formatting}:
+
+@defun texinfo_register_accent_command_formatting ($accent_command_name, $entity_postfix, $letters)
+@var{$accent_command_name} is a Texinfo accent formatting @@-command name,
+@var{$entity_postfix} is a string corresponding to the accent command that
+is postpended to the letter accent argument.  @var{$letters} is a string
+listing the letters that can be combined with the @var{$entity_postfix}.
+If @var{$entity_postfix} or @var{$letters} is an empty string, numeric entities
+are used instead of named entities.
+@end defun
+
+For example, with the following code, @code{@@dotless@{i@}} should be converted
+to @code{&inodot;}, and @code{@@dotless@{j@}} to @code{&jnodot;}.  Other letters
+than @samp{i} and @samp{j} in argument of @code{@@dotless} should not be combined
+into a named entity with that example.
+@example
+texinfo_register_accent_command_formatting('dotless', 'nodot', 'ij');
+@end example
+
+
 @node Simple Customization of Containers
 @section Simple Customization of Containers
 
@@ -3740,6 +3778,12 @@ Can be called as @code{$converter->float_name_caption}.
 @xref{Texinfo::Convert::Converter $result = xml_accent($text@comma{} $accent_command@comma{} $in_upper_case@comma{} $use_numeric_entities),,
 Texinfo::Convert::Converter::xml_accent, tp_api}.
 Can be called as @code{$converter->xml_accent}.
+
+@xref{Texinfo::Convert::Converter $result = xml_numeric_entity_accent($accent_command_name@comma{} $text),,
+Texinfo::Convert::Converter::xml_numeric_entity_accent, tp_api}.
+
+@xref{Texinfo::Convert::Converter $result = $converter->convert_accents($accent_command@comma{} \&format_accents@comma{} $in_upper_case),,
+Texinfo::Convert::Converter::convert_accents, tp_api}.
 
 @item text element
 @xref{Texinfo::Convert::Converter $formatted_text = $converter->xml_format_text_with_numeric_entities($text),,

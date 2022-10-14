@@ -1601,7 +1601,7 @@ our %xml_accent_entities = (
           'dotless', 'nodot',
          );
 
-my %xml_accent_text_with_entities = (
+our %xml_accent_text_with_entities = (
       'ringaccent' => 'aA',
       "'"          => 'aeiouyAEIOUY',
       ','          => 'cC',
@@ -1615,7 +1615,7 @@ my %xml_accent_text_with_entities = (
 #      'ogonek'     => 'aeiuAEIU',
 );
 
-sub _format_numeric_entities_accent($$)
+sub xml_numeric_entity_accent($$)
 {
   my $accent = shift;
   my $text = shift;
@@ -1673,7 +1673,7 @@ sub xml_accent($$$;$$$)
   }
  
   if ($use_numeric_entities) {
-    my $formatted_accent = _format_numeric_entities_accent($accent, $text);
+    my $formatted_accent = xml_numeric_entity_accent($accent, $text);
     if (defined($formatted_accent)) {
       return $formatted_accent;
     }
@@ -1682,7 +1682,7 @@ sub xml_accent($$$;$$$)
       if (defined($xml_accent_entities{$accent})
           and defined($xml_accent_text_with_entities{$accent})
           and ($text =~ /^[$xml_accent_text_with_entities{$accent}]$/));
-    my $formatted_accent = _format_numeric_entities_accent($accent, $text);
+    my $formatted_accent = xml_numeric_entity_accent($accent, $text);
     if (defined($formatted_accent)) {
       return $formatted_accent;
     }
@@ -1928,6 +1928,13 @@ X<C<xml_accents>>
 I<$accent_command> is an accent command, which may have other accent
 commands nested.  If I<$in_upper_case> is set, the result should be
 upper cased.  The function returns the accents formatted as XML.
+
+=item $result = xml_numeric_entity_accent($accent_command_name, $text)
+X<C<xml_numeric_entity_accent>>
+
+I<$accent_command_name> is the name of an accent command.  I<$text> is the text
+appearing within the accent command.  Returns the accented letter as XML numeric
+entity, or C<undef> is there is no such entity.
 
 =back
 

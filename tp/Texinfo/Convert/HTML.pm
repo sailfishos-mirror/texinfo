@@ -2996,6 +2996,68 @@ sub _convert_math_command($$$$)
 
 $default_commands_conversion{'math'} = \&_convert_math_command;
 
+sub _accent_entities_html_accent($$$;$$$)
+{
+  my $self = shift;
+  my $text = shift;
+  my $command = shift;
+  my $in_upper_case = shift;
+  my $use_numeric_entities = shift;
+  my $accent = $command->{'cmdname'};
+
+  if ($in_upper_case and $text =~ /^\w$/) {
+    $text = uc ($text);
+  }
+
+  # do not return a dotless i or j as such if it is further composed
+  # with an accented letter, return the letter as is
+  if ($accent eq 'dotless') {
+    if ($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}
+        and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})
+        and ($command->{'parent'}
+             and $command->{'parent'}->{'parent'}
+             and $command->{'parent'}->{'parent'}->{'cmdname'}
+             and $Texinfo::Convert::Unicode::unicode_accented_letters{$command->{'parent'}
+                                        ->{'parent'}->{'cmdname'}})) {
+      return $text;
+    }
+  }
+
+  if ($use_numeric_entities) {
+    my $formatted_accent
+      = Texinfo::Convert::Converter::xml_numeric_entity_accent($accent, $text);
+    if (defined($formatted_accent)) {
+      return $formatted_accent;
+    }
+  } else {
+    my ($accent_command_entity, $accent_command_text_with_entities);
+    if ($self->{'accent_entities'}->{$accent}) {
+      ($accent_command_entity, $accent_command_text_with_entities)
+        = @{$self->{'accent_entities'}->{$accent}};
+    }
+    return "&${text}$accent_command_entity;"
+      if ($accent_command_entity
+          and defined($accent_command_text_with_entities)
+          and ($text =~ /^[$accent_command_text_with_entities]$/));
+    my $formatted_accent
+      = Texinfo::Convert::Converter::xml_numeric_entity_accent($accent, $text);
+    if (defined($formatted_accent)) {
+      return $formatted_accent;
+    }
+  }
+  return $self->xml_accent($text, $command, $in_upper_case, $use_numeric_entities);
+}
+
+sub _accent_entities_numeric_entities_accent($$$;$)
+{
+  my $self = shift;
+  my $text = shift;
+  my $command = shift;
+  my $in_upper_case = shift;
+
+  return _accent_entities_html_accent($self, $text, $command, $in_upper_case, 1);
+}
+
 sub _convert_accent_command($$$$)
 {
   my $self = shift;
@@ -3003,7 +3065,14 @@ sub _convert_accent_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  return $self->xml_accents($command, $self->in_upper_case());
+  my $format_accents;
+  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    $format_accents = \&_accent_entities_numeric_entities_accent;
+  } else {
+    $format_accents = \&_accent_entities_html_accent;
+  }
+  return $self->convert_accents($command, $format_accents,
+                                $self->in_upper_case());
 }
 
 foreach my $command (keys(%accent_commands)) {
@@ -3646,7 +3715,7 @@ sub register_opened_section_level($$$)
   my $level = shift;
   my $close = shift;
   while (@{$self->{'pending_closes'}} < $level) {
-      push(@{$self->{'pending_closes'}}, "");
+    push(@{$self->{'pending_closes'}}, "");
   }
   push(@{$self->{'pending_closes'}}, $close);
 }
@@ -7165,6 +7234,32 @@ sub converter_initialize($)
       }
     }
   }
+
+  $self->{'accent_entities'} = {};
+  foreach my $accent_command
+     (keys(%Texinfo::Convert::Converter::xml_accent_entities)) {
+    $self->{'accent_entities'}->{$accent_command} = [];
+    my ($accent_command_entity, $accent_command_text_with_entities)
+      = Texinfo::Config::GNUT_get_accent_command_formatting($accent_command);
+    if (not defined($accent_command_entity)
+        and defined($Texinfo::Convert::Converter::xml_accent_text_with_entities{
+                                                              $accent_command})) {
+      $accent_command_entity
+       = $Texinfo::Convert::Converter::xml_accent_entities{$accent_command};
+    }
+    if (not defined($accent_command_text_with_entities)
+        and defined($Texinfo::Convert::Converter::xml_accent_text_with_entities{
+                                                             $accent_command})) {
+      $accent_command_text_with_entities
+  = $Texinfo::Convert::Converter::xml_accent_text_with_entities{$accent_command}; 
+    }
+    # an empty string means no formatting
+    if (defined($accent_command_entity)) {
+      $self->{'accent_entities'}->{$accent_command} = [$accent_command_entity,
+                                           $accent_command_text_with_entities];
+    }
+  }
+  #print STDERR Data::Dumper->Dump([$self->{'accent_entities'}]);
 
   $self->{'file_id_setting'} = {};
   my $customized_file_id_setting_references
