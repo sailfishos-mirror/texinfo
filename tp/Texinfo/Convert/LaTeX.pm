@@ -643,7 +643,15 @@ foreach my $always_slanted_roman_commands ('cite', 'var') {
   register_style_format_command('cmd_text', $always_slanted_roman_commands,
                         '\\normalfont{}\\textsl', \%LaTeX_style_brace_commands,
                         \%style_brace_format_command_new_commands);
-  $LaTeX_style_brace_commands{'cmd_math'}->{$always_slanted_roman_commands} = '';
+  # it seems better to use explicitly mathit, otherwise the space between
+  # the letters in argument can be important for some letters (such as ff),
+  # corresponding to letters being multiplied rather than to words, which
+  # is a better interpretation for @-command arguments.
+  # https://tex.stackexchange.com/questions/448069/fix-ugly-kerning-in-equation-subscript
+  # In tests, \mathnormal didn't avoid the issue, and numbers
+  # were small, so use \mathit, which also slants the numbers.
+  $LaTeX_style_brace_commands{'cmd_math'}->{$always_slanted_roman_commands}
+       = '\\mathit';
   $roman_style_commands{$always_slanted_roman_commands} = 1;
 }
 
@@ -665,13 +673,13 @@ foreach my $asis_command (@asis_commands) {
 my @slanted_commands = ('dfn', 'slanted');
 foreach my $slanted_command (@slanted_commands) {
   $LaTeX_style_brace_commands{'cmd_text'}->{$slanted_command} = '\\textsl';
-  $LaTeX_style_brace_commands{'cmd_math'}->{$slanted_command} = '';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$slanted_command} = '\\mathit';
 }
 
 my @emphasized_commands = ('emph');
 foreach my $emphasized_command (@emphasized_commands) {
   $LaTeX_style_brace_commands{'cmd_text'}->{$emphasized_command} = '\\emph';
-  $LaTeX_style_brace_commands{'cmd_math'}->{$emphasized_command} = '';
+  $LaTeX_style_brace_commands{'cmd_math'}->{$emphasized_command} = '\\mathit';
 }
 
 my @bold_commands = ('strong', 'b');

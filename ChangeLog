@@ -1,5 +1,16 @@
 2022-10-14  Patrice Dumas  <pertusus@free.fr>
 
+	Use explicit \mathit for slates @-commands in math
+
+	* tp/Texinfo/Convert/LaTeX.pm: for slanted indicatric commands,
+	such as @var in math use \mathit instead of no command, as
+	the space between the letters in argument can be important for some
+	letters (such as ff), corresponding to letters being multiplied
+	rather than to words, which is a better interpretation for
+	@-command arguments.  Report from Vincent Lefèvre.
+
+2022-10-14  Patrice Dumas  <pertusus@free.fr>
+
 	Add simple customization of accent commands formatting in HTML
 
 	* doc/customization_api.texi, tp/Texinfo/Config.pm
