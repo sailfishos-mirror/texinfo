@@ -18,7 +18,7 @@ Some text one the line following @@end tex
 LaTeX block
 @latex
 \begin{eqnarray}
-\frac{@var{a}^b}{\xsi} &=& @code{@'e} \\
+\frac{@var{a}^b}{\xi} &=& @code{@'e} \\
 X &=& Y
 \end{eqnarray}
 @end latex

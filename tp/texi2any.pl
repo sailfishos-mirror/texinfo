@@ -947,6 +947,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021");
  'ifinfo!' => sub { set_expansion('info', $_[1]); },
  'ifxml!' => sub { set_expansion('xml', $_[1]); },
  'ifdocbook!' => sub { set_expansion('docbook', $_[1]); },
+ 'iflatex!' => sub { set_expansion('latex', $_[1]); },
  'iftex!' => sub { set_expansion('tex', $_[1]); },
  'ifplaintext!' => sub { set_expansion('plaintext', $_[1]); },
  'I=s' => sub { push @texi2dvi_args, ('-'.$_[0], $_[1]);

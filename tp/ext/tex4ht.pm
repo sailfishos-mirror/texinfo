@@ -246,7 +246,7 @@ sub tex4ht_prepare($$)
           } else {
             print $fh "$comment";
             if ($format eq 'latex') {
-              print $fh "\\documentstyle{article}\n\\begin{document}\n";
+              print $fh "\\documentclass{article}\n\\begin{document}\n";
             } elsif ($format eq 'tex') {
               print $fh "\\csname tex4ht\\endcsname\n";
             }
