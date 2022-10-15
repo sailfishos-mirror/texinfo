@@ -272,7 +272,7 @@ sub tex4ht_prepare($$)
 
         my $begin_comment = "<!-- tex4ht_begin $formats{$format}->{'basename'} $cmdname $counter -->";
         print $fh "$before_comment_open$begin_comment$after_comment_open";
-        if ($cmdname eq 'tex') {
+        if ($cmdname eq 'tex' or $cmdname eq 'latex') {
           print $fh $text;
         } elsif ($cmdname eq 'math') {
           if ($format eq 'texi') {

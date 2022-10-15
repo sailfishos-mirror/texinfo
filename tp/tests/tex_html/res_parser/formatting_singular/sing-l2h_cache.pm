@@ -2,182 +2,151 @@
 use utf8;
 our %l2h_cache;
 
-$l2h_cache_key = q/$$@"u @"{U} @~n @^a @'e @=o @`i @'{e} @`{@=E}
-@,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
-@u{a} @v{a}
-@: @? @.
+$l2h_cache_key = q//;
+$l2h_cache{$l2h_cache_key} = q|
+<P>|;
+
+$l2h_cache_key = q/$$TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
 $$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
-@"u @"{U} @~n @^a @'e @=o @`i @'{e} @`{@=E}
-@,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
-@u{a} @v{a}
-@: @? @.
+TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}}
 \end{displaymath}
  -->
 
 <IMG
- STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="sing_10.svg"
- ALT="$\displaystyle @''u @''{U} @~n @^a @'e @=o @\lq i @'{e} @\lq {@=E}
-@,{@'C} @,{@'C} @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
-@u{a} @v{a}
-@: @? @.
+ STYLE="height: 1.94ex; vertical-align: -0.12ex; " SRC="sing_11.svg"
+ ALT="$\displaystyle TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}}
 $">
 </DIV>
 |;
 
-$l2h_cache_key = q/$$@TeX{} @LaTeX{} @point{} @aa{} @registeredsymbol{} @textdegree{} 
+$l2h_cache_key = q/$$\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
+\textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \check{a}
+ ? .
 $$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
-@TeX{} @LaTeX{} @point{} @aa{} @registeredsymbol{} @textdegree{}
+\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \grave{\bar{E}}
+\textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \check{a}
+ ? .
 \end{displaymath}
  -->
 
 <IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_11.svg"
- ALT="$\displaystyle @TeX{} @LaTeX{} @point{} @aa{} @registeredsymbol{} @textdegree{}
+ STYLE="height: 3.14ex; vertical-align: -0.51ex; " SRC="sing_10.svg"
+ ALT="$\displaystyle \ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \...
+...}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \check{a}
+? .
 $">
 </DIV>
 |;
 
-$l2h_cache_key = q/$$@b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
+$l2h_cache_key = q/$$\imath{} \jmath{}
+\mathord{\text{\l{}}} \textsl{\c{c}}
+\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}  ! @ \} \{ 
+\today{}
 $$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
-@b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
+\imath{} \jmath{}
+\mathord{\text{\l{}}} \textsl{\c{c}}
+\textsl{\b{a}} \textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}  ! @ \} \{
+\today{}
 \end{displaymath}
  -->
 
 <IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_7.svg"
- ALT="$\displaystyle @b{b} @i{i} @r{r} @sc{sc} @sansserif{sansserif} @slanted{slanted}
+ STYLE="height: 2.89ex; vertical-align: -0.70ex; " SRC="sing_4.svg"
+ ALT="$\displaystyle \imath{} \jmath{}
+\mathord{\text{\l{}}} \textsl{\c{c}}
+\textsl{\b...
+...\textsl{\d{a}} \textsl{\k{a}} a^{h}_{l}
+\ {}\ {} \ {}\-{} ! @ \} \{
+\today{}
 $">
 </DIV>
 |;
 
-$l2h_cache_key = q/$$@click{}
-@U{0075}
-@bullet{} @copyright{} @dots{} @enddots{} @equiv{}
-@error{} @expansion{} @minus{} @print{} @result{}
-@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
-@TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
-@ordf{} @ordm{} @comma{} 
+$l2h_cache_key = q/$$\mathbf{``simple-double--three---four----''} \hbox{aa}
+`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
-@click{}
-@U{0075}
-@bullet{} @copyright{} @dots{} @enddots{} @equiv{}
-@error{} @expansion{} @minus{} @print{} @result{}
-@AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
-@TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
-@ordf{} @ordm{} @comma{}
-\end{displaymath}
- -->
-
-<IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_5.svg"
- ALT="$\displaystyle @click{}
-@U{0075}
-@bullet{} @copyright{} @dots{} @enddots{} @equi...
-... @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
-@ordf{} @ordm{} @comma{}
-$">
-</DIV>
-|;
-
-$l2h_cache_key = q/$$@dotless{i} @dotless{j}
-@l{} @,c
-@ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
-@* @ @  @
-@- @| @! @@ @} @{ @\/
-@today{}
-$$/;
-$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
-<!-- MATH
- \begin{displaymath}
-@dotless{i} @dotless{j}
-@l{} @,c
-@ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
-@* @ @  @
-@- @\| @! @@ @{ @} @/
-@today{}
-\end{displaymath}
- -->
-
-<IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="sing_4.svg"
- ALT="$\displaystyle @dotless{i} @dotless{j}
-@l{} @,c
-@ubaraccent{a} @udotaccent{a} @ogonek{a} a@sup{h}@sub{l}
-@* @ @ @
-@- @\vert @! @@ @{ @} @/
-@today{}
-$">
-</DIV>
-|;
-
-$l2h_cache_key = q/$$@quotedblleft{} @quotedblright{} 
-@quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
-@guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
-@guilsinglright{} @euro{} @arrow{} @leq{} @geq{}
-$$/;
-$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
-<!-- MATH
- \begin{displaymath}
-@quotedblleft{} @quotedblright{}
-@quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
-@guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
-@guilsinglright{} @euro{} @arrow{} @leq{} @geq{}
-\end{displaymath}
- -->
-
-<IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_6.svg"
- ALT="$\displaystyle @quotedblleft{} @quotedblright{}
-@quoteleft{} @quoteright{} @quo...
-...lemotright{} @guilsinglleft{}
-@guilsinglright{} @euro{} @arrow{} @leq{} @geq{}
-$">
-</DIV>
-|;
-
-$l2h_cache_key = q/$$@strong{``simple-double--three---four----''} @w{aa}
-`@w{}`simple-double-@w{}-three---four----'@w{}'@*
-$$/;
-$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
-<!-- MATH
- \begin{displaymath}
-@strong{``simple-double- -three- - -four- - - -''} @w{aa}
-`@w{}`simple-double-@w{}-three- - -four- - - -'@w{}'@*
+\mathbf{``simple-double- -three- - -four- - - -''} \hbox{aa}
+`\hbox{}`simple-double-\hbox{}-three- - -four- - - -'\hbox{}'
 \end{displaymath}
  -->
 
 <IMG
  STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="sing_3.svg"
- ALT="$\displaystyle @strong{\lq\lq simple-double--three---four----''} @w{aa}
-\lq @w{}\lq simple-double-@w{}-three---four----'@w{}'@*
+ ALT="$\displaystyle \mathbf{\lq\lq simple-double--three---four----''} \hbox{aa}
+\lq \hbox{}\lq simple-double-\hbox{}-three---four----'\hbox{}'
 $">
 </DIV>
 |;
 
-$l2h_cache_key = q/$$@t{t} 
+$l2h_cache_key = q/$$\mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} \mathit{slanted}
 $$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
-@t{t}
+\mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} \mathit{slanted}
 \end{displaymath}
  -->
 
 <IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="sing_12.svg"
- ALT="$\displaystyle @t{t}
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="sing_7.svg"
+ ALT="$\displaystyle \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} \mathit{slanted}
+$">
+</DIV>
+|;
+
+$l2h_cache_key = q/$$\mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
+\mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
+\mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
+\mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
+$$/;
+$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+\mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}}
+\mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
+\mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
+\mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="sing_6.svg"
+ ALT="$\displaystyle \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedbl...
+...eft{}}}
+\mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
+$">
+</DIV>
+|;
+
+$l2h_cache_key = q/$$\mathtt{t} 
+$$/;
+$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+\mathtt{t}
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 1.51ex; vertical-align: -0.12ex; " SRC="sing_12.svg"
+ ALT="$\displaystyle \mathtt{t}
 $">
 </DIV>
 |;
@@ -196,39 +165,72 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 </DIV>
  &rdquo;|;
 
+$l2h_cache_key = q/$$\rightarrow{}
+u
+\bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \dashv{} \Rightarrow{}
+\mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
+\mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
+$$/;
+$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+\rightarrow{}
+u
+\bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \dashv{} \Rightarrow{}
+\mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown {}}} \mathord{\text{\textquestiondown {}}} \mathsterling{}
+\mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} ,
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 3.03ex; vertical-align: -0.91ex; " SRC="sing_5.svg"
+ ALT="$\displaystyle \rightarrow{}
+u
+\bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\...
+...{}
+\mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} ,
+$">
+</DIV>
+|;
+
 $l2h_cache_key = q/$$disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
 disp- -laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 \end{displaymath}
  -->
 
 <IMG
- STYLE="height: 6.26ex; vertical-align: -2.32ex; " SRC="sing_2.svg"
+ STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="sing_2.svg"
  ALT="$\displaystyle disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $">
 </DIV>
 |;
 
-$l2h_cache_key = q/$--a {\frac{1}{2}} @minus{}$/;
+$l2h_cache_key = q/$--a {\frac{1}{2}} -$/;
 $l2h_cache{$l2h_cache_key} = q|<!-- MATH
- $- -a {\frac{1}{2}} @minus{}$
+ $- -a {\frac{1}{2}} -$
  -->
 <SPAN CLASS="MATH"><IMG
  STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_1.svg"
- ALT="$--a {\frac{1}{2}} @minus{}$"></SPAN>|;
+ ALT="$--a {\frac{1}{2}} -$"></SPAN>|;
 
-$l2h_cache_key = q/$--a@minus{} {\frac{1}{2}}$/;
+$l2h_cache_key = q/$--a- {\frac{1}{2}}$/;
 $l2h_cache{$l2h_cache_key} = q|<!-- MATH
- $- -a@minus{} {\frac{1}{2}}$
+ $- -a- {\frac{1}{2}}$
  -->
 <SPAN CLASS="MATH"><IMG
  STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_9.svg"
- ALT="$--a@minus{} {\frac{1}{2}}$"></SPAN>|;
+ ALT="$--a- {\frac{1}{2}}$"></SPAN>|;
 
 1;

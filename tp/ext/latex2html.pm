@@ -39,6 +39,8 @@ use Encode qw(encode);
 # also for __(
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
+# to implement CONVERT_TO_LATEX_IN_MATH
+use Texinfo::Convert::LaTeX;
 
 texinfo_register_handler('structure', \&l2h_process);
 texinfo_register_handler('finish', \&l2h_finish);
@@ -228,13 +230,19 @@ sub l2h_process($$)
   return 0 if (defined($self->get_conf('OUTFILE'))
        and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
+  my $options_latex_math;
+  if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH')) {
+    $options_latex_math
+     = {Texinfo::Convert::LaTeX::copy_options_for_convert_to_latex_math($self)};
+  }
+
   my $l2h_skip = $self->get_conf('L2H_SKIP');
 
   # open the database that holds cached text
   l2h_init_cache($self) if (!defined($l2h_skip) or $l2h_skip);
 
 
-  my @replaced_commands = ('tex', 'math', 'displaymath');
+  my @replaced_commands = ('displaymath', 'latex', 'math', 'tex');
   my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
                                         $document_root, \@replaced_commands);
 
@@ -263,11 +271,17 @@ sub l2h_process($$)
           pop @{$tree->{'contents'}};
         }
       }
-      my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+      my $texinfo_text;
+      if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH')) {
+        $texinfo_text = Texinfo::Convert::LaTeX::convert_to_latex_math(undef,
+                                                   $tree, $options_latex_math);
+      } else {
+        $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+      }
       # print $texinfo_text into latex file (if not already there nor in cache)
       # which can be later on replaced by the latex2html generated text.
       my $latex_text = $texinfo_text;
-      if ($command eq 'tex') {
+      if ($command eq 'tex' or $command eq 'latex') {
         $latex_text .= ' ';
       } elsif ($command eq 'math') {
         $latex_text = "\$".$latex_text."\$";

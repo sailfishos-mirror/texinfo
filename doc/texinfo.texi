@@ -16626,11 +16626,14 @@ others' distribution systems.
 @subsection @command{latex2html} Customization Variables
 
 This table lists the customization variables which can be used when 
-@command{latex2html} is being used to convert @code{@@math} and
-@code{@@tex} sections for HTML@.  These customization variables
-are relevant only if @code{HTML_MATH} is set to @samp{l2h}.
+@command{latex2html} is being used to convert @code{@@math},
+@code{@@displaymath}, @code{@@latex} and @code{@@tex} sections for HTML@.
+These customization variables are relevant only if @code{HTML_MATH} is set to
+@samp{l2h}.
 
-To actually convert @code{@@tex} sections, @option{--iftex} should be used.
+To actually convert @code{@@tex} sections, @option{--iftex} should be used,
+and to actually convert @code{@@latex} sections, @option{--iflatex} should be
+used.
 
 @vtable @code
 @item L2H_CLEAN
