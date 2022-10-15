@@ -2,10 +2,6 @@
 use utf8;
 our %l2h_cache;
 
-$l2h_cache_key = q//;
-$l2h_cache{$l2h_cache_key} = q|
-<P>|;
-
 $l2h_cache_key = q/$$TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
 $$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">

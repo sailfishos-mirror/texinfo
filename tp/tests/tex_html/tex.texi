@@ -15,6 +15,14 @@ $$ \chi^2 = \sum_{i=1}^N
 Some text one the line following @@end tex
 @end ifhtml
 
+LaTeX block
+@latex
+\begin{eqnarray}
+\frac{@var{a}^b}{\xsi} &=& @code{@'e} \\
+X &=& Y
+\end{eqnarray}
+@end latex
+
 Now tex on the following line, valid fot tex (with @@end tex on a line).
 @tex some
 

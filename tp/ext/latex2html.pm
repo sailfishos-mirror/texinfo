@@ -47,6 +47,7 @@ texinfo_register_handler('finish', \&l2h_finish);
 
 texinfo_register_command_formatting('math', \&l2h_convert_command);
 texinfo_register_command_formatting('tex', \&l2h_convert_command);
+texinfo_register_command_formatting('latex', \&l2h_convert_command);
 texinfo_register_command_formatting('displaymath', \&l2h_convert_command);
 
 # name/location of latex2html program
@@ -93,6 +94,8 @@ my $docu_name;
 
 my %commands_counters;
 my %commands_text_index;
+
+my %commands_ignored;
 
 my $extract_error_count;
 my $invalid_text_index_count;
@@ -184,6 +187,8 @@ sub l2h_process($$)
                                # of processed elements
   %commands_text_index = ();   # associate an element to the index of latex text,
                                # also the index in the HTML results array
+  %commands_ignored = ();      # empty commands not processed.  In general,
+                               # should correspond to ignored block commands.
   $extract_error_count = 0;    # number of fragments that cannot be retrieved
                                # when @-commands are converted
   $invalid_text_index_count = 0;
@@ -254,7 +259,6 @@ sub l2h_process($$)
   my $cached_count = 0;          # number of cached latex texts
   if (scalar(@{$collected_commands})) {
     foreach my $element (@{$collected_commands}) {
-      $texinfo_command_index++;
       my $command = $element->{'cmdname'};
       my $tree;
       if ($command eq 'math') {
@@ -263,7 +267,8 @@ sub l2h_process($$)
         $tree = {'contents' => [@{$element->{'contents'}}]};
         if ($tree->{'contents'}->[0]
             and $tree->{'contents'}->[0]->{'type'}
-            and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
+            and ($tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command'
+                 or $tree->{'contents'}->[0]->{'type'} eq 'elided_block')) {
           shift @{$tree->{'contents'}};
         }
         if ($tree->{'contents'}->[-1]->{'cmdname'}
@@ -271,6 +276,12 @@ sub l2h_process($$)
           pop @{$tree->{'contents'}};
         }
       }
+      if (scalar(@{$tree->{'contents'}}) == 0) {
+        # should correspond to an ignored block
+        $commands_ignored{$element} = 1;
+        next;
+      }
+      $texinfo_command_index++;
       my $texinfo_text;
       if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH')) {
         $texinfo_text = Texinfo::Convert::LaTeX::convert_to_latex_math(undef,
@@ -611,12 +622,18 @@ sub l2h_convert_command($$$;$$)
   my $args = shift;
   my $content = shift;
 
-  # the initialization did not went to the point of commands
-  # collections, return the default formatting.
-  if (not defined($latex_commands_count)) {
-    return &{$self->default_command_conversion($cmdname)}($self,
-                               $cmdname, $command, $args, $content);
+  # if not defined($latex_commands_count) the initialization did not
+  # went to the point of commands collections.
+
+  # The default formatting will lead to a warning message since the
+  # raw format is not html, so simply return an empty string.
+  if (not defined($latex_commands_count) or $commands_ignored{$command}) {
+    return '';
   }
+  #if (not defined($latex_commands_count)) {
+  #  return &{$self->default_command_conversion($cmdname)}($self,
+  #                             $cmdname, $command, $args, $content);
+  #}
 
   my $command_count = $commands_counters{$command};
   my $latex_text_index = $commands_text_index{$command};
@@ -650,7 +667,7 @@ sub l2h_convert_command($$$;$$)
   if (defined($l2h_from_html[$latex_text_index])) {
     $html_output_count++;
     $result .= $l2h_from_html[$latex_text_index];
-    $result .= "\n" if ($cmdname eq 'tex');
+    $result .= "\n" if ($cmdname eq 'tex' or $cmdname eq 'latex');
   } else {
     # if the result is not in @l2h_from_html, it should in general mean that
     # the conversion was skipped or there was an error or maybe latex2html
