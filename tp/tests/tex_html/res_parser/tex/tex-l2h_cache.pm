@@ -63,13 +63,13 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
  STYLE="height: 2.66ex; vertical-align: -0.81ex; " SRC="tex_6.svg"
  ALT="$\sum_{i} f(x)@sup{2}$"></SPAN>|;
 
-$l2h_cache_key = q/$\underline{@code{math \hbox{ code }}} \sum_{i}{\underline{f}}$/;
+$l2h_cache_key = q/$\underline{@code{math \hbox{ code }}} \sum_{i}{\underline{@var{eff}}}$/;
 $l2h_cache{$l2h_cache_key} = q|<!-- MATH
- $\underline{@code{math \hbox{ code }}} \sum_{i}{\underline{f}}$
+ $\underline{@code{math \hbox{ code }}} \sum_{i}{\underline{@var{eff}}}$
  -->
 <SPAN CLASS="MATH"><IMG
  STYLE="height: 2.88ex; vertical-align: -1.03ex; " SRC="tex_5.svg"
- ALT="$\underline{@code{math \hbox{ code }}} \sum_{i}{\underline{f}}$"></SPAN>|;
+ ALT="$\underline{@code{math \hbox{ code }}} \sum_{i}{\underline{@var{eff}}}$"></SPAN>|;
 
 $l2h_cache_key = q/$a @\ b$/;
 $l2h_cache{$l2h_cache_key} = q|<SPAN CLASS="MATH"><IMG

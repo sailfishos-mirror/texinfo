@@ -35,7 +35,7 @@ Maths with code @@-command:
 
 Maths with code @@-command and braces:
 
-@math{ \underline{@code{math \hbox{ code }}} \sum_{i}{\underline{f}}}
+@math{ \underline{@code{math \hbox{ code }}} \sum_{i}{\underline{@var{eff}}}}
 
 Maths with @@-sup
 
