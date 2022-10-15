@@ -16361,7 +16361,9 @@ Method to use to render @code{@@math}.  This can be unset, set to
 @samp{mathjax} (@pxref{MathJax Customization Variables}),
 set to @samp{l2h}, which uses @command{latex2html}
 (@pxref{@command{latex2html} Customization Variables}), or set to
-@samp{t4h}, which uses @command{tex4ht}.
+@samp{t4h}, which uses @command{tex4ht}
+(@pxref{@command{tex4ht} Customization Variables}).  In the default case,
+setting @code{HTML_MATH} also sets @code{CONVERT_TO_LATEX_IN_MATH}.
 
 @item HTML_ROOT_ELEMENT_ATTRIBUTES
 Use that string for the @code{<html>} HTML document root element.

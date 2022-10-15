@@ -1,5 +1,11 @@
 2022-10-15  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@node HTML Customization Variables): in the
+	HTML_MATH entry, refer to the specific t4h options.  Also state that
+	CONVERT_TO_LATEX_IN_MATH is set if HTML_MATH is set.
+
+2022-10-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl (GetOptions): add --iflatex.
 
 	* tp/ext/tex4ht.pm (tex4ht_prepare): use \documentclass instead of
