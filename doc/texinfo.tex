@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-10-01.15}
+\def\texinfoversion{2022-10-15.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -7120,12 +7120,19 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \startsavinginserts
   \lskip=\leftskip \rskip=\rightskip
   \leftskip=0pt\rightskip=0pt % we want these *outside*.
+  %
+  % Set paragraph width for text inside cartouche.  There are
+  % left and right margins of 3pt each plus two vrules 0.4pt each.
   \cartinner=\hsize \advance\cartinner by-\lskip
   \advance\cartinner by-\rskip
+  \advance\cartinner by -6.8pt
+  %
+  % For drawing top and bottom of cartouche.  Each corner char
+  % adds 6pt and we take off the width of a rule to line up with the
+  % right boundary perfectly.
   \cartouter=\hsize
-  \advance\cartouter by 18.4pt	% allow for 3pt kerns on either
-				% side, and for 6pt waste from
-				% each corner char, and rule thickness
+  \advance\cartouter by 11.6pt
+  %
   \normbskip=\baselineskip \normpskip=\parskip \normlskip=\lineskip
   %
   % If this cartouche directly follows a sectioning command, we need the

@@ -1734,6 +1734,68 @@ in @t{@@raggedright} (check warnings re @samp{Underful \hbox} etc.):
 @end raggedright
 
 
+@section @code{@@cartouche}
+
+check right margin lines up
+
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+
+@cartouche
+@math{@var{foo}\over@var{bar}} finds the quotient of @var{foo} by
+@var{bar}.  @math{\sqrt{@var{radicand}}} finds the square root of
+@var{radicand}.
+@end cartouche
+
+@noindent
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+
+@quotation
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+
+@cartouche
+@math{@var{foo}\over@var{bar}} finds the quotient of @var{foo} by
+@var{bar}.  @math{\sqrt{@var{radicand}}} finds the square root of
+@var{radicand}.
+@end cartouche
+
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+@end quotation
+
+
+
 
 @section Definitions
 
