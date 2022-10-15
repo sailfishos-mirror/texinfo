@@ -1,3 +1,7 @@
+2022-10-15  Jakub Wilk  <jwilk@jwilk.net>  (tiny change)
+
+	* doc/texinfo.texi (Info Format Cross Reference): Fix punctuation.
+
 2022-10-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix cartouche right edge 

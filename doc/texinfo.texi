@@ -24093,7 +24093,7 @@ In both forms the @t{<id>} refers to a node or anchor, in the same way
 as a reference in the node information line does (@pxref{Info Format
 Regular Nodes}).  The optional parenthesized @samp{<infofile>} is the
 name of the manual being referenced, and @t{<node-spec>} gives the
-node or anchor within that manual,
+node or anchor within that manual.
 
 The second form has a descriptive label.  A cross-reference in this form
 should usually be terminated with a comma or period, to make it
