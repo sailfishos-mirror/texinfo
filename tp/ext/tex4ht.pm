@@ -417,7 +417,13 @@ sub tex4ht_process_format($$) {
         #print STDERR "while search $cmdname $count $line";
         if ($line =~ /!-- tex4ht_end $formats{$format}->{'basename'} $cmdname $count --/) {
           $got_count++;
-          chomp($text) if ($cmdname eq 'math');
+          if ($cmdname eq 'math') {
+            chomp($text);
+            # tex4ht may add spaces that we do not need.  Actual content
+            # should in any case be in HTML elements.
+            $text =~ s/^\s*//;
+            $text =~ s/\s*$//;
+          }
           $commands{$cmdname}->{'results'}->{
                            $formats{$format}->{'commands'}->[$count-1]} = $text;
           $end_found = 1;
