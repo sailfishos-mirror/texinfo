@@ -16659,7 +16659,36 @@ Set the directory used for temporary files.  None of the file name components
 in this directory name may start with @samp{.}; otherwise, @command{latex2html}
 will fail (because of @command{dvips}).  The default is the empty string, which
 means the current directory.
+@end vtable
 
+
+@node @command{tex4ht} Customization Variables
+@subsection @command{tex4ht} Customization Variables
+
+This table lists the customization variables which can be used when
+@command{tex4ht} is being used to convert @code{@@math}, @code{@@displaymath},
+@code{@@tex} and @code{@@latex} sections for HTML@.  These customization
+variables are relevant only if @code{HTML_MATH} is set to @samp{t4h}.
+
+To actually convert @code{@@tex} sections, @option{--iftex} should be used,
+and to actually convert @code{@@latex} sections, @option{--iflatex} should be
+used.
+
+@vtable @code
+@item T4H_LATEX_CONVERSION
+If set, the conversion type used for @code{@@latex} sections.  Possibilities
+are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{latex} if not
+defined.
+
+@item T4H_MATH_CONVERSION
+If set, the conversion type used for @code{@@math} and @code{@@displymath}.
+Possibilities are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{tex}
+if not defined.
+
+@item T4H_TEX_CONVERSION
+If set, the conversion type used for @code{@@tex} sections.  Possibilities
+are @samp{latex}, @samp{tex} and @samp{texi}.  Set to @samp{tex} if not
+defined.
 @end vtable
 
 

@@ -1,3 +1,17 @@
+2022-10-15  Patrice Dumas  <pertusus@free.fr>
+
+	add @latex to t4h and some customization
+
+	* doc/texinfo.texi (@command{tex4ht} Customization Variables),
+	tp/Texinfo/Common.pm (@variable_string_settables), tp/ext/tex4ht.pm
+	(tex4ht_prepare): add T4H_MATH_CONVERSION, T4H_TEX_CONVERSION and
+	T4H_LATEX_CONVERSION as customization variables to select which
+	type of conversion to use for math commands, @tex and @latex.
+
+	* tp/ext/tex4ht.pm (tex4ht_prepare): if CONVERT_TO_LATEX_IN_MATH
+	is set, and conversion type is latex, convert input tree element
+	content to LaTeX instead of Texinfo.
+
 2022-10-14  Patrice Dumas  <pertusus@free.fr>
 
 	Use explicit \mathit for slates @-commands in math
