@@ -1,5 +1,20 @@
 2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Check for man page with 'man -w'
+
+	* info/man.c (check_manpage_node): New function, to check if
+	man page exists with 'man -w'.  This is much faster for large
+	man pages.
+	(find_man_formatter): Cache return value.
+	* info/info.c (get_initial_file): Use check_manpage_node instead
+	of get_manpage_node.
+
+	'info -w ffmpeg-all' was reported to be slow by Hilmar Preusse.
+	'ffmpeg-all' is an especially long man page, so takes a longer time
+	for nroff to format.
+
+2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/info.c (main) <--output>: Exit with status of 1, not 0,
 	if there was an error.  Report from Hilmar Preusse <hille42@web.de>.
 

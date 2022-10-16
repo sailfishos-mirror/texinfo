@@ -56,11 +56,63 @@ static char const * const exec_extensions[] = { "", NULL };
 static REFERENCE **xrefs_of_manpage (NODE *node);
 static char *read_from_fd (int fd);
 static char *get_manpage_contents (char *pagename);
+static char *find_man_formatter (void);
 
 /* We store the contents of retrieved man pages in here. */
 static NODE **manpage_nodes = 0;
 size_t manpage_node_index = 0;
 size_t manpage_node_slots = 0;
+
+#if PIPE_USE_FORK
+
+/* Check if a man page exists.  Use "man -w" for this rather than getting
+   the contents of the man page.  This is faster if we are running
+   "info --where" and we don't need the contents. */
+int
+check_manpage_node (char *pagename)
+{
+  char *cmd;
+  pid_t child;
+  int pid_status;
+
+  child = fork ();
+  if (child == -1)
+    return 0; /* couldn't fork */
+
+  if (!child)
+    {
+      int ret;
+      freopen (NULL_DEVICE, "w", stdout);
+      freopen (NULL_DEVICE, "w", stderr);
+      char *formatter = find_man_formatter();
+      if (!formatter)
+        exit (1);
+      ret = execl (formatter, formatter, "-w", pagename, (void *) 0);
+      exit (1); /* exec failed */
+    }
+  else
+    {
+      wait (&pid_status);
+    }
+
+  return !pid_status;
+}
+
+#else /* !PIPE_USE_FORK */
+
+int
+check_manpage_node (char *pagename)
+{
+  NODE *man_node = get_manpage_node (pagename);
+  if (man_node)
+    {
+      free (man_node);
+      return 1;
+    }
+  return 0;
+}
+
+#endif /* !PIPE_USE_FORK */
 
 NODE *
 get_manpage_node (char *pagename)
@@ -170,9 +222,17 @@ executable_file_in_path (char *filename, char *path)
 static char *
 find_man_formatter (void)
 {
-  char *man_command = getenv ("INFO_MAN_COMMAND");
-  return man_command ? man_command :
-                       executable_file_in_path ("man", getenv ("PATH"));
+  static char *man_formatter;
+  char *man_command;
+
+  if (man_formatter)
+    return man_formatter;
+
+  man_command = getenv ("INFO_MAN_COMMAND");
+  man_formatter = man_command ? man_command
+                    : executable_file_in_path ("man", getenv ("PATH"));
+
+  return man_formatter;
 }
 
 static char *manpage_pagename = NULL;

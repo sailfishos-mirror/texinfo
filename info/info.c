@@ -281,19 +281,18 @@ get_initial_file (int *argc, char ***argv, char **error)
 
   /* Fall back to loading man page. */
     {
-      NODE *man_node;
+      int man_exists;
 
       debug (3, ("falling back to manpage node"));
 
-      man_node = get_manpage_node ((*argv)[0]);
-      if (man_node)
+      man_exists = check_manpage_node ((*argv)[0]);
+      if (man_exists)
         {
           add_pointer_to_array
             (info_new_reference (MANPAGE_FILE_BUFFER_NAME, (*argv)[0]),
              ref_index, ref_list, ref_slots, 2);
 
           initial_file = MANPAGE_FILE_BUFFER_NAME;
-          free (man_node);
           return;
         }
     }
