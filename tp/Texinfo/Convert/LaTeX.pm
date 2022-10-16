@@ -373,7 +373,9 @@ my %LaTeX_no_arg_brace_commands = (
     'atchar', => '@',
     'lbracechar' => '\{',
     'rbracechar' => '\}',
-    'backslashchar' => '\backslash{}',
+    # this follows the Texinfo manual, however there is no obvious
+    # visible effect
+    'backslashchar' => '\mathtt{\backslash{}}',
     'hashchar' => '\#',
     'comma' => ',',
     'ampchar' => '\&',

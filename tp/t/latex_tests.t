@@ -113,6 +113,9 @@ Cop. @anchor{a in copying}. Ying.
 
 @pxref{Top}
 '],
+['backslash_math',
+'@math{a @\ b @backslashchar{} c}.
+'],
 );
 
 my @file_tests = (

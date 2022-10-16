@@ -1,3 +1,38 @@
+2022-10-16  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (@code{@@unnumberedsubsec @@appendixsubsec
+	@@subheading}, @code{@@cite}, Indicating, Quotations and Examples)
+	(Lists and Tables, @code{@@listoffloats}, Inserting Images)
+	(Footnote Commands, Footnote Styles, Indices, Special Insertions)
+	(@code{@@- @@hyphenation}, @code{@@w})
+	(@code{@@ifset @@ifclear}, Defining New Texinfo Commands):
+	remove too detailed information on formatting.  Changed the
+	text to highlight that the format is not fixed.  Avoid being
+	unneedingly precise on the formatting of each output format, try
+	instead to group types of formatting together.
+
+	* doc/texinfo.texi (@node Raise/lower sections): constraint
+	on menu only if not automatic menus.
+
+	* doc/texinfo.texi (@code{@@cartouche}): use 'Highlighting Blocks'
+	in section name to emphasize the semantic meaning.
+
+	* doc/texinfo.texi (@code{@@lisp}, Glyphs for Programming): use
+	@example list instead of @lisp.
+
+	* doc/texinfo.texi (Inserting an Ampersand): describe the bold
+	formatting as formatting and not has having a semantic meaning.
+
+	* doc/texinfo.texi (Inserting Math): ref to tex4ht customization,
+	\mathopsup not in LaTeX.
+
+	* doc/texinfo.texi (Raw Formatter Commands): the description of other
+	raw formats in Texinfo XML is incorrect, put it in an @ignore block.
+
+	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_no_arg_brace_commands): use
+	'\mathtt{\backslash{}}' for backslashchar to be in line with the
+	Texinfo manual.
+
 2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Inserting Math): Do not state that

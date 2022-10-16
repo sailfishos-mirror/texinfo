@@ -4080,9 +4080,7 @@ table of contents.  Similarly, an @code{@@unnumberedsubsec} command
 produces an unnumbered heading like that of a subsection and an
 @code{@@appendixsubsec} command produces a subsection-like heading
 labeled with a letter and numbers; both of these commands produce
-headings that appear in the table of contents.  In Info and plain
-text, the @code{@@subsection}-like commands generate a title
-underlined with hyphens.
+headings that appear in the table of contents.
 
 
 @node @code{@@subsubsection}
@@ -4222,11 +4220,12 @@ If the included file being lowered has a @code{@@top} node, you'll
 need to conditionalize its inclusion with a flag (@pxref{@code{@@set
 @@value}}).
 
-As a practical matter, you generally only want to raise or lower large
-chunks, usually in external files as shown above.  The final result has
-to have menus that take the raising and lowering into account, so you
-cannot just arbitrarily sprinkle @code{@@raisesections} and
-@code{@@lowersections} commands throughout the document.
+As a practical matter, you generally only want to raise or lower large chunks,
+usually in external files as shown above.  If your document does not rely on
+automatic menus, the final result has to have menus that take the raising
+and lowering into account, so you cannot just arbitrarily sprinkle
+@code{@@raisesections} and @code{@@lowersections} commands throughout
+the document.
 
 Repeated use of the commands continues to raise or lower the
 hierarchical level a step at a time.  An attempt to raise above
@@ -5266,8 +5265,8 @@ specific reason to use colors, best to skip it.
 
 Use the @code{@@cite} command for the name of a book that lacks a
 companion Info file.  For example, we could refer to @cite{A Book}.
-The command selects a slanted font in the printed
-manual, and generates quotation marks in the Info file.
+The command usually selects a slanted font or generates quotation
+marks.
 
 If a book is written in Texinfo, it is better to use a cross-reference
 command since a reader can easily follow such a reference in Info.
@@ -5427,9 +5426,10 @@ ways.  Pick one spelling and always use that.  If you do not want to
 start a sentence with a command name written all in lowercase, you
 should rearrange the sentence.
 
-In the Info output, @code{@@code} results in single quotation marks
-around the text.  In other formats, @code{@@code} argument is typeset
-in a typewriter (monospace) font.  For example,
+In general, @code{@@code} argument is typeset in a typewriter (monospace)
+font.  In some output formats, @code{@@code} results in single quotation
+marks around the text (in Info, for instance, though not in every context).
+For example,
 
 @example
 The function returns @@code@{nil@}.
@@ -5486,17 +5486,12 @@ can be controlled with @code{@@allowcodebreaks}
 lines is up to the browser's behavior.  For Info, it seems better
 never to make such breaks.
 
-For Info, the quotes are omitted in the output of the @code{@@code}
-command and related commands (e.g., @code{@@kbd}, @code{@@command}),
-in typewriter-like contexts such as the @code{@@example} environment
-(@pxref{@code{@@example}}) and @code{@@code} itself, etc.
-
 To control which quoting characters are implicitly inserted by
-@command{texi2any} in the output of @samp{@@code}, etc., see the
-@code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL} customization
-variables (@pxref{Other Customization Variables}).  This is separate
-from how actual quotation characters in the input document are handled
-(@pxref{Inserting Quote Characters}).
+@command{texi2any} in the output of @samp{@@code} and other highlighting
+commands, see the @code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL}
+customization variables (@pxref{Other Customization Variables}).  This
+is separate from how actual quotation characters in the input document
+are handled (@pxref{Inserting Quote Characters}).
 
 
 @node @code{@@kbd}
@@ -5523,7 +5518,7 @@ and to refer to the characters @kbd{M-x shell}, write:
 @cindex User input
 @cindex Slanted typewriter font, for @code{@@kbd}
 By default, the @code{@@kbd} command produces a different font
-(slanted typewriter instead of normal typewriter),
+(slanted typewriter instead of normal typewriter, for example),
 so users can distinguish the characters that they are supposed
 to type from those that the computer outputs.
 
@@ -5957,9 +5952,9 @@ Use the @code{@@dfn} command to identify the introductory or defining
 use of a technical term.  Use the command only in passages whose
 purpose is to introduce a term which will be used again or which the
 reader ought to know.  Mere passing mention of a term for the first
-time does not deserve @code{@@dfn}.  The command selects a slanted font
-in the printed manual, and generates double quotation marks in the Info
-file.  For example:
+time does not deserve @code{@@dfn}.  The command is highlighted in the
+output, for example by selecting a slanted font or by generating double
+quotation marks.  For example:
 
 @example
 Getting rid of a file is called @@dfn@{deleting@} it.
@@ -6001,10 +5996,10 @@ correct spacing.  However, you do not have to use @code{@@.} within
 the abbreviation itself; Texinfo automatically assumes periods within
 the abbreviation do not end a sentence.
 
-In printed output and in the Info output, the first argument is printed
-as-is; if the second argument is present, it is printed in parentheses
-after the abbreviation.  In HTML and DocBook the appropriate tag is used.
-For instance:
+In output formats with an appropriate tag, such as HTML and DocBook, this tag
+is used.  Otherwise, the first argument is usually printed as-is; if the second
+argument is present, it is usually printed in parentheses after the
+abbreviation.  For instance:
 
 @example
 @@abbr@{Comput. J., Computer Journal@}
@@ -6043,11 +6038,10 @@ If the acronym is at the end of a sentence, and if there is no second
 argument, remember to use the @code{@@.} or similar command
 (@pxref{Ending a Sentence}) to get the correct spacing.
 
-In @TeX{}, the acronym is printed in slightly smaller font.  In the
-Info output, the argument is printed as-is.  In either format, and
-in @LaTeX{} output, if the second argument is present, it is printed in
-parentheses after the acronym.  In HTML and DocBook the appropriate
-tag is used.
+In output formats with an appropriate tag, such as HTML and DocBook, this tag
+is used.  Otherwise, the first argument is usually printed as-is or in
+slightly smaller font; if the second argument is present, it is usually printed
+in parentheses after the acronym.
 
 For instance (since GNU is a recursive acronym, we use
 @code{@@acronym} recursively):
@@ -6085,12 +6079,8 @@ In Texinfo, an acronym (but not an abbreviation) should consist only
 of capital letters and periods, no lowercase.
 
 @item
-In @TeX{}, an acronym (but not an abbreviation) is printed in a
+An acronym (but not an abbreviation) can be output in a
 slightly smaller font.
-
-@item
-Some browsers place a dotted bottom border under abbreviations but not
-acronyms.
 
 @item
 It usually turns out to be quite difficult and/or time-consuming to
@@ -6132,7 +6122,7 @@ For example, the URL might be @@indicateurl@{http://example.org/path@}.
 For example, the URL might be @indicateurl{http://example.org/path}.
 @end display
 
-The output from @code{@@indicateurl} is more or less like that of
+The output from @code{@@indicateurl} is usually like that of
 @code{@@samp} (@pxref{@code{@@samp}}).
 
 
@@ -6147,10 +6137,10 @@ It takes one mandatory argument, the address, and one optional argument, the
 text to display (the default is the address itself).
 
 @cindex Mailto link
-In Info, the address is shown in angle brackets, preceded by the text
-to display if any.  In printed output, the angle brackets are omitted.  In
-HTML and DocBook output, @code{@@email} produces a @samp{mailto} link.
-In HTML, a @samp{mailto} link usually brings up a mail composition window.
+Where possible, @code{@@email} produces a @samp{mailto} link (in HTML and
+DocBook, for instance).  In HTML, a @samp{mailto} link usually brings up
+a mail composition window.  In other formats, the address may be shown
+in angle brackets, and is usually preceded by the text to display if any.
 For example:
 
 @example
@@ -6195,10 +6185,12 @@ These commands have no effect in Info and only one of them, the
 @cindex Emphasizing text, font for
 
 The @code{@@emph} and @code{@@strong} commands are for emphasis;
-@code{@@strong} is stronger.  In printed output, @code{@@emph} produces
-@emph{italics} and @code{@@strong} produces @strong{bold}.
-In the Info output, @code{@@emph} surrounds the text with underscores
-(@samp{_}), and @code{@@strong} puts asterisks around the text.
+@code{@@strong} is stronger.  In printed output, @code{@@emph} usually
+produces @emph{italics} and @code{@@strong} usually produces @strong{bold}.
+In the Info output, emphasis can be represented by surrounding the
+text with ASCII characters.  For example, @code{@@emph} can be marked by
+surrounding the text with underscores (@samp{_}), and @code{@@strong} can
+put asterisks around the text.
 
 For example,
 
@@ -6256,13 +6248,12 @@ especially in languages other than English, though there are no
 hard-and-fast rules about such things.
 
 @cindex @code{<small>} tag
-@TeX{} typesets any uppercase letters between the braces of an
-@code{@@sc} command in full-size capitals; only lowercase letters are
-printed in the small caps font.  In the Info output, the argument to
-@code{@@sc} is printed in all uppercase.  In HTML, the argument is
-uppercased and the output marked with the @code{<small>} tag to reduce
-the font size, since HTML cannot easily represent true small caps.
-In @LaTeX{}, a command setting small caps fonts is output.
+Capitals are used to format small caps text.  Where possible,
+only lowercase letters are printed in the small caps font;  uppercase
+letters between the braces of an @code{@@sc} command are printed in
+full-size capitals.  Where true small caps are not available, the
+argument is uppercased and, if possible, the output is usually marked
+such as to reduce the font size.
 
 Overall, we recommend using standard upper- and lowercase letters
 wherever possible.
@@ -6299,8 +6290,8 @@ Texinfo does not at present have commands to switch the font family
 to use, or more general size-changing commands.
 
 Texinfo also provides a number of font commands that specify font
-changes in the printed manual and (where possible) in the HTML and DocBook
-output.  They have no effect in Info.  All the commands apply to a following
+changes where possible, for example in the printed manual and
+in the HTML and DocBook output.  All the commands apply to a following
 argument surrounded by braces.
 
 @table @code
@@ -6381,10 +6372,11 @@ produces
 @end lisp
 
 The @code{@@t} command can occasionally be useful for producing output in
-a typewriter font where that is supported, but no distinction with
-quotation marks is needed in Info or plain text.  (Compare @code{@@t@{foo@}}
-producing @t{foo} with @code{@@code@{foo@}} producing @code{foo}.)  Here
-are some possible reasons for using @code{@@t} instead of @code{@@code}:
+a typewriter font where that is supported, but no distinction with quotation
+marks is needed, in formats where code is formatted in quotes.  (Compare
+@code{@@t@{foo@}} producing @t{foo} with @code{@@code@{foo@}} producing
+@code{foo}.)  Here are some possible reasons for using @code{@@t} instead of
+@code{@@code}:
 
 @itemize @minus
 @item The argument is a single character
@@ -6491,7 +6483,7 @@ Text is filled, but only justified on the left, leaving the right
 margin ragged.
 
 @item @@cartouche
-Highlight text, often an example or quotation, by drawing a box with
+Highlight text, often an example or quotation, usually by drawing a box with
 rounded corners around it.
 @end table
 
@@ -6510,16 +6502,18 @@ following text from being indented as a new paragraph.
 @cindex Quotations
 @findex quotation
 
-The text of a quotation is processed like normal text (regular font,
+The text of a quotation is usually processed like normal text (regular font,
 text is filled) except that:
 
 @itemize @bullet
 @item
-both the left and right margins are closer to the center of the page,
-so the whole of the quotation is indented;
+the left margin is closer to the center of the page, so the whole of the
+quotation is indented; the right margin may also be closer to the center
+of the page
 
 @item
-the first lines of paragraphs are indented no more than other lines; and
+in general, the first lines of paragraphs are indented no more than other
+lines; and
 
 @item
 an @code{@@author} command may be given to specify the author of the
@@ -6540,8 +6534,8 @@ The @code{@@end quotation} line will likewise disappear from the
 output.
 
 @code{@@quotation} takes one optional argument, given on the remainder
-of the line.  This text, if present, is included at the beginning of
-the quotation in bold or otherwise emphasized, and followed with a
+of the line.  This text, if present, is emphasized (often in bold)
+and included at the beginning of the quotation, and followed with a
 @samp{:}.  For example:
 
 @example
@@ -6573,8 +6567,7 @@ Caution  Important  Note  Tip  Warning
 @cindex @code{<warning>} DocBook tag
 @cindex @code{<blockquote>} HTML tag
 @noindent then the DocBook output uses corresponding special tags
-(@code{<note>}, etc.)@: instead of the default @code{<blockquote>}.
-HTML output always uses @code{<blockquote>}.
+(@code{<note>}, etc.)@: instead of the default tag.
 
 If the author of the quotation is specified in the @code{@@quotation}
 block with the @code{@@author} command, a line with the author name is
@@ -6712,8 +6705,8 @@ generated files in a Texinfo manual.
 
 In general, the output will be just the same as the input.  No
 character substitutions are made, e.g., all spaces and blank lines are
-significant, including tabs.  In the printed manual, the text is
-typeset in a fixed-width font, and not indented or filled.
+significant, including tabs.  The text is typeset in a fixed-width font,
+and not indented or filled.
 
 Write a @code{@@verbatim} command at the beginning of a line by
 itself.  This line will disappear from the output.  Mark the end of
@@ -6774,7 +6767,7 @@ See also @ref{@code{@@verbatiminclude}}.
 @findex lisp
 @cindex Lisp example
 
-The @code{@@lisp} command is used for Lisp code:
+The @code{@@lisp} command was used for Lisp code:
 
 @example
 @@lisp
@@ -6782,7 +6775,7 @@ Example lisp code
 @@end lisp
 @end example
 
-@noindent This is synonymous with the following:
+@noindent This is now synonymous with the following:
 
 @example
 @@example lisp
@@ -6790,7 +6783,7 @@ Example lisp code
 @@end example
 @end example
 
-Use @code{@@lisp} to preserve information regarding the nature of
+Use @code{@@example lisp} to preserve information regarding the nature of
 the example.  This is useful, for example, if you write a function
 that evaluates only and all the Lisp code in a Texinfo file.  Then you
 can use the Texinfo file as a Lisp library.
@@ -6859,8 +6852,8 @@ the @code{@@format} command does not fill the text.
 The @code{@@exdent} command removes any indentation a line might have.
 The command is written at the beginning of a line and applies only to
 the text that follows the command that is on the same line.  Do not use
-braces around the text.  In a printed manual, the text on an
-@code{@@exdent} line is printed in the roman font.
+braces around the text.  The text on an @code{@@exdent} line is also
+usually printed in the roman font.
 
 @code{@@exdent} is usually used within examples.  Thus,
 
@@ -6891,7 +6884,7 @@ In practice, the @code{@@exdent} command is rarely used.  Usually, you
 un-indent text by ending the example and returning the page to its
 normal width.
 
-@code{@@exdent} has no effect in HTML output.
+@code{@@exdent} does not have an effect in every output format.
 
 
 @node @code{@@flushleft @@flushright}
@@ -6969,8 +6962,10 @@ The @code{@@raggedright} fills text as usual, but the text is only
 justified on the left; the right margin is ragged.  The command is
 written on a line of its own, without braces.  The
 @code{@@raggedright} command is ended by @code{@@end raggedright} on a
-line of its own.  This command has no effect in Info and HTML output,
-where text is always set ragged right.
+line of its own.  This command has an effect in output
+formats where text is justified on the left, where possible, but
+not in output formats where text is always set ragged right, such as
+Info or HTML.
 
 The @code{@@raggedright} command can be useful with paragraphs
 containing lists of commands with long names, when it is known in
@@ -7096,16 +7091,17 @@ since @code{@@indent} is a command used outside of paragraphs
 
 
 @node @code{@@cartouche}
-@section @code{@@cartouche}: Rounded Rectangles
+@section @code{@@cartouche}: Highlighting Blocks
 
 @anchor{cartouche}@c old name
 @findex cartouche
 @cindex Box with rounded corners
 @cindex Rounded rectangles, around text
 
-In a printed manual, the @code{@@cartouche} command draws a box with
-rounded corners around its contents.  In HTML, a normal rectangle is
-drawn.  @code{@@cartouche} has no effect in Info and DocBook output.
+Where possible, the @code{@@cartouche} command draws a box with
+rounded corners around its contents.  A normal rectangle may also
+be drawn, if there is no easy way to get rounded corners.  In some
+output formats, @code{@@cartouche} has no effect at all.
 
 You can use this command to further highlight an example or quotation.
 For instance, you could write a manual in which one type of example is
@@ -7136,7 +7132,8 @@ Info, you'll see the @code{@@cartouche} had no effect):
 @end example
 @end cartouche
 
-@code{@@cartouche} also implies @code{@@group} (@pxref{@code{@@group}}).
+Where possible, @code{@@cartouche} also implies @code{@@group}
+(@pxref{@code{@@group}}).
 
 
 @node small
@@ -7159,7 +7156,7 @@ Texinfo has ``small'' example-style commands.  These are
 @code{@@smalldisplay}, @code{@@smallexample}, @code{@@smallformat},
 and @code{@@smalllisp}.
 
-In Info, HTML and DocBook output, the @code{@@small@dots{}} commands are
+In most output formats, the @code{@@small@dots{}} commands are
 equivalent to their non-small companion commands.
 
 In printed output, however, the @code{@@small@dots{}} commands typeset text in
@@ -7172,7 +7169,7 @@ Mark the end of a @code{@@small@dots{}} block with a corresponding
 @code{@@end smallexample}.
 
 Here is an example of the font used by the @code{@@smallexample}
-command (in Info, the output will be the same as usual):
+command (in most output formats, the output will be the same as usual):
 
 @smallexample
 @dots{} to make sure that you have the freedom to
@@ -7586,11 +7583,12 @@ will be placed in the first column (including any footnotes).
 You do not need to type anything for an empty second column.
 
 Normally, you should put a blank line before an @code{@@item} line
-(except the first one).  This puts a blank line in the Info file.
-Except when the entries are very brief, a blank line looks better.
-End the table with a line consisting of @code{@@end table}, followed
-by a blank line.  @TeX{} will always start a new paragraph after the
-table, so the blank line is needed for the Info output to be analogous.
+(except the first one).  Except when the entries are very brief, a
+blank line looks better in some output formats.
+End the table with a line consisting of @code{@@end table}.  Some output
+formats automatically start a new paragraph after the table, so
+it is in general better to follow the end of the table by a blank line,
+to obtain analogous output for other output formats.
 
 @need 1500
 For example, the following table highlights the text in the first
@@ -7674,9 +7672,9 @@ Use @code{@@item} for the first entry, and @code{@@itemx} for all
 subsequent entries; @code{@@itemx} must always follow an @code{@@item}
 command, with no blank line intervening.
 
-The @code{@@itemx} command works exactly like @code{@@item} except
-that it does not generate extra vertical space above the first column
-text.  If you have multiple consecutive @code{@@itemx} commands, do
+The @code{@@itemx} command works exactly like @code{@@item} except that
+it does not generate extra vertical space above the first column text in some
+output formats.  If you have multiple consecutive @code{@@itemx} commands, do
 not insert any blank lines between them.
 
 For example,
@@ -8061,9 +8059,14 @@ Here's an example:
 @@listoffloats Figure
 @end example
 
-@noindent And here's what the output from @code{@@listoffloats}
-looks like, given the example figure earlier in this chapter (the Info
-output is formatted as a menu):
+@noindent Without any argument, @code{@@listoffloats} generates a list of
+floats for which no float type was specified, i.e., no first argument to the
+@code{@@float} command (@pxref{@code{@@float}}).
+
+The formatting of @code{@@listoffloats} depends on the output
+format.  In Info, for example, a @code{@@listoffloats} is usually formatted
+as a menu.  Here's what the output from @code{@@listoffloats}
+looks like, given the example figure earlier in this chapter:
 
 @ifinfo
 @display
@@ -8074,16 +8077,11 @@ output is formatted as a menu):
 @listoffloats Figure
 @end ifnotinfo
 
-Without any argument, @code{@@listoffloats} generates a list of floats
-for which no float type was specified, i.e., no first argument to the
-@code{@@float} command (@pxref{@code{@@float}}).
-
-Each line in the list of floats contains the float type (if any),
+Usually, each line in the list of floats contains the float type (if any),
 the float number, and the caption, if any---the @code{@@shortcaption}
 argument, if it was specified, else the @code{@@caption} argument.
-In Info, the result is a menu where each float can be selected.  In
-HTML, each line is a link to the float.  In @TeX{} output, the page
-number is included.  In @LaTeX{} output, @code{\listoffigures} is output for
+Where possible, each line links to the float.  The page number
+may also be included.  In @LaTeX{} output, @code{\listoffigures} is output for
 the @samp{figure} (case insensitive) float type, @code{\listoftables} is output
 for the @samp{table} (case insensitive) float type.  For other float types, a
 specific @code{\listof} command is output.
@@ -8205,13 +8203,13 @@ Use @code{@@center} to center an image
 For HTML output, the @dfn{alt attribute} for
 inline images is set to the optional @var{alttext} (fourth) argument to
 @code{@@image}, if supplied.  If not supplied, the full file name of
-the image being displayed is used.  The @var{alttext} is
+the image being displayed is usually used.  The @var{alttext} is
 processed as Texinfo text, so special characters such as @samp{"} and
 @samp{<} and @samp{&} are escaped in the HTML output; also, you can
 get an empty @code{alt} string with @code{@@-} (a command that
 produces no output; @pxref{@code{@@- @@hyphenation}}).
 
-For Info output, the @code{alt} string is also processed as Texinfo
+For Info output, the @var{alttext} string is also processed as Texinfo
 text and output.  In this case, @samp{\} is escaped as @samp{\\} and
 @samp{"} as @samp{\"}; no other escapes are done.
 
@@ -8319,7 +8317,7 @@ figures.  Therefore, if you intend it to be displayed, be sure to leave
 a blank line before the command, or the output will run into the
 preceding text.
 
-Image scaling is presently implemented only in printed output, not in HTML or
+Image scaling is presently implemented only in printed output, not in
 any other sort of output.
 
 
@@ -8379,18 +8377,17 @@ being footnoted), so don't worry that it looks odd.  (Another style,
 perfectly acceptable, is to put the footnote after punctuation
 belonging to the sentence, as in @samp{;@@footnote@{...}.)
 
-In a printed manual or book, the reference mark for a footnote is a
-small, superscripted number; the text of the footnote appears at the
-bottom of the page, below a horizontal line.
+Where possible, the reference mark for a footnote is a
+small, superscripted number.  Otherwise, the reference mark
+for a footnote may be a pair of parentheses
+with the footnote number between them, like this: @samp{(1)}.
 
-In Info, the reference mark for a footnote is a pair of parentheses
-with the footnote number between them, like this: @samp{(1)}.  The
-reference mark is followed by a cross-reference link to the footnote
-text if footnotes are put in separate nodes (@pxref{Footnote Styles}).
-
-In the HTML output, footnote references are generally marked with a
-small, superscripted number which is rendered as a hypertext link to
-the footnote text.
+In a printed manual or book, the text of the footnote appears at the
+bottom of the page, below a horizontal line.  In the HTML output, the
+footnote reference mark is rendered as a hypertext link to the footnote
+text. In Info, the reference mark is followed by a cross-reference link
+to the footnote text if footnotes are put in separate nodes
+(@pxref{Footnote Styles}).
 
 @cindex Critical editions
 @cindex Nested footnotes
@@ -8414,9 +8411,9 @@ footnote style.
 @cindex Footnote style @subentry @samp{end}
 @item end
 For Info, in the @samp{end} node style, all the footnotes for a single
-node are placed at the end of that node.  The footnotes are separated
-from the rest of the node by a line of dashes with the word
-@samp{Footnotes} within it.  Each footnote begins with an
+node are placed at the end of that node.  The footnotes are usually
+separated from the rest of the node by a line of dashes with the word
+@samp{Footnotes} within it.  Each footnote usually begins with an
 @samp{(@var{n})} reference mark.
 
 @need 700
@@ -8445,7 +8442,7 @@ each @samp{(@var{n})} reference mark in the body of the
 node.  The footnote reference is actually a cross-reference
 which you use to reach the footnote node.
 
-The name of the node with the footnotes is constructed
+The name of the node with the footnotes is currently constructed
 by appending @w{@samp{-Footnotes}} to the name of the node
 that contains the footnotes. (Consequently, the footnotes'
 node for the @file{Footnotes} node is
@@ -8453,7 +8450,7 @@ node for the @file{Footnotes} node is
 `Up' node pointer that leads back to its parent node.
 
 @noindent
-Here is how the first footnote in this manual looks after being
+Here is how the first footnote in this manual could look after being
 formatted for Info in the separate node style:
 
 @example
@@ -8502,8 +8499,8 @@ Using Texinfo, you can generate indices without having to sort and
 collate entries manually.  In an index, the entries are listed in
 alphabetical order, together with information on how to find the
 discussion of each entry.  In a printed manual, this information
-consists of page numbers.  In an Info file, this information is a menu
-entry leading to the first node referenced.
+typically consists of page numbers.  In other formats, links to the index
+entries location or to the associated nodes are generated.
 
 Texinfo provides several predefined kinds of indices: an index for
 functions, an index for variables, an index for concepts, and so on.
@@ -8630,24 +8627,25 @@ Hello, there!
 whatever context) ends up before the material, where readers want to
 be, instead of after.
 
-Try to avoid using a colon in index entries, as this may confuse some 
-Info readers.  @xref{Menu Parts} for more information about the
-structure of a menu entry.
+In Info, an index is usually formatted as a menu.  Try to avoid using
+a colon in index entries, as this may confuse some Info readers.
+@xref{Menu Parts} for more information about the structure of a menu entry.
 @c At the time of writing, it always works in standalone info, and a
 @c single colon not followed by a space works in Emacs.
 
 @cindex Index font types
-By default, entries for a concept index are printed in a small roman
-font and entries for the other indices are printed in a small
-@code{@@code} font.  You may change the way part of an entry is
-printed with the usual Texinfo commands, such as @code{@@file} for
+By default, entries for a concept index are printed in a roman
+font and entries for the other indices are printed in a
+@code{@@code} font.  Then entries may also be printed in a small font.
+You may change the way part of an entry is printed with the usual
+Texinfo commands, such as @code{@@file} for
 file names (@pxref{Marking Text}), and @code{@@r} for the normal roman
 font (@pxref{Fonts}).
 
 @findex sortas
 @cindex sort keys for index entries
 @cindex index sorting
-For the printed output, you may specify an explicit sort key for an
+You may specify an explicit sort key for an
 index entry using @code{@@sortas} following either the index command
 or the text of the entry.  For example: @samp{@@findex @@sortas@{\@}
 \ @@r@{(literal \ in @@code@{@@@@math@})} sorts the index entry this
@@ -8850,28 +8848,23 @@ to sort the raw data to produce a sorted index file.  The sorted index
 file is what is actually used to print the index.
 
 @code{@@printindex} reads the corresponding sorted index file and produces
-a traditional two-column index, with dot leaders between the index terms
-and page numbers.
+a traditional two-column index, with index terms and page numbers.
 
 @item
-In Info output, @code{@@printindex} produces a special menu containing
-the line number of the entry, relative to the start of the node.  Info
-readers can use this to go to the exact line of an entry, not just the
-containing node.  (Older Info readers will just go to the node.)
-Here's an example:
+In Info output, @code{@@printindex} currently produces a special menu
+containing the line number of the entry, relative to the start of the node.
+Info readers can use this to go to the exact line of an entry, not just the
+containing node.  (Older Info readers will just go to the node.) Here's an
+example:
 
 @example
 * First index entry:   Top.   (line  7)
 @end example
 
-@noindent The actual number of spaces is variable, to right-justify
-the line number; it's been reduced here to make the line fit in the
-printed manual.
-
 @item
-In plain text output, @code{@@printindex} produces the same menu, but
-the line numbers are relative to the start of the file, since that's
-more convenient for that format.
+In plain text output, @code{@@printindex} formatting is usually similar to a
+menu in Info, showing the line number of each entry relative to the start of
+the file.
 
 @item
 In HTML output, @code{@@printindex} produces links to the index
@@ -9204,6 +9197,7 @@ in your input where you need it.
 
 However, Texinfo uses the comma as a special character only in one
 context: to separate arguments to those Texinfo commands, such as
+@code{@@node} (@pxref{Node Line Requirements}),
 @code{@@acronym} (@pxref{@code{@@acronym}}) and @code{@@xref}
 (@pxref{Cross References}), as well as user-defined macros
 (@pxref{Defining Macros}), which take more than one argument.
@@ -9251,10 +9245,10 @@ macro call:
 
 @findex \backslash
 Texinfo documents may also use \ as a command character inside
-@code{@@math} (@pxref{Inserting Math}).  In this case, @code{@@\} or
-@code{\backslash} produces a ``math'' backslash (from the math symbol
-font), while @code{@@backslashchar@{@}} produces a typewriter
-backslash as usual.
+@code{@@math} (@pxref{Inserting Math}).  In this case, where possible,
+@code{@@\} or @code{\backslash} produces a ``math'' backslash
+(from the math symbol font), while @code{@@backslashchar@{@}} produces
+a typewriter backslash.
 
 Although @samp{@@backslashchar@{@}} can be used nearly anywhere, there
 is no need for it except in these unusual cases.
@@ -9308,11 +9302,13 @@ Ordinarily, an ampersand `&' is a normal character in Texinfo that can be
 simply typed in your input where you need it.  The result is to
 typeset the ampersand character.
 
-However, the ampersand character has a special meaning in Texinfo in 
+However, the ampersand character is formatted especially in
 just one restricted context.  In the argument to a definition command
-(@pxref{Definition Commands}), Emacs Lisp keywords beginning with 
-ampersands are recognized and typeset specially.  @xref{A Sample 
-Function Description,,, elisp, GNU Emacs Lisp Reference Manual}.
+(@pxref{Definition Commands}), ampersand followed by letters
+may be typeset especially with @TeX{}@footnote{This convention corresponds to
+Emacs Lisp keywords. @xref{A Sample
+Function Description,,, elisp, GNU Emacs Lisp Reference Manual}.}
+(@pxref{Def Cmd Conventions}).
 For example:
 
 @example
@@ -9321,16 +9317,12 @@ For example:
 @@end defun
 @end example
 
-@noindent leads to the output
+@noindent may have @samp{&optional} and @samp{&rest} formatted in bold
+even without any @@-command involved.
 
-@defun foo integer1 &optional integer2 &rest integers
-@code{foo} described here.
-@end defun
-
-So, in order to typeset an ampersand in such a context (for example, in 
-documentation of a C++ function taking a reference as a parameter),
+So, in order to typeset an ampersand in such a context,
 it's necessary to use @code{@@&} or some other construct.
-Here's an example:
+Here's an example of a C++ function taking a reference as a parameter:
 
 @example
 @@deftypefn Function int foo (const std::vector<int>@@& @@var@{bar@})
@@ -9569,7 +9561,7 @@ Give it to M.I.B. and to M.E.W@.  Also, give it to R.J.C@.@*
 Give it to M.I.B. and to M.E.W.  Also, give it to R.J.C.
 @end quotation
 
-In the HTML output, @code{@@.}@: is equivalent to a simple @samp{.};
+In other output formats, @code{@@.}@: is equivalent to a simple @samp{.};
 likewise for @code{@@!}@: and @code{@@?}@:.
 
 @cindex Closing punctuation, and sentence ending
@@ -9612,9 +9604,9 @@ the sentence; there is no need to use @code{@@.}.
 
 In American typography, it is traditional and correct to put extra
 space at the end of a sentence.  This is the default in Texinfo
-(implemented in Info and printed output; for HTML, we don't try to
-override the browser).  In French typography (and others), this extra
-space is wrong; all spaces are uniform.
+(implemented in Info and printed output, not in other output formats).  In
+French typography (and others), this extra space is wrong; all spaces are
+uniform.
 
 Therefore Texinfo provides the @code{@@frenchspacing} command to
 control the spacing after punctuation.  It reads the rest of the line
@@ -9653,11 +9645,9 @@ This is text. Two sentences. Three sentences. Non-French spacing.
 @cindex Format a dimension
 @findex dmn
 
-You can use the @code{@@dmn} command to format a dimension with a
-little extra space in the printed output.  That is, on seeing
-@code{@@dmn}, @TeX{} inserts just enough space for proper typesetting;
-in other output formats, the formatting commands insert no space at
-all.  No effect in other formats.
+You can use the @code{@@dmn} command to format a dimension with just enough
+space for proper typesetting inserted in printed output.  In other output
+formats, the formatting commands insert no space at all.
 
 To use the @code{@@dmn} command, write the number and then follow it
 immediately, with no intervening space, by @code{@@dmn}, and then by
@@ -9865,7 +9855,7 @@ are converted to left- and right-hand doubled quotation marks,
 @iftex
 ``like this'',
 @end iftex
-and Info converts doubled single-quote characters to ASCII
+in other formats doubled single-quote characters may be converted to ASCII
 double quotes: @w{@t{`@w{}`@dots{}'@w{}'}} becomes @w{@t{"@dots{}"}}.
 
 You may occasionally need to produce two consecutive single quotes;
@@ -10007,7 +9997,7 @@ here@@sub@{below@}@@sup@{above@}
 here@sub{below}@sup{above}
 @end display
 
-In Info and plain text, @code{@@sub@{@var{text}@}} is output
+In Info and plain text, @code{@@sub@{@var{text}@}} is currently output
 as @samp{_@{@var{text}@}} and @code{@@sup@{@var{text}@}} as
 @samp{^@{@var{text}@}}, including the literal braces (to mark the
 beginning and end of the ``script'' text to the reader).
@@ -10059,8 +10049,9 @@ attempts to use the @command{tex4ht} program.  With the @samp{mathjax}
 setting, @command{texi2any} inserts references in the output files
 to MathJax scripts to format the material.  The MathJax option
 requires JavaScript to be enabled in the browser to work.  See also
-@ref{MathJax Customization Variables} and @ref{@command{latex2html}
-Customization Variables}.
+@ref{MathJax Customization Variables}, @ref{@command{latex2html}
+Customization Variables} and @ref{@command{tex4ht} Customization
+Variables}.
 
 @cindex Displayed equations
 @cindex Equations, displayed
@@ -10113,7 +10104,8 @@ ordinarily produces a literal (typewriter) @samp{\}.  You can also use
 Due to the conflict with Texinfo's @code{@@sup} command, you can access
 the plain @TeX{} command @code{\sup} as @code{\mathopsup} instead,
 in the unlikely occurrence that you want to do this (but only when
-processing with @TeX{}, not with any of the @code{HTML_MATH} options).
+processing with @TeX{}, not when outputting @LaTeX{} nor with any of the
+@code{HTML_MATH} options).
 
 
 @node Glyphs for Text
@@ -10155,11 +10147,11 @@ as far as @code{makeinfo} is concerned, but @TeX{} is not so lucky.
 
 Use the @code{@@TeX@{@}} command to generate `@TeX{}'.  In a printed
 manual, this is a special logo that is different from three ordinary
-letters.  In Info, it just looks like @samp{TeX}.
+letters.  In other output formats, it just looks like @samp{TeX}.
 
 Similarly, use the @code{@@LaTeX@{@}} command to generate `@LaTeX{}',
 which is even more special in printed manuals (and different from the
-incorrect @code{La@@TeX@{@}}.  In Info, the result is just
+incorrect @code{La@@TeX@{@}}.  In other output formats, the result is just
 @samp{LaTeX}.
 
 The spelling of these commands is unusual for Texinfo, in that they
@@ -10175,7 +10167,7 @@ use both uppercase and lowercase letters.
 
 Use the @code{@@copyright@{@}} command to generate the copyright
 symbol, `@copyright{}'.  Where possible, this is a @samp{c} inside a
-circle; in Info, this is @samp{(C)}.
+circle; otherwise this is @samp{(C)}.
 
 Legally, it's not necessary to use the copyright symbol; the English
 word `Copyright' suffices, according to international treaty.
@@ -10190,7 +10182,7 @@ word `Copyright' suffices, according to international treaty.
 
 Use the @code{@@registeredsymbol@{@}} command to generate the
 registered symbol, `@registeredsymbol{}'.  Where possible, this is an
-@samp{R} inside a circle; in Info, this is @samp{(R)}.
+@samp{R} inside a circle; otherwise this is @samp{(R)}.
 
 
 @node @code{@@dots}
@@ -10211,8 +10203,8 @@ typeset as a string of periods, so a special command is used in
 Texinfo: use the @code{@@dots@{@}} command to generate a normal
 ellipsis, which is three dots in a row, appropriately spaced @dots{}
 like so.  To emphasize: do not simply write three periods in the input
-file; that would work for the Info file output, but would produce the
-wrong amount of space between the periods in the printed manual.
+file; that could work in some output formats, but would produce the
+wrong amount of space between the periods in printed manuals.
 
 The @code{@@enddots@{@}} command generates an end-of-sentence
 ellipsis, which also has three dots, but with different spacing
@@ -10232,7 +10224,7 @@ much closer together than the dots in the ellipsis.
 @findex bullet
 
 Use the @code{@@bullet@{@}} command to generate a large round dot, or
-the closest possible thing to one.  In Info, an asterisk is used.
+the closest possible thing to one.  An asterisk can also be used.
 Here is a bullet: @bullet{}
 
 When you use @code{@@bullet} in @code{@@itemize}, you do not need to
@@ -10308,12 +10300,8 @@ than a hyphen, shorter than an em-dash:
 @end display
 
 @noindent
-In the fixed-width font used by Info, @code{@@minus@{@}} is the same
-as a hyphen.
-
-You should not use @code{@@minus@{@}} inside @code{@@code} or
-@code{@@example} because the width distinction is not made in the
-fixed-width font they use.
+In general, in fixed-width font @code{@@minus@{@}} is the same as a hyphen,
+in particular inside @code{@@code} or @code{@@example}.
 
 When you use @code{@@minus} to specify the mark beginning each entry
 in an itemized list, you do not need to type the braces
@@ -10346,12 +10334,12 @@ greater-than-or-equal and less-than-equal-signs, `@geq{}' and
 @cindex Programming, glyphs for
 
 In Texinfo, code is often illustrated in examples that are delimited
-by @code{@@example} and @code{@@end example}, or by @code{@@lisp} and
-@code{@@end lisp}.  In such examples, you can indicate the results of
-evaluation or an expansion using @samp{@result{}} or
-@samp{@expansion{}}.  Likewise, there are commands to insert glyphs to
-indicate printed output, error messages, equivalence of expressions,
-the location of point in an editor, and GUI operation sequences.
+by @code{@@example} and @code{@@end example}.  In such examples,
+you can indicate the results of evaluation or an expansion using
+@samp{@result{}} or @samp{@expansion{}}.  Likewise, there are commands
+to insert glyphs to indicate printed output, error messages, equivalence
+of expressions, the location of point in an editor, and GUI operation
+sequences.
 
 The glyph-insertion commands do not need to be used within an example,
 but most often they are.  All glyph-insertion commands are followed by
@@ -10419,10 +10407,10 @@ ASCII sequence @samp{=>}.
 
 Thus, the following,
 
-@lisp
+@example lisp
 (cdr '(1 2 3))
     @result{} (2 3)
-@end lisp
+@end example
 
 @noindent
 may be read as ``@code{(cdr '(1 2 3))} evaluates to @code{(2 3)}''.
@@ -10449,24 +10437,24 @@ For example, the following
 
 @example
 @group
-@@lisp
+@@example lisp
 (third '(a b c))
     @@expansion@{@} (car (cdr (cdr '(a b c))))
     @@result@{@} c
-@@end lisp
+@@end example
 @end group
 @end example
 
 @noindent
 produces
 
-@lisp
+@example lisp
 @group
 (third '(a b c))
     @expansion{} (car (cdr (cdr '(a b c))))
     @result{} c
 @end group
-@end lisp
+@end example
 
 @noindent
 which may be read as:
@@ -10500,28 +10488,28 @@ In the following example, the printed text is indicated with
 @samp{@print{}}, and the value of the expression follows on the
 last line.
 
-@lisp
+@example lisp
 @group
 (progn (print 'foo) (print 'bar))
     @print{} foo
     @print{} bar
     @result{} bar
 @end group
-@end lisp
+@end example
 
 @noindent
 In a Texinfo source file, this example is written as follows:
 
-@lisp
+@example
 @group
-@@lisp
+@@example lisp
 (progn (print 'foo) (print 'bar))
     @@print@{@} foo
     @@print@{@} bar
     @@result@{@} bar
-@@end lisp
+@@end example
 @end group
-@end lisp
+@end example
 
 
 @node @code{@@error}
@@ -10543,27 +10531,27 @@ followed by an arrow in other formats or (when no arrow is available)
 Thus,
 
 @example
-@@lisp
+@@example lisp
 (+ 23 'x)
 @@error@{@} Wrong type argument: integer-or-marker-p, x
-@@end lisp
+@@end example
 @end example
 
 @noindent
 produces
 
-@lisp
+@example lisp
 (+ 23 'x)
 @error{} Wrong type argument: integer-or-marker-p, x
-@end lisp
+@end example
 
 @noindent
 This indicates that the following error message is printed
 when you evaluate the expression:
 
-@lisp
+@example lisp
 Wrong type argument: integer-or-marker-p, x
-@end lisp
+@end example
 
 The word @samp{@error{}} itself is not part of the error message.
 
@@ -10585,17 +10573,17 @@ the ASCII sequence @samp{==}.
 Thus,
 
 @example
-@@lisp
+@@example lisp
 (make-sparse-keymap) @@equiv@{@} (list 'keymap)
-@@end lisp
+@@end example
 @end example
 
 @noindent
 produces
 
-@lisp
+@example lisp
 (make-sparse-keymap) @equiv{} (list 'keymap)
-@end lisp
+@end example
 
 @noindent
 This indicates that evaluating @code{(make-sparse-keymap)} produces
@@ -10920,8 +10908,8 @@ Give hyphenation points for certain words.  For example:
 exactly, so give all necessary variants, such as plurals.
 @end table
 
-Info, HTML, and other non-printed output is not hyphenated, so none of
-these commands have any effect there.
+Non-printed output is not hyphenated, so none of
+these commands have any effect in other output formats.
 
 
 @node @code{@@allowcodebreaks}
@@ -11007,7 +10995,7 @@ it happens to fall near the end of a line.
 You can also use @code{@@w} to avoid unwanted keyword expansion in
 source control systems.  For example, to literally write @t{@w{$}Id$}
 in your document, use @code{@@w@{$@}Id$}.  This trick isn't effective
-in Info or plain text output, though.
+in all the output formats, though.
 
 
 @node @code{@@tie}
@@ -12812,8 +12800,11 @@ unpredictable and generally undesirable behavior.  For example, using
 the @code{@@kbdinputstyle} command inside a raw region is undefined.
 The remedy is simple: don't do that.
 
-The XML output will contain any regions of raw text in other formats,
-but with protection of XML characters and within corresponding
+@c raw format regions in other formats are empty in the Texinfo XML
+@c output as they only contain an empty elided_block type container.
+@ignore
+The Texinfo XML output will contain any regions of raw text in other
+formats, but with protection of XML characters within corresponding
 elements.  For example, the raw HTML text:
 
 @example
@@ -12834,7 +12825,7 @@ will be included in the XML output as:
 </html>
 @end group
 @end example
-
+@end ignore
 
 
 @node Inline Conditionals
@@ -13050,6 +13041,7 @@ It is a @{No value for "howmuch"@} wet day.
 @code{@@value} cannot be reliably used as the argument to an accent
 command (@pxref{Inserting Accents}).  For example, this fails:
 
+@c This does not seems to fail with texi2any, but fails with TeX.
 @example
 @@set myletter a
 @@'@@value@{myletter@}    @c fails!
@@ -13103,15 +13095,14 @@ flag is set.
 
 When @var{flag} is cleared, the Texinfo formatting commands do
 @emph{not} format the text between @code{@@ifset @var{flag}} and
-@code{@@end ifset}; that text is ignored and does not appear in either
-printed or Info output.
+@code{@@end ifset}; that text is ignored and does not appear in output.
 
 For example, if you clear the flag of the preceding example by writing
 an @code{@@clear large} command after the @code{@@set large} command
 (but before the conditional text), then the Texinfo formatting commands
 ignore the text between the @code{@@ifset large} and @code{@@end ifset}
-commands.  In the formatted output, that text does not appear; in both
-printed and Info output, you see only the lines that say, ``You can use
+commands.  In the formatted output, that text does not appear; you see
+only the lines that say, ``You can use
 this machine to dig up shrubs without hurting them.  Remember to replant
 promptly @dots{}''.
 
@@ -13402,7 +13393,7 @@ command.
 
 @item
 @samp{@@definfoenclose} allows you to define new commands with
-customized output for all non-printed output formats.
+customized output for some non-printed output formats.
 
 @end itemize
 
