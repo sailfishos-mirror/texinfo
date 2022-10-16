@@ -10082,16 +10082,21 @@ f(x) = {1\over\sigma\sqrt{2\pi}}
 e^{-{1\over2}\left({x-\mu\over\sigma}\right)^2}
 @end displaymath
 
+In general, the contents of @code{@@math} or @code{@@displaymath}
+should be plain @TeX{} only, with no interspersed Texinfo commands.
+If you do use any Texinfo commands, then you should mark these with
+@samp{@@} as usual, rather than @samp{\} (e.g. @samp{@@var} rather than
+@samp{\var}), but we do not guarantee which Texinfo commands will work.
+
 Although @code{@@sub} and @code{@@sup} may work inside math mode in
 some contexts, it is better to use @TeX{}'s @samp{_} and @samp{^}
 characters to denote subscripts and superscripts within mathematical
-expressions.  In general, the contents of @code{@@math} or
-@code{@@displaymath} should be plain @TeX{} or @LaTeX{} only, with no
-interspersed Texinfo commands.
+expressions.
 
-In general, plain @TeX{} will be correctly output in @LaTeX{},
-while @LaTeX{} specific math code will not be correctly output when
-processed with @TeX{}.
+@LaTeX{}-specific code will only work when the output format is @LaTeX{},
+and with the @code{HTML_MATH} options (although @command{tex4ht} needs
+@code{T4H_MATH_CONVERSION} to be set to @samp{latex};
+@pxref{@command{tex4ht} Customization Variables}).
 
 @ignore
 @findex @sortas{\} \ @r{(literal \ in @code{@@math})}

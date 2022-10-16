@@ -1,5 +1,12 @@
 2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Inserting Math): Do not state that
+	LaTeX commands can be used inside @math/@displaymath.
+	Use @ not \ for Texinfo commands.  Reference
+	T4H_MATH_CONVERSION for LaTeX output.
+
+2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/man.c (check_manpage_node, get_manpage_from_formatter):
 	Apply ! operator to result of freopen, to silence obnoxious gcc
 	warning.
