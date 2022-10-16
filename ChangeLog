@@ -1,3 +1,8 @@
+2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/info.c (main) <--output>: Exit with status of 1, not 0,
+	if there was an error.  Report from Hilmar Preusse <hille42@web.de>.
+
 2022-10-15  Jakub Wilk  <jwilk@jwilk.net>  (tiny change)
 
 	* doc/texinfo.texi (Info Format Cross Reference): Fix punctuation.

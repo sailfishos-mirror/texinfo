@@ -1059,11 +1059,14 @@ There is NO WARRANTY, to the extent permitted by law.\n"),
   /* --output */
   if (user_output_filename)
     {
-      if (error)
-        info_error ("%s", error);
-
       preprocess_nodes_p = 0;
       dump_nodes_to_file (ref_list, user_output_filename, dump_subnodes);
+
+      if (error)
+        {
+          info_error ("%s", error);
+          exit (1);
+        }
       exit (0);
     }
 
