@@ -82,8 +82,9 @@ check_manpage_node (char *pagename)
   if (!child)
     {
       int ret;
-      freopen (NULL_DEVICE, "w", stdout);
-      freopen (NULL_DEVICE, "w", stderr);
+      (void)! freopen (NULL_DEVICE, "w", stdout);
+      (void)! freopen (NULL_DEVICE, "w", stderr);
+      /* avoid "unused result" warning with ! operator */
       char *formatter = find_man_formatter();
       if (!formatter)
         exit (1);
@@ -390,8 +391,9 @@ get_manpage_from_formatter (char *formatter_args[])
     { /* In the child, close the read end of the pipe, make the write end
          of the pipe be stdout, and execute the man page formatter. */
       close (pipes[0]);
-      freopen (NULL_DEVICE, "w", stderr);
-      freopen (NULL_DEVICE, "r", stdin);
+      (void)! freopen (NULL_DEVICE, "w", stderr);
+      (void)! freopen (NULL_DEVICE, "r", stdin);
+      /* avoid "unused result" warning with ! operator */
       dup2 (pipes[1], fileno (stdout));
 
       execv (formatter_args[0], formatter_args);

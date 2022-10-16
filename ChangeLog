@@ -1,5 +1,11 @@
 2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* info/man.c (check_manpage_node, get_manpage_from_formatter):
+	Apply ! operator to result of freopen, to silence obnoxious gcc
+	warning.
+
+2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* system.h (ALSO_NULL_DEVICE): Remove unused.
 
 2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
