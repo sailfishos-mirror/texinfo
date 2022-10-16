@@ -1,5 +1,9 @@
 2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* system.h (ALSO_NULL_DEVICE): Remove unused.
+
+2022-10-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Check for man page with 'man -w'
 
 	* info/man.c (check_manpage_node): New function, to check if
