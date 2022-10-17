@@ -8638,8 +8638,7 @@ a colon in index entries, as this may confuse some Info readers.
 
 @cindex Index font types
 By default, entries for a concept index are printed in a roman
-font and entries for the other indices are printed in a
-@code{@@code} font.  Then entries may also be printed in a small font.
+font and entries for the other indices are printed in a typewriter font.
 You may change the way part of an entry is printed with the usual
 Texinfo commands, such as @code{@@file} for
 file names (@pxref{Marking Text}), and @code{@@r} for the normal roman

@@ -1,5 +1,11 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Indexing Commands):
+	Remove apparently useless sentence.  Change @code font
+	to typewriter font.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Inserting Quotation Marks):
 	Make discussion generic across output formats.  Account
 	for fact that Info output is not pure ASCII any more
