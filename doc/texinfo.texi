@@ -7579,13 +7579,15 @@ paragraphs.  But only the text on the same line as the @code{@@item}
 will be placed in the first column (including any footnotes).
 You do not need to type anything for an empty second column.
 
-Normally, you should put a blank line before an @code{@@item} line
-(except the first one).  Except when the entries are very brief, a
-blank line looks better in some output formats.
-End the table with a line consisting of @code{@@end table}.  Some output
-formats automatically start a new paragraph after the table, so
-it is in general better to follow the end of the table by a blank line,
-to obtain analogous output for other output formats.
+Normally, you should put a blank line between table entries.  This puts
+a blank line in the Info file, which looks better unless the entries
+are very brief.
+
+End the table with a line consisting of @code{@@end table}.
+Follow the end of the table by a blank line for consistent formatting
+across output formats.
+
+@c TeX aloways starts a new paragraph after the table
 
 @need 1500
 For example, the following table highlights the text in the first
