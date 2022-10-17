@@ -6497,18 +6497,16 @@ following text from being indented as a new paragraph.
 @cindex Quotations
 @findex quotation
 
-The text of a quotation is usually processed like normal text (regular font,
+The text of a quotation is processed like normal text (regular font,
 text is filled) except that:
 
 @itemize @bullet
 @item
-the left margin is closer to the center of the page, so the whole of the
-quotation is indented; the right margin may also be closer to the center
-of the page
+both the left and right margins are closer to the center of the page,
+so the whole of the quotation is indented;
 
 @item
-in general, the first lines of paragraphs are indented no more than other
-lines; and
+the first lines of paragraphs are indented no more than other lines; and
 
 @item
 an @code{@@author} command may be given to specify the author of the
@@ -6529,8 +6527,8 @@ The @code{@@end quotation} line will likewise disappear from the
 output.
 
 @code{@@quotation} takes one optional argument, given on the remainder
-of the line.  This text, if present, is emphasized (often in bold)
-and included at the beginning of the quotation, and followed with a
+of the line.  This text, if present, is included at the beginning of
+the quotation in bold or otherwise emphasized, and followed with a
 @samp{:}.  For example:
 
 @example
@@ -6562,7 +6560,8 @@ Caution  Important  Note  Tip  Warning
 @cindex @code{<warning>} DocBook tag
 @cindex @code{<blockquote>} HTML tag
 @noindent then the DocBook output uses corresponding special tags
-(@code{<note>}, etc.)@: instead of the default tag.
+(@code{<note>}, etc.)@: instead of the default @code{<blockquote>}.
+HTML output always uses @code{<blockquote>}.
 
 If the author of the quotation is specified in the @code{@@quotation}
 block with the @code{@@author} command, a line with the author name is
