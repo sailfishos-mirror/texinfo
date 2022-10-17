@@ -1,6 +1,11 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
-	* doc/texinfo.texi (@listoffloats): Edit.
+	* doc/texinfo.texi (Image Syntax): Remove word "usually".
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (@listoffloats): Edit.  Move output-format
+	specific text to end of node.
 
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 

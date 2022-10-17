@@ -8205,7 +8205,7 @@ Use @code{@@center} to center an image
 For HTML output, the @dfn{alt attribute} for
 inline images is set to the optional @var{alttext} (fourth) argument to
 @code{@@image}, if supplied.  If not supplied, the full file name of
-the image being displayed is usually used.  The @var{alttext} is
+the image being displayed is used.  The @var{alttext} is
 processed as Texinfo text, so special characters such as @samp{"} and
 @samp{<} and @samp{&} are escaped in the HTML output; also, you can
 get an empty @code{alt} string with @code{@@-} (a command that
