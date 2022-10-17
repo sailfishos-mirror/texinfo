@@ -1,5 +1,11 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Defining New Texinfo Commands):
+	State that @definfoenclose is deprecated.  Do not
+	self-congratulatorily describe @alias as "convenient".
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@cartouche): Partially revert changes.
 	Be explicit about the effect of @group.
 

@@ -13354,12 +13354,12 @@ command, which is for documenting macros in the subject area of the
 manual (@pxref{Def Cmd Template}).
 
 @item
-@samp{@@alias} is a convenient way to define a new name for an existing
-command.
+@samp{@@alias} defines a new name for an existing command.
 
 @item
 @samp{@@definfoenclose} allows you to define new commands with
-customized output for some non-printed output formats.
+customized output for some non-printed output formats.  This command
+is deprecated.
 
 @end itemize
 
