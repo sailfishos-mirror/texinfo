@@ -5266,8 +5266,8 @@ specific reason to use colors, best to skip it.
 
 Use the @code{@@cite} command for the name of a book that lacks a
 companion Info file.  For example, we could refer to @cite{A Book}.
-The command usually selects a slanted font or generates quotation
-marks.
+The command selects a slanted font in the printed
+manual, and generates quotation marks in the Info file.
 
 If a book is written in Texinfo, it is better to use a cross-reference
 command since a reader can easily follow such a reference in Info.
@@ -5427,10 +5427,9 @@ ways.  Pick one spelling and always use that.  If you do not want to
 start a sentence with a command name written all in lowercase, you
 should rearrange the sentence.
 
-In general, @code{@@code} argument is typeset in a typewriter (monospace)
-font.  In some output formats, @code{@@code} results in single quotation
-marks around the text (in Info, for instance, though not in every context).
-For example,
+In the Info output, @code{@@code} results in single quotation marks
+around the text.  In other formats, @code{@@code} argument is typeset
+in a typewriter (monospace) font.  For example,
 
 @example
 The function returns @@code@{nil@}.
@@ -5949,9 +5948,9 @@ Use the @code{@@dfn} command to identify the introductory or defining
 use of a technical term.  Use the command only in passages whose
 purpose is to introduce a term which will be used again or which the
 reader ought to know.  Mere passing mention of a term for the first
-time does not deserve @code{@@dfn}.  The command is highlighted in the
-output, for example by selecting a slanted font or by generating double
-quotation marks.  For example:
+time does not deserve @code{@@dfn}.  The command selects a slanted font
+in the printed manual, and generates double quotation marks in the Info
+file.  For example:
 
 @example
 Getting rid of a file is called @@dfn@{deleting@} it.
@@ -6035,10 +6034,11 @@ If the acronym is at the end of a sentence, and if there is no second
 argument, remember to use the @code{@@.} or similar command
 (@pxref{Ending a Sentence}) to get the correct spacing.
 
-In output formats with an appropriate tag, such as HTML and DocBook, this tag
-is used.  Otherwise, the first argument is usually printed as-is or in
-slightly smaller font; if the second argument is present, it is usually printed
-in parentheses after the acronym.
+In @TeX{}, the acronym is printed in slightly smaller font.  In the
+Info output, the argument is printed as-is.  In either format, and
+in @LaTeX{} output, if the second argument is present, it is printed in
+parentheses after the acronym.  In HTML and DocBook the appropriate
+tag is used.
 
 For instance (since GNU is a recursive acronym, we use
 @code{@@acronym} recursively):
@@ -6076,7 +6076,7 @@ In Texinfo, an acronym (but not an abbreviation) should consist only
 of capital letters and periods, no lowercase.
 
 @item
-An acronym (but not an abbreviation) can be output in a
+In @TeX{}, an acronym (but not an abbreviation) is printed in a
 slightly smaller font.
 
 @item
@@ -6134,10 +6134,10 @@ It takes one mandatory argument, the address, and one optional argument, the
 text to display (the default is the address itself).
 
 @cindex Mailto link
-Where possible, @code{@@email} produces a @samp{mailto} link (in HTML and
-DocBook, for instance).  In HTML, a @samp{mailto} link usually brings up
-a mail composition window.  In other formats, the address may be shown
-in angle brackets, and is usually preceded by the text to display if any.
+In Info, the address is shown in angle brackets, preceded by the text
+to display if any.  In printed output, the angle brackets are omitted.  In
+HTML and DocBook output, @code{@@email} produces a @samp{mailto} link.
+In HTML, a @samp{mailto} link usually brings up a mail composition window.
 For example:
 
 @example
@@ -6182,12 +6182,10 @@ These commands have no effect in Info and only one of them, the
 @cindex Emphasizing text, font for
 
 The @code{@@emph} and @code{@@strong} commands are for emphasis;
-@code{@@strong} is stronger.  In printed output, @code{@@emph} usually
-produces @emph{italics} and @code{@@strong} usually produces @strong{bold}.
-In the Info output, emphasis can be represented by surrounding the
-text with ASCII characters.  For example, @code{@@emph} can be marked by
-surrounding the text with underscores (@samp{_}), and @code{@@strong} can
-put asterisks around the text.
+@code{@@strong} is stronger.  In printed output, @code{@@emph} produces
+@emph{italics} and @code{@@strong} produces @strong{bold}.
+In the Info output, @code{@@emph} surrounds the text with underscores
+(@samp{_}), and @code{@@strong} puts asterisks around the text.
 
 For example,
 
@@ -6245,12 +6243,13 @@ especially in languages other than English, though there are no
 hard-and-fast rules about such things.
 
 @cindex @code{<small>} tag
-Capitals are used to format small caps text.  Where possible,
-only lowercase letters are printed in the small caps font;  uppercase
-letters between the braces of an @code{@@sc} command are printed in
-full-size capitals.  Where true small caps are not available, the
-argument is uppercased and, if possible, the output is usually marked
-such as to reduce the font size.
+@TeX{} typesets any uppercase letters between the braces of an
+@code{@@sc} command in full-size capitals; only lowercase letters are
+printed in the small caps font.  In the Info output, the argument to
+@code{@@sc} is printed in all uppercase.  In HTML, the argument is
+uppercased and the output marked with the @code{<small>} tag to reduce
+the font size, since HTML cannot easily represent true small caps.
+In @LaTeX{}, a command setting small caps fonts is output.
 
 Overall, we recommend using standard upper- and lowercase letters
 wherever possible.
@@ -6287,8 +6286,8 @@ Texinfo does not at present have commands to switch the font family
 to use, or more general size-changing commands.
 
 Texinfo also provides a number of font commands that specify font
-changes where possible, for example in the printed manual and
-in the HTML and DocBook output.  All the commands apply to a following
+changes in the printed manual and (where possible) in the HTML and DocBook
+output.  They have no effect in Info.  All the commands apply to a following
 argument surrounded by braces.
 
 @table @code
@@ -6369,11 +6368,10 @@ produces
 @end lisp
 
 The @code{@@t} command can occasionally be useful for producing output in
-a typewriter font where that is supported, but no distinction with quotation
-marks is needed, in formats where code is formatted in quotes.  (Compare
-@code{@@t@{foo@}} producing @t{foo} with @code{@@code@{foo@}} producing
-@code{foo}.)  Here are some possible reasons for using @code{@@t} instead of
-@code{@@code}:
+a typewriter font where that is supported, but no distinction with
+quotation marks is needed in Info or plain text.  (Compare @code{@@t@{foo@}}
+producing @t{foo} with @code{@@code@{foo@}} producing @code{foo}.)  Here
+are some possible reasons for using @code{@@t} instead of @code{@@code}:
 
 @itemize @minus
 @item The argument is a single character
