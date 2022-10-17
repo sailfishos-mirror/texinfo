@@ -1,5 +1,10 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@code): Move treatment of Info/plaintext
+	output together and reinstate some removed text.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Defining New Texinfo Commands):
 	State that @definfoenclose is deprecated.  Do not
 	self-congratulatorily describe @alias as "convenient".

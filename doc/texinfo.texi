@@ -5427,9 +5427,8 @@ ways.  Pick one spelling and always use that.  If you do not want to
 start a sentence with a command name written all in lowercase, you
 should rearrange the sentence.
 
-In the Info output, @code{@@code} results in single quotation marks
-around the text.  In other formats, @code{@@code} argument is typeset
-in a typewriter (monospace) font.  For example,
+The @code{@@code} argument is typeset in a typewriter (monospace) font.
+where the output format allows this.  For example,
 
 @example
 The function returns @@code@{nil@}.
@@ -5486,12 +5485,16 @@ can be controlled with @code{@@allowcodebreaks}
 lines is up to the browser's behavior.  For Info, it seems better
 never to make such breaks.
 
-To control which quoting characters are implicitly inserted by
-@command{texi2any} in the output of @samp{@@code} and other highlighting
-commands, see the @code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL}
-customization variables (@pxref{Other Customization Variables}).  This
-is separate from how actual quotation characters in the input document
-are handled (@pxref{Inserting Quote Characters}).
+For Info and plaintext, quotation characters are usually output around
+the output of the @code{@@code} command and related commands
+(e.g., @code{@@kbd}, @code{@@command}) except
+in typewriter-like contexts such as the @code{@@example} environment
+(@pxref{@code{@@example}}) and @code{@@code} itself, etc.
+To control which quoting characters are inserted by
+@command{texi2any} in the output of @samp{@@code}, etc., see the
+@code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL} customization
+variables (@pxref{Other Customization Variables}).
+
 
 
 @node @code{@@kbd}
