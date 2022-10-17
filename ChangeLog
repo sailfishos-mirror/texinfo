@@ -1,5 +1,14 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Raw Formatter Commands):
+	Remove @ignore'd block completely.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Footnote Styles): Revert changes.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@lisp): Revert change to "@example lisp"
 	because this node is specifically about @lisp.
 

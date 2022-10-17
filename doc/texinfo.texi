@@ -12794,33 +12794,6 @@ unpredictable and generally undesirable behavior.  For example, using
 the @code{@@kbdinputstyle} command inside a raw region is undefined.
 The remedy is simple: don't do that.
 
-@c raw format regions in other formats are empty in the Texinfo XML
-@c output as they only contain an empty elided_block type container.
-@ignore
-The Texinfo XML output will contain any regions of raw text in other
-formats, but with protection of XML characters within corresponding
-elements.  For example, the raw HTML text:
-
-@example
-@group
-@@html
-<br />
-@@end html
-@end group
-@end example
-
-@noindent
-will be included in the XML output as:
-
-@example
-@group
-<html>
-&lt;br /&gt;
-</html>
-@end group
-@end example
-@end ignore
-
 
 @node Inline Conditionals
 @section Inline Conditionals: @code{@@inline}, @code{@@inlineifelse}, @code{@@inlineraw}
