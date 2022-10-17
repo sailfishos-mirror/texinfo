@@ -1,5 +1,10 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@lisp): Revert change to "@example lisp"
+	because this node is specifically about @lisp.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@quotation): Revert recent changes to
 	avoid needless equivocation.
 
