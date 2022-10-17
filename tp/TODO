@@ -53,6 +53,8 @@ translations.
 Delayed bugs
 ============
 
+See message/thread from Reißner Ernst: Feature request: api docs
+
 In @inline* ignore arguments, @value and user macros should not be
 expanded.  For example
 

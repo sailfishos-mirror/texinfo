@@ -1,3 +1,7 @@
+2022-10-17  Patrice Dumas  <pertusus@free.fr>
+
+	Add TODO items, index commands in HTML, @titlepage, metadata...
+
 2022-10-16  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@code{@@unnumberedsubsec @@appendixsubsec

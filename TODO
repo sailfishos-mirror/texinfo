@@ -27,6 +27,16 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Glossary/general definition support (dumas msg 28 Nov 2003 17:09:57 +0100).
   - Improve recommendations for @dircategory.  We used to recommend the
     Free Software Directory categories but these have changed.
+  - use a different command than @titlepage for the page after the title:
+    https://lists.gnu.org/archive/html/bug-texinfo/2019-03/msg00029.html
+  - related to the previous entry, add more metadata, in particular for books
+    but not only
+     * add metadata on last modification date (needed in EPUB)
+     * make it easier to gather author metadata
+     * short information on licence
+  - unique identifiers/way to disambiguate manuals with the same name?
+  - reflection on guide/topic document structure and pluggable content
+    for extensible documents (Mallard format ideas)
 
 * texi2any:
   - give a warning for "makeinfo FOO.info" when "makeinfo FOO.texi" was meant
@@ -46,6 +56,9 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
       was the first devhelp file format, now obsolete:
       (https://lists.gnu.org/archive/html/bug-texinfo/2015-03/msg00041.html)
   - Support the MediaWiki output format.
+  - HTML: format better @seealso, @subentry and @seeentry.
+    https://lists.gnu.org/archive/html/bug-texinfo/2022-08/msg00103.html
+  - LaTeX: customization and internationalization.
 
 * TeX:
   - turn off @set txicodevaristt after next release
@@ -118,7 +131,8 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
 
     If others are interested in processing Texinfo files directly,
     however, it could be possible to work on providing a practical API
-    for the C XS parser in the Texinfo project.
+    for the C parser in the Texinfo project, and maybe bindings for
+    other languages than C or Perl.
 
 ***********************************************************************
 
