@@ -10296,14 +10296,6 @@ than a hyphen, shorter than an em-dash:
 `---' is an em-dash for text.
 @end display
 
-@noindent
-In general, in fixed-width font @code{@@minus@{@}} is the same as a hyphen,
-in particular inside @code{@@code} or @code{@@example}.
-
-When you use @code{@@minus} to specify the mark beginning each entry
-in an itemized list, you do not need to type the braces
-(@pxref{@code{@@itemize}}).
-
 If you actually want to typeset some math that does a subtraction, it
 is better to use @code{@@math}.  Then the regular @samp{-} character
 produces a minus sign, as in @code{@@math@{a-b@}} (@pxref{Inserting

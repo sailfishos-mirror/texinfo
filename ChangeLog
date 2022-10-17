@@ -1,5 +1,11 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@minus): Remove duplicate text about
+	@minus in a fixed width font.  Do not discuss @minus as an
+	@itemize argument as this is already covered at the relevant node.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@w) <$Id$>: Be clearer that the issue
 	may be with output files.
 	(@ifset @ifclear): Minor grammar fix "in output" -> "in the output".
