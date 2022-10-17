@@ -10992,7 +10992,7 @@ it happens to fall near the end of a line.
 You can also use @code{@@w} to avoid unwanted keyword expansion in
 source control systems.  For example, to literally write @t{@w{$}Id$}
 in your document, use @code{@@w@{$@}Id$}.  This trick isn't effective
-in all the output formats, though.
+for output files in some output formats, though.
 
 
 @node @code{@@tie}
@@ -13065,7 +13065,7 @@ flag is set.
 
 When @var{flag} is cleared, the Texinfo formatting commands do
 @emph{not} format the text between @code{@@ifset @var{flag}} and
-@code{@@end ifset}; that text is ignored and does not appear in output.
+@code{@@end ifset}; that text is ignored and does not appear in the output.
 
 For example, if you clear the flag of the preceding example by writing
 an @code{@@clear large} command after the @code{@@set large} command
