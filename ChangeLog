@@ -1,3 +1,9 @@
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi: Remove text with convention for GNU
+	manuals as that doesn't belong here, but rather in a GNU
+	standards document.
+
 2022-10-17  Patrice Dumas  <pertusus@free.fr>
 
 	Add TODO items, index commands in HTML, @titlepage, metadata...
