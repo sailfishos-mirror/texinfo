@@ -8062,9 +8062,7 @@ Here's an example:
 floats for which no float type was specified, i.e., no first argument to the
 @code{@@float} command (@pxref{@code{@@float}}).
 
-The formatting of @code{@@listoffloats} depends on the output
-format.  In Info, for example, a @code{@@listoffloats} is usually formatted
-as a menu.  Here's what the output from @code{@@listoffloats}
+Here's what the output from @code{@@listoffloats}
 looks like, given the example figure earlier in this chapter:
 
 @ifinfo
@@ -8079,14 +8077,19 @@ looks like, given the example figure earlier in this chapter:
 Usually, each line in the list of floats contains the float type (if any),
 the float number, and the caption, if any---the @code{@@shortcaption}
 argument, if it was specified, else the @code{@@caption} argument.
-Where possible, each line links to the float.  The page number
-may also be included.  In @LaTeX{} output, @code{\listoffigures} is output for
-the @samp{figure} (case insensitive) float type, @code{\listoftables} is output
-for the @samp{table} (case insensitive) float type.  For other float types, a
-specific @code{\listof} command is output.
+The page number may also be included, depending on output format.
 
 Unnumbered floats (those without cross-reference labels) are omitted
 from the list of floats.
+
+The formatting of @code{@@listoffloats} depends on the output
+format.  In Info, for example, a @code{@@listoffloats} is formatted
+as a menu.
+
+In @LaTeX{} output, @code{\listoffigures} is output for
+the @samp{figure} (case insensitive) float type, @code{\listoftables} is output
+for the @samp{table} (case insensitive) float type.  For other float types, a
+specific @code{\listof} command is output.
 
 
 @node Images

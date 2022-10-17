@@ -1,5 +1,9 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@listoffloats): Edit.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@table): Edit and condense discussion
 	of blank lines.
 
