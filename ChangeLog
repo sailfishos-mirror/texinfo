@@ -1,5 +1,10 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@cartouche): Partially revert changes.
+	Be explicit about the effect of @group.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Raw Formatter Commands):
 	Remove @ignore'd block completely.
 
