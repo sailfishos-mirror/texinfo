@@ -9248,10 +9248,10 @@ macro call:
 
 @findex \backslash
 Texinfo documents may also use \ as a command character inside
-@code{@@math} (@pxref{Inserting Math}).  In this case, where possible,
-@code{@@\} or @code{\backslash} produces a ``math'' backslash
-(from the math symbol font), while @code{@@backslashchar@{@}} produces
-a typewriter backslash.
+@code{@@math} (@pxref{Inserting Math}).  In this case, @code{@@\} or
+@code{\backslash} produce a ``math'' backslash (from the math symbol
+font), while @code{@@backslashchar@{@}} produces a typewriter
+backslash as usual.
 
 Although @samp{@@backslashchar@{@}} can be used nearly anywhere, there
 is no need for it except in these unusual cases.

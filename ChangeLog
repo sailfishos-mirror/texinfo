@@ -1,5 +1,10 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Inserting a Backslash): Revert
+	recent change.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Indices): Remove word "typically".
 
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
