@@ -6562,10 +6562,9 @@ Caution  Important  Note  Tip  Warning
 @cindex @code{<note>} DocBook tag
 @cindex @code{<tip>} DocBook tag
 @cindex @code{<warning>} DocBook tag
-@cindex @code{<blockquote>} HTML tag
+@cindex @code{<blockquote>} DocBook tag
 @noindent then the DocBook output uses corresponding special tags
 (@code{<note>}, etc.)@: instead of the default @code{<blockquote>}.
-HTML output always uses @code{<blockquote>}.
 
 If the author of the quotation is specified in the @code{@@quotation}
 block with the @code{@@author} command, a line with the author name is
