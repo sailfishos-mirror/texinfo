@@ -6505,8 +6505,9 @@ text is filled) except that:
 
 @itemize @bullet
 @item
-both the left and right margins are closer to the center of the page,
-so the whole of the quotation is indented;
+the left margin is closer to the center of the page, so the whole of the
+quotation is indented; the right margin may also be closer to the center
+of the page
 
 @item
 the first lines of paragraphs are indented no more than other lines; and

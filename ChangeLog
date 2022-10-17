@@ -1,5 +1,10 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@quotation): Reinstate
+	Patrice's new text as it is better.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Inserting an Ampersand): Edit.
 
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
