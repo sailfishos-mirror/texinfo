@@ -1,5 +1,10 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@exdent): Grammar/style change.  State
+	that font style changes depend on output format.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@kbd): State that font style change depends
 	on output format.
 	(@abbr, Block Enclosing Commands) Remove useless and confusing word

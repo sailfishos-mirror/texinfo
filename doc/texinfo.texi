@@ -6850,7 +6850,7 @@ The @code{@@exdent} command removes any indentation a line might have.
 The command is written at the beginning of a line and applies only to
 the text that follows the command that is on the same line.  Do not use
 braces around the text.  The text on an @code{@@exdent} line is also
-usually printed in the roman font.
+printed in the roman font where the output format allows this.
 
 @code{@@exdent} is usually used within examples.  Thus,
 
@@ -6881,7 +6881,8 @@ In practice, the @code{@@exdent} command is rarely used.  Usually, you
 un-indent text by ending the example and returning the page to its
 normal width.
 
-@code{@@exdent} does not have an effect in every output format.
+@code{@@exdent} does not have an effect in all output formats.
+
 
 
 @node @code{@@flushleft @@flushright}
