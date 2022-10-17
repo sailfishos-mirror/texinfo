@@ -1,5 +1,13 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@kbd): State that font style change depends
+	on output format.
+	(@abbr, Block Enclosing Commands) Remove useless and confusing word
+	"usually".  If it isn't true in some cases we should say or
+	at least hint what those cases are.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@code): Move treatment of Info/plaintext
 	output together and reinstate some removed text.
 

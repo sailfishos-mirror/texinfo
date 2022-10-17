@@ -5520,8 +5520,8 @@ and to refer to the characters @kbd{M-x shell}, write:
 
 @cindex User input
 @cindex Slanted typewriter font, for @code{@@kbd}
-By default, the @code{@@kbd} command produces a different font
-(slanted typewriter instead of normal typewriter, for example),
+By default, the @code{@@kbd} command produces a different font (slanted
+typewriter instead of normal typewriter, where the output format allows),
 so users can distinguish the characters that they are supposed
 to type from those that the computer outputs.
 
@@ -5996,8 +5996,8 @@ the abbreviation itself; Texinfo automatically assumes periods within
 the abbreviation do not end a sentence.
 
 In output formats with an appropriate tag, such as HTML and DocBook, this tag
-is used.  Otherwise, the first argument is usually printed as-is; if the second
-argument is present, it is usually printed in parentheses after the
+is used.  Otherwise, the first argument is printed as-is; if the second
+argument is present, it is printed in parentheses after the
 abbreviation.  For instance:
 
 @example
@@ -6481,7 +6481,7 @@ Text is filled, but only justified on the left, leaving the right
 margin ragged.
 
 @item @@cartouche
-Highlight text, often an example or quotation, usually by drawing a box with
+Highlight text, often an example or quotation, by drawing a box with
 rounded corners around it.
 @end table
 
