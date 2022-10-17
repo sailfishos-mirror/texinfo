@@ -8379,17 +8379,18 @@ being footnoted), so don't worry that it looks odd.  (Another style,
 perfectly acceptable, is to put the footnote after punctuation
 belonging to the sentence, as in @samp{;@@footnote@{...}.)
 
-Where possible, the reference mark for a footnote is a
-small, superscripted number.  Otherwise, the reference mark
-for a footnote may be a pair of parentheses
-with the footnote number between them, like this: @samp{(1)}.
+In printed output formats, the reference mark for a footnote is a
+small, superscripted number; the text of the footnote appears at the
+bottom of the page, below a horizontal line.
 
-In a printed manual or book, the text of the footnote appears at the
-bottom of the page, below a horizontal line.  In the HTML output, the
-footnote reference mark is rendered as a hypertext link to the footnote
-text. In Info, the reference mark is followed by a cross-reference link
-to the footnote text if footnotes are put in separate nodes
-(@pxref{Footnote Styles}).
+In Info, the reference mark for a footnote is a pair of parentheses
+with the footnote number between them, like this: @samp{(1)}.  The
+reference mark is followed by a cross-reference link to the footnote
+text if footnotes are put in separate nodes (@pxref{Footnote Styles}).
+
+In the HTML output, footnote references are generally marked with a
+small, superscripted number which is rendered as a hypertext link to
+the footnote text.
 
 @cindex Critical editions
 @cindex Nested footnotes
