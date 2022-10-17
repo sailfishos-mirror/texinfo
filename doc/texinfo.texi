@@ -9852,14 +9852,9 @@ commonly used in languages other than English.
 
 @cindex Quotation characters (`'), in source
 Use doubled single-quote characters to begin and end quotations:
-@w{@t{`@w{}`@dots{}'@w{}'}}.  In printed output, two single quotes
+@w{@t{`@w{}`@dots{}'@w{}'}}.  Two single quotes
 are converted to left- and right-hand doubled quotation marks,
-@c this comes out as "like this" in Info, which is just confusing.
-@iftex
-``like this'',
-@end iftex
-in other formats doubled single-quote characters may be converted to ASCII
-double quotes: @w{@t{`@w{}`@dots{}'@w{}'}} becomes @w{@t{"@dots{}"}}.
+``like this''.
 
 You may occasionally need to produce two consecutive single quotes;
 for example, in documenting a computer language such as Maxima where

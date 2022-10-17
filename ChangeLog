@@ -1,5 +1,12 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Inserting Quotation Marks):
+	Make discussion generic across output formats.  Account
+	for fact that Info output is not pure ASCII any more
+	so `` and '' do not necessarily become ".
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Inserting a Backslash): Revert
 	recent change.
 
