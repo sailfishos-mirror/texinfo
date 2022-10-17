@@ -1,5 +1,9 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Indices): Remove word "typically".
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Footnote Commands): Revert recent change.
 	Change "printed manual or book" to "printed output formats".
 

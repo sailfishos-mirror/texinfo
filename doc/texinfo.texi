@@ -8502,7 +8502,7 @@ Using Texinfo, you can generate indices without having to sort and
 collate entries manually.  In an index, the entries are listed in
 alphabetical order, together with information on how to find the
 discussion of each entry.  In a printed manual, this information
-typically consists of page numbers.  In other formats, links to the index
+consists of page numbers.  In other formats, links to the index
 entries location or to the associated nodes are generated.
 
 Texinfo provides several predefined kinds of indices: an index for
