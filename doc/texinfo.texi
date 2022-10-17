@@ -8853,11 +8853,11 @@ file is what is actually used to print the index.
 a traditional two-column index, with index terms and page numbers.
 
 @item
-In Info output, @code{@@printindex} currently produces a special menu
-containing the line number of the entry, relative to the start of the node.
-Info readers can use this to go to the exact line of an entry, not just the
-containing node.  (Older Info readers will just go to the node.) Here's an
-example:
+In Info output, @code{@@printindex} produces a special menu containing
+the line number of the entry, relative to the start of the node.  Info
+readers can use this to go to the exact line of an entry, not just the
+containing node.  (Older Info readers will just go to the node.)
+Here's an example:
 
 @example
 * First index entry:   Top.   (line  7)

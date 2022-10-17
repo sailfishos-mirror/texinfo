@@ -1,5 +1,10 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Printing Indices & Menus):
+	Remove recently added word "currently".
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Indexing Commands):
 	Remove apparently useless sentence.  Change @code font
 	to typewriter font.
