@@ -6960,8 +6960,8 @@ The @code{@@raggedright} fills text as usual, but the text is only
 justified on the left; the right margin is ragged.  The command is
 written on a line of its own, without braces.  The
 @code{@@raggedright} command is ended by @code{@@end raggedright} on a
-line of its own.  This command has an effect in output
-formats where text is justified on the left, where possible, but
+line of its own.  This command only has an effect in output
+formats where text is justified on the left, but
 not in output formats where text is always set ragged right, such as
 Info or HTML.
 
