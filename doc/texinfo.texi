@@ -9304,14 +9304,13 @@ Ordinarily, an ampersand `&' is a normal character in Texinfo that can be
 simply typed in your input where you need it.  The result is to
 typeset the ampersand character.
 
-However, the ampersand character is formatted especially in
-just one restricted context.  In the argument to a definition command
-(@pxref{Definition Commands}), ampersand followed by letters
-may be typeset especially with @TeX{}@footnote{This convention corresponds to
-Emacs Lisp keywords. @xref{A Sample
-Function Description,,, elisp, GNU Emacs Lisp Reference Manual}.}
-(@pxref{Def Cmd Conventions}).
-For example:
+However, the ampersand character is treated specially in just
+one restricted context.   In the argument to a definition command
+(@pxref{Definition Commands}), an ampersand followed by a series
+of letters may be typeset specially when processing with @TeX{}
+@footnote{This syntax is used for Emacs Lisp keywords. @xref{A
+Sample Function Description,,, elisp, GNU Emacs Lisp Reference
+Manual}.} (@pxref{Def Cmd Conventions}).  For example:
 
 @example
 @@defun foo integer1 &optional integer2 &rest integers
@@ -9319,7 +9318,7 @@ For example:
 @@end defun
 @end example
 
-@noindent may have @samp{&optional} and @samp{&rest} formatted in bold
+@noindent may have @samp{&optional} and @samp{&rest} formatted in bold,
 even without any @@-command involved.
 
 So, in order to typeset an ampersand in such a context,

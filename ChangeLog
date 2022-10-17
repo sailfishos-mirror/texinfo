@@ -1,5 +1,9 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Inserting an Ampersand): Edit.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Printing Indices & Menus):
 	Remove recently added word "currently".
 
