@@ -8405,9 +8405,9 @@ footnote style.
 @cindex Footnote style @subentry @samp{end}
 @item end
 For Info, in the @samp{end} node style, all the footnotes for a single
-node are placed at the end of that node.  The footnotes are usually
-separated from the rest of the node by a line of dashes with the word
-@samp{Footnotes} within it.  Each footnote usually begins with an
+node are placed at the end of that node.  The footnotes are separated
+from the rest of the node by a line of dashes with the word
+@samp{Footnotes} within it.  Each footnote begins with an
 @samp{(@var{n})} reference mark.
 
 @need 700
@@ -8436,7 +8436,7 @@ each @samp{(@var{n})} reference mark in the body of the
 node.  The footnote reference is actually a cross-reference
 which you use to reach the footnote node.
 
-The name of the node with the footnotes is currently constructed
+The name of the node with the footnotes is constructed
 by appending @w{@samp{-Footnotes}} to the name of the node
 that contains the footnotes. (Consequently, the footnotes'
 node for the @file{Footnotes} node is
@@ -8444,7 +8444,7 @@ node for the @file{Footnotes} node is
 `Up' node pointer that leads back to its parent node.
 
 @noindent
-Here is how the first footnote in this manual could look after being
+Here is how the first footnote in this manual looks after being
 formatted for Info in the separate node style:
 
 @example
