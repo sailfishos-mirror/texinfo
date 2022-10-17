@@ -1,6 +1,11 @@
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
-	* doc/texinfo.texi: Remove text with convention for GNU
+	* doc/texinfo.texi (Raise/lower sections): Discuss effect
+	on menus in a single paragraph and move test elsewhere.
+
+2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (@key): Remove text with convention for GNU
 	manuals as that doesn't belong here, but rather in a GNU
 	standards document.
 

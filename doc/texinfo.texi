@@ -4203,6 +4203,8 @@ to subsections, and so on.  Thus, a @code{@@lowersections} command
 cancels a @code{@@raisesections} command, and vice versa.
 
 @cindex Include files, and section levels
+As a practical matter, you generally only want to raise or lower large
+chunks, usually in external files.
 You can use @code{@@lowersections} to include text written as an outer
 or standalone Texinfo file in another Texinfo file as an inner,
 included file (@pxref{Include Files}).  Typical usage looks like this:
@@ -4220,12 +4222,11 @@ If the included file being lowered has a @code{@@top} node, you'll
 need to conditionalize its inclusion with a flag (@pxref{@code{@@set
 @@value}}).
 
-As a practical matter, you generally only want to raise or lower large chunks,
-usually in external files as shown above.  If your document does not rely on
-automatic menus, the final result has to have menus that take the raising
-and lowering into account, so you cannot just arbitrarily sprinkle
-@code{@@raisesections} and @code{@@lowersections} commands throughout
-the document.
+Any menus in the final result have to take the raising and lowering
+into account, so arbitrarily sprinkling @code{@@raisesections} and
+@code{@@lowersections} commands throughout the document will likely
+lead to errors (unless the menus in your document are all generated
+automatically).
 
 Repeated use of the commands continues to raise or lower the
 hierarchical level a step at a time.  An attempt to raise above
