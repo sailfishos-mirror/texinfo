@@ -1,3 +1,14 @@
+2022-10-18  Wu XiangCheng  <bobwxc@yeah.net>
+
+	texinfo-zh.tex
+
+	* doc/texinfo-zh.tex, doc/txi-zh.tex: New files, partially
+	based on doc/texinfo-ja.tex and txi-ja.tex.
+
+	* doc/short-sample-zh.tex: New file.
+
+	* NEWS: Mention.
+
 2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	More efficient subnode dumping

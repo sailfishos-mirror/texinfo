@@ -1,6 +1,6 @@
 **/*~
 
-texinfo-*
+./texinfo-*
 build
 **/test
 **/diffs
@@ -116,7 +116,6 @@ doc/short-sample-ja.toc
 doc/stamp-1
 doc/stamp-vti
 doc/texinfo
-doc/texinfo-*
 doc/texinfo.??
 doc/texinfo.??s
 doc/texinfo.txicmd
