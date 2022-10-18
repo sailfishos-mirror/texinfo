@@ -1,3 +1,17 @@
+2022-10-19  Patrice Dumas  <pertusus@free.fr>
+
+	Rename texi2any modules and API manuals and distribute API manual
+
+	* doc/Makefile.am (AM_MAKEINFOFLAGS, info_TEXINFOS, DISTCLEANFILES),
+	doc/texi2any_api.texi: rename customization_api.texi as
+	texi2any_api.texi.  Gavin suggestion.  Build and distribute
+	texi2any_api manual.  Use AM_MAKEINFOFLAGS to set
+	INFO_SPECIAL_CHARS_WARNING=0 since links to texi2any_internals
+	manual produce many warnings.
+
+	* doc/tp_api/Makefile.am (info_TEXINFOS), autogen.sh: rename
+	tp_api.texi as texi2any_internals.texi.  Gavin suggestion.
+
 2022-10-18  Wu XiangCheng  <bobwxc@yeah.net>
 
 	* doc/txi-zh.tex (\Ynumbered): Override.

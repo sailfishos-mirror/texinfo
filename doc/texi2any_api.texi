@@ -1,14 +1,13 @@
 \input texinfo.tex    @c -*-texinfo-*-
 
-@setfilename customization_api.info
-
-@include version.texi
+@include version-texi2any_api.texi
 
 @settitle GNU Texinfo @command{texi2any} Output Customization
 
 @copying
-This manual is for GNU Texinfo (version @value{VERSION}, @value{UPDATED}),
-@command{texi2any} program output adaptation using customization files.
+This manual is for GNU Texinfo @command{texi2any} program output
+adaptation using customization files (version @value{VERSION},
+@value{UPDATED}).
 
 Copyright @copyright{} 2013, 2022 Free Software Foundation, Inc.
 

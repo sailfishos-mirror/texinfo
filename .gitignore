@@ -89,11 +89,6 @@ doc/*.pdf
 doc/*.t2p
 doc/test.*
 
-doc/customization_api.??
-doc/customization_api.??s
-doc/customization_api.aux
-doc/customization_api.log
-doc/customization_api.toc
 doc/info-stnd.??
 doc/info-stnd.??s
 doc/info-stnd.aux
@@ -114,7 +109,13 @@ doc/short-sample-ja.??s
 doc/short-sample-ja.log
 doc/short-sample-ja.toc
 doc/stamp-1
+doc/stamp-2
 doc/stamp-vti
+doc/texi2any_api.??
+doc/texi2any_api.??s
+doc/texi2any_api.aux
+doc/texi2any_api.log
+doc/texi2any_api.toc
 doc/texinfo
 doc/texinfo.??
 doc/texinfo.??s
@@ -128,11 +129,10 @@ doc/texinfo.tex.sig
 doc/texinfo.toc
 doc/texinfo.xml
 doc/texput.log
-doc/version-stnd.texi
 doc/version.texi
+doc/version-stnd.texi
+doc/version-texi2any_api.texi
 doc/wwwtemp
-doc/version.texi
-doc/version-stnd.texi
 
 doc/refcard/*.dvi
 doc/refcard/*.log
@@ -141,8 +141,8 @@ doc/refcard/*.ps
 doc/tp_api/*.t2p
 doc/tp_api/*.info
 doc/tp_api/api_includes
-doc/tp_api/tp_api.pdf
-doc/tp_api/tp_api.texi
+doc/tp_api/texi2any_internals.pdf
+doc/tp_api/texi2any_internals.texi
 
 man/info.1
 man/install-info.1

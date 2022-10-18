@@ -28,25 +28,25 @@ MAKEINFO = $(PERL) -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
 # of each module, so split at chapters.
 AM_MAKEINFOHTMLFLAGS = --split=chapter
 
-# since the tp_api 'manual' is referred to extensively in the
-# customization_api, we setup the build targets.
-info_TEXINFOS = tp_api.texi
+# since the texi2any_internals 'manual' is referred to extensively in the
+# texi2any_api, we setup the build targets.
+info_TEXINFOS = texi2any_internals.texi
 
 TEXINFO_TEX = ../texinfo.tex
 
 # dependencies are in api_includes/ directory but we do not want to list
 # them explicitly
-tp_api_TEXINFOS = tp_api_indices.texi
-#dist_tp_api_TEXINFOS = 
+texi2any_internals_TEXINFOS = texi2any_internals_indices.texi
+#dist_texi2any_internals_TEXINFOS = 
 EXTRA_DIST = api_includes
 
 if BUILD_PERL_API_TEXI
 
-BUILT_SOURCES = tp_api.texi
+BUILT_SOURCES = texi2any_internals.texi
 
 # all the modules with some interesting public interfaces.
 # The order matters for the result.
-tp_api_dependencies = \
+texi2any_internals_dependencies = \
   $(top_srcdir)/tp/Texinfo/Commands.pod \
   $(top_srcdir)/tp/Texinfo/Common.pm \
   $(top_srcdir)/tp/Texinfo/ParserNonXS.pm \
@@ -67,7 +67,7 @@ tp_api_dependencies = \
   $(top_srcdir)/tp/Texinfo/Convert/TexinfoXML.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Plaintext.pm
 
-tp_api.texi: $(tp_api_dependencies) tp_api_indices.texi
-	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --setfilename tp_api.info --top 'Texinfo modules documentation' --subdir=api_includes $(tp_api_dependencies) | sed -e 's/^@bye/@__bye/' | sed -e '/^@__bye/r $(srcdir)/tp_api_indices.texi' | sed -e 's/^@__bye//' > $@
+texi2any_internals.texi: $(texi2any_internals_dependencies) texi2any_internals_indices.texi
+	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --setfilename texi2any_internals.info --top 'Texinfo modules documentation' --subdir=api_includes $(texi2any_internals_dependencies) | sed -e 's/^@bye/@__bye/' | sed -e '/^@__bye/r $(srcdir)/texi2any_internals_indices.texi' | sed -e 's/^@__bye//' > $@
 
 endif

@@ -10,11 +10,14 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# The links to texi2any_internals require that to avoid many warnings
+AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
+
 SUBDIRS = tp_api
 
-info_TEXINFOS = texinfo.texi info-stnd.texi
+info_TEXINFOS = texinfo.texi info-stnd.texi texi2any_api.texi
 texinfo_TEXINFOS = pod2texi.texi
-DISTCLEANFILES = texinfo.info* info-stnd.info*
+DISTCLEANFILES = texinfo.info* info-stnd.info* texi2any_api.info*
 
 MAKEINFO_ENVIRONMENT = TEXINFO_DEV_SOURCE=1 ; export TEXINFO_DEV_SOURCE ; \
                        top_srcdir="$(top_srcdir)" ; export top_srcdir ; \
