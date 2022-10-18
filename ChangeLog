@@ -1,3 +1,8 @@
+2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/man.c (check_manpage_node):
+	Call get_manpage_node if exit status from man -w PAGE was 2.
+
 2022-10-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@quotation): Do not state that

@@ -73,7 +73,8 @@ check_manpage_node (char *pagename)
 {
   char *cmd;
   pid_t child;
-  int pid_status;
+  int pid_status = 0;
+  NODE *man_node;
 
   child = fork ();
   if (child == -1)
@@ -89,14 +90,24 @@ check_manpage_node (char *pagename)
       if (!formatter)
         exit (1);
       ret = execl (formatter, formatter, "-w", pagename, (void *) 0);
-      exit (1); /* exec failed */
+      exit (2); /* exec failed */
     }
   else
     {
       wait (&pid_status);
     }
 
-  return !pid_status;
+  if (pid_status != 2)
+    return !pid_status;
+
+  /* Possibly "man -w" wasn't recognized. */
+  man_node = get_manpage_node (pagename);
+  if (man_node)
+    {
+      free (man_node);
+      return 1;
+    }
+  return 0;
 }
 
 #else /* !PIPE_USE_FORK */
