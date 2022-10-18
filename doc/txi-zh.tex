@@ -76,6 +76,20 @@
   \number\day 日}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fix Chinese chapter/section dispaly
+% modify \chapmacro, \sectionheading
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\thischapterAppendix{%
+  \putwordAppendix{} \thischapternum\space\thischaptername}
+
+\def\thischapterChapter{%
+  第 \thischapternum \putwordChapter{}\space\thischaptername}
+
+\def\thissectionDef{%
+  \putwordAppendix{} \thissectionnum\putwordSection{}\space\thissectionname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Chinese font definitions
 % font choice: 1. Noto Serif CJK 思源宋体 NotoSerifCJK-Regular.ttc
 %              2. AR PL UKai     文鼎悠楷 ukai.ttc

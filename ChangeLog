@@ -1,5 +1,10 @@
 2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/txi-zh.tex: Override \thischapterAppendix,
+	\thischapterChapter, \thissectionDef.  From Wu XiangCheng.
+
+2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Translation hooks for chapter/section title
 
 	* doc/texinfo.tex
