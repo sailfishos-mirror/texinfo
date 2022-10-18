@@ -77,7 +77,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % fix Chinese chapter/section display
-% modify \chapmacro, \sectionheading, \xrefX
+% modify \chapmacro, \sectionheading, \xrefX, \Ynumbered
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\thischapterAppendix{%
@@ -90,6 +90,19 @@
   \putwordAppendix{} \thissectionnum\putwordSection{}\space\thissectionname}
 
 \def\putpageref#1{ \refx{#1-pg}\tie\putwordpage}
+
+\def\Ynumbered{%
+  \ifnum\secno=0
+    第\ \the\chapno\tie\putwordChapter
+  \else \ifnum\subsecno=0
+    \the\chapno.\the\secno\putwordSection
+  \else \ifnum\subsubsecno=0
+    \the\chapno.\the\secno.\the\subsecno\tie\putwordSection
+  \else
+    \the\chapno.\the\secno.\the\subsecno.\the\subsubsecno\tie\putwordSection
+  \fi\fi\fi
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Chinese font definitions

@@ -1,3 +1,7 @@
+2022-10-18  Wu XiangCheng  <bobwxc@yeah.net>
+
+	* doc/txi-zh.tex (\Ynumbered): Override.
+
 2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Page ref hook
