@@ -254,9 +254,14 @@ foreach my $def_command (keys(%def_commands)) {
 # together with \pagename which is page in the default case, but it is unclear
 # if this can be used as a basis for translations
 my %LaTeX_in_heading_commands_formatting = (
+  # default for texinfo.tex is similar:
+  #   \putwordChapter{} \thischapternum: \thischaptername}
+  # see doc/txi-zh.tex for how it could be in chinese
   'thischapter' => '\chaptername{} \thechapter{} \chaptertitle{}',
   'thischaptername' => '\chaptertitle{}',
   'thischapternum' => '\thechapter{}',
+  #  default for texinfo.tex is similar:
+  #   \putwordSection{} \thissectionnum: \thissectionname}
   #'thissection' => '\sectionname{} \thesection{} \sectiontitle{}',
   'thissection' => 'Section \thesection{} \sectiontitle{}',
   'thissectionname' => '\sectiontitle{}',

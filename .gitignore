@@ -70,6 +70,7 @@ gnulib/lib/uniwidth.h
 gnulib/lib/wchar.h
 gnulib/lib/wctype.h
 gnulib/lib/math.h
+gnulib/lib/stdckdint.h
 gnulib/lib/stddef.h
 gnulib/lib/limits.h
 gnulib/lib/malloc/dynarray.gl.h 
