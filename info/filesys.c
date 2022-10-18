@@ -105,7 +105,7 @@ info_find_fullpath (char *partial, struct stat *finfo)
       fullpath = info_add_extension (0, partial, finfo);
     }
 
-  /* Tilde expansion.  FIXME: Not needed, because done by shell. */
+  /* Tilde expansion.  Could come from user input in echo area. */
   else if (partial[0] == '~')
     {
       partial = tilde_expand_word (partial);

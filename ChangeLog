@@ -1,5 +1,24 @@
 2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	More efficient subnode dumping
+
+	* info/session.c (dump_node_to_stream): Take a FILE_BUFFER *
+	argument rather than a filename.  Only get nodes from this file
+	buffer, using info_get_node_of_file_buffer.  This avoids looking
+	for the file for every node when dumping subnodes.
+	(dump_nodes_to_file): Call info_find_file before calling
+	dump_node_to_stream.
+
+	Hilmar Preusse reported that "info python3.8 >/dev/null" had
+	extremely high memory usage.  python3.8.info.gz was over 4MB
+	in size, and had more than 4500 nodes.
+
+2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/filesys.c (info_find_fullpath): Change a comment.
+
+2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/man.c (check_manpage_node):
 	Call get_manpage_node if exit status from man -w PAGE was 2.
 

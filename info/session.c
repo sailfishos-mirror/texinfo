@@ -3730,8 +3730,8 @@ enum
     DUMP_SYS_ERROR
   };
 
-static int dump_node_to_stream (char *filename, char *nodename,
-				FILE *stream, int dump_subnodes);
+static int dump_node_to_stream (FILE_BUFFER *file_buffer,
+                          char *nodename, FILE *stream, int dump_subnodes);
 static void initialize_dumping (void);
 
 /* Dump the nodes specified with REFERENCES to the file named
@@ -3765,10 +3765,22 @@ dump_nodes_to_file (REFERENCE **references,
   /* Print each node to stream. */
   for (i = 0; references[i]; i++)
     {
-      if (dump_node_to_stream (references[i]->filename,
-                               references[i]->nodename,
-                               output_stream,
-                               dump_subnodes) == DUMP_SYS_ERROR)
+      FILE_BUFFER *file_buffer;
+      char *nodename;
+
+      file_buffer = info_find_file (references[i]->filename);
+      if (!file_buffer)
+        {
+          if (info_recent_file_error)
+            info_error ("%s", info_recent_file_error);
+          continue;
+        }
+      if (references[i]->nodename && *references[i]->nodename)
+        nodename = references[i]->nodename;
+      else
+        nodename = "Top";
+      if (dump_node_to_stream (file_buffer, nodename,
+                               output_stream, dump_subnodes) == DUMP_SYS_ERROR)
 	{
 	  info_error (_("error writing to %s: %s"), output_filename,
                       strerror (errno));
@@ -3796,34 +3808,25 @@ initialize_dumping (void)
    If DUMP_SUBNODES is non-zero, recursively dump the nodes which appear
    in the menu of each node dumped. */
 static int
-dump_node_to_stream (char *filename, char *nodename,
+dump_node_to_stream (FILE_BUFFER *file_buffer,
+                     char *nodename,
 		     FILE *stream, int dump_subnodes)
 {
   register int i;
   NODE *node;
 
-  node = info_get_node (filename, nodename);
+  node = info_get_node_of_file_buffer (file_buffer, nodename);
 
   if (!node)
     {
-      if (info_recent_file_error)
-        info_error ("%s", info_recent_file_error);
-      else
-        {
-          if (filename && *nodename != '(')
-            info_error (msg_cant_file_node,
-                        filename_non_directory (filename),
-                        nodename);
-          else
-            info_error (msg_cant_find_node, nodename);
-        }
+      info_error (msg_cant_find_node, nodename);
       return DUMP_INFO_ERROR;
     }
 
   /* If we have already dumped this node, don't dump it again. */
   if (info_namelist_add (&dumped_already, node->nodename))
     {
-      free_history_node (node);
+      free (node);
       return DUMP_SUCCESS;
     }
 
@@ -3832,7 +3835,7 @@ dump_node_to_stream (char *filename, char *nodename,
 
   if (write_node_to_stream (node, stream))
     {
-      free_history_node (node);
+      free (node);
       return DUMP_SYS_ERROR;
     }
 
@@ -3855,17 +3858,17 @@ dump_node_to_stream (char *filename, char *nodename,
               /* We don't dump Info files which are different than the
                  current one. */
               if (!menu[i]->filename)
-                if (dump_node_to_stream (filename, menu[i]->nodename,
+                if (dump_node_to_stream (file_buffer, menu[i]->nodename,
                       stream, dump_subnodes) == DUMP_SYS_ERROR)
                   {
-                    free_history_node (node);
+                    free (node);
                     return DUMP_SYS_ERROR;
                   }
             }
         }
     }
 
-  free_history_node (node);
+  free (node);
   return DUMP_SUCCESS;
 }
 
