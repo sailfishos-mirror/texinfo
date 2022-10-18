@@ -1,3 +1,13 @@
+2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Translation hooks for chapter/section title
+
+	* doc/texinfo.tex
+	(\chapmacro, \thischapterAppendix, \thischapterChapter):
+	Separate out definitions for \thischapter to allow them to
+	be overridden in Chinese, where the word order is different.
+	(\sectionheading, \thissectionDef): Likewise.
+
 2022-10-18  Wu XiangCheng  <bobwxc@yeah.net>
 
 	texinfo-zh.tex

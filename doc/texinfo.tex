@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-10-15.20}
+\def\texinfoversion{2022-10-18.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -6399,6 +6399,16 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\Yappendixkeyword{Yappendix}
 \def\Yomitfromtockeyword{Yomitfromtoc}
 %
+%
+% Definitions for @thischapter. These can be overridden in translation
+% files.
+\def\thischapterAppendix{%
+  \putwordAppendix{} \thischapternum: \thischaptername}
+
+\def\thischapterChapter{%
+  \putwordChapter{} \thischapternum: \thischaptername}
+%
+%
 \def\chapmacro#1#2#3{%
   \expandafter\ifx\thisenv\titlepage\else
     \checkenv{}% chapters, etc., should not start inside an environment.
@@ -6421,22 +6431,14 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     \xdef\currentchapterdefs{%
       \gdef\noexpand\thischaptername{\the\toks0}%
       \gdef\noexpand\thischapternum{\appendixletter}%
-      % \noexpand\putwordAppendix avoids expanding indigestible
-      % commands in some of the translations.
-      \gdef\noexpand\thischapter{\noexpand\putwordAppendix{}
-                                 \noexpand\thischapternum:
-                                 \noexpand\thischaptername}%
+      \let\noexpand\thischapter\noexpand\thischapterAppendix
     }%
   \else
     \toks0={#1}%
     \xdef\currentchapterdefs{%
       \gdef\noexpand\thischaptername{\the\toks0}%
       \gdef\noexpand\thischapternum{\the\chapno}%
-      % \noexpand\putwordChapter avoids expanding indigestible
-      % commands in some of the translations.
-      \gdef\noexpand\thischapter{\noexpand\putwordChapter{}
-                                 \noexpand\thischapternum:
-                                 \noexpand\thischaptername}%
+      \let\noexpand\thischapter\noexpand\thischapterChapter
     }%
   \fi\fi\fi
   %
@@ -6522,6 +6524,12 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\subsubsecheadingskip{\subsecheadingskip}
 \def\subsubsecheadingbreak{\subsecheadingbreak}
 
+% Definition for @thissection. This can be overridden in translation
+% files.
+\def\thissectionDef{%
+  \putwordSection{} \thissectionnum: \thissectionname}
+%
+
 
 % Print any size, any type, section title.
 %
@@ -6563,11 +6571,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
         \xdef\currentsectiondefs{%
           \gdef\noexpand\thissectionname{\the\toks0}%
           \gdef\noexpand\thissectionnum{#4}%
-          % \noexpand\putwordSection avoids expanding indigestible
-          % commands in some of the translations.
-          \gdef\noexpand\thissection{\noexpand\putwordSection{}
-                                     \noexpand\thissectionnum:
-                                     \noexpand\thissectionname}%
+          \let\noexpand\thissection\noexpand\thissectionDef
         }%
       \fi
     \else
@@ -6576,11 +6580,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
         \xdef\currentsectiondefs{%
           \gdef\noexpand\thissectionname{\the\toks0}%
           \gdef\noexpand\thissectionnum{#4}%
-          % \noexpand\putwordSection avoids expanding indigestible
-          % commands in some of the translations.
-          \gdef\noexpand\thissection{\noexpand\putwordSection{}
-                                     \noexpand\thissectionnum:
-                                     \noexpand\thissectionname}%
+          \let\noexpand\thissection\noexpand\thissectionDef
         }%
       \fi
     \fi\fi\fi
