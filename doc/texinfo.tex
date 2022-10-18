@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-10-18.17}
+\def\texinfoversion{2022-10-18.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -8907,11 +8907,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       \xrefprintnodename\printedrefname
       %
       \ifflagclear{txiomitxrefpg}{%
-        % But we always want a comma and a space:
-        ,\space
-        %
+        % We always want a comma
+        ,%
         % output the `page 3'.
-        \turnoffactive \putwordpage\tie\refx{#1-pg}%
+        \turnoffactive \putpageref{#1}%
         % Add a , if xref followed by a space
         \if\space\noexpand\tokenafterxref ,%
         \else\ifx\	\tokenafterxref ,% @TAB
@@ -8926,6 +8925,10 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \fi
   \endlink
 \endgroup}
+
+% can be overridden in translation files
+\def\putpageref#1{%
+  \space\putwordpage\tie\refx{#1-pg}}
 
 % Output a cross-manual xref to #1.  Used just above (twice).
 % 

@@ -1,5 +1,14 @@
 2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Page ref hook
+
+	* doc/texinfo.tex (\xrefX, \putpageref): Split out
+	macro to print "page NUMBER".
+	* doc/txi-zh.tex: Use to reverse the word order.
+	From Wu XiangCheng.
+
+2022-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/txi-zh.tex: Override \thischapterAppendix,
 	\thischapterChapter, \thissectionDef.  From Wu XiangCheng.
 

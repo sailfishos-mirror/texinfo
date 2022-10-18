@@ -76,8 +76,8 @@
   \number\day 日}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% fix Chinese chapter/section dispaly
-% modify \chapmacro, \sectionheading
+% fix Chinese chapter/section display
+% modify \chapmacro, \sectionheading, \xrefX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\thischapterAppendix{%
@@ -88,6 +88,8 @@
 
 \def\thissectionDef{%
   \putwordAppendix{} \thissectionnum\putwordSection{}\space\thissectionname}
+
+\def\putpageref#1{ \refx{#1-pg}\tie\putwordpage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Chinese font definitions
