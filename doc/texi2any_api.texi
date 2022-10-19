@@ -80,7 +80,7 @@ code that is used to go through the tree cannot be customized, but the
 conversion of tree elements can be fully customized.
 
 @c Do we want to describe the tree in the manual?  It is already described
-@c in (tp_api)Texinfo::Parser TEXINFO TREE
+@c in (texi2any_internals)Texinfo::Parser TEXINFO TREE
 @c  The tree structure will be described in future versions of the
 @c manual.
 
@@ -480,7 +480,7 @@ can contain HTML elements if needed.  If @var{$html_element} is set, the text
 is enclosed between the @var{$html_element} element opening and the element
 closing.  If @var{$translated_string} is set, @var{$translated_string} is used
 as text and is translated when the document language changes.
-@xref{Texinfo::Translations METHODS,,,tp_api}.
+@xref{Texinfo::Translations METHODS,,,texi2any_internals}.
 @end defun
 
 It is not required to set values for all the contexts.  If preformatted context
@@ -639,8 +639,8 @@ to be formatted in a code context, with preformatted type @samp{menu-between}, u
 texinfo_register_type_format_info('menu_comment', 1, 'menu-between');
 @end example
 
-@xref{Texinfo::Parser Types of container elements,,,tp_api}, for a description
-of container types.
+@xref{Texinfo::Parser Types of container elements,,,texi2any_internals}, for a
+description of container types.
 
 
 @node Simple Customization of CSS
@@ -1194,12 +1194,13 @@ The first argument of most, if not all user defined function is a converter
 object.  This object gives access to methods to get information on the
 conversion context and to methods useful for the conversion, both as an HTML
 converter and as a generic @code{Texinfo::Convert::Converter}
-(@pxref{Texinfo::Convert::Converter Helper methods,,,tp_api}).  The converter
-can also be used for error reporting as it is also a @code{Texinfo::Report}
-object (@pxref{Texinfo::Report,,,tp_api}), and for in-document strings
-translation as it is also a @code{Texinfo::Translations}
-object (@pxref{Texinfo::Translations,,,tp_api}).
-@xref{Error Reporting in User Defined Functions} on error reporting.
+(@pxref{Texinfo::Convert::Converter Helper methods,,,texi2any_internals}).  The
+converter can also be used for error reporting as it is also a
+@code{Texinfo::Report} object (@pxref{Texinfo::Report,,,texi2any_internals}),
+and for in-document strings translation as it is also a
+@code{Texinfo::Translations} object (@pxref{Texinfo::Translations,,,
+texi2any_internals}).  @xref{Error Reporting in User Defined Functions} on
+error reporting.
 
 
 @node Texinfo Tree Conversion Functions
@@ -1306,7 +1307,8 @@ $converter->convert_tree($converter->gdt(
                          "convert explained $cmdname");
 @end example
 
-@xref{Texinfo::Translations,,,tp_api} for more on @code{Texinfo::Translations}.
+@xref{Texinfo::Translations,,,texi2any_internals} for more
+on @code{Texinfo::Translations}.
 @xref{Internationalization of Document Strings,,, texinfo, Texinfo} for an
 overview.
 
@@ -1348,7 +1350,8 @@ particular it does not stop the main conversion of the Texinfo tree.
 Write initialization files as if the conversion always continued
 after registering the error.
 
-@xref{Texinfo::Report,,,tp_api} for more on @code{Texinfo::Report}.
+@xref{Texinfo::Report,,,texi2any_internals} for more on
+@code{Texinfo::Report}.
 @c @xref{Init File Calling at Different Stages} for information on how
 @c to stop the processing from user defined functions called at different
 @c stages.
@@ -1382,7 +1385,7 @@ document, two elements are added,
 @code{special_element} that correspond to added special elements (@pxref{Output
 Element Units}).  These added elements, as well as nodes and sectioning elements
 hold information on the document structure in the @code{structure} element hash
-(@pxref{Texinfo::Structuring METHODS,,,tp_api}).
+(@pxref{Texinfo::Structuring METHODS,,,texi2any_internals}).
 
 Normal tree unit elements have a @code{unit_command} key in the
 @code{extra} hash that points to the associated @code{@@node} or
@@ -1421,7 +1424,7 @@ For tree unit elements. The previous unit element in document order.
 
 Detailed information on the tree elements is available in the Texinfo Parser
 documentation, in particular a list of types and of information in the elements
-@code{extra} hash (@pxref{Texinfo::Parser TEXINFO TREE,,,tp_api}).
+@code{extra} hash (@pxref{Texinfo::Parser TEXINFO TREE,,,texi2any_internals}).
 
 
 @node Encoding and Decoding File Path Strings
@@ -1549,8 +1552,8 @@ my $result = $converter->convert_tree(@{'type' => '_code',
 
 There is no context for plain text, but the conversion to plain
 text can be achieved by using the @code{Texinfo::Text} converter
-(@pxref{Texinfo::Convert::Text,,,tp_api}).  For example, to convert
-the Texinfo tree element @var{$element} to plain text:
+(@pxref{Texinfo::Convert::Text,,,texi2any_internals}).  For example,
+to convert the Texinfo tree element @var{$element} to plain text:
 
 @example
 my $plaintext = Texinfo::Convert::Text::convert_to_text($element,
@@ -1677,19 +1680,19 @@ Expansion Contexts}.
 @item floats
 Information on floats. Gathered from the Texinfo parsing result.
 @xref{Texinfo::Parser $float_types = floats_information($parser),,
-Texinfo::Parser::floats_information,tp_api}.
+Texinfo::Parser::floats_information,texi2any_internals}.
 
 @item global_commands
 Global commands information.  Gathered from the Texinfo parsing result.
 @xref{Texinfo::Parser $commands = global_commands_information($parser),,
-Texinfo::Parser::global_commands_information,tp_api}.
+Texinfo::Parser::global_commands_information,texi2any_internals}.
 
 @item index_entries
 Information on indices taking into account merged indices.
-@xref{Texinfo::Structuring $merged_entries = merge_indices($index_names),,Texinfo::Structuring::merge_indices, tp_api}.
+@xref{Texinfo::Structuring $merged_entries = merge_indices($index_names),,Texinfo::Structuring::merge_indices, texi2any_internals}.
 
 @item index_entries_by_letter
-Index entries sorted by letter. @xref{Texinfo::Structuring ($index_entries_sorted@comma{} $index_entries_sort_strings) = sort_indices($registrar@comma{} $configuration_information@comma{} $merged_index_entries@comma{} $sort_by_letter),,Texinfo::Structuring::sort_indices,tp_api}.
+Index entries sorted by letter. @xref{Texinfo::Structuring ($index_entries_sorted@comma{} $index_entries_sort_strings) = sort_indices($registrar@comma{} $configuration_information@comma{} $merged_index_entries@comma{} $sort_by_letter),,Texinfo::Structuring::sort_indices,texi2any_internals}.
 
 @item jslicenses
 An hash reference with  categories of javascript used in the document
@@ -2537,7 +2540,8 @@ Returns an array containing the block preformatted @@-commands such as
 
 The @code{%Texinfo::Commands::preformatted_code_commands}
 hash can be used to determine if a preformatted command is to be formatted
-as code (@pxref{Texinfo::Commands %preformatted_code_commands,,,tp_api}).
+as code (@pxref{Texinfo::Commands %preformatted_code_commands,,,
+texi2any_internals}).
 
 @example
 my @@pre_classes = $converter->preformatted_classes_stack();
@@ -2638,7 +2642,7 @@ Return @var{$input_text} in a comment.
 @end deftypefn
 
 @xref{Texinfo::Convert::Converter $comment = $converter->xml_comment($text),,
-Texinfo::Convert::Converter::xml_comment,tp_api}.
+Texinfo::Convert::Converter::xml_comment,texi2any_internals}.
 
 @item format_heading_text
 
@@ -2681,7 +2685,7 @@ in the default case, but it is called directly to avoid an indirection}.
 @end deftypefn
 
 @xref{Texinfo::Convert::Converter $protected_text = $converter->xml_protect_text($text),,
-Texinfo::Convert::Converter::xml_protect_text,tp_api}.
+Texinfo::Convert::Converter::xml_protect_text,texi2any_internals}.
 @item format_separate_anchor
 
 This function reference is called if there is not another HTML element to
@@ -3756,63 +3760,64 @@ be used for specific elements formatting:
 
 @item @code{@@today}
 @xref{Texinfo::Convert::Utils $tree = expand_today($converter),,
-Texinfo::Convert::Utils::expand_today, tp_api}.
+Texinfo::Convert::Utils::expand_today, texi2any_internals}.
 
 @item @code{@@verbatiminclude}
 @xref{Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar@comma{} $configuration_information@comma{} $verbatiminclude),,
-Texinfo::Convert::Utils::expand_verbatiminclude, tp_api}.
+Texinfo::Convert::Utils::expand_verbatiminclude, texi2any_internals}.
 
 @item @code{@@def*} @@-commands
 @xref{Texinfo::Convert::Utils $arguments = definition_arguments_content($element),,
-Texinfo::Convert::Utils::definition_arguments_content, tp_api}.
+Texinfo::Convert::Utils::definition_arguments_content, texi2any_internals}.
 @xref{Texinfo::Convert::Utils $tree = definition_category_tree($converter@comma{} $def_line),,
-Texinfo::Convert::Utils::definition_category_tree, tp_api}.
+Texinfo::Convert::Utils::definition_category_tree, texi2any_internals}.
 
 @item @code{@@float}
 @xref{Texinfo::Convert::Converter ($caption@comma{} $prepended) = $converter->float_name_caption ($float),,
-Texinfo::Convert::Converter::float_name_caption, tp_api}.
+Texinfo::Convert::Converter::float_name_caption, texi2any_internals}.
 Can be called as @code{$converter->float_name_caption}.
 
 @item accent @@-commands
 @xref{Texinfo::Convert::Converter $result = xml_accent($text@comma{} $accent_command@comma{} $in_upper_case@comma{} $use_numeric_entities),,
-Texinfo::Convert::Converter::xml_accent, tp_api}.
+Texinfo::Convert::Converter::xml_accent, texi2any_internals}.
 Can be called as @code{$converter->xml_accent}.
 
 @xref{Texinfo::Convert::Converter $result = xml_numeric_entity_accent($accent_command_name@comma{} $text),,
-Texinfo::Convert::Converter::xml_numeric_entity_accent, tp_api}.
+Texinfo::Convert::Converter::xml_numeric_entity_accent, texi2any_internals}.
 
 @xref{Texinfo::Convert::Converter $result = $converter->convert_accents($accent_command@comma{} \&format_accents@comma{} $in_upper_case),,
-Texinfo::Convert::Converter::convert_accents, tp_api}.
+Texinfo::Convert::Converter::convert_accents, texi2any_internals}.
 
 @item text element
 @xref{Texinfo::Convert::Converter $formatted_text = $converter->xml_format_text_with_numeric_entities($text),,
-Texinfo::Convert::Converter::xml_format_text_with_numeric_entities, tp_api}.
-Can be called as @code{$converter->xml_format_text_with_numeric_entities}.
+Texinfo::Convert::Converter::xml_format_text_with_numeric_entities,
+texi2any_internals}. Can be called as
+@code{$converter->xml_format_text_with_numeric_entities}.
 
 @item @code{@@item} in @code{@@table} and similar @@-commands
 @xref{Texinfo::Convert::Converter $table_item_tree = $converter->table_item_content_tree($element@comma{} $contents),,
-Texinfo::Convert::Converter::table_item_content_tree, tp_api}.
+Texinfo::Convert::Converter::table_item_content_tree, texi2any_internals}.
 Can be called as @code{$converter->table_item_content_tree}.
 
 @item @code{@@*index} @code{@@subentry}
 @xref{Texinfo::Convert::Converter $contents_array $converter->comma_index_subentries_tree($entry),,
-Texinfo::Convert::Converter::comma_index_subentries_tree, tp_api}.  Can be
-called as @code{$converter->comma_index_subentries_tree}.
+Texinfo::Convert::Converter::comma_index_subentries_tree, texi2any_internals}.
+Can be called as @code{$converter->comma_index_subentries_tree}.
 
 @item global informative commands (@code{@@contents}, @code{@@footnotestyle} @enddots{})
 @xref{Texinfo::Common set_informative_command_value($configuration_information@comma{} $element),,
-Texinfo::Common::set_informative_command_value, tp_api}.
+Texinfo::Common::set_informative_command_value, texi2any_internals}.
 
 @item heading commands, such as @code{@@subheading}
 @xref{Texinfo::Common $level = section_level($section),,
-Texinfo::Common::section_level, tp_api}.  This function would work
+Texinfo::Common::section_level, texi2any_internals}.  This function would work
 for sectioning commands too, but for sectioning commands,
 @code{section->@{'structure'@}->@{'section_level'@}} can also be used.
 @xref{Texinfo Tree Elements in User Defined Functions}.
 
 @item sectioning commands
 @xref{Texinfo::Structuring $command_name = section_level_adjusted_command_name($element),,
-Texinfo::Structuring::section_level_adjusted_command_name, tp_api}.
+Texinfo::Structuring::section_level_adjusted_command_name, texi2any_internals}.
 
 @item @code{@@itemize}
 @code{@@itemize} normally have an @@-command as argument.  If, instead,
@@ -3833,7 +3838,7 @@ Returns @var{\%element} formatted as text suitable for CSS.
 The @code{Texinfo::Convert::NodeNameNormalization} converter, used
 for normalization of labels, exports functions that can be used on Texinfo
 elements trees to obtain strings that are unique and can be used in attributes.
-@xref{Texinfo::Convert::NodeNameNormalization,,,tp_api}.
+@xref{Texinfo::Convert::NodeNameNormalization,,,texi2any_internals}.
 
 @node Functions Index
 @appendix Functions Index

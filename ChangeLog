@@ -1,5 +1,10 @@
 2022-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi: update manual names in links to
+	texi2any_internals.
+
+2022-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	Rename texi2any modules and API manuals and distribute API manual
 
 	* doc/Makefile.am (AM_MAKEINFOFLAGS, info_TEXINFOS, DISTCLEANFILES),
