@@ -1,5 +1,9 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/refcard/txirefcard.tex: 2022, 7.0.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Macros): Add @page to allow
 	test to be checked properly.
 
