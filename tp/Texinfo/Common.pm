@@ -304,7 +304,7 @@ our %default_converter_customization = (
 # some converters, for example CLOSE_QUOTE_SYMBOL and many
 # for HTML.  Could be added to %default_converter_customization.
 # Defaults are documented in manual and set in the various converters.
-my @variable_string_settables = (
+our @variable_string_settables = (
 'AFTER_BODY_OPEN',
 'AFTER_SHORT_TOC_LINES',
 'AFTER_TOC_LINES',

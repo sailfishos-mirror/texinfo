@@ -1,5 +1,11 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Common.pm (@variable_string_settables):
+	Declare with "our" rather than "my" to allow "make vcheck"
+	to work under doc/refcard/.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/refcard/txirefcard.tex: 2022, 7.0.
 
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
