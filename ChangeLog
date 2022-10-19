@@ -1,3 +1,7 @@
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/Makefile.am: Update for Chinese translation files.
+
 2022-10-19  Wu XiangCheng  <bobwxc@yeah.net>
 
 	* NEWS: Fix typo

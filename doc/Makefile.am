@@ -45,7 +45,8 @@ endif
 TXI_XLATE = txi-ca.tex txi-cs.tex txi-de.tex txi-en.tex txi-es.tex \
 	    txi-fi.tex txi-fr.tex txi-hu.tex txi-is.tex txi-it.tex \
 	    txi-ja.tex txi-nb.tex txi-nl.tex txi-nn.tex txi-pl.tex \
-	    txi-pt.tex txi-ru.tex txi-sr.tex txi-tr.tex txi-uk.tex
+	    txi-pt.tex txi-ru.tex txi-sr.tex txi-tr.tex txi-uk.tex \
+	    txi-zh.tex
 
 refcard_files = refcard/Makefile refcard/txicmdcheck \
                 refcard/txirefcard-a4.pdf refcard/txirefcard.pdf \
@@ -57,7 +58,8 @@ EXTRA_DIST = epsf.tex texinfo.tex \
 	     $(man_MANS) $(TXI_XLATE) \
              $(refcard_files) \
 	     texinfo-tex-test.texi texinfo-tex-test.WIDOWs \
-             texinfo-ja.tex short-sample-ja.texi
+             texinfo-ja.tex short-sample-ja.texi \
+             texinfo-zh.tex short-sample-zh.texi
 
 if INSTALL_WARNINGS
 install-data-local:
