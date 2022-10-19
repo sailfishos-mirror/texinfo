@@ -12767,6 +12767,8 @@ $$ \chi^2 = \sum_{i=1}^N
 
 @cindex HTML, including raw
 @findex html
+@cindex DocBook, including raw
+@findex docbook
 @cindex @LaTeX{}, including raw
 @findex latex
 @cindex XML, including raw
