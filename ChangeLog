@@ -1,5 +1,10 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* util/srclist-txi, util/srclist.txt: Remove handing of
+	automake files as "autoreconf" should take care of this.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: Edit instructions on gnulib upgrade.
 
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
