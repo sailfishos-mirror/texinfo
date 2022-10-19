@@ -167,6 +167,13 @@ info/t/*.log
 info/t/*.trs
 
 infog/test-infodir/**
+infog/.libs/**
+infog/build-aux/**
+infog/infog
+infog/*.la
+infog/*.lo
+infog/m4/**
+infog/libtool
 
 install-info/*.log
 install-info/*.trs
