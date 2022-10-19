@@ -86,8 +86,8 @@ See the manual for detailed information.
     @var everywhere.  flag is @set by default, but we plan to turn this
     off in the future.
   . You can use a new file doc/texinfo-zh.tex for Texinfo documents in
-    Chinese.  doc/short-sample-ja.tex is a sample document.  New
-    support file doc/txi-ja.tex for Chinese..
+    Chinese.  doc/short-sample-zh.tex is a sample document.  New
+    support file doc/txi-zh.tex for Chinese..
 
 * info
   . better support for index entries containing parentheses
