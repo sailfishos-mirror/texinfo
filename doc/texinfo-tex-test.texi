@@ -328,6 +328,7 @@ A@acronym{\x\}A
 
 AA
 
+@page
 @section Trailing newlines in macro bodies
 
 Output should be doubled:
