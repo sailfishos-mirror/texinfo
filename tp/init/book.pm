@@ -410,7 +410,7 @@ sub book_element_file_name($$$$)
 
   if (defined($book_previous_default_filename)
       and ($filename eq $book_previous_default_filename)) {
-    return $book_previous_file_name;
+    return ($book_previous_file_name, undef);
   }
 
   my $prefix = $converter->{'document_name'};
@@ -438,7 +438,7 @@ sub book_element_file_name($$$$)
   }
   $book_previous_default_filename = $filename;
   $book_previous_file_name = $new_file_name;
-  return ($new_file_name, $filepath);
+  return ($new_file_name, undef);
 }
 
 texinfo_register_file_id_setting_function('tree_unit_file_name',
