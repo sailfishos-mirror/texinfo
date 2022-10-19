@@ -661,11 +661,12 @@ isolate_last_space_internal (ELEMENT *current)
 {
   ELEMENT *last_elt;
   char *text;
+  int text_len;
 
   last_elt = last_contents_child (current);
   text = element_text (last_elt);
 
-  int text_len = last_elt->text.end;
+  text_len = last_elt->text.end;
 
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')

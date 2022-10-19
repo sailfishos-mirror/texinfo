@@ -2,6 +2,16 @@
 
 	Fix compiler warnings
 
+	* tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_misc_line): Initialise a variable to make it clearer
+	that it is not used uninitialised.
+	* tp/Texinfo/XS/parsetexi/parser.c (isolate_last_space_internal):
+	Move a declaration to the start of a block.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix compiler warnings
+
 	* tp/Texinfo/XS/parsetexi/context_stack.c
 	(current_context, current_region),
 	* tp/Texinfo/XS/parsetexi/end_line.c

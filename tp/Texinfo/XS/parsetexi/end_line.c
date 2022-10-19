@@ -1302,7 +1302,7 @@ end_line_misc_line (ELEMENT *current)
   int arg_type;
   ELEMENT *misc_cmd;
   char *end_command = 0;
-  enum command_id end_id;
+  enum command_id end_id = CM_NONE;
   int included_file = 0;
 
   isolate_last_space (current);
