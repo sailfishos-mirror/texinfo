@@ -19753,6 +19753,10 @@ respectively: @L{}, @l{}.
 @item @@LaTeX@{@}
 Generate the @LaTeX{} logo.  @xref{@code{@@TeX @@LaTeX}}.
 
+@item @@latex
+Enter @LaTeX{} completely.  Pair with @code{@@end latex}.  @xref{Raw
+Formatter Commands}.
+
 @item @@leq@{@}
 Generate a less-than-or-equal sign, `@leq{}'.  @xref{@code{@@geq @@leq}}.
 

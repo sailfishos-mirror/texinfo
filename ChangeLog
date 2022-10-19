@@ -1,5 +1,9 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@-Command List): Add @latex.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/refcard/txicmdcheck: Change "refman" to "appendix" to
 	make it easier to find where command is missing from.
 
