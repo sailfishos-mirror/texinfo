@@ -1,6 +1,11 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Common.pm (@variable_string_settables):
+	Remove unused and undocumented FILE_NAMES_ENCODING_NAME.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Common.pm (@variable_string_settables):
 	Declare with "our" rather than "my" to allow "make vcheck"
 	to work under doc/refcard/.
 
