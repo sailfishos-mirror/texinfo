@@ -17265,6 +17265,7 @@ corresponding @command{texi2any} customization variables.
 @multitable {@option{--frameset-doctype}} {@code{HTML_MATH} set to @samp{l2h}}
 
 @item @option{--toc-links}            @tab @code{TOC_LINKS}
+@item @option{--short-ext}            @tab @code{EXTENSION} set to @samp{htm}
 @item @option{--prefix}               @tab @code{PREFIX}
 @item @option{--def-table}            @tab @code{DEF_TABLE}
 @item @option{--html-xref-prefix}     @tab @code{EXTERNAL_DIR}
