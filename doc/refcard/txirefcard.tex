@@ -422,7 +422,7 @@ output files.}
 
 \subsection{Internationalization}
 
-\txicmd{@documentencoding}{enc}{Declare the input encoding to be \var{enc}; use right after \code{@setfilename}.  Default is \code{US-ASCII}; other possibilities: \code{UTF-8}, \code{ISO-8859-1}, \code{koi8-r}, \dots}
+\txicmd{@documentencoding}{enc}{Declare the input encoding to be \var{enc}; use right after \code{@setfilename}.  Default is \code{UTF-8}; other possibilities: \code{US-ASCII}, \code{ISO-8859-1}, \code{koi8-r}, \dots}
 \txicmd{@documentlanguage}{LL\rmbrack[\code{_}CC]}{Declare the current language as the two-character \acro{ISO}-639 abbreviation \var{LL}, optionally followed by an underscore and a two-letter \acro{ISO} 3166 two-letter country code (\var{CC}). Default is \code{en_US}.}
 \txicmd{@frenchspacing}{\code{on|off}}{Control spacing after punctuation.}
 
@@ -833,14 +833,16 @@ Descriptive text follows, ended by \samp{@end \var{defcmdname}}.
 \txicmd{@ifinfo}{\dots\code{@end ifinfo}}{Text to appear in both Info and (for historical compatibility) plain text output.}
 \txicmd{@ifplaintext}{\dots\code{@end ifplaintext}}{Text to appear only in plain text output.}
 \txicmd{@iftex}{\dots\code{@end iftex}}{Text to appear only in the \TeX\ output.}
+\txicmd{@iflatex}{\dots\code{@end iflatex}}{Text to appear only in the La\TeX\ output.}
 \txicmd{@ifxml}{\dots\code{@end ifxml}}{Text to appear only in \acro{XML} output.}
-\txicmd{@ifnotdocbook @ifnothtml @ifnotplaintext @ifnottex @ifnotxml}{\dots\code{@end ifnot\var{format}}}{Begin text to be ignored in one output format but no others: \code{@ifnothtml} text is omitted from \acro{HTML} output, etc.}
+\txicmd{@ifnotdocbook @ifnothtml @ifnotplaintext @ifnottex @ifnotlatex @ifnotxml}{\dots\code{@end ifnot\var{format}}}{Begin text to be ignored in one output format but no others: \code{@ifnothtml} text is omitted from \acro{HTML} output, etc.}
 \txicmd{@ifnotinfo}{\dots\code{@end ifnotinfo}}{Like the other \code{@ifnot\dots} commands, but omit from plain text output as well as Info.}
 \txicmd{@inlinefmt}{\ttbraced{format, text}}{Include Texinfo \var{text} only in \var{format} output.}
 \txicmd{@inlinefmtifelse}{\ttbraced{format, then-text, else-text}}{Include either \var{then-text} or \var{else-text} according to whether \var{format} is output.}
 
 \subsection{Raw formatter text}
 
+\txicmd{@latex}{\dots\code{@end latex}}{Enter La\TeX\ completely.}
 \txicmd{@docbook}{\dots\code{@end docbook}}{Enter Docbook completely.}
 \txicmd{@html}{\dots\code{@end html}}{Enter \acro{HTML} completely.}
 \txicmd{@tex}{\dots\code{@end tex}}{Enter \TeX\  completely (e.g., \bschar\ becomes an escape character).}
@@ -881,6 +883,7 @@ Descriptive text follows, ended by \samp{@end \var{defcmdname}}.
 \txicmd{@allowcodebreaks}{\code{true|false}}{Control breaks at \code{-} and \code{_} in \TeX; default true.}
 \txicmd{@finalout}{}{Omit large black rectangles at overfull lines in \TeX\ output.}
 \txicmd{@fonttextsize}{\code{10|11}}{Change size of main body font in \TeX.}
+\txicmd{@microtype}{\code{on|off}}{Turn microtypography on or off in \TeX.}
 
 \subsection{Paper sizes}
 

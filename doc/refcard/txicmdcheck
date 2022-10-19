@@ -216,14 +216,9 @@ sub read_tp {
     next if $_ eq '@ ' || $_ eq "\@\t" || $_ eq "" || $_ eq '@';
     
     # obsolete and/or subsidiary commands we don't want to document as usual.
-    next if $_ =~ /allow-recursion
-                   |columnfractions
-                   |cropmarks
-                   |ctrl
+    next if $_ =~ /columnfractions
                    |(even|every|odd)(foot|head)ingmarks
-                   |quote-arg
                    |rmacro
-                   |set(short)?contentsaftertitlepage
                    |shorttitle$
                    |\|
                   /x;

@@ -1,5 +1,14 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	refcard updates
+
+	* doc/refcard/txicmdcheck: Remove exceptions for obsolete and removed
+	commands.
+	* doc/refcard/txirefcard.tex: Default encoding is UTF-8, not US-ASCII.
+	Add @iflatex, @latex, @microtype.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@-Command List): Add @latex.
 
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
