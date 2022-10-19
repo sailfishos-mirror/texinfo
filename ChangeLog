@@ -1,5 +1,23 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix compiler warnings
+
+	* tp/Texinfo/XS/parsetexi/context_stack.c
+	(current_context, current_region),
+	* tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block, end_line_misc_line, end_line),
+	* tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_other_command, handle_line_command),
+	* tp/Texinfo/XS/parsetexi/input.c
+	(convert_to_utf8, input_push_file)
+	* tp/Texinfo/XS/parsetexi/parser.c:
+	(isolate_last_space_internal, process_remaining_on_line):
+
+	Fix warnings re declaration before statement, unused variables,
+	unused labels.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Address some compiler warnings
 
 	* info/infopath.c (infopath_add),

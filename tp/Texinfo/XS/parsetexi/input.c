@@ -215,7 +215,6 @@ static char *
 convert_to_utf8 (char *s)
 {
   iconv_t our_iconv = (iconv_t) -1;
-  enum character_encoding enc;
   char *ret;
 
   /* Convert from @documentencoding to UTF-8.
@@ -658,6 +657,7 @@ int
 input_push_file (char *filename)
 {
   FILE *stream = 0;
+  char *p, *q;
 
   if (!strcmp (filename, "-"))
     stream = stdin;
@@ -676,7 +676,6 @@ input_push_file (char *filename)
     }
 
   /* Strip off a leading directory path. */
-  char *p, *q;
   p = 0;
   q = strchr (filename, '/');
   while (q)

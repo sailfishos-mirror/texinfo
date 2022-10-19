@@ -1123,10 +1123,11 @@ end_line_starting_block (ELEMENT *current)
           if (current->args.number > 0
               && current->args.list[0]->contents.number > 0)
             {
+              ELEMENT *g;
               if (current->args.list[0]->contents.number > 1)
                 command_error (current, "superfluous argument to @%s",
                                command_name(current->cmd));
-              ELEMENT *g = current->args.list[0]->contents.list[0];
+              g = current->args.list[0]->contents.list[0];
               /* Check if @enumerate specification is either a single
                  letter or a string of digits. */
               if (g->text.end == 1
@@ -1299,7 +1300,6 @@ end_line_misc_line (ELEMENT *current)
 {
   enum command_id cmd;
   int arg_type;
-  enum context c;
   ELEMENT *misc_cmd;
   char *end_command = 0;
   enum command_id end_id;
@@ -1410,10 +1410,10 @@ end_line_misc_line (ELEMENT *current)
           else if (current->cmd == CM_include)
             {
               int status;
-              char *fullpath;
+              char *fullpath, *sys_filename;
               debug ("Include %s", text);
 
-              char *sys_filename = encode_file_name (text);
+              sys_filename = encode_file_name (text);
               fullpath = locate_include_file (sys_filename);
 
               if (!fullpath)
@@ -1655,7 +1655,6 @@ end_line_misc_line (ELEMENT *current)
             {
               while (p1 > texi_line && isspace ((unsigned char) p1[-1]))
                 p1--;
-              c = *p1;
               *p1 = '\0';
             }
           command_error (current, "bad argument to @%s: %s", 
@@ -1693,9 +1692,9 @@ end_line_misc_line (ELEMENT *current)
               /* Copy the first 'node_content' array, to avoid the complication
                  of it being referenced in two different places.
                  This might be better with a separate function. */
+              int i;
 
               label = new_element (0);
-              int i;
 
               for (i = 0; i<nodes_manuals[0]->node_content->contents.number;
                    i++)
@@ -2063,9 +2062,9 @@ end_line (ELEMENT *current)
                 current = last_contents_child(current);
               else
                 {
+                  ELEMENT *e;
                   /* This should not happen */
                   bug ("description or menu comment not in preformatted");
-                  ELEMENT *e;
                   e = new_element (ET_preformatted);
                   add_to_element_contents (current, e);
                   current = e;

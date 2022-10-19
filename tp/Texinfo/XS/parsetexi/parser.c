@@ -660,9 +660,10 @@ static void
 isolate_last_space_internal (ELEMENT *current)
 {
   ELEMENT *last_elt;
+  char *text;
 
   last_elt = last_contents_child (current);
-  char *text = element_text (last_elt);
+  text = element_text (last_elt);
 
   int text_len = last_elt->text.end;
 
@@ -1085,7 +1086,6 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
   char *line_after_command;
   int retval = STILL_MORE_TO_PROCESS;
   enum command_id end_cmd;
-  char *p;
 
   enum command_id cmd = CM_NONE;
   /* remains set only if command is unknown, otherwise cmd is used */
@@ -1233,18 +1233,18 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
       if (is_end_current_command (current, &line, &end_cmd))
         {
           char *tmp = 0;
+          ELEMENT *popped;
 
           /* check whitespaces at the beginning of the line */
           if (strchr (whitespace_chars, *p))
             {
-              ELEMENT *e;
               line_warn ("@end %s should only appear at the "
                          "beginning of a line", command_name(end_cmd));
             }
 
           current = current->parent;
+
           /* Remove an ignored block. */
-          ELEMENT *popped;
           popped = pop_element_from_contents (current);
           if (popped->cmd != end_cmd)
             fatal ("command mismatch for ignored block");
@@ -1712,15 +1712,14 @@ value_valid:
                 }
               else
                 { /* CM_txiinternalvalue */
-                  ELEMENT *txiinternalvalue_elt;
+                  ELEMENT *txiinternalvalue_elt, *txiinternalvalue_arg;
 
                   abort_empty_line (&current, NULL);
                   txiinternalvalue_elt = new_element (ET_NONE);
                   txiinternalvalue_elt->cmd = CM_txiinternalvalue;
 
-                  /* FIXME or misc_arg?
-                   * ELEMENT *txiinternalvalue_arg = new_element (ET_misc_arg) */;
-                  ELEMENT *txiinternalvalue_arg = new_element (ET_NONE);
+                  /* FIXME or ET_misc_arg? */
+                  txiinternalvalue_arg = new_element (ET_NONE);
 
                   text_append (&txiinternalvalue_arg->text, flag);
                   add_to_element_args (txiinternalvalue_elt, txiinternalvalue_arg);

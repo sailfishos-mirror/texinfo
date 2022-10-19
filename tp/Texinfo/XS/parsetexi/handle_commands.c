@@ -261,7 +261,6 @@ handle_other_command (ELEMENT *current, char **line_inout,
       start_empty_line_after_command (current, &line, 0);
     }
 
-funexit:
   *line_inout = line;
   return current;
 }
@@ -553,6 +552,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
               char *base_name;
               int base_len;
               int after_paragraph;
+              char *val;
 
               /* Find the command with "x" stripped from the end, e.g.
                  deffnx -> deffn. */
@@ -574,7 +574,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
               misc->type = ET_def_line;
 
               /* Check txidefnamenospace flag */
-              char *val = fetch_value ("txidefnamenospace");
+              val = fetch_value ("txidefnamenospace");
               if (val)
                 add_extra_integer (misc, "omit_def_name_space", 1);
 

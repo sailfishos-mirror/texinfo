@@ -72,10 +72,10 @@ current_context (void)
 enum command_id
 current_context_command (void)
 {
+  int i;
+
   if (top == 0)
     return CM_NONE;
-
-  int i;
   for (i = top -1; i >= 0; i--)
     {
       if (commands_stack[i] != CM_NONE)
@@ -145,10 +145,10 @@ current_region (void)
 int
 in_preformatted_context_not_menu()
 {
+  int i;
+
   if (top == 0)
     return 0;
-
-  int i;
   for (i = top -1; i >= 0; i--)
     {
       enum context ct;
