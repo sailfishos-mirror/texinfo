@@ -17,7 +17,7 @@
 #
 # Original author: Karl Berry.
 #
-# Kludge of a script to check command lists in refcard vs. refman vs.
+# Kludge of a script to check command lists in refcard vs. appendix vs.
 # tp for consistency. 
 
 exit (&main ());
@@ -27,7 +27,7 @@ sub main {
 
   my %card_cmds = &read_refcard ("txirefcard.tex");
   my %idx_cmds = &read_refidx ("../texinfo.texi");
-  my %man_cmds = &read_refman ("../texinfo.texi");
+  my %man_cmds = &read_appendix ("../texinfo.texi");
   my %tp_cmds = &read_tp ("../../util/txicmdlist");
 
   # find the commands that are covered everywhere.
@@ -69,13 +69,13 @@ sub main {
 
   # now report on commands only in some other subset.
   my @card_only = keys %card_cmds;
-  printf "refcard only %s: @{[sort @card_only]}\n", @card_only + 0;
+  printf "refcard  only %s: @{[sort @card_only]}\n", @card_only + 0;
 
   my @man_only = keys %man_cmds;
-  printf "refman  only %s: @{[sort @man_only]}\n", @man_only + 0;
+  printf "appendix only %s: @{[sort @man_only]}\n", @man_only + 0;
   
   my @tp_only = keys %tp_cmds;
-  printf "tp      only %s: @{[sort @tp_only]}\n", @tp_only + 0;
+  printf "tp       only %s: @{[sort @tp_only]}\n", @tp_only + 0;
   
   return @card_only + @man_only + @tp_only;
 }
@@ -171,7 +171,7 @@ sub read_refidx {
 # Return command names from the @-Command List node in the reference
 # manual as the keys of a hash (empty values).
 # 
-sub read_refman {
+sub read_appendix {
   my ($fname) = @_;
   my @ret = ();
 
