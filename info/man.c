@@ -71,7 +71,6 @@ size_t manpage_node_slots = 0;
 int
 check_manpage_node (char *pagename)
 {
-  char *cmd;
   pid_t child;
   int pid_status = 0;
   NODE *man_node;
@@ -82,14 +81,14 @@ check_manpage_node (char *pagename)
 
   if (!child)
     {
-      int ret;
+      char *formatter;
       (void)! freopen (NULL_DEVICE, "w", stdout);
       (void)! freopen (NULL_DEVICE, "w", stderr);
       /* avoid "unused result" warning with ! operator */
-      char *formatter = find_man_formatter();
+      formatter = find_man_formatter();
       if (!formatter)
         exit (1);
-      ret = execl (formatter, formatter, "-w", pagename, (void *) 0);
+      execl (formatter, formatter, "-w", pagename, (void *) 0);
       exit (2); /* exec failed */
     }
   else

@@ -1,5 +1,14 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Address some compiler warnings
+
+	* info/infopath.c (infopath_add),
+	* info/session.c (menu_digit, forward_move_node_structure):
+	Add brackets around assignment in condition.
+	* info/man.c (check_manpage_node): Remove unused variables.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: update advice on configuring for compiler warnings
 
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>

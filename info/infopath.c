@@ -199,7 +199,7 @@ infopath_add (char *path)
   int idx = 0;
   char *dirname;
 
-  while (dirname = extract_colon_unit (path, &idx))
+  while ((dirname = extract_colon_unit (path, &idx)))
     {
       if (!strcmp ("PATH", dirname))
         {

@@ -2212,7 +2212,7 @@ menu_digit (WINDOW *window, int key)
   return;
 has_menu:
 
-  if (entry = select_menu_digit (window, key))
+  if ((entry = select_menu_digit (window, key)))
     info_select_reference (window, entry);
   else if (key == '0')
     /* Don't print "There aren't 0 items in this menu" */
@@ -3093,7 +3093,7 @@ forward_move_node_structure (WINDOW *window, int behaviour)
           {
             REFERENCE *entry;
 
-            if (entry = select_menu_digit (window, '1'))
+            if ((entry = select_menu_digit (window, '1')))
               {
                 info_select_reference (window, entry);
                 return 0;
