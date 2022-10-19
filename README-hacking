@@ -114,21 +114,24 @@ to share common files.  Gnulib files used in Texinfo are checked in to
 the repository.  A Gnulib directory is setup in two locations, in
 the main directory and in tp/Texinfo/XS/.
 
-If you get automake/conf/etc. errors from ./autogen.sh, please try
-getting a checkout of gnulib (in a separate directory from
-the texinfo checkout), and then run, say,
+To update the gnulib files, get a checkout of gnulib in a separate
+directory, then run, say
+
   ../gnulib/gnulib-tool --add-import
-in your top-level Texinfo directory.
-(gnulib-tool is in the gnulib source tree.)
+
+in your top-level Texinfo directory and
+
+  ../../../../gnulib/gnulib-tool --add-import
+
+under tp/Texinfo/XS.  (gnulib-tool is in the gnulib source tree.)
 
 The currently-used gnulib modules and other gnulib information are
-recorded in gnulib/m4/gnulib-cache.m4.  Given a source checkout of
-gnulib, you can update the files with gnulib-tool --add-import.
+recorded in gnulib/m4/gnulib-cache.m4.
 
 gnulib-tool --add-import may also be used to add another gnulib module:
   ../gnulib/gnulib-tool --add-import other_gnulib_module
 
-When running gnulib-tool --add-import or otherwise adding modules, it is
+After running gnulib-tool --add-import or otherwise adding modules, it is
 necessary to check what files were added or removed (e.g., run "git
 status -u") and add new files to the repository with "git add".
 Add any new generated files (typically gnulib/lib/foo.h from foo.h.in) 

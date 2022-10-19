@@ -1,5 +1,9 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: Edit instructions on gnulib upgrade.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/tp_api/Makefile.am (AUTOMAKE_OPTIONS): Remove
 	'no-installinfo' flag to build and install texinfo_internals.info.
 
