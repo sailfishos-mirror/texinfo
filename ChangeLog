@@ -1,5 +1,18 @@
 2022-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	Better cutomization variables coverage by checking separately commands
+
+	* doc/refcard/txivarcheck (main, read_refman), tp/Texinfo/Common.pm,
+	util/txicustomvars: compare manual and lists from code and output
+	separately Texinfo @-commands as customization variables and other
+	customization variables.  Add --commands option to txicustomvars
+	to show the global commands with a customization variable only.
+
+	* doc/texinfo.texi (Customization Variables for @@-Commands):
+	add missing customization variables for @-commands.
+
+2022-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/ext/tex4ht.pm (tex4ht_prepare): fix typo in error messages.
 
 2022-10-19  Patrice Dumas  <pertusus@free.fr>

@@ -129,12 +129,14 @@ my %default_parser_specific_customization = (
 
 # this serves both to set defaults and list configuration options
 # valid for the parser.
+# also used in util/txicustomvars
 our %default_parser_customization_values = (%default_parser_common_customization,
   %default_parser_specific_customization);
 
 
 # @-commands that can be used multiple time in a document and default
 # values.  Associated with customization values too.
+# also used in util/txicustomvars
 our %document_settable_multiple_at_commands = (
   'allowcodebreaks' => 'true',
   'clickstyle' => '@arrow',
@@ -145,10 +147,10 @@ our %document_settable_multiple_at_commands = (
   'documentencoding' => 'us-ascii',
   'documentlanguage' => 'en', # or undef?  Documented as en.
                               # --document-language
-  'everyheading'      => undef,
-  'everyfooting'      => undef,
-  'evenheading'       => undef,
   'evenfooting'       => undef,
+  'evenheading'       => undef,
+  'everyfooting'      => undef,
+  'everyheading'      => undef,
   # is N ems in TeX, 0.4 in.
   'exampleindent' => 5,
   'firstparagraphindent' => 'none',
@@ -166,6 +168,7 @@ our %document_settable_multiple_at_commands = (
 );
 
 # @-commands that should be unique.  Associated with customization values too.
+# also used in util/txicustomvars
 our %document_settable_unique_at_commands = (
   'afivepaper' => undef,
   'afourpaper' => undef,
@@ -256,7 +259,8 @@ my %default_main_program_command_line_options = (
 );
 
 # used in main program, defaults documented in manual
-my %default_main_program_customization = (
+# also used in util/txicustomvars
+our %default_main_program_customization = (
   'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
             # automatic direction and directions in menu are not consistent
             # with sectionning, and when node directions are not consistent
@@ -275,6 +279,7 @@ our %default_main_program_customization_options = (
  %default_main_program_command_line_options,  %default_main_program_customization);
 
 # used in converters, default documented in manual
+# also used in util/txicustomvars
 our %default_converter_customization = (
   'TOP_NODE_UP'           => '(dir)',   # up node of Top node default value
   'BASEFILENAME_LENGTH'   => 255 - 10,
@@ -304,6 +309,7 @@ our %default_converter_customization = (
 # some converters, for example CLOSE_QUOTE_SYMBOL and many
 # for HTML.  Could be added to %default_converter_customization.
 # Defaults are documented in manual and set in the various converters.
+# used in util/txicustomvars
 our @variable_string_settables = (
 'AFTER_BODY_OPEN',
 'AFTER_SHORT_TOC_LINES',

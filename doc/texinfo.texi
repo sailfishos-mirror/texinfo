@@ -16012,12 +16012,21 @@ Each of the following @@-commands has an associated customization
 variable with the same name (minus the leading @code{@@}):
 
 @example
-@@allowcodebreaks       @@clickstyle        @@codequotebacktick
+@@afivepaper            @@afourpaper        @@afourlatex
+@@afourwide             @@allowcodebreaks   @@bsixpaper
+@@contents              @@clickstyle        @@codequotebacktick
 @@codequoteundirected   @@deftypefnnewline  @@documentdescription
-@@documentencoding      @@documentlanguage  @@exampleindent
-@@firstparagraphindent  @@footnotestyle     @@frenchspacing
-@@kbdinputstyle         @@novalidate        @@paragraphindent
-@@setfilename           @@urefbreakstyle    @@xrefautomaticsectiontitle
+@@documentencoding      @@documentlanguage  @@evenfooting
+@@evenfootingmarks      @@evenheading       @@evenheadingmarks
+@@everyfooting          @@everyfootingmarks @@everyheading
+@@everyheadingmarks     @@exampleindent     @@firstparagraphindent
+@@fonttextsize          @@footnotestyle     @@frenchspacing
+@@headings              @@kbdinputstyle     @@microtype
+@@novalidate            @@oddfooting        @@oddfootingmarks
+@@oddheading            @@oddheadingmarks   @@pagesizes
+@@paragraphindent       @@setfilename       @@setchapternewpage
+@@shortcontents         @@smallbook         @@summarycontents
+@@urefbreakstyle        @@xrefautomaticsectiontitle
 @end example
 
 Setting such a customization variable to a value @samp{foo} is similar
