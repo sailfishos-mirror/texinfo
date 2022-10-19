@@ -81,9 +81,9 @@ roman@sub{sub} @b{bold@sub{sub}}
 
 @section Acronyms
 
-Test of @acronym{ACRONYM}'s.  {ACRONYM}'s.
+Test of @acronym{ACRONYM}s.  {ACRONYM}s.
 
-@majorheading Test of @acronym{ACRONYM}'s.  ACRONYM's hippopotamus
+@majorheading Test of @acronym{ACRONYM}s.  ACRONYMs
 
 
 @chapter Glyph commands
