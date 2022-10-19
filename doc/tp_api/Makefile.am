@@ -1,6 +1,6 @@
 # Makefile.am for texinfo/doc/tp_api.
 #
-# Copyright 2012-2019 Free Software Foundation, Inc.
+# Copyright 2012-2022 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without
@@ -10,14 +10,7 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-# The Emacs Info reader is not ready for quoted node names, therefore it is not
-# really usefull to install the info file in the default case.  nodist_ is not
-# ok to achieve that, as the other Texinfo related build targets are also
-# removed with that prefix.
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
-
-# no-installinfo requires foreign
-AUTOMAKE_OPTIONS = no-installinfo foreign
 
 # Use the programs built in our distribution, taking account of possible
 # cross-compiling.
