@@ -212,10 +212,11 @@ being updated from gnulib --add-import)
 gnulib-tool --add-import
 'git status -u' and add untracked files
 
-After upgrading automake/autoconf/gettext/gnulib, run ./autogen.sh
-and/or "autoreconf --verbose --force --install" and/or util/srclist-txi
-to update ancilliary files in build-aux and elsewhere.  Check changes before
-committing.
+After upgrading automake/autoconf/gettext, run ./autogen.sh
+and/or "autoreconf --verbose --force --install" to update ancilliary
+files in build-aux and elsewhere.  Check changes before committing.
+
+Use util/srclist-txi for checking files to be copied from gnulib
 
 run all tests with valgrind
 parsetexi memory leak checks with valgrind
