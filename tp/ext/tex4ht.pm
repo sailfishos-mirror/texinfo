@@ -119,7 +119,7 @@ sub tex4ht_prepare($$)
   my $math_conversion = $self->get_conf('T4H_MATH_CONVERSION');
   if (defined($math_conversion) and !$formats{$math_conversion}) {
     $self->document_error($self,
-         sprintf(__("tex4ht.pm: unknown converstion type for math: %s"),
+         sprintf(__("tex4ht.pm: unknown conversion type for math: %s"),
                                       $math_conversion));
     $math_conversion = undef;
   }
@@ -128,7 +128,7 @@ sub tex4ht_prepare($$)
   my $tex_conversion = $self->get_conf('T4H_TEX_CONVERSION');
   if (defined($tex_conversion) and !$formats{$tex_conversion}) {
     $self->document_error($self,
-         sprintf(__("tex4ht.pm: unknown converstion type for \@tex: %s"),
+         sprintf(__("tex4ht.pm: unknown conversion type for \@tex: %s"),
                                       $tex_conversion));
     $tex_conversion = undef;
   }
@@ -137,7 +137,7 @@ sub tex4ht_prepare($$)
   my $latex_conversion = $self->get_conf('T4H_LATEX_CONVERSION');
   if (defined($latex_conversion) and !$formats{$latex_conversion}) {
     $self->document_error($self,
-         sprintf(__("tex4ht.pm: unknown converstion type for \@latex: %s"),
+         sprintf(__("tex4ht.pm: unknown conversion type for \@latex: %s"),
                                       $latex_conversion));
     $latex_conversion = undef;
   }
