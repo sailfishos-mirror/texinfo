@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 16:16+0100\n"
+"POT-Creation-Date: 2022-10-19 19:43+0200\n"
 "PO-Revision-Date: 2021-12-16 20:33+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
 #: gnulib/lib/error.c:195
@@ -1764,8 +1764,8 @@ msgid ""
 " --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
 "                      don't insert any new entries.\n"
 " --defsection=TEXT   like --section, but only use TEXT if no sections\n"
-"                      are present in INFO-FILE (replacing \"Miscellaneous"
-"\").\n"
+"                      are present in INFO-FILE (replacing "
+"\"Miscellaneous\").\n"
 " --description=TEXT  the description of the entry is TEXT; used with\n"
 "                      the --name option to become synonymous with the\n"
 "                      --entry option.\n"
@@ -3415,17 +3415,22 @@ msgstr "l2h: не могу да отворим „%s“ ради уписа: %s"
 
 #: tp/ext/tex4ht.pm:122
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for math: %s"
+msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:131
-#, perl-format
-msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, fuzzy, perl-format
+#| msgid ""
+#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
+#| "of items found in the document for @%s"
+msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr ""
+"tex4ht.pm: обрађивање је дало %d ставке у HTML-у; очекивах %d, број ставки "
+"нађених у документу за „@%s“"
 
 #: tp/ext/tex4ht.pm:140
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:234 tp/ext/tex4ht.pm:413

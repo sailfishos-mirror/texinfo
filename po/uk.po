@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 16:16+0100\n"
+"POT-Creation-Date: 2022-10-19 19:43+0200\n"
 "PO-Revision-Date: 2021-07-01 10:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 20.12.0\n"
 
 #: gnulib/lib/error.c:195
@@ -1778,8 +1778,8 @@ msgid ""
 " --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
 "                      don't insert any new entries.\n"
 " --defsection=TEXT   like --section, but only use TEXT if no sections\n"
-"                      are present in INFO-FILE (replacing \"Miscellaneous"
-"\").\n"
+"                      are present in INFO-FILE (replacing "
+"\"Miscellaneous\").\n"
 " --description=TEXT  the description of the entry is TEXT; used with\n"
 "                      the --name option to become synonymous with the\n"
 "                      --entry option.\n"
@@ -3441,17 +3441,22 @@ msgstr "l2h: не вдалося відкрити %s для запису дан�
 
 #: tp/ext/tex4ht.pm:122
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for math: %s"
+msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:131
-#, perl-format
-msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, fuzzy, perl-format
+#| msgid ""
+#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
+#| "of items found in the document for @%s"
+msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr ""
+"tex4ht.pm: обробляємо створені %d записів у HTML; мало бути %d, кількість "
+"записів, знайдених у документі для @%s"
 
 #: tp/ext/tex4ht.pm:140
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:234 tp/ext/tex4ht.pm:413
@@ -4019,8 +4024,8 @@ msgstr "%s не є коректною можливістю поділу"
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
-"%s: аргумент до --paragraph-indent має бути числом, `none' чи `asis', а не `"
-"%s'.\n"
+"%s: аргумент до --paragraph-indent має бути числом, `none' чи `asis', а не "
+"`%s'.\n"
 
 #: tp/texi2any.pl:1185
 #, perl-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 16:16+0100\n"
+"POT-Creation-Date: 2022-10-19 19:43+0200\n"
 "PO-Revision-Date: 2021-06-22 12:11+0300\n"
 "Last-Translator: Mehmet Kececi <mkececi@mehmetkececi.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -1772,8 +1772,8 @@ msgid ""
 " --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
 "                      don't insert any new entries.\n"
 " --defsection=TEXT   like --section, but only use TEXT if no sections\n"
-"                      are present in INFO-FILE (replacing \"Miscellaneous"
-"\").\n"
+"                      are present in INFO-FILE (replacing "
+"\"Miscellaneous\").\n"
 " --description=TEXT  the description of the entry is TEXT; used with\n"
 "                      the --name option to become synonymous with the\n"
 "                      --entry option.\n"
@@ -2352,8 +2352,8 @@ msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
-"web etiketleri dosyası oluşturulurkenJS_WEBLABELS_FILE için mutlak yol veya `"
-"%s' URL'si kullanılamaz"
+"web etiketleri dosyası oluşturulurkenJS_WEBLABELS_FILE için mutlak yol veya "
+"`%s' URL'si kullanılamaz"
 
 #: tp/Texinfo/Convert/HTML.pm:9432
 #, perl-format
@@ -3413,17 +3413,22 @@ msgstr "l2h: %s yazmak için açılamıyor: %s"
 
 #: tp/ext/tex4ht.pm:122
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for math: %s"
+msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:131
-#, perl-format
-msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, fuzzy, perl-format
+#| msgid ""
+#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
+#| "of items found in the document for @%s"
+msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr ""
+"tex4ht.pm: işleme HTML'de %d öge üretti; %d bekleniyordu, @%s için belgede "
+"bulunan öge sayısı"
 
 #: tp/ext/tex4ht.pm:140
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:234 tp/ext/tex4ht.pm:413

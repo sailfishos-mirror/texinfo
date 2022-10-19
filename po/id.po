@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 16:16+0100\n"
+"POT-Creation-Date: 2022-10-19 19:43+0200\n"
 "PO-Revision-Date: 2014-08-11 17:30+0700\n"
 "Last-Translator: Arif E. Nugroho <arif_endro@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -1946,8 +1946,8 @@ msgid ""
 " --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
 "                      don't insert any new entries.\n"
 " --defsection=TEXT   like --section, but only use TEXT if no sections\n"
-"                      are present in INFO-FILE (replacing \"Miscellaneous"
-"\").\n"
+"                      are present in INFO-FILE (replacing "
+"\"Miscellaneous\").\n"
 " --description=TEXT  the description of the entry is TEXT; used with\n"
 "                      the --name option to become synonymous with the\n"
 "                      --entry option.\n"
@@ -3224,8 +3224,8 @@ msgstr "Diduga `%s'"
 #| msgid "@%s should only accept a @-command as argument, not `%s'"
 msgid "@%s should only accept an @-command as argument, not `%s'"
 msgstr ""
-"@%s Gunakan kurung untuk memberi sebuah perintah sebagai sebuah argumen ke @"
-"%s"
+"@%s Gunakan kurung untuk memberi sebuah perintah sebagai sebuah argumen ke "
+"@%s"
 
 #: tp/Texinfo/ParserNonXS.pm:5948 tp/Texinfo/XS/parsetexi/end_line.c:277
 #, c-format, perl-format
@@ -3621,17 +3621,22 @@ msgstr "tidak dapat membuka --css-file: %s %s"
 
 #: tp/ext/tex4ht.pm:122
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for math: %s"
+msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:131
-#, perl-format
-msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, fuzzy, perl-format
+#| msgid ""
+#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
+#| "of items found in the document for @%s"
+msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr ""
+"tex4ht.pm: processing produced %d items in HTML; expected %d, the number of "
+"items found in the document for @%s"
 
 #: tp/ext/tex4ht.pm:140
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:234 tp/ext/tex4ht.pm:413
@@ -4293,8 +4298,8 @@ msgstr "Argumen ke @%s buruk"
 #| msgid "@%s should only accept a @-command as argument, not `%s'"
 msgid "@clickstyle should only accept an @-command as argument, not `%s'"
 msgstr ""
-"@%s Gunakan kurung untuk memberi sebuah perintah sebagai sebuah argumen ke @"
-"%s"
+"@%s Gunakan kurung untuk memberi sebuah perintah sebagai sebuah argumen ke "
+"@%s"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:357
 #, fuzzy, c-format

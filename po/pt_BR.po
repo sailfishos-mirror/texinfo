@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 16:16+0100\n"
+"POT-Creation-Date: 2022-10-19 19:43+0200\n"
 "PO-Revision-Date: 2021-10-13 21:15-0300\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin10@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -1780,8 +1780,8 @@ msgid ""
 " --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
 "                      don't insert any new entries.\n"
 " --defsection=TEXT   like --section, but only use TEXT if no sections\n"
-"                      are present in INFO-FILE (replacing \"Miscellaneous"
-"\").\n"
+"                      are present in INFO-FILE (replacing "
+"\"Miscellaneous\").\n"
 " --description=TEXT  the description of the entry is TEXT; used with\n"
 "                      the --name option to become synonymous with the\n"
 "                      --entry option.\n"
@@ -3446,17 +3446,22 @@ msgstr "l2h: não posso abrir %s para escrita: %s"
 
 #: tp/ext/tex4ht.pm:122
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for math: %s"
+msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:131
-#, perl-format
-msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, fuzzy, perl-format
+#| msgid ""
+#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
+#| "of items found in the document for @%s"
+msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr ""
+"tex4ht.pm: processando %d itens produzidos em HTML; esperado %d, o número de "
+"itens encontrados no documento para @%s"
 
 #: tp/ext/tex4ht.pm:140
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:234 tp/ext/tex4ht.pm:413
@@ -4029,8 +4034,8 @@ msgstr "%s é uma possibilidade de particionamento inválida"
 #, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
 msgstr ""
-"%s: o argumento de --paragraph-indent deve ser numeric/`none'/`asis', não `"
-"%s'.\n"
+"%s: o argumento de --paragraph-indent deve ser numeric/`none'/`asis', não "
+"`%s'.\n"
 
 #: tp/texi2any.pl:1185
 #, perl-format

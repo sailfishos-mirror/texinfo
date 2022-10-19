@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 16:16+0100\n"
+"POT-Creation-Date: 2022-10-19 19:43+0200\n"
 "PO-Revision-Date: 2021-07-02 05:53+0100\n"
 "Last-Translator: Pedro Albuquerque <pmra@protonmail.com>\n"
 "Language-Team: Portuguese <translation-team-pt@lists.sourceforge.net>\n"
@@ -1776,8 +1776,8 @@ msgid ""
 " --delete            delete existing entries for INFO-FILE from DIR-FILE;\n"
 "                      don't insert any new entries.\n"
 " --defsection=TEXT   like --section, but only use TEXT if no sections\n"
-"                      are present in INFO-FILE (replacing \"Miscellaneous"
-"\").\n"
+"                      are present in INFO-FILE (replacing "
+"\"Miscellaneous\").\n"
 " --description=TEXT  the description of the entry is TEXT; used with\n"
 "                      the --name option to become synonymous with the\n"
 "                      --entry option.\n"
@@ -3150,8 +3150,8 @@ msgstr ""
 #, c-format, perl-format
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
 msgstr ""
-"argumento @urefbreakstyle tem de ser \"after\"/\"before\"/\"none\", não \"%s"
-"\""
+"argumento @urefbreakstyle tem de ser \"after\"/\"before\"/\"none\", não "
+"\"%s\""
 
 #: tp/Texinfo/ParserNonXS.pm:6277 tp/Texinfo/XS/parsetexi/end_line.c:641
 #, c-format, perl-format
@@ -3431,17 +3431,22 @@ msgstr "l2h: impossível abrir %s para escrita: %s"
 
 #: tp/ext/tex4ht.pm:122
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for math: %s"
+msgid "tex4ht.pm: unknown conversion type for math: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:131
-#, perl-format
-msgid "tex4ht.pm: unknown converstion type for @tex: %s"
+#, fuzzy, perl-format
+#| msgid ""
+#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
+#| "of items found in the document for @%s"
+msgid "tex4ht.pm: unknown conversion type for @tex: %s"
 msgstr ""
+"tex4ht.pm: o processamento produziu %d itens em HTML; esperados %d, o número "
+"de itens encontrados no documento @%s"
 
 #: tp/ext/tex4ht.pm:140
 #, perl-format
-msgid "tex4ht.pm: unknown converstion type for @latex: %s"
+msgid "tex4ht.pm: unknown conversion type for @latex: %s"
 msgstr ""
 
 #: tp/ext/tex4ht.pm:234 tp/ext/tex4ht.pm:413
@@ -3996,8 +4001,8 @@ msgstr ""
 #, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgstr ""
-"%s: o argumento --footnote-style tem de ser \"separate\" ou \"end\", não \"%s"
-"\".\n"
+"%s: o argumento --footnote-style tem de ser \"separate\" ou \"end\", não "
+"\"%s\".\n"
 
 #: tp/texi2any.pl:973
 #, perl-format
@@ -4144,8 +4149,8 @@ msgstr ""
 #, c-format
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
 msgstr ""
-"argumento @setchapternewpage tem de ser \"on\", \"off\" ou \"odd\", não \"%s"
-"\""
+"argumento @setchapternewpage tem de ser \"on\", \"off\" ou \"odd\", não "
+"\"%s\""
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:687
 #, c-format
