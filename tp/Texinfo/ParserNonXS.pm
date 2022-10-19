@@ -119,7 +119,7 @@ sub import {
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '6.8dev';
+$VERSION = '6.8.90';
 
 
 # these are the default values for the parser state

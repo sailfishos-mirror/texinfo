@@ -71,7 +71,7 @@ valid_tree_transformation
 __ __p
 );
 
-$VERSION = '6.8dev';
+$VERSION = '6.8.90';
 
 
 # i18n

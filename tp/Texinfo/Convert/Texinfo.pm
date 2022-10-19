@@ -42,7 +42,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '6.8dev';
+$VERSION = '6.8.90';
 
 
 my %brace_commands           = %Texinfo::Commands::brace_commands;

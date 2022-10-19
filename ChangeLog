@@ -1,5 +1,14 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	pretest 6.8.90
+
+	* configure.ac: version
+	(AM_INIT_AUTOMAKE): Add dist-xz
+	* info/info.c, install-info/install-info.c, tp/texi2any.pl,
+	util/texi2dvi, util/texi2pdf: version, 2022.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix compiler warnings
 
 	* tp/Texinfo/XS/parsetexi/end_line.c
