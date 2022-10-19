@@ -939,7 +939,6 @@ AC_DEFUN([gl_INIT],
       gl_STAT_BIRTHTIME
       gl_gnulib_enabled_0137e3d3638b33e5819d132d0b23165c=true
       func_gl_gnulib_m4code_errno
-      func_gl_gnulib_m4code_intprops
       func_gl_gnulib_m4code_time
     fi
   }
@@ -1071,7 +1070,7 @@ AC_DEFUN([gl_INIT],
   func_gl_gnulib_m4code_a5e6ab274f0fc9b913a905fdf64e92ec ()
   {
     if ! $gl_gnulib_enabled_a5e6ab274f0fc9b913a905fdf64e92ec; then
-      gl_LIBUNISTRING_MODULE([0.9.11], [uniwidth/width])
+      gl_LIBUNISTRING_MODULE([1.1], [uniwidth/width])
       gl_gnulib_enabled_a5e6ab274f0fc9b913a905fdf64e92ec=true
       func_gl_gnulib_m4code_streq
       func_gl_gnulib_m4code_c51beae7f4752ac2d6c54eac3a7029ea

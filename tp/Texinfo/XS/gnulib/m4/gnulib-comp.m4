@@ -261,7 +261,7 @@ AC_DEFUN([gl_INIT],
   ])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [uniwidth.h])
   AC_PROG_MKDIR_P
-  gl_LIBUNISTRING_MODULE([0.9.11], [uniwidth/width])
+  gl_LIBUNISTRING_MODULE([1.1], [uniwidth/width])
   AC_REQUIRE([AC_C_RESTRICT])
   gl_FUNC_VASNPRINTF
   gl_FUNC_VASPRINTF
