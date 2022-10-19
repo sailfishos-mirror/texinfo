@@ -1,5 +1,9 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: update advice on configuring for compiler warnings
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (@variable_string_settables):
 	Remove obsolete NODE_FILE_EXTENSION, SHORTEXTN.
 	* doc/texinfo.texi (texi2html): Remove reference to SHORTEXTN.

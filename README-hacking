@@ -1,6 +1,6 @@
 This file describes the development environment for Texinfo.
 
-  Copyright 2002-2021 Free Software Foundation, Inc.
+  Copyright 2002-2022 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -22,22 +22,12 @@ After getting the development sources, and installing the tools above,
 you can run
  ./autogen.sh
 and then, for example,
- ./configure -C CFLAGS='-g -Wdeclaration-after-statement'
+ ./configure -C CFLAGS='-g' PERL_EXT_CFLAGS='-g'
 and then
  make
 
 The -C tells configure to cache test results, which usually speeds
 things up a bit.
-
-That particular -W is useful because a) intermixing declarations with
-statements is an easy thing to do accidentally, b) gcc doesn't warn
-about it by default, and c) other compilers that don't support it are
-still widespread.  If you're not using gcc, of course you shouldn't
-specify that option.
-
-Other -W options can be useful too, and patches are welcome to resolve
-diagnostics; however, removing all possible warning messages, or
-warnings with nonfree compilers, is explicitly not a goal.
 
 After the initial autogen && configure, simply running make should suffice.
 
@@ -226,8 +216,18 @@ NYTProf profiling for Perl code to check for avoidable hotspots
 try groff.texinfo from groff source repo.
 Check "make ccheck" and "make vcheck" work in "doc/refcard".
 process doc/texinfo-tex-test.texi with TeX and check that output is good.
-check for C compiler warnings by configuring with -Wall (not all have to 
-be fixed)
+check for C compiler warnings by configuring with
+
+  ./configure CFLAGS='-Wall -Wdeclaration-after-statement' \
+              PERL_EXT_CFLAGS='-Wall -Wdeclaration-after-statement'
+
+-Wdeclaration-after-statement is useful because a) intermixing
+declarations with statements is an easy thing to do accidentally,
+b) gcc doesn't warn about it by default, and c) other compilers that
+don't support it are still widespread.
+
+Not all compiler warnings have to be fixed, though.
+
 Have a look at the output of "git status -u" to check for files that
   should be tracked in git or ignored.
 make po-check             # update po/POTFILES.in as needed
