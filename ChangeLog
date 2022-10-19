@@ -1,5 +1,9 @@
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* configue.ac (TEXINFO_DTD_VERSION): Make this 7.0.
+
+2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Acronyms): Minor edits.
 
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
