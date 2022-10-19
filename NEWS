@@ -87,14 +87,14 @@ See the manual for detailed information.
     off in the future.
   . You can use a new file doc/texinfo-zh.tex for Texinfo documents in
     Chinese.  doc/short-sample-zh.tex is a sample document.  New
-    support file doc/txi-zh.tex for Chinese..
+    support file doc/txi-zh.tex for Chinese.
 
 * info
   . better support for index entries containing parentheses
   . better support for getting bold text etc. when displaying manpages
   . bug fixed where the first index entry in a file could be ignored
   . M-C-f closes as well as opens footnotes window
-  . do not crash if run in Brazillian Portuguese locale
+  . do not crash if run in Brazilian Portuguese locale
 
 * Language
   . new commands @latex, @iflatex, @ifnotlatex for new LaTeX output format
