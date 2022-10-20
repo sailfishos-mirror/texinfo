@@ -8533,28 +8533,34 @@ meanings, abbreviations, and the corresponding index entry commands:
 @item cp
 @cindex @code{cp} (concept) index
 @findex cindex
+@findex cpindex
 (@code{@@cindex}) Concept index, for general concepts.
 @item fn
 @cindex @code{fn} (function) index
 @findex findex
+@findex fnindex
 (@code{@@findex}) Function index, for function and function-like
 names (such as entry points of libraries).
 @item ky
 @cindex @code{ky} (keystroke) index
 @findex kindex
+@findex kyindex
 (@code{@@kindex}) Keystroke index, for keyboard commands.
 @item pg
 @cindex @code{pg} (program) index
 @findex pindex
+@findex pgindex
 (@code{@@pindex}) Program index, for names of programs.
 @item tp
 @cindex @code{tp} (data type) index
 @findex tindex
+@findex tpindex
 (@code{@@tindex}) Data type index, for type names (such as structures
 defined in header files).
 @item vr
 @cindex @code{vr} (variable) index
 @findex vindex
+@findex vrvindex
 (@code{@@vindex}) Variable index, for variable names (such as library global
 variables).
 @end table
@@ -8584,6 +8590,9 @@ possible, however many source indices you use, since then readers have
 only one place to look.  Two or more source indices can be combined
 into one output index by using the @code{@@synindex} or
 @code{@@syncodeindex} commands (@pxref{Combining Indices}).
+
+Index entry commands based on the the two letter index names are also
+valid, for example @code{@@cpindex} can be used instead of @code{@@cindex}.
 
 
 @node Indexing Commands
