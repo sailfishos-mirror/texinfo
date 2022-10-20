@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 # Copyright 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015
 # Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
@@ -18,7 +18,9 @@
 # Original author: Karl Berry.
 #
 # Kludge of a script to check command lists in refcard vs. appendix vs.
-# tp for consistency. 
+# tp for consistency.
+
+use strict;
 
 exit (&main ());
 
@@ -43,8 +45,8 @@ sub main {
       delete $tp_cmds{$cc};
     }
   }
-  
-  printf ("    common %d: @{[sort @found]}\n", @found + 0)
+
+  printf ("    common %d: @{[sort @found]}\n", scalar(@found))
     unless $no_common;
 
   # there are numerous @findex entries which are not @-commands, which
@@ -64,20 +66,20 @@ sub main {
       delete $tp_cmds{$cc};
     }
   }
-  printf "findex missing %s: @idx_missing\n", @idx_missing + 0
-    if @idx_missing;
+  printf "findex missing %s: @idx_missing\n", scalar(@idx_missing)
+     if (scalar(@idx_missing));
 
   # now report on commands only in some other subset.
-  my @card_only = keys %card_cmds;
-  printf "refcard  only %s: @{[sort @card_only]}\n", @card_only + 0;
+  my @card_only = sort(keys(%card_cmds));
+  printf "refcard  only %s: @card_only\n", scalar(@card_only);
 
-  my @man_only = keys %man_cmds;
-  printf "appendix only %s: @{[sort @man_only]}\n", @man_only + 0;
-  
-  my @tp_only = keys %tp_cmds;
-  printf "tp       only %s: @{[sort @tp_only]}\n", @tp_only + 0;
-  
-  return @card_only + @man_only + @tp_only;
+  my @man_only = sort(keys(%man_cmds));
+  printf "appendix only %s: @man_only\n", scalar(@man_only);
+
+  my @tp_only = sort(keys(%tp_cmds));
+  printf "tp       only %s: @tp_only\n", scalar(@tp_only);
+
+  return scalar(@card_only) + scalar(@man_only) + scalar(@tp_only);
 }
 
 
@@ -85,14 +87,14 @@ sub main {
 # (with empty values).  In principle it's a list, but as a practical
 # matter we want to work with a hash anyway, so we might as well return
 # it that way in the first place.  (Ditto for the other functions.)
-# 
+#
 sub read_refcard {
   my ($fname) = @_;
   my @ret = ();
 
   local *FILE;
-  $FILE = $fname;
-  open (FILE) || die "open($FILE) failed: $!";
+  my $FILE = $fname;
+  open (FILE, $FILE) || die "open($FILE) failed: $!";
   while (<FILE>) {
     next unless /^\\txicmd/;
     chomp;
@@ -102,20 +104,20 @@ sub read_refcard {
     s/^\\txicmdx\{// && ($xcmd = 1);  # used for the @def...x
     s/^\\txicmd\{//;           # finally the markup cmd itself
     s/\\ttbraced\{\}//g;       # quote cmd list
-    
+
     my (@cmds) = split (/,? +/, $_);  # occasionally we combine cmds
-    
+
     # we typeset these specially in TeX.
     if ("@cmds" eq "@#1footing") {
       @cmds = ('@oddfooting', '@evenfooting', '@everyfooting');
     } elsif ("@cmds" eq "@#1heading") {
       @cmds = ('@oddheading', '@evenheading', '@everyheading');
     }
-    
+
     # add each command from this line to the return.
     for my $c (@cmds) {
-#warn "refcard $c\n";
-#warn "refcard $c{x}\n" if $xcmd;
+      #warn "refcard $c\n";
+      #warn "refcard $c{x}\n" if $xcmd;
       next if $c eq "txicommandconditionals"; # variable not separate in manual
       if ($c eq '@\tildechar') { # TeX specialties, forcibly make them match
         $c = '@~';
@@ -135,7 +137,7 @@ sub read_refcard {
   push (@ret, '@,');  # our non-parsing above lost these
   push (@ret, qw(@atchar @ampchar @lbracechar @rbracechar @backslashchar));
   close (FILE) || warn "close($FILE) failed: $!";
-  
+
   my %ret; @ret{@ret} = ();
   return %ret;
 }
@@ -143,14 +145,14 @@ sub read_refcard {
 
 # Return command names from @findex entries in the reference manual as
 # the keys of a hash (empty values).
-# 
+#
 sub read_refidx {
   my ($fname) = @_;
   my @ret = ();
 
   local *FILE;
-  $FILE = $fname;
-  open (FILE) || die "open($FILE) failed: $!";
+  my $FILE = $fname;
+  open (FILE, $FILE) || die "open($FILE) failed: $!";
   while (<FILE>) {
     next unless s/^\@findex\s+//; # only consider @findex lines
     chomp;
@@ -162,7 +164,7 @@ sub read_refidx {
     push (@ret, $_);
   }
   close (FILE) || warn "close($FILE) failed: $!";
-  
+
   my %ret; @ret{@ret} = ();
   return %ret;
 }
@@ -170,14 +172,14 @@ sub read_refidx {
 
 # Return command names from the @-Command List node in the reference
 # manual as the keys of a hash (empty values).
-# 
+#
 sub read_appendix {
   my ($fname) = @_;
   my @ret = ();
 
   local *FILE;
-  $FILE = $fname;
-  open (FILE) || die "open($FILE) failed: $!";
+  my $FILE = $fname;
+  open (FILE, $FILE) || die "open($FILE) failed: $!";
   while (<FILE>) {
     last if /^\@section \@\@-Command List/;  # ignore until right section
   }
@@ -193,7 +195,7 @@ sub read_appendix {
   }
   push (@ret, '@{'); # our non-parsing above fails on this one
   close (FILE) || warn "close($FILE) failed: $!";
-  
+
   my %ret; @ret{@ret} = ();
   return %ret;
 }
@@ -206,15 +208,15 @@ sub read_appendix {
 sub read_tp {
   my ($prog) = @_;
   my @ret = ();
-  
+
   local *FILE;
-  $FILE = "$prog |";
-  open (FILE) || die "open($FILE) failed: $!";
+  my $FILE = "$prog |";
+  open (FILE, $FILE) || die "open($FILE) failed: $!";
   while (<FILE>) {
     chomp;
     # excise @<whitespace> commands from normal list.
     next if $_ eq '@ ' || $_ eq "\@\t" || $_ eq "" || $_ eq '@';
-    
+
     # obsolete and/or subsidiary commands we don't want to document as usual.
     next if $_ =~ /columnfractions
                    |(even|every|odd)(foot|head)ingmarks
@@ -224,8 +226,8 @@ sub read_tp {
                   /x;
     push (@ret, $_);
   }
-  close (FILE) || warn "close($FILE) failed: $!";  
-  
+  close (FILE) || warn "close($FILE) failed: $!";
+
   push (@ret, '@var{whitespace}');
 
   my %ret; @ret{@ret} = ();

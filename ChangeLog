@@ -18,6 +18,10 @@
 
 2022-10-19  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/refcard/txicmdcheck: use strict, explicit scalar.
+
+2022-10-19  Patrice Dumas  <pertusus@free.fr>
+
 	Better cutomization variables coverage by checking separately commands
 
 	* doc/refcard/txivarcheck (main, read_refman), tp/Texinfo/Common.pm,
