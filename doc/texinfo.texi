@@ -8677,7 +8677,7 @@ so that it appears among the other entries beginning with `M'.
 
 Texinfo provides several further commands for indexing.
 
-@findex @@subentry
+@findex subentry
 First, you can create @dfn{multilevel} index entries, allowing you
 to group many related subtopics under the same higher-level topic.
 You do this by separating the parts of such an entry with the
@@ -19967,6 +19967,14 @@ table of contents.  Within @code{@@chapter} and @code{@@appendix}, the section
 title is numbered; within @code{@@unnumbered}, the section is unnumbered.
 @xref{@code{@@section}}.
 
+@item @@seealso@{@var{index-text}@}
+Use in an index entry to refer the reader to another relevant index entry.
+@xref{Advanced Indexing}.
+
+@item @@seeentry@{@var{index-text}@}
+Use in an index entry to redirect the reader to another index entry.
+@xref{Advanced Indexing}.
+
 @item @@set @var{txivar} [@var{string}]
 Define the Texinfo variable @var{txivar}, optionally to the value
 @var{string}.  @xref{@code{@@set @@clear @@value}}.
@@ -20048,6 +20056,10 @@ Emphasize @var{text} more strongly than @code{@@emph}.
 
 @item @@sub @{@var{text}@}
 Set @var{text} as a subscript.  @xref{Inserting Subscripts and Superscripts}.
+
+@item @@subentry
+Use in an index entry to separate parts of a multi-level entry.
+@xref{Advanced Indexing}.
 
 @item @@subheading @var{title}
 Print an unnumbered subsection-like heading, but omit from the table
