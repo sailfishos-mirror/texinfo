@@ -1,5 +1,12 @@
 2022-10-20  Patrice Dumas  <pertusus@free.fr>
 
+	Add @subentry, @seealso, @seeentry and @thissection* to refcard
+
+	* doc/refcard/txirefcard.tex (Indices, Page headers and footers):
+	add information on @subentry, @seealso, @seeentry and @thissection*.
+
+2022-10-20  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Predefined Indices): add findex entries for
 	index entry commands based on two letter index names, such as
 	@cpindex.  Add a sentence to explain that index entry commands

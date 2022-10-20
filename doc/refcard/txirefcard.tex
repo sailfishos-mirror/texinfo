@@ -660,6 +660,7 @@ In these environments also, each line of input is a line of output.
 \txicmd{@pindex}{entry}{Add entry to the index of programs.}
 \txicmd{@tindex}{entry}{Add entry to the index of data types.}
 \txicmd{@vindex}{entry}{Add entry to the index of variables.}
+\txicmd{@subentry}{entry}{Separate parts of a multilevel index entry.}
 \txicmd{@defindex}{newidx}{Define a new index and its indexing command. Format entries as regular text.}
 \txicmd{@defcodeindex}{newidx}{Define a new index and its indexing command (namely, \code{@\var{newidx}index}). Format entries in this index with \code{@code}.}
 \txicmd{@syncodeindex}{from-index to-index}{Merge the contents of \var{from-index} into \code{to-index}, formatting the entries in \var{from-index} with \code{@code}.}
@@ -667,6 +668,8 @@ In these environments also, each line of input is a line of output.
 \txicmd{@printindex}{index-name}{Generate an alphabetized index (using two columns in a printed manual).}
 \txicmd{@sortas}{\ttbraced{key}}{Specify a string by which to sort an 
 index entry.}
+\txicmd{@seealso}{\ttbraced{entry}}{Refer to another relevant index entry.}
+\txicmd{@seeentry}{\ttbraced{entry}}{Redirect to another index entry.}
 
 
 \section{Insertions within a paragraph}
@@ -908,7 +911,7 @@ The default paper size is \acro{US} letter-size, 8x11in.
 \footingheading{even}{even-numbered (left-hand) pages}
 \footingheading{every}{every page}
 
-\txicmd{@thischapter, @thischaptername, @thischapternum, @thisfile, @thispage, @thistitle}{}{These commands are only allowed in a heading or footing. They stand for, respectively, the number and name of the current chapter (in the format `Chapter~1: Title'), the current chapter name only (`Title'), the current chapter number only (`1'), the filename, the current page number, and the title of the document.}
+\txicmd{@thischapter, @thischaptername, @thischapternum, @thissection, @thissectionname, @thissectionnum, @thisfile, @thispage, @thistitle}{}{These commands are only allowed in a heading or footing. They stand for, respectively, the number and name of the current chapter (in the format `Chapter~1: Title'), the current chapter name only, the current chapter number only, the number and name of the current section, the current section name only, the current section number only, the filename, the current page number, and the title of the document.}
 
 
 \section{Document preferences}
