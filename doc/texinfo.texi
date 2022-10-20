@@ -22555,7 +22555,7 @@ name of the Texinfo file as an extension.  The
 @@samp@{??@} are `wildcards' that cause the shell to
 substitute all the raw index files.  (@@xref@{sorting
 indices, for more information about sorting
-indices.)@@refill
+indices.)
 ---------- Buffer: texinfo.texi ----------
 @end example
 
@@ -22567,7 +22567,7 @@ indices.)@@refill
 ---------- Buffer: *tex-shell* ----------
 Runaway argument?
 @{sorting indices, for more information about sorting
-indices.) @@refill @@ETC.
+indices.) @@ETC.
 ! Paragraph ended before @@xref was complete.
 <to be read again>
                   @@par
