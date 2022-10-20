@@ -177,11 +177,15 @@ sub gdt($$;$$$)
   } else {
     $ENV{'LANGUAGE'} = $saved_LANGUAGE;
   }
-  if (defined($saved_LC_ALL)) {
-    POSIX::setlocale(LC_ALL, $saved_LC_ALL);
-  } else {
-    POSIX::setlocale(LC_ALL, '');
-  }
+
+  # Don't restore LC_ALL because this can clobber LC_CTYPE which needs
+  # to be set to 'UTF-8' in XSParagraph for iterating over UTF-8 sequences.
+  #
+  # if (defined($saved_LC_ALL)) {
+  #   POSIX::setlocale(LC_ALL, $saved_LC_ALL);
+  # } else {
+  #   POSIX::setlocale(LC_ALL, '');
+  # }
 
   my $translation_result = $translated_message;
 

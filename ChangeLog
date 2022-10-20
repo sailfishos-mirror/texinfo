@@ -1,3 +1,15 @@
+2022-10-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Do not restore LC_ALL
+
+	* tp/Texinfo/Translations.pm (gdt):
+	Do not restore LC_ALL as this appears to override LC_CTYPE, at
+	least on DragonFlyBSD 5.9, and LC_CTYPE needs to be set correctly for
+	correct iteration over UTF-8 strings by mbrtowc in the XS paragraph
+	formatting module.
+
+	* doc/Makefile.am (Texinfo/Commands.pm): Add $(srcdir) to rule.
+
 2022-10-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/Makefile.am (Texinfo/Commands.pm): Avoid $< as it is not
