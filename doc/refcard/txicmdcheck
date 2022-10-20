@@ -219,6 +219,7 @@ sub read_tp {
     next if $_ =~ /columnfractions
                    |(even|every|odd)(foot|head)ingmarks
                    |rmacro
+                   |refill
                    |\|
                   /x;
     $ret{$_} = 1;
