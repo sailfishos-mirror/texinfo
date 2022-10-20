@@ -13,39 +13,39 @@ See the manual for detailed information.
 * texi2any
  . LaTeX added as an output format, selected with --latex
  . EPUB 3 added as an output format, selected with --epub3
- . Warn if full text commands (@ref, @footnote, @anchor) appear in @w
  . reform throughout the code in general
  . thorough review of character encoding issues
  . new customization variables involved with character encoding:
      INPUT_FILE_NAME_ENCODING, OUTPUT_FILE_NAME_ENCODING,
      DOC_ENCODING_FOR_INPUT_FILE_NAME, DOC_ENCODING_FOR_OUTPUT_FILE_NAME,
      MESSAGE_ENCODING and COMMAND_LINE_ENCODING.
- . IGNORE_BEFORE_SETFILENAME variable removed.  former effect
-   is always on.
+ . warn if full-text commands (@ref, @footnote, @anchor) appear in @w
  . new variable NO_TOP_NODE_OUTPUT
+ . IGNORE_BEFORE_SETFILENAME variable removed.  former effect
+   is now always on.
  . HTML output:
-     . USE_XML_SYNTAX, HTML_ROOT_ELEMENT_ATTRIBUTES and
+     . new USE_XML_SYNTAX, HTML_ROOT_ELEMENT_ATTRIBUTES and
        NO_CUSTOM_HTML_ATTRIBUTE variables added that can be used to output
        valid XHTML.
      . new variable IGNORE_REF_TO_TOP_NODE_UP
-     . Use manual_name_html as output directory for split HTML instead of
+     . use manual_name_html as output directory for split HTML instead of
        manual_name or manual_name.html
      . default DOCTYPE declaration changed to plain HTML5 style rather than
        HTML4 DTD reference
      . output only the CSS rules that are needed in an output file
-     . remove CSS_LINES variable and add SHOW_BUILTIN_CSS_RULES.
-       (custom CSS can still be output using EXTRA_HEAD.)
+     . remove CSS_LINES variable and add SHOW_BUILTIN_CSS_RULES
+       (custom CSS can still be output using EXTRA_HEAD)
      . use <code> tag for the output of @t and @verb instead of <tt>
      . use <abbr> for @acronym instead of <acronym>
      . percent encode URL in @url/@uref, @email, @image and external manual
-       file.
+       file
      . systematic addition of classes attribute in HTML elements based on the
-       Texinfo @-command names.  Renaming of class attributes to avoid
+       Texinfo @-command names.  renaming of class attributes to avoid
        confusion with @-commands formatting and describe the role in the
        document rather than the formatting style.
-     . classes from @example arguments are prefixed with 'user-'
+     . prefix classes from @example arguments with `user-'
      . COPIABLE_ANCHORS renamed to COPIABLE_LINKS
-     . do not add a title in the default case, SHOW_TITLE has to be set
+     . do not add a title by default; SHOW_TITLE has to be set
        (or NO_TOP_NODE_OUTPUT).
      . default value of USE_TITLEPAGE_FOR_TITLE is now true.
      . L2H variable removed.  replaced by HTML_MATH set to l2h.
@@ -70,7 +70,7 @@ See the manual for detailed information.
      . ENABLE_ENCODING_USE_ENTITY variable removed.  former effect is now
        always off.
  . info output
-     . quote problematic node names (with :, comma...) in the default case
+     . quote problematic node names (with :, comma...) by default
      . new customization variable ASCII_PUNCTUATION to use plain ASCII
        characters for quotation marks and a few other symbols
 
@@ -81,13 +81,13 @@ See the manual for detailed information.
   . `@microtype on' uses microtypography in formatting for pdfTeX and LuaTeX
   . do not ignore @part page immediately following Top node
   . for @deftype* commands, use typewriter font in argument list
-  . do "@set txicodevaristt" to get slanted typewriter for @var in code,
-    "@clear txicodevaristt" to use slanted, variable-width roman font for
+  . do `@set txicodevaristt' to get slanted typewriter for @var in code,
+    `@clear txicodevaristt' to use slanted, variable-width roman font for
     @var everywhere.  flag is @set by default, but we plan to turn this
     off in the future.
-  . You can use a new file doc/texinfo-zh.tex for Texinfo documents in
-    Chinese.  doc/short-sample-zh.tex is a sample document.  New
-    support file doc/txi-zh.tex for Chinese.
+  . new file doc/texinfo-zh.tex for Texinfo documents in Chinese.
+    new support file doc/txi-zh.tex for Chinese.  doc/short-sample-zh.texi is
+    a sample document.
 
 * info
   . better support for index entries containing parentheses
@@ -98,7 +98,7 @@ See the manual for detailed information.
 
 * Language
   . new commands @latex, @iflatex, @ifnotlatex for new LaTeX output format
-  . do "@set txidefnamenospace" to omit space after a definition name
+  . do `@set txidefnamenospace' to omit space after a definition name
 
 * Other
   . build fixed for glibc 2.34
