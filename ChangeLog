@@ -1,5 +1,10 @@
 2022-10-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Command List): Add @thissection,
+	@thissectionname, @thissectionnum.  From Patrice.
+
+2022-10-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/refcard/txicmdcheck (read_tp):
 	Filter out @tpindex, etc., as we document @tindex etc. instead.
 	From Patrice.
