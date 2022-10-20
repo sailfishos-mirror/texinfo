@@ -51,8 +51,8 @@ sub main {
 
   # there are numerous @findex entries which are not @-commands, which
   # can be seen this way:
-  #my @idx_only = keys %idx_cmds;
-  #printf "findex  only %s: @{[sort @idx_only]}\n", @idx_only + 0;
+  #my @findex_only = sort(keys(%idx_cmds));
+  #printf "findex  only %d: ".join('|',@findex_only)."\n", scalar(@findex_only);
   #
   # let's not report those, but we do want to report normal commands that
   # did not have findex entries: those which are present in all the
@@ -66,18 +66,18 @@ sub main {
       delete $tp_cmds{$cc};
     }
   }
-  printf "findex missing %s: @idx_missing\n", scalar(@idx_missing)
+  printf "findex missing %d: @idx_missing\n", scalar(@idx_missing)
      if (scalar(@idx_missing));
 
   # now report on commands only in some other subset.
   my @card_only = sort(keys(%card_cmds));
-  printf "refcard  only %s: @card_only\n", scalar(@card_only);
+  printf "refcard  only %d: @card_only\n", scalar(@card_only);
 
   my @man_only = sort(keys(%man_cmds));
-  printf "appendix only %s: @man_only\n", scalar(@man_only);
+  printf "appendix only %d: @man_only\n", scalar(@man_only);
 
   my @tp_only = sort(keys(%tp_cmds));
-  printf "tp       only %s: @tp_only\n", scalar(@tp_only);
+  printf "tp       only %d: @tp_only\n", scalar(@tp_only);
 
   return scalar(@card_only) + scalar(@man_only) + scalar(@tp_only);
 }
@@ -148,7 +148,7 @@ sub read_refcard {
 #
 sub read_refidx {
   my ($fname) = @_;
-  my @ret = ();
+  my %ret = ();
 
   local *FILE;
   my $FILE = $fname;
@@ -161,11 +161,10 @@ sub read_refidx {
     s/<colon>/:/;         # @:
     s/<newline>/var{whitespace}/;  # special generic entry: @var{whitespace}
     s/^/\@/ unless /^\@/; # prepend @ unless already there (@@ @{ @})
-    push (@ret, $_);
+    $ret{$_} = 1;
   }
   close (FILE) || warn "close($FILE) failed: $!";
 
-  my %ret; @ret{@ret} = ();
   return %ret;
 }
 
@@ -175,7 +174,7 @@ sub read_refidx {
 #
 sub read_appendix {
   my ($fname) = @_;
-  my @ret = ();
+  my %ret = ();
 
   local *FILE;
   my $FILE = $fname;
@@ -191,12 +190,11 @@ sub read_appendix {
     s/ .*//;     # remove arguments following a space
     s/\@\@/@/g;  # @@ -> @
     next if $_ =~ /^\@(br|ctrl)$/;  # @ignore-d in text
-    push (@ret, $_);
+    $ret{$_} = 1;
   }
-  push (@ret, '@{'); # our non-parsing above fails on this one
+  $ret{'@{'} = 1; # our non-parsing above fails on this one
   close (FILE) || warn "close($FILE) failed: $!";
 
-  my %ret; @ret{@ret} = ();
   return %ret;
 }
 
@@ -207,7 +205,7 @@ sub read_appendix {
 #
 sub read_tp {
   my ($prog) = @_;
-  my @ret = ();
+  my %ret = ();
 
   local *FILE;
   my $FILE = "$prog |";
@@ -221,15 +219,13 @@ sub read_tp {
     next if $_ =~ /columnfractions
                    |(even|every|odd)(foot|head)ingmarks
                    |rmacro
-                   |shorttitle$
                    |\|
                   /x;
-    push (@ret, $_);
+    $ret{$_} = 1;
   }
   close (FILE) || warn "close($FILE) failed: $!";
 
-  push (@ret, '@var{whitespace}');
+  $ret{'@var{whitespace}'} = 1;
 
-  my %ret; @ret{@ret} = ();
   return %ret;
 }

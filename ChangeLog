@@ -1,3 +1,7 @@
+2022-10-20  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/refcard/txicmdcheck: minor, use directly hashes in some cases.
+
 2022-10-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Do not restore LC_ALL
