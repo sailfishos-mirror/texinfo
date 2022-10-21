@@ -9255,6 +9255,10 @@ macro call:
 @end example
 
 @findex \backslash
+@findex @sortas{\} \ @r{(literal @samp{\} in math)}
+@ifset commandlookup
+@findex @sortas{\} \
+@end ifset
 Texinfo documents may also use \ as a command character inside
 @code{@@math} (@pxref{Inserting Math}).  In this case, @code{@@\} or
 @code{\backslash} produce a ``math'' backslash (from the math symbol
