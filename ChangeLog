@@ -1,6 +1,10 @@
+2022-10-21  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/refcard/txicmdcheck (read_refidx): filter out @sortas.
+
 2022-10-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
-	* doc/texinfo.texi (Inserting a Backslash)
+	* doc/texinfo.texi (Inserting a Backslash):
 	Add function index entries for @\.
 
 2022-10-21  Gavin Smith  <gavinsmith0123@gmail.com>

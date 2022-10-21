@@ -160,6 +160,7 @@ sub read_refidx {
     s/\@\{\@\}//;         # remove @{@} used in atchar, etc.
     s/<colon>/:/;         # @:
     s/<newline>/var{whitespace}/;  # special generic entry: @var{whitespace}
+    s/\s*\@sortas{[^}]+}\s*//;  # remove @sortas
     s/^/\@/ unless /^\@/; # prepend @ unless already there (@@ @{ @})
     $ret{$_} = 1;
   }
