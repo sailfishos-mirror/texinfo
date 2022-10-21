@@ -9306,6 +9306,10 @@ is no need for it anywhere except this unusual case.
 @subsection Inserting `&' with @code{@@&} and @code{@@ampchar@{@}}
 
 @findex ampchar
+@findex & @r{(literal @samp{&})}
+@ifset commandlookup
+@findex &
+@end ifset
 @cindex Inserting &
 @cindex Ampersand, inserting
 
