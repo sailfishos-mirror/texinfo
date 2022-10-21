@@ -26,7 +26,7 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use Encode;
-use POSIX qw(setlocale LC_ALL);
+use POSIX qw(setlocale LC_ALL LC_MESSAGES);
 use Locale::Messages;
 
 # note that there is a circular dependency with the parser module, as
@@ -62,6 +62,35 @@ sub _decode_i18n_string($$)
   return Encode::decode($encoding, $string);
 }
 
+sub _switch_messages_locale
+{
+  my $locale;
+  our $working_locale;
+  if ($working_locale) {
+    $locale = POSIX::setlocale(LC_MESSAGES, $working_locale);
+  }
+  if (!$locale) {
+    $locale = POSIX::setlocale(LC_MESSAGES, "en_US.UTF-8");
+  }
+  if (!$locale) {
+    $locale = POSIX::setlocale(LC_MESSAGES, "en_US")
+  }
+  # try the output of 'locale -a' (but only once)
+  our $locale_command;
+  if (!$locale and !$locale_command) {
+    $locale_command = "locale -a";
+    my @local_command_locales = split("\n", `$locale_command`);
+    if ($? == 0) {
+      foreach my $try (@local_command_locales) {
+        next if $try eq 'C' or $try eq 'POSIX';
+        $locale = POSIX::setlocale(LC_MESSAGES, $try);
+        last if $locale;
+      }
+    }
+  }
+  $working_locale = $locale;
+}
+
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree
 sub gdt($$;$$$)
@@ -77,39 +106,20 @@ sub gdt($$;$$$)
   my $re = join '|', map { quotemeta $_ } keys %$context
       if (defined($context) and ref($context));
 
-  my $saved_LC_ALL = POSIX::setlocale(LC_ALL);
-  my $saved_LANGUAGE = $ENV{'LANGUAGE'};
+  my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
   # We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
   # for translation via LANGUAGE to work.  (The locale is "C" if the
   # tests are being run.)
-  #   Set LC_ALL rather than LC_MESSAGES for Perl for MS-Windows.
+  #   LC_MESSAGES was reported not to exit for Perl on MS-Windows.  We
+  # could use LC_ALL instead, but (a) it's not clear if this would help,
+  # and (b) this could interfere with the LC_CTYPE setting in XSParagraph.
 
-  my $locale;
-  our $working_locale;
-  if ($working_locale) {
-    $locale = POSIX::setlocale(LC_ALL, $working_locale);
+  if ($^O ne 'MSWin32') {
+    $saved_LC_MESSAGES = POSIX::setlocale(LC_MESSAGES);
+    _switch_messages_locale();
   }
-  if (!$locale) {
-    $locale = POSIX::setlocale(LC_ALL, "en_US.UTF-8");
-  }
-  if (!$locale) {
-    $locale = POSIX::setlocale(LC_ALL, "en_US")
-  }
-  our $locale_command;
-  if (!$locale and !$locale_command) {
-    $locale_command = "locale -a";
-    my @local_command_locales = split("\n", `$locale_command`);
-    if ($? == 0) {
-      foreach my $try (@local_command_locales) {
-        next if $try eq 'C' or $try eq 'POSIX';
-        $locale = POSIX::setlocale(LC_ALL, $try);
-        last if $locale;
-      }
-    }
-  }
-  $working_locale = $locale;
-
+  $saved_LANGUAGE = $ENV{'LANGUAGE'};
 
   Locale::Messages::textdomain($strings_textdomain);
 
@@ -172,20 +182,20 @@ sub gdt($$;$$$)
   my $translated_message = Locale::Messages::gettext($message);
 
   Locale::Messages::textdomain($messages_textdomain);
+
   if (!defined($saved_LANGUAGE)) {
     delete ($ENV{'LANGUAGE'});
   } else {
     $ENV{'LANGUAGE'} = $saved_LANGUAGE;
   }
 
-  # Don't restore LC_ALL because this can clobber LC_CTYPE which needs
-  # to be set to 'UTF-8' in XSParagraph for iterating over UTF-8 sequences.
-  #
-  # if (defined($saved_LC_ALL)) {
-  #   POSIX::setlocale(LC_ALL, $saved_LC_ALL);
-  # } else {
-  #   POSIX::setlocale(LC_ALL, '');
-  # }
+  if ($^O ne 'MSWin32') {
+    if (defined($saved_LC_MESSAGES)) {
+      POSIX::setlocale(LC_MESSAGES, $saved_LC_MESSAGES);
+    } else {
+      POSIX::setlocale(LC_MESSAGES, '');
+    }
+  }
 
   my $translation_result = $translated_message;
 
