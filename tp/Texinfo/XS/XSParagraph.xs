@@ -2,6 +2,15 @@
   #include <config.h>
 #endif
 
+/* Avoid warnings about Perl headers redefining symbols that gnulib
+   redefined already. */
+#if defined _WIN32 && !defined __CYGWIN__
+  #undef putenv
+  #undef fdopen
+  #undef mktemp
+  #undef free
+#endif
+
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
@@ -13,7 +22,7 @@
 
 MODULE = Texinfo::Convert::Paragraph PACKAGE = Texinfo::Convert::Paragraph PREFIX = xspara_
 
-#  Copyright 2010-2020 Free Software Foundation, Inc.
+#  Copyright 2010-2022 Free Software Foundation, Inc.
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
