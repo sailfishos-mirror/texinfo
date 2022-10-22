@@ -456,7 +456,6 @@ foreach my $not_in_simple_text_command('xref', 'ref', 'pxref', 'inforef') {
 }
 
 
-
 # commands that only accept plain text, ie only accent, symbol and glyph commands
 my %plain_text_commands = %contain_plain_text_commands;
 
@@ -5985,7 +5984,11 @@ sub _parse_line_command_args($$$)
       $self->{'definfoenclose'}->{$cmd_name} = [ $begin, $end ];
       print STDERR "DEFINFOENCLOSE \@$cmd_name: $begin, $end\n"
                if ($self->{'DEBUG'});
-      $self->{'brace_commands'}->{$cmd_name} = 'definfoenclose';
+      # consistent with XS parser, not actually used anywhere.
+      $self->{'brace_commands'}->{$cmd_name} = 'style_other';
+      # this allows to obtain the same result as the XS parser which checks
+      # dynamically the brace_commands type
+      $self->{'valid_nestings'}->{$cmd_name} = \%in_full_text_commands;
       # note that a built-in command previously in a hash classifying the
       # @-command will remain there, possibly having specific effects.
     } else {

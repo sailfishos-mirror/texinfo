@@ -904,7 +904,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   /* Check whether outer command can contain cmd.  Commands are
      classified according to what commands they can contain:
 
-     accents
+     plain text
      full text
      simple text
      full line
@@ -914,8 +914,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   int ok = 0; /* Whether nesting is allowed. */
 
-  /* Whether command is a "simple text" command.  Use a variable
-     to avoid repeating a complex conditional. */
+  /* Whether command is a "simple text" command */
   int simple_text_command = 0;
 
   enum command_id outer = current->parent->cmd;
@@ -975,8 +974,10 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     {
       /* Start by checking if the command is allowed inside a "full text 
          command" - this is the most permissive. */
-      /* all the brace commands */
-      /* FIXME except of CF_INFOENCLOSE, seems different from perl Parser? */
+      /* in the perl parser the checks are not dynamic as in this function,
+         a hash is used and modified when defining the definfoencose command */
+      /* all the brace commands, not the definfoenclose commands, which
+         should be consistent with the perl parser */
       if (cmd_flags & CF_brace && !(cmd_flags & CF_INFOENCLOSE))
         ok = 1;
       if (cmd_flags & CF_nobrace && command_data(cmd).data == NOBRACE_symbol)

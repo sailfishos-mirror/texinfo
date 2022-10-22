@@ -230,6 +230,17 @@ definfoenclose phi,:,:  @definfoenclose phi,:,:
 My @headword{something}.
 
 '],
+['definfoenclose_nestings',
+'@definfoenclose phoo,//,\\
+
+@code{@phoo{in phoo in code}}.
+
+@phoo{@code{in code in phoo}}.
+
+@phoo{
+@center in center in phoo
+}
+'],
 ['no_empty_line_between_headings',
 '@top Top
 @subheading Subheading
