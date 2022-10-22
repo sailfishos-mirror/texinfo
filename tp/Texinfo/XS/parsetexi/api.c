@@ -15,15 +15,6 @@
 
 #include <config.h>
 
-/* Avoid warnings about Perl headers redefining symbols that gnulib
-   redefined already. */
-#if defined _WIN32 && !defined __CYGWIN__
-  #undef putenv
-  #undef fdopen
-  #undef mktemp
-  #undef free
-#endif
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 
