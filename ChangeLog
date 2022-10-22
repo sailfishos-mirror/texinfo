@@ -1,5 +1,15 @@
 2022-10-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/XSParagraph.xs,
+	* tp/Texinfo/XS/parsetexi/api.c
+	[defined _WIN32 && !defined __CYGWIN__]:
+	'#undef free' after including "perl.h" (which includes stdlib.h
+	from Gnulib) and before including "XSUB.h" to avoid warnings
+	about redefining symbols in Perl headers that Gnulib already
+	redefined.  From Eli.
+
+2022-10-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/configure.ac: Attempt to disable gnulib
 	definitions for fdopen, mktemp and putenv on MS-Windows by
 	setting variables with GL_GNULIB_MDA_ prefixes.
@@ -7,14 +17,6 @@
 2022-10-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Minimum): Minor grammar fix.
-
-2022-10-22  Gavin Smith  <gavinsmith0123@gmail.com>
-
-	* tp/Texinfo/XS/XSParagraph.xs,
-	* tp/Texinfo/XS/parsetexi/api.c
-	[defined _WIN32 && !defined __CYGWIN__]:
-	Add block of #undef to avoid warnings about redefining symbols
-	in Perl headers that Gnulib already redefined.  From Eli.
 
 2022-10-22  Patrice Dumas  <pertusus@free.fr>
 
