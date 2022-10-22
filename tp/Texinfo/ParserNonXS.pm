@@ -400,7 +400,7 @@ foreach my $block_command (keys(%block_commands)) {
   #  if ($brace_commands{$format_raw_command}) eq 'format_raw');
 }
 
-# commands that may appear in accents
+# commands that may appear in commands containing plain text only
 my %in_plain_text_commands = %accent_commands;
 foreach my $brace_command(keys(%brace_commands)) {
   $in_plain_text_commands{$brace_command} = 1
@@ -419,24 +419,28 @@ $in_plain_text_commands{'comment'} = 1;
 # commands that may appear in any text argument, similar constraints
 # as in paragraphs.
 my %in_full_text_commands;
+# start from all the brace commands
 foreach my $command (keys(%brace_commands), keys(%symbol_nobrace_commands)) {
   $in_full_text_commands{$command} = 1;
 }
+# selected line commands
 foreach my $in_full_text_command ('c', 'comment', 'refill', 'subentry',
                          'columnfractions', 'set', 'clear', 'end') {
   $in_full_text_commands{$in_full_text_command} = 1;
 }
-
-foreach my $out_format (grep {$block_commands{$_} eq 'format_raw'}
-                             keys(%block_commands)) {
-  $in_full_text_commands{$out_format} = 1;
-}
-delete $in_full_text_commands{'caption'};
-delete $in_full_text_commands{'shortcaption'};
+# selected block commands
 foreach my $block_command (keys(%block_commands)) {
   $in_full_text_commands{$block_command} = 1
-    if ($block_commands{$block_command} eq 'conditional');
+    if ($block_commands{$block_command} eq 'conditional'
+        or $block_commands{$block_command} eq 'format_raw');
 }
+
+# sort out brace commmands and setup command list appearing in more
+# restricted context.
+
+# those two commands are not allowed in any command except for @float */
+delete $in_full_text_commands{'caption'};
+delete $in_full_text_commands{'shortcaption'};
 
 # commands that may appear inside sectioning commands
 my %in_simple_text_with_refs_commands = %in_full_text_commands;
@@ -467,47 +471,15 @@ foreach my $in_full_text_not_in_simple_text (keys(%in_heading_spec_commands)) {
 
 
 # commands that only accept plain text, ie only accent, symbol and glyph commands
-my %plain_text_commands;
-
-foreach my $command (keys(%accent_commands),
-                     keys(%contain_plain_text_commands)) {
-  $plain_text_commands{$command} = 1;
-}
+my %plain_text_commands = %contain_plain_text_commands;
 
 # commands that only accept simple text as argument in any context.
-my %simple_text_commands;
-foreach my $line_command(keys(%line_commands)) {
-  if ($line_commands{$line_command} eq 'specific'
-      or ($line_commands{$line_command} eq 'line'
-          and !($sectioning_heading_commands{$line_command}
-                or $def_commands{$line_command}
-                or $heading_spec_commands{$line_command}))
-      or $line_commands{$line_command} eq 'text') {
-    $simple_text_commands{$line_command} = 1;
-  }
-}
+my %simple_text_commands = %contain_simple_text_commands;
 
 my %simple_text_heading_spec_commands = (%heading_spec_commands);
 
 my %simple_text_with_refs_commands = (%sectioning_heading_commands,
                                       %def_commands);
-
-delete $simple_text_commands{'center'};
-delete $simple_text_commands{'exdent'};
-
-foreach my $command (keys (%brace_commands)) {
-  if ($brace_commands{$command} eq 'arguments'
-      and not $contain_plain_text_commands{$command}) {
-    $simple_text_commands{$command} = 1;
-  }
-  $simple_text_commands{$command} = 1
-    if $contain_simple_text_commands{$command};
-}
-
-# %brace_commands 'context'
-foreach my $command ('shortcaption', 'math') {
-  $simple_text_commands{$command} = 1;
-}
 
 # commands that accept full text, but no block or top-level commands
 my %full_text_commands;
@@ -550,15 +522,6 @@ foreach my $command (keys(%full_text_commands), keys(%full_line_commands)) {
 }
 foreach my $command (keys(%simple_text_with_refs_commands)) {
   $default_valid_nestings{$command} = \%in_simple_text_with_refs_commands;
-}
-
-# Only for block commands with line arguments
-foreach my $command (keys(%block_commands)) {
-  if ($block_commands{$command} and $block_commands{$command} ne 'raw'
-      and $block_commands{$command} ne 'conditional'
-      and !$def_commands{$command}) {
-    $default_valid_nestings{$command} = \%in_simple_text_commands;
-  }
 }
 
 # default indices

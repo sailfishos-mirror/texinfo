@@ -129,6 +129,15 @@ $result_texts{'wrong_command'} = '';
 
 $result_errors{'wrong_command'} = [
   {
+    'error_line' => 'warning: @b should not appear in @columnfractions
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@b should not appear in @columnfractions',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'superfluous argument to @columnfractions
 ',
     'file_name' => '',

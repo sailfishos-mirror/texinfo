@@ -120,6 +120,15 @@ $result_texts{'command_in_end_expanded_raw_two_char_not_in_command'} = '';
 
 $result_errors{'command_in_end_expanded_raw_two_char_not_in_command'} = [
   {
+    'error_line' => 'warning: @asis should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@asis should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: unknown @end te
 ',
     'file_name' => '',

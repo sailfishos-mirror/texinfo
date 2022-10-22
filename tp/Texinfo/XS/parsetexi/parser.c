@@ -926,27 +926,14 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
 
   if (outer_flags & CF_contain_simple_text
       || (outer_flags & CF_line
-            && (command_data(outer).data == LINE_specific
-                || (command_data(outer).data == LINE_line
-                    && !(outer_flags & (CF_def | CF_sectioning_heading)))
-                || command_data(outer).data == LINE_text
-                || outer_flags & CF_heading_spec)
-            && outer != CM_center
-            && outer != CM_exdent)
-      || ((outer_flags & CF_brace)
-           && command_data(outer).data == BRACE_arguments
-           && !(outer_flags & CF_contain_plain_text))
-      || outer == CM_shortcaption
-      || outer == CM_math
-      || (outer_flags & CF_index_entry_command)
-      || (outer_flags & CF_block
-          && !(outer_flags & CF_def)
-          && command_data(outer).data != BLOCK_raw
-          && command_data(outer).data != BLOCK_conditional))
+            && outer_flags & CF_heading_spec)
+      || (outer_flags & CF_index_entry_command))
     {
       simple_text_command = 1;
     }
 
+  /* first three conditions check if in the main contents of the commands
+     or in the arguments where there is checking of nesting */
   if (outer_flags & CF_root && current->type != ET_line_arg)
     ok = 1;
   else if (outer_flags & CF_block
@@ -956,7 +943,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
            || outer == CM_itemx)
            && current->type != ET_line_arg)
     ok = 1;
-  else if (outer_flags & (CF_accent | CF_contain_plain_text))
+  else if (outer_flags & CF_contain_plain_text)
     {
       if ((cmd_flags & CF_accent)
           || (cmd_flags & CF_nobrace
@@ -988,10 +975,13 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
     {
       /* Start by checking if the command is allowed inside a "full text 
          command" - this is the most permissive. */
-      if (cmd_flags & CF_nobrace && command_data(cmd).data == NOBRACE_symbol)
-        ok = 1;
+      /* all the brace commands */
+      /* FIXME except of CF_INFOENCLOSE, seems different from perl Parser? */
       if (cmd_flags & CF_brace && !(cmd_flags & CF_INFOENCLOSE))
         ok = 1;
+      if (cmd_flags & CF_nobrace && command_data(cmd).data == NOBRACE_symbol)
+        ok = 1;
+      /* selected line commands */
       else if (cmd == CM_c
                || cmd == CM_comment
                || cmd == CM_refill
@@ -1001,14 +991,14 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
                || cmd == CM_clear
                || cmd == CM_end)
         ok = 1;
+      /* selected block commands */
       else if (cmd_flags & CF_block
-               && command_data(cmd).data == BLOCK_format_raw)
+               && (command_data(cmd).data == BLOCK_format_raw
+                    || command_data(cmd).data == BLOCK_conditional))
         ok = 1;
+      /* not valid in these commands, only right in @float */
       if (cmd == CM_caption || cmd == CM_shortcaption)
         ok = 0;
-      if (cmd_flags & CF_block
-          && command_data(cmd).data == BLOCK_conditional)
-        ok = 1;
 
       if (cmd_flags & CF_in_heading_spec)
         { /* in heading commands can only appear in headings and style
@@ -1023,7 +1013,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
         }
 
       /* Now add more restrictions for "full line no refs" commands and "simple 
-         text" commands. */
+         text" commands on valid brace commands. */
       if (outer_flags & (CF_sectioning_heading | CF_def)
           || (!current->parent->cmd && current_context () == ct_def)
           || simple_text_command)
@@ -1036,7 +1026,7 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
             ok = 0;
         }
 
-      /* Exceptions for "simple text commands" only. */
+      /* Exceptions for "simple text commands" only for brace commands. */
       if (simple_text_command)
         {
           if (cmd == CM_xref

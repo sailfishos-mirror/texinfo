@@ -796,6 +796,15 @@ In verbatim
 
 $result_errors{'command_in_end'} = [
   {
+    'error_line' => 'warning: @code should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@code should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: @code{quotation}
 ',
     'file_name' => '',
@@ -803,6 +812,15 @@ $result_errors{'command_in_end'} = [
     'macro' => '',
     'text' => 'bad argument to @end: @code{quotation}',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @code should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 7,
+    'macro' => '',
+    'text' => '@code should not appear in @end',
+    'type' => 'warning'
   },
   {
     'error_line' => 'warning: unknown @end q
@@ -823,6 +841,15 @@ $result_errors{'command_in_end'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @code should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 11,
+    'macro' => '',
+    'text' => '@code should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: unknown @end qu
 ',
     'file_name' => '',
@@ -839,6 +866,15 @@ $result_errors{'command_in_end'} = [
     'macro' => '',
     'text' => 'bad argument to @end: qu@code{otation}',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @asis should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 15,
+    'macro' => '',
+    'text' => '@asis should not appear in @end',
+    'type' => 'warning'
   },
   {
     'error_line' => 'warning: unknown @end quotn
@@ -859,6 +895,15 @@ $result_errors{'command_in_end'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @asis should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 19,
+    'macro' => '',
+    'text' => '@asis should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: q@asis{}uotation
 ',
     'file_name' => '',
@@ -868,6 +913,15 @@ $result_errors{'command_in_end'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @asis should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 23,
+    'macro' => '',
+    'text' => '@asis should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: qu@asis{}otation
 ',
     'file_name' => '',
@@ -875,6 +929,15 @@ $result_errors{'command_in_end'} = [
     'macro' => '',
     'text' => 'bad argument to @end: qu@asis{}otation',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @asis should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 27,
+    'macro' => '',
+    'text' => '@asis should not appear in @end',
+    'type' => 'warning'
   },
   {
     'error_line' => 'bad argument to @end: quot@asis{}ation

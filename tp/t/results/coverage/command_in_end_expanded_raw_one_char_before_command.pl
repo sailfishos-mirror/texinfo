@@ -118,6 +118,15 @@ $result_texts{'command_in_end_expanded_raw_one_char_before_command'} = '';
 
 $result_errors{'command_in_end_expanded_raw_one_char_before_command'} = [
   {
+    'error_line' => 'warning: @asis should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@asis should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: t@asis{}ex
 ',
     'file_name' => '',

@@ -1,3 +1,13 @@
+2022-10-22  Patrice Dumas  <pertusus@free.fr>
+
+	Full coverage of contain_plain_text and contain_simple_text
+
+	* tp/Texinfo/XS/parsetexi/command_data.txt, tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): add explicit
+	contain_plain_text and contain_simple_text flags to all commands
+	instead of using conditionals.  Use contain_plain_text instead of
+	contain_simple_text for LINE_text and LINE_specific.
+
 2022-10-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Save and restore LC_MESSAGES

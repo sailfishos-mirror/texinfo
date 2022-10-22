@@ -140,6 +140,15 @@ $result_errors{'bad_line'} = [
     'type' => 'error'
   },
   {
+    'error_line' => 'warning: @code should not appear in @alias
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@code should not appear in @alias',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'superfluous argument to @alias
 ',
     'file_name' => '',

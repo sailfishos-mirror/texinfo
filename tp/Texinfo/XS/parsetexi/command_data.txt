@@ -71,7 +71,7 @@ txiinternalvalue        internal,brace                  INTERNAL_brace
 #              analysed
 # skipline:    no argument, everything else on the line is skipped
 # text:        the line is parsed as texinfo, and the argument is converted
-#              to simple text (in _end_line)
+#              to simple text with convert_to_text allowing only a few @-commands
 # line:        the line is parsed as texinfo
 # specific:    the line is parsed as texinfo and the result should be plain
 #              text maybe followed by a comment; the result is analysed
@@ -82,9 +82,8 @@ txiinternalvalue        internal,brace                  INTERNAL_brace
 
 # line commands number of arguments is only set for LINE_specific commands
 # and is not used anywhere in the code, it is here as documentation only
-node                    line                            LINE_line
 bye                     line                            LINE_skipline
-end                     line                            LINE_text
+end                     line,contain_plain_text         LINE_text
 # set, clear, special argument
 set                     line                            LINE_special
 clear                   line                            LINE_special
@@ -93,56 +92,56 @@ unmacro                 line                            LINE_special
 c                       line                            LINE_lineraw
 comment                 line                            LINE_lineraw
 # special
-definfoenclose          line,deprecated                 LINE_specific  3
-alias                   line                            LINE_specific  2
+definfoenclose          line,contain_plain_text,deprecated  LINE_specific  3
+alias                   line,contain_plain_text         LINE_specific  2
 # number of arguments is not known in advance.
-columnfractions         line                            LINE_specific
-# file names
-setfilename             line,close_paragraph,global_unique   LINE_text
-verbatiminclude         line,close_paragraph                 LINE_text
-include                 line                                 LINE_text
+columnfractions         line,contain_plain_text         LINE_specific
+# file names.
+setfilename             line,close_paragraph,global_unique,contain_plain_text   LINE_text
+verbatiminclude         line,close_paragraph,contain_plain_text                 LINE_text
+include                 line,contain_plain_text                                 LINE_text
 
-raisesections           line                            LINE_skipline
-lowersections           line                            LINE_skipline
-contents                line,close_paragraph,global     LINE_skipline
-shortcontents           line,close_paragraph,global     LINE_skipline
-summarycontents         line,close_paragraph,global     LINE_skipline
-insertcopying           line,close_paragraph,global     LINE_skipline
+raisesections           line                             LINE_skipline
+lowersections           line                             LINE_skipline
+contents                line,close_paragraph,global      LINE_skipline
+shortcontents           line,close_paragraph,global      LINE_skipline
+summarycontents         line,close_paragraph,global      LINE_skipline
+insertcopying           line,close_paragraph,global      LINE_skipline
 # arg should be an @-command
-clickstyle              line,global                     LINE_special
+clickstyle              line,global                      LINE_special
 # more relevant in preamble
-documentencoding        line,global                     LINE_text
-novalidate              line,global_unique              LINE_skipline
+documentencoding        line,global,contain_plain_text   LINE_text
+novalidate              line,global_unique               LINE_skipline
 # Position with regard with direntry is significant
-dircategory             line,close_paragraph            LINE_line
+dircategory             line,close_paragraph,contain_simple_text   LINE_line
 # arg like 200mm,150mm or 11.5in
-pagesizes               line,global_unique              LINE_line
+pagesizes               line,global_unique,contain_plain_text      LINE_line
 finalout                line                            LINE_skipline
 # arg none asis
 # or a number and forbids anything else on the line
-paragraphindent         line,global                     LINE_specific  1
+paragraphindent         line,global,contain_plain_text  LINE_specific  1
 # arg none insert
-firstparagraphindent    line,global                     LINE_specific  1
+firstparagraphindent    line,global,contain_plain_text  LINE_specific  1
 # arg on off
-frenchspacing           line,global                     LINE_specific  1
+frenchspacing           line,global,contain_plain_text  LINE_specific  1
 # arg on off
-codequoteundirected     line,global                     LINE_specific  1
+codequoteundirected     line,global,contain_plain_text  LINE_specific  1
 # arg on off
-codequotebacktick       line,global                     LINE_specific  1
+codequotebacktick       line,global,contain_plain_text  LINE_specific  1
 # arg on off
-xrefautomaticsectiontitle line,global                   LINE_specific  1
+xrefautomaticsectiontitle line,global,contain_plain_text    LINE_specific  1
 # arg on off
-deftypefnnewline        line,global                     LINE_specific  1
+deftypefnnewline        line,global,contain_plain_text  LINE_specific  1
 # arg 10 11
-fonttextsize            line,global_unique              LINE_specific  1
+fonttextsize            line,global_unique,contain_plain_text    LINE_specific  1
 # arg false or true
-allowcodebreaks         line,global                     LINE_specific  1
+allowcodebreaks         line,global,contain_plain_text  LINE_specific  1
 # arg asis or a number
-exampleindent           line,global                     LINE_specific  1
+exampleindent           line,global,contain_plain_text  LINE_specific  1
 # args end and separate, nothing else on the line
-footnotestyle           line,global_unique              LINE_specific  1
+footnotestyle           line,global_unique,contain_plain_text    LINE_specific  1
 # arg after|before|none
-urefbreakstyle          line,global                     LINE_specific  1
+urefbreakstyle          line,global,contain_plain_text  LINE_specific  1
 smallbook               line,global_unique              LINE_skipline
 afourpaper              line,global_unique              LINE_skipline
 afivepaper              line,global_unique              LINE_skipline
@@ -151,11 +150,11 @@ afourwide               line,global_unique              LINE_skipline
 bsixpaper               line,global_unique              LINE_skipline
 # arg off on single double singleafter doubleafter
 # interacts with setchapternewpage
-headings                line,global                     LINE_specific  1
+headings                line,global,contain_plain_text  LINE_specific  1
 # arg off on odd
-setchapternewpage       line,global_unique              LINE_specific  1
+setchapternewpage       line,global_unique,contain_plain_text    LINE_specific  1
 # arg on off
-microtype               line,global                     LINE_specific  1
+microtype               line,global,contain_plain_text  LINE_specific  1
 
 everyheading            line,global,heading_spec        LINE_line
 everyfooting            line,global,heading_spec        LINE_line
@@ -165,40 +164,40 @@ oddheading              line,global,heading_spec        LINE_line
 oddfooting              line,global,heading_spec        LINE_line
 
 # args are index identifiers
-syncodeindex            line                            LINE_specific  2
-synindex                line                            LINE_specific  2
+syncodeindex            line,contain_plain_text         LINE_specific  2
+synindex                line,contain_plain_text         LINE_specific  2
 # one identifier arg
-defindex                line                            LINE_specific  1
+defindex                line,contain_plain_text         LINE_specific  1
 # one identifier arg
-defcodeindex            line                            LINE_specific  1
+defcodeindex            line,contain_plain_text         LINE_specific  1
 # language code arg
-documentlanguage        line,global                     LINE_text
+documentlanguage        line,global,contain_plain_text,contain_plain_text  LINE_text
 # arg code example distinct
-kbdinputstyle           line,global                     LINE_specific  1
+kbdinputstyle           line,global,contain_plain_text  LINE_specific  1
 # arg top bottom
-everyheadingmarks       line,global_unique              LINE_specific  1
-everyfootingmarks       line,global_unique              LINE_specific  1
-evenheadingmarks        line,global_unique              LINE_specific  1
-oddheadingmarks         line,global_unique              LINE_specific  1
-evenfootingmarks        line,global_unique              LINE_specific  1
-oddfootingmarks         line,global_unique              LINE_specific  1
+everyheadingmarks       line,global_unique,contain_plain_text       LINE_specific  1
+everyfootingmarks       line,global_unique,contain_plain_text       LINE_specific  1
+evenheadingmarks        line,global_unique,contain_plain_text       LINE_specific  1
+oddheadingmarks         line,global_unique,contain_plain_text       LINE_specific  1
+evenfootingmarks        line,global_unique,contain_plain_text       LINE_specific  1
+oddfootingmarks         line,global_unique,contain_plain_text       LINE_specific  1
 
 # formatting
 center                  line,close_paragraph            LINE_line
-printindex              line,close_paragraph,global     LINE_specific  1
-listoffloats            line,close_paragraph,global     LINE_line
+printindex              line,close_paragraph,global,contain_plain_text     LINE_specific  1
+listoffloats            line,close_paragraph,global,contain_simple_text    LINE_line
 # especially in titlepage
 #  shorttitle
-shorttitlepage          line,global_unique              LINE_line
-settitle                line,global_unique              LINE_line
-author                  line,global                     LINE_line
-subtitle                line,global                     LINE_line
-title                   line,global_unique              LINE_line
+shorttitlepage          line,global_unique,contain_simple_text     LINE_line
+settitle                line,global_unique,contain_simple_text     LINE_line
+author                  line,global,contain_simple_text            LINE_line
+subtitle                line,global,contain_simple_text            LINE_line
+title                   line,global_unique,contain_simple_text     LINE_line
 # numerical arg
-sp                      line,close_paragraph            LINE_specific  1
+sp                      line,close_paragraph,contain_plain_text   LINE_specific  1
 page                    line,close_paragraph            LINE_skipline
 # one numerical/real arg
-need                    line,close_paragraph            LINE_specific  1
+need                    line,close_paragraph,contain_plain_text   LINE_specific  1
 
 # not valid for info (should be in @iftex)
 vskip                   line                            LINE_lineraw
@@ -206,10 +205,10 @@ vskip                   line                            LINE_lineraw
 exdent                  line,close_paragraph            LINE_line
 
 # or nobrace skipspace, depending on the context
-item_LINE               line,close_paragraph            LINE_line
-itemx                   line,close_paragraph            LINE_line
+item_LINE               line,close_paragraph,contain_simple_text    LINE_line
+itemx                   line,close_paragraph,contain_simple_text    LINE_line
 
-subentry                line                            LINE_line
+subentry                line,contain_simple_text                    LINE_line
 
 ##########################################################
 #
@@ -310,23 +309,23 @@ guilsinglleft           brace                           BRACE_noarg
 guilsinglright          brace                           BRACE_noarg
 
 # accent commands - can be called with or without braces
-\"                      brace,accent                    BRACE_accent
-~                       brace,accent                    BRACE_accent
-^                       brace,accent                    BRACE_accent
-`                       brace,accent                    BRACE_accent
-'                       brace,accent                    BRACE_accent
-,                       brace,accent                    BRACE_accent
-=                       brace,accent                    BRACE_accent
-ringaccent              brace,accent                    BRACE_accent
-H                       brace,accent                    BRACE_accent
-dotaccent               brace,accent                    BRACE_accent
-u                       brace,accent                    BRACE_accent
-ubaraccent              brace,accent                    BRACE_accent
-udotaccent              brace,accent                    BRACE_accent
-v                       brace,accent                    BRACE_accent
-ogonek                  brace,accent                    BRACE_accent
-tieaccent               brace,accent                    BRACE_accent
-dotless                 brace,accent                    BRACE_accent
+\"                      brace,accent,contain_plain_text   BRACE_accent
+~                       brace,accent,contain_plain_text   BRACE_accent
+^                       brace,accent,contain_plain_text   BRACE_accent
+`                       brace,accent,contain_plain_text   BRACE_accent
+'                       brace,accent,contain_plain_text   BRACE_accent
+,                       brace,accent,contain_plain_text   BRACE_accent
+=                       brace,accent,contain_plain_text   BRACE_accent
+ringaccent              brace,accent,contain_plain_text   BRACE_accent
+H                       brace,accent,contain_plain_text   BRACE_accent
+dotaccent               brace,accent,contain_plain_text   BRACE_accent
+u                       brace,accent,contain_plain_text   BRACE_accent
+ubaraccent              brace,accent,contain_plain_text   BRACE_accent
+udotaccent              brace,accent,contain_plain_text   BRACE_accent
+v                       brace,accent,contain_plain_text   BRACE_accent
+ogonek                  brace,accent,contain_plain_text   BRACE_accent
+tieaccent               brace,accent,contain_plain_text   BRACE_accent
+dotless                 brace,accent,contain_plain_text   BRACE_accent
 
 # Style commands
 asis                    brace                           BRACE_style_other
@@ -367,11 +366,11 @@ r                       brace                           BRACE_style_no_code
 # Parsers have specific checks for U content.
 U                       brace                           BRACE_arguments     1
 hyphenation             brace,global,contain_plain_text BRACE_arguments     1
-anchor                  brace                           BRACE_arguments     1
-errormsg                brace                           BRACE_arguments     1
+anchor                  brace,contain_simple_text       BRACE_arguments     1
+errormsg                brace,contain_simple_text       BRACE_arguments     1
 sortas                  brace,contain_plain_text        BRACE_arguments     1
-seeentry                brace                           BRACE_arguments     1
-seealso                 brace                           BRACE_arguments     1
+seeentry                brace,contain_simple_text       BRACE_arguments     1
+seealso                 brace,contain_simple_text       BRACE_arguments     1
 
 # Leading and trailing spaces kept in main text.
 # verb is treated especially, it should not matter much in which category it is.
@@ -382,20 +381,20 @@ w                       brace,contain_simple_text       BRACE_special
 
 # other brace commands, leading and trailing spaces kept in main text
 dmn                     brace,contain_plain_text        BRACE_other         1
-titlefont               brace,close_paragraph,global    BRACE_other         1
+titlefont               brace,close_paragraph,global,contain_simple_text    BRACE_other         1
 
 # context brace commands - commands that enclose full texts
 # not in the main document context.  They can contain multiple paragraphs.
 footnote                brace,global                    BRACE_context
 caption                 brace,close_paragraph           BRACE_context
-shortcaption            brace,close_paragraph           BRACE_context
+shortcaption            brace,close_paragraph,contain_simple_text    BRACE_context
 # Commands that enclose math content, and, because of that, are not in the
 # main document context.
-math                    brace,math                      BRACE_context
+math                    brace,math,contain_simple_text  BRACE_context
 
 # explained commands
-abbr                    brace                           BRACE_arguments     2
-acronym                 brace                           BRACE_arguments     2
+abbr                    brace,contain_simple_text       BRACE_arguments     2
+acronym                 brace,contain_simple_text       BRACE_arguments     2
 
 # leading space is ignored in inline brace commands, not trailing space
 # inline format command
@@ -407,16 +406,16 @@ inlinefmtifelse         brace                           BRACE_inline        3
 inlineifclear           brace                           BRACE_inline        2
 inlineifset             brace                           BRACE_inline        2
 
-email                   brace                           BRACE_arguments     2
+email                   brace,contain_simple_text       BRACE_arguments     2
 
-uref                    brace                           BRACE_arguments     3
-url                     brace                           BRACE_arguments     3
-inforef                 brace,ref,deprecated            BRACE_arguments     3
+uref                    brace,contain_simple_text       BRACE_arguments     3
+url                     brace,contain_simple_text       BRACE_arguments     3
+inforef                 brace,ref,contain_simple_text,deprecated     BRACE_arguments     3
 
-xref                    brace,ref                       BRACE_arguments     5
-ref                     brace,ref                       BRACE_arguments     5
-pxref                   brace,ref                       BRACE_arguments     5
-image                   brace                           BRACE_arguments     5
+xref                    brace,ref,contain_simple_text   BRACE_arguments     5
+ref                     brace,ref,contain_simple_text   BRACE_arguments     5
+pxref                   brace,ref,contain_simple_text   BRACE_arguments     5
+image                   brace,contain_simple_text       BRACE_arguments     5
 
 
 ##########################################################
@@ -468,7 +467,7 @@ deftypeivarx            line,def,def_alias,close_paragraph     LINE_line
 defmethodx              line,def,def_alias,close_paragraph     LINE_line
 deftypemethodx          line,def,def_alias,close_paragraph     LINE_line
 
-multitable              block,close_paragraph,blockitem BLOCK_multitable
+multitable              block,close_paragraph,blockitem,contain_simple_text   BLOCK_multitable
 
 # menu commands in which menu entry and menu comments appear
 menu                    block,close_paragraph           BLOCK_menu
@@ -491,7 +490,7 @@ copying                 block,close_paragraph,global_unique       BLOCK_region
 documentdescription     block,close_paragraph,global_unique       BLOCK_region
 
 # preformatted commands
-example           block,close_paragraph,preformatted,preformatted_code,variadic   BLOCK_preformatted
+example           block,close_paragraph,preformatted,preformatted_code,variadic,contain_simple_text   BLOCK_preformatted
 smallexample      block,close_paragraph,preformatted,preformatted_code            BLOCK_preformatted
 lisp              block,close_paragraph,preformatted,preformatted_code            BLOCK_preformatted
 smalllisp         block,close_paragraph,preformatted,preformatted_code            BLOCK_preformatted
@@ -513,15 +512,15 @@ ignore                  block                             BLOCK_raw
 macro                   block                             BLOCK_raw
 rmacro                  block                             BLOCK_raw
 
-table                   block,close_paragraph,blockitem   BLOCK_item_line       1
-ftable                  block,close_paragraph,blockitem   BLOCK_item_line       1
-vtable                  block,close_paragraph,blockitem   BLOCK_item_line       1
-itemize                 block,close_paragraph,blockitem   BLOCK_item_container  1
-enumerate               block,close_paragraph,blockitem   BLOCK_item_container  1
-quotation               block,close_paragraph             BLOCK_quotation       1
-smallquotation          block,close_paragraph             BLOCK_quotation       1
+table                   block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_line       1
+ftable                  block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_line       1
+vtable                  block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_line       1
+itemize                 block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_container  1
+enumerate               block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_container  1
+quotation               block,close_paragraph,contain_simple_text             BLOCK_quotation       1
+smallquotation          block,close_paragraph,contain_simple_text             BLOCK_quotation       1
 
-float                   block,close_paragraph             BLOCK_float           2
+float                   block,close_paragraph,contain_simple_text             BLOCK_float           2
 
 displaymath             block,close_paragraph,math        BLOCK_math
 
@@ -548,7 +547,7 @@ ifcommandnotdefined     block                           BLOCK_conditional
 
 ##########################################################
 # Root commands
-node                    line,root                                  LINE_line     4
+node                    line,root,contain_simple_text              LINE_line     4
 top                     line,root,sectioning_heading,global_unique   LINE_line
 chapter                 line,root,sectioning_heading               LINE_line
 unnumbered              line,root,sectioning_heading               LINE_line

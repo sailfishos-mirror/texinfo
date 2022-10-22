@@ -65,6 +65,15 @@ $result_texts{'command_not_closed_in_documentencoding'} = '';
 
 $result_errors{'command_not_closed_in_documentencoding'} = [
   {
+    'error_line' => 'warning: @strong should not appear in @documentencoding
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => '@strong should not appear in @documentencoding',
+    'type' => 'warning'
+  },
+  {
     'error_line' => '@strong missing closing brace
 ',
     'file_name' => '',

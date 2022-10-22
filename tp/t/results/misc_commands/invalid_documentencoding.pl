@@ -451,6 +451,15 @@ $result_texts{'invalid_documentencoding'} = '
 
 $result_errors{'invalid_documentencoding'} = [
   {
+    'error_line' => 'warning: @asis should not appear in @documentencoding
+',
+    'file_name' => '',
+    'line_nr' => 2,
+    'macro' => '',
+    'text' => '@asis should not appear in @documentencoding',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @documentencoding: us-ascii@asis{}
 ',
     'file_name' => '',
@@ -458,6 +467,15 @@ $result_errors{'invalid_documentencoding'} = [
     'macro' => '',
     'text' => 'bad argument to @documentencoding: us-ascii@asis{}',
     'type' => 'error'
+  },
+  {
+    'error_line' => 'warning: @asis should not appear in @documentencoding
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@asis should not appear in @documentencoding',
+    'type' => 'warning'
   },
   {
     'error_line' => 'bad argument to @documentencoding: latin1@asis{a}

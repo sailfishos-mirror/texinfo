@@ -115,6 +115,15 @@ $result_texts{'command_in_end_expanded_raw_in_command'} = '';
 
 $result_errors{'command_in_end_expanded_raw_in_command'} = [
   {
+    'error_line' => 'warning: @code should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@code should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: @code{tex}
 ',
     'file_name' => '',

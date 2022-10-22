@@ -234,6 +234,10 @@ example with empty and non empty args mix
 example with @@-commands and other special characters
 @end example
 '],
+['example_invalid_at_commands_arguments',
+'@example @ref{a,b,c,d} fa, @anchor{an anchor} on example line, @center in center
+@end example
+'],
 );
 
 my @test_invalid = (

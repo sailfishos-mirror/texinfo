@@ -111,6 +111,15 @@ $result_texts{'command_in_end_ignored_raw_command_after'} = '';
 
 $result_errors{'command_in_end_ignored_raw_command_after'} = [
   {
+    'error_line' => 'warning: @asis should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@asis should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: html@asis{asis}
 ',
     'file_name' => '',

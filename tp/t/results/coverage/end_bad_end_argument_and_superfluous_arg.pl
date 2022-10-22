@@ -121,6 +121,15 @@ $result_texts{'end_bad_end_argument_and_superfluous_arg'} = 'In quotation
 
 $result_errors{'end_bad_end_argument_and_superfluous_arg'} = [
   {
+    'error_line' => 'warning: @code should not appear in @end
+',
+    'file_name' => '',
+    'line_nr' => 3,
+    'macro' => '',
+    'text' => '@code should not appear in @end',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'bad argument to @end: : @code{in c}
 ',
     'file_name' => '',
