@@ -338,7 +338,8 @@ sub tex4ht_process($)
     if ($self->get_conf('VERBOSE'));
 
   my $errors = 0;
-  foreach my $format (keys(%formats)) {
+  # sort for reproducible messages order and output
+  foreach my $format (sort(keys(%formats))) {
     $errors += tex4ht_process_format($self, $format);
   }
   unless (chdir $tex4ht_initial_dir) {

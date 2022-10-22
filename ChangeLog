@@ -1,5 +1,10 @@
 2022-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* ext/tex4ht.pm (tex4ht_process): sort formats for processing order
+	to get a more reproducible output and messages order.
+
+2022-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	Full coverage of contain_plain_text and contain_simple_text
 
 	* tp/Texinfo/XS/parsetexi/command_data.txt, tp/Texinfo/ParserNonXS.pm,
