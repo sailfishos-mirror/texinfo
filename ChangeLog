@@ -1,5 +1,9 @@
 2022-10-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Minimum): Minor grammar fix.
+
+2022-10-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/XSParagraph.xs,
 	* tp/Texinfo/XS/parsertexi/XSParagraph.xs
 	[defined _WIN32 && !defined __CYGWIN__]:
