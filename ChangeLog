@@ -6,6 +6,13 @@
 
 2022-10-22  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting): set @*heading
+	heading customization variables as contain_simple_text.  Modify perl
+	Parser to handle in_heading_spec_commands similarly as XS parser.
+
+2022-10-22  Patrice Dumas  <pertusus@free.fr>
+
 	* ext/tex4ht.pm (tex4ht_process): sort formats for processing order
 	to get a more reproducible output and messages order.
 

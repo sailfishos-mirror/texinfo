@@ -925,9 +925,9 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
   // much TODO here.
 
   if (outer_flags & CF_contain_simple_text
-      || (outer_flags & CF_line
-            && outer_flags & CF_heading_spec)
-      || (outer_flags & CF_index_entry_command))
+      /* not in CF_contain_simple_text since index entry flags are not set
+         in command_data.txt, and also index commands are dynamically added */
+      || outer_flags & CF_index_entry_command)
     {
       simple_text_command = 1;
     }

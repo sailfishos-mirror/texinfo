@@ -455,19 +455,6 @@ foreach my $not_in_simple_text_command('xref', 'ref', 'pxref', 'inforef') {
   delete $in_simple_text_commands{$not_in_simple_text_command};
 }
 
-my %in_heading_spec_simple_text_commands = (%in_simple_text_commands,
-                                            %in_heading_spec_commands);
-
-# @this* commands should not appear in any line command except for
-# page heading specification commands but can appear in brace @-commands,
-# on heading specification commands lines, such as indicatric @-commands.
-# Therefore they are set here, such that they do not end up in
-# %in_simple_text_with_refs_commands.  Alternatively they could have been
-# put in %in_full_text_commands and then removed as
-# $not_in_simple_text_with_refs_commands.
-foreach my $in_full_text_not_in_simple_text (keys(%in_heading_spec_commands)) {
-  $in_full_text_commands{$in_full_text_not_in_simple_text} = 1;
-}
 
 
 # commands that only accept plain text, ie only accent, symbol and glyph commands
@@ -475,8 +462,6 @@ my %plain_text_commands = %contain_plain_text_commands;
 
 # commands that only accept simple text as argument in any context.
 my %simple_text_commands = %contain_simple_text_commands;
-
-my %simple_text_heading_spec_commands = (%heading_spec_commands);
 
 my %simple_text_with_refs_commands = (%sectioning_heading_commands,
                                       %def_commands);
@@ -514,14 +499,27 @@ foreach my $command (keys(%plain_text_commands)) {
 foreach my $command (keys(%simple_text_commands)) {
   $default_valid_nestings{$command} = \%in_simple_text_commands;
 }
-foreach my $command (keys(%simple_text_heading_spec_commands)) {
-  $default_valid_nestings{$command} = \%in_heading_spec_simple_text_commands;
-}
 foreach my $command (keys(%full_text_commands), keys(%full_line_commands)) {
   $default_valid_nestings{$command} = \%in_full_text_commands;
 }
 foreach my $command (keys(%simple_text_with_refs_commands)) {
   $default_valid_nestings{$command} = \%in_simple_text_with_refs_commands;
+}
+
+# @this* commands should not appear in any line command except for
+# page heading specification commands and can also appear in brace @-commands,
+# on heading specification commands lines, such as indicatric @-commands.
+foreach my $in_heading_spec (keys(%in_heading_spec_commands)) {
+  foreach my $command (keys(%heading_spec_commands)) {
+    $default_valid_nestings{$command}->{$in_heading_spec} = 1
+  }
+  foreach my $brace_command (keys (%brace_commands)) {
+    if ($brace_commands{$brace_command} eq 'style_code'
+        or $brace_commands{$brace_command} eq 'style_other'
+        or $brace_commands{$brace_command} eq 'style_no_code') {
+      $default_valid_nestings{$brace_command}->{$in_heading_spec} = 1;
+    }
+  }
 }
 
 # default indices
