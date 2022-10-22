@@ -1,3 +1,9 @@
+2022-10-22  Eli Zaretskii  <eliz@gnu.org>
+
+	* tp/Texinfo/XS/parsetexi/api.c
+	(reset_parser, set_documentlanguage_override)
+	(set_input_file_name_encoding, set_locale_encoding): Add dTHX.
+
 2022-10-22  Patrice Dumas  <pertusus@free.fr>
 
 	* ext/tex4ht.pm (tex4ht_process): sort formats for processing order

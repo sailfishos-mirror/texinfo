@@ -137,6 +137,8 @@ reset_parser_except_conf (void)
 void
 reset_parser (void)
 {
+  dTHX;
+
   debug ("!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!");
 
   reset_parser_except_conf ();
@@ -1053,6 +1055,8 @@ set_debug (int value)
 void
 set_documentlanguage_override (char *value)
 {
+  dTHX;
+
   free (global_documentlanguage);
   global_documentlanguage = strdup (value);
   global_documentlanguage_fixed = 1;
@@ -1068,6 +1072,8 @@ set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 void
 set_input_file_name_encoding (char *value)
 {
+  dTHX;
+
   free (input_file_name_encoding);
   input_file_name_encoding = strdup (value);
 }
@@ -1075,6 +1081,8 @@ set_input_file_name_encoding (char *value)
 void
 set_locale_encoding (char *value)
 {
+  dTHX;
+
   free (locale_encoding);
   locale_encoding = strdup (value);
 }
