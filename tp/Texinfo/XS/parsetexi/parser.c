@@ -169,9 +169,18 @@ set_documentlanguage (char *value)
   if (!global_documentlanguage_fixed)
     {
       free (global_documentlanguage);
-      global_documentlanguage = strdup (value);
+      global_documentlanguage = value ? strdup (value) : 0;
     }
 }
+
+void
+set_documentlanguage_override (char *value)
+{
+  free (global_documentlanguage);
+  global_documentlanguage = value ? strdup (value) : 0;
+  global_documentlanguage_fixed = 1;
+}
+
 
 void
 set_accept_internalvalue()

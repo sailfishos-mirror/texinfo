@@ -284,6 +284,20 @@ int doc_encoding_for_input_file_name = 1;
 char *input_file_name_encoding = 0;
 char *locale_encoding = 0;
 
+void
+set_input_file_name_encoding (char *value)
+{
+  free (input_file_name_encoding);
+  input_file_name_encoding = value ? strdup (value) : 0;
+}
+
+void
+set_locale_encoding (char *value)
+{
+  free (locale_encoding);
+  locale_encoding =  value ? strdup (value) : 0;
+}
+
 /* Reverse the decoding of the filename to the input encoding, to retrieve
    the bytes that were present in the original Texinfo file.  Return
    value is freed by free_small_strings. */

@@ -14,10 +14,11 @@ void reset_parser_except_conf (void);
 void set_debug (int);
 void wipe_values (void);
 void reset_context_stack (void);
-void set_documentlanguage_override (char *value);
+
 void set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
-void set_input_file_name_encoding (char *value);
-void set_locale_encoding (char *value);
+void conf_set_input_file_name_encoding (char *value);
+void conf_set_locale_encoding (char *value);
+void conf_set_documentlanguage_override (char *value);
 
 HV *build_texinfo_tree (void);
 AV *build_label_list (void);

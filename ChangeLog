@@ -1,5 +1,28 @@
 2022-10-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Avoid calling Perl version of 'free'
+
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser):
+	Do not call 'free' - do everything via functions in other files.
+
+	* tp/Texinfo/XS/parsetexi/api.c
+	(set_input_file_name_encoding, conf_set_input_file_name_encoding)
+	(set_locale_encoding, conf_set_locale_encoding)
+	(set_documentlanguage_override, conf_set_documentlanguage_override):
+	Provide wrappers with names starting with 'conf_', and move the
+	implementations to other files.
+
+	* tp/Texinfo/XS/parsetexi/input.c
+	(set_input_file_name_encoding, set_locale_encoding): Add.  Allow
+	null arguments.
+	* tp/Texinfo/XS/parsetexi/parser.c
+	(set_documentlanguage_override): Add.  Allow null argument.
+	(set_documentlanguage):  Allow null argument.
+
+	Report from Eli, who got "Free to wrong pool" error.
+
+2022-10-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* install-info/tests/README: Complete list of tests (not
 	updated since 2014).
 	* install-info/tests/ii-0054-test: Remove commented-out code.

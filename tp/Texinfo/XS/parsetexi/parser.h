@@ -169,6 +169,7 @@ int format_expanded_p (char *format);
 int is_end_current_command (ELEMENT *current, char **line,
                             enum command_id *end_cmd);
 void set_documentlanguage (char *);
+void set_documentlanguage_override (char *value);
 void set_accept_internalvalue (void);
 char *element_type_name (ELEMENT *e);
 int check_space_element (ELEMENT *e);

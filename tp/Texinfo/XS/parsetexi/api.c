@@ -142,7 +142,10 @@ reset_parser_except_conf (void)
 void
 reset_parser (void)
 {
-  dTHX;
+  /* NOTE: Do not call 'malloc' or 'free' in this function or in any function
+     called in this file.  Since this file (api.c) includes the Perl headers,
+     we get the Perl redefinitions, which we do not want, as we don't use
+     them throughout the rest of the program. */
 
   debug ("!!!!!!!!!!!!!!!! RESETTING THE PARSER !!!!!!!!!!!!!!!!!!!!!");
 
@@ -152,15 +155,12 @@ reset_parser (void)
   clear_include_directories ();
   reset_conf ();
 
-  free (global_documentlanguage);
-  global_documentlanguage = 0;
   global_documentlanguage_fixed = 0;
+  set_documentlanguage (0);
 
   doc_encoding_for_input_file_name = 1;
-  free (input_file_name_encoding);
-  input_file_name_encoding = 0;
-  free (locale_encoding);
-  locale_encoding = 0;
+  set_input_file_name_encoding (0);
+  set_locale_encoding (0);
 
   global_accept_internalvalue = 0;
 }
@@ -1058,13 +1058,9 @@ set_debug (int value)
 }
 
 void
-set_documentlanguage_override (char *value)
+conf_set_documentlanguage_override (char *value)
 {
-  dTHX;
-
-  free (global_documentlanguage);
-  global_documentlanguage = strdup (value);
-  global_documentlanguage_fixed = 1;
+  set_documentlanguage_override (value);
 }
 
 
@@ -1075,21 +1071,15 @@ set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 }
 
 void
-set_input_file_name_encoding (char *value)
+conf_set_input_file_name_encoding (char *value)
 {
-  dTHX;
-
-  free (input_file_name_encoding);
-  input_file_name_encoding = strdup (value);
+  set_input_file_name_encoding (value);
 }
 
 void
-set_locale_encoding (char *value)
+conf_set_locale_encoding (char *value)
 {
-  dTHX;
-
-  free (locale_encoding);
-  locale_encoding = strdup (value);
+  set_locale_encoding (value);
 }
 
 
