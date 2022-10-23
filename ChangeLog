@@ -1,5 +1,10 @@
 2022-10-23  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/prove.sh: remove -w from prove arguments for old
+	prove.  Report from Eli Zaretskii.
+
+2022-10-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/run_parser_all.sh (check_need_command_line_unicode),
 	tp/tests/many_input_files/*non_ascii*.sh: skip tests needing
 	UTF-8 encoded non-ASCII characters on the command line on Windows,
