@@ -25,6 +25,11 @@ stdout_file=stdout_$basename.out
 
 . ../../defs || exit 1
 
+# Need command-line unicode for this test, which is not reliable on Windows
+if test "z$HOST_IS_WINDOWS_VARIABLE" = 'zyes' ; then
+  exit 77
+fi
+
 [ -d $diffs_dir ] || mkdir $diffs_dir
 staging_dir=$diffs_dir/staging
 [ -d $staging_dir ] || mkdir $staging_dir
