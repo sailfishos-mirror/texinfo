@@ -1,3 +1,11 @@
+2022-10-23  Bruno Haible  <bruno@clisp.org>
+
+	Fix install-info tests on mingw
+
+	 * install-info/tests/defs.in [mingw]: Set diff to
+	'diff --strip-trailing-cr'.
+	 * install-info/tests: Use ${diff} in all tests.
+
 2022-10-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Avoid calling Perl version of 'free'
