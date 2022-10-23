@@ -434,12 +434,17 @@ sub epub_setup($)
     # re-set INFO_JS_DIR up to have the javascript and
     # css files in a directory rooted at $epub_document_dir_name
     $epub_info_js_dir_name = $self->get_conf('INFO_JS_DIR');
-    # FIXME INFO_JS_DIR is used both as a filesystem directory name
-    # and as path in document, as a path in document '../' should be
-    # used whatever File::Spec->updir() is.
     my $updir = File::Spec->updir();
-    $self->force_conf('INFO_JS_DIR', File::Spec->catdir($updir,
-                                                  $epub_info_js_dir_name));
+    # FIXME INFO_JS_DIR is used both as a filesystem directory name
+    # and as path in HTML files.  As a path in HTML, / should always be
+    # used.  File::Spec->catdir is better for filesystem paths.  We finally
+    # hardocde '/' as separator because it is needed for HTML paths and it
+    # works for both for Unix and Windows filesystems, but it is not
+    # clean.
+    #$self->force_conf('INFO_JS_DIR', File::Spec->catdir($updir,
+    #                                              $epub_info_js_dir_name));
+    $self->force_conf('INFO_JS_DIR', join('/', ($updir,
+                                                  $epub_info_js_dir_name)));
     # TODO make sure it is SPLIT and set SPLIT if not?
   }
 

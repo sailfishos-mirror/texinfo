@@ -45,11 +45,18 @@
 
 2022-10-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/ext/epub3.pm (epub_setup): use / as file separator for
+	INFO_JS_DIR, which is used both for HTML paths, requiring / and
+	paths to files on the filesystem, for which / may not be native,
+	but works for Unix and Windows paths.  Report from Eli Zaretskii.
+
+2022-10-23  Patrice Dumas  <pertusus@free.fr>
+
 	Avoid UTF-8 encoded file name in make rule prerequisite
 
 	* tp/maintain/copy_change_file_name_encoding.pl, tp/tests/Makefile.am:
 	convert to latin1 from plain ASCII filename, substituting accented
-	letters in tp/maintain/copy_change_file_name_encoding.pl.  report from
+	letters in tp/maintain/copy_change_file_name_encoding.pl.  Report from
 	Eli Zaretskii.
 
 2022-10-23  Gavin Smith  <gavinsmith0123@gmail.com>
