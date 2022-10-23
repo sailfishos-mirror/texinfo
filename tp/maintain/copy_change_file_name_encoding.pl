@@ -1,7 +1,7 @@
 #! /usr/bin/env perl
 
 # copy_change_file_name_encoding.pl: copy file changing
-# the encoding of the file name
+# the encoding of the file name and substituting to have accented letters.
 #
 # Copyright 2022 Free Software Foundation, Inc.
 #
@@ -20,6 +20,9 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
+use strict;
+use utf8;
+
 use File::Copy;
 use File::Basename;
 use File::Spec;
@@ -28,7 +31,7 @@ use Encode qw(from_to);
 
 use Getopt::Long qw(GetOptions);
 
-my $from = 'UTF-8';
+my $from = 'US-ASCII';
 my $to = 'ISO-8859-1';
 my $result_options = Getopt::Long::GetOptions (
  'from|f=s' => \$from,
@@ -51,14 +54,21 @@ if (defined($dest_dir)) {
   $dest_path = $src_path;
 }
 
-my $succeeded = from_to($dest_path, $from, $to);
+my $converted_dest_path = Encode::decode($from, $dest_path);
+# not that converted_dest_path may not be in UTF-8, depends what perl internally
+# does
+$converted_dest_path =~ s/latin/latîn/;
+my $dest_path_in_utf8 = Encode::encode('UTF-8', $converted_dest_path);
+# use another variable, since from_to argument is converted in-place
+my $dest_path_in_to_encoding = $dest_path_in_utf8;
+my $succeeded = from_to($dest_path_in_to_encoding, 'UTF-8', $to);
 
 if (not defined($succeeded)) {
-  warn "could not recode $src_path\n";
+  warn "could not decode, substitute and recode $src_path\n";
   exit(1);
 }
 
-my $copy_succeeded = copy($src_path, $dest_path);
+my $copy_succeeded = copy($src_path, $dest_path_in_to_encoding);
 if (not $copy_succeeded) {
   warn "could not copy $src_path: $!\n";
   exit(1);

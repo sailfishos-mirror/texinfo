@@ -63,12 +63,12 @@ other-checks: all
 
 check_DATA = input_file_names_recoded_stamp.txt
 
-input_file_names_recoded_stamp.txt: $(srcdir)/input/included_latîn1.texi
-	if $(PERL) $(srcdir)/../maintain/copy_change_file_name_encoding.pl $(srcdir)/input/included_latîn1.texi . ; then echo 'OK' > $@ ; else echo 'FAILED' > $@ ; fi
+input_file_names_recoded_stamp.txt: $(srcdir)/input/included_latin1.texi
+	if $(PERL) $(srcdir)/../maintain/copy_change_file_name_encoding.pl $(srcdir)/input/included_latin1.texi . ; then echo 'OK' > $@ ; else echo 'FAILED' > $@ ; fi
 
 distclean-local:
 	rm -f input_file_names_recoded_stamp.txt included_lat*n1.texi
 
 EXTRA_DIST = run_parser_all.sh parser_tests.sh \
  $(one_test_files_generated_list) coverage_macro.texi included_akçentêd.texi \
- input/included_latîn1.texi
+ input/included_latin1.texi
