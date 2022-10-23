@@ -25,8 +25,6 @@ require 5.00405;
 
 use strict;
 
-# to determine the locale encoding
-use I18N::Langinfo qw(langinfo CODESET);
 # to decode command line arguments
 use Encode qw(decode encode find_encoding);
 # for file names portability
@@ -297,8 +295,24 @@ if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
 # the encoding used to decode command line arguments, and also for
 # file names encoding, perl is expecting sequences of bytes, not unicode
 # code points.
-my $locale_encoding = langinfo(CODESET);
-$locale_encoding = undef if ($locale_encoding eq '');
+my $locale_encoding;
+
+eval 'require I18N::Langinfo';
+if (!$@) {
+  $locale_encoding = I18N::Langinfo::langinfo(I18N::Langinfo::CODESET());
+  $locale_encoding = undef if ($locale_encoding eq '');
+}
+
+if (!defined($locale_encoding) and $^O eq 'MSWin32') {
+  eval 'require Win32::API';
+  if (!$@) {
+    Win32::API::More->Import("kernel32", "int GetACP()");
+    my $CP = GetACP();
+    if (defined($CP)) {
+      $locale_encoding = 'cp'.$CP;
+    }
+  }
+}
 
 # Used in case it is not hardcoded in configure and for standalone perl module
 $texinfo_dtd_version = $configured_version

@@ -1,3 +1,9 @@
+2022-10-23  Eli Zaretskii  <eliz@gnu.org>, and
+            Gavin Smith    <gavinsmith0123@gmail.com>
+
+	* tp/texi2any.pl [MS-Windows: If loading I18N::Langinfo doesn't
+	work, then get codepage with GetACP() using Win32::API module.
+
 2022-10-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/XSParagraph.xs,
@@ -38,7 +44,7 @@
 
 2022-10-22  Patrice Dumas  <pertusus@free.fr>
 
-	* ext/tex4ht.pm (tex4ht_process): sort formats for processing order
+	* tp/ext/tex4ht.pm (tex4ht_process): sort formats for processing order
 	to get a more reproducible output and messages order.
 
 2022-10-22  Patrice Dumas  <pertusus@free.fr>
