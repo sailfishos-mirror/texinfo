@@ -483,6 +483,11 @@ case "$host" in
    *-mingw32 | *-mingw64 | *-msdosdjgpp )  host_is_windows=yes ;;
 esac     
 AM_CONDITIONAL([HOST_IS_WINDOWS], [test "x$host_is_windows" = "xyes"])
+HOST_IS_WINDOWS_VARIABLE=
+if test "x$host_is_windows" = "xyes" ; then
+  HOST_IS_WINDOWS_VARIABLE=yes
+fi
+AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 
 # The config files to generate.
 AC_CONFIG_FILES([\
