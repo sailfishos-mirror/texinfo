@@ -208,6 +208,13 @@ no_recoded_file_names=yes
 if sed 1q input_file_names_recoded_stamp.txt | grep 'OK' >/dev/null; then
   no_recoded_file_names=no
 fi
+# In Windows the recoding of file name is not reliable, as the file name may
+# be stored as UTF-16 using the user codepage to determine which codepage
+# the non-ASCII character comes from, and not the codepage that would have been
+# expected from the Perl code (Latin1 in the current case).
+if test "z$HOST_IS_WINDOWS_VARIABLE" = 'zyes' ; then
+  no_recoded_file_names=yes
+fi
 
 one_test=no
 if test -n "$1"; then

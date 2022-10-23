@@ -1,5 +1,15 @@
 2022-10-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/run_parser_all.sh,
+	tp/maintain/copy_change_file_name_encoding.pl: consider that
+	recoding of file name to Latin1 as needed by some tests is not
+	reliable on Windows, as the non-ASCII character may be stored
+	in the filesystem as an Unicode point using the current codepage
+	to convert, and not the Latin1 encoding expected from the Perl code.
+	Add comments to explain that.  Report from Eli Zaretskii.
+
+2022-10-23  Patrice Dumas  <pertusus@free.fr>
+
 	* configure.ac (HOST_IS_WINDOWS_VARIABLE), tp/defs.in: add variable
 	set to yes if host is Windows.
 

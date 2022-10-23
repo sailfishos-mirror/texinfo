@@ -61,6 +61,12 @@ $converted_dest_path =~ s/latin/latîn/;
 my $dest_path_in_utf8 = Encode::encode('UTF-8', $converted_dest_path);
 # use another variable, since from_to argument is converted in-place
 my $dest_path_in_to_encoding = $dest_path_in_utf8;
+# NOTE on Windows, when Perl uses the char API and not wchar_t API,
+# the file name written to the filesystem may not correspond to î, as
+# it depends on the codepage.  If the codepage is not Latin1, Windows will
+# consider that \xEE, output by Perl for î if $to is ISO-8859-1, is the
+# \xEE character in the current codepage, and convert to UTF-16 to store on
+# the filesystem.
 my $succeeded = from_to($dest_path_in_to_encoding, 'UTF-8', $to);
 
 if (not defined($succeeded)) {
