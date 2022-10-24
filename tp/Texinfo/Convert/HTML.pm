@@ -5855,7 +5855,7 @@ sub _convert_menu_entry_type($$$)
   my $type = shift;
   my $element = shift;
   
-  my $href;
+  my $href = '';
   my $rel = '';
   my $section;
   my $node_entry = $element->{'extra'}->{'menu_entry_node'};
