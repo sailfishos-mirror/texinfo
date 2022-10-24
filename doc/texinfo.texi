@@ -852,18 +852,15 @@ When in doubt whether something is needed or not, include it.  It's
 better to include too much than to leave out something important.
 
 It is critical to send an actual input file that reproduces the
-problem.  What's not critical is to ``narrow down'' the example to the
-smallest possible input---the actual input with which you discovered
-the bug will suffice.  (Of course, if you do make experiments, the
-smaller the input file, the better.)
+problem.
 
 Any problems with the Info reader in Emacs should be reported to
 the Emacs developers: see @ref{Bugs,,, emacs, The GNU Emacs Manual}.
 
 @cindex Patches, contributing
-Patches are most welcome; if possible, please make them with
-@samp{@w{diff -c}} or @samp{@w{diff -u}} (@pxref{,,, diffutils, Comparing and
-Merging Files}) and include @file{ChangeLog} entries (@pxref{Change Log,,,
+Patches are welcome; if possible, please make them with @samp{@w{diff -c}},
+@samp{@w{diff -u}} (@pxref{,,, diffutils, Comparing and Merging Files})
+or @samp{git diff} and include @file{ChangeLog} entries (@pxref{Change Log,,,
 standards, GNU Coding Standards}), and follow the existing coding style.
 
 
@@ -872,8 +869,7 @@ standards, GNU Coding Standards}), and follow the existing coding style.
 @cindex Output formats
 @cindex Back-end output formats
 
-Here is a brief overview of the output formats currently supported by
-Texinfo.
+Here is an overview of the output formats currently supported by Texinfo.
 
 @table @asis
 @item Info
@@ -7484,8 +7480,7 @@ Precipitating causes.
 Perpetuating causes.
 @end enumerate
 @sp 1
-Here is a brief summary of the alternatives.  The summary is constructed
-using @code{@@enumerate} with an argument of @kbd{a}.
+Here is a summary:
 @sp 1
 @enumerate a
 @item
@@ -12888,10 +12883,7 @@ Two other @code{@@inline...} conditionals complement the
 @anchor{set clear value}@c old name
 You can direct the Texinfo formatting commands to format or ignore parts
 of a Texinfo file with the @code{@@set}, @code{@@clear}, @code{@@ifset},
-and @code{@@ifclear} commands.
-
-Here are brief descriptions of these commands, see the following
-sections for more details:
+and @code{@@ifclear} commands.  Here is a summary:
 
 @table @code
 @item @@set @var{flag} [@var{value}]
@@ -18162,39 +18154,30 @@ based on the input file name as a last resort
 @cindex CSS, and HTML output
 @cindex Cascading Style Sheets, and HTML output
 
-Cascading Style Sheets (CSS for short) is an Internet standard for
+Cascading Style Sheets (CSS) is an Internet standard for
 influencing the display of HTML documents: see
 @uref{http://www.w3.org/Style/CSS/}.
 
-By default, a few simple CSS commands are included to
-better implement the appearance of some Texinfo environments.  Here
-is one of them, as an example:
+By default, some CSS code is included to better implement the
+appearance of some Texinfo environments.  For example:
 
 @example
 pre.display @{ font-family:inherit @}
 @end example
 
-A full explanation of CSS is (far) beyond this manual; please see the
-reference above.  In brief, however, the above tells the web browser to
-use the same font as the main document for @code{@@display}.
+The above tells the web browser to use the same font as the main
+document inside @samp{<pre>} elements used for @code{@@display} environments.
 By default, the HTML @samp{<pre>} command uses a monospaced font.
+
+Please see the reference above for a full explanation of CSS.
 
 You can influence the CSS in the HTML output with two
 @command{texi2any} options: @option{--css-include=@var{file}} and
 @option{--css-ref=@var{url}}.
 
-@pindex texinfo-bright-colors.css
-@cindex Visualizing Texinfo CSS
 The option @option{--css-ref=@var{url}} adds to each output HTML file
 a @samp{<link>} tag referencing a CSS at the given @var{url}.  This
 allows using external style sheets.
-
-@c not in Texinfo anymore
-@ignore
-  You may find the file
-@file{texi2html/examples/texinfo-bright-colors.css} useful for
-visualizing the CSS elements in Texinfo output.
-@end ignore
 
 The option @option{--css-include=@var{file}} includes the contents
 @var{file} in the HTML output, as you might expect.  However, the

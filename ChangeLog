@@ -1,5 +1,14 @@
 2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Reporting Bugs): Mention 'git diff'.  Do
+	not encourage sending large input files in bug reports.
+	(Output Formats): Remove useless word "brief".
+	(@enumerate): Remove "brief" and some self-referential text.
+	(@set @clear @value): Edit and shorten.
+	(HTML CSS): Edit.  Remove @ignore'd text.
+
+2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Prefer "texi2any" to "makeinfo" throughout.
 
 2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
