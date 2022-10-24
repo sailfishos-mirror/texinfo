@@ -1,3 +1,10 @@
+2022-10-24  Patrice Dumas  <pertusus@free.fr>
+
+	* Pod-Simple-Texinfo/pod2texi.pl, doc/tp_api/Makefile.am:
+	no @setfilename output if --setfilename is not given in argument
+	of pod2texi.pl.
+	Remove --setfilename from the rule generating texi2any_internals.texi.
+
 2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_menu_entry_type):

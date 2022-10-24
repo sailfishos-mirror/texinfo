@@ -531,24 +531,21 @@ if ($base_level > 0) {
   }
 
   # We output utf8 as it is default for Texinfo and is consistent with no
-  # @documentencoding, and it also because is the best choice or encoding.
+  # @documentencoding, and it also because is the best choice for encoding.
   binmode($fh, ':encoding(utf8)');
 
-  if (not defined($setfilename)) {
-    my $outfile_name = $output;
-
-    $outfile_name = $STDOUT_DOCU_NAME if ($outfile_name eq '-');
-    $outfile_name =~ s/\.te?x(i|info)?$//;
-    $outfile_name .= '.info';
-    $setfilename = $outfile_name;
+  my $setfilename_string = '';
+  if (defined($setfilename)) {
+    $setfilename_string = '@setfilename '
+              . Pod::Simple::Texinfo::_protect_text($setfilename)."\n";
   }
 
   my $preamble_result;
 
   if (! defined ($preamble)) {
     $preamble_result = '\input texinfo
-@setfilename ' . Pod::Simple::Texinfo::_protect_text($setfilename) . "
-\@settitle $top
+' . $setfilename_string
+. "\@settitle $top
 \@shorttitlepage $top
 \@headings on
 
@@ -694,8 +691,7 @@ boilerplate is a minimal beginning for a Texinfo document.
 =item B<--setfilename>=I<STR>
 
 Use I<STR> in top boilerplate before menu and includes for C<@setfilename>.
-The default is based on the output file name.  This option is especially
-useful if the top boilerplate is output on the standard output.
+No C<@setfilename> is output in the default case.
 
 =item B<--subdir>=I<NAME>
 
