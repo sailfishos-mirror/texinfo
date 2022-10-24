@@ -13295,13 +13295,9 @@ general, to avoid unnecessary dependencies between packages
 @cindex Conditionals, nested
 @cindex Nesting conditionals
 
-Conditionals can be nested; however, the details are a little tricky.
-The difficulty comes with failing conditionals, such as
-@code{@@ifhtml} when HTML is not being produced, where the included
-text is to be ignored.  However, it is not to be @emph{completely}
-ignored, since it is useful to have one @code{@@ifset} inside another,
-for example---that is a way to include text only if two conditions are
-met.  Here's an example:
+Texinfo requires that for a failing conditional, the
+ignored text must be properly nested with respect to that failing
+conditional.  Here's an example:
 
 @example
 @@ifset somevar
@@ -13314,9 +13310,16 @@ Somevar is set, anothervar is not.
 @@end ifset
 @end example
 
-Technically, Texinfo requires that for a failing conditional, the
-ignored text must be properly nested with respect to that failing
-conditional.  Unfortunately, it's not always feasible to check that
+If @samp{somevar} is not set, the whole block is skipped.
+
+To allow the processors to reliably determine which commands to consider
+for nesting purposes, all conditional commands must be on lines
+by themselves, with no text (even spaces) before or after.
+
+
+@ignore not sure what this is about
+
+Unfortunately, it's not always feasible to check that
 @emph{all} conditionals are properly nested, because then the
 processors could have to fully interpret the ignored text, which
 defeats the purpose of the command.  Here's an example illustrating
@@ -13331,10 +13334,8 @@ these rules:
 @@c WRONG - missing @@end ifset.
 @end example
 
-Finally, as mentioned above, all conditional commands must be on lines
-by themselves, with no text (even spaces) before or after.  Otherwise,
-the processors cannot reliably determine which commands to consider
-for nesting purposes.
+@end ignore
+
 
 
 @node Defining New Texinfo Commands

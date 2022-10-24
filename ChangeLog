@@ -1,5 +1,11 @@
 2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Conditional Nesting): Edit.  Do not
+	vaguely describe the subject as "tricky".  Ignore some
+	text.
+
+2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Reporting Bugs): Mention 'git diff'.  Do
 	not encourage sending large input files in bug reports.
 	(Output Formats): Remove useless word "brief".
