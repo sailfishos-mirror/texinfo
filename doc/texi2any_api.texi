@@ -237,9 +237,9 @@ are always set like string variables, in particular array or hash references.
 @subsection Setting Main Program String Variables
 
 To set the value of a string customization variable from an initialization file,
-use @code{set_from_init_file}:
+use @code{texinfo_set_from_init_file}:
 
-@defun set_from_init_file ($variable_name, $variable_value)
+@defun texinfo_set_from_init_file ($variable_name, $variable_value)
 @var{$variable_name} is a string containing the name of the variable
 you want to set, and @var{$variable_value} is the value to which you
 want to set it.  @var{$variable_value} may be @samp{undef}.
@@ -248,7 +248,7 @@ want to set it.  @var{$variable_value} may be @samp{undef}.
 For example,
 
 @example
-set_from_init_file('documentlanguage', 'fr');
+texinfo_set_from_init_file('documentlanguage', 'fr');
 @end example
 
 @noindent overrides the @code{@@documentlanguage} from the
@@ -257,7 +257,7 @@ the command line.
 Another example:
 
 @example
-set_from_init_file('SPLIT', 'chapter');
+texinfo_set_from_init_file('SPLIT', 'chapter');
 @end example
 
 @noindent overrides the default splitting of the document.  It would be
@@ -266,7 +266,7 @@ overridden by @option{--split} on the command line.
 A final example:
 
 @example
-set_from_init_file('NO_CSS', 1);
+texinfo_set_from_init_file('NO_CSS', 1);
 @end example
 
 @noindent overrides the default value for @code{NO_CSS}.  It would be
@@ -324,7 +324,7 @@ Array and hash references customization variables values relevant in converters
 only (not in main program) can be set through the main program in init files.
 These variables cannot be set on the command-line.  They are documented in the
 customization documentation, not in the main Texinfo manual.  Such arrays or
-hashes references can be passed through @code{set_from_init_file}.  For
+hashes references can be passed through @code{texinfo_set_from_init_file}.  For
 example:
 
 @example
@@ -1015,7 +1015,8 @@ may be used to change the navigation panel formatting.
 
 Several arrays and hashes enable even more precise control over the navigation
 panel buttons and their display.  They can be set as customization variables
-with @code{set_from_init_file}. @xref{Setting Main Program String Variables}.
+with @code{texinfo_set_from_init_file}. @xref{Setting Main Program String
+Variables}.
 
 The following customization variables arrays determine the
 buttons present in the various navigation panels:
