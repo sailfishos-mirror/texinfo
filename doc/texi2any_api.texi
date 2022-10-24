@@ -23,8 +23,8 @@ Texts.  A copy of the license is included in the section entitled
 
 @dircategory Texinfo documentation system
 @direntry
-* Texinfo texi2any customization: (customization_api).  Customizing texi2any
-                                            output using customization files
+* texi2any customization: (texi2any_api).
+                                Customizing texi2any output
 @end direntry
 
 @titlepage

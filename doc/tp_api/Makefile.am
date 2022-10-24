@@ -31,7 +31,7 @@ TEXINFO_TEX = ../texinfo.tex
 # them explicitly
 texi2any_internals_TEXINFOS = texi2any_internals_indices.texi
 #dist_texi2any_internals_TEXINFOS = 
-EXTRA_DIST = api_includes
+EXTRA_DIST = texi2any_internals_preamble.texi api_includes
 
 if BUILD_PERL_API_TEXI
 
@@ -60,7 +60,7 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tp/Texinfo/Convert/TexinfoXML.pm \
   $(top_srcdir)/tp/Texinfo/Convert/Plaintext.pm
 
-texi2any_internals.texi: $(texi2any_internals_dependencies) texi2any_internals_indices.texi
-	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --top 'Texinfo modules documentation' --subdir=api_includes $(texi2any_internals_dependencies) | sed -e 's/^@bye/@__bye/' | sed -e '/^@__bye/r $(srcdir)/texi2any_internals_indices.texi' | sed -e 's/^@__bye//' > $@
+texi2any_internals.texi: $(texi2any_internals_dependencies) texi2any_internals_indices.texi texi2any_internals_preamble.texi
+	$(PERL) -I $(top_srcdir)/Pod-Simple-Texinfo/lib/ -I $(top_srcdir)/tp/ -I $(top_srcdir)/tp/maintain/lib/Text-Unidecode/lib/ -I $(top_srcdir)/tp/maintain/lib/libintl-perl/lib/ -I $(top_srcdir)/tp/maintain/lib/Unicode-EastAsianWidth/lib/ $(top_srcdir)/Pod-Simple-Texinfo/pod2texi.pl --base-level=section --preamble - --subdir=api_includes $(texi2any_internals_dependencies) < $(srcdir)/texi2any_internals_preamble.texi | sed -e 's/^@bye/@__bye/' | sed -e '/^@__bye/r $(srcdir)/texi2any_internals_indices.texi' | sed -e 's/^@__bye//' > $@
 
 endif
