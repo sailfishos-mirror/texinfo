@@ -68,11 +68,12 @@
 # to refer to a manual in an epub container, and to a specific file in
 # that container.
 # Collections of epub manunals for local browsing would be an interesting
-# feature, but for now cannot be achieved because of those limitations..
+# feature, but for now cannot be achieved because of those limitations.
 # If references to other EPUB files were possible, NODE_FILES would
 # probably need to be set.
 # For now, external manuals not found in htmlxref are resolved
-# to a path that makes no sense:
+# to a path that makes no sense, for example for a reference to the
+# Pod-Simple-Texinfo manual:
 # EPUB/Pod-Simple-Texinfo_epub3/index.html
 
 use strict;
