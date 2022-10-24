@@ -1,5 +1,9 @@
 2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi: Prefer "texi2any" to "makeinfo" throughout.
+
+2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: Add agendum for next release
 	* README: Revise - https for URL's, mention LaTeX and EPUB 3 output,
 	info.texi not part of Texinfo distribution, prefer "texi2any" to

@@ -47,7 +47,8 @@ Texts.  A copy of the license is included in the section entitled
 @direntry
 * Texinfo: (texinfo).           The GNU documentation format.
 * install-info: (texinfo)Invoking install-info. Update info/dir entries.
-* makeinfo: (texinfo)Invoking makeinfo.         Translate Texinfo source.
+* texi2any: (texinfo)Invoking texi2any.         Translate Texinfo source.
+* makeinfo: (texinfo)Invoking texi2any.         Translate Texinfo source.
 * pod2texi: (pod2texi)Invoking pod2texi.        Translate Perl Pod to Texinfo.
 * texi2dvi: (texinfo)Format with texi2dvi.      Print Texinfo documents.
 * texi2pdf: (texinfo)PDF Output.                PDF output for Texinfo.
@@ -877,7 +878,7 @@ Texinfo.
 @table @asis
 @item Info
 @cindex Info output, overview
-(Generated via @command{makeinfo}.)  Info format is mostly a plain
+(Generated via @command{texi2any}.)  Info format is mostly a plain
 text transliteration of the Texinfo source.  It adds a few control
 characters to provide navigational information for cross-references, 
 indices, and so on.  The Emacs Info subsystem (@pxref{Top,,, info, 
@@ -887,7 +888,7 @@ Files}, and @ref{Creating and Installing Info Files}.
 
 @item Plain text
 @cindex Plain text output, overview
-(Generated via @command{makeinfo --plaintext}.)  This is almost the
+(Generated via @command{texi2any --plaintext}.)  This is almost the
 same as Info output with the navigational control characters are
 omitted.
 
@@ -896,13 +897,13 @@ omitted.
 @c @cindex Mozilla
 @c @cindex Lynx
 @c @cindex Emacs-W3
-(Generated via @command{makeinfo --html}.)  HTML, standing for Hyper
+(Generated via @command{texi2any --html}.)  HTML, standing for Hyper
 Text Markup Language, is the language for writing documents on the World
 Wide Web.  Web browsers
 @c such as Mozilla, Lynx, and Emacs-W3
 can render this language online.  There
 are many versions of HTML, both different standards and
-browser-specific variations.  @command{makeinfo} uses a subset
+browser-specific variations.  @command{texi2any} uses a subset
 of the language that can be interpreted by any common browser,
 intentionally not using many newer or less widely-supported tags.
 Although the native output is thus rather plain, it can be customized
@@ -910,7 +911,7 @@ at various levels, if desired.   @xref{Generating HTML}.
 
 @item EPUB 3
 @cindex EPUB 3 output, overview
-(Generated via @command{makeinfo --epub3}.)
+(Generated via @command{texi2any --epub3}.)
 EPUB is a format designed for reading electronic books on
 portable devices.  It is a derivative of HTML@.  The format was
 developed by the International Digital Publishing Forum (IDPF),
@@ -959,7 +960,7 @@ extension of @TeX{}, to output PDF; see
 
 @item @LaTeX{}
 @cindex LaTeX output, overview
-(Generated via @command{makeinfo --latex}.)  This is a typesetting
+(Generated via @command{texi2any --latex}.)  This is a typesetting
 system built on top of @TeX{}.  It was originally released by
 Leslie Lamport in 1984.  @LaTeX{} adds more definitions to those
 of @TeX{} and has a wide range of packages built on it. @LaTeX{} is
@@ -976,7 +977,7 @@ customizability of the output than would be possible with the plain
 @item DocBook
 @cindex DocBook output, overview
 @cindex XML DocBook output, overview
-(Generated via @command{makeinfo --docbook}.)  This is an XML-based
+(Generated via @command{texi2any --docbook}.)  This is an XML-based
 format, primarily for technical
 documentation.  It therefore bears some resemblance, in broad
 outline, to Texinfo.  See @uref{http://www.docbook.org}.  Various
@@ -989,9 +990,9 @@ see the Texinfo web pages.
 @cindex DTD, for Texinfo XML
 @pindex texinfo.dtd
 @pindex txixml2texi
-(Generated via @command{makeinfo --xml}.)  XML is a generic syntax
+(Generated via @command{texi2any --xml}.)  XML is a generic syntax
 specification usable for any sort of content (a reference is at
-@uref{http://www.w3.org/XML}).  The @command{makeinfo} XML output,
+@uref{http://www.w3.org/XML}).  The @command{texi2any} XML output,
 unlike all the other output formats, is a transliteration of the
 Texinfo source rather than processed output.  That is, it translates
 the Texinfo markup commands into XML syntax, for further processing by
@@ -1019,7 +1020,7 @@ to separate nodes and provide navigational information, so that
 Info-reading programs can operate on it.
 
 Info files are nearly always created by processing a Texinfo source
-document.  @command{makeinfo}, also known as @command{texi2any}, is
+document.  @command{texi2any}, also known as @command{makeinfo}, is
 the principal command that converts a Texinfo file into an Info file;
 @pxref{Generic Translator @command{texi2any}}.
 
@@ -1228,7 +1229,7 @@ supports the same level of output customization as
 @command{texi2html}, an independent program originally written by
 Lionel Cons, later with substantial work by many others.  The many
 additional features needed to make @command{texi2html} a replacement
-for @command{makeinfo} were implemented by Patrice Dumas.  The first
+for @command{makeinfo} were implemented by Patrice Dumas.  The first,
 never-released version of @command{texi2any} was based on the
 @command{texi2html} code.
 
@@ -3151,7 +3152,7 @@ the @code{TOP_NODE_UP_URL} customization variable (@pxref{HTML
 Customization Variables}), as in
 
 @example
-$ @kbd{makeinfo --html -c TOP_NODE_UP_URL=/manual/} ...
+$ @kbd{texi2any --html -c TOP_NODE_UP_URL=/manual/} ...
 @end example
 
 @c the following line is not true anymore
@@ -7308,7 +7309,7 @@ After the @code{@@itemize}, write your items, each starting with
 The text of an item can continue for more than one paragraph.
 
 There should be at least one @code{@@item} inside the @code{@@itemize}
-environment.  If none are present, @code{makeinfo} gives a warning.
+environment.  If none are present, @code{texi2any} gives a warning.
 If you just want indented text and not a list of items, use
 @code{@@indentedblock}; @pxref{@code{@@indentedblock}}.
 
@@ -9081,7 +9082,7 @@ When creating an index, @TeX{} creates a file whose extension is the
 name of the index (@pxref{Names of index files}).  Therefore you
 should avoid using index names that collide with extensions used for
 other purposes, such as @samp{.aux} or @samp{.xml}.
-@command{makeinfo} already reports an error if a new index conflicts
+@command{texi2any} already reports an error if a new index conflicts
 well-known extension name.
 
 
@@ -9718,7 +9719,7 @@ braces (since it is two characters instead of one).
 
 In Info and plain text output, accent constructs are output as the true
 accented characters if the document encoding supports the required characters,
-unless the option @option{--disable-encoding} is given to @command{makeinfo}
+unless the option @option{--disable-encoding} is given to @command{texi2any}
 (@pxref{@code{@@documentencoding}}).  ASCII transliterations are used if the
 encoded characters are not output.
 
@@ -10132,7 +10133,7 @@ processing with @TeX{}, not when outputting @LaTeX{} nor with any of the
 Texinfo has support for a few additional glyphs that are commonly used
 in printed text but not available in ASCII@.  Of course, there are
 many thousands more.  It is possible to use Unicode characters as-is
-as far as @code{makeinfo} is concerned, but @TeX{} is not so lucky.
+as far as @code{texi2any} is concerned, but @TeX{} is not so lucky.
 
 @menu
 * @code{@@TeX @@LaTeX}::                 The @TeX{} logos.
@@ -12448,7 +12449,7 @@ End:
 @end example
 
 Also, in Info and plain text output, unless the option
-@option{--disable-encoding} is given to @command{makeinfo}, accent
+@option{--disable-encoding} is given to @command{texi2any}, accent
 constructs and special characters, such as @code{@@'e}, are output as
 the actual 8-bit or UTF-8 character in the output encoding where
 possible.
@@ -13254,7 +13255,7 @@ the document via @code{@@macro}, @code{@@alias},
 @code{@@definfoenclose}, and @code{@@def@r{(}code@r{)}index}
 (@pxref{Defining New Texinfo Commands}) to be true.  Caveat: the @TeX{}
 implementation reports internal @TeX{} commands, in addition to all
-the Texinfo commands, as being ``defined''; the @code{makeinfo}
+the Texinfo commands, as being ``defined''; the @code{texi2any}
 implementation is reliable in this regard, however.
 
 @pindex @file{NEWS} file for Texinfo
@@ -13534,7 +13535,7 @@ No arguments here.
 Passing macro arguments containing commas requires care, since
 commas also separate the arguments.  To include a comma character in
 an argument, the most reliable method is to use the @code{@@comma@{@}}
-command.  For @code{makeinfo}, you can also prepend a backslash
+command.  For @code{texi2any}, you can also prepend a backslash
 character, as in @samp{\,}, but this does not work with @TeX{}.
 
 @cindex Automatic quoting of commas for some macros
@@ -13607,7 +13608,7 @@ backslash.  For example:
 @noindent
 will pass the argument @samp{\bleh} to @var{macname}.
 
-@command{makeinfo} also recognizes @samp{\@{} and @samp{\@}} sequences
+@command{texi2any} also recognizes @samp{\@{} and @samp{\@}} sequences
 for curly braces, but these are not recognized by the implementation in
 @TeX{}.  There should, however, rarely be a need for these, as they are
 only needed when a macro argument contains unbalanced braces.
@@ -13680,7 +13681,7 @@ possibly yielding errors.
 Also, quite a few macro-related constructs cause problems with @TeX{};
 some of the caveats are listed below.  Thus, if you get macro-related
 errors when producing the printed version of a manual, you might try
-expanding the macros with @command{makeinfo} by invoking
+expanding the macros with @command{texi2any} by invoking
 @command{texi2dvi} with the @samp{-E} option (@pxref{Format with
 @command{texi2dvi}}).  Or, more reliably, eschew Texinfo macros altogether
 and use a language designed for macro processing, such as M4
@@ -13755,7 +13756,7 @@ The backslash escape for commas in macro arguments does not work;
 
 @item
 Ending a macro body with @samp{@@c} may cause text following the macro
-invocation to be ignored as a comment in @command{makeinfo}.  This is 
+invocation to be ignored as a comment in @command{texi2any}.  This is 
 not the case when processing with @TeX{}.  This was often done
 to ``comment out'' an unwanted newline at the end of a macro body, but 
 this is not necessary any more, as the final newline before @samp{@@end 
@@ -13806,7 +13807,7 @@ The following limitations are by design:
 If you want to pass an argument with the Texinfo command 
 @code{@@,} (to produce a cedilla, see @ref{Inserting Accents}), you have 
 to use @code{@@value} or another workaround.  Otherwise, the comma
-may be taken as separating the arguments.  With @command{makeinfo},
+may be taken as separating the arguments.  With @command{texi2any},
 the comma can be escaped by a backslash.  With @TeX{} another workaround
 need to be used, therefore we recommend using such a workaround.
 
@@ -13827,7 +13828,7 @@ Fran@,cois+.
 @end display
 
 @c currently @mactwo{Fran@,cois} works in TeX, but @mactwo{Franc@\,cois}
-@c works in makeinfo.  better to avoid commas altogether using this trick.
+@c works in texi2any.  better to avoid commas altogether using this trick.
 @c an alternative to @, could be invented if needed.
 
 @item
@@ -13858,7 +13859,7 @@ bbb
 @@center @@twolines@{@}
 @end example
 
-In the current @code{makeinfo}, this is equivalent to:
+In the current @code{texi2any}, this is equivalent to:
 
 @example
 @@center aaa
@@ -14047,7 +14048,7 @@ Both M4 (@pxref{Preprocessor features,,, m4, GNU M4}) and CPP
 @ref{Preprocessor Output,,, cpp, The C Preprocessor}) can generate
 such lines.
 
-The @command{makeinfo} program recognizes these lines by default,
+The @command{texi2any} program recognizes these lines by default,
 except within @code{@@verbatim} blocks (@pxref{@code{@@verbatim}}).
 Their recognition can be turned off completely with
 @code{CPP_LINE_DIRECTIVES} (@pxref{Other Customization Variables}),
@@ -14094,8 +14095,8 @@ use @command{texi2any}'s macro expansion options before running
 @item
 If you run @command{texi2dvi} or its variants (@pxref{Format with
 @command{texi2dvi}}), you can pass @option{-E} and @command{texi2dvi}
-will run @command{texi2any} (or @command{makeinfo}) first to expand
-macros and eliminate @samp{#line}.
+will run @command{texi2any} first to expand macros and eliminate
+@samp{#line}.
 
 @item
 If you run @command{texi2any}, you can specify @option{--no-ifinfo
@@ -14514,7 +14515,7 @@ source.  (You can also do this on a site-wide basis with
 
 The option @option{-E} (equivalently, @option{-e} and
 @option{--expand}) does Texinfo macro expansion using
-@command{makeinfo} instead of the @TeX{} implementation (@pxref{Macro
+@command{texi2any} instead of the @TeX{} implementation (@pxref{Macro
 Details}).  Each implementation has its own limitations and
 advantages.  If this option is used, no line in the source file
 may begin with the string @code{@@c@tie{}_texi2dvi} or the
@@ -15267,16 +15268,14 @@ specified within a initialization file.
 
 
 @node Invoking @command{texi2any}
-@section Invoking @command{texi2any}/@command{makeinfo} from a Shell
+@section Invoking @command{texi2any} from a Shell
 
 @anchor{Invoking makeinfo}
 @pindex makeinfo
 @pindex texi2any
 
-To process a Texinfo file, invoke @command{texi2any} or
-@command{makeinfo} (the two names are synonyms for the same program;
-we'll use the names interchangeably) followed by the name of the
-Texinfo file.  Also select the format you want to output with the
+To process a Texinfo file, invoke @command{texi2any} followed by the name
+of the Texinfo file.  Also select the format you want to output with the
 appropriate command line option (default is Info).  Thus, to create
 the Info file for Bison, type the following to the shell:
 
@@ -18181,7 +18180,7 @@ use the same font as the main document for @code{@@display}.
 By default, the HTML @samp{<pre>} command uses a monospaced font.
 
 You can influence the CSS in the HTML output with two
-@command{makeinfo} options: @option{--css-include=@var{file}} and
+@command{texi2any} options: @option{--css-include=@var{file}} and
 @option{--css-ref=@var{url}}.
 
 @pindex texinfo-bright-colors.css
@@ -18259,7 +18258,7 @@ any way; the special @samp{@@} and @samp{;} characters are looked for
 the text is blindly copied into the output.  Comments in the CSS
 file may or may not be included in the output.
 
-In addition to the possibilities offered by CSS, @command{makeinfo}
+In addition to the possibilities offered by CSS, @command{texi2any}
 has many user-definable customization variables with which you can
 influence the HTML output.  @xref{Customization Variables}.
 
@@ -18504,12 +18503,12 @@ name.
 Finally, the @var{target} part is always the expanded node name.
 
 Whether the present manual is split or mono is determined by user
-option; @command{makeinfo} defaults to split, with the
+option; @command{texi2any} defaults to split, with the
 @option{--no-split} option overriding this.
 
 Whether the referent manual is split or mono, however, is another bit
 of the external information (@pxref{HTML Xref Configuration}).  By
-default, @command{makeinfo} uses the same form of the referent manual
+default, @command{texi2any} uses the same form of the referent manual
 as the present manual.
 
 Thus, there can be a mismatch between the format of the referent
@@ -18737,7 +18736,7 @@ characters and contains only few 8-bit ones.  But if the document is
 written in a language whose script is not based on the Latin alphabet
 (for example, Ukrainian), it will create file names consisting almost
 entirely of @samp{_@var{xxxx}} notations, which is inconvenient and
-all but unreadable.  To handle such cases, @command{makeinfo} offers
+all but unreadable.  To handle such cases, @command{texi2any} offers
 the @option{--transliterate-file-names} command line option.  This
 option enables @dfn{transliteration} of node names into ASCII
 characters for the purposes of file name creation and referencing.
@@ -18806,7 +18805,7 @@ control.
 @cindex Cross-reference configuration, for HTML
 @cindex Configuration, for HTML cross-manual references
 
-@command{makeinfo} reads a file named @file{htmlxref.cnf} to gather
+@command{texi2any} reads a file named @file{htmlxref.cnf} to gather
 information for cross-references to other manuals in HTML output.  It
 is looked for in the following directories:
 
@@ -18890,7 +18889,7 @@ If the keyword is @code{node}, @code{section}, or @code{chapter},
 @var{urlprefix} gives the host and directory for @var{manual} split
 into nodes, sections, or chapters, respectively.
 
-When available, @command{makeinfo} will use the ``corresponding''
+When available, @command{texi2any} will use the ``corresponding''
 value for cross-references between manuals.  That is, when generating
 monolithic output (@option{--no-split}), the @code{mono} URL will be
 used, when generating output that is split by node, the @code{node}
