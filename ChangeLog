@@ -1,3 +1,10 @@
+2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* README-hacking: Add agendum for next release
+	* README: Revise - https for URL's, mention LaTeX and EPUB 3 output,
+	info.texi not part of Texinfo distribution, prefer "texi2any" to
+	"makeinfo".
+
 2022-10-23  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/prove.sh: remove -w from prove arguments for old
