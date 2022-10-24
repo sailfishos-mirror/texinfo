@@ -1,5 +1,12 @@
 2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Cross Reference Parts, Marking Text, @set @value)
+	(Command List, Tips): Change "formatters" to "processors" in some
+	places where we are not clearly talking about formatting a visual
+	layout.
+
+2022-10-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (HTML Xref): Do not describe the "details"
 	as "unfortunately complex".
 

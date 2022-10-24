@@ -4357,7 +4357,7 @@ This argument is required (except for reference to whole manuals).
 
 Write a node name in a cross-reference in exactly the same way as in
 the @code{@@node} line, including the same capitalization; otherwise, the
-formatters may not find the reference.
+processors may not find the reference.
 
 @item
 A label for online output.  It is usually omitted; then
@@ -5280,7 +5280,7 @@ command since a reader can easily follow such a reference in Info.
 @cindex Text, marking up
 
 In Texinfo, you can mark words and phrases in a variety of ways.
-The Texinfo formatters use this information to determine how to
+The Texinfo processors use this information to determine how to
 highlight the text.
 You can specify, for example, whether a word or phrase is a
 defining occurrence, a metasyntactic variable, or a symbol used in a
@@ -12950,9 +12950,9 @@ Write the @code{@@set} command like this:
 @noindent
 This sets the value of the flag @code{foo} to ``This is a string.''.
 
-The Texinfo formatters then replace a @code{@@value@{@var{flag}@}}
+The Texinfo processors then replace a @code{@@value@{@var{flag}@}}
 command with the string to which @var{flag} is set.  Thus, when
-@code{foo} is set as shown above, the Texinfo formatters convert this:
+@code{foo} is set as shown above, the Texinfo processors convert this:
 
 @example
 @group
@@ -12984,7 +12984,7 @@ For example, if you set @code{foo} as follows:
 @end example
 
 @noindent
-then the formatters transform
+then the processors transform
 
 @example
 @group
@@ -13001,7 +13001,7 @@ If you write
 @end example
 
 @noindent
-then the formatters transform
+then the processors transform
 
 @example
 @group
@@ -19150,7 +19150,7 @@ Often used with @code{@@table}.  @xref{@code{@@bullet}}.
 Change page dimensions for the B6 paper size.  @xref{A4 Paper}.
 
 @item @@bye
-Stop formatting a file.  The formatters do not see anything in the
+Stop processing a file.  The processors do not see anything in the
 input file following @code{@@bye}.  @xref{Ending a File}.
 
 @item @@c @var{comment}
@@ -20780,7 +20780,7 @@ sound in the name `Bach'.  But pronounce Texinfo as in `speck':
 
 @item
 Write notes for yourself at the very end of a Texinfo file after the
-@code{@@bye}.  None of the formatters process text after the
+@code{@@bye}.  None of the processors process text after the
 @code{@@bye}; it is as if the text were within @code{@@ignore} @dots{}
 @code{@@end ignore}.
 @end itemize
