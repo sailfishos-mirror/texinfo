@@ -18388,10 +18388,9 @@ customization set by the user.
 @cindex HTML cross-references
 @cindex Cross-references, in HTML output
 
-Cross-references between Texinfo manuals in HTML format become, in the
-end, a standard HTML @code{<a>} link, but the details are
-unfortunately complex.  This section describes the algorithm used in
-detail, so that Texinfo can cooperate with other programs, such as
+Cross-references between Texinfo manuals in HTML format become standard
+HTML @code{<a>} links.  This section describes the algorithm used,
+so that Texinfo can cooperate with other programs, such as
 @command{texi2html}, by writing mutually compatible HTML files.
 
 This algorithm may or may not be used for links @emph{within} HTML
