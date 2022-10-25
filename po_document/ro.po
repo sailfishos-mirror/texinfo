@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 19:43+0200\n"
+"POT-Creation-Date: 2022-10-25 10:51+0200\n"
 "PO-Revision-Date: 2022-05-30 00:51+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -24,31 +24,31 @@ msgstr ""
 "n%100<=19) ? 1 : 2);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: tp/Texinfo/Common.pm:585 tp/Texinfo/Common.pm:590
+#: tp/Texinfo/Common.pm:591 tp/Texinfo/Common.pm:596
 msgid "Function"
 msgstr "Funcție"
 
-#: tp/Texinfo/Common.pm:586
+#: tp/Texinfo/Common.pm:592
 msgid "Macro"
 msgstr "Macro"
 
-#: tp/Texinfo/Common.pm:587
+#: tp/Texinfo/Common.pm:593
 msgid "Special Form"
 msgstr "Formă specială"
 
-#: tp/Texinfo/Common.pm:588 tp/Texinfo/Common.pm:591
+#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:597
 msgid "Variable"
 msgstr "Variabilă"
 
-#: tp/Texinfo/Common.pm:589
+#: tp/Texinfo/Common.pm:595
 msgid "User Option"
 msgstr "Opțiunea utilizatorului"
 
-#: tp/Texinfo/Common.pm:592 tp/Texinfo/Common.pm:593
+#: tp/Texinfo/Common.pm:598 tp/Texinfo/Common.pm:599
 msgid "Instance Variable"
 msgstr "Variabilă de instanță"
 
-#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:595
+#: tp/Texinfo/Common.pm:600 tp/Texinfo/Common.pm:601
 msgid "Method"
 msgstr "Metodă"
 
@@ -56,12 +56,12 @@ msgstr "Metodă"
 msgid " --- The Detailed Node Listing ---"
 msgstr ""
 
-#: tp/Texinfo/Translations.pm:330
+#: tp/Texinfo/Translations.pm:344
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} în {class}"
 
-#: tp/Texinfo/Translations.pm:331
+#: tp/Texinfo/Translations.pm:345
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} de {class}"

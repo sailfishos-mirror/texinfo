@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.0\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 19:43+0200\n"
+"POT-Creation-Date: 2022-10-25 10:51+0200\n"
 "PO-Revision-Date: 2006-01-09\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin01@solar.com.br>\n"
 "Language-Team: Unknown\n"
@@ -16,33 +16,33 @@ msgstr ""
 "Content-Type: text/plain; charset=us-ascii\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tp/Texinfo/Common.pm:585 tp/Texinfo/Common.pm:590
+#: tp/Texinfo/Common.pm:591 tp/Texinfo/Common.pm:596
 #, fuzzy
 msgid "Function"
 msgstr "Se@,{c}@~ao"
 
-#: tp/Texinfo/Common.pm:586
+#: tp/Texinfo/Common.pm:592
 msgid "Macro"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:587
+#: tp/Texinfo/Common.pm:593
 msgid "Special Form"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:588 tp/Texinfo/Common.pm:591
+#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:597
 msgid "Variable"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:589
+#: tp/Texinfo/Common.pm:595
 #, fuzzy
 msgid "User Option"
 msgstr "Se@,{c}@~ao acima"
 
-#: tp/Texinfo/Common.pm:592 tp/Texinfo/Common.pm:593
+#: tp/Texinfo/Common.pm:598 tp/Texinfo/Common.pm:599
 msgid "Instance Variable"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:595
+#: tp/Texinfo/Common.pm:600 tp/Texinfo/Common.pm:601
 msgid "Method"
 msgstr ""
 
@@ -50,12 +50,12 @@ msgstr ""
 msgid " --- The Detailed Node Listing ---"
 msgstr ""
 
-#: tp/Texinfo/Translations.pm:330
+#: tp/Texinfo/Translations.pm:344
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} na {class}"
 
-#: tp/Texinfo/Translations.pm:331
+#: tp/Texinfo/Translations.pm:345
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} da {class}"

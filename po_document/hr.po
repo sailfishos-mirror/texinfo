@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 19:43+0200\n"
+"POT-Creation-Date: 2022-10-25 10:51+0200\n"
 "PO-Revision-Date: 2021-06-16 21:38-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -22,31 +22,31 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: tp/Texinfo/Common.pm:585 tp/Texinfo/Common.pm:590
+#: tp/Texinfo/Common.pm:591 tp/Texinfo/Common.pm:596
 msgid "Function"
 msgstr "Funkcija"
 
-#: tp/Texinfo/Common.pm:586
+#: tp/Texinfo/Common.pm:592
 msgid "Macro"
 msgstr "Makro"
 
-#: tp/Texinfo/Common.pm:587
+#: tp/Texinfo/Common.pm:593
 msgid "Special Form"
 msgstr "Specijalna forma"
 
-#: tp/Texinfo/Common.pm:588 tp/Texinfo/Common.pm:591
+#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:597
 msgid "Variable"
 msgstr "Varijabla"
 
-#: tp/Texinfo/Common.pm:589
+#: tp/Texinfo/Common.pm:595
 msgid "User Option"
 msgstr "Korisnička opcija"
 
-#: tp/Texinfo/Common.pm:592 tp/Texinfo/Common.pm:593
+#: tp/Texinfo/Common.pm:598 tp/Texinfo/Common.pm:599
 msgid "Instance Variable"
 msgstr "Primjer varijable"
 
-#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:595
+#: tp/Texinfo/Common.pm:600 tp/Texinfo/Common.pm:601
 msgid "Method"
 msgstr "Metoda"
 
@@ -54,12 +54,12 @@ msgstr "Metoda"
 msgid " --- The Detailed Node Listing ---"
 msgstr ""
 
-#: tp/Texinfo/Translations.pm:330
+#: tp/Texinfo/Translations.pm:344
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} na {class}"
 
-#: tp/Texinfo/Translations.pm:331
+#: tp/Texinfo/Translations.pm:345
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} od {class}"

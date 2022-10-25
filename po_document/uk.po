@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 19:43+0200\n"
+"POT-Creation-Date: 2022-10-25 10:51+0200\n"
 "PO-Revision-Date: 2021-06-16 16:10+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -20,31 +20,31 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: tp/Texinfo/Common.pm:585 tp/Texinfo/Common.pm:590
+#: tp/Texinfo/Common.pm:591 tp/Texinfo/Common.pm:596
 msgid "Function"
 msgstr "Функція"
 
-#: tp/Texinfo/Common.pm:586
+#: tp/Texinfo/Common.pm:592
 msgid "Macro"
 msgstr "Макрос"
 
-#: tp/Texinfo/Common.pm:587
+#: tp/Texinfo/Common.pm:593
 msgid "Special Form"
 msgstr "Спеціальна форма"
 
-#: tp/Texinfo/Common.pm:588 tp/Texinfo/Common.pm:591
+#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:597
 msgid "Variable"
 msgstr "Змінна"
 
-#: tp/Texinfo/Common.pm:589
+#: tp/Texinfo/Common.pm:595
 msgid "User Option"
 msgstr "Вибір користувача"
 
-#: tp/Texinfo/Common.pm:592 tp/Texinfo/Common.pm:593
+#: tp/Texinfo/Common.pm:598 tp/Texinfo/Common.pm:599
 msgid "Instance Variable"
 msgstr "Змінна екземпляра"
 
-#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:595
+#: tp/Texinfo/Common.pm:600 tp/Texinfo/Common.pm:601
 msgid "Method"
 msgstr "Метод"
 
@@ -52,12 +52,12 @@ msgstr "Метод"
 msgid " --- The Detailed Node Listing ---"
 msgstr ""
 
-#: tp/Texinfo/Translations.pm:330
+#: tp/Texinfo/Translations.pm:344
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} щодо {class}"
 
-#: tp/Texinfo/Translations.pm:331
+#: tp/Texinfo/Translations.pm:345
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} {class}"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 6.4.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-19 19:43+0200\n"
+"POT-Creation-Date: 2022-10-25 10:51+0200\n"
 "PO-Revision-Date: 2017-07-11 10:52+0200\n"
 "Last-Translator: Federico Bruni <fede@inventati.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -19,31 +19,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: tp/Texinfo/Common.pm:585 tp/Texinfo/Common.pm:590
+#: tp/Texinfo/Common.pm:591 tp/Texinfo/Common.pm:596
 msgid "Function"
 msgstr "Funzione"
 
-#: tp/Texinfo/Common.pm:586
+#: tp/Texinfo/Common.pm:592
 msgid "Macro"
 msgstr "Macro"
 
-#: tp/Texinfo/Common.pm:587
+#: tp/Texinfo/Common.pm:593
 msgid "Special Form"
 msgstr "Forma speciale"
 
-#: tp/Texinfo/Common.pm:588 tp/Texinfo/Common.pm:591
+#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:597
 msgid "Variable"
 msgstr "Variabile"
 
-#: tp/Texinfo/Common.pm:589
+#: tp/Texinfo/Common.pm:595
 msgid "User Option"
 msgstr "Opzione utente"
 
-#: tp/Texinfo/Common.pm:592 tp/Texinfo/Common.pm:593
+#: tp/Texinfo/Common.pm:598 tp/Texinfo/Common.pm:599
 msgid "Instance Variable"
 msgstr "Variabile dell'istanza"
 
-#: tp/Texinfo/Common.pm:594 tp/Texinfo/Common.pm:595
+#: tp/Texinfo/Common.pm:600 tp/Texinfo/Common.pm:601
 msgid "Method"
 msgstr "Metodo"
 
@@ -51,12 +51,12 @@ msgstr "Metodo"
 msgid " --- The Detailed Node Listing ---"
 msgstr ""
 
-#: tp/Texinfo/Translations.pm:330
+#: tp/Texinfo/Translations.pm:344
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} in {class}"
 
-#: tp/Texinfo/Translations.pm:331
+#: tp/Texinfo/Translations.pm:345
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} di {class}"

@@ -39,7 +39,7 @@ use Carp qw(carp confess);
 # for Encode::encode
 use Encode;
 
-# for __( and p__( and some functions
+# for __( and __p( and some functions
 use Texinfo::Common;
 
 
