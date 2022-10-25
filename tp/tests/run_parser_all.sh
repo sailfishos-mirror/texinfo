@@ -226,10 +226,19 @@ no_recoded_file_names=yes
 if sed 1q input_file_names_recoded_stamp.txt | grep 'OK' >/dev/null; then
   no_recoded_file_names=no
 fi
+
 # In Windows the recoding of file name is not reliable, as the file name may
 # be stored as UTF-16 using the user codepage to determine which codepage
 # the non-ASCII character comes from, and not the codepage that would have been
-# expected from the Perl code (Latin1 in the current case).
+# expected from the Perl code when creating the file, in
+# maintain/copy_change_file_name_encoding.pl and when determining the file name
+# to read in the tests (Latin1 in the current case).  Note that if the user
+# codepage is an encoding in which the character exists and is converted to and
+# from UTF-16 as the byte expected in Latin1, some tests may succeed even if
+# the characters shown and the locales used are not the ones expected.
+# However, if the character does not exist in the encoding, for instance in
+# case of multibyte encoding the character may not reliably be be converted to
+# a file name and read, so we skip the tests.
 if test "z$HOST_IS_WINDOWS_VARIABLE" = 'zyes' ; then
   no_recoded_file_names=yes
 fi
