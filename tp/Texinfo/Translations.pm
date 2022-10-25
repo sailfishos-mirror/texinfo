@@ -95,7 +95,7 @@ sub _switch_messages_locale
 # Return a parsed Texinfo tree
 sub gdt($$;$$$)
 {
-  my ($self, $message, $context, $type, $lang) = @_;
+  my ($self, $message, $replaced_substrings, $type, $lang) = @_;
 
   # In addition to being settable from the command line,
   # the language needs to be dynamic in case there is an untranslated string
@@ -103,15 +103,15 @@ sub gdt($$;$$$)
   $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
   $lang = $DEFAULT_LANGUAGE if (!defined($lang));
 
-  my $re = join '|', map { quotemeta $_ } keys %$context
-      if (defined($context) and ref($context));
+  my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings
+      if (defined($replaced_substrings) and ref($replaced_substrings));
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
   # We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
   # for translation via LANGUAGE to work.  (The locale is "C" if the
   # tests are being run.)
-  #   LC_MESSAGES was reported not to exit for Perl on MS-Windows.  We
+  #   LC_MESSAGES was reported not to exist for Perl on MS-Windows.  We
   # could use LC_ALL instead, but (a) it's not clear if this would help,
   # and (b) this could interfere with the LC_CTYPE setting in XSParagraph.
 
@@ -202,7 +202,8 @@ sub gdt($$;$$$)
   if ($type and $type eq 'translated_text') {
     if (defined($re)) {
       # next line taken from libintl perl, copyright Guido. sub __expand
-      $translation_result =~ s/\{($re)\}/defined $context->{$1} ? $context->{$1} : "{$1}"/ge;
+      $translation_result
+  =~ s/\{($re)\}/defined $replaced_substrings->{$1} ? $replaced_substrings->{$1} : "{$1}"/ge;
     }
     return $translation_result;
   }
@@ -223,7 +224,7 @@ sub gdt($$;$$$)
   # is worth it.  The current use case, that is allow to specify the state of
   # clickstyle and kbdinputstyle is relevant (though not implemented in thet XS
   # parser, but could be) but not necessarily determining.  Converters and
-  # users could easily avoir using @kbd and @click in the translated messages.
+  # users could easily avoid using @kbd and @click in the translated messages.
   # FIXME why not use $self->get_conf('clickstyle'), ...?  It would not be used
   # everytime, only if and where the $self object sets 'clickstyle'
   # and 'kbdinputstyle'
@@ -279,28 +280,28 @@ sub gdt($$;$$$)
       warn $error_message->{'error_line'};
     }
   }
-  $tree = _substitute ($tree, $context);
+  $tree = _substitute ($tree, $replaced_substrings);
   return $tree;
 }
 
 sub _substitute_element_array ($$);
 sub _substitute_element_array ($$) {
-  my $array = shift; my $context = shift;
+  my $array = shift; my $replaced_substrings = shift;
 
   @{$array} = map {
     if ($_->{'cmdname'} and $_->{'cmdname'} eq 'txiinternalvalue') {
       my $name = $_->{'args'}->[0]->{'text'};
-      if (ref($context->{$name}) eq 'HASH') {
-        $context->{$name};
-      } elsif (ref($context->{$name}) eq 'ARRAY') {
-        @{$context->{$name}};
-      } elsif (ref($context->{$name}) eq '') {
-        {'text' => $context->{$name}};
+      if (ref($replaced_substrings->{$name}) eq 'HASH') {
+        $replaced_substrings->{$name};
+      } elsif (ref($replaced_substrings->{$name}) eq 'ARRAY') {
+        @{$replaced_substrings->{$name}};
+      } elsif (ref($replaced_substrings->{$name}) eq '') {
+        {'text' => $replaced_substrings->{$name}};
       } else {
         (); # undefined - shouldn't happen?
       }
     } else {
-      _substitute($_, $context);
+      _substitute($_, $replaced_substrings);
       ( $_ );
     }
   } @{$array};
@@ -310,14 +311,14 @@ sub _substitute_element_array ($$) {
 # their values given in $CONTEXT.
 sub _substitute ($$);
 sub _substitute ($$) {
-  my $tree = shift; my $context = shift;
+  my $tree = shift; my $replaced_substrings = shift;
 
   if ($tree->{'contents'}) {
-    _substitute_element_array ($tree->{'contents'}, $context);
+    _substitute_element_array ($tree->{'contents'}, $replaced_substrings);
   }
 
   if ($tree->{'args'}) {
-    _substitute_element_array ($tree->{'args'}, $context);
+    _substitute_element_array ($tree->{'args'}, $replaced_substrings);
   }
 
   return $tree;

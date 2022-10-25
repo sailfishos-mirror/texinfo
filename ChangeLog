@@ -45,6 +45,12 @@
 
 2022-10-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Translations.pm (gdt): replace argument variable name
+	$context with $replaced_substrings, as it could be confused with
+	message context.
+
+2022-10-25  Patrice Dumas  <pertusus@free.fr>
+
 	* po/Makevars (XGETTEXT_OPTIONS): add -k__p:1c,2 for __p() in perl.
 
 2022-10-24  Patrice Dumas  <pertusus@free.fr>
