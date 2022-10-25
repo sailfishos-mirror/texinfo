@@ -211,6 +211,8 @@ Use util/srclist-txi for checking files to be copied from gnulib
 run all tests with valgrind:
 * under info/t, put valgrind in $ginfo, then check t/*.val.log files after
   running test suite
+* edit install-info/tests/defs.in, uncomment valgrind line and run
+  config.status to regenerate defs
 
 parsetexi memory leak checks with valgrind
 
