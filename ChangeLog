@@ -1,5 +1,10 @@
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/tests/formatting/an_ïmage.png: Shrink image to reduce
+	use of space.
+
+2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/scan.c (scan_node_contents): Free node contents if
 	N_WasRewritten flag is set.  This avoids a memory leak in
 	the t/index-search.sh test.
