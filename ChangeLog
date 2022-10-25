@@ -1,5 +1,14 @@
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	awk check
+
+	* configure.ac: Rewrite awk check to use
+	AC_PATH_PROGS_FEATURE_CHECK.  Check for user-defined functions.
+	Suggestion from Bruno Haible.  Check for "awk" before trying other
+	program names.
+
+2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Limit references to the XML output, as
 	it is not likely to be useful.  Eliminate references to
 	"TexinfoXML" or "Texinfo-XML".

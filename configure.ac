@@ -74,13 +74,17 @@ fi
 
 AC_REQUIRE_AUX_FILE([tap-driver.sh])
 
-# awk for texindex.
-# don't use AC_PROG_AWK because this prefers gawk, which is much slower
-# than mawk for texindex and texi2dvi
-AC_CHECK_PROGS([TI_AWK], [mawk gawk nawk awk], [])
-if test -z "$TI_AWK"; then
-  AC_MSG_ERROR([awk not found])
-fi
+# Find awk for running texindex.
+# Don't use AC_PROG_AWK because this prefers gawk, which may be much
+# slower than the awk that the user has in their path (e.g. mawk).
+# We use AC_PATH_PROGS_FEATURE_CHECK to eliminate archaic versions of
+# awk that don't support user-defined functions.
+AC_CACHE_CHECK([for awk], [ac_cv_path_TI_AWK],
+    [AC_PATH_PROGS_FEATURE_CHECK([TI_AWK], [awk gawk mawk nawk],
+      [[$ac_path_TI_AWK 'function foo () {}' 2>/dev/null \
+           && ac_cv_path_TI_AWK=$ac_path_TI_AWK ac_path_TI_AWK_found=:]],
+      [AC_MSG_ERROR([awk not found])])])
+AC_SUBST([TI_AWK], [$ac_cv_path_TI_AWK])
 
 # for generating texindex.awk
 AM_MISSING_PROG(GAWK, gawk)
