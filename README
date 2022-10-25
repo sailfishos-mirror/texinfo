@@ -114,10 +114,6 @@ Installation support:
 The util/ directory contains a few other scripts, e.g., examples of
 using texi2any in various ways.  See util/README.
 
-Finally, the contrib/ directory contains additional files from users
-provided for your reading and/or hacking pleasure.  They aren't part of
-Texinfo proper or maintained by the Texinfo developers.
-
 Some files in this package have their copyright years stated as a range
 ('2008-2010') rather than listed as individual years ('2008, 2009, 
 2010').

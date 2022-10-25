@@ -1,5 +1,11 @@
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* Makefile.am, README, README-hacking: Do not distribute the
+	contrib/ subdirectory.  This shrinks the .tar.xz file to
+	5.2 MB.
+
+2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* js/Makefile.am (EXTRA_DIST): Do not distribute 'examples'
 	directory.  This shrinks .tar.xz file from 5.9 MB to 5.5 MB.
 

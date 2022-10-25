@@ -137,6 +137,11 @@ following directory in the source control repository:
 js/ - Work on enhanced browsing of HTML manuals with JavaScript
 infog/ - HTML-Info reader using WebKitGTK library
 
+Finally, the contrib/ directory contains additional files from users
+provided for your reading and/or hacking pleasure.  They aren't part of
+Texinfo proper or maintained by the Texinfo developers.
+
+
 
 
 About running the Texinfo programs from a development source tree:
