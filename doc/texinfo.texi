@@ -771,12 +771,11 @@ that instead of writing several different documents, one for each output
 format, you need only write one document.
 
 Using Texinfo, you can create a printed document (via the @TeX{}
-typesetting system) in PDF or PostScript format, including chapters,
+typesetting system) in PDF format, including chapters,
 sections, cross-references, and indices.  From the same Texinfo source
-file, you can create an HTML output file suitable for use with a web
-browser, you can create an Info file with special features to make
-browsing documentation easy, and also create a DocBook file or a
-transliteration to XML format.
+file, you can create HTML output suitable for use with a web
+browser, you can create an Info file for use in GNU Emacs or other
+Info-reading programs, and also create DocBook, EPUB 3 or @LaTeX{} files.
 
 @cindex Source file format
 @cindex Semantic markup
@@ -785,10 +784,9 @@ with @dfn{@@-commands} (words preceded by an @samp{@@}) that tell the
 Texinfo processors what to do.  Texinfo's markup commands are almost 
 entirely @dfn{semantic}; that is, they specify the intended meaning
 of text in the document, rather than physical formatting instructions.
-You can edit a Texinfo file with any text editor, but it is especially
-convenient to use GNU Emacs since that editor has a special mode,
-called Texinfo mode, that provides various Texinfo-related features.
-(@xref{Texinfo Mode}.)
+
+GNU Emacs has a special mode, called Texinfo mode, that provides various
+Texinfo-related features. (@xref{Texinfo Mode}.)
 
 @cindex Limited scope of Texinfo
 Texinfo was devised specifically for the purpose of writing software
@@ -986,23 +984,24 @@ see the Texinfo web pages.
 @cindex DTD, for Texinfo XML
 @pindex texinfo.dtd
 @pindex txixml2texi
-(Generated via @command{texi2any --xml}.)  XML is a generic syntax
-specification usable for any sort of content (a reference is at
-@uref{http://www.w3.org/XML}).  The @command{texi2any} XML output,
-unlike all the other output formats, is a transliteration of the
-Texinfo source rather than processed output.  That is, it translates
-the Texinfo markup commands into XML syntax, for further processing by
-XML tools.  The XML contains enough information to recreate the
-original content, except for syntactic constructs such as Texinfo
-macros and conditionals.  The Texinfo source distribution includes a
-utility script @file{txixml2texi} to do that backward transformation.
+(Generated via @command{texi2any --xml}.)
+The @command{texi2any} XML output, unlike all the other output
+formats, is a transliteration of the Texinfo source, rather than
+finished output.  Texinfo XML files cannot be viewed in web browsers
+or other programs.
 
-The details of the output syntax are defined in an XML DTD as usual,
+XML is a generic syntax specification usable for any sort of content.
+(A reference is at @uref{http://www.w3.org/XML}.)
+The purpose of the Texinfo XML output is to allow further processing by
+XML tools.  The output syntax is defined in an XML DTD,
 which is contained in a file @file{texinfo.dtd} included in the
-Texinfo source distribution and available via the Texinfo web pages.
-Texinfo XML files, and XML files in general, cannot be viewed in
-typical web browsers; they won't follow the DTD reference and as a
-result will simply report a (misleading) syntax error.
+Texinfo source distribution.
+
+The Texinfo source distribution includes a
+utility script @file{txixml2texi} to do a backward transformation
+to recreate the original Texinfo content (except for Texinfo macros
+and conditionals).
+
 @end table
 
 
@@ -2065,9 +2064,9 @@ Permission is granted to @dots{}
 The @code{@@quotation} has no legal significance; it's there to improve
 readability in some contexts.
 
-The text of @code{@@copying} appears at the beginning of the XML and
-DocBook output files using appropriate markup.  This information is also output
-as a comment at the beginning of Info and HTML output files.  It is @emph{not}
+The text of @code{@@copying} appears as a comment at the beginning of Info
+and HTML output files.  This information is also output at the beginning
+of the DocBook output files using appropriate markup.  It is @emph{not}
 output implicitly in plain text or printed output; it's up to you to use
 @code{@@insertcopying} to emit the copying information.  See the next section
 for details.
@@ -2150,7 +2149,7 @@ text is not visible without @code{@@insertcopying} (unless the reader views the
 HTML source).
 
 The permissions text defined by @code{@@copying} also appears
-automatically at the beginning of the XML and DocBook output files
+automatically at the beginning of the DocBook output files
 using appropriate markup.  @code{@@insertcopying} can be used
 to output the permission text within normal text.
 
@@ -3849,7 +3848,7 @@ header by default (controlled by the @code{CHAPTER_HEADER_LEVEL}
 customization variable, @pxref{Other Customization Variables}).
 The heading element level is adjusted for the other commands.
 
-In the XML and DocBook output, the appropriate level of element is used.
+In the DocBook output, the appropriate level of element is used.
 The produced element includes all following sections up to the next command
 at the same or higher level.
 For example, a @code{<chapter>} element is produced for @code{@@chapter},
@@ -4171,7 +4170,7 @@ In the HTML output, the @code{@@part} text is similarly included in
 the tables of contents, and a heading is included in the main document
 text, as part of the following chapter or appendix node.
 
-In the XML and DocBook output, the @code{<part>} element includes all
+In the DocBook output, the @code{<part>} element includes all
 the following chapters, up to the next @code{<part>}.  A @code{<part>}
 containing chapters is also closed at an appendix.
 
@@ -7792,7 +7791,7 @@ input lines in your source file as necessary.
 
 @findex headitem
 @cindex Heading row, in table
-@cindex @code{<thead>} HTML/XML tag
+@cindex @code{<thead>} HTML/DocBook tag
 You can also use @code{@@headitem} instead of @code{@@item} to produce
 a @dfn{heading row}.  The @TeX{} output for such a row is in bold, and
 the HTML and DocBook output uses the @code{<thead>} tag.  In Info, the
@@ -10738,7 +10737,7 @@ how UTF-8 characters are output.  (@xref{@code{@@documentencoding}}.)
 
 @cindex Entity reference in HTML et al.
 @cindex @samp{&#x@var{hex};}, output from @code{@@U}
-In HTML, XML, and DocBook, the output from @code{@@U} is always an
+In HTML and DocBook, the output from @code{@@U} is always an
 entity reference of the form @samp{&#x@var{hex};}, as in
 @samp{&#x0132;} for the example above.  This should work even when an
 HTML document uses some other encoding (say, Latin@tie{}1) and the
@@ -12469,7 +12468,7 @@ to @command{texi2any}, accent constructs and special characters, such as
 the output encoding where possible.  Otherwise HTML entities are used for those
 characters in HTML, and @LaTeX{} macros are used in @LaTeX{}.
 
-In XML and DocBook output, if the encoding is different from UTF-8,
+In DocBook output, if the encoding is different from UTF-8,
 an @code{encoding} attribute is added to the XML declaration.
 If the option @option{--enable-encoding} is given to @command{texi2any},
 accent constructs such as @code{@@'e} are output as the actual 8-bit or
@@ -15388,9 +15387,9 @@ the document encoding.  With @option{--disable-encoding}, 7-bit
 ASCII transliterations are output.
 
 By default, or with @option{--disable-encoding}, output accented and
-special characters in HTML, TexinfoXML and DocBook using XML entities.
+special characters in HTML, XML and DocBook using XML entities.
 With @option{--enable-encoding}, output accented characters in HTML,
-TexinfoXML and DocBook output and special characters in HTML output
+XML and DocBook output and special characters in HTML output
 based on the document encoding.  @xref{@code{@@documentencoding}},
 and @ref{Inserting Accents}.
 
@@ -16751,7 +16750,7 @@ For DocBook, HTML, XML@.  Specifies the @code{SystemLiteral}, the
 entity's system identifier.  This is a URI which may be used to
 retrieve the entity, and identifies the canonical DTD for the
 document.  The default value is different for each of HTML, DocBook
-and Texinfo@tie{}XML.
+and XML.
 
 @item DUMP_TEXI
 For debugging.  If set, no conversion is done, only parsing and macro
