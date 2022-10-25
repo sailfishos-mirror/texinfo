@@ -368,7 +368,7 @@ distclean-local:
 	rm -f t/results/*/*.pl.new
 	rm -rf t/results/*/*/out_*/
 	rm -rf t/include_dir
-	rm -rf blib po po_document
+	rm -rf po po_document
 
-CLEANFILES = texi2any makeinfo texi2any-perl Texinfo/ModulePath.pm
-DISTCLEANFILES = maintain/catalog.xml pm_to_blib Makefile.old Texinfo/Commands.pm
+CLEANFILES = texi2any makeinfo Texinfo/ModulePath.pm
+DISTCLEANFILES = maintain/catalog.xml Texinfo/Commands.pm

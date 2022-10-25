@@ -1,5 +1,13 @@
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Makefile.am (distlean-local, CLEANFILES, DISTCLEANFILES):
+	Remove references to blib, pm_to_blib and Makefile.old files
+	and directories.  These are relics of an old Perl build system
+	that is no longer present.  Remove reference to 'texi2any-perl'
+	file, not present anywhere.
+
+2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* Makefile.am, README, README-hacking: Do not distribute the
 	contrib/ subdirectory.  This shrinks the .tar.xz file to
 	5.2 MB.
