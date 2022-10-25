@@ -10308,8 +10308,7 @@ than a hyphen, shorter than an em-dash:
 @end display
 
 If you actually want to typeset some math that does a subtraction, it
-is better to use @code{@@math}.  Then the regular @samp{-} character
-produces a minus sign, as in @code{@@math@{a-b@}} (@pxref{Inserting
+is better to use @code{@@math}, as in @code{@@math@{a-b@}} (@pxref{Inserting
 Math}).
 
 

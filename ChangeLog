@@ -1,5 +1,11 @@
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@minus): Do not state that '-' produces
+	a minus sign inside @math as results differ for different output
+	formats.  Report from Vincent Lefèvre.
+
+2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	awk check
 
 	* configure.ac: Rewrite awk check to use
