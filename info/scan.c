@@ -1653,6 +1653,8 @@ not_a_reference:
 
   if (rewrite_p)
     {
+      if (node->flags & N_WasRewritten)
+        free (node->contents);
       node->contents = text_buffer_base (&output_buf);
       node->flags |= N_WasRewritten;
  

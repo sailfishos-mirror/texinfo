@@ -1,5 +1,11 @@
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* info/scan.c (scan_node_contents): Free node contents if
+	N_WasRewritten flag is set.  This avoids a memory leak in
+	the t/index-search.sh test.
+
+2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: advice on valgrind
 
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
