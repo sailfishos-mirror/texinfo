@@ -332,10 +332,14 @@ my $main_program_set_options = {
     'LOCALE_ENCODING' => $locale_encoding
 };
 
-# use locale on Windows to set encoding of input file name as
-# system calls obey locale pages even if the filesystem uses
-# utf16 internally
-# FIXME better explanation?
+# In Windows, a character in file name is encoded according to the current
+# codepage, and converted to/from UTF-16 in the filesystem.  If a file name is
+# not encoded in the current codepage, the file name will appear with erroneous
+# characters when listing file names.  Also the encoding and decoding to
+# UTF-16 may fail, especially when the codepage is 8bit while the file name
+# is encoded in a multibyte encoding.
+# We assume that in Windows the file names are reencoded in the current
+# codepage encoding to avoid those issues.
 if ($^O eq 'MSWin32') {
   $main_program_set_options->{'DOC_ENCODING_FOR_INPUT_FILE_NAME'} = 0;
 }
