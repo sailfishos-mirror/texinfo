@@ -25,5 +25,4 @@ simpler (which is not to say simple) than finalizing texifont/, though
 of course much less featureful.
 
 The perldoc-all subdirectory is about making Texinfo out of the standard
-Perl *.pod files.  The results are at
-http://www.gnu.org/software/perl/manual.
+Perl *.pod files.

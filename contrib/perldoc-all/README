@@ -7,7 +7,7 @@ texinfo/contrib/perldoc-all/README
   notice and this notice are preserved.
 
 This stuff is about making Texinfo out of the standard Perl *.pod files.
-The results are at http://www.gnu.org/software/perl/manual.
+The results used to be at http://www.gnu.org/software/perl/manual.
 
 The idea is to unpack the perl distribution here, as in,
   wget http://www.cpan.org/src/5.0/perl-5.NN.M.tar.gz  # with right NN.M
@@ -17,8 +17,7 @@ itself (just copy the .info file to an Info directory), it also serves
 as a nontrivial example of using pod2texi.
 
 Note that a main issue with the generated files is that many internal
-links are missing because the links do not follow the Pod specification
-as Pod::Simple::Role::XHTML::WithLinkMappings which formats the Perldoc
-Browser adds anchors:
-  "a link will be generated using the first word of the target."
+links are missing because of the Pod::Simple::Role::XHTML::WithExtraTargets
+role of the MetaCPAN::Pod::XHTML class, which adds anchors:
+   "Link targets based on the first word of headings will be added to make linking easier."
 

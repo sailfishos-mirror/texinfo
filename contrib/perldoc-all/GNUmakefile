@@ -25,9 +25,9 @@ pod2texi_args += --subdir=$(texi_pod_subdir)
 gendocs_args  = --email bug-texinfo@gnu.org
 # Unfortunately have to use --no-validate since not all the names and
 # L<references> match up.  The main issue with missing links is because
-# Pod::Simple::Role::XHTML::WithLinkMappings which formats the Perldoc Browser
-# does not follow the Pod specification and adds anchors:
-#   "a link will be generated using the first word of the target."
+# of the Pod::Simple::Role::XHTML::WithExtraTargets role of the
+# MetaCPAN::Pod::XHTML class, which adds anchors:
+#   "Link targets based on the first word of headings will be added to make linking easier."
 gendocs_args += --common "--no-warn --no-validate"
 # Split HTML by chapter is the natural thing here.
 gendocs_args += --split chapter
