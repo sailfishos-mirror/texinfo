@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2022-02-15 11:20+0100\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -2232,11 +2232,31 @@ msgstr "%s är inte en giltig landskod"
 msgid "%s is not a valid region code"
 msgstr "%s är inte en giltig regionkod"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: varning: "
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "fel vid inläsning av %s: %s\n"
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: varning: "
 
 #: tp/Texinfo/Config.pm:191
 #, fuzzy, perl-format
@@ -3196,6 +3216,33 @@ msgstr "@urefbreakstyle-argument måste vara ”after”/”before”/”none”
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "@%s argument måste vara ”top” eller ”bottom”, inte ”%s”"
 
+#: tp/Texinfo/Report.pm:86
+#, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr ""
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "%s: varning: "
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s: varning: "
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "%s: varning: "
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3622,6 +3669,13 @@ msgstr ""
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm: utdata har inget HTML-objekt för @%s %s %s"
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s: varning: "
 
 #: tp/texi2any.pl:437
 #, perl-format
@@ -4915,9 +4969,6 @@ msgstr "felplacerat }"
 
 #~ msgid " Subfile: %s"
 #~ msgstr " Underfil: %s"
-
-#~ msgid "%s: warning: "
-#~ msgstr "%s: varning: "
 
 #~ msgid "ferror on stdout\n"
 #~ msgstr "ferror-fel på standard ut\n"

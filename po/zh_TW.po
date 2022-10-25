@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.1\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2002-03-08 04:56+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -2230,10 +2230,30 @@ msgstr "%s 不是一個合法的 ISO 639 語言碼"
 msgid "%s is not a valid region code"
 msgstr "%s 不是一個合法的 ISO 639 語言碼"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: 警告: "
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 msgid "error loading %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: 警告: "
 
 #: tp/Texinfo/Config.pm:191
 #, perl-format
@@ -3217,6 +3237,33 @@ msgstr "%s: --footnote-style 的引數必須為 `separate' 或 `end', 而不是 `%s'.\n"
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "%s: %s 引數必須為數值, 而不是 `%s'.\n"
 
+#: tp/Texinfo/Report.pm:86
+#, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr ""
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "%s: 警告: "
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s: 警告: "
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "%s: 警告: "
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3591,6 +3638,13 @@ msgstr ""
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr ""
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s: 警告: "
 
 #: tp/texi2any.pl:437
 #, fuzzy, perl-format
@@ -4827,10 +4881,6 @@ msgstr "誤置的 %c"
 #, c-format
 #~ msgid "%c%s is obsolete; use %c%s instead"
 #~ msgstr "%c%s 已廢棄不用; 請改用 %c%s"
-
-#, c-format
-#~ msgid "%s: warning: "
-#~ msgstr "%s: 警告: "
 
 #, c-format
 #~ msgid ""

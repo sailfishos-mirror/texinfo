@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -2177,11 +2177,31 @@ msgstr "%s không phải mã ngôn ngữ hợp lệ"
 msgid "%s is not a valid region code"
 msgstr "%s không phải mã vùng hợp lệ"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:%d: cảnh báo: %s\n"
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "lỗi tải %s: %s\n"
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:%d: cảnh báo: %s\n"
 
 #: tp/Texinfo/Config.pm:191
 #, fuzzy, perl-format
@@ -3156,6 +3176,34 @@ msgstr ""
 " * bottom    đáy\n"
 "chứ không phải “%s”"
 
+#: tp/Texinfo/Report.pm:86
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s (possibly involving @%s)\n"
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr "%s:%d: cảnh báo: %s (có lẽ gọi @%s)\n"
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "warning: %s\n"
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "Cảnh báo: %s\n"
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d: cảnh báo: %s\n"
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "warning: %s\n"
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "Cảnh báo: %s\n"
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3586,6 +3634,13 @@ msgstr "tex4ht.pm: kết xuất không có mục HTML cho @%s %s"
 #| msgid "tex4ht.pm: output has no HTML item for @%s %s"
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "tex4ht.pm: kết xuất không có mục HTML cho @%s %s"
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d: cảnh báo: %s\n"
 
 #: tp/texi2any.pl:437
 #, perl-format
@@ -5053,15 +5108,6 @@ msgstr "%c không đúng chỗ"
 
 #~ msgid "Can't read file %s: %s"
 #~ msgstr "Không thể đọc tệp tin %s: %s"
-
-#~ msgid "%s:%d: warning: %s (possibly involving @%s)\n"
-#~ msgstr "%s:%d: cảnh báo: %s (có lẽ gọi @%s)\n"
-
-#~ msgid "%s:%d: warning: %s\n"
-#~ msgstr "%s:%d: cảnh báo: %s\n"
-
-#~ msgid "warning: %s\n"
-#~ msgstr "Cảnh báo: %s\n"
 
 #~ msgid "Menu reference to nonexistent node `%s'"
 #~ msgstr "Trình đơn tham chiếu đến vị trí nút chưa sẵn có “%s”"

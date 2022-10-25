@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2021-07-01 19:22+02:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -2210,11 +2210,31 @@ msgstr "%s není platný kód jazyka"
 msgid "%s is not a valid region code"
 msgstr "%s není platný kód oblasti"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: varování: "
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "chyba při zavádění %s: %s\n"
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: varování: "
 
 #: tp/Texinfo/Config.pm:191
 #, fuzzy, perl-format
@@ -3153,6 +3173,33 @@ msgstr ""
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "@%s argument musí být „top“ nebo „bottom“, ne „%s“"
 
+#: tp/Texinfo/Report.pm:86
+#, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr ""
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "%s: varování: "
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s: varování: "
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "%s: varování: "
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3581,6 +3628,13 @@ msgstr ""
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm: výstup nemá žádnou HTML položku pro @%s %s %s"
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s: varování: "
 
 #: tp/texi2any.pl:437
 #, perl-format
@@ -5312,9 +5366,6 @@ msgstr "špatně umístěný znak }"
 
 #~ msgid "%s: TOC should be here, but it was not found"
 #~ msgstr "%s: Obsah běl být zde, ale nebyl nalezen"
-
-#~ msgid "%s: warning: "
-#~ msgstr "%s: varování: "
 
 #~ msgid "%s: Specify the Info directory only once.\n"
 #~ msgstr "%s: Info adresář zadejte pouze jednou.\n"

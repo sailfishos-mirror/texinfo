@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.0.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2015-12-28 00:59+0200\n"
 "Last-Translator: Tsiolkas Michail <cs112152@cs.uoi.gr>\n"
 "Language-Team: Greek <team@lists.gnome.gr>\n"
@@ -2028,9 +2028,27 @@ msgstr ""
 msgid "%s is not a valid region code"
 msgstr ""
 
+#: tp/Texinfo/Config.pm:121
+#, perl-format
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr ""
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, perl-format
 msgid "error loading %s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, perl-format
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
 msgstr ""
 
 #: tp/Texinfo/Config.pm:191
@@ -2950,6 +2968,30 @@ msgstr ""
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr ""
 
+#: tp/Texinfo/Report.pm:86
+#, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr ""
+
+#: tp/Texinfo/Report.pm:90
+#, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr ""
+
+#: tp/Texinfo/Report.pm:140
+#, perl-format
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr ""
+
+#: tp/Texinfo/Report.pm:143
+#, perl-format
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr ""
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3318,6 +3360,12 @@ msgstr ""
 #: tp/init/highlight_syntax.pm:472
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
+msgstr ""
+
+#: tp/texi2any.pl:411
+#, perl-format
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
 msgstr ""
 
 #: tp/texi2any.pl:437

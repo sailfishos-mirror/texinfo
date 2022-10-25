@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2021-03-17 15:12-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -2168,11 +2168,31 @@ msgstr "%s ne estas valida lingvokodo"
 msgid "%s is not a valid region code"
 msgstr "%s ne estas valida regiona kodo"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:%d: averto: %s\n"
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "eraro dum ŝargo de %s: %s\n"
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:%d: averto: %s\n"
 
 #: tp/Texinfo/Config.pm:191
 #, fuzzy, perl-format
@@ -3117,6 +3137,34 @@ msgstr ""
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "argumento de '@%s' devus esti 'top' aŭ 'bottom', ne '%s'"
 
+#: tp/Texinfo/Report.pm:86
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s (possibly involving @%s)\n"
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr "%s:%d: averto: %s (eble koncernas @%s)\n"
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "warning: %s\n"
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "averto: %s\n"
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d: averto: %s\n"
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "warning: %s\n"
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "averto: %s\n"
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3546,6 +3594,13 @@ msgstr "tex4ht.pm: eligo ne enhavas HTML-an eron por '@%s %s'"
 #| msgid "tex4ht.pm: output has no HTML item for @%s %s"
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "tex4ht.pm: eligo ne enhavas HTML-an eron por '@%s %s'"
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d: averto: %s\n"
 
 #: tp/texi2any.pl:437
 #, perl-format
@@ -4893,15 +4948,6 @@ msgstr "misloka }"
 
 #~ msgid "Can't read file %s: %s"
 #~ msgstr "Ne eblas legi dosieron '%s': %s"
-
-#~ msgid "%s:%d: warning: %s (possibly involving @%s)\n"
-#~ msgstr "%s:%d: averto: %s (eble koncernas @%s)\n"
-
-#~ msgid "%s:%d: warning: %s\n"
-#~ msgstr "%s:%d: averto: %s\n"
-
-#~ msgid "warning: %s\n"
-#~ msgstr "averto: %s\n"
 
 #~ msgid "Menu reference to nonexistent node `%s'"
 #~ msgstr "Menua referenco al neekzistanta nodo '%s'"

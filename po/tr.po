@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2021-06-22 12:11+0300\n"
 "Last-Translator: Mehmet Kececi <mkececi@mehmetkececi.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -2197,11 +2197,31 @@ msgstr "%s geçerli bir dil kodu değildir"
 msgid "%s is not a valid region code"
 msgstr "%s geçerli bir bölge kodu değildir"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:%d: uyarı: %s\n"
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "%s yüklenirken hata: %s\n"
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:%d: uyarı: %s\n"
 
 #: tp/Texinfo/Config.pm:191
 #, fuzzy, perl-format
@@ -3142,6 +3162,34 @@ msgstr "@urefbreakstyle arg `after'/`before'/`none' olmalıdır, `%s' değil"
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "@%s arg `top' ya da `bottom' olmalıdır, `%s' değil"
 
+#: tp/Texinfo/Report.pm:86
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s (possibly involving @%s)\n"
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr "%s.%d: uyarı: %s (muhtemelen @%s ile ilgili)\n"
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "warning: %s\n"
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "uyarı: %s\n"
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d: uyarı: %s\n"
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "warning: %s\n"
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "uyarı: %s\n"
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3567,6 +3615,13 @@ msgstr "highlight_syntax.pm: çıktıda @%s için HTML öğesi var fakat %s dili
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm: çıktı için HTML öğesi yok @%s %s %s"
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d: uyarı: %s\n"
 
 #: tp/texi2any.pl:437
 #, perl-format
@@ -4905,15 +4960,6 @@ msgstr "yanlış yerleştirilmiş }"
 
 #~ msgid "Can't read file %s: %s"
 #~ msgstr "%s dosyası okunamıyor: %s"
-
-#~ msgid "%s:%d: warning: %s (possibly involving @%s)\n"
-#~ msgstr "%s.%d: uyarı: %s (muhtemelen @%s ile ilgili)\n"
-
-#~ msgid "%s:%d: warning: %s\n"
-#~ msgstr "%s:%d: uyarı: %s\n"
-
-#~ msgid "warning: %s\n"
-#~ msgstr "uyarı: %s\n"
 
 #~ msgid "Menu reference to nonexistent node `%s'"
 #~ msgstr "Varolmayan düğüm `%s'e menü referansı"

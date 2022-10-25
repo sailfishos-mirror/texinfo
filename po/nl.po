@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2021-07-02 11:05+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -2216,11 +2216,31 @@ msgstr "%s is geen geldige taalcode"
 msgid "%s is not a valid region code"
 msgstr "%s is geen geldige regiocode"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:%d: waarschuwing: %s\n"
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "fout bij laden van %s: %s\n"
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:%d: waarschuwing: %s\n"
 
 #: tp/Texinfo/Config.pm:191
 #, fuzzy, perl-format
@@ -3178,6 +3198,34 @@ msgstr ""
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "Argument van @%s moet 'top' of 'bottom' zijn, niet '%s'"
 
+#: tp/Texinfo/Report.pm:86
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s (possibly involving @%s)\n"
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr "%s:%d: waarschuwing: %s (heeft mogelijk te maken met @%s)\n"
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "warning: %s\n"
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "waarschuwing: %s\n"
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d: waarschuwing: %s\n"
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "warning: %s\n"
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "waarschuwing: %s\n"
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3608,6 +3656,13 @@ msgstr ""
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "highlight_syntax.pm: uitvoer bevat geen HTML-item voor @%s %s %s"
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s:%d: warning: %s\n"
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d: waarschuwing: %s\n"
 
 #: tp/texi2any.pl:437
 #, perl-format
@@ -5010,15 +5065,6 @@ msgstr "verkeerd geplaatste }"
 
 #~ msgid "Can't read file %s: %s"
 #~ msgstr "Kan bestand %s niet lezen: %s"
-
-#~ msgid "%s:%d: warning: %s (possibly involving @%s)\n"
-#~ msgstr "%s:%d: waarschuwing: %s (heeft mogelijk te maken met @%s)\n"
-
-#~ msgid "%s:%d: warning: %s\n"
-#~ msgstr "%s:%d: waarschuwing: %s\n"
-
-#~ msgid "warning: %s\n"
-#~ msgstr "waarschuwing: %s\n"
 
 #~ msgid "Menu reference to nonexistent node `%s'"
 #~ msgstr "Menu verwijst naar niet-bestaande pagina '%s'"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.94\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -2251,10 +2251,28 @@ msgstr "%sni OYA a Byemewe Ururimi ITEGEKONGENGA"
 msgid "%s is not a valid region code"
 msgstr "%sni OYA a Byemewe Ururimi ITEGEKONGENGA"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:Iburira"
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 msgid "error loading %s: %s"
 msgstr "Ikosa Kuri"
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s:Iburira"
 
 # sw/source\ui\fldui\fldui.src:STR_SETFLD.text
 #: tp/Texinfo/Config.pm:191
@@ -3191,6 +3209,30 @@ msgstr "%s:--Ubusobanuro mpezarupapuro IMISUSIRE Cyangwa OYA"
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "%s:%sBikurikije umubare OYA"
 
+#: tp/Texinfo/Report.pm:86
+#, fuzzy, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr "%s:%d:Iburira"
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "%s:%d:Iburira"
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d:Iburira"
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "%s:%d:Iburira"
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3561,6 +3603,12 @@ msgstr "Kurema Ibisohoka IDOSIYE"
 #, fuzzy, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "Kurema Ibisohoka IDOSIYE"
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s:%d:Iburira"
 
 #: tp/texi2any.pl:437
 #, fuzzy, perl-format
@@ -4782,18 +4830,6 @@ msgstr ""
 #~ msgstr "Gukuraho... IDOSIYE"
 
 #, fuzzy
-#~ msgid "%s:%d: warning: %s (possibly involving @%s)\n"
-#~ msgstr "%s:%d:Iburira"
-
-#, fuzzy
-#~ msgid "%s:%d: warning: %s\n"
-#~ msgstr "%s:%d:Iburira"
-
-#, fuzzy
-#~ msgid "warning: %s\n"
-#~ msgstr "%s:%d:Iburira"
-
-#, fuzzy
 #~ msgid "chm.pm:%s: Cannot open for writing: %s\n"
 #~ msgstr "%s:OYA Gufungura IDOSIYE"
 
@@ -5534,10 +5570,6 @@ msgstr ""
 #~ "\\@strong{Note...} produces a spurious cross-reference in Info; reword to "
 #~ "avoid that"
 #~ msgstr "@a Kwambukiranya Indango in Kuri"
-
-#, fuzzy
-#~ msgid "%s: warning: "
-#~ msgstr "%s:Iburira"
 
 #, fuzzy
 #~ msgid "%s: illegal option -- %c\n"

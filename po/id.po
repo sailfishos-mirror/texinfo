@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2014-08-11 17:30+0700\n"
 "Last-Translator: Arif E. Nugroho <arif_endro@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -2390,11 +2390,31 @@ msgstr "%s bukan sebuah kode bahasa ISO 639 yang valid"
 msgid "%s is not a valid region code"
 msgstr "%s bukan sebuah kode bahasa ISO 639 yang valid"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: peringatan: "
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "error menulis ke `%s': %s\n"
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: peringatan: "
 
 #: tp/Texinfo/Config.pm:191
 #, fuzzy, perl-format
@@ -3346,6 +3366,33 @@ msgstr "--footnote-style arg harus berupa `separate' atau `end', bukan `%s'."
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "@%s arg harus berupa numerik, bukan `%s'"
 
+#: tp/Texinfo/Report.pm:86
+#, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr ""
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "%s: peringatan: "
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s: peringatan: "
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "%s: peringatan: "
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3776,6 +3823,13 @@ msgstr "tex4ht.pm: output has no HTML item for @%s %s"
 #| msgid "tex4ht.pm: output has no HTML item for @%s %s"
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr "tex4ht.pm: output has no HTML item for @%s %s"
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s: peringatan: "
 
 #: tp/texi2any.pl:437
 #, perl-format
@@ -5233,9 +5287,6 @@ msgstr "Salah tempat %c"
 
 #~ msgid "Done."
 #~ msgstr "Selesai."
-
-#~ msgid "%s: warning: "
-#~ msgstr "%s: peringatan: "
 
 #~ msgid "ferror on stdout\n"
 #~ msgstr "ferror dalam stdout\n"

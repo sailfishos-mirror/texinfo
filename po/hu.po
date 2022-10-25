@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.x\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-25 10:51+0200\n"
+"POT-Creation-Date: 2022-10-25 10:59+0200\n"
 "PO-Revision-Date: 2006-02-18 16:00+0100\n"
 "Last-Translator: Máté LABÁDI <labadimate@freemail.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -2355,11 +2355,31 @@ msgstr "%s nem egy ISO 639 szabvány szerinti nyelvkód"
 msgid "%s is not a valid region code"
 msgstr "%s nem egy ISO 639 szabvány szerinti nyelvkód"
 
+#: tp/Texinfo/Config.pm:121
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: figyelem: "
+
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1252
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error loading %s: %s"
 msgstr "hiba „%s“ írásakor."
+
+#: tp/Texinfo/Config.pm:150
+#, perl-format
+msgctxt "init file: error_message"
+msgid "%s: %s"
+msgstr ""
+
+#: tp/Texinfo/Config.pm:156
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "init file: warning: warning_message"
+msgid "%s: warning: %s"
+msgstr "%s: figyelem: "
 
 #: tp/Texinfo/Config.pm:191
 #, perl-format
@@ -3402,6 +3422,33 @@ msgstr ""
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "%s: a(z) %s argumentumának numerikusnak kell lennie, „%s“ helyett.\n"
 
+#: tp/Texinfo/Report.pm:86
+#, perl-format
+msgctxt "Texinfo source file warning"
+msgid "warning: %s (possibly involving @%s)\n"
+msgstr ""
+
+#: tp/Texinfo/Report.pm:90
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "Texinfo source file warning"
+msgid "warning: %s\n"
+msgstr "%s: figyelem: "
+
+#: tp/Texinfo/Report.pm:140
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "%s: warning: %s\n"
+msgstr "%s: figyelem: "
+
+#: tp/Texinfo/Report.pm:143
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "whole document warning"
+msgid "warning: %s\n"
+msgstr "%s: figyelem: "
+
 #: tp/Texinfo/Structuring.pm:155
 #, perl-format
 msgid "raising the section level of @%s which is too low"
@@ -3794,6 +3841,13 @@ msgstr ""
 #, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
 msgstr ""
+
+#: tp/texi2any.pl:411
+#, fuzzy, perl-format
+#| msgid "%s: warning: "
+msgctxt "program name: warning: warning_message"
+msgid "%s: warning: %s\n"
+msgstr "%s: figyelem: "
 
 #: tp/texi2any.pl:437
 #, fuzzy, perl-format
@@ -5206,10 +5260,6 @@ msgstr "Rossz helyen levő %c"
 #, fuzzy
 #~ msgid "for cross-references in parentheses, use @pxref"
 #~ msgstr "Ez az oldal nem tartalmaz kereszthivatkozást."
-
-#, c-format
-#~ msgid "%s: warning: "
-#~ msgstr "%s: figyelem: "
 
 #, c-format
 #~ msgid "menu item `%s' already exists, for file `%s'"
