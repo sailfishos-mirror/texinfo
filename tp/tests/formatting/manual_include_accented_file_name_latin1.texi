@@ -6,6 +6,6 @@
 
 This is a very simple texi manual @  <>.
 
-@include included_latîn1.texi
+@include included_lat¥n1.texi
 
 @bye

@@ -1,3 +1,9 @@
+2022-10-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/maintain/copy_change_file_name_encoding.pl: use a character
+	appearing in more 8bit encodings in the test of 8bit encoded
+	include file.  Eli Zaretskii idea.
+
 2022-10-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/t/test_utils.pl (filter_tree_keys): Do not output 'parent'
