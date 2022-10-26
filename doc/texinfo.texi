@@ -10294,8 +10294,8 @@ it is an @samp{o}.
 
 @cindex Em dash, compared to minus sign
 @cindex Hyphen, compared to minus
-Use the @code{@@minus@{@}} command to generate a minus sign.  In a
-fixed-width font, this is a single hyphen, but in a proportional font,
+Use the @code{@@minus@{@}} command to generate a minus sign.
+Where the character encoding and font used in the output allow it,
 the symbol is the customary length for a minus sign---a little longer
 than a hyphen, shorter than an em-dash:
 

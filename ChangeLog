@@ -1,5 +1,11 @@
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@minus): Do not state that '-' always produces
+	a hyphen in fixed-width fonts, as this may not be true.
+	Report from Vincent Lefèvre.
+
+2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Makefile.am (distlean-local, CLEANFILES, DISTCLEANFILES):
 	Remove references to blib, pm_to_blib and Makefile.old files
 	and directories.  These are relics of an old Perl build system
