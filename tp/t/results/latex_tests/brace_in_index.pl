@@ -551,9 +551,9 @@ $result_converted{'latex_text'}->{'brace_in_index'} = '\\begin{document}
 
 $\\{$
 
-$$
+\\[
 \\{
-$$
+\\]
 
 \\index[cp]{@\\textbraceleft{}}%
 

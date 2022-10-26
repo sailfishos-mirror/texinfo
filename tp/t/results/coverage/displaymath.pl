@@ -564,24 +564,24 @@ a/2
 
 
 $result_converted{'latex_text'}->{'displaymath'} = 'Simple
-$$
+\\[
 --{x^i}\\over{\\tan y}
-$$
+\\]
 
 Math with @-command
-$$
+\\[
 \\mathtt{math code} a < b \\sum_{i} q^{2}
-$$
+\\]
 
 Complex
-$$
+\\[
  \\underline{\\mathtt{math \\hbox{ code }}} \\backslash{}i \\sum_{i}{\\underline{f}}
-$$
+\\]
 
 With a comment
-$$
+\\[
 a/2
-$$
+\\]
 ';
 
 

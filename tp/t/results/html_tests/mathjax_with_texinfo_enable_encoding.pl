@@ -272,9 +272,9 @@ $result_floats{'mathjax_with_texinfo_enable_encoding'} = {};
 
 
 $result_converted{'latex_text'}->{'mathjax_with_texinfo_enable_encoding'} = '\\begin{document}
-$$
+\\[
 a^{b - \\frac{\\xi}{phi \\copyright{}}} ı
-$$
+\\]
 
 Some $a - b \\geq{} Å ê$.
 ';

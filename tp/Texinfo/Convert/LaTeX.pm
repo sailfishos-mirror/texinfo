@@ -3089,7 +3089,7 @@ sub _convert($$)
           $preformatted_to_reopen
               = [@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}];
           $result .= _close_preformatted_stack($self, $preformatted_to_reopen);
-          $result .= "\$\$\n";
+          $result .= "\\[\n";
         }
       }
     } elsif ($cmdname eq 'caption' or $cmdname eq 'shortcaption') {
@@ -3983,7 +3983,7 @@ sub _convert($$)
       my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'ctx_math');
       if ($cmdname eq 'displaymath') {
-        $result .= "\$\$\n";
+        $result .= "\\]\n";
         # reopen all preformatted commands
         $result .= _open_preformatted_stack($self, $preformatted_to_reopen);
       }

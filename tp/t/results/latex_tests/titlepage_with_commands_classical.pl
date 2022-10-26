@@ -808,9 +808,9 @@ $result_converted{'latex_text'}->{'titlepage_with_commands_classical'} = '
 about the address of author.
 
 Something about the life. 
-$$
+\\[
 \\frac{a}{b}
-$$
+\\]
 }}%
 \\vskip4pt \\hrule height 2pt width \\hsize
   \\vskip\\titlepagebottomglue
