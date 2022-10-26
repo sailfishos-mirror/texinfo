@@ -5,8 +5,7 @@ our %l2h_cache;
 $l2h_cache_key = q/$$\leqalignno{
    \int v(t)\, dt &= u(t) + C&[3.1]\cr
    \int v(t)\, dt &= u(t) + H&[3.2]\cr
-}
-$$/;
+}$$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
@@ -27,10 +26,11 @@ $">
 </DIV>
 |;
 
-$l2h_cache_key = q/$$\leqalignno{
+$l2h_cache_key = q/\[\leqalignno{
    \int v(t)\, dt &= u(t) + C&[3.1]\cr
    \int v(t)\, dt &= u(t) + H&[3.2]\cr
-}$$/;
+}
+\]/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}

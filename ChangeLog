@@ -1,5 +1,14 @@
 2022-10-25  Patrice Dumas  <pertusus@free.fr>
 
+	Use \[..\] for @displaymath for LaTeX in tex4ht and latex2html
+
+	* tp/ext/latex2html.pm (l2h_process), tp/ext/tex4ht.pm
+	(tex4ht_prepare): use \[..\] instead of $$..$$ as it is better to
+	use \[ in LaTeX, $$ being a TeX primitive.  Report from Vincent
+	Lefèvre.
+
+2022-10-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/copy_change_file_name_encoding.pl: change the character
 	appearing in the test of 8bit encoded include file, as it may be
 	special on Windows.  Report from Gavin.

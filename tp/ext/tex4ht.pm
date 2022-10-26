@@ -290,7 +290,13 @@ sub tex4ht_prepare($$)
             print $fh "\\IgnorePar \$" . $text . "\$";
           }
         } elsif ($cmdname eq 'displaymath') {
-          print $fh "\n\$\$" . $text . "\$\$\n";
+          if ($format eq 'texi') {
+            print $fh "\@displaymath\n".$text."\@end displaymath\n";
+          } elsif ($format eq 'latex') {
+            print $fh "\n\\[" . $text . "\\]\n";
+          } else { # tex
+            print $fh "\n\$\$" . $text . "\$\$\n";
+          }
         }
         my $end_comment = "<!-- tex4ht_end $formats{$format}->{'basename'} $cmdname $counter -->";
         print $fh "$before_comment_close$end_comment$after_comment_close";

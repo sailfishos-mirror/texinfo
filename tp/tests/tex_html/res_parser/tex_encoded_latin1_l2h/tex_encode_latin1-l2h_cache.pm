@@ -19,8 +19,16 @@ $">
 </DIV>
 |;
 
-$l2h_cache_key = q/$$ é ï î  \int v(t)\, dt = u(t) + C
-$$/;
+$l2h_cache_key = q/$(I-D) é \varphi(t)$/;
+$l2h_cache{$l2h_cache_key} = q|<!-- MATH
+ $(I-D) é \varphi(t)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="tex_encode_latin1_2.svg"
+ ALT="$(I-D) é \varphi(t)$"></SPAN>|;
+
+$l2h_cache_key = q/\[ é ï î  \int v(t)\, dt = u(t) + C
+\]/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
@@ -34,13 +42,5 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 $">
 </DIV>
 |;
-
-$l2h_cache_key = q/$(I-D) é \varphi(t)$/;
-$l2h_cache{$l2h_cache_key} = q|<!-- MATH
- $(I-D) é \varphi(t)$
- -->
-<SPAN CLASS="MATH"><IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="tex_encode_latin1_2.svg"
- ALT="$(I-D) é \varphi(t)$"></SPAN>|;
 
 1;

@@ -297,7 +297,7 @@ sub l2h_process($$)
       } elsif ($command eq 'math') {
         $latex_text = "\$".$latex_text."\$";
       } elsif ($command eq 'displaymath') {
-        $latex_text = "\$\$".$latex_text."\$\$";
+        $latex_text = "\\[".$latex_text."\\]";
       }
       $latex_text =~ s/(\s*)$//;
       # try whether we have text already on things to do

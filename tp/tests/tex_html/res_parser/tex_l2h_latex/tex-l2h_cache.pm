@@ -2,22 +2,6 @@
 use utf8;
 our %l2h_cache;
 
-$l2h_cache_key = q/$$-- f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-$$/;
-$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
-<!-- MATH
- \begin{displaymath}
-- - f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-\end{displaymath}
- -->
-
-<IMG
- STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="tex_11.svg"
- ALT="$\displaystyle -- f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
-$">
-</DIV>
-|;
-
 $l2h_cache_key = q/$\mathtt{math code} a < b$/;
 $l2h_cache{$l2h_cache_key} = q|<!-- MATH
  $\mathtt{math code} a < b$
@@ -57,6 +41,22 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
 <SPAN CLASS="MATH"><IMG
  STYLE="height: 3.73ex; vertical-align: -1.23ex; " SRC="tex_6.svg"
  ALT="${x^i}\over{\tan y}$"></SPAN>|;
+
+$l2h_cache_key = q/\[-- f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+\]/;
+$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+- - f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="tex_11.svg"
+ ALT="$\displaystyle -- f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+$">
+</DIV>
+|;
 
 $l2h_cache_key = q/\begin{eqnarray}
 \frac{\mathit{a}^b}{\xi} &=& \mathtt{\acute{e}} \\
