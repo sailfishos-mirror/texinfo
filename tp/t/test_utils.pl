@@ -470,6 +470,10 @@ my @sections_keys = ('section_next', 'section_prev', 'section_up',
   'toplevel_prev', 'toplevel_next', 'toplevel_up');
 my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus',
   'associated_section', 'node_preceding_part');
+
+# in general, the 'parent' keys adds lot of non legible information,
+# however to punctually test for regressions on this information, the
+# best is to add it in @avoided_keys_tree
 my %avoided_keys_tree;
 my @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys,
     'structure', 'menu_child', 'unit_next', 'directions', 'page_next',
