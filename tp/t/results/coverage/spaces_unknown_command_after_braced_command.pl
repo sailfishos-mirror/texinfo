@@ -16,7 +16,6 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -24,16 +23,13 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -45,7 +41,6 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -53,35 +48,22 @@ $result_trees{'spaces_unknown_command_after_braced_command'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => ' e
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0];
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0];
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[2];
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[2];
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[2];
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0];
-$result_trees{'spaces_unknown_command_after_braced_command'}{'contents'}[0]{'parent'} = $result_trees{'spaces_unknown_command_after_braced_command'};
 
 $result_texis{'spaces_unknown_command_after_braced_command'} = '@code  
 

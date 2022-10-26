@@ -9,149 +9,54 @@ $result_trees{'unnumbered_before_node_top_top'} = [
   {
     'contents' => [
       {
-        'parent' => {
-          'contents' => [
-            {},
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'before nodes'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'unnumbered',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'in unnumbered
-'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'paragraph'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'Top'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'node',
-              'extra' => {
-                'node_content' => [
-                  {}
-                ],
-                'nodes_manuals' => [
-                  {
-                    'node_content' => [
-                      {}
-                    ],
-                    'normalized' => 'Top'
-                  }
-                ],
-                'normalized' => 'Top',
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'top section'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'top',
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'Top node
-'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'paragraph'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
-              }
-            }
-          ],
-          'type' => 'document_root'
-        },
         'type' => 'before_node_section'
       },
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'before nodes'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'unnumbered',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          },
+          {
+            'contents' => [
+              {
+                'text' => 'in unnumbered
+'
+              }
+            ],
+            'type' => 'paragraph'
+          },
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 1,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -160,8 +65,79 @@ $result_trees{'unnumbered_before_node_top_top'} = [
   },
   {
     'contents' => [
-      {},
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'Top'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'node',
+        'extra' => {
+          'node_content' => [
+            {}
+          ],
+          'nodes_manuals' => [
+            {
+              'node_content' => [
+                {}
+              ],
+              'normalized' => 'Top'
+            }
+          ],
+          'normalized' => 'Top',
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 5,
+          'macro' => ''
+        }
+      },
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'top section'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'top',
+        'contents' => [
+          {
+            'contents' => [
+              {
+                'text' => 'Top node
+'
+              }
+            ],
+            'type' => 'paragraph'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 6,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -169,29 +145,10 @@ $result_trees{'unnumbered_before_node_top_top'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[1];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'};
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'};
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'contents'}[0];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'parent'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'};
-$result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[1] = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'unnumbered_before_node_top_top'}[0]{'extra'}{'unit_command'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'unnumbered_before_node_top_top'}[1]{'contents'}[0] = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'unnumbered_before_node_top_top'}[1]{'contents'}[1] = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'unnumbered_before_node_top_top'}[1]{'extra'}{'unit_command'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
+$result_trees{'unnumbered_before_node_top_top'}[0]{'extra'}{'unit_command'} = $result_trees{'unnumbered_before_node_top_top'}[0]{'contents'}[1];
+$result_trees{'unnumbered_before_node_top_top'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'unnumbered_before_node_top_top'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'unnumbered_before_node_top_top'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unnumbered_before_node_top_top'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'unnumbered_before_node_top_top'}[1]{'extra'}{'unit_command'} = $result_trees{'unnumbered_before_node_top_top'}[1]{'contents'}[1];
 
 $result_texis{'unnumbered_before_node_top_top'} = '@unnumbered before nodes
 

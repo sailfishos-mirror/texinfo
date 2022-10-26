@@ -12,7 +12,6 @@ $result_trees{'footnote'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'text'
             },
             {
@@ -22,16 +21,13 @@ $result_trees{'footnote'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'in footnote.
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
@@ -43,16 +39,13 @@ $result_trees{'footnote'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'in footnote r'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'r',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 3,
@@ -60,20 +53,16 @@ $result_trees{'footnote'} = {
                           }
                         },
                         {
-                          'parent' => {},
                           'text' => '. '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'footnote',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -81,34 +70,17 @@ $result_trees{'footnote'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' after footnote.'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'footnote'}{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote'}{'contents'}[0];
-$result_trees{'footnote'}{'contents'}[0]{'parent'} = $result_trees{'footnote'};
 
 $result_texis{'footnote'} = 'text@footnote{in footnote.
 

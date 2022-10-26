@@ -11,11 +11,9 @@ $result_trees{'one_subsection'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -23,7 +21,6 @@ $result_trees{'one_subsection'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'The subsection'
             }
           ],
@@ -31,7 +28,6 @@ $result_trees{'one_subsection'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -39,7 +35,6 @@ $result_trees{'one_subsection'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -49,11 +44,6 @@ $result_trees{'one_subsection'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'one_subsection'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_subsection'}{'contents'}[0];
-$result_trees{'one_subsection'}{'contents'}[0]{'parent'} = $result_trees{'one_subsection'};
-$result_trees{'one_subsection'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_subsection'}{'contents'}[1]{'args'}[0];
-$result_trees{'one_subsection'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'one_subsection'}{'contents'}[1];
-$result_trees{'one_subsection'}{'contents'}[1]{'parent'} = $result_trees{'one_subsection'};
 
 $result_texis{'one_subsection'} = '@subsection The subsection
 ';

@@ -10,7 +10,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,12 +17,10 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'notset',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => '',
               'type' => 'misc_arg'
             }
@@ -36,11 +33,9 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
               'notset',
               ''
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -52,14 +47,12 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@ifset
 ',
               'type' => 'raw'
@@ -69,7 +62,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim'
                     }
                   ],
@@ -77,7 +69,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -86,7 +77,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -94,7 +84,6 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -102,24 +91,11 @@ $result_trees{'empty_ifset_in_ifset_set'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0];
-$result_trees{'empty_ifset_in_ifset_set'}{'contents'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_set'};
 
 $result_texis{'empty_ifset_in_ifset_set'} = '
 @set notset

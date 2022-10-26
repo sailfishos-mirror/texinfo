@@ -16,29 +16,23 @@ $result_trees{'uref_in_ref'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '('
                     },
                     {
-                      'parent' => {},
                       'text' => 'file'
                     },
                     {
-                      'parent' => {},
                       'text' => ')'
                     },
                     {
-                      'parent' => {},
                       'text' => 'node'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'cross ref with uref '
                     },
                     {
@@ -46,26 +40,21 @@ $result_trees{'uref_in_ref'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'href://http/myhost.com/index.html'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'uref1'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'uref',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -76,13 +65,11 @@ $result_trees{'uref_in_ref'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'title with uref2 '
                     },
                     {
@@ -90,26 +77,21 @@ $result_trees{'uref_in_ref'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'href://http/myhost.com/index2.html'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'uref2'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'uref',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -120,13 +102,11 @@ $result_trees{'uref_in_ref'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'info file with uref3 '
                     },
                     {
@@ -134,26 +114,21 @@ $result_trees{'uref_in_ref'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'href://http/myhost.com/index3.html'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'uref3'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'uref',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -164,13 +139,11 @@ $result_trees{'uref_in_ref'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'printed manual with uref4 '
                     },
                     {
@@ -178,26 +151,21 @@ $result_trees{'uref_in_ref'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'href://http/myhost.com/index4.html'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'uref4'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'uref',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -208,7 +176,6 @@ $result_trees{'uref_in_ref'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -223,7 +190,6 @@ $result_trees{'uref_in_ref'} = {
                   ]
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -231,60 +197,20 @@ $result_trees{'uref_in_ref'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1]{'args'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1]{'args'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'args'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'manual_content'}[0] = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
 $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'}{'contents'}[0];
-$result_trees{'uref_in_ref'}{'contents'}[0]{'parent'} = $result_trees{'uref_in_ref'};
 
 $result_texis{'uref_in_ref'} = '@ref{(file)node, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 ';

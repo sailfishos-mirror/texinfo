@@ -16,16 +16,13 @@ $result_trees{'unmatched_brace'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Closing'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'samp',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -33,7 +30,6 @@ $result_trees{'unmatched_brace'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -41,24 +37,19 @@ $result_trees{'unmatched_brace'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
-                      'cmdname' => '}',
-                      'parent' => {}
+                      'cmdname' => '}'
                     },
                     {
-                      'parent' => {},
                       'text' => ' without opening macro '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'samp',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -66,32 +57,17 @@ $result_trees{'unmatched_brace'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unmatched_brace'}{'contents'}[0];
-$result_trees{'unmatched_brace'}{'contents'}[0]{'parent'} = $result_trees{'unmatched_brace'};
 
 $result_texis{'unmatched_brace'} = '@samp{Closing} @samp{ @} without opening macro }.';
 

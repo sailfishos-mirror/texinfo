@@ -19,14 +19,12 @@ $result_trees{'ampchar'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Constructor'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -38,7 +36,6 @@ $result_trees{'ampchar'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -52,7 +49,6 @@ $result_trees{'ampchar'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -66,7 +62,6 @@ $result_trees{'ampchar'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -74,7 +69,6 @@ $result_trees{'ampchar'} = {
                       'extra' => {
                         'def_role' => 'delimiter'
                       },
-                      'parent' => {},
                       'text' => '(',
                       'type' => 'delimiter'
                     },
@@ -83,15 +77,12 @@ $result_trees{'ampchar'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'const std::vector<int>'
                             },
                             {
-                              'cmdname' => '&',
-                              'parent' => {}
+                              'cmdname' => '&'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -99,7 +90,6 @@ $result_trees{'ampchar'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -110,7 +100,6 @@ $result_trees{'ampchar'} = {
                       'extra' => {
                         'def_role' => 'delimiter'
                       },
-                      'parent' => {},
                       'text' => ')',
                       'type' => 'delimiter'
                     },
@@ -118,13 +107,11 @@ $result_trees{'ampchar'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_at_end'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -160,7 +147,6 @@ $result_trees{'ampchar'} = {
                 },
                 'original_def_cmdname' => 'defop'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -173,7 +159,6 @@ $result_trees{'ampchar'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'defop'
                     }
                   ],
@@ -181,7 +166,6 @@ $result_trees{'ampchar'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -190,7 +174,6 @@ $result_trees{'ampchar'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -201,7 +184,6 @@ $result_trees{'ampchar'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -211,26 +193,21 @@ $result_trees{'ampchar'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '& '
             },
             {
-              'cmdname' => '&',
-              'parent' => {}
+              'cmdname' => '&'
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'ampchar',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -238,58 +215,36 @@ $result_trees{'ampchar'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
-              'cmdname' => '{',
-              'parent' => {}
+              'cmdname' => '{'
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
-              'cmdname' => '}',
-              'parent' => {}
+              'cmdname' => '}'
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
@@ -298,25 +253,6 @@ $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'
 $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[2] = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'ampchar'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ampchar'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ampchar'}{'contents'}[0];
-$result_trees{'ampchar'}{'contents'}[0]{'parent'} = $result_trees{'ampchar'};
 
 $result_texis{'ampchar'} = '@defop {Constructor} a b (@code{const std::vector<int>@&})
 @end defop

@@ -14,23 +14,19 @@ $result_trees{'float_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\input texinfo @c -*-texinfo-*-
 ',
                   'type' => 'text_before_beginning'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'text_before_beginning'
                 }
               ],
-              'parent' => {},
               'type' => 'preamble_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_setfilename'
         },
         {
@@ -40,7 +36,6 @@ $result_trees{'float_copying'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float_copying.info'
                     }
                   ],
@@ -48,7 +43,6 @@ $result_trees{'float_copying'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'float_copying'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float_copying.info'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'float_copying.texi',
                 'line_nr' => 3,
@@ -65,7 +58,6 @@ $result_trees{'float_copying'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -77,14 +69,12 @@ $result_trees{'float_copying'} = {
                     'spaces_after_argument' => ' 
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
               'cmdname' => 'copying',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
@@ -94,17 +84,14 @@ $result_trees{'float_copying'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Copyright notice'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'block_line_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'public domain'
                         }
                       ],
@@ -113,14 +100,12 @@ $result_trees{'float_copying'} = {
 ',
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'block_line_arg'
                     }
                   ],
                   'cmdname' => 'float',
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
@@ -128,21 +113,17 @@ $result_trees{'float_copying'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Public domain is not really a licence, as it means than 
 '
                         },
                         {
-                          'parent' => {},
                           'text' => 'the author abandon his copyright.
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
@@ -154,7 +135,6 @@ $result_trees{'float_copying'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'The Public Domain notice'
                                 },
                                 {
@@ -164,7 +144,6 @@ $result_trees{'float_copying'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'parent' => {},
                                               'text' => 'The caption copying footnote
 '
                                             },
@@ -173,14 +152,12 @@ $result_trees{'float_copying'} = {
                                                 {
                                                   'contents' => [
                                                     {
-                                                      'parent' => {},
                                                       'text' => 'caption copying footnote anchor'
                                                     }
                                                   ],
                                                   'extra' => {
                                                     'region' => {}
                                                   },
-                                                  'parent' => {},
                                                   'type' => 'brace_command_arg'
                                                 }
                                               ],
@@ -191,7 +168,6 @@ $result_trees{'float_copying'} = {
                                                 ],
                                                 'normalized' => 'caption-copying-footnote-anchor'
                                               },
-                                              'parent' => {},
                                               'source_info' => {
                                                 'file_name' => 'float_copying.texi',
                                                 'line_nr' => 14,
@@ -199,17 +175,14 @@ $result_trees{'float_copying'} = {
                                               }
                                             },
                                             {
-                                              'parent' => {},
                                               'text' => '
 ',
                                               'type' => 'spaces_after_close_brace'
                                             }
                                           ],
-                                          'parent' => {},
                                           'type' => 'paragraph'
                                         },
                                         {
-                                          'parent' => {},
                                           'text' => '
 ',
                                           'type' => 'empty_line'
@@ -219,7 +192,6 @@ $result_trees{'float_copying'} = {
                                             {
                                               'contents' => [
                                                 {
-                                                  'parent' => {},
                                                   'text' => 'indexed caption copying footnote'
                                                 }
                                               ],
@@ -227,7 +199,6 @@ $result_trees{'float_copying'} = {
                                                 'spaces_after_argument' => '
 '
                                               },
-                                              'parent' => {},
                                               'type' => 'line_arg'
                                             }
                                           ],
@@ -247,7 +218,6 @@ $result_trees{'float_copying'} = {
                                             },
                                             'spaces_before_argument' => ' '
                                           },
-                                          'parent' => {},
                                           'source_info' => {
                                             'file_name' => 'float_copying.texi',
                                             'line_nr' => 16,
@@ -260,7 +230,6 @@ $result_trees{'float_copying'} = {
                                             {
                                               'contents' => [
                                                 {
-                                                  'parent' => {},
                                                   'text' => 'public domain function'
                                                 }
                                               ],
@@ -268,7 +237,6 @@ $result_trees{'float_copying'} = {
                                                 'spaces_after_argument' => '
 '
                                               },
-                                              'parent' => {},
                                               'type' => 'line_arg'
                                             }
                                           ],
@@ -288,7 +256,6 @@ $result_trees{'float_copying'} = {
                                             },
                                             'spaces_before_argument' => ' '
                                           },
-                                          'parent' => {},
                                           'source_info' => {
                                             'file_name' => 'float_copying.texi',
                                             'line_nr' => 17,
@@ -297,7 +264,6 @@ $result_trees{'float_copying'} = {
                                           'type' => 'index_entry_command'
                                         },
                                         {
-                                          'parent' => {},
                                           'text' => '
 ',
                                           'type' => 'empty_line'
@@ -305,7 +271,6 @@ $result_trees{'float_copying'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'parent' => {},
                                               'text' => 'see '
                                             },
                                             {
@@ -313,11 +278,9 @@ $result_trees{'float_copying'} = {
                                                 {
                                                   'contents' => [
                                                     {
-                                                      'parent' => {},
                                                       'text' => 'Copying and floats'
                                                     }
                                                   ],
-                                                  'parent' => {},
                                                   'type' => 'brace_command_arg'
                                                 }
                                               ],
@@ -328,7 +291,6 @@ $result_trees{'float_copying'} = {
                                                     {
                                                       'contents' => [
                                                         {
-                                                          'parent' => {},
                                                           'text' => 'Copying and floats'
                                                         }
                                                       ],
@@ -336,7 +298,6 @@ $result_trees{'float_copying'} = {
                                                         'spaces_after_argument' => '
 '
                                                       },
-                                                      'parent' => {},
                                                       'type' => 'line_arg'
                                                     }
                                                   ],
@@ -357,7 +318,6 @@ $result_trees{'float_copying'} = {
                                                     'normalized' => 'Copying-and-floats',
                                                     'spaces_before_argument' => ' '
                                                   },
-                                                  'parent' => {},
                                                   'source_info' => {
                                                     'file_name' => 'float_copying.texi',
                                                     'line_nr' => 45,
@@ -371,7 +331,6 @@ $result_trees{'float_copying'} = {
                                                   'normalized' => 'Copying-and-floats'
                                                 }
                                               },
-                                              'parent' => {},
                                               'source_info' => {
                                                 'file_name' => 'float_copying.texi',
                                                 'line_nr' => 19,
@@ -379,22 +338,18 @@ $result_trees{'float_copying'} = {
                                               }
                                             },
                                             {
-                                              'parent' => {},
                                               'text' => '.
 '
                                             }
                                           ],
-                                          'parent' => {},
                                           'type' => 'paragraph'
                                         },
                                         {
-                                          'parent' => {},
                                           'text' => '
 ',
                                           'type' => 'empty_line'
                                         }
                                       ],
-                                      'parent' => {},
                                       'type' => 'brace_command_context'
                                     }
                                   ],
@@ -403,7 +358,6 @@ $result_trees{'float_copying'} = {
                                     'spaces_before_argument' => '
 '
                                   },
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => 'float_copying.texi',
                                     'line_nr' => 12,
@@ -411,16 +365,13 @@ $result_trees{'float_copying'} = {
                                   }
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '
 '
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'paragraph'
                             },
                             {
-                              'parent' => {},
                               'text' => '
 ',
                               'type' => 'empty_line'
@@ -430,14 +381,12 @@ $result_trees{'float_copying'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => 'public domain anchor'
                                     }
                                   ],
                                   'extra' => {
                                     'region' => {}
                                   },
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
@@ -448,7 +397,6 @@ $result_trees{'float_copying'} = {
                                 ],
                                 'normalized' => 'public-domain-anchor'
                               },
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => 'float_copying.texi',
                                 'line_nr' => 23,
@@ -456,7 +404,6 @@ $result_trees{'float_copying'} = {
                               }
                             },
                             {
-                              'parent' => {},
                               'text' => '
 ',
                               'type' => 'spaces_after_close_brace'
@@ -466,7 +413,6 @@ $result_trees{'float_copying'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => 'indexed caption'
                                     }
                                   ],
@@ -474,7 +420,6 @@ $result_trees{'float_copying'} = {
                                     'spaces_after_argument' => '
 '
                                   },
-                                  'parent' => {},
                                   'type' => 'line_arg'
                                 }
                               ],
@@ -494,7 +439,6 @@ $result_trees{'float_copying'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => 'float_copying.texi',
                                 'line_nr' => 24,
@@ -507,7 +451,6 @@ $result_trees{'float_copying'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => 'indexed caption function'
                                     }
                                   ],
@@ -515,7 +458,6 @@ $result_trees{'float_copying'} = {
                                     'spaces_after_argument' => '
 '
                                   },
-                                  'parent' => {},
                                   'type' => 'line_arg'
                                 }
                               ],
@@ -535,7 +477,6 @@ $result_trees{'float_copying'} = {
                                 },
                                 'spaces_before_argument' => ' '
                               },
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => 'float_copying.texi',
                                 'line_nr' => 25,
@@ -544,7 +485,6 @@ $result_trees{'float_copying'} = {
                               'type' => 'index_entry_command'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_context'
                         }
                       ],
@@ -552,7 +492,6 @@ $result_trees{'float_copying'} = {
                       'extra' => {
                         'float' => {}
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'float_copying.texi',
                         'line_nr' => 12,
@@ -560,7 +499,6 @@ $result_trees{'float_copying'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_after_close_brace'
@@ -570,7 +508,6 @@ $result_trees{'float_copying'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'float'
                             }
                           ],
@@ -578,7 +515,6 @@ $result_trees{'float_copying'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -587,7 +523,6 @@ $result_trees{'float_copying'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'float'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'float_copying.texi',
                         'line_nr' => 27,
@@ -609,7 +544,6 @@ $result_trees{'float_copying'} = {
                       'normalized' => 'Copyright notice'
                     }
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'float_copying.texi',
                     'line_nr' => 7,
@@ -621,7 +555,6 @@ $result_trees{'float_copying'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'copying'
                         }
                       ],
@@ -629,7 +562,6 @@ $result_trees{'float_copying'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -638,7 +570,6 @@ $result_trees{'float_copying'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'float_copying.texi',
                     'line_nr' => 28,
@@ -646,7 +577,6 @@ $result_trees{'float_copying'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'float_copying.texi',
                 'line_nr' => 5,
@@ -654,17 +584,14 @@ $result_trees{'float_copying'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -672,7 +599,6 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -680,7 +606,6 @@ $result_trees{'float_copying'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -700,7 +625,6 @@ $result_trees{'float_copying'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'float_copying.texi',
         'line_nr' => 30,
@@ -712,7 +636,6 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -720,14 +643,12 @@ $result_trees{'float_copying'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -737,7 +658,6 @@ $result_trees{'float_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Top'
                 }
               ],
@@ -745,7 +665,6 @@ $result_trees{'float_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -765,7 +684,6 @@ $result_trees{'float_copying'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 33,
@@ -774,7 +692,6 @@ $result_trees{'float_copying'} = {
           'type' => 'index_entry_command'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -782,7 +699,6 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'See the caption '
             },
             {
@@ -790,11 +706,9 @@ $result_trees{'float_copying'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'public domain anchor'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -808,7 +722,6 @@ $result_trees{'float_copying'} = {
                   'normalized' => 'public-domain-anchor'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'float_copying.texi',
                 'line_nr' => 35,
@@ -816,16 +729,13 @@ $result_trees{'float_copying'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -833,7 +743,6 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'See the float '
             },
             {
@@ -841,11 +750,9 @@ $result_trees{'float_copying'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'public domain'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -859,7 +766,6 @@ $result_trees{'float_copying'} = {
                   'normalized' => 'public-domain'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'float_copying.texi',
                 'line_nr' => 37,
@@ -867,16 +773,13 @@ $result_trees{'float_copying'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -884,14 +787,12 @@ $result_trees{'float_copying'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'insertcopying',
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 39,
@@ -899,7 +800,6 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -911,7 +811,6 @@ $result_trees{'float_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -920,22 +819,18 @@ $result_trees{'float_copying'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Copying and floats'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::',
                   'type' => 'menu_entry_separator'
                 },
@@ -944,16 +839,13 @@ $result_trees{'float_copying'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -966,7 +858,6 @@ $result_trees{'float_copying'} = {
                   'normalized' => 'Copying-and-floats'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'float_copying.texi',
                 'line_nr' => 42,
@@ -979,7 +870,6 @@ $result_trees{'float_copying'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'menu'
                     }
                   ],
@@ -987,7 +877,6 @@ $result_trees{'float_copying'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -996,7 +885,6 @@ $result_trees{'float_copying'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'float_copying.texi',
                 'line_nr' => 43,
@@ -1004,7 +892,6 @@ $result_trees{'float_copying'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 41,
@@ -1012,7 +899,6 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1021,7 +907,6 @@ $result_trees{'float_copying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'float_copying.texi',
         'line_nr' => 31,
@@ -1034,7 +919,6 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Copying and floats'
             }
           ],
@@ -1042,14 +926,12 @@ $result_trees{'float_copying'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'appendix',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1057,21 +939,17 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In the appendix, we print the references and the copying once more
 '
             },
             {
-              'parent' => {},
               'text' => 'and the list of coyright notices (listoffloats).
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1079,7 +957,6 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'See the caption '
             },
             {
@@ -1087,11 +964,9 @@ $result_trees{'float_copying'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'public domain anchor'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -1105,7 +980,6 @@ $result_trees{'float_copying'} = {
                   'normalized' => 'public-domain-anchor'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'float_copying.texi',
                 'line_nr' => 51,
@@ -1113,16 +987,13 @@ $result_trees{'float_copying'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1130,7 +1001,6 @@ $result_trees{'float_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'See the float '
             },
             {
@@ -1138,11 +1008,9 @@ $result_trees{'float_copying'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'public domain'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -1156,7 +1024,6 @@ $result_trees{'float_copying'} = {
                   'normalized' => 'public-domain'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'float_copying.texi',
                 'line_nr' => 53,
@@ -1164,16 +1031,13 @@ $result_trees{'float_copying'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1183,7 +1047,6 @@ $result_trees{'float_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'listofloats'
                 }
               ],
@@ -1191,7 +1054,6 @@ $result_trees{'float_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1211,7 +1073,6 @@ $result_trees{'float_copying'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 55,
@@ -1220,7 +1081,6 @@ $result_trees{'float_copying'} = {
           'type' => 'index_entry_command'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1228,14 +1088,12 @@ $result_trees{'float_copying'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'insertcopying',
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 57,
@@ -1245,14 +1103,12 @@ $result_trees{'float_copying'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'insertcopying',
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 58,
@@ -1260,7 +1116,6 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1270,7 +1125,6 @@ $result_trees{'float_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'listoffloats'
                 }
               ],
@@ -1278,7 +1132,6 @@ $result_trees{'float_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1286,7 +1139,6 @@ $result_trees{'float_copying'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 60,
@@ -1298,7 +1150,6 @@ $result_trees{'float_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Copyright notice'
                 }
               ],
@@ -1306,7 +1157,6 @@ $result_trees{'float_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1320,7 +1170,6 @@ $result_trees{'float_copying'} = {
               'normalized' => 'Copyright notice'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 61,
@@ -1328,7 +1177,6 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1338,7 +1186,6 @@ $result_trees{'float_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'printindex'
                 }
               ],
@@ -1346,7 +1193,6 @@ $result_trees{'float_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1354,7 +1200,6 @@ $result_trees{'float_copying'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 63,
@@ -1366,7 +1211,6 @@ $result_trees{'float_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'cp'
                 }
               ],
@@ -1374,7 +1218,6 @@ $result_trees{'float_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1385,7 +1228,6 @@ $result_trees{'float_copying'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 64,
@@ -1397,7 +1239,6 @@ $result_trees{'float_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'fn'
                 }
               ],
@@ -1405,7 +1246,6 @@ $result_trees{'float_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1416,7 +1256,6 @@ $result_trees{'float_copying'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 65,
@@ -1424,7 +1263,6 @@ $result_trees{'float_copying'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1433,7 +1271,6 @@ $result_trees{'float_copying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'float_copying.texi',
         'line_nr' => 46,
@@ -1443,232 +1280,65 @@ $result_trees{'float_copying'} = {
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'extra'}{'region'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_region'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_region'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'}{'parent'} = $result_trees{'float_copying'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'region'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'extra'}{'index_entry'}{'entry_region'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'extra'}{'index_entry'}{'entry_region'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'extra'}{'float'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[5]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[0]{'parent'} = $result_trees{'float_copying'};
-$result_trees{'float_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[1]{'parent'} = $result_trees{'float_copying'};
-$result_trees{'float_copying'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'float_copying'}{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'label'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[3];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[7];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[8]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[1];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[3];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[3];
 $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[2]{'contents'}[9];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[9]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'contents'}[10]{'parent'} = $result_trees{'float_copying'}{'contents'}[2];
-$result_trees{'float_copying'}{'contents'}[2]{'parent'} = $result_trees{'float_copying'};
 $result_trees{'float_copying'}{'contents'}[3] = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
-$result_trees{'float_copying'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[1];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'label'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[2];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[3];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'};
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'float_copying'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'};
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[9];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[10];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[10]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[11]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[12]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[12];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[12]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[13];
 $result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[13]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[14]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[15]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[15]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[15];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[15]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[16]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[16];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[16]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[17]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[17]{'args'}[0];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[17]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[4]{'contents'}[17];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[17]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'contents'}[18]{'parent'} = $result_trees{'float_copying'}{'contents'}[4];
-$result_trees{'float_copying'}{'contents'}[4]{'parent'} = $result_trees{'float_copying'};
-$result_trees{'float_copying'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'float_copying'}{'contents'}[5];
-$result_trees{'float_copying'}{'contents'}[5]{'parent'} = $result_trees{'float_copying'};
 
 $result_texis{'float_copying'} = '\\input texinfo @c -*-texinfo-*-
 

@@ -12,28 +12,23 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '\\input texinfo
 ',
               'type' => 'text_before_beginning'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'text_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -41,7 +36,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -49,7 +43,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -69,7 +62,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_utf8.texi',
         'line_nr' => 3,
@@ -81,7 +73,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top section'
             }
           ],
@@ -89,14 +80,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -105,7 +94,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_utf8.texi',
         'line_nr' => 4,
@@ -117,7 +105,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'node chap'
             }
           ],
@@ -125,7 +112,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -145,7 +131,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
         'normalized' => 'node-chap',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_utf8.texi',
         'line_nr' => 6,
@@ -157,7 +142,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter'
             }
           ],
@@ -165,14 +149,12 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -180,16 +162,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '``in double q\'\'. `in simple q\'.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -201,16 +180,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'e'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
               'cmdname' => '\'',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
@@ -218,7 +194,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ', --- '
             },
             {
@@ -226,16 +201,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'def'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dfn',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
@@ -243,7 +215,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' -- '
             },
             {
@@ -251,16 +222,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in code'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
@@ -268,7 +236,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. '
             },
             {
@@ -276,16 +243,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in samp'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'samp',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
@@ -293,18 +257,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => " a\x{e9}. "
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'comma',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
@@ -312,18 +273,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'exclamdown',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
@@ -331,18 +289,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dots',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 11,
@@ -350,16 +305,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -369,12 +321,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'geq',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
@@ -382,18 +332,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'enddots',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
@@ -401,18 +348,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AA',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
@@ -420,7 +364,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -428,16 +371,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'e'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
               'cmdname' => '\'',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
@@ -445,7 +385,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -453,16 +392,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'A'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dotaccent',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
@@ -470,18 +406,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'l',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
@@ -489,18 +422,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'copyright',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
@@ -508,18 +438,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'error',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 13,
@@ -527,19 +454,16 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotedblleft',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 14,
@@ -547,18 +471,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' in quotes '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'quotedblright',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 14,
@@ -566,18 +487,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'expansion',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 14,
@@ -585,19 +503,16 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'minus',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 15,
@@ -605,18 +520,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'registeredsymbol',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 15,
@@ -624,22 +536,18 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -651,16 +559,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'u',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 18,
@@ -668,7 +573,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -677,16 +581,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '^',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 19,
@@ -694,19 +595,16 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'aa',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -714,18 +612,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'AA',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -733,7 +628,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -741,16 +635,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'e'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
               'cmdname' => '^',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -758,7 +649,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -766,16 +656,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'E'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
               'cmdname' => '^',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -783,7 +670,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -795,16 +681,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'i'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 20,
@@ -812,12 +695,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '~',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -825,7 +706,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -833,16 +713,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'i'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dotless',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -850,7 +727,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -858,16 +734,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'r'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'udotaccent',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -875,7 +748,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -887,16 +759,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'r'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => '\'',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 20,
@@ -904,12 +773,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'v',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -917,7 +784,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -933,16 +799,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => 'n'
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => '~',
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                 'line_nr' => 20,
@@ -950,12 +813,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                               }
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => ',',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 20,
@@ -963,12 +824,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '=',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 20,
@@ -976,19 +835,16 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'equiv',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 21,
@@ -996,7 +852,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -1007,12 +862,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'aa',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1020,18 +873,15 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AA',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1039,7 +889,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -1047,16 +896,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'e'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '^',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1064,7 +910,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -1072,16 +917,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'E'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '^',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1089,7 +931,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -1101,16 +942,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => 'i'
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'dotless',
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                 'line_nr' => 22,
@@ -1118,12 +956,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                               }
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => '~',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1131,7 +967,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -1139,16 +974,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'i'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1156,7 +988,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -1164,16 +995,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'r'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'udotaccent',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1181,7 +1009,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -1193,16 +1020,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => 'r'
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => '\'',
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                 'line_nr' => 22,
@@ -1210,12 +1034,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                               }
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'v',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1223,7 +1045,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -1239,16 +1060,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'parent' => {},
                                               'text' => 'n'
                                             }
                                           ],
-                                          'parent' => {},
                                           'type' => 'brace_command_arg'
                                         }
                                       ],
                                       'cmdname' => '~',
-                                      'parent' => {},
                                       'source_info' => {
                                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                         'line_nr' => 22,
@@ -1256,12 +1074,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                                       }
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => ',',
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                                 'line_nr' => 22,
@@ -1269,12 +1085,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                               }
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => '=',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'punctuation_small_case_accents_utf8.texi',
                         'line_nr' => 22,
@@ -1282,12 +1096,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'sc',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_utf8.texi',
                 'line_nr' => 22,
@@ -1295,16 +1107,13 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1313,7 +1122,6 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'punctuation_small_case_accents_utf8.texi',
         'line_nr' => 7,
@@ -1323,202 +1131,10 @@ $result_trees{'punctuation_sc_accents_ascii_punct'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'};
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1];
 $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[1]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'};
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[2]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[2];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[2];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[2]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'};
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3];
 $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[3]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'};
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[1];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[2];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[4]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[5]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[6]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[6];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[6]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[7]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[8]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[9]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[10];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[10]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[11]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[12];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[12]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'contents'}[13]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[2];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[5]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[6]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[6];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[6]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[7]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[8]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[8]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[9]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[10];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[10]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[11]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[12];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[12]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[13]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[14];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[14]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[15]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[16];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[16]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[17]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[18];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[18]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[19]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[20];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[20]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[21]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[22];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[22]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[23]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[24];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[24]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'contents'}[25]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[2];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[6];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[6]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[7]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[8]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[8]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[9]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[10]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[10];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[10]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[11]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[12]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[13]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[14]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[14];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[14]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[15]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[16]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[16];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[16]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[17]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[18]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[19]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[20]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[21]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[22];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[22]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[23]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[2];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[11]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[12]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[13]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[14]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[15]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'contents'}[16]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[24]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'contents'}[25]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4];
-$result_trees{'punctuation_sc_accents_ascii_punct'}{'contents'}[4]{'parent'} = $result_trees{'punctuation_sc_accents_ascii_punct'};
 
 $result_texis{'punctuation_sc_accents_ascii_punct'} = '\\input texinfo
 

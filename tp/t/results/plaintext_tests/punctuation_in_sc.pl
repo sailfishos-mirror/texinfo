@@ -12,7 +12,6 @@ $result_trees{'punctuation_in_sc'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'one '
             },
             {
@@ -20,16 +19,13 @@ $result_trees{'punctuation_in_sc'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'two.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'sc',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -37,7 +33,6 @@ $result_trees{'punctuation_in_sc'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' three '
             },
             {
@@ -45,16 +40,13 @@ $result_trees{'punctuation_in_sc'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'FOUR.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'sc',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -62,31 +54,17 @@ $result_trees{'punctuation_in_sc'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' five'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_sc'}{'contents'}[0];
-$result_trees{'punctuation_in_sc'}{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_sc'};
 
 $result_texis{'punctuation_in_sc'} = 'one @sc{two.} three @sc{FOUR.} five';
 

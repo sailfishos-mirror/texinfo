@@ -14,20 +14,16 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
             {
               'contents' => [
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => ' at the end of line '
                 },
                 {
                   'cmdname' => '
-',
-                  'parent' => {}
+'
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -36,28 +32,22 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'A '
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => ' at the end of the '
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => 'quotation line.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -65,7 +55,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -73,7 +62,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -82,7 +70,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -93,7 +80,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -101,7 +87,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -111,27 +96,22 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
             {
               'contents' => [
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'cmdname' => ' ',
-                  'parent' => {}
+                  'cmdname' => ' '
                 },
                 {
-                  'parent' => {},
                   'text' => ' at the end of line '
                 },
                 {
-                  'cmdname' => ' ',
-                  'parent' => {}
+                  'cmdname' => ' '
                 }
               ],
               'extra' => {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -140,32 +120,25 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'A '
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'cmdname' => ' ',
-                  'parent' => {}
+                  'cmdname' => ' '
                 },
                 {
-                  'parent' => {},
                   'text' => ' at the end of the '
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => 'quotation line.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -173,7 +146,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -181,7 +153,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -190,7 +161,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -201,7 +171,6 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -209,44 +178,11 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0];
-$result_trees{'space_at_commands_end_quotation_line'}{'contents'}[0]{'parent'} = $result_trees{'space_at_commands_end_quotation_line'};
 
 $result_texis{'space_at_commands_end_quotation_line'} = '@quotation @@ at the end of line @
 A @@ at the end of the @@quotation line.

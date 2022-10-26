@@ -16,25 +16,21 @@ $result_trees{'multiline'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => 'qdsqsddqsdsq
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -42,7 +38,6 @@ $result_trees{'multiline'} = {
               'extra' => {
                 'delimiter' => '@'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -50,28 +45,17 @@ $result_trees{'multiline'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'after verb.'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multiline'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline'}{'contents'}[0];
-$result_trees{'multiline'}{'contents'}[0]{'parent'} = $result_trees{'multiline'};
 
 $result_texis{'multiline'} = '@verb{@
 qdsqsddqsdsq

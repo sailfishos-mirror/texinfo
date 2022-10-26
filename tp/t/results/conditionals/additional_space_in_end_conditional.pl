@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'additional_space_in_end_conditional'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'additional_space_in_end_conditional'}{'contents'}[0]{'parent'} = $result_trees{'additional_space_in_end_conditional'};
 
 $result_texis{'additional_space_in_end_conditional'} = '';
 

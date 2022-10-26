@@ -15,7 +15,6 @@ $result_trees{'not_closed_item'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }
               ],
@@ -23,7 +22,6 @@ $result_trees{'not_closed_item'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -33,26 +31,22 @@ $result_trees{'not_closed_item'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => ' ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in item
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
               'extra' => {
                 'item_number' => 1
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -63,7 +57,6 @@ $result_trees{'not_closed_item'} = {
           'extra' => {
             'command_as_argument' => {}
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -71,21 +64,12 @@ $result_trees{'not_closed_item'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0];
 $result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'not_closed_item'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_closed_item'}{'contents'}[0];
-$result_trees{'not_closed_item'}{'contents'}[0]{'parent'} = $result_trees{'not_closed_item'};
 
 $result_texis{'not_closed_item'} = '@itemize
 @item in item

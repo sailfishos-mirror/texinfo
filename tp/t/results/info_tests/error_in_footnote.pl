@@ -10,13 +10,11 @@ $result_trees{'error_in_footnote'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -24,7 +22,6 @@ $result_trees{'error_in_footnote'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -32,14 +29,12 @@ $result_trees{'error_in_footnote'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -49,17 +44,14 @@ $result_trees{'error_in_footnote'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Text'
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'label'
                 }
               ],
@@ -68,14 +60,12 @@ $result_trees{'error_in_footnote'} = {
 ',
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'float',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -83,16 +73,13 @@ $result_trees{'error_in_footnote'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Float text1
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -104,12 +91,10 @@ $result_trees{'error_in_footnote'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Caption. '
                         },
                         {
                           'cmdname' => 'TeX',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
@@ -117,12 +102,10 @@ $result_trees{'error_in_footnote'} = {
                           }
                         },
                         {
-                          'parent' => {},
                           'text' => '. 
 '
                         },
                         {
-                          'parent' => {},
                           'text' => 'In caption '
                         },
                         {
@@ -130,16 +113,13 @@ $result_trees{'error_in_footnote'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'note caption'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'strong',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
@@ -147,12 +127,10 @@ $result_trees{'error_in_footnote'} = {
                           }
                         },
                         {
-                          'parent' => {},
                           'text' => '.  
 '
                         },
                         {
-                          'parent' => {},
                           'text' => 'Now footnote'
                         },
                         {
@@ -163,7 +141,6 @@ $result_trees{'error_in_footnote'} = {
                                   'contents' => [
                                     {
                                       'cmdname' => 'LaTeX',
-                                      'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 10,
@@ -171,12 +148,10 @@ $result_trees{'error_in_footnote'} = {
                                       }
                                     },
                                     {
-                                      'parent' => {},
                                       'text' => '. 
 '
                                     },
                                     {
-                                      'parent' => {},
                                       'text' => 'and strong '
                                     },
                                     {
@@ -184,16 +159,13 @@ $result_trees{'error_in_footnote'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'parent' => {},
                                               'text' => 'Note footnote'
                                             }
                                           ],
-                                          'parent' => {},
                                           'type' => 'brace_command_arg'
                                         }
                                       ],
                                       'cmdname' => 'strong',
-                                      'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 11,
@@ -201,20 +173,16 @@ $result_trees{'error_in_footnote'} = {
                                       }
                                     },
                                     {
-                                      'parent' => {},
                                       'text' => '.'
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'paragraph'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_context'
                             }
                           ],
                           'cmdname' => 'footnote',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 10,
@@ -222,11 +190,9 @@ $result_trees{'error_in_footnote'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -234,7 +200,6 @@ $result_trees{'error_in_footnote'} = {
               'extra' => {
                 'float' => {}
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -242,7 +207,6 @@ $result_trees{'error_in_footnote'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -251,7 +215,6 @@ $result_trees{'error_in_footnote'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
@@ -259,7 +222,6 @@ $result_trees{'error_in_footnote'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -268,7 +230,6 @@ $result_trees{'error_in_footnote'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
@@ -290,7 +251,6 @@ $result_trees{'error_in_footnote'} = {
               'normalized' => 'Text'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
@@ -298,7 +258,6 @@ $result_trees{'error_in_footnote'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -308,7 +267,6 @@ $result_trees{'error_in_footnote'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Text'
                 }
               ],
@@ -316,7 +274,6 @@ $result_trees{'error_in_footnote'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -330,7 +287,6 @@ $result_trees{'error_in_footnote'} = {
               'normalized' => 'Text'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 14,
@@ -338,7 +294,6 @@ $result_trees{'error_in_footnote'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -348,7 +303,6 @@ $result_trees{'error_in_footnote'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Text'
                 }
               ],
@@ -356,7 +310,6 @@ $result_trees{'error_in_footnote'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -370,7 +323,6 @@ $result_trees{'error_in_footnote'} = {
               'normalized' => 'Text'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 16,
@@ -393,7 +345,6 @@ $result_trees{'error_in_footnote'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -403,63 +354,14 @@ $result_trees{'error_in_footnote'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'error_in_footnote'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'};
-$result_trees{'error_in_footnote'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'args'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3];
 $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'extra'}{'float'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[5]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[5];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1];
 $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'contents'}[3];
 $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[3];
 $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[5]{'args'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[5];
 $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[5]{'extra'}{'type'}{'content'}[0] = $result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'error_in_footnote'}{'contents'}[1];
 $result_trees{'error_in_footnote'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'error_in_footnote'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'error_in_footnote'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'error_in_footnote'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'error_in_footnote'}{'contents'}[1]{'parent'} = $result_trees{'error_in_footnote'};
 
 $result_texis{'error_in_footnote'} = '
 @node Top

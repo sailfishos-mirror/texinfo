@@ -16,7 +16,6 @@ $result_trees{'east_asian_in_w'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'utf-8'
                     }
                   ],
@@ -24,7 +23,6 @@ $result_trees{'east_asian_in_w'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -35,7 +33,6 @@ $result_trees{'east_asian_in_w'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'utf-8'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'east_asian_in_w.texi',
                 'line_nr' => 1,
@@ -43,24 +40,20 @@ $result_trees{'east_asian_in_w'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'This option overrides an include file name section and aaaaa aaaa
 '
             },
             {
-              'parent' => {},
               'text' => '('
             },
             {
@@ -68,16 +61,13 @@ $result_trees{'east_asian_in_w'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => "\x{5305}\x{542b}\x{6587}\x{5b57}"
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'w',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'east_asian_in_w.texi',
                 'line_nr' => 4,
@@ -85,23 +75,19 @@ $result_trees{'east_asian_in_w'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ').
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
           'cmdname' => 'noindent',
-          'parent' => {},
           'source_info' => {
             'file_name' => 'east_asian_in_w.texi',
             'line_nr' => 6,
@@ -109,7 +95,6 @@ $result_trees{'east_asian_in_w'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'ignorable_spaces_after_command'
@@ -117,12 +102,10 @@ $result_trees{'east_asian_in_w'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'This option overrides an include file name section and aaaaa aaaa
 '
             },
             {
-              'parent' => {},
               'text' => "(\x{5305}\x{542b}\x{6587}\x{5b57}).
 "
             }
@@ -130,42 +113,19 @@ $result_trees{'east_asian_in_w'} = {
           'extra' => {
             'noindent' => 1
           },
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'};
 
 $result_texis{'east_asian_in_w'} = '@documentencoding utf-8
 

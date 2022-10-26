@@ -15,7 +15,6 @@ $result_trees{'long_item'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -28,7 +27,6 @@ $result_trees{'long_item'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -43,7 +41,6 @@ $result_trees{'long_item'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'first item      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa'
                             }
                           ],
@@ -51,7 +48,6 @@ $result_trees{'long_item'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -59,7 +55,6 @@ $result_trees{'long_item'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -71,7 +66,6 @@ $result_trees{'long_item'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'second itemx bbbbbbbbbbbbbbbbbbbbbbbbbbbbb b b b b b b b b b b b b b'
                             }
                           ],
@@ -79,7 +73,6 @@ $result_trees{'long_item'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -87,7 +80,6 @@ $result_trees{'long_item'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -95,13 +87,11 @@ $result_trees{'long_item'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
@@ -109,20 +99,16 @@ $result_trees{'long_item'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Text.
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_item'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -130,7 +116,6 @@ $result_trees{'long_item'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -138,7 +123,6 @@ $result_trees{'long_item'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -147,7 +131,6 @@ $result_trees{'long_item'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -159,7 +142,6 @@ $result_trees{'long_item'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -167,32 +149,12 @@ $result_trees{'long_item'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0];
 $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'long_item'}{'contents'}[0];
-$result_trees{'long_item'}{'contents'}[0]{'parent'} = $result_trees{'long_item'};
 
 $result_texis{'long_item'} = '@table @emph
 @item first item      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa

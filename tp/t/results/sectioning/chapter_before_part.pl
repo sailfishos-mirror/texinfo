@@ -12,83 +12,43 @@ $result_trees{'chapter_before_part'} = [
         'contents' => [
           {
             'contents' => [],
-            'parent' => {},
             'type' => 'preamble_before_content'
           }
         ],
-        'parent' => {
-          'contents' => [
-            {},
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'chapter',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'part'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'part',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
-              }
-            }
-          ],
-          'type' => 'document_root'
-        },
         'type' => 'before_node_section'
       },
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'chapter'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'chapter',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 1,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -97,7 +57,31 @@ $result_trees{'chapter_before_part'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'part'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'part',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 3,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -105,19 +89,8 @@ $result_trees{'chapter_before_part'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'chapter_before_part'}[0]{'contents'}[0];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'};
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'};
-$result_trees{'chapter_before_part'}[0]{'contents'}[1] = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'chapter_before_part'}[0]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'chapter_before_part'}[1]{'contents'}[0] = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'chapter_before_part'}[1]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
+$result_trees{'chapter_before_part'}[0]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[0]{'contents'}[1];
+$result_trees{'chapter_before_part'}[1]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[1]{'contents'}[0];
 
 $result_texis{'chapter_before_part'} = '@chapter chapter
 

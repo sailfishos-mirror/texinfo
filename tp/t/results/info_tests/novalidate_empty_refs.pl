@@ -10,7 +10,6 @@ $result_trees{'novalidate_empty_refs'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,14 +17,12 @@ $result_trees{'novalidate_empty_refs'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'novalidate',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -33,13 +30,11 @@ $result_trees{'novalidate_empty_refs'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -47,7 +42,6 @@ $result_trees{'novalidate_empty_refs'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -55,14 +49,12 @@ $result_trees{'novalidate_empty_refs'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -74,11 +66,9 @@ $result_trees{'novalidate_empty_refs'} = {
                 {
                   'contents' => [
                     {
-                      'cmdname' => ':',
-                      'parent' => {}
+                      'cmdname' => ':'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -91,7 +81,6 @@ $result_trees{'novalidate_empty_refs'} = {
                   'normalized' => ''
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -99,7 +88,6 @@ $result_trees{'novalidate_empty_refs'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             },
@@ -112,16 +100,13 @@ $result_trees{'novalidate_empty_refs'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => ' '
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'asis',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
@@ -129,7 +114,6 @@ $result_trees{'novalidate_empty_refs'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -142,7 +126,6 @@ $result_trees{'novalidate_empty_refs'} = {
                   'normalized' => '-'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -150,16 +133,13 @@ $result_trees{'novalidate_empty_refs'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -180,7 +160,6 @@ $result_trees{'novalidate_empty_refs'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -193,11 +172,9 @@ $result_trees{'novalidate_empty_refs'} = {
           'contents' => [
             {
               'cmdname' => '
-',
-              'parent' => {}
+'
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -213,7 +190,6 @@ $result_trees{'novalidate_empty_refs'} = {
         ],
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 9,
@@ -225,15 +201,13 @@ $result_trees{'novalidate_empty_refs'} = {
         {
           'contents' => [
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             }
           ],
           'extra' => {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -249,7 +223,6 @@ $result_trees{'novalidate_empty_refs'} = {
         ],
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 10,
@@ -265,16 +238,13 @@ $result_trees{'novalidate_empty_refs'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => ' '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'asis',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -286,7 +256,6 @@ $result_trees{'novalidate_empty_refs'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -302,7 +271,6 @@ $result_trees{'novalidate_empty_refs'} = {
         ],
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 11,
@@ -312,45 +280,13 @@ $result_trees{'novalidate_empty_refs'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'novalidate_empty_refs'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[0]{'contents'}[1];
-$result_trees{'novalidate_empty_refs'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'};
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'args'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2];
 $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[1];
 $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[1]{'parent'} = $result_trees{'novalidate_empty_refs'};
-$result_trees{'novalidate_empty_refs'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[2]{'args'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[2];
 $result_trees{'novalidate_empty_refs'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[2]{'parent'} = $result_trees{'novalidate_empty_refs'};
-$result_trees{'novalidate_empty_refs'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[3]{'args'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[3];
 $result_trees{'novalidate_empty_refs'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[3]{'parent'} = $result_trees{'novalidate_empty_refs'};
-$result_trees{'novalidate_empty_refs'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[4]{'args'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'novalidate_empty_refs'}{'contents'}[4];
 $result_trees{'novalidate_empty_refs'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'novalidate_empty_refs'}{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'novalidate_empty_refs'}{'contents'}[4]{'parent'} = $result_trees{'novalidate_empty_refs'};
 
 $result_texis{'novalidate_empty_refs'} = '
 @novalidate

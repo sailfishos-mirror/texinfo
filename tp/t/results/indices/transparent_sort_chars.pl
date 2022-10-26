@@ -14,12 +14,10 @@ $result_trees{'transparent_sort_chars'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'txiindexhyphenignore',
                   'type' => 'misc_arg'
                 },
                 {
-                  'parent' => {},
                   'text' => '',
                   'type' => 'misc_arg'
                 }
@@ -32,21 +30,17 @@ $result_trees{'transparent_sort_chars'} = {
                   'txiindexhyphenignore',
                   ''
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -54,7 +48,6 @@ $result_trees{'transparent_sort_chars'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -62,7 +55,6 @@ $result_trees{'transparent_sort_chars'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -82,7 +74,6 @@ $result_trees{'transparent_sort_chars'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -96,21 +87,18 @@ $result_trees{'transparent_sort_chars'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
       'extra' => {},
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -122,7 +110,6 @@ $result_trees{'transparent_sort_chars'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'node'
             }
           ],
@@ -130,14 +117,12 @@ $result_trees{'transparent_sort_chars'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -151,16 +136,13 @@ $result_trees{'transparent_sort_chars'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '--version'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'code',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 8,
@@ -168,7 +150,6 @@ $result_trees{'transparent_sort_chars'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ', for '
                 },
                 {
@@ -176,16 +157,13 @@ $result_trees{'transparent_sort_chars'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'install-info'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'command',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 8,
@@ -197,7 +175,6 @@ $result_trees{'transparent_sort_chars'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -219,7 +196,6 @@ $result_trees{'transparent_sort_chars'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
@@ -232,7 +208,6 @@ $result_trees{'transparent_sort_chars'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Source file format'
                 }
               ],
@@ -240,7 +215,6 @@ $result_trees{'transparent_sort_chars'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -262,7 +236,6 @@ $result_trees{'transparent_sort_chars'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -275,7 +248,6 @@ $result_trees{'transparent_sort_chars'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Semantic markup'
                 }
               ],
@@ -283,7 +255,6 @@ $result_trees{'transparent_sort_chars'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -305,7 +276,6 @@ $result_trees{'transparent_sort_chars'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
@@ -314,7 +284,6 @@ $result_trees{'transparent_sort_chars'} = {
           'type' => 'index_entry_command'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -324,7 +293,6 @@ $result_trees{'transparent_sort_chars'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'cp'
                 }
               ],
@@ -332,7 +300,6 @@ $result_trees{'transparent_sort_chars'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -343,7 +310,6 @@ $result_trees{'transparent_sort_chars'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 12,
@@ -367,7 +333,6 @@ $result_trees{'transparent_sort_chars'} = {
         'normalized' => 'node',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 6,
@@ -377,57 +342,22 @@ $result_trees{'transparent_sort_chars'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'};
-$result_trees{'transparent_sort_chars'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[1]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[1];
 $result_trees{'transparent_sort_chars'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'transparent_sort_chars'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'transparent_sort_chars'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transparent_sort_chars'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[1]{'parent'} = $result_trees{'transparent_sort_chars'};
-$result_trees{'transparent_sort_chars'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[2];
-$result_trees{'transparent_sort_chars'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[2];
-$result_trees{'transparent_sort_chars'}{'contents'}[2]{'parent'} = $result_trees{'transparent_sort_chars'};
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[5]{'args'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[5];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'contents'}[5]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[3];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'transparent_sort_chars'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'transparent_sort_chars'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[3]{'parent'} = $result_trees{'transparent_sort_chars'};
 
 $result_texis{'transparent_sort_chars'} = '@set txiindexhyphenignore
 

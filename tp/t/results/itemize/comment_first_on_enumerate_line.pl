@@ -16,7 +16,6 @@ $result_trees{'comment_first_on_enumerate_line'} = {
                 'comment_at_end' => {
                   'args' => [
                     {
-                      'parent' => {},
                       'text' => ' comment on enumerate line
 ',
                       'type' => 'misc_arg'
@@ -28,11 +27,9 @@ $result_trees{'comment_first_on_enumerate_line'} = {
                       ' comment on enumerate line
 '
                     ]
-                  },
-                  'parent' => {}
+                  }
                 }
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -42,26 +39,22 @@ $result_trees{'comment_first_on_enumerate_line'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => ' ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'first
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
               'extra' => {
                 'item_number' => 1
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -73,7 +66,6 @@ $result_trees{'comment_first_on_enumerate_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'enumerate'
                     }
                   ],
@@ -81,7 +73,6 @@ $result_trees{'comment_first_on_enumerate_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -90,7 +81,6 @@ $result_trees{'comment_first_on_enumerate_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -102,7 +92,6 @@ $result_trees{'comment_first_on_enumerate_line'} = {
             'enumerate_specification' => '1',
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -110,24 +99,11 @@ $result_trees{'comment_first_on_enumerate_line'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'};
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'}{'contents'}[0];
-$result_trees{'comment_first_on_enumerate_line'}{'contents'}[0]{'parent'} = $result_trees{'comment_first_on_enumerate_line'};
 
 $result_texis{'comment_first_on_enumerate_line'} = '@enumerate @c comment on enumerate line
 @item first

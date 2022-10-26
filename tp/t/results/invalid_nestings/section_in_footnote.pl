@@ -10,7 +10,6 @@ $result_trees{'section_in_footnote'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,7 +17,6 @@ $result_trees{'section_in_footnote'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text'
             },
             {
@@ -26,13 +24,11 @@ $result_trees{'section_in_footnote'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -41,7 +37,6 @@ $result_trees{'section_in_footnote'} = {
                 'spaces_before_argument' => '
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -49,11 +44,9 @@ $result_trees{'section_in_footnote'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -61,7 +54,6 @@ $result_trees{'section_in_footnote'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'a section'
             }
           ],
@@ -69,7 +61,6 @@ $result_trees{'section_in_footnote'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -77,7 +68,6 @@ $result_trees{'section_in_footnote'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -87,16 +77,6 @@ $result_trees{'section_in_footnote'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_footnote'}{'contents'}[0];
-$result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1];
-$result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1];
-$result_trees{'section_in_footnote'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'section_in_footnote'}{'contents'}[0];
-$result_trees{'section_in_footnote'}{'contents'}[0]{'parent'} = $result_trees{'section_in_footnote'};
-$result_trees{'section_in_footnote'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_footnote'}{'contents'}[1]{'args'}[0];
-$result_trees{'section_in_footnote'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_in_footnote'}{'contents'}[1];
-$result_trees{'section_in_footnote'}{'contents'}[1]{'parent'} = $result_trees{'section_in_footnote'};
 
 $result_texis{'section_in_footnote'} = '
 Text@footnote{

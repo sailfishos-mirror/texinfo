@@ -16,26 +16,22 @@ $result_trees{'ignore_not_closed'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'ignore',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => 'This is ignored
 ',
               'type' => 'raw'
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -43,17 +39,11 @@ $result_trees{'ignore_not_closed'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignore_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignore_not_closed'}{'contents'}[0];
-$result_trees{'ignore_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'ignore_not_closed'};
 
 $result_texis{'ignore_not_closed'} = '@ignore
 

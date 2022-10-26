@@ -10,7 +10,6 @@ $result_trees{'macro_in_ifset'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,7 +17,6 @@ $result_trees{'macro_in_ifset'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'truc',
               'type' => 'macro_name'
             }
@@ -26,7 +24,6 @@ $result_trees{'macro_in_ifset'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'truc
 ',
               'type' => 'raw'
@@ -36,7 +33,6 @@ $result_trees{'macro_in_ifset'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -44,7 +40,6 @@ $result_trees{'macro_in_ifset'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -53,7 +48,6 @@ $result_trees{'macro_in_ifset'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -65,7 +59,6 @@ $result_trees{'macro_in_ifset'} = {
             'arg_line' => ' truc {}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -73,13 +66,11 @@ $result_trees{'macro_in_ifset'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -87,33 +78,18 @@ $result_trees{'macro_in_ifset'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'truc
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[4];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'macro_in_ifset'}{'contents'}[0];
-$result_trees{'macro_in_ifset'}{'contents'}[0]{'parent'} = $result_trees{'macro_in_ifset'};
 
 $result_texis{'macro_in_ifset'} = '
 @macro truc {}

@@ -12,12 +12,10 @@ $result_trees{'empty_end'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'foo',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'aaa',
               'type' => 'macro_arg'
             }
@@ -25,7 +23,6 @@ $result_trees{'empty_end'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in foo
 ',
               'type' => 'raw'
@@ -35,11 +32,9 @@ $result_trees{'empty_end'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -48,7 +43,6 @@ $result_trees{'empty_end'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -60,7 +54,6 @@ $result_trees{'empty_end'} = {
             'arg_line' => ' foo {aaa, }
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -68,20 +61,11 @@ $result_trees{'empty_end'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_end'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'empty_end'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_end'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_end'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_end'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_end'}{'contents'}[0];
-$result_trees{'empty_end'}{'contents'}[0]{'parent'} = $result_trees{'empty_end'};
 
 $result_texis{'empty_end'} = '@macro foo {aaa, }
 in foo

@@ -14,23 +14,19 @@ $result_trees{'texi_glossary'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\input texinfo.tex
 ',
                   'type' => 'text_before_beginning'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'text_before_beginning'
                 }
               ],
-              'parent' => {},
               'type' => 'preamble_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_setfilename'
         },
         {
@@ -40,7 +36,6 @@ $result_trees{'texi_glossary'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'glossary'
                     }
                   ],
@@ -48,7 +43,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'texi_glossary'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'glossary'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 3,
@@ -65,7 +58,6 @@ $result_trees{'texi_glossary'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -73,7 +65,6 @@ $result_trees{'texi_glossary'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'glossarytext',
                   'type' => 'macro_name'
                 }
@@ -81,7 +72,6 @@ $result_trees{'texi_glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '@table @asis
 ',
                   'type' => 'raw'
@@ -91,7 +81,6 @@ $result_trees{'texi_glossary'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'macro'
                         }
                       ],
@@ -99,7 +88,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -108,7 +96,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'glossary.texi',
                     'line_nr' => 7,
@@ -120,7 +107,6 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' glossarytext
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 5,
@@ -128,7 +114,6 @@ $result_trees{'texi_glossary'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -136,7 +121,6 @@ $result_trees{'texi_glossary'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'glossary',
                   'type' => 'macro_name'
                 }
@@ -144,19 +128,16 @@ $result_trees{'texi_glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '@glossarytext
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '@end table
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'raw'
@@ -166,7 +147,6 @@ $result_trees{'texi_glossary'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'macro'
                         }
                       ],
@@ -174,7 +154,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -183,7 +162,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'glossary.texi',
                     'line_nr' => 13,
@@ -195,7 +173,6 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' glossary
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 9,
@@ -203,7 +180,6 @@ $result_trees{'texi_glossary'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -211,22 +187,18 @@ $result_trees{'texi_glossary'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'gentry',
                   'type' => 'macro_name'
                 },
                 {
-                  'parent' => {},
                   'text' => 'id',
                   'type' => 'macro_arg'
                 },
                 {
-                  'parent' => {},
                   'text' => 'name',
                   'type' => 'macro_arg'
                 },
                 {
-                  'parent' => {},
                   'text' => 'text',
                   'type' => 'macro_arg'
                 }
@@ -234,43 +206,36 @@ $result_trees{'texi_glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '@ifhtml
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '@ref{\\id\\,\\name\\}
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '@end ifhtml
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '@ifnothtml
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '\\name\\ (@pxref{\\id\\})
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '@end ifnothtml
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '@unmacro expandglossary
 ',
                   'type' => 'raw'
@@ -279,7 +244,6 @@ $result_trees{'texi_glossary'} = {
                   'cmdname' => 'macro',
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '@unmacro glossarytext
 ',
                       'type' => 'raw'
@@ -288,19 +252,16 @@ $result_trees{'texi_glossary'} = {
                       'cmdname' => 'macro',
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '\\\\glossary\\\\
 ',
                           'type' => 'raw'
                         },
                         {
-                          'parent' => {},
                           'text' => '@item \\name\\ @anchor{\\id\\}
 ',
                           'type' => 'raw'
                         },
                         {
-                          'parent' => {},
                           'text' => '\\text\\
 ',
                           'type' => 'raw'
@@ -310,7 +271,6 @@ $result_trees{'texi_glossary'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'macro'
                                 }
                               ],
@@ -318,7 +278,6 @@ $result_trees{'texi_glossary'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -327,7 +286,6 @@ $result_trees{'texi_glossary'} = {
                             'spaces_before_argument' => ' ',
                             'text_arg' => 'macro'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => 'glossary.texi',
                             'line_nr' => 29,
@@ -338,15 +296,13 @@ $result_trees{'texi_glossary'} = {
                       'extra' => {
                         'arg_line' => ' glossarytext
 '
-                      },
-                      'parent' => {}
+                      }
                     },
                     {
                       'args' => [
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'macro'
                             }
                           ],
@@ -354,7 +310,6 @@ $result_trees{'texi_glossary'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -363,7 +318,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'glossary.texi',
                         'line_nr' => 30,
@@ -374,17 +328,14 @@ $result_trees{'texi_glossary'} = {
                   'extra' => {
                     'arg_line' => ' expandglossary{glossary}
 '
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
-                  'parent' => {},
                   'text' => '@expandglossary {@glossarytext}
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'raw'
@@ -394,7 +345,6 @@ $result_trees{'texi_glossary'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'macro'
                         }
                       ],
@@ -402,7 +352,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -411,7 +360,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'glossary.texi',
                     'line_nr' => 33,
@@ -423,7 +371,6 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' gentry {id, name, text}
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 15,
@@ -431,17 +378,14 @@ $result_trees{'texi_glossary'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -449,7 +393,6 @@ $result_trees{'texi_glossary'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -457,7 +400,6 @@ $result_trees{'texi_glossary'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -477,7 +419,6 @@ $result_trees{'texi_glossary'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'glossary.texi',
         'line_nr' => 35,
@@ -489,7 +430,6 @@ $result_trees{'texi_glossary'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -497,14 +437,12 @@ $result_trees{'texi_glossary'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -516,7 +454,6 @@ $result_trees{'texi_glossary'} = {
                 'spaces_after_argument' => ' 
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -525,22 +462,18 @@ $result_trees{'texi_glossary'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'glossary'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::',
                   'type' => 'menu_entry_separator'
                 },
@@ -549,16 +482,13 @@ $result_trees{'texi_glossary'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -571,7 +501,6 @@ $result_trees{'texi_glossary'} = {
                   'normalized' => 'glossary'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 39,
@@ -584,7 +513,6 @@ $result_trees{'texi_glossary'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'menu'
                     }
                   ],
@@ -592,7 +520,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -601,7 +528,6 @@ $result_trees{'texi_glossary'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 40,
@@ -609,7 +535,6 @@ $result_trees{'texi_glossary'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => 'glossary.texi',
             'line_nr' => 38,
@@ -617,7 +542,6 @@ $result_trees{'texi_glossary'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -625,7 +549,6 @@ $result_trees{'texi_glossary'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'The '
             },
             {
@@ -633,21 +556,17 @@ $result_trees{'texi_glossary'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'id1'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'name1'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -660,7 +579,6 @@ $result_trees{'texi_glossary'} = {
                   'normalized' => 'id1'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 42,
@@ -668,14 +586,12 @@ $result_trees{'texi_glossary'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'expandglossary',
                   'type' => 'misc_arg'
                 }
@@ -687,18 +603,15 @@ $result_trees{'texi_glossary'} = {
                 'misc_args' => [
                   'expandglossary'
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'expandglossary',
                   'type' => 'macro_name'
                 },
                 {
-                  'parent' => {},
                   'text' => 'glossary',
                   'type' => 'macro_arg'
                 }
@@ -706,7 +619,6 @@ $result_trees{'texi_glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '@unmacro glossarytext
 ',
                   'type' => 'raw'
@@ -715,19 +627,16 @@ $result_trees{'texi_glossary'} = {
                   'cmdname' => 'macro',
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '\\glossary\\
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => '@item name1 @anchor{id1}
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => 'text1, arg1 
 ',
                       'type' => 'raw'
@@ -737,7 +646,6 @@ $result_trees{'texi_glossary'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'macro'
                             }
                           ],
@@ -745,7 +653,6 @@ $result_trees{'texi_glossary'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -754,7 +661,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'glossary.texi',
                         'line_nr' => 42,
@@ -765,15 +671,13 @@ $result_trees{'texi_glossary'} = {
                   'extra' => {
                     'arg_line' => ' glossarytext
 '
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'macro'
                         }
                       ],
@@ -781,7 +685,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -790,7 +693,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'glossary.texi',
                     'line_nr' => 42,
@@ -802,7 +704,6 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' expandglossary{glossary}
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 42,
@@ -812,7 +713,6 @@ $result_trees{'texi_glossary'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'glossarytext',
                   'type' => 'misc_arg'
                 }
@@ -824,13 +724,11 @@ $result_trees{'texi_glossary'} = {
                 'misc_args' => [
                   'glossarytext'
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'glossarytext',
                   'type' => 'macro_name'
                 }
@@ -838,19 +736,16 @@ $result_trees{'texi_glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '@glossarytext
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '@item name1 @anchor{id1}
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => 'text1, arg1 
 ',
                   'type' => 'raw'
@@ -860,7 +755,6 @@ $result_trees{'texi_glossary'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'macro'
                         }
                       ],
@@ -868,7 +762,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -877,7 +770,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'glossary.texi',
                     'line_nr' => 42,
@@ -889,7 +781,6 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' glossarytext
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 42,
@@ -897,7 +788,6 @@ $result_trees{'texi_glossary'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' is used in many cases while
 '
             },
@@ -906,21 +796,17 @@ $result_trees{'texi_glossary'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'id2'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'name2'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -931,11 +817,9 @@ $result_trees{'texi_glossary'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'id2'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -945,81 +829,6 @@ $result_trees{'texi_glossary'} = {
                       {}
                     ],
                     'normalized' => 'id2'
-                  },
-                  'parent' => {
-                    'contents' => [
-                      {
-                        'parent' => {},
-                        'text' => 'name2 '
-                      },
-                      {},
-                      {
-                        'parent' => {},
-                        'text' => '
-',
-                        'type' => 'spaces_after_close_brace'
-                      },
-                      {
-                        'parent' => {},
-                        'text' => 'text2
-'
-                      }
-                    ],
-                    'parent' => {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => 'glossary'
-                            }
-                          ],
-                          'extra' => {
-                            'spaces_after_argument' => '
-'
-                          },
-                          'parent' => {},
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'cmdname' => 'chapter',
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'parent' => {},
-                          'text' => ' ',
-                          'type' => 'ignorable_spaces_after_command'
-                        },
-                        {},
-                        {
-                          'parent' => {},
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        },
-                        {
-                          'parent' => {},
-                          'text' => '
-',
-                          'type' => 'empty_line'
-                        }
-                      ],
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
-                      'parent' => {},
-                      'source_info' => {
-                        'file_name' => 'glossary.texi',
-                        'line_nr' => 46,
-                        'macro' => ''
-                      }
-                    },
-                    'type' => 'paragraph'
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
@@ -1034,7 +843,6 @@ $result_trees{'texi_glossary'} = {
                   'normalized' => 'id2'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 43,
@@ -1042,14 +850,12 @@ $result_trees{'texi_glossary'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'expandglossary',
                   'type' => 'misc_arg'
                 }
@@ -1061,18 +867,15 @@ $result_trees{'texi_glossary'} = {
                 'misc_args' => [
                   'expandglossary'
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'expandglossary',
                   'type' => 'macro_name'
                 },
                 {
-                  'parent' => {},
                   'text' => 'glossary',
                   'type' => 'macro_arg'
                 }
@@ -1080,7 +883,6 @@ $result_trees{'texi_glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '@unmacro glossarytext
 ',
                   'type' => 'raw'
@@ -1089,19 +891,16 @@ $result_trees{'texi_glossary'} = {
                   'cmdname' => 'macro',
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '\\glossary\\
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => '@item name2 @anchor{id2}
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => 'text2
 ',
                       'type' => 'raw'
@@ -1111,7 +910,6 @@ $result_trees{'texi_glossary'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'macro'
                             }
                           ],
@@ -1119,7 +917,6 @@ $result_trees{'texi_glossary'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -1128,7 +925,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => 'glossary.texi',
                         'line_nr' => 43,
@@ -1139,15 +935,13 @@ $result_trees{'texi_glossary'} = {
                   'extra' => {
                     'arg_line' => ' glossarytext
 '
-                  },
-                  'parent' => {}
+                  }
                 },
                 {
                   'args' => [
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'macro'
                         }
                       ],
@@ -1155,7 +949,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -1164,7 +957,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'glossary.texi',
                     'line_nr' => 43,
@@ -1176,7 +968,6 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' expandglossary{glossary}
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 43,
@@ -1186,7 +977,6 @@ $result_trees{'texi_glossary'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'glossarytext',
                   'type' => 'misc_arg'
                 }
@@ -1198,13 +988,11 @@ $result_trees{'texi_glossary'} = {
                 'misc_args' => [
                   'glossarytext'
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'glossarytext',
                   'type' => 'macro_name'
                 }
@@ -1212,19 +1000,16 @@ $result_trees{'texi_glossary'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '@glossarytext
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => '@item name2 @anchor{id2}
 ',
                   'type' => 'raw'
                 },
                 {
-                  'parent' => {},
                   'text' => 'text2
 ',
                   'type' => 'raw'
@@ -1234,7 +1019,6 @@ $result_trees{'texi_glossary'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'macro'
                         }
                       ],
@@ -1242,7 +1026,6 @@ $result_trees{'texi_glossary'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -1251,7 +1034,6 @@ $result_trees{'texi_glossary'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'glossary.texi',
                     'line_nr' => 43,
@@ -1263,7 +1045,6 @@ $result_trees{'texi_glossary'} = {
                 'arg_line' => ' glossarytext
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'glossary.texi',
                 'line_nr' => 43,
@@ -1271,16 +1052,13 @@ $result_trees{'texi_glossary'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' is quite specific
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1289,7 +1067,6 @@ $result_trees{'texi_glossary'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'glossary.texi',
         'line_nr' => 36,
@@ -1301,7 +1078,6 @@ $result_trees{'texi_glossary'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'glossary'
             }
           ],
@@ -1309,7 +1085,6 @@ $result_trees{'texi_glossary'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -1329,190 +1104,89 @@ $result_trees{'texi_glossary'} = {
         'normalized' => 'glossary',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'glossary.texi',
         'line_nr' => 45,
         'macro' => ''
       }
     },
-    {}
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'glossary'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'text' => ' ',
+          'type' => 'ignorable_spaces_after_command'
+        },
+        {
+          'contents' => [
+            {
+              'text' => 'name2 '
+            },
+            {},
+            {
+              'text' => '
+',
+              'type' => 'spaces_after_close_brace'
+            },
+            {
+              'text' => 'text2
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'source_info' => {
+        'file_name' => 'glossary.texi',
+        'line_nr' => 46,
+        'macro' => ''
+      }
+    }
   ],
   'type' => 'document_root'
 };
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[8]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[9]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[10]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[10];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'contents'}[10]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'};
-$result_trees{'texi_glossary'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[1]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[1];
 $result_trees{'texi_glossary'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'texi_glossary'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[5];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[5]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[6]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[7]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'};
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'contents'}[1] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[2] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'}{'parent'} = $result_trees{'texi_glossary'};
 $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[9]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[10]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'args'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[11]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[12];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[12]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[13]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[14]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[2];
-$result_trees{'texi_glossary'}{'contents'}[2]{'parent'} = $result_trees{'texi_glossary'};
-$result_trees{'texi_glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[3]{'args'}[0];
-$result_trees{'texi_glossary'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_glossary'}{'contents'}[3];
 $result_trees{'texi_glossary'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'texi_glossary'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'texi_glossary'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'texi_glossary'}{'contents'}[3]{'parent'} = $result_trees{'texi_glossary'};
-$result_trees{'texi_glossary'}{'contents'}[4] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'}{'parent'}{'parent'};
+$result_trees{'texi_glossary'}{'contents'}[4]{'contents'}[2]{'contents'}[1] = $result_trees{'texi_glossary'}{'contents'}[2]{'contents'}[3]{'contents'}[8]{'extra'}{'label'};
 
 $result_texis{'texi_glossary'} = '\\input texinfo.tex
 

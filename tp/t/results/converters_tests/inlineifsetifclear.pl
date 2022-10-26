@@ -16,24 +16,20 @@ $result_trees{'inlineifsetifclear'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aaa'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'iclear first '
                     }
                   ],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -42,7 +38,6 @@ $result_trees{'inlineifsetifclear'} = {
                 'expand_index' => 1,
                 'format' => 'aaa'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -50,16 +45,13 @@ $result_trees{'inlineifsetifclear'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -71,15 +63,12 @@ $result_trees{'inlineifsetifclear'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aaa'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'elided'
                 }
               ],
@@ -87,7 +76,6 @@ $result_trees{'inlineifsetifclear'} = {
               'extra' => {
                 'format' => 'aaa'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -95,16 +83,13 @@ $result_trees{'inlineifsetifclear'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -112,12 +97,10 @@ $result_trees{'inlineifsetifclear'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'aaa',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => '',
               'type' => 'misc_arg'
             }
@@ -130,11 +113,9 @@ $result_trees{'inlineifsetifclear'} = {
               'aaa',
               ''
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -146,15 +127,12 @@ $result_trees{'inlineifsetifclear'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aaa'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'elided'
                 }
               ],
@@ -162,7 +140,6 @@ $result_trees{'inlineifsetifclear'} = {
               'extra' => {
                 'format' => 'aaa'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -170,16 +147,13 @@ $result_trees{'inlineifsetifclear'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -191,24 +165,20 @@ $result_trees{'inlineifsetifclear'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aaa'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'ifset second '
                     }
                   ],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -217,7 +187,6 @@ $result_trees{'inlineifsetifclear'} = {
                 'expand_index' => 1,
                 'format' => 'aaa'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -225,55 +194,18 @@ $result_trees{'inlineifsetifclear'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[1];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'};
 
 $result_texis{'inlineifsetifclear'} = '@inlineifclear{aaa, iclear first }.
 

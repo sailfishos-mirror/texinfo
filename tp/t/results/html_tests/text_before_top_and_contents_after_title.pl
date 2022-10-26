@@ -10,7 +10,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,22 +17,18 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Some text before top
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -41,7 +36,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -49,7 +43,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -69,7 +62,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -81,7 +73,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -89,14 +80,12 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -104,16 +93,13 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In top.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -122,7 +108,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -134,7 +119,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'the chap'
             }
           ],
@@ -142,14 +126,12 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -157,14 +139,12 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'contents',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
@@ -172,7 +152,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -181,7 +160,6 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 9,
@@ -191,30 +169,8 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0]{'contents'}[1];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'};
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'args'}[0];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1];
 $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[1]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'};
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'args'}[0];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'contents'}[1];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[2]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'};
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'args'}[0];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'contents'}[1];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3];
-$result_trees{'text_before_top_and_contents_after_title'}{'contents'}[3]{'parent'} = $result_trees{'text_before_top_and_contents_after_title'};
 
 $result_texis{'text_before_top_and_contents_after_title'} = '
 Some text before top

@@ -12,7 +12,6 @@ $result_trees{'accents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Valid
 '
             },
@@ -23,12 +22,10 @@ $result_trees{'accents'} = {
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'TeX',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -36,12 +33,10 @@ $result_trees{'accents'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '~',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -49,7 +44,6 @@ $result_trees{'accents'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. '
             },
             {
@@ -57,16 +51,13 @@ $result_trees{'accents'} = {
                 {
                   'contents' => [
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '~',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -74,16 +65,13 @@ $result_trees{'accents'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -91,7 +79,6 @@ $result_trees{'accents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Invalid
 '
             },
@@ -104,16 +91,13 @@ $result_trees{'accents'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'a'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'code',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -121,12 +105,10 @@ $result_trees{'accents'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '~',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -134,7 +116,6 @@ $result_trees{'accents'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.  '
             },
             {
@@ -146,11 +127,9 @@ $result_trees{'accents'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'truc'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -161,7 +140,6 @@ $result_trees{'accents'} = {
                         ],
                         'normalized' => 'truc'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -169,12 +147,10 @@ $result_trees{'accents'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '^',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -182,49 +158,19 @@ $result_trees{'accents'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accents'}{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'accents'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'accents'}{'contents'}[0];
-$result_trees{'accents'}{'contents'}[0]{'parent'} = $result_trees{'accents'};
 
 $result_texis{'accents'} = 'Valid
 @~{@TeX{}}. @~{@@}.

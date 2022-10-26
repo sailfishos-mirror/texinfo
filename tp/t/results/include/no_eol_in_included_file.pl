@@ -12,36 +12,26 @@ $result_trees{'no_eol_in_included_file'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Some thing.
 '
             },
             {
-              'parent' => {},
               'text' => 'AA
 '
             },
             {
-              'parent' => {},
               'text' => 'Following
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_eol_in_included_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_eol_in_included_file'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_eol_in_included_file'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_eol_in_included_file'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_eol_in_included_file'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_eol_in_included_file'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_eol_in_included_file'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_eol_in_included_file'}{'contents'}[0];
-$result_trees{'no_eol_in_included_file'}{'contents'}[0]{'parent'} = $result_trees{'no_eol_in_included_file'};
 
 $result_texis{'no_eol_in_included_file'} = 'Some thing.
 AA

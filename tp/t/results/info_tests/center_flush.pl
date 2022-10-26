@@ -14,7 +14,6 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'centered'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'center_flush'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -30,7 +28,6 @@ $result_trees{'center_flush'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -38,7 +35,6 @@ $result_trees{'center_flush'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -50,7 +46,6 @@ $result_trees{'center_flush'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -59,21 +54,17 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'left and
 '
                 },
                 {
-                  'parent' => {},
                   'text' => 'left2
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -81,22 +72,18 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'left3.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -104,21 +91,17 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'left Last
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '  with space.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -126,7 +109,6 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Now anchor
 '
                 },
@@ -135,11 +117,9 @@ $result_trees{'center_flush'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'anchor in flushleft'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -150,7 +130,6 @@ $result_trees{'center_flush'} = {
                     ],
                     'normalized' => 'anchor-in-flushleft'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
@@ -158,18 +137,15 @@ $result_trees{'center_flush'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'spaces_after_close_brace'
                 },
                 {
-                  'parent' => {},
                   'text' => 'after anchor
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -177,7 +153,6 @@ $result_trees{'center_flush'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'flushleft'
                     }
                   ],
@@ -185,7 +160,6 @@ $result_trees{'center_flush'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -194,7 +168,6 @@ $result_trees{'center_flush'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushleft'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 16,
@@ -202,7 +175,6 @@ $result_trees{'center_flush'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -210,7 +182,6 @@ $result_trees{'center_flush'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -222,7 +193,6 @@ $result_trees{'center_flush'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -231,21 +201,17 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'right and
 '
                 },
                 {
-                  'parent' => {},
                   'text' => 'right2
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -253,22 +219,18 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Right3
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -276,21 +238,17 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Right last
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '  with space.     
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -298,7 +256,6 @@ $result_trees{'center_flush'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Now anchor
 '
                 },
@@ -307,11 +264,9 @@ $result_trees{'center_flush'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'anchor in flushright'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -322,7 +277,6 @@ $result_trees{'center_flush'} = {
                     ],
                     'normalized' => 'anchor-in-flushright'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 29,
@@ -330,18 +284,15 @@ $result_trees{'center_flush'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'spaces_after_close_brace'
                 },
                 {
-                  'parent' => {},
                   'text' => 'after anchor
 '
                 },
                 {
-                  'parent' => {},
                   'text' => 'Second anchor in text '
                 },
                 {
@@ -349,11 +300,9 @@ $result_trees{'center_flush'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'second anchor in flushright'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -364,7 +313,6 @@ $result_trees{'center_flush'} = {
                     ],
                     'normalized' => 'second-anchor-in-flushright'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -372,17 +320,14 @@ $result_trees{'center_flush'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' ',
                   'type' => 'spaces_after_close_brace'
                 },
                 {
-                  'parent' => {},
                   'text' => 'after anchor.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -390,7 +335,6 @@ $result_trees{'center_flush'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'flushright'
                     }
                   ],
@@ -398,7 +342,6 @@ $result_trees{'center_flush'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -407,7 +350,6 @@ $result_trees{'center_flush'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 32,
@@ -415,7 +357,6 @@ $result_trees{'center_flush'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 18,
@@ -423,75 +364,14 @@ $result_trees{'center_flush'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[5];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[5];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[1]{'args'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[1];
 $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[8]{'args'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[8];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'contents'}[8]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'center_flush'}{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'center_flush'}{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[5];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[5];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[1];
 $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[5];
 $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[5]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[6]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'contents'}[7]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[8]{'args'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[8];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'center_flush'}{'contents'}[0]{'contents'}[4];
-$result_trees{'center_flush'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'center_flush'}{'contents'}[0];
-$result_trees{'center_flush'}{'contents'}[0]{'parent'} = $result_trees{'center_flush'};
 
 $result_texis{'center_flush'} = '@center centered
 

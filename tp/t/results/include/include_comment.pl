@@ -12,24 +12,18 @@ $result_trees{'include_comment'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In included file.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'include_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_comment'}{'contents'}[0]{'contents'}[0];
-$result_trees{'include_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_comment'}{'contents'}[0];
-$result_trees{'include_comment'}{'contents'}[0]{'parent'} = $result_trees{'include_comment'};
 
 $result_texis{'include_comment'} = 'In included file.
 ';

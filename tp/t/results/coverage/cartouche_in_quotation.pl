@@ -16,7 +16,6 @@ $result_trees{'cartouche_in_quotation'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -25,12 +24,10 @@ $result_trees{'cartouche_in_quotation'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'In quotation
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -40,7 +37,6 @@ $result_trees{'cartouche_in_quotation'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -49,12 +45,10 @@ $result_trees{'cartouche_in_quotation'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'In cartouche in quotation
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 },
                 {
@@ -62,7 +56,6 @@ $result_trees{'cartouche_in_quotation'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'cartouche'
                         }
                       ],
@@ -70,7 +63,6 @@ $result_trees{'cartouche_in_quotation'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -79,7 +71,6 @@ $result_trees{'cartouche_in_quotation'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'cartouche'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
@@ -87,7 +78,6 @@ $result_trees{'cartouche_in_quotation'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -97,12 +87,10 @@ $result_trees{'cartouche_in_quotation'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'end quotation
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -110,7 +98,6 @@ $result_trees{'cartouche_in_quotation'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -118,7 +105,6 @@ $result_trees{'cartouche_in_quotation'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -127,7 +113,6 @@ $result_trees{'cartouche_in_quotation'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -135,7 +120,6 @@ $result_trees{'cartouche_in_quotation'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -143,29 +127,11 @@ $result_trees{'cartouche_in_quotation'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'}{'contents'}[0];
-$result_trees{'cartouche_in_quotation'}{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_quotation'};
 
 $result_texis{'cartouche_in_quotation'} = '@quotation
 In quotation

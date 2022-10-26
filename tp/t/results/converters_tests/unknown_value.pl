@@ -13,18 +13,14 @@ $result_trees{'unknown_value'} = {
           'cmdname' => 'value',
           'extra' => {
             'flag' => 'unknown'
-          },
-          'parent' => {}
+          }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_value'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_value'}{'contents'}[0];
-$result_trees{'unknown_value'}{'contents'}[0]{'parent'} = $result_trees{'unknown_value'};
 
 $result_texis{'unknown_value'} = '@value{unknown}';
 

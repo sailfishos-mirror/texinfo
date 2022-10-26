@@ -18,41 +18,33 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'a'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'b'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'c'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'd'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -64,7 +56,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                       ]
                     }
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -72,11 +63,9 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' fa'
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
@@ -86,11 +75,9 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'an anchor'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -101,7 +88,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                     ],
                     'normalized' => 'an-anchor'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -109,19 +95,16 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' ',
                   'type' => 'spaces_after_close_brace'
                 },
                 {
-                  'parent' => {},
                   'text' => 'on example line'
                 }
               ],
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
@@ -131,7 +114,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'in center'
                         }
                       ],
@@ -139,7 +121,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -147,7 +128,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -158,7 +138,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -169,7 +148,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -177,7 +155,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -186,7 +163,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -197,7 +173,6 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -205,40 +180,13 @@ $result_trees{'example_invalid_at_commands_arguments'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[2];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[3];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0];
 $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[2];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0];
-$result_trees{'example_invalid_at_commands_arguments'}{'contents'}[0]{'parent'} = $result_trees{'example_invalid_at_commands_arguments'};
 
 $result_texis{'example_invalid_at_commands_arguments'} = '@example @ref{a,b,c,d} fa, @anchor{an anchor} on example line, @center in center
 @end example

@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'text_on_conditional_line'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_on_conditional_line'}{'contents'}[0]{'parent'} = $result_trees{'text_on_conditional_line'};
 
 $result_texis{'text_on_conditional_line'} = '';
 

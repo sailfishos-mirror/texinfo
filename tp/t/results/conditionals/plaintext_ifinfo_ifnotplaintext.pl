@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'plaintext_ifinfo_ifnotplaintext'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'plaintext_ifinfo_ifnotplaintext'}{'contents'}[0]{'parent'} = $result_trees{'plaintext_ifinfo_ifnotplaintext'};
 
 $result_texis{'plaintext_ifinfo_ifnotplaintext'} = '';
 

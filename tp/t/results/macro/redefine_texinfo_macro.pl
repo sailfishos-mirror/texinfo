@@ -12,12 +12,10 @@ $result_trees{'redefine_texinfo_macro'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'code',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg',
               'type' => 'macro_arg'
             }
@@ -25,7 +23,6 @@ $result_trees{'redefine_texinfo_macro'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@emph{\\arg\\}
 ',
               'type' => 'raw'
@@ -35,7 +32,6 @@ $result_trees{'redefine_texinfo_macro'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -43,7 +39,6 @@ $result_trees{'redefine_texinfo_macro'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -52,7 +47,6 @@ $result_trees{'redefine_texinfo_macro'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -64,7 +58,6 @@ $result_trees{'redefine_texinfo_macro'} = {
             'arg_line' => ' code{arg}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -72,7 +65,6 @@ $result_trees{'redefine_texinfo_macro'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -84,16 +76,13 @@ $result_trees{'redefine_texinfo_macro'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'code'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'emph',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -101,35 +90,18 @@ $result_trees{'redefine_texinfo_macro'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'redefine_texinfo_macro'}{'contents'}[0];
-$result_trees{'redefine_texinfo_macro'}{'contents'}[0]{'parent'} = $result_trees{'redefine_texinfo_macro'};
 
 $result_texis{'redefine_texinfo_macro'} = '@macro code{arg}
 @emph{\\arg\\}

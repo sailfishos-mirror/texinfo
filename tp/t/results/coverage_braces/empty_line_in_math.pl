@@ -16,27 +16,22 @@ $result_trees{'empty_line_in_math'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a
 '
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
                     },
                     {
-                      'parent' => {},
                       'text' => 'b'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'math',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -44,23 +39,14 @@ $result_trees{'empty_line_in_math'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_line_in_math'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_line_in_math'}{'contents'}[0];
-$result_trees{'empty_line_in_math'}{'contents'}[0]{'parent'} = $result_trees{'empty_line_in_math'};
 
 $result_texis{'empty_line_in_math'} = '@math{a
 

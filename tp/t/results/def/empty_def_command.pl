@@ -20,14 +20,12 @@ $result_trees{'empty_def_command'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'parent' => {},
                       'text' => 'empty'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -35,20 +33,17 @@ $result_trees{'empty_def_command'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'parent' => {},
                       'text' => 'deffn'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_at_end'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -75,7 +70,6 @@ $result_trees{'empty_def_command'} = {
                 },
                 'original_def_cmdname' => 'deffn'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -88,7 +82,6 @@ $result_trees{'empty_def_command'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'deffn'
                     }
                   ],
@@ -96,7 +89,6 @@ $result_trees{'empty_def_command'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -105,7 +97,6 @@ $result_trees{'empty_def_command'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -116,7 +107,6 @@ $result_trees{'empty_def_command'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -124,7 +114,6 @@ $result_trees{'empty_def_command'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -140,14 +129,12 @@ $result_trees{'empty_def_command'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'parent' => {},
                       'text' => 'empty'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -155,14 +142,12 @@ $result_trees{'empty_def_command'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'parent' => {},
                       'text' => 'deffn'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -170,14 +155,12 @@ $result_trees{'empty_def_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'parent' => {},
                       'text' => 'with'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -185,20 +168,17 @@ $result_trees{'empty_def_command'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'parent' => {},
                       'text' => 'deffnx'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_at_end'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -225,7 +205,6 @@ $result_trees{'empty_def_command'} = {
                 },
                 'original_def_cmdname' => 'deffn'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -241,14 +220,12 @@ $result_trees{'empty_def_command'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'parent' => {},
                       'text' => 'empty'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -256,20 +233,17 @@ $result_trees{'empty_def_command'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'parent' => {},
                       'text' => 'deffnx'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_at_end'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -298,7 +272,6 @@ $result_trees{'empty_def_command'} = {
                 'original_def_cmdname' => 'deffnx',
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -311,7 +284,6 @@ $result_trees{'empty_def_command'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'deffn'
                     }
                   ],
@@ -319,7 +291,6 @@ $result_trees{'empty_def_command'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -328,7 +299,6 @@ $result_trees{'empty_def_command'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -339,7 +309,6 @@ $result_trees{'empty_def_command'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
@@ -347,59 +316,26 @@ $result_trees{'empty_def_command'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2];
-$result_trees{'empty_def_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_def_command'}{'contents'}[0];
-$result_trees{'empty_def_command'}{'contents'}[0]{'parent'} = $result_trees{'empty_def_command'};
 
 $result_texis{'empty_def_command'} = '@deffn empty deffn
 @end deffn

@@ -14,7 +14,6 @@ $result_trees{'simple'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'myalias = code'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'simple'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -34,7 +32,6 @@ $result_trees{'simple'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -42,7 +39,6 @@ $result_trees{'simple'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -52,7 +48,6 @@ $result_trees{'simple'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'o-theralias=verb'
                 }
               ],
@@ -60,7 +55,6 @@ $result_trees{'simple'} = {
                 'comment_at_end' => {
                   'args' => [
                     {
-                      'parent' => {},
                       'text' => ' comment
 ',
                       'type' => 'misc_arg'
@@ -72,12 +66,10 @@ $result_trees{'simple'} = {
                       ' comment
 '
                     ]
-                  },
-                  'parent' => {}
+                  }
                 },
                 'spaces_after_argument' => ' '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -89,7 +81,6 @@ $result_trees{'simple'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -97,7 +88,6 @@ $result_trees{'simple'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -105,7 +95,6 @@ $result_trees{'simple'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Should be code: '
             },
             {
@@ -113,16 +102,13 @@ $result_trees{'simple'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'code'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -130,16 +116,13 @@ $result_trees{'simple'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -147,7 +130,6 @@ $result_trees{'simple'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Should be verb: '
             },
             {
@@ -155,12 +137,10 @@ $result_trees{'simple'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verb',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -168,7 +148,6 @@ $result_trees{'simple'} = {
               'extra' => {
                 'delimiter' => '!'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -176,45 +155,18 @@ $result_trees{'simple'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'comment_at_end'};
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[4];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[4];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[4];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[6];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[6];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[6];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'parent'} = $result_trees{'simple'};
 
 $result_texis{'simple'} = '@alias myalias = code
 

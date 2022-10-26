@@ -10,20 +10,17 @@ $result_trees{'text_space_comment'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => ' ',
           'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'text  '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => ' space comment',
                   'type' => 'misc_arg'
                 }
@@ -33,26 +30,17 @@ $result_trees{'text_space_comment'} = {
                 'misc_args' => [
                   ' space comment'
                 ]
-              },
-              'parent' => {}
+              }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0];
-$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1];
-$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1];
-$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0];
-$result_trees{'text_space_comment'}{'contents'}[0]{'parent'} = $result_trees{'text_space_comment'};
 
 $result_texis{'text_space_comment'} = ' text  @c space comment';
 

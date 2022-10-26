@@ -16,7 +16,6 @@ $result_trees{'normal_font_in_monospace'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -25,7 +24,6 @@ $result_trees{'normal_font_in_monospace'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in example '
                 },
                 {
@@ -33,7 +31,6 @@ $result_trees{'normal_font_in_monospace'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'in r---now '
                         },
                         {
@@ -41,16 +38,13 @@ $result_trees{'normal_font_in_monospace'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'in co---de'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'code',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 2,
@@ -58,12 +52,10 @@ $result_trees{'normal_font_in_monospace'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'r',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -71,12 +63,10 @@ $result_trees{'normal_font_in_monospace'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -84,7 +74,6 @@ $result_trees{'normal_font_in_monospace'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -92,7 +81,6 @@ $result_trees{'normal_font_in_monospace'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -101,7 +89,6 @@ $result_trees{'normal_font_in_monospace'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -109,7 +96,6 @@ $result_trees{'normal_font_in_monospace'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -117,7 +103,6 @@ $result_trees{'normal_font_in_monospace'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -129,7 +114,6 @@ $result_trees{'normal_font_in_monospace'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in command---c '
                     },
                     {
@@ -137,7 +121,6 @@ $result_trees{'normal_font_in_monospace'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in r---r '
                             },
                             {
@@ -145,16 +128,13 @@ $result_trees{'normal_font_in_monospace'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => 'in file---'
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'file',
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 5,
@@ -162,12 +142,10 @@ $result_trees{'normal_font_in_monospace'} = {
                               }
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'r',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -175,12 +153,10 @@ $result_trees{'normal_font_in_monospace'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'command',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -188,48 +164,18 @@ $result_trees{'normal_font_in_monospace'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'normal_font_in_monospace'}{'contents'}[0];
-$result_trees{'normal_font_in_monospace'}{'contents'}[0]{'parent'} = $result_trees{'normal_font_in_monospace'};
 
 $result_texis{'normal_font_in_monospace'} = '@example
 in example @r{in r---now @code{in co---de}}

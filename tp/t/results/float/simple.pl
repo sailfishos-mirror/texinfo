@@ -11,7 +11,6 @@ $result_trees{'simple'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
@@ -19,17 +18,14 @@ $result_trees{'simple'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Type'
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Label'
                 }
               ],
@@ -38,14 +34,12 @@ $result_trees{'simple'} = {
 ',
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'float',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -53,12 +47,10 @@ $result_trees{'simple'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'In float.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -68,15 +60,12 @@ $result_trees{'simple'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Caption.'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -84,7 +73,6 @@ $result_trees{'simple'} = {
               'extra' => {
                 'float' => {}
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -92,7 +80,6 @@ $result_trees{'simple'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -101,11 +88,9 @@ $result_trees{'simple'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -114,7 +99,6 @@ $result_trees{'simple'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -136,7 +120,6 @@ $result_trees{'simple'} = {
               'normalized' => 'Type'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -144,34 +127,15 @@ $result_trees{'simple'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
 $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'extra'}{'float'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1];
 $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
 $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'parent'} = $result_trees{'simple'};
 
 $result_texis{'simple'} = '@float Type, Label
 

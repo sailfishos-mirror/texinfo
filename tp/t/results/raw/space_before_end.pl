@@ -16,7 +16,6 @@ $result_trees{'space_before_end'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -25,16 +24,13 @@ $result_trees{'space_before_end'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in tex
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '    '
                 }
               ],
-              'parent' => {},
               'type' => 'rawpreformatted'
             },
             {
@@ -42,7 +38,6 @@ $result_trees{'space_before_end'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'tex'
                     }
                   ],
@@ -50,7 +45,6 @@ $result_trees{'space_before_end'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -59,7 +53,6 @@ $result_trees{'space_before_end'} = {
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'tex'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -67,7 +60,6 @@ $result_trees{'space_before_end'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -75,7 +67,6 @@ $result_trees{'space_before_end'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -87,20 +78,17 @@ $result_trees{'space_before_end'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in verbatim
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '    ',
               'type' => 'raw'
             },
@@ -109,7 +97,6 @@ $result_trees{'space_before_end'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim'
                     }
                   ],
@@ -117,7 +104,6 @@ $result_trees{'space_before_end'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -126,7 +112,6 @@ $result_trees{'space_before_end'} = {
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -134,7 +119,6 @@ $result_trees{'space_before_end'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -142,7 +126,6 @@ $result_trees{'space_before_end'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -154,18 +137,15 @@ $result_trees{'space_before_end'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'html',
           'contents' => [
             {
-              'parent' => {},
               'type' => 'elided_block'
             },
             {
-              'parent' => {},
               'text' => '   '
             },
             {
@@ -173,7 +153,6 @@ $result_trees{'space_before_end'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'html'
                     }
                   ],
@@ -181,7 +160,6 @@ $result_trees{'space_before_end'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -190,7 +168,6 @@ $result_trees{'space_before_end'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -198,7 +175,6 @@ $result_trees{'space_before_end'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -206,37 +182,11 @@ $result_trees{'space_before_end'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4];
-$result_trees{'space_before_end'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'space_before_end'}{'contents'}[0];
-$result_trees{'space_before_end'}{'contents'}[0]{'parent'} = $result_trees{'space_before_end'};
 
 $result_texis{'space_before_end'} = '@tex
 in tex

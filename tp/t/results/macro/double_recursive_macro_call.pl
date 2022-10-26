@@ -10,7 +10,6 @@ $result_trees{'double_recursive_macro_call'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,12 +17,10 @@ $result_trees{'double_recursive_macro_call'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'macone',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg',
               'type' => 'macro_arg'
             }
@@ -31,7 +28,6 @@ $result_trees{'double_recursive_macro_call'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@mactwo{}
 ',
               'type' => 'raw'
@@ -41,7 +37,6 @@ $result_trees{'double_recursive_macro_call'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -49,7 +44,6 @@ $result_trees{'double_recursive_macro_call'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -58,7 +52,6 @@ $result_trees{'double_recursive_macro_call'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -70,7 +63,6 @@ $result_trees{'double_recursive_macro_call'} = {
             'arg_line' => ' macone {arg}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -78,7 +70,6 @@ $result_trees{'double_recursive_macro_call'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -86,12 +77,10 @@ $result_trees{'double_recursive_macro_call'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'mactwo',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg',
               'type' => 'macro_arg'
             }
@@ -99,7 +88,6 @@ $result_trees{'double_recursive_macro_call'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@macone{}
 ',
               'type' => 'raw'
@@ -109,7 +97,6 @@ $result_trees{'double_recursive_macro_call'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -117,7 +104,6 @@ $result_trees{'double_recursive_macro_call'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -126,7 +112,6 @@ $result_trees{'double_recursive_macro_call'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -138,7 +123,6 @@ $result_trees{'double_recursive_macro_call'} = {
             'arg_line' => ' mactwo{arg}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -146,43 +130,21 @@ $result_trees{'double_recursive_macro_call'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'double_recursive_macro_call'}{'contents'}[0];
-$result_trees{'double_recursive_macro_call'}{'contents'}[0]{'parent'} = $result_trees{'double_recursive_macro_call'};
 
 $result_texis{'double_recursive_macro_call'} = '
 @macro macone {arg}

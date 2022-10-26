@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'menu_pointing_to_anchor'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -24,7 +22,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -44,7 +41,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -56,7 +52,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -64,14 +59,12 @@ $result_trees{'menu_pointing_to_anchor'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -79,16 +72,13 @@ $result_trees{'menu_pointing_to_anchor'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -98,11 +88,9 @@ $result_trees{'menu_pointing_to_anchor'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'An anchor'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -113,7 +101,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
             ],
             'normalized' => 'An-anchor'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -121,13 +108,11 @@ $result_trees{'menu_pointing_to_anchor'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'spaces_after_close_brace'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -139,7 +124,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -148,22 +132,18 @@ $result_trees{'menu_pointing_to_anchor'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'An anchor'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::                ',
                   'type' => 'menu_entry_separator'
                 },
@@ -172,16 +152,13 @@ $result_trees{'menu_pointing_to_anchor'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'menu entry pointing to the anchor.
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -194,7 +171,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
                   'normalized' => 'An-anchor'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -207,7 +183,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'menu'
                     }
                   ],
@@ -215,7 +190,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -224,7 +198,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -232,7 +205,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
@@ -243,7 +215,6 @@ $result_trees{'menu_pointing_to_anchor'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -253,40 +224,11 @@ $result_trees{'menu_pointing_to_anchor'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'};
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[1]{'args'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[1];
 $result_trees{'menu_pointing_to_anchor'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'menu_pointing_to_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'menu_pointing_to_anchor'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'menu_pointing_to_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[1]{'parent'} = $result_trees{'menu_pointing_to_anchor'};
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'args'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[1];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[3];
 $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[1];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[3];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0];
 $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[3];
 $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[1];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'menu_pointing_to_anchor'}{'contents'}[2];
-$result_trees{'menu_pointing_to_anchor'}{'contents'}[2]{'parent'} = $result_trees{'menu_pointing_to_anchor'};
 
 $result_texis{'menu_pointing_to_anchor'} = '@node Top
 @top top

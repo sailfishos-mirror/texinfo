@@ -12,7 +12,6 @@ $result_trees{'before_accent_punctuation'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'a. '
             },
             {
@@ -20,16 +19,13 @@ $result_trees{'before_accent_punctuation'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
               'cmdname' => '^',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -37,22 +33,14 @@ $result_trees{'before_accent_punctuation'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'before_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'before_accent_punctuation'}{'contents'}[0];
-$result_trees{'before_accent_punctuation'}{'contents'}[0]{'parent'} = $result_trees{'before_accent_punctuation'};
 
 $result_texis{'before_accent_punctuation'} = 'a. @^a';
 

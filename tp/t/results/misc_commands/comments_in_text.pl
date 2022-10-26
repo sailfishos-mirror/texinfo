@@ -10,7 +10,6 @@ $result_trees{'comments_in_text'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,7 +17,6 @@ $result_trees{'comments_in_text'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => ' lone comment
 ',
               'type' => 'misc_arg'
@@ -30,11 +28,9 @@ $result_trees{'comments_in_text'} = {
               ' lone comment
 '
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -42,13 +38,11 @@ $result_trees{'comments_in_text'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text line followed by a comment on the same line and another below '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => ' comment
 ',
                   'type' => 'misc_arg'
@@ -60,13 +54,11 @@ $result_trees{'comments_in_text'} = {
                   ' comment
 '
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => ' comment
 ',
                   'type' => 'misc_arg'
@@ -78,17 +70,14 @@ $result_trees{'comments_in_text'} = {
                   ' comment
 '
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
-              'parent' => {},
               'text' => 'Text line after the comment followed by a comment '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => ' c
 ',
                   'type' => 'misc_arg'
@@ -100,20 +89,16 @@ $result_trees{'comments_in_text'} = {
                   ' c
 '
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
-              'parent' => {},
               'text' => 'Text line after the text line followed by the comment.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -121,13 +106,11 @@ $result_trees{'comments_in_text'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Comment at the end of the line '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => ' comment
 ',
                   'type' => 'misc_arg'
@@ -139,40 +122,17 @@ $result_trees{'comments_in_text'} = {
                   ' comment
 '
                 ]
-              },
-              'parent' => {}
+              }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[1];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[4];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5];
-$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
-$result_trees{'comments_in_text'}{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'};
 
 $result_texis{'comments_in_text'} = '
 @c lone comment

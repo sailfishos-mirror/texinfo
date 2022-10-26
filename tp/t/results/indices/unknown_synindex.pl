@@ -14,11 +14,9 @@ $result_trees{'unknown_synindex'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'c truc'
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -26,7 +24,6 @@ $result_trees{'unknown_synindex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -34,16 +31,11 @@ $result_trees{'unknown_synindex'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'unknown_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'unknown_synindex'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unknown_synindex'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_synindex'}{'contents'}[0];
-$result_trees{'unknown_synindex'}{'contents'}[0]{'parent'} = $result_trees{'unknown_synindex'};
 
 $result_texis{'unknown_synindex'} = '@synindex c truc';
 

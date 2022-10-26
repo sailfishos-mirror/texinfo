@@ -12,17 +12,14 @@ $result_trees{'too_much_args'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'twoargs',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'first',
               'type' => 'macro_arg'
             },
             {
-              'parent' => {},
               'text' => 'second',
               'type' => 'macro_arg'
             }
@@ -30,13 +27,11 @@ $result_trees{'too_much_args'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'first arg: \\first\\
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => 'second arg: \\second\\
 ',
               'type' => 'raw'
@@ -46,7 +41,6 @@ $result_trees{'too_much_args'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -54,7 +48,6 @@ $result_trees{'too_much_args'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -63,7 +56,6 @@ $result_trees{'too_much_args'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -75,7 +67,6 @@ $result_trees{'too_much_args'} = {
             'arg_line' => ' twoargs {first, second}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -83,7 +74,6 @@ $result_trees{'too_much_args'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -91,40 +81,22 @@ $result_trees{'too_much_args'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'first arg: one
 '
             },
             {
-              'parent' => {},
               'text' => 'second arg: two, three.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2];
-$result_trees{'too_much_args'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'too_much_args'}{'contents'}[0];
-$result_trees{'too_much_args'}{'contents'}[0]{'parent'} = $result_trees{'too_much_args'};
 
 $result_texis{'too_much_args'} = '@macro twoargs {first, second}
 first arg: \\first\\

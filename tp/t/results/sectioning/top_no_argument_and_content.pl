@@ -11,11 +11,9 @@ $result_trees{'top_no_argument_and_content'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -25,14 +23,12 @@ $result_trees{'top_no_argument_and_content'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -40,16 +36,13 @@ $result_trees{'top_no_argument_and_content'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'A.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -59,13 +52,6 @@ $result_trees{'top_no_argument_and_content'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_no_argument_and_content'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_no_argument_and_content'}{'contents'}[0];
-$result_trees{'top_no_argument_and_content'}{'contents'}[0]{'parent'} = $result_trees{'top_no_argument_and_content'};
-$result_trees{'top_no_argument_and_content'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'top_no_argument_and_content'}{'contents'}[1];
-$result_trees{'top_no_argument_and_content'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'top_no_argument_and_content'}{'contents'}[1];
-$result_trees{'top_no_argument_and_content'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'top_no_argument_and_content'}{'contents'}[1]{'contents'}[1];
-$result_trees{'top_no_argument_and_content'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'top_no_argument_and_content'}{'contents'}[1];
-$result_trees{'top_no_argument_and_content'}{'contents'}[1]{'parent'} = $result_trees{'top_no_argument_and_content'};
 
 $result_texis{'top_no_argument_and_content'} = '@top
 

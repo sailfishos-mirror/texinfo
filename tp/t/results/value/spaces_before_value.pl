@@ -12,12 +12,10 @@ $result_trees{'spaces_before_value'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'var',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => 'val',
               'type' => 'misc_arg'
             }
@@ -30,11 +28,9 @@ $result_trees{'spaces_before_value'} = {
               'var',
               'val'
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -42,28 +38,18 @@ $result_trees{'spaces_before_value'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'val
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0];
-$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0];
-$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0];
-$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0];
-$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[2];
-$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0];
-$result_trees{'spaces_before_value'}{'contents'}[0]{'parent'} = $result_trees{'spaces_before_value'};
 
 $result_texis{'spaces_before_value'} = '@set var val
 

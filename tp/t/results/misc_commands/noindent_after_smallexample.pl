@@ -12,12 +12,10 @@ $result_trees{'noindent_after_smallexample'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'To obtain.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -27,7 +25,6 @@ $result_trees{'noindent_after_smallexample'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -36,17 +33,14 @@ $result_trees{'noindent_after_smallexample'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&content-type=text/plain\'
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '$ wget \'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain\'
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -54,7 +48,6 @@ $result_trees{'noindent_after_smallexample'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'smallexample'
                     }
                   ],
@@ -62,7 +55,6 @@ $result_trees{'noindent_after_smallexample'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -71,7 +63,6 @@ $result_trees{'noindent_after_smallexample'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'smallexample'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -79,7 +70,6 @@ $result_trees{'noindent_after_smallexample'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -88,7 +78,6 @@ $result_trees{'noindent_after_smallexample'} = {
         },
         {
           'cmdname' => 'noindent',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -96,7 +85,6 @@ $result_trees{'noindent_after_smallexample'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'ignorable_spaces_after_command'
@@ -104,7 +92,6 @@ $result_trees{'noindent_after_smallexample'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Less recent versions are also present.
 '
             }
@@ -112,31 +99,14 @@ $result_trees{'noindent_after_smallexample'} = {
           'extra' => {
             'noindent' => 1
           },
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[4];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'noindent_after_smallexample'}{'contents'}[0];
-$result_trees{'noindent_after_smallexample'}{'contents'}[0]{'parent'} = $result_trees{'noindent_after_smallexample'};
 
 $result_texis{'noindent_after_smallexample'} = 'To obtain.
 @smallexample

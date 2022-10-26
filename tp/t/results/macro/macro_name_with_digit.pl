@@ -12,7 +12,6 @@ $result_trees{'macro_name_with_digit'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'macro1',
               'type' => 'macro_name'
             }
@@ -20,7 +19,6 @@ $result_trees{'macro_name_with_digit'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'macro1
 ',
               'type' => 'raw'
@@ -30,7 +28,6 @@ $result_trees{'macro_name_with_digit'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -38,7 +35,6 @@ $result_trees{'macro_name_with_digit'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -47,7 +43,6 @@ $result_trees{'macro_name_with_digit'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -59,7 +54,6 @@ $result_trees{'macro_name_with_digit'} = {
             'arg_line' => ' macro1
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -67,7 +61,6 @@ $result_trees{'macro_name_with_digit'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -75,12 +68,10 @@ $result_trees{'macro_name_with_digit'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'macro11',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg',
               'type' => 'macro_arg'
             }
@@ -88,7 +79,6 @@ $result_trees{'macro_name_with_digit'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'expand \\arg\\
 ',
               'type' => 'raw'
@@ -98,7 +88,6 @@ $result_trees{'macro_name_with_digit'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -106,7 +95,6 @@ $result_trees{'macro_name_with_digit'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -115,7 +103,6 @@ $result_trees{'macro_name_with_digit'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -127,7 +114,6 @@ $result_trees{'macro_name_with_digit'} = {
             'arg_line' => ' macro11 {arg}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -135,7 +121,6 @@ $result_trees{'macro_name_with_digit'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -143,39 +128,18 @@ $result_trees{'macro_name_with_digit'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'expand some thing macro1
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[4];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'};
 
 $result_texis{'macro_name_with_digit'} = '@macro macro1
 macro1

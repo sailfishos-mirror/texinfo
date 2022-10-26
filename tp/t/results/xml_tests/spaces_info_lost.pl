@@ -14,7 +14,6 @@ $result_trees{'spaces_info_lost'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'text on display line'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'spaces_info_lost'} = {
                 'spaces_after_argument' => ' 
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -31,12 +29,10 @@ $result_trees{'spaces_info_lost'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in bad display
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -44,7 +40,6 @@ $result_trees{'spaces_info_lost'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'display'
                     }
                   ],
@@ -52,7 +47,6 @@ $result_trees{'spaces_info_lost'} = {
                     'spaces_after_argument' => ' 
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -61,7 +55,6 @@ $result_trees{'spaces_info_lost'} = {
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'display'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -72,7 +65,6 @@ $result_trees{'spaces_info_lost'} = {
           'extra' => {
             'spaces_before_argument' => '  '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -80,7 +72,6 @@ $result_trees{'spaces_info_lost'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -92,14 +83,12 @@ $result_trees{'spaces_info_lost'} = {
                 'spaces_after_argument' => '  
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in verbatim @g 
 ',
               'type' => 'raw'
@@ -109,7 +98,6 @@ $result_trees{'spaces_info_lost'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim'
                     }
                   ],
@@ -117,7 +105,6 @@ $result_trees{'spaces_info_lost'} = {
                     'spaces_after_argument' => ' 
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -126,7 +113,6 @@ $result_trees{'spaces_info_lost'} = {
                 'spaces_before_argument' => '  ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -134,7 +120,6 @@ $result_trees{'spaces_info_lost'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -142,28 +127,11 @@ $result_trees{'spaces_info_lost'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_info_lost'}{'contents'}[0];
-$result_trees{'spaces_info_lost'}{'contents'}[0]{'parent'} = $result_trees{'spaces_info_lost'};
 
 $result_texis{'spaces_info_lost'} = '@display  text on display line 
 in bad display

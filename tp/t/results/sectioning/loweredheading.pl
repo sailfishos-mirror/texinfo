@@ -12,17 +12,14 @@ $result_trees{'loweredheading'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'lowersections',
-          'parent' => {}
+          'cmdname' => 'lowersections'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -30,7 +27,6 @@ $result_trees{'loweredheading'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Foo'
             }
           ],
@@ -38,7 +34,6 @@ $result_trees{'loweredheading'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -49,7 +44,6 @@ $result_trees{'loweredheading'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Bar'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'loweredheading'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -66,7 +59,6 @@ $result_trees{'loweredheading'} = {
             'sections_level' => -1,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -78,7 +70,6 @@ $result_trees{'loweredheading'} = {
         'sections_level' => -1,
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -88,29 +79,16 @@ $result_trees{'loweredheading'} = {
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'loweredheading'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'loweredheading'}{'contents'}[0]{'contents'}[0];
-$result_trees{'loweredheading'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'loweredheading'}{'contents'}[0];
-$result_trees{'loweredheading'}{'contents'}[0]{'parent'} = $result_trees{'loweredheading'};
-$result_trees{'loweredheading'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'loweredheading'}{'contents'}[1]{'args'}[0];
-$result_trees{'loweredheading'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'loweredheading'}{'contents'}[1];
-$result_trees{'loweredheading'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'loweredheading'}{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'loweredheading'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'loweredheading'}{'contents'}[1]{'contents'}[0];
-$result_trees{'loweredheading'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'loweredheading'}{'contents'}[1];
-$result_trees{'loweredheading'}{'contents'}[1]{'parent'} = $result_trees{'loweredheading'};
-$result_trees{'loweredheading'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'loweredheading'}{'contents'}[2];
-$result_trees{'loweredheading'}{'contents'}[2]{'parent'} = $result_trees{'loweredheading'};
 
 $result_texis{'loweredheading'} = '@lowersections
 @section Foo

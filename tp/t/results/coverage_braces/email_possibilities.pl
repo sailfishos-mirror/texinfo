@@ -16,26 +16,21 @@ $result_trees{'email_possibilities'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--b'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'email',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -43,29 +38,24 @@ $result_trees{'email_possibilities'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--b'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'email',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -73,7 +63,6 @@ $result_trees{'email_possibilities'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -82,16 +71,13 @@ $result_trees{'email_possibilities'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'email',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -99,38 +85,18 @@ $result_trees{'email_possibilities'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[1];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_possibilities'}{'contents'}[0];
-$result_trees{'email_possibilities'}{'contents'}[0]{'parent'} = $result_trees{'email_possibilities'};
 
 $result_texis{'email_possibilities'} = '@email{--a,--b}
 @email{,--b}

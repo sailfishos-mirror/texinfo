@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'double_top'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,17 +15,14 @@ $result_trees{'double_top'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'ToP'
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -35,14 +31,12 @@ $result_trees{'double_top'} = {
 ',
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -69,7 +63,6 @@ $result_trees{'double_top'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -81,31 +74,25 @@ $result_trees{'double_top'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'ToP'
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -113,14 +100,12 @@ $result_trees{'double_top'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -130,17 +115,14 @@ $result_trees{'double_top'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'TOP'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'anchor',
           'extra' => {},
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -150,12 +132,10 @@ $result_trees{'double_top'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
@@ -183,7 +163,6 @@ $result_trees{'double_top'} = {
         ],
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -193,33 +172,12 @@ $result_trees{'double_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_top'}{'contents'}[0]{'parent'} = $result_trees{'double_top'};
-$result_trees{'double_top'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[1]{'args'}[0];
-$result_trees{'double_top'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[1];
-$result_trees{'double_top'}{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[1]{'args'}[1];
-$result_trees{'double_top'}{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'double_top'}{'contents'}[1];
-$result_trees{'double_top'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[1];
 $result_trees{'double_top'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'double_top'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'double_top'}{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'double_top'}{'contents'}[1]{'parent'} = $result_trees{'double_top'};
-$result_trees{'double_top'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[2]{'args'}[0];
-$result_trees{'double_top'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[2];
-$result_trees{'double_top'}{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'double_top'}{'contents'}[2];
-$result_trees{'double_top'}{'contents'}[2]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[2]{'args'}[2];
-$result_trees{'double_top'}{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'double_top'}{'contents'}[2];
-$result_trees{'double_top'}{'contents'}[2]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[2]{'args'}[3];
-$result_trees{'double_top'}{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'double_top'}{'contents'}[2];
-$result_trees{'double_top'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[2];
-$result_trees{'double_top'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'double_top'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[2]{'contents'}[1];
-$result_trees{'double_top'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'double_top'}{'contents'}[2];
-$result_trees{'double_top'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'double_top'}{'contents'}[2]{'contents'}[2];
-$result_trees{'double_top'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'double_top'}{'contents'}[2];
 $result_trees{'double_top'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'double_top'}{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[2]{'args'}[2]{'contents'}[0];
 $result_trees{'double_top'}{'contents'}[2]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'double_top'}{'contents'}[2]{'args'}[3]{'contents'}[0];
-$result_trees{'double_top'}{'contents'}[2]{'parent'} = $result_trees{'double_top'};
 
 $result_texis{'double_top'} = '@node ToP, top
 

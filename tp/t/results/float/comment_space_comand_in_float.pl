@@ -11,11 +11,9 @@ $result_trees{'comment_space_comand_in_float'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -23,7 +21,6 @@ $result_trees{'comment_space_comand_in_float'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -31,14 +28,12 @@ $result_trees{'comment_space_comand_in_float'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -48,33 +43,27 @@ $result_trees{'comment_space_comand_in_float'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Text '
                 },
                 {
-                  'cmdname' => ' ',
-                  'parent' => {}
+                  'cmdname' => ' '
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'label '
                 },
                 {
-                  'cmdname' => ' ',
-                  'parent' => {}
+                  'cmdname' => ' '
                 }
               ],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
                     {
-                      'parent' => {},
                       'text' => ' float
 ',
                       'type' => 'misc_arg'
@@ -86,12 +75,10 @@ $result_trees{'comment_space_comand_in_float'} = {
                       ' float
 '
                     ]
-                  },
-                  'parent' => {}
+                  }
                 },
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -100,12 +87,10 @@ $result_trees{'comment_space_comand_in_float'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Float
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -113,7 +98,6 @@ $result_trees{'comment_space_comand_in_float'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
@@ -121,7 +105,6 @@ $result_trees{'comment_space_comand_in_float'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -130,7 +113,6 @@ $result_trees{'comment_space_comand_in_float'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -153,7 +135,6 @@ $result_trees{'comment_space_comand_in_float'} = {
               'normalized' => 'Text @ '
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -161,7 +142,6 @@ $result_trees{'comment_space_comand_in_float'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -171,19 +151,16 @@ $result_trees{'comment_space_comand_in_float'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Text '
                 },
                 {
-                  'cmdname' => ' ',
-                  'parent' => {}
+                  'cmdname' => ' '
                 }
               ],
               'extra' => {
                 'comment_at_end' => {
                   'args' => [
                     {
-                      'parent' => {},
                       'text' => ' listoffloats
 ',
                       'type' => 'misc_arg'
@@ -195,11 +172,9 @@ $result_trees{'comment_space_comand_in_float'} = {
                       ' listoffloats
 '
                     ]
-                  },
-                  'parent' => {}
+                  }
                 }
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -214,7 +189,6 @@ $result_trees{'comment_space_comand_in_float'} = {
               'normalized' => 'Text @ '
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
@@ -237,7 +211,6 @@ $result_trees{'comment_space_comand_in_float'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -247,41 +220,14 @@ $result_trees{'comment_space_comand_in_float'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'comment_space_comand_in_float'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'};
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'args'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'extra'}{'comment_at_end'};
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1];
 $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'extra'}{'node_content'}[1] = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[1];
 $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'extra'}{'type'}{'content'}[1] = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'extra'}{'comment_at_end'};
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3];
 $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'extra'}{'type'}{'content'}[1] = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[1];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'comment_space_comand_in_float'}{'contents'}[1];
 $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'comment_space_comand_in_float'}{'contents'}[1]{'parent'} = $result_trees{'comment_space_comand_in_float'};
 
 $result_texis{'comment_space_comand_in_float'} = '@node Top
 

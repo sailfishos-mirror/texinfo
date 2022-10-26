@@ -16,16 +16,13 @@ $result_trees{'accent_command_punctuation'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'e'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dotaccent',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -33,26 +30,17 @@ $result_trees{'accent_command_punctuation'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' after'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0];
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'};
 
 $result_texis{'accent_command_punctuation'} = '@dotaccent{e} after';
 

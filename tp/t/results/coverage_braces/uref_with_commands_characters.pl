@@ -16,7 +16,6 @@ $result_trees{'uref_with_commands_characters'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'http://my-host.com/~'
                     },
                     {
@@ -24,16 +23,13 @@ $result_trees{'uref_with_commands_characters'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'toto'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'strong',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -41,41 +37,32 @@ $result_trees{'uref_with_commands_characters'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '%5Cs\'q"a&e?b'
                     },
                     {
-                      'cmdname' => '}',
-                      'parent' => {}
+                      'cmdname' => '}'
                     },
                     {
-                      'parent' => {},
                       'text' => 'b'
                     },
                     {
-                      'cmdname' => '{',
-                      'parent' => {}
+                      'cmdname' => '{'
                     },
                     {
-                      'parent' => {},
                       'text' => 'ba'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => 's\\s p+h#aaa'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'see that '
                     },
                     {
@@ -85,12 +72,10 @@ $result_trees{'uref_with_commands_characters'} = {
                             {
                               'args' => [
                                 {
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'LaTeX',
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 1,
@@ -98,12 +83,10 @@ $result_trees{'uref_with_commands_characters'} = {
                               }
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'strong',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -114,12 +97,10 @@ $result_trees{'uref_with_commands_characters'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'uref',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -127,43 +108,18 @@ $result_trees{'uref_with_commands_characters'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'}{'contents'}[0];
-$result_trees{'uref_with_commands_characters'}{'contents'}[0]{'parent'} = $result_trees{'uref_with_commands_characters'};
 
 $result_texis{'uref_with_commands_characters'} = '@uref{http://my-host.com/~@strong{toto}%5Cs\'q"a&e?b@}b@{ba@@s\\s p+h#aaa, see that @strong{@LaTeX{}}}
 ';

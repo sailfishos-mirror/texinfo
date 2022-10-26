@@ -10,7 +10,6 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -20,7 +19,6 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'headword, , :'
                 }
               ],
@@ -28,7 +26,6 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -41,7 +38,6 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -49,7 +45,6 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -57,7 +52,6 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'My '
             },
             {
@@ -65,11 +59,9 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'something'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -78,7 +70,6 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
                 'begin' => '',
                 'end' => ':'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -87,40 +78,23 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
               'type' => 'definfoenclose_command'
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[1];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0];
-$result_trees{'definfoenclose_with_empty_arg'}{'contents'}[0]{'parent'} = $result_trees{'definfoenclose_with_empty_arg'};
 
 $result_texis{'definfoenclose_with_empty_arg'} = '
 @definfoenclose headword, , :

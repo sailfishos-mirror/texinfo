@@ -12,24 +12,18 @@ $result_trees{'unknown_index_entry'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => ' someindex entry.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_index_entry'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unknown_index_entry'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_index_entry'}{'contents'}[0];
-$result_trees{'unknown_index_entry'}{'contents'}[0]{'parent'} = $result_trees{'unknown_index_entry'};
 
 $result_texis{'unknown_index_entry'} = ' someindex entry.
 ';

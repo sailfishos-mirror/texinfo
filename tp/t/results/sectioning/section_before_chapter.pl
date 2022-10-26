@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'section_before_chapter'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'section_before_chapter'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'section'
             }
           ],
@@ -24,14 +22,12 @@ $result_trees{'section_before_chapter'} = {
             'spaces_after_argument' => ' 
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -40,7 +36,6 @@ $result_trees{'section_before_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -52,7 +47,6 @@ $result_trees{'section_before_chapter'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter'
             }
           ],
@@ -60,7 +54,6 @@ $result_trees{'section_before_chapter'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -68,7 +61,6 @@ $result_trees{'section_before_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -78,14 +70,6 @@ $result_trees{'section_before_chapter'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_before_chapter'}{'contents'}[0]{'parent'} = $result_trees{'section_before_chapter'};
-$result_trees{'section_before_chapter'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_chapter'}{'contents'}[1]{'args'}[0];
-$result_trees{'section_before_chapter'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_before_chapter'}{'contents'}[1];
-$result_trees{'section_before_chapter'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'section_before_chapter'}{'contents'}[1];
-$result_trees{'section_before_chapter'}{'contents'}[1]{'parent'} = $result_trees{'section_before_chapter'};
-$result_trees{'section_before_chapter'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_chapter'}{'contents'}[2]{'args'}[0];
-$result_trees{'section_before_chapter'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'section_before_chapter'}{'contents'}[2];
-$result_trees{'section_before_chapter'}{'contents'}[2]{'parent'} = $result_trees{'section_before_chapter'};
 
 $result_texis{'section_before_chapter'} = '@section section 
 

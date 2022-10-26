@@ -11,11 +11,9 @@ $result_trees{'shortcontents'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -23,7 +21,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -31,14 +28,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -47,7 +42,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -59,7 +53,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter'
             }
           ],
@@ -67,14 +60,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -83,7 +74,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -95,7 +85,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'section'
             }
           ],
@@ -103,14 +92,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -119,7 +106,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -131,7 +117,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'subsection'
             }
           ],
@@ -139,14 +124,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'subsection',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -155,7 +138,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 7,
@@ -167,7 +149,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'subsubsection'
             }
           ],
@@ -175,14 +156,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'subsubsection',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -191,7 +170,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 9,
@@ -203,7 +181,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'part'
             }
           ],
@@ -211,14 +188,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'part',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -227,7 +202,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 11,
@@ -239,7 +213,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter in part'
             }
           ],
@@ -247,14 +220,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -264,7 +235,6 @@ $result_trees{'shortcontents'} = {
         'associated_part' => {},
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 13,
@@ -276,7 +246,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'second chapter in part'
             }
           ],
@@ -284,14 +253,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -300,7 +267,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 15,
@@ -312,7 +278,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'unnumbered'
             }
           ],
@@ -320,14 +285,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'unnumbered',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -336,7 +299,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 17,
@@ -348,7 +310,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'appendix'
             }
           ],
@@ -356,14 +317,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'appendix',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -372,7 +331,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 19,
@@ -384,7 +342,6 @@ $result_trees{'shortcontents'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'appendixsec'
             }
           ],
@@ -392,14 +349,12 @@ $result_trees{'shortcontents'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'appendixsec',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -407,14 +362,12 @@ $result_trees{'shortcontents'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'shortcontents',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 23,
@@ -425,7 +378,6 @@ $result_trees{'shortcontents'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 21,
@@ -435,55 +387,7 @@ $result_trees{'shortcontents'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'shortcontents'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[0];
-$result_trees{'shortcontents'}{'contents'}[0]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[1]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[1];
-$result_trees{'shortcontents'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[1];
-$result_trees{'shortcontents'}{'contents'}[1]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[2]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[2];
-$result_trees{'shortcontents'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[2];
-$result_trees{'shortcontents'}{'contents'}[2]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[3]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[3];
-$result_trees{'shortcontents'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[3];
-$result_trees{'shortcontents'}{'contents'}[3]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[4]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[4];
-$result_trees{'shortcontents'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[4];
-$result_trees{'shortcontents'}{'contents'}[4]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[5]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[5];
-$result_trees{'shortcontents'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[5];
-$result_trees{'shortcontents'}{'contents'}[5]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[6]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[6];
-$result_trees{'shortcontents'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[6];
-$result_trees{'shortcontents'}{'contents'}[6]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[7]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[7];
-$result_trees{'shortcontents'}{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[7];
 $result_trees{'shortcontents'}{'contents'}[7]{'extra'}{'associated_part'} = $result_trees{'shortcontents'}{'contents'}[6];
-$result_trees{'shortcontents'}{'contents'}[7]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[8]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[8];
-$result_trees{'shortcontents'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[8];
-$result_trees{'shortcontents'}{'contents'}[8]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[9]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[9];
-$result_trees{'shortcontents'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[9];
-$result_trees{'shortcontents'}{'contents'}[9]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[10]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[10];
-$result_trees{'shortcontents'}{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[10];
-$result_trees{'shortcontents'}{'contents'}[10]{'parent'} = $result_trees{'shortcontents'};
-$result_trees{'shortcontents'}{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[11]{'args'}[0];
-$result_trees{'shortcontents'}{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[11];
-$result_trees{'shortcontents'}{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[11];
-$result_trees{'shortcontents'}{'contents'}[11]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'shortcontents'}{'contents'}[11]{'contents'}[1];
-$result_trees{'shortcontents'}{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'shortcontents'}{'contents'}[11];
-$result_trees{'shortcontents'}{'contents'}[11]{'parent'} = $result_trees{'shortcontents'};
 
 $result_texis{'shortcontents'} = '@top top
 

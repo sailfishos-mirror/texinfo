@@ -14,7 +14,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'split_test_before_first_node.info'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -31,7 +29,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'split_test_before_first_node.info'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -39,7 +36,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -47,16 +43,13 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'truc machin et reuc machin  ze aze zea zae eaz eaz zae
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -64,7 +57,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -72,7 +64,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -92,7 +83,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -104,7 +94,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -112,14 +101,12 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -127,16 +114,13 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In top node
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -148,7 +132,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -157,22 +140,18 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'chap1'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::',
                   'type' => 'menu_entry_separator'
                 },
@@ -181,16 +160,13 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -203,7 +179,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                   'normalized' => 'chap1'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -216,7 +191,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'menu'
                     }
                   ],
@@ -224,7 +198,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -233,7 +206,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -241,7 +213,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -249,7 +220,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -258,7 +228,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -270,7 +239,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chap1'
             }
           ],
@@ -278,7 +246,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -298,7 +265,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         'normalized' => 'chap1',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 13,
@@ -310,7 +276,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chap'
             }
           ],
@@ -318,14 +283,12 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -333,16 +296,13 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In chap1.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -351,7 +311,6 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 14,
@@ -361,53 +320,12 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'};
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1]{'args'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[1]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'};
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'args'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[1];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[1];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[3];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[2]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'};
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'args'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[3]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'};
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'args'}[0];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'contents'}[1];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4];
-$result_trees{'split_test_before_first_node_no_empty_line'}{'contents'}[4]{'parent'} = $result_trees{'split_test_before_first_node_no_empty_line'};
 
 $result_texis{'split_test_before_first_node_no_empty_line'} = '@setfilename split_test_before_first_node.info
 

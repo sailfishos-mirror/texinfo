@@ -9,404 +9,40 @@ $result_trees{'sectioning_part_appendix'} = [
   {
     'contents' => [
       {
-        'parent' => {
-          'contents' => [
-            {},
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'top'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'top',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'chapter',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'section'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'section',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'subsection'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'subsection',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 7,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'subsubsection'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'subsubsection',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'part'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'part',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'chapter in part'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'chapter',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'associated_part' => {},
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 13,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'second chapter in part'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'chapter',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 15,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'unnumbered'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'unnumbered',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 17,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'appendix'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'appendix',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 19,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'appendixsec'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'appendixsec',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 21,
-                'macro' => ''
-              }
-            }
-          ],
-          'type' => 'document_root'
-        },
         'type' => 'before_node_section'
       },
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'top'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'top',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 1,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -415,7 +51,38 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'chapter'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'chapter',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 3,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -424,7 +91,38 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'section'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'section',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 5,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -433,7 +131,38 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'subsection'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'subsection',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 7,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -442,7 +171,38 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'subsubsection'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'subsubsection',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 9,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -451,8 +211,71 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {},
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'part'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'part',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 11,
+          'macro' => ''
+        }
+      },
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'chapter in part'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'chapter',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'associated_part' => {},
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 13,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -461,7 +284,38 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'second chapter in part'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'chapter',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 15,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -470,7 +324,38 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'unnumbered'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'unnumbered',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 17,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -479,7 +364,38 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'appendix'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'appendix',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 19,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -488,7 +404,31 @@ $result_trees{'sectioning_part_appendix'} = [
   },
   {
     'contents' => [
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'appendixsec'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'appendixsec',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 21,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -496,72 +436,17 @@ $result_trees{'sectioning_part_appendix'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7]{'extra'}{'associated_part'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[11]{'args'}[0];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[11];
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[11]{'parent'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'};
-$result_trees{'sectioning_part_appendix'}[0]{'contents'}[1] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'sectioning_part_appendix'}[0]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'sectioning_part_appendix'}[1]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'sectioning_part_appendix'}[1]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'sectioning_part_appendix'}[2]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'sectioning_part_appendix'}[2]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'sectioning_part_appendix'}[3]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4];
-$result_trees{'sectioning_part_appendix'}[3]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[4];
-$result_trees{'sectioning_part_appendix'}[4]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5];
-$result_trees{'sectioning_part_appendix'}[4]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[5];
-$result_trees{'sectioning_part_appendix'}[5]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[6];
-$result_trees{'sectioning_part_appendix'}[5]{'contents'}[1] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7];
-$result_trees{'sectioning_part_appendix'}[5]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[7];
-$result_trees{'sectioning_part_appendix'}[6]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8];
-$result_trees{'sectioning_part_appendix'}[6]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[8];
-$result_trees{'sectioning_part_appendix'}[7]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9];
-$result_trees{'sectioning_part_appendix'}[7]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[9];
-$result_trees{'sectioning_part_appendix'}[8]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10];
-$result_trees{'sectioning_part_appendix'}[8]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[10];
-$result_trees{'sectioning_part_appendix'}[9]{'contents'}[0] = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[11];
-$result_trees{'sectioning_part_appendix'}[9]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[0]{'parent'}{'contents'}[11];
+$result_trees{'sectioning_part_appendix'}[0]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[0]{'contents'}[1];
+$result_trees{'sectioning_part_appendix'}[1]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[1]{'contents'}[0];
+$result_trees{'sectioning_part_appendix'}[2]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[2]{'contents'}[0];
+$result_trees{'sectioning_part_appendix'}[3]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[3]{'contents'}[0];
+$result_trees{'sectioning_part_appendix'}[4]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[4]{'contents'}[0];
+$result_trees{'sectioning_part_appendix'}[5]{'contents'}[1]{'extra'}{'associated_part'} = $result_trees{'sectioning_part_appendix'}[5]{'contents'}[0];
+$result_trees{'sectioning_part_appendix'}[5]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[5]{'contents'}[1];
+$result_trees{'sectioning_part_appendix'}[6]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[6]{'contents'}[0];
+$result_trees{'sectioning_part_appendix'}[7]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[7]{'contents'}[0];
+$result_trees{'sectioning_part_appendix'}[8]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[8]{'contents'}[0];
+$result_trees{'sectioning_part_appendix'}[9]{'extra'}{'unit_command'} = $result_trees{'sectioning_part_appendix'}[9]{'contents'}[0];
 
 $result_texis{'sectioning_part_appendix'} = '@top top
 

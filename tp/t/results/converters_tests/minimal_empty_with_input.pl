@@ -12,38 +12,28 @@ $result_trees{'minimal_empty_with_input'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '\\input texinfo.tex
 ',
               'type' => 'text_before_beginning'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'text_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'minimal_empty_with_input'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'minimal_empty_with_input'}{'contents'}[0]{'contents'}[0];
-$result_trees{'minimal_empty_with_input'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'minimal_empty_with_input'}{'contents'}[0]{'contents'}[0];
-$result_trees{'minimal_empty_with_input'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'minimal_empty_with_input'}{'contents'}[0];
-$result_trees{'minimal_empty_with_input'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'minimal_empty_with_input'}{'contents'}[0];
-$result_trees{'minimal_empty_with_input'}{'contents'}[0]{'parent'} = $result_trees{'minimal_empty_with_input'};
 
 $result_texis{'minimal_empty_with_input'} = '\\input texinfo.tex
 

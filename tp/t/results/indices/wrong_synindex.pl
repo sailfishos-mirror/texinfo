@@ -14,7 +14,6 @@ $result_trees{'wrong_synindex'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'aaa'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'wrong_synindex'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -33,7 +31,6 @@ $result_trees{'wrong_synindex'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -45,11 +42,9 @@ $result_trees{'wrong_synindex'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'aaa aaa'
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -57,7 +52,6 @@ $result_trees{'wrong_synindex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -65,19 +59,11 @@ $result_trees{'wrong_synindex'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[0];
-$result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'wrong_synindex'}{'contents'}[0];
-$result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[1];
-$result_trees{'wrong_synindex'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'wrong_synindex'}{'contents'}[0];
-$result_trees{'wrong_synindex'}{'contents'}[0]{'parent'} = $result_trees{'wrong_synindex'};
 
 $result_texis{'wrong_synindex'} = '@defindex aaa
 @synindex aaa aaa';

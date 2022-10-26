@@ -20,14 +20,12 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'parent' => {},
                       'text' => 'Function'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -35,14 +33,12 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'type'
                       },
-                      'parent' => {},
                       'text' => 'int'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -50,14 +46,12 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'parent' => {},
                       'text' => 'foo'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -65,7 +59,6 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'delimiter'
                       },
-                      'parent' => {},
                       'text' => '(',
                       'type' => 'delimiter'
                     },
@@ -74,15 +67,12 @@ $result_trees{'code_in_def'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'const std::vector<int>'
                             },
                             {
-                              'cmdname' => '&',
-                              'parent' => {}
+                              'cmdname' => '&'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -90,7 +80,6 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'typearg'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -101,7 +90,6 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -109,14 +97,12 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'parent' => {},
                       'text' => 'bar'
                     },
                     {
                       'extra' => {
                         'def_role' => 'delimiter'
                       },
-                      'parent' => {},
                       'text' => ')',
                       'type' => 'delimiter'
                     },
@@ -124,13 +110,11 @@ $result_trees{'code_in_def'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_at_end'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -158,7 +142,6 @@ $result_trees{'code_in_def'} = {
                 },
                 'original_def_cmdname' => 'deftypefn'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -171,7 +154,6 @@ $result_trees{'code_in_def'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Documentation of '
                     },
                     {
@@ -179,16 +161,13 @@ $result_trees{'code_in_def'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'foo'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'code',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -196,16 +175,13 @@ $result_trees{'code_in_def'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '.
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
-              'parent' => {},
               'type' => 'def_item'
             },
             {
@@ -213,7 +189,6 @@ $result_trees{'code_in_def'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'deftypefn'
                     }
                   ],
@@ -221,7 +196,6 @@ $result_trees{'code_in_def'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -230,7 +204,6 @@ $result_trees{'code_in_def'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -241,7 +214,6 @@ $result_trees{'code_in_def'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -249,47 +221,17 @@ $result_trees{'code_in_def'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[11]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'type'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4];
 $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_in_def'}{'contents'}[0];
-$result_trees{'code_in_def'}{'contents'}[0]{'parent'} = $result_trees{'code_in_def'};
 
 $result_texis{'code_in_def'} = '@deftypefn Function int foo (@code{const std::vector<int>@&} bar)
 Documentation of @code{foo}.

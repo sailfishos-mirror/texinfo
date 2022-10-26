@@ -10,13 +10,11 @@ $result_trees{'part_chapter_appendix'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -24,7 +22,6 @@ $result_trees{'part_chapter_appendix'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Part 1'
             }
           ],
@@ -32,14 +29,12 @@ $result_trees{'part_chapter_appendix'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'part',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -48,7 +43,6 @@ $result_trees{'part_chapter_appendix'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -60,7 +54,6 @@ $result_trees{'part_chapter_appendix'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter'
             }
           ],
@@ -68,14 +61,12 @@ $result_trees{'part_chapter_appendix'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -85,7 +76,6 @@ $result_trees{'part_chapter_appendix'} = {
         'associated_part' => {},
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -97,7 +87,6 @@ $result_trees{'part_chapter_appendix'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Appendix'
             }
           ],
@@ -105,7 +94,6 @@ $result_trees{'part_chapter_appendix'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -113,7 +101,6 @@ $result_trees{'part_chapter_appendix'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 6,
@@ -123,20 +110,7 @@ $result_trees{'part_chapter_appendix'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'part_chapter_appendix'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[0];
-$result_trees{'part_chapter_appendix'}{'contents'}[0]{'parent'} = $result_trees{'part_chapter_appendix'};
-$result_trees{'part_chapter_appendix'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[1]{'args'}[0];
-$result_trees{'part_chapter_appendix'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[1];
-$result_trees{'part_chapter_appendix'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[1];
-$result_trees{'part_chapter_appendix'}{'contents'}[1]{'parent'} = $result_trees{'part_chapter_appendix'};
-$result_trees{'part_chapter_appendix'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[2]{'args'}[0];
-$result_trees{'part_chapter_appendix'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[2];
-$result_trees{'part_chapter_appendix'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[2];
 $result_trees{'part_chapter_appendix'}{'contents'}[2]{'extra'}{'associated_part'} = $result_trees{'part_chapter_appendix'}{'contents'}[1];
-$result_trees{'part_chapter_appendix'}{'contents'}[2]{'parent'} = $result_trees{'part_chapter_appendix'};
-$result_trees{'part_chapter_appendix'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[3]{'args'}[0];
-$result_trees{'part_chapter_appendix'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'part_chapter_appendix'}{'contents'}[3];
-$result_trees{'part_chapter_appendix'}{'contents'}[3]{'parent'} = $result_trees{'part_chapter_appendix'};
 
 $result_texis{'part_chapter_appendix'} = '
 @part Part 1

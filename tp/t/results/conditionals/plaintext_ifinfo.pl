@@ -10,7 +10,6 @@ $result_trees{'plaintext_ifinfo'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,25 +17,18 @@ $result_trees{'plaintext_ifinfo'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'this text will appear only in Info and plain text.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'plaintext_ifinfo'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'plaintext_ifinfo'}{'contents'}[0];
-$result_trees{'plaintext_ifinfo'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'plaintext_ifinfo'}{'contents'}[0]{'contents'}[1];
-$result_trees{'plaintext_ifinfo'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'plaintext_ifinfo'}{'contents'}[0];
-$result_trees{'plaintext_ifinfo'}{'contents'}[0]{'parent'} = $result_trees{'plaintext_ifinfo'};
 
 $result_texis{'plaintext_ifinfo'} = '
 this text will appear only in Info and plain text.

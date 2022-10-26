@@ -16,11 +16,9 @@ $result_trees{'no_brace_space_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'c'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -28,7 +26,6 @@ $result_trees{'no_brace_space_end_line'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -36,16 +33,13 @@ $result_trees{'no_brace_space_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -58,7 +52,6 @@ $result_trees{'no_brace_space_end_line'} = {
                 'spaces' => '
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -66,7 +59,6 @@ $result_trees{'no_brace_space_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'text
 '
             },
@@ -76,7 +68,6 @@ $result_trees{'no_brace_space_end_line'} = {
                 'spaces' => '
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -84,32 +75,17 @@ $result_trees{'no_brace_space_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'Arg.'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_brace_space_end_line'}{'contents'}[0];
-$result_trees{'no_brace_space_end_line'}{'contents'}[0]{'parent'} = $result_trees{'no_brace_space_end_line'};
 
 $result_texis{'no_brace_space_end_line'} = '@code {c}.
 

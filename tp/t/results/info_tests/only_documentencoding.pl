@@ -14,11 +14,9 @@ $result_trees{'only_documentencoding'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'ISO-8859-1'
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -29,7 +27,6 @@ $result_trees{'only_documentencoding'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'ISO-8859-1'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -37,16 +34,11 @@ $result_trees{'only_documentencoding'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0];
-$result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'only_documentencoding'}{'contents'}[0];
-$result_trees{'only_documentencoding'}{'contents'}[0]{'parent'} = $result_trees{'only_documentencoding'};
 
 $result_texis{'only_documentencoding'} = '@documentencoding ISO-8859-1';
 

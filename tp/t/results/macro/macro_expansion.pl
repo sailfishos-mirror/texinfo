@@ -10,7 +10,6 @@ $result_trees{'macro_expansion'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,17 +17,14 @@ $result_trees{'macro_expansion'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'macroone',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg1',
               'type' => 'macro_arg'
             },
             {
-              'parent' => {},
               'text' => 'arg2',
               'type' => 'macro_arg'
             }
@@ -36,25 +32,21 @@ $result_trees{'macro_expansion'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'result of a macro with \\arg1\\ and 
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@verbatim
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '\\arg2\\
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@end verbatim
 ',
               'type' => 'raw'
@@ -64,7 +56,6 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -72,7 +63,6 @@ $result_trees{'macro_expansion'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -81,7 +71,6 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -93,7 +82,6 @@ $result_trees{'macro_expansion'} = {
             'arg_line' => ' macroone {arg1, arg2 }
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -101,7 +89,6 @@ $result_trees{'macro_expansion'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -109,12 +96,10 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '2 simple args. result of a macro with first arg and 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -124,14 +109,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'second arg
 ',
               'type' => 'raw'
@@ -141,7 +124,6 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim.'
                     }
                   ],
@@ -149,7 +131,6 @@ $result_trees{'macro_expansion'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -158,7 +139,6 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -166,7 +146,6 @@ $result_trees{'macro_expansion'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -174,7 +153,6 @@ $result_trees{'macro_expansion'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -182,7 +160,6 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'comma in command. result of a macro with aaa '
             },
             {
@@ -190,16 +167,13 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a macro , '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'samp',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -207,12 +181,10 @@ $result_trees{'macro_expansion'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' bbb and 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -222,14 +194,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
@@ -239,7 +209,6 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim.'
                     }
                   ],
@@ -247,7 +216,6 @@ $result_trees{'macro_expansion'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -256,7 +224,6 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -264,7 +231,6 @@ $result_trees{'macro_expansion'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
@@ -272,7 +238,6 @@ $result_trees{'macro_expansion'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -280,12 +245,10 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'call on the line. result of a macro with  and 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -295,14 +258,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
@@ -312,7 +273,6 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim my arg.'
                     }
                   ],
@@ -320,7 +280,6 @@ $result_trees{'macro_expansion'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -329,7 +288,6 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim my arg.'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
@@ -337,7 +295,6 @@ $result_trees{'macro_expansion'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
@@ -345,7 +302,6 @@ $result_trees{'macro_expansion'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -353,12 +309,10 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'recursive call. result of a macro with first arg and 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -368,14 +322,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@macroone{nested second arg}
 ',
               'type' => 'raw'
@@ -385,7 +337,6 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim.'
                     }
                   ],
@@ -393,7 +344,6 @@ $result_trees{'macro_expansion'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -402,7 +352,6 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
@@ -410,7 +359,6 @@ $result_trees{'macro_expansion'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 15,
@@ -418,7 +366,6 @@ $result_trees{'macro_expansion'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -426,12 +373,10 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'protect stuff. result of a macro with first , arg and 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -441,14 +386,12 @@ $result_trees{'macro_expansion'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => '{} \\ 
 ',
               'type' => 'raw'
@@ -458,7 +401,6 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim.'
                     }
                   ],
@@ -466,7 +408,6 @@ $result_trees{'macro_expansion'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -475,7 +416,6 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
@@ -483,7 +423,6 @@ $result_trees{'macro_expansion'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 17,
@@ -491,7 +430,6 @@ $result_trees{'macro_expansion'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -499,16 +437,13 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'multi-line arg. result of a macro with arg 1
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -516,12 +451,10 @@ $result_trees{'macro_expansion'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'now and 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -531,26 +464,22 @@ $result_trees{'macro_expansion'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'arg3
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
@@ -560,11 +489,9 @@ $result_trees{'macro_expansion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -573,7 +500,6 @@ $result_trees{'macro_expansion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim.'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 23,
@@ -581,7 +507,6 @@ $result_trees{'macro_expansion'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 23,
@@ -589,88 +514,11 @@ $result_trees{'macro_expansion'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[3];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[12];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[15]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[15];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[20]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[20];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[3]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[3];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21];
-$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
-$result_trees{'macro_expansion'}{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'};
 
 $result_texis{'macro_expansion'} = '
 @macro macroone {arg1, arg2 }

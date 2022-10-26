@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'no_empty_line_between_headings'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -24,7 +22,6 @@ $result_trees{'no_empty_line_between_headings'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -35,7 +32,6 @@ $result_trees{'no_empty_line_between_headings'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Subheading'
                 }
               ],
@@ -43,7 +39,6 @@ $result_trees{'no_empty_line_between_headings'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -51,7 +46,6 @@ $result_trees{'no_empty_line_between_headings'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -62,7 +56,6 @@ $result_trees{'no_empty_line_between_headings'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -74,7 +67,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Chapter'
             }
           ],
@@ -82,7 +74,6 @@ $result_trees{'no_empty_line_between_headings'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -90,7 +81,6 @@ $result_trees{'no_empty_line_between_headings'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -102,7 +92,6 @@ $result_trees{'no_empty_line_between_headings'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Section'
             }
           ],
@@ -110,7 +99,6 @@ $result_trees{'no_empty_line_between_headings'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -118,7 +106,6 @@ $result_trees{'no_empty_line_between_headings'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -128,19 +115,6 @@ $result_trees{'no_empty_line_between_headings'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_empty_line_between_headings'}{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'};
-$result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'args'}[0];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[1];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'contents'}[0];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[1];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[1]{'parent'} = $result_trees{'no_empty_line_between_headings'};
-$result_trees{'no_empty_line_between_headings'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[2]{'args'}[0];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[2];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[2]{'parent'} = $result_trees{'no_empty_line_between_headings'};
-$result_trees{'no_empty_line_between_headings'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[3]{'args'}[0];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'no_empty_line_between_headings'}{'contents'}[3];
-$result_trees{'no_empty_line_between_headings'}{'contents'}[3]{'parent'} = $result_trees{'no_empty_line_between_headings'};
 
 $result_texis{'no_empty_line_between_headings'} = '@top Top
 @subheading Subheading

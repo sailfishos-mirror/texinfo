@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'end_conditional_not_at_line_begining'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'end_conditional_not_at_line_begining'}{'contents'}[0]{'parent'} = $result_trees{'end_conditional_not_at_line_begining'};
 
 $result_texis{'end_conditional_not_at_line_begining'} = '';
 

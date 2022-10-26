@@ -16,18 +16,15 @@ $result_trees{'commands_in_email'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'endots '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'enddots',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -35,7 +32,6 @@ $result_trees{'commands_in_email'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -43,16 +39,13 @@ $result_trees{'commands_in_email'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in code'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'code',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -60,12 +53,10 @@ $result_trees{'commands_in_email'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'email',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -73,27 +64,14 @@ $result_trees{'commands_in_email'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0];
-$result_trees{'commands_in_email'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'commands_in_email'}{'contents'}[0];
-$result_trees{'commands_in_email'}{'contents'}[0]{'parent'} = $result_trees{'commands_in_email'};
 
 $result_texis{'commands_in_email'} = '@email{endots @enddots{} @code{in code}}';
 

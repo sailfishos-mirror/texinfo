@@ -11,11 +11,9 @@ $result_trees{'w_lines_count'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -23,7 +21,6 @@ $result_trees{'w_lines_count'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -31,7 +28,6 @@ $result_trees{'w_lines_count'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -52,7 +48,6 @@ $result_trees{'w_lines_count'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -66,14 +61,12 @@ $result_trees{'w_lines_count'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -81,7 +74,6 @@ $result_trees{'w_lines_count'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.  
 '
             },
@@ -94,16 +86,13 @@ $result_trees{'w_lines_count'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'C-u'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'code',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -111,12 +100,10 @@ $result_trees{'w_lines_count'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'w',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -124,16 +111,13 @@ $result_trees{'w_lines_count'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' starts again from the beginning
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -143,7 +127,6 @@ $result_trees{'w_lines_count'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'compilation-next-error'
                 }
               ],
@@ -151,7 +134,6 @@ $result_trees{'w_lines_count'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -171,7 +153,6 @@ $result_trees{'w_lines_count'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
@@ -182,7 +163,6 @@ $result_trees{'w_lines_count'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Compilation mode also defines the keys '
             },
             {
@@ -190,16 +170,13 @@ $result_trees{'w_lines_count'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'SPC'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'key',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -207,7 +184,6 @@ $result_trees{'w_lines_count'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' and '
             },
             {
@@ -215,16 +191,13 @@ $result_trees{'w_lines_count'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'DEL'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'key',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -232,16 +205,13 @@ $result_trees{'w_lines_count'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' to
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -251,11 +221,9 @@ $result_trees{'w_lines_count'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'fn'
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -266,7 +234,6 @@ $result_trees{'w_lines_count'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
@@ -275,7 +242,6 @@ $result_trees{'w_lines_count'} = {
         }
       ],
       'extra' => {},
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -285,46 +251,12 @@ $result_trees{'w_lines_count'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'w_lines_count'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[0];
-$result_trees{'w_lines_count'}{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'};
-$result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0];
-$result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[1];
 $result_trees{'w_lines_count'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'w_lines_count'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'w_lines_count'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'w_lines_count'}{'contents'}[1]{'parent'} = $result_trees{'w_lines_count'};
-$result_trees{'w_lines_count'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3];
 $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3];
 $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'w_lines_count'}{'contents'}[1];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[1];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'args'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[3];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[6]{'args'}[0];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[6];
-$result_trees{'w_lines_count'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'w_lines_count'}{'contents'}[2];
-$result_trees{'w_lines_count'}{'contents'}[2]{'parent'} = $result_trees{'w_lines_count'};
 
 $result_texis{'w_lines_count'} = '@node Top
 @top

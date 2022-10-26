@@ -12,7 +12,6 @@ $result_trees{'line_after_recursive_call'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'mac',
               'type' => 'macro_name'
             }
@@ -20,19 +19,16 @@ $result_trees{'line_after_recursive_call'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'ggg
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@mac xxx
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => 'fff
 ',
               'type' => 'raw'
@@ -42,7 +38,6 @@ $result_trees{'line_after_recursive_call'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -50,7 +45,6 @@ $result_trees{'line_after_recursive_call'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -59,7 +53,6 @@ $result_trees{'line_after_recursive_call'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -71,7 +64,6 @@ $result_trees{'line_after_recursive_call'} = {
             'arg_line' => ' mac
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -81,43 +73,25 @@ $result_trees{'line_after_recursive_call'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'ggg
 '
             },
             {
-              'parent' => {},
               'text' => ' xxx
 '
             },
             {
-              'parent' => {},
               'text' => 'fff'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[1];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[1];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[1];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'line_after_recursive_call'}{'contents'}[0];
-$result_trees{'line_after_recursive_call'}{'contents'}[0]{'parent'} = $result_trees{'line_after_recursive_call'};
 
 $result_texis{'line_after_recursive_call'} = '@macro mac
 ggg

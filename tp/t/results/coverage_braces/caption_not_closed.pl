@@ -14,7 +14,6 @@ $result_trees{'caption_not_closed'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Text'
                 }
               ],
@@ -22,14 +21,12 @@ $result_trees{'caption_not_closed'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'float',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -41,16 +38,13 @@ $result_trees{'caption_not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Not closed caption
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
@@ -58,43 +52,34 @@ $result_trees{'caption_not_closed'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'The caption is closed as soon as '
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'end float is encountered, since
 '
                         },
                         {
-                          'parent' => {},
                           'text' => 'as much as possible is closed in order to find the '
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'float beginning.
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -102,7 +87,6 @@ $result_trees{'caption_not_closed'} = {
               'extra' => {
                 'float' => {}
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -114,7 +98,6 @@ $result_trees{'caption_not_closed'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
@@ -122,7 +105,6 @@ $result_trees{'caption_not_closed'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -131,7 +113,6 @@ $result_trees{'caption_not_closed'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -149,7 +130,6 @@ $result_trees{'caption_not_closed'} = {
               'normalized' => 'Text'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -157,57 +137,29 @@ $result_trees{'caption_not_closed'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'float'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'extra'}{'caption'} = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'extra'}{'type'}{'content'}[0] = $result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[0];
-$result_trees{'caption_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'caption_not_closed'};
-$result_trees{'caption_not_closed'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'caption_not_closed'}{'contents'}[1];
-$result_trees{'caption_not_closed'}{'contents'}[1]{'parent'} = $result_trees{'caption_not_closed'};
 
 $result_texis{'caption_not_closed'} = '@float Text
 

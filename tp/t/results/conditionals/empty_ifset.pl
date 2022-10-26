@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'empty_ifset'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_ifset'}{'contents'}[0]{'parent'} = $result_trees{'empty_ifset'};
 
 $result_texis{'empty_ifset'} = '';
 

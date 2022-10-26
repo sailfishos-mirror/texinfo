@@ -16,13 +16,11 @@ $result_trees{'accent_no_closed_comment'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'e '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'text' => ' comment
 ',
                           'type' => 'misc_arg'
@@ -34,16 +32,13 @@ $result_trees{'accent_no_closed_comment'} = {
                           ' comment
 '
                         ]
-                      },
-                      'parent' => {}
+                      }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '~',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -51,23 +46,14 @@ $result_trees{'accent_no_closed_comment'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accent_no_closed_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_comment'}{'contents'}[0];
-$result_trees{'accent_no_closed_comment'}{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_comment'};
 
 $result_texis{'accent_no_closed_comment'} = '@~{e @c comment
 }';

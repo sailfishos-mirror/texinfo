@@ -12,13 +12,11 @@ $result_trees{'text_before_after'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'before '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => 'mymacro',
                   'type' => 'macro_name'
                 }
@@ -26,7 +24,6 @@ $result_trees{'text_before_after'} = {
               'cmdname' => 'macro',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in macro
 ',
                   'type' => 'raw'
@@ -36,7 +33,6 @@ $result_trees{'text_before_after'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'macro after'
                         }
                       ],
@@ -44,7 +40,6 @@ $result_trees{'text_before_after'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -53,7 +48,6 @@ $result_trees{'text_before_after'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'macro after'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
@@ -65,7 +59,6 @@ $result_trees{'text_before_after'} = {
                 'arg_line' => ' mymacro
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -73,25 +66,14 @@ $result_trees{'text_before_after'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'parent'} = $result_trees{'text_before_after'};
 
 $result_texis{'text_before_after'} = 'before @macro mymacro
 in macro

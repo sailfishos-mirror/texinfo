@@ -14,7 +14,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'lean'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -31,7 +29,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'A'
                 },
                 {
@@ -41,20 +38,16 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'My feet'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'paragraph'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_context'
                     }
                   ],
                   'cmdname' => 'footnote',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -62,12 +55,10 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' b.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -75,7 +66,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -83,7 +73,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -92,7 +81,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -103,7 +91,6 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -111,26 +98,11 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0];
-$result_trees{'footnote_in_quotation_with_arg'}{'contents'}[0]{'parent'} = $result_trees{'footnote_in_quotation_with_arg'};
 
 $result_texis{'footnote_in_quotation_with_arg'} = '@quotation lean
 A@footnote{My feet} b.

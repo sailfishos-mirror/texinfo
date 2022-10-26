@@ -16,18 +16,15 @@ $result_trees{'comments'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => ' comment @c comment
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => 'in a verb ',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -35,7 +32,6 @@ $result_trees{'comments'} = {
               'extra' => {
                 'delimiter' => 'a'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -45,7 +41,6 @@ $result_trees{'comments'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => ' comment
 ',
                   'type' => 'misc_arg'
@@ -57,15 +52,12 @@ $result_trees{'comments'} = {
                   ' comment
 '
                 ]
-              },
-              'parent' => {}
+              }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -73,7 +65,6 @@ $result_trees{'comments'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'something '
             },
             {
@@ -81,12 +72,10 @@ $result_trees{'comments'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => ' in verb',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -94,7 +83,6 @@ $result_trees{'comments'} = {
               'extra' => {
                 'delimiter' => ','
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -102,13 +90,11 @@ $result_trees{'comments'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => ' other comment',
                   'type' => 'misc_arg'
                 }
@@ -118,37 +104,17 @@ $result_trees{'comments'} = {
                 'misc_args' => [
                   ' other comment'
                 ]
-              },
-              'parent' => {}
+              }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'comments'}{'contents'}[0];
-$result_trees{'comments'}{'contents'}[0]{'parent'} = $result_trees{'comments'};
 
 $result_texis{'comments'} = '@verb{a comment @c comment
 in a verb a}@c comment

@@ -16,15 +16,12 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aa'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'bracketed'
                 },
                 {
-                  'parent' => {},
                   'text' => ' bb'
                 }
               ],
@@ -32,7 +29,6 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                 'comment_at_end' => {
                   'args' => [
                     {
-                      'parent' => {},
                       'text' => ' cc
 ',
                       'type' => 'misc_arg'
@@ -44,11 +40,9 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                       ' cc
 '
                     ]
-                  },
-                  'parent' => {}
+                  }
                 }
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -59,7 +53,6 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
@@ -67,7 +60,6 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -76,7 +68,6 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -100,7 +91,6 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -108,24 +98,12 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'};
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0];
 $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0];
-$result_trees{'prototype_brace_no_brace_comment'}{'contents'}[0]{'parent'} = $result_trees{'prototype_brace_no_brace_comment'};
 
 $result_texis{'prototype_brace_no_brace_comment'} = '@multitable {aa} bb@comment cc
 @end multitable

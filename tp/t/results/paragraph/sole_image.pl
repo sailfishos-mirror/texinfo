@@ -14,11 +14,9 @@ $result_trees{'sole_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'aa'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -26,7 +24,6 @@ $result_trees{'sole_image'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -34,12 +31,10 @@ $result_trees{'sole_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 '
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -47,29 +42,18 @@ $result_trees{'sole_image'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'next para
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'sole_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'sole_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'sole_image'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
-$result_trees{'sole_image'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
-$result_trees{'sole_image'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
-$result_trees{'sole_image'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0]{'contents'}[3];
-$result_trees{'sole_image'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
-$result_trees{'sole_image'}{'contents'}[0]{'parent'} = $result_trees{'sole_image'};
 
 $result_texis{'sole_image'} = '@image{aa}
 

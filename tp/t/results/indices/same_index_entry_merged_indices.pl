@@ -16,7 +16,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'vr fn'
                     }
                   ],
@@ -24,7 +23,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -36,7 +34,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 ],
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -44,17 +41,14 @@ $result_trees{'same_index_entry_merged_indices'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -62,7 +56,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -70,7 +63,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -91,7 +83,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -105,14 +96,12 @@ $result_trees{'same_index_entry_merged_indices'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -120,16 +109,13 @@ $result_trees{'same_index_entry_merged_indices'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -145,14 +131,12 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'parent' => {},
                       'text' => 'Command'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -160,14 +144,12 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'parent' => {},
                       'text' => 'mmm-mode'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -176,11 +158,9 @@ $result_trees{'same_index_entry_merged_indices'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'arg'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -188,7 +168,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
@@ -199,13 +178,11 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_at_end'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -233,7 +210,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 },
                 'original_def_cmdname' => 'deffn'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -246,16 +222,13 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Toggle the state of MMM Mode.
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
-              'parent' => {},
               'type' => 'def_item'
             },
             {
@@ -263,7 +236,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'deffn'
                     }
                   ],
@@ -271,7 +243,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -280,7 +251,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -291,7 +261,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
@@ -299,7 +268,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -314,21 +282,18 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Variable'
                         }
                       ],
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'parent' => {},
                       'type' => 'bracketed_inserted'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces_inserted'
                     },
@@ -336,20 +301,17 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'extra' => {
                         'def_role' => 'name'
                       },
-                      'parent' => {},
                       'text' => 'mmm-mode'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_at_end'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -377,7 +339,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 },
                 'original_def_cmdname' => 'defvar'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
@@ -390,16 +351,13 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'This variable represents MMM Mode.
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
-              'parent' => {},
               'type' => 'def_item'
             },
             {
@@ -407,7 +365,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'defvar'
                     }
                   ],
@@ -415,7 +372,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -424,7 +380,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defvar'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
@@ -435,7 +390,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 12,
@@ -443,7 +397,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -453,7 +406,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'fn'
                 }
               ],
@@ -461,7 +413,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -472,7 +423,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 16,
@@ -481,7 +431,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
         }
       ],
       'extra' => {},
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -491,71 +440,20 @@ $result_trees{'same_index_entry_merged_indices'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'};
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[1]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[1];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'same_index_entry_merged_indices'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'same_index_entry_merged_indices'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[1]{'parent'} = $result_trees{'same_index_entry_merged_indices'};
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[1];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[1];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[0] = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0];
 $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[1];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[1];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[7]{'args'}[0];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[7];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'same_index_entry_merged_indices'}{'contents'}[2];
-$result_trees{'same_index_entry_merged_indices'}{'contents'}[2]{'parent'} = $result_trees{'same_index_entry_merged_indices'};
 
 $result_texis{'same_index_entry_merged_indices'} = '@syncodeindex vr fn
 

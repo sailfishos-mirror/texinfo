@@ -14,33 +14,26 @@ $result_trees{'image_extension'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'f---ile'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '.gr--a'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -48,7 +41,6 @@ $result_trees{'image_extension'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -56,27 +48,15 @@ $result_trees{'image_extension'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 '
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'image_extension'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'image_extension'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'image_extension'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'image_extension'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'image_extension'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_extension'}{'contents'}[0];
-$result_trees{'image_extension'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'image_extension'}{'contents'}[0];
-$result_trees{'image_extension'}{'contents'}[0]{'parent'} = $result_trees{'image_extension'};
 
 $result_texis{'image_extension'} = '@image{f---ile,,,,.gr--a}
 ';

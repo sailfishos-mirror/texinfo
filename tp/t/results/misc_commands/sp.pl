@@ -10,7 +10,6 @@ $result_trees{'sp'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,11 +17,9 @@ $result_trees{'sp'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text line followed on the same line and another below '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -30,7 +27,6 @@ $result_trees{'sp'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '1'
                 }
               ],
@@ -38,7 +34,6 @@ $result_trees{'sp'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -49,7 +44,6 @@ $result_trees{'sp'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -61,7 +55,6 @@ $result_trees{'sp'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '2'
                 }
               ],
@@ -69,7 +62,6 @@ $result_trees{'sp'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -80,7 +72,6 @@ $result_trees{'sp'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -90,11 +81,9 @@ $result_trees{'sp'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text line after the sp followed by a sp '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -102,7 +91,6 @@ $result_trees{'sp'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '1'
                 }
               ],
@@ -110,7 +98,6 @@ $result_trees{'sp'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -121,7 +108,6 @@ $result_trees{'sp'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
@@ -131,12 +117,10 @@ $result_trees{'sp'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text line after the text line followed by the sp.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -144,7 +128,6 @@ $result_trees{'sp'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '2 a number after sp'
                 }
               ],
@@ -152,7 +135,6 @@ $result_trees{'sp'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -160,7 +142,6 @@ $result_trees{'sp'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
@@ -168,32 +149,11 @@ $result_trees{'sp'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'sp'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[1];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sp'}{'contents'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[2];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'sp'}{'contents'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[3];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'sp'}{'contents'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[4];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'sp'}{'contents'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[5];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'sp'}{'contents'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[6];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'sp'}{'contents'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'sp'}{'contents'}[0]{'contents'}[7];
-$result_trees{'sp'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'sp'}{'contents'}[0];
-$result_trees{'sp'}{'contents'}[0]{'parent'} = $result_trees{'sp'};
 
 $result_texis{'sp'} = '
 Text line followed on the same line and another below @sp 1

@@ -12,12 +12,10 @@ $result_trees{'not_only_characters'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '-e_\'::;',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => 'hh',
               'type' => 'misc_arg'
             }
@@ -30,11 +28,9 @@ $result_trees{'not_only_characters'} = {
               '-e_\'::;',
               'hh'
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -42,28 +38,18 @@ $result_trees{'not_only_characters'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Say hh.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0];
-$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0];
-$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[2];
-$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0];
-$result_trees{'not_only_characters'}{'contents'}[0]{'parent'} = $result_trees{'not_only_characters'};
 
 $result_texis{'not_only_characters'} = '@set -e_\'::; hh
 

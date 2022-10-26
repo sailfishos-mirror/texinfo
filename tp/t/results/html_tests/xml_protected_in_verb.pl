@@ -16,14 +16,12 @@ $result_trees{'xml_protected_in_verb'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => '<a>
 ',
               'type' => 'raw'
@@ -33,7 +31,6 @@ $result_trees{'xml_protected_in_verb'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim'
                     }
                   ],
@@ -41,7 +38,6 @@ $result_trees{'xml_protected_in_verb'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -50,7 +46,6 @@ $result_trees{'xml_protected_in_verb'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -58,7 +53,6 @@ $result_trees{'xml_protected_in_verb'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -66,7 +60,6 @@ $result_trees{'xml_protected_in_verb'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -78,12 +71,10 @@ $result_trees{'xml_protected_in_verb'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => ' <i> ',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -91,7 +82,6 @@ $result_trees{'xml_protected_in_verb'} = {
               'extra' => {
                 'delimiter' => '.'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -99,16 +89,13 @@ $result_trees{'xml_protected_in_verb'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -118,7 +105,6 @@ $result_trees{'xml_protected_in_verb'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'file_with_xml_chars.texi'
                 }
               ],
@@ -126,7 +112,6 @@ $result_trees{'xml_protected_in_verb'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -136,7 +121,6 @@ $result_trees{'xml_protected_in_verb'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'file_with_xml_chars.texi'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
@@ -144,29 +128,11 @@ $result_trees{'xml_protected_in_verb'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[4];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'xml_protected_in_verb'}{'contents'}[0];
-$result_trees{'xml_protected_in_verb'}{'contents'}[0]{'parent'} = $result_trees{'xml_protected_in_verb'};
 
 $result_texis{'xml_protected_in_verb'} = '@verbatim
 <a>

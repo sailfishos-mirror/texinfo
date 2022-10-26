@@ -12,7 +12,6 @@ $result_trees{'vskip'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => ' 0pt plus 1filll
 ',
               'type' => 'misc_arg'
@@ -24,19 +23,14 @@ $result_trees{'vskip'} = {
               ' 0pt plus 1filll
 '
             ]
-          },
-          'parent' => {}
+          }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'vskip'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'vskip'}{'contents'}[0]{'contents'}[0];
-$result_trees{'vskip'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'vskip'}{'contents'}[0];
-$result_trees{'vskip'}{'contents'}[0]{'parent'} = $result_trees{'vskip'};
 
 $result_texis{'vskip'} = '@vskip 0pt plus 1filll
 ';

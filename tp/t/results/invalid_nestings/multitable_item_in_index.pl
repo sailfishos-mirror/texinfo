@@ -16,25 +16,20 @@ $result_trees{'multitable_item_in_index'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aaa'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'bracketed'
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'bbb'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'bracketed'
                 }
               ],
@@ -42,7 +37,6 @@ $result_trees{'multitable_item_in_index'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -55,12 +49,10 @@ $result_trees{'multitable_item_in_index'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => ' ',
                           'type' => 'ignorable_spaces_after_command'
                         },
                         {
-                          'parent' => {},
                           'text' => 'on item line'
                         }
                       ],
@@ -68,7 +60,6 @@ $result_trees{'multitable_item_in_index'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -87,7 +78,6 @@ $result_trees{'multitable_item_in_index'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -96,7 +86,6 @@ $result_trees{'multitable_item_in_index'} = {
                   'type' => 'index_entry_command'
                 }
               ],
-              'parent' => {},
               'type' => 'before_item'
             },
             {
@@ -104,7 +93,6 @@ $result_trees{'multitable_item_in_index'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
@@ -112,7 +100,6 @@ $result_trees{'multitable_item_in_index'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -121,7 +108,6 @@ $result_trees{'multitable_item_in_index'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -147,7 +133,6 @@ $result_trees{'multitable_item_in_index'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -155,33 +140,16 @@ $result_trees{'multitable_item_in_index'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[0]{'contents'}[0] = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'extra'}{'prototypes'}[1]{'contents'}[0] = $result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'}{'contents'}[0];
-$result_trees{'multitable_item_in_index'}{'contents'}[0]{'parent'} = $result_trees{'multitable_item_in_index'};
 
 $result_texis{'multitable_item_in_index'} = '@multitable {aaa} {bbb}
 @vindex  on item line

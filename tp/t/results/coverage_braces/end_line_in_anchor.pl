@@ -14,16 +14,13 @@ $result_trees{'end_line_in_anchor'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'an
 '
                 },
                 {
-                  'parent' => {},
                   'text' => 'anchor'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -35,7 +32,6 @@ $result_trees{'end_line_in_anchor'} = {
             ],
             'normalized' => 'an-anchor'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -43,26 +39,18 @@ $result_trees{'end_line_in_anchor'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'spaces_after_close_brace'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0];
 $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}[1] = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'parent'} = $result_trees{'end_line_in_anchor'};
 
 $result_texis{'end_line_in_anchor'} = '@anchor{an
 anchor}

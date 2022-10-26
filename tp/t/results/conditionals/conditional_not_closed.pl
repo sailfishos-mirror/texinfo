@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'conditional_not_closed'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'conditional_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'conditional_not_closed'};
 
 $result_texis{'conditional_not_closed'} = '';
 

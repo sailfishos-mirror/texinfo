@@ -11,7 +11,6 @@ $result_trees{'noindent_empty_para'} = {
       'contents' => [
         {
           'cmdname' => 'noindent',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -19,13 +18,11 @@ $result_trees{'noindent_empty_para'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'ignorable_spaces_after_command'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -33,27 +30,18 @@ $result_trees{'noindent_empty_para'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'aaa
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[3];
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
-$result_trees{'noindent_empty_para'}{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'};
 
 $result_texis{'noindent_empty_para'} = '@noindent
 

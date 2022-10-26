@@ -20,18 +20,15 @@ $result_trees{'raw_block_on_line'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'block_line_arg'
                     }
                   ],
                   'cmdname' => 'tex',
                   'contents' => [
                     {
-                      'parent' => {},
                       'type' => 'rawpreformatted'
                     }
                   ],
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -39,7 +36,6 @@ $result_trees{'raw_block_on_line'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -47,7 +43,6 @@ $result_trees{'raw_block_on_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -55,18 +50,11 @@ $result_trees{'raw_block_on_line'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'raw_block_on_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_on_line'}{'contents'}[0];
-$result_trees{'raw_block_on_line'}{'contents'}[0]{'parent'} = $result_trees{'raw_block_on_line'};
 
 $result_texis{'raw_block_on_line'} = '@cindex @tex
 ';

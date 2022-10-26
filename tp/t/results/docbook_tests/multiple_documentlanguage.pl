@@ -14,7 +14,6 @@ $result_trees{'multiple_documentlanguage'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'ja'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -31,7 +29,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'ja'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -39,13 +36,11 @@ $result_trees{'multiple_documentlanguage'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -53,7 +48,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -61,7 +55,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -81,7 +74,6 @@ $result_trees{'multiple_documentlanguage'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -93,7 +85,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -101,14 +92,12 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -117,7 +106,6 @@ $result_trees{'multiple_documentlanguage'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -129,7 +117,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chap'
             }
           ],
@@ -137,7 +124,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -157,7 +143,6 @@ $result_trees{'multiple_documentlanguage'} = {
         'normalized' => 'chap',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 6,
@@ -169,7 +154,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Chap no new language'
             }
           ],
@@ -177,14 +161,12 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -194,7 +176,6 @@ $result_trees{'multiple_documentlanguage'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'fr'
                 }
               ],
@@ -202,7 +183,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -211,7 +191,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'fr'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -222,7 +201,6 @@ $result_trees{'multiple_documentlanguage'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 7,
@@ -234,7 +212,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter fr'
             }
           ],
@@ -242,7 +219,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -262,7 +238,6 @@ $result_trees{'multiple_documentlanguage'} = {
         'normalized' => 'chapter-fr',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 10,
@@ -274,7 +249,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter fr'
             }
           ],
@@ -282,14 +256,12 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -299,7 +271,6 @@ $result_trees{'multiple_documentlanguage'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'pt'
                 }
               ],
@@ -307,7 +278,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -316,7 +286,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'pt'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
@@ -327,7 +296,6 @@ $result_trees{'multiple_documentlanguage'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 11,
@@ -339,7 +307,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'subnode pt'
             }
           ],
@@ -347,7 +314,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -367,7 +333,6 @@ $result_trees{'multiple_documentlanguage'} = {
         'normalized' => 'subnode-pt',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 14,
@@ -379,7 +344,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'section pt'
             }
           ],
@@ -387,14 +351,12 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -404,7 +366,6 @@ $result_trees{'multiple_documentlanguage'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'fr'
                 }
               ],
@@ -412,7 +373,6 @@ $result_trees{'multiple_documentlanguage'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -421,7 +381,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'fr'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 17,
@@ -432,7 +391,6 @@ $result_trees{'multiple_documentlanguage'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 15,
@@ -444,7 +402,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'subnode fr'
             }
           ],
@@ -452,7 +409,6 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -472,7 +428,6 @@ $result_trees{'multiple_documentlanguage'} = {
         'normalized' => 'subnode-fr',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 18,
@@ -484,7 +439,6 @@ $result_trees{'multiple_documentlanguage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'section fr'
             }
           ],
@@ -492,14 +446,12 @@ $result_trees{'multiple_documentlanguage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -508,7 +460,6 @@ $result_trees{'multiple_documentlanguage'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 19,
@@ -518,65 +469,16 @@ $result_trees{'multiple_documentlanguage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'multiple_documentlanguage'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[1]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[1];
 $result_trees{'multiple_documentlanguage'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[1]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[2]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[2];
-$result_trees{'multiple_documentlanguage'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[2];
-$result_trees{'multiple_documentlanguage'}{'contents'}[2]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[3]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[3];
 $result_trees{'multiple_documentlanguage'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[3]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[4]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[4];
-$result_trees{'multiple_documentlanguage'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[4];
-$result_trees{'multiple_documentlanguage'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[4]{'contents'}[1];
-$result_trees{'multiple_documentlanguage'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[4];
-$result_trees{'multiple_documentlanguage'}{'contents'}[4]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[5]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[5];
 $result_trees{'multiple_documentlanguage'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[5]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[6]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[6];
-$result_trees{'multiple_documentlanguage'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[6];
-$result_trees{'multiple_documentlanguage'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[6]{'contents'}[1];
-$result_trees{'multiple_documentlanguage'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[6];
-$result_trees{'multiple_documentlanguage'}{'contents'}[6]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[7]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[7];
 $result_trees{'multiple_documentlanguage'}{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[7]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[7]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[8]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[8];
-$result_trees{'multiple_documentlanguage'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[8];
-$result_trees{'multiple_documentlanguage'}{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[8]{'contents'}[1]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[8]{'contents'}[1];
-$result_trees{'multiple_documentlanguage'}{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[8];
-$result_trees{'multiple_documentlanguage'}{'contents'}[8]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[9]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[9];
 $result_trees{'multiple_documentlanguage'}{'contents'}[9]{'extra'}{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple_documentlanguage'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple_documentlanguage'}{'contents'}[9]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[9]{'parent'} = $result_trees{'multiple_documentlanguage'};
-$result_trees{'multiple_documentlanguage'}{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[10]{'args'}[0];
-$result_trees{'multiple_documentlanguage'}{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[10];
-$result_trees{'multiple_documentlanguage'}{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'multiple_documentlanguage'}{'contents'}[10];
-$result_trees{'multiple_documentlanguage'}{'contents'}[10]{'parent'} = $result_trees{'multiple_documentlanguage'};
 
 $result_texis{'multiple_documentlanguage'} = '@documentlanguage ja
 

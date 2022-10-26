@@ -14,11 +14,9 @@ $result_trees{'image_link_prefix'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'image'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -26,7 +24,6 @@ $result_trees{'image_link_prefix'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -34,16 +31,11 @@ $result_trees{'image_link_prefix'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_link_prefix'}{'contents'}[0];
-$result_trees{'image_link_prefix'}{'contents'}[0]{'parent'} = $result_trees{'image_link_prefix'};
 
 $result_texis{'image_link_prefix'} = '@image{image}';
 

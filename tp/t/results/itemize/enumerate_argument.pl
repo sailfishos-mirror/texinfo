@@ -14,7 +14,6 @@ $result_trees{'enumerate_argument'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '1'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'enumerate_argument'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -33,7 +31,6 @@ $result_trees{'enumerate_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'enumerate'
                     }
                   ],
@@ -41,7 +38,6 @@ $result_trees{'enumerate_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -50,7 +46,6 @@ $result_trees{'enumerate_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -62,7 +57,6 @@ $result_trees{'enumerate_argument'} = {
             'enumerate_specification' => '1',
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -70,7 +64,6 @@ $result_trees{'enumerate_argument'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -80,7 +73,6 @@ $result_trees{'enumerate_argument'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'A'
                 }
               ],
@@ -88,7 +80,6 @@ $result_trees{'enumerate_argument'} = {
                 'comment_at_end' => {
                   'args' => [
                     {
-                      'parent' => {},
                       'text' => ' comment
 ',
                       'type' => 'misc_arg'
@@ -100,11 +91,9 @@ $result_trees{'enumerate_argument'} = {
                       ' comment
 '
                     ]
-                  },
-                  'parent' => {}
+                  }
                 }
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -115,7 +104,6 @@ $result_trees{'enumerate_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'enumerate'
                     }
                   ],
@@ -123,7 +111,6 @@ $result_trees{'enumerate_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -132,7 +119,6 @@ $result_trees{'enumerate_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -144,7 +130,6 @@ $result_trees{'enumerate_argument'} = {
             'enumerate_specification' => 'A',
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
@@ -152,7 +137,6 @@ $result_trees{'enumerate_argument'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -162,7 +146,6 @@ $result_trees{'enumerate_argument'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'z'
                 }
               ],
@@ -170,7 +153,6 @@ $result_trees{'enumerate_argument'} = {
                 'comment_at_end' => {
                   'args' => [
                     {
-                      'parent' => {},
                       'text' => ' comment
 ',
                       'type' => 'misc_arg'
@@ -182,12 +164,10 @@ $result_trees{'enumerate_argument'} = {
                       ' comment
 '
                     ]
-                  },
-                  'parent' => {}
+                  }
                 },
                 'spaces_after_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -198,7 +178,6 @@ $result_trees{'enumerate_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'enumerate'
                     }
                   ],
@@ -206,7 +185,6 @@ $result_trees{'enumerate_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -215,7 +193,6 @@ $result_trees{'enumerate_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -227,7 +204,6 @@ $result_trees{'enumerate_argument'} = {
             'enumerate_specification' => 'z',
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
@@ -235,37 +211,11 @@ $result_trees{'enumerate_argument'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'comment_at_end'};
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'extra'}{'comment_at_end'};
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'enumerate_argument'}{'contents'}[0];
-$result_trees{'enumerate_argument'}{'contents'}[0]{'parent'} = $result_trees{'enumerate_argument'};
 
 $result_texis{'enumerate_argument'} = '@enumerate 1
 @end enumerate

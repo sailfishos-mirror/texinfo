@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'character_number_leading_toc_stoc'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -24,7 +22,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -32,7 +29,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -44,7 +40,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '0'
             }
           ],
@@ -52,7 +47,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -60,7 +54,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -72,7 +65,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '_'
             }
           ],
@@ -80,7 +72,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -88,7 +79,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -100,7 +90,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '?'
             }
           ],
@@ -108,14 +97,12 @@ $result_trees{'character_number_leading_toc_stoc'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -123,14 +110,12 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'contents',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -138,7 +123,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -146,14 +130,12 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'shortcontents',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
@@ -161,7 +143,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -170,7 +151,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -180,26 +160,6 @@ $result_trees{'character_number_leading_toc_stoc'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'};
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[1]{'args'}[0];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[1];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[1]{'parent'} = $result_trees{'character_number_leading_toc_stoc'};
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[2]{'args'}[0];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[2];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[2]{'parent'} = $result_trees{'character_number_leading_toc_stoc'};
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[3]{'args'}[0];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[3];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[3]{'parent'} = $result_trees{'character_number_leading_toc_stoc'};
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'args'}[0];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[1];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[3];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'character_number_leading_toc_stoc'}{'contents'}[4];
-$result_trees{'character_number_leading_toc_stoc'}{'contents'}[4]{'parent'} = $result_trees{'character_number_leading_toc_stoc'};
 
 $result_texis{'character_number_leading_toc_stoc'} = '@top top
 @chapter 0

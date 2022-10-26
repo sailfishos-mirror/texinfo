@@ -12,12 +12,10 @@ $result_trees{'set_form_feed'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'gg',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => 'a\\a\\f\\\\',
               'type' => 'misc_arg'
             }
@@ -30,18 +28,15 @@ $result_trees{'set_form_feed'} = {
               'gg',
               'a\\a\\f\\\\'
             ]
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'hh',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => '',
               'type' => 'misc_arg'
             }
@@ -54,18 +49,15 @@ $result_trees{'set_form_feed'} = {
               'hh',
               ''
             ]
-          },
-          'parent' => {}
+          }
         },
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'll',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => '',
               'type' => 'misc_arg'
             }
@@ -78,11 +70,9 @@ $result_trees{'set_form_feed'} = {
               'll',
               ''
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -94,16 +84,13 @@ $result_trees{'set_form_feed'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a\\a\\f\\\\. . '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -111,37 +98,18 @@ $result_trees{'set_form_feed'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[1];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[1];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[2];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[2];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4];
-$result_trees{'set_form_feed'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'set_form_feed'}{'contents'}[0];
-$result_trees{'set_form_feed'}{'contents'}[0]{'parent'} = $result_trees{'set_form_feed'};
 
 $result_texis{'set_form_feed'} = '@set gg  a\\a\\f\\\\
 @set hh

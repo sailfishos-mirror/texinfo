@@ -10,27 +10,21 @@ $result_trees{'commands_in_ifset'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'commands_in_ifset'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'commands_in_ifset'}{'contents'}[0];
-$result_trees{'commands_in_ifset'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'commands_in_ifset'}{'contents'}[0];
-$result_trees{'commands_in_ifset'}{'contents'}[0]{'parent'} = $result_trees{'commands_in_ifset'};
 
 $result_texis{'commands_in_ifset'} = '
 

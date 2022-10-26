@@ -12,7 +12,6 @@ $result_trees{'image_in_paragraph'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Para. '
             },
             {
@@ -20,51 +19,41 @@ $result_trees{'image_in_paragraph'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aa'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'bb'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'cc'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'dd'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.ee'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -72,7 +61,6 @@ $result_trees{'image_in_paragraph'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -80,36 +68,18 @@ $result_trees{'image_in_paragraph'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. After image.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[2];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[3];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'};
 
 $result_texis{'image_in_paragraph'} = 'Para. @image{aa,bb,cc,dd,.ee}. After image.
 ';

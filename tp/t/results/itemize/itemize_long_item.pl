@@ -14,7 +14,6 @@ $result_trees{'itemize_long_item'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'itemize_long_item'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -32,26 +30,22 @@ $result_trees{'itemize_long_item'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => ' ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'first item
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
               'extra' => {
                 'item_number' => 1
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -62,7 +56,6 @@ $result_trees{'itemize_long_item'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'ignorable_spaces_after_command'
@@ -74,7 +67,6 @@ $result_trees{'itemize_long_item'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'block_line_arg'
                     }
                   ],
@@ -83,23 +75,19 @@ $result_trees{'itemize_long_item'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'In example
 '
                         },
                         {
-                          'parent' => {},
                           'text' => '
 ',
                           'type' => 'empty_line'
                         },
                         {
-                          'parent' => {},
                           'text' => 'end example.
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     },
                     {
@@ -107,7 +95,6 @@ $result_trees{'itemize_long_item'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'example'
                             }
                           ],
@@ -115,7 +102,6 @@ $result_trees{'itemize_long_item'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -124,7 +110,6 @@ $result_trees{'itemize_long_item'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
@@ -132,7 +117,6 @@ $result_trees{'itemize_long_item'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
@@ -143,7 +127,6 @@ $result_trees{'itemize_long_item'} = {
               'extra' => {
                 'item_number' => 2
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -154,13 +137,11 @@ $result_trees{'itemize_long_item'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
@@ -168,19 +149,16 @@ $result_trees{'itemize_long_item'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'empty line.
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
               'extra' => {
                 'item_number' => 3
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -191,13 +169,11 @@ $result_trees{'itemize_long_item'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
@@ -209,7 +185,6 @@ $result_trees{'itemize_long_item'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'block_line_arg'
                     }
                   ],
@@ -218,12 +193,10 @@ $result_trees{'itemize_long_item'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'In second example
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     },
                     {
@@ -231,7 +204,6 @@ $result_trees{'itemize_long_item'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'example'
                             }
                           ],
@@ -239,7 +211,6 @@ $result_trees{'itemize_long_item'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -248,7 +219,6 @@ $result_trees{'itemize_long_item'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'example'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 16,
@@ -256,7 +226,6 @@ $result_trees{'itemize_long_item'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
@@ -267,7 +236,6 @@ $result_trees{'itemize_long_item'} = {
               'extra' => {
                 'item_number' => 4
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
@@ -278,7 +246,6 @@ $result_trees{'itemize_long_item'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'ignorable_spaces_after_command'
@@ -290,7 +257,6 @@ $result_trees{'itemize_long_item'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'block_line_arg'
                     }
                   ],
@@ -299,12 +265,10 @@ $result_trees{'itemize_long_item'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Quotation
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     },
                     {
@@ -312,7 +276,6 @@ $result_trees{'itemize_long_item'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'quotation'
                             }
                           ],
@@ -320,7 +283,6 @@ $result_trees{'itemize_long_item'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -329,7 +291,6 @@ $result_trees{'itemize_long_item'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'quotation'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 20,
@@ -337,7 +298,6 @@ $result_trees{'itemize_long_item'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 18,
@@ -345,7 +305,6 @@ $result_trees{'itemize_long_item'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
@@ -354,7 +313,6 @@ $result_trees{'itemize_long_item'} = {
               'extra' => {
                 'item_number' => 5
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
@@ -365,13 +323,11 @@ $result_trees{'itemize_long_item'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
@@ -383,7 +339,6 @@ $result_trees{'itemize_long_item'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'block_line_arg'
                     }
                   ],
@@ -392,12 +347,10 @@ $result_trees{'itemize_long_item'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'quotation after a blank line
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     },
                     {
@@ -405,7 +358,6 @@ $result_trees{'itemize_long_item'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'quotation'
                             }
                           ],
@@ -413,7 +365,6 @@ $result_trees{'itemize_long_item'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -422,7 +373,6 @@ $result_trees{'itemize_long_item'} = {
                         'spaces_before_argument' => ' ',
                         'text_arg' => 'quotation'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 26,
@@ -430,7 +380,6 @@ $result_trees{'itemize_long_item'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 24,
@@ -441,7 +390,6 @@ $result_trees{'itemize_long_item'} = {
               'extra' => {
                 'item_number' => 6
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 22,
@@ -453,7 +401,6 @@ $result_trees{'itemize_long_item'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'itemize'
                     }
                   ],
@@ -461,7 +408,6 @@ $result_trees{'itemize_long_item'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -470,7 +416,6 @@ $result_trees{'itemize_long_item'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
@@ -481,7 +426,6 @@ $result_trees{'itemize_long_item'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -489,69 +433,11 @@ $result_trees{'itemize_long_item'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[1];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[6];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'}{'contents'}[0];
-$result_trees{'itemize_long_item'}{'contents'}[0]{'parent'} = $result_trees{'itemize_long_item'};
 
 $result_texis{'itemize_long_item'} = '@itemize youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc
 @item first item

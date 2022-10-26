@@ -11,11 +11,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "contents" => [
         {
           "contents" => [],
-          "parent" => {},
           "type" => "preamble_before_content"
         }
       ],
-      "parent" => {},
       "type" => "before_node_section"
     },
     {
@@ -23,14 +21,12 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
         {
           "contents" => [
             {
-              "parent" => {},
               "text" => "Top"
             }
           ],
           "extra" => {
             "spaces_after_argument" => "\n"
           },
-          "parent" => {},
           "type" => "line_arg"
         }
       ],
@@ -50,7 +46,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
         "normalized" => "Top",
         "spaces_before_argument" => " "
       },
-      "parent" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
         "line_nr" => 1,
@@ -62,21 +57,18 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
         {
           "contents" => [
             {
-              "parent" => {},
               "text" => "top"
             }
           ],
           "extra" => {
             "spaces_after_argument" => "\n"
           },
-          "parent" => {},
           "type" => "line_arg"
         }
       ],
       "cmdname" => "top",
       "contents" => [
         {
-          "parent" => {},
           "text" => "\n",
           "type" => "empty_line"
         },
@@ -86,7 +78,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               "extra" => {
                 "spaces_after_argument" => "\n"
               },
-              "parent" => {},
               "type" => "block_line_arg"
             }
           ],
@@ -95,16 +86,13 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
             {
               "args" => [
                 {
-                  "parent" => {},
                   "text" => "* \r",
                   "type" => "menu_entry_leading_text"
                 },
                 {
-                  "parent" => {},
                   "type" => "menu_entry_node"
                 },
                 {
-                  "parent" => {},
                   "text" => "::",
                   "type" => "menu_entry_separator"
                 },
@@ -113,22 +101,18 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                     {
                       "contents" => [
                         {
-                          "parent" => {},
                           "text" => "\n"
                         }
                       ],
-                      "parent" => {},
                       "type" => "preformatted"
                     }
                   ],
-                  "parent" => {},
                   "type" => "menu_entry_description"
                 }
               ],
               "extra" => {
                 "menu_entry_description" => {}
               },
-              "parent" => {},
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
                 "line_nr" => 5,
@@ -139,16 +123,13 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
             {
               "args" => [
                 {
-                  "parent" => {},
                   "text" => "* \t\f",
                   "type" => "menu_entry_leading_text"
                 },
                 {
-                  "parent" => {},
                   "type" => "menu_entry_node"
                 },
                 {
-                  "parent" => {},
                   "text" => "::",
                   "type" => "menu_entry_separator"
                 },
@@ -157,22 +138,18 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                     {
                       "contents" => [
                         {
-                          "parent" => {},
                           "text" => "\n"
                         }
                       ],
-                      "parent" => {},
                       "type" => "preformatted"
                     }
                   ],
-                  "parent" => {},
                   "type" => "menu_entry_description"
                 }
               ],
               "extra" => {
                 "menu_entry_description" => {}
               },
-              "parent" => {},
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
                 "line_nr" => 6,
@@ -185,14 +162,12 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                 {
                   "contents" => [
                     {
-                      "parent" => {},
                       "text" => "menu"
                     }
                   ],
                   "extra" => {
                     "spaces_after_argument" => "\n"
                   },
-                  "parent" => {},
                   "type" => "line_arg"
                 }
               ],
@@ -201,7 +176,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                 "spaces_before_argument" => " ",
                 "text_arg" => "menu"
               },
-              "parent" => {},
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
                 "line_nr" => 7,
@@ -209,7 +183,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               }
             }
           ],
-          "parent" => {},
           "source_info" => {
             "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
             "line_nr" => 4,
@@ -217,7 +190,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           }
         },
         {
-          "parent" => {},
           "text" => "\n",
           "type" => "empty_line"
         }
@@ -225,7 +197,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "extra" => {
         "spaces_before_argument" => " "
       },
-      "parent" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
         "line_nr" => 2,
@@ -238,7 +209,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           "extra" => {
             "spaces_after_argument" => " \r\n"
           },
-          "parent" => {},
           "type" => "line_arg"
         }
       ],
@@ -248,7 +218,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           undef
         ]
       },
-      "parent" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
         "line_nr" => 9,
@@ -260,21 +229,18 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
         {
           "contents" => [
             {
-              "parent" => {},
               "text" => "CARRIAGE RETURN|\r|"
             }
           ],
           "extra" => {
             "spaces_after_argument" => "\n"
           },
-          "parent" => {},
           "type" => "line_arg"
         }
       ],
       "cmdname" => "chapter",
       "contents" => [
         {
-          "parent" => {},
           "text" => "\n",
           "type" => "empty_line"
         }
@@ -282,7 +248,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "extra" => {
         "spaces_before_argument" => " "
       },
-      "parent" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
         "line_nr" => 10,
@@ -295,7 +260,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           "extra" => {
             "spaces_after_argument" => " \t\f\n"
           },
-          "parent" => {},
           "type" => "line_arg"
         }
       ],
@@ -305,7 +269,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           undef
         ]
       },
-      "parent" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
         "line_nr" => 12,
@@ -317,21 +280,18 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
         {
           "contents" => [
             {
-              "parent" => {},
               "text" => "CHARACTER TABULATION|\t| FORM FEED|\f|"
             }
           ],
           "extra" => {
             "spaces_after_argument" => "\n"
           },
-          "parent" => {},
           "type" => "line_arg"
         }
       ],
       "cmdname" => "chapter",
       "contents" => [
         {
-          "parent" => {},
           "text" => "\n",
           "type" => "empty_line"
         }
@@ -339,7 +299,6 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
       "extra" => {
         "spaces_before_argument" => " "
       },
-      "parent" => {},
       "source_info" => {
         "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
         "line_nr" => 13,
@@ -349,51 +308,10 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
   ],
   "type" => "document_root"
 };
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'};
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"args"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1];
 $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"extra"}{"node_content"}[0] = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"args"}[0]{"contents"}[0];
 $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"extra"}{"nodes_manuals"}[0]{"node_content"}[0] = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"args"}[0]{"contents"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[1]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'};
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"args"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[1]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[2]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[3]{"contents"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[3]{"contents"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[3]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[3];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[3]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0];
 $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"extra"}{"menu_entry_description"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"args"}[3];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[1]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[2]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[3]{"contents"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[3]{"contents"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[3]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[3];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[3]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1];
 $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"extra"}{"menu_entry_description"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"args"}[3];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[1]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[2]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[2]{"args"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[2]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[2];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"contents"}[2]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[1]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"contents"}[2]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[2]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'};
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[3]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[3];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[3]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'};
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[4]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[4]{"args"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[4]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[4];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[4]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[4];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[4]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'};
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[5]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[5];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[5]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'};
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[6]{"args"}[0]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[6]{"args"}[0];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[6]{"args"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[6];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[6]{"contents"}[0]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[6];
-$result_trees{'in_menu_only_special_ascii_spaces_node'}{"contents"}[6]{"parent"} = $result_trees{'in_menu_only_special_ascii_spaces_node'};
 
 $result_texis{'in_menu_only_special_ascii_spaces_node'} = '@node Top
 @top top

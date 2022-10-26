@@ -11,31 +11,23 @@ $result_trees{'one_line'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'AB
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'one_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_line'}{'contents'}[0];
-$result_trees{'one_line'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'one_line'}{'contents'}[0]{'contents'}[1];
-$result_trees{'one_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'one_line'}{'contents'}[0];
-$result_trees{'one_line'}{'contents'}[0]{'parent'} = $result_trees{'one_line'};
 
 $result_texis{'one_line'} = 'AB
 ';

@@ -20,7 +20,6 @@ $result_trees{'empty'} = {
                         'spaces_after_argument' => ' 
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -28,7 +27,6 @@ $result_trees{'empty'} = {
                   'extra' => {
                     'missing_argument' => 1
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -36,7 +34,6 @@ $result_trees{'empty'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -47,11 +44,9 @@ $result_trees{'empty'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -60,7 +55,6 @@ $result_trees{'empty'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -72,7 +66,6 @@ $result_trees{'empty'} = {
             'max_columns' => 0,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -80,20 +73,11 @@ $result_trees{'empty'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty'}{'contents'}[0];
-$result_trees{'empty'}{'contents'}[0]{'parent'} = $result_trees{'empty'};
 
 $result_texis{'empty'} = '@multitable @columnfractions 
 @end multitable';

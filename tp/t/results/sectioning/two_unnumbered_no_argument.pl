@@ -11,11 +11,9 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -25,7 +23,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -33,7 +30,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'extra' => {
         'missing_argument' => 1
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -47,7 +43,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -55,7 +50,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'extra' => {
         'missing_argument' => 1
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -65,12 +59,6 @@ $result_trees{'two_unnumbered_no_argument'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'two_unnumbered_no_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_unnumbered_no_argument'}{'contents'}[0];
-$result_trees{'two_unnumbered_no_argument'}{'contents'}[0]{'parent'} = $result_trees{'two_unnumbered_no_argument'};
-$result_trees{'two_unnumbered_no_argument'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'two_unnumbered_no_argument'}{'contents'}[1];
-$result_trees{'two_unnumbered_no_argument'}{'contents'}[1]{'parent'} = $result_trees{'two_unnumbered_no_argument'};
-$result_trees{'two_unnumbered_no_argument'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'two_unnumbered_no_argument'}{'contents'}[2];
-$result_trees{'two_unnumbered_no_argument'}{'contents'}[2]{'parent'} = $result_trees{'two_unnumbered_no_argument'};
 
 $result_texis{'two_unnumbered_no_argument'} = '@unnumbered
 @unnumbered

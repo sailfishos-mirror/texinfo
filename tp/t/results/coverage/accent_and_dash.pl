@@ -16,16 +16,13 @@ $result_trees{'accent_and_dash'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a--'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '^',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -33,21 +30,14 @@ $result_trees{'accent_and_dash'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0];
-$result_trees{'accent_and_dash'}{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'};
 
 $result_texis{'accent_and_dash'} = '@^{a--}';
 

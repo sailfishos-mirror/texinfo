@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'one_subsection_and_node'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'one_subsection_and_node'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'one node'
             }
           ],
@@ -24,7 +22,6 @@ $result_trees{'one_subsection_and_node'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -44,7 +41,6 @@ $result_trees{'one_subsection_and_node'} = {
         'normalized' => 'one-node',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -56,7 +52,6 @@ $result_trees{'one_subsection_and_node'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'The subsection'
             }
           ],
@@ -64,7 +59,6 @@ $result_trees{'one_subsection_and_node'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -72,7 +66,6 @@ $result_trees{'one_subsection_and_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -82,15 +75,8 @@ $result_trees{'one_subsection_and_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'one_subsection_and_node'}{'contents'}[0]{'parent'} = $result_trees{'one_subsection_and_node'};
-$result_trees{'one_subsection_and_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_subsection_and_node'}{'contents'}[1]{'args'}[0];
-$result_trees{'one_subsection_and_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'one_subsection_and_node'}{'contents'}[1];
 $result_trees{'one_subsection_and_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'one_subsection_and_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'one_subsection_and_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'one_subsection_and_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'one_subsection_and_node'}{'contents'}[1]{'parent'} = $result_trees{'one_subsection_and_node'};
-$result_trees{'one_subsection_and_node'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_subsection_and_node'}{'contents'}[2]{'args'}[0];
-$result_trees{'one_subsection_and_node'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'one_subsection_and_node'}{'contents'}[2];
-$result_trees{'one_subsection_and_node'}{'contents'}[2]{'parent'} = $result_trees{'one_subsection_and_node'};
 
 $result_texis{'one_subsection_and_node'} = '@node one node
 @subsection The subsection

@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'no_node_but_top'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'no_node_but_top'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -24,7 +22,6 @@ $result_trees{'no_node_but_top'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -32,7 +29,6 @@ $result_trees{'no_node_but_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -42,10 +38,6 @@ $result_trees{'no_node_but_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_node_but_top'}{'contents'}[0]{'parent'} = $result_trees{'no_node_but_top'};
-$result_trees{'no_node_but_top'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_node_but_top'}{'contents'}[1]{'args'}[0];
-$result_trees{'no_node_but_top'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_node_but_top'}{'contents'}[1];
-$result_trees{'no_node_but_top'}{'contents'}[1]{'parent'} = $result_trees{'no_node_but_top'};
 
 $result_texis{'no_node_but_top'} = '@top top
 ';

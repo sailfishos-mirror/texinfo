@@ -14,29 +14,23 @@ $result_trees{'space_command_in_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'f--ile'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
               'contents' => [
                 {
-                  'cmdname' => ' ',
-                  'parent' => {}
+                  'cmdname' => ' '
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -44,7 +38,6 @@ $result_trees{'space_command_in_image'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -52,7 +45,6 @@ $result_trees{'space_command_in_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => ' '
         },
         {
@@ -60,29 +52,23 @@ $result_trees{'space_command_in_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'f--ile'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
               'contents' => [
                 {
-                  'cmdname' => ':',
-                  'parent' => {}
+                  'cmdname' => ':'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -90,7 +76,6 @@ $result_trees{'space_command_in_image'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -98,28 +83,11 @@ $result_trees{'space_command_in_image'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[3];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[3];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'};
 
 $result_texis{'space_command_in_image'} = '@image{f--ile,,,@ } @image{f--ile,,,@:}';
 

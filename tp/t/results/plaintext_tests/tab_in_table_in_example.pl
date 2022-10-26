@@ -16,7 +16,6 @@ $result_trees{'tab_in_table_in_example'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -28,7 +27,6 @@ $result_trees{'tab_in_table_in_example'} = {
                   'contents' => [
                     {
                       'cmdname' => 'code',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -41,7 +39,6 @@ $result_trees{'tab_in_table_in_example'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -52,21 +49,17 @@ $result_trees{'tab_in_table_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => ' ',
                           'type' => 'ignorable_spaces_after_command'
                         },
                         {
-                          'parent' => {},
                           'text' => 'in tab
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'before_item'
                 },
                 {
@@ -78,7 +71,6 @@ $result_trees{'tab_in_table_in_example'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'table item'
                                 }
                               ],
@@ -86,7 +78,6 @@ $result_trees{'tab_in_table_in_example'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -94,7 +85,6 @@ $result_trees{'tab_in_table_in_example'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 4,
@@ -102,7 +92,6 @@ $result_trees{'tab_in_table_in_example'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_term'
                     },
                     {
@@ -110,36 +99,29 @@ $result_trees{'tab_in_table_in_example'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'T
 '
                             }
                           ],
-                          'parent' => {},
                           'type' => 'preformatted'
                         },
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => ' ',
                               'type' => 'ignorable_spaces_after_command'
                             },
                             {
-                              'parent' => {},
                               'text' => 'other tab
 '
                             }
                           ],
-                          'parent' => {},
                           'type' => 'preformatted'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_item'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_entry'
                 },
                 {
@@ -147,7 +129,6 @@ $result_trees{'tab_in_table_in_example'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'table'
                         }
                       ],
@@ -155,7 +136,6 @@ $result_trees{'tab_in_table_in_example'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -164,7 +144,6 @@ $result_trees{'tab_in_table_in_example'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 7,
@@ -176,7 +155,6 @@ $result_trees{'tab_in_table_in_example'} = {
                 'command_as_argument' => {},
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -188,7 +166,6 @@ $result_trees{'tab_in_table_in_example'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -196,7 +173,6 @@ $result_trees{'tab_in_table_in_example'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -205,7 +181,6 @@ $result_trees{'tab_in_table_in_example'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -213,7 +188,6 @@ $result_trees{'tab_in_table_in_example'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -221,40 +195,12 @@ $result_trees{'tab_in_table_in_example'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'}{'contents'}[0];
-$result_trees{'tab_in_table_in_example'}{'contents'}[0]{'parent'} = $result_trees{'tab_in_table_in_example'};
 
 $result_texis{'tab_in_table_in_example'} = '@example
 @table @code

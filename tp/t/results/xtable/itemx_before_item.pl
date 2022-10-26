@@ -15,7 +15,6 @@ $result_trees{'itemx_before_item'} = {
               'contents' => [
                 {
                   'cmdname' => 'emph',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -28,7 +27,6 @@ $result_trees{'itemx_before_item'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -43,7 +41,6 @@ $result_trees{'itemx_before_item'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in itemx'
                             }
                           ],
@@ -51,7 +48,6 @@ $result_trees{'itemx_before_item'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -59,7 +55,6 @@ $result_trees{'itemx_before_item'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -67,11 +62,9 @@ $result_trees{'itemx_before_item'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -79,7 +72,6 @@ $result_trees{'itemx_before_item'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -87,7 +79,6 @@ $result_trees{'itemx_before_item'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -96,7 +87,6 @@ $result_trees{'itemx_before_item'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -108,7 +98,6 @@ $result_trees{'itemx_before_item'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -116,25 +105,12 @@ $result_trees{'itemx_before_item'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0];
 $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'itemx_before_item'}{'contents'}[0];
-$result_trees{'itemx_before_item'}{'contents'}[0]{'parent'} = $result_trees{'itemx_before_item'};
 
 $result_texis{'itemx_before_item'} = '@table @emph
 @itemx in itemx

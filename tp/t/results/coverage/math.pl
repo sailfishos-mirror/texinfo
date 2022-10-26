@@ -12,7 +12,6 @@ $result_trees{'math'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Simple math
 '
             },
@@ -21,17 +20,14 @@ $result_trees{'math'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'x^i'
                         }
                       ],
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -40,17 +36,14 @@ $result_trees{'math'} = {
                       'type' => 'bracketed'
                     },
                     {
-                      'parent' => {},
                       'text' => '\\over'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '\\tan y'
                         }
                       ],
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -59,12 +52,10 @@ $result_trees{'math'} = {
                       'type' => 'bracketed'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'math',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -72,16 +63,13 @@ $result_trees{'math'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -89,15 +77,12 @@ $result_trees{'math'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Math with '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => '-command
 '
             },
@@ -110,16 +95,13 @@ $result_trees{'math'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'math code'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'code',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -127,7 +109,6 @@ $result_trees{'math'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' a < b \\sum'
                     },
                     {
@@ -135,16 +116,13 @@ $result_trees{'math'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'i'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'sub',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -152,7 +130,6 @@ $result_trees{'math'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' q'
                     },
                     {
@@ -160,16 +137,13 @@ $result_trees{'math'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '2'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'sup',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -177,12 +151,10 @@ $result_trees{'math'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'math',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -190,16 +162,13 @@ $result_trees{'math'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -207,7 +176,6 @@ $result_trees{'math'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Complex
 '
             },
@@ -216,7 +184,6 @@ $result_trees{'math'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '\\underline'
                     },
                     {
@@ -226,17 +193,14 @@ $result_trees{'math'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'math \\hbox'
                                 },
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => ' code '
                                     }
                                   ],
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 8,
@@ -245,12 +209,10 @@ $result_trees{'math'} = {
                                   'type' => 'bracketed'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'code',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
@@ -258,7 +220,6 @@ $result_trees{'math'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
@@ -267,25 +228,20 @@ $result_trees{'math'} = {
                       'type' => 'bracketed'
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
-                      'cmdname' => '\\',
-                      'parent' => {}
+                      'cmdname' => '\\'
                     },
                     {
-                      'parent' => {},
                       'text' => 'i \\sum_'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
@@ -296,17 +252,14 @@ $result_trees{'math'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '\\underline'
                         },
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'f'
                             }
                           ],
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 8,
@@ -315,7 +268,6 @@ $result_trees{'math'} = {
                           'type' => 'bracketed'
                         }
                       ],
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
@@ -324,7 +276,6 @@ $result_trees{'math'} = {
                       'type' => 'bracketed'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -332,7 +283,6 @@ $result_trees{'math'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -340,16 +290,13 @@ $result_trees{'math'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -357,29 +304,23 @@ $result_trees{'math'} = {
         {
           'contents' => [
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => '\\ outside of math
 '
             },
             {
-              'cmdname' => '\\',
-              'parent' => {}
+              'cmdname' => '\\'
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -387,7 +328,6 @@ $result_trees{'math'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'The 3'
             },
             {
@@ -395,16 +335,13 @@ $result_trees{'math'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'rd'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'sup',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
@@ -412,7 +349,6 @@ $result_trees{'math'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'is the I'
             },
             {
@@ -420,16 +356,13 @@ $result_trees{'math'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'r'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'sub',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
@@ -437,98 +370,23 @@ $result_trees{'math'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[2];
-$result_trees{'math'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[5];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[6];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[6];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[4];
-$result_trees{'math'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[6];
-$result_trees{'math'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[6];
-$result_trees{'math'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[6];
-$result_trees{'math'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[6];
-$result_trees{'math'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'args'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[3];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'math'}{'contents'}[0]{'contents'}[8];
-$result_trees{'math'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'math'}{'contents'}[0];
-$result_trees{'math'}{'contents'}[0]{'parent'} = $result_trees{'math'};
 
 $result_texis{'math'} = 'Simple math
 @math{--{x^i}\\over{\\tan y}}

@@ -12,18 +12,15 @@ $result_trees{'test_tie'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'tie',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -31,27 +28,18 @@ $result_trees{'test_tie'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'BBBBBBBBBBB
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0];
-$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0];
-$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0];
-$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_tie'}{'contents'}[0];
-$result_trees{'test_tie'}{'contents'}[0]{'parent'} = $result_trees{'test_tie'};
 
 $result_texis{'test_tie'} = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA@tie{}BBBBBBBBBBB
 ';

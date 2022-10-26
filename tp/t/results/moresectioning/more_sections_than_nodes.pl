@@ -14,23 +14,19 @@ $result_trees{'more_sections_than_nodes'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\input texinfo @c -*-texinfo-*-
 ',
                   'type' => 'text_before_beginning'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'text_before_beginning'
                 }
               ],
-              'parent' => {},
               'type' => 'preamble_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_setfilename'
         },
         {
@@ -40,7 +36,6 @@ $result_trees{'more_sections_than_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'more_sections_than_nodes.info'
                     }
                   ],
@@ -48,7 +43,6 @@ $result_trees{'more_sections_than_nodes'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'more_sections_than_nodes'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'more_sections_than_nodes.info'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 3,
@@ -65,17 +58,14 @@ $result_trees{'more_sections_than_nodes'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -83,7 +73,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -91,7 +80,6 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -111,7 +99,6 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 5,
@@ -123,7 +110,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -131,14 +117,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -150,7 +134,6 @@ $result_trees{'more_sections_than_nodes'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -159,22 +142,18 @@ $result_trees{'more_sections_than_nodes'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'n c2'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::',
                   'type' => 'menu_entry_separator'
                 },
@@ -183,16 +162,13 @@ $result_trees{'more_sections_than_nodes'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -205,7 +181,6 @@ $result_trees{'more_sections_than_nodes'} = {
                   'normalized' => 'n-c2'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 9,
@@ -216,22 +191,18 @@ $result_trees{'more_sections_than_nodes'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'n c3'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::',
                   'type' => 'menu_entry_separator'
                 },
@@ -240,16 +211,13 @@ $result_trees{'more_sections_than_nodes'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -262,7 +230,6 @@ $result_trees{'more_sections_than_nodes'} = {
                   'normalized' => 'n-c3'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 10,
@@ -273,22 +240,18 @@ $result_trees{'more_sections_than_nodes'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'n c3 s1 s2'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::',
                   'type' => 'menu_entry_separator'
                 },
@@ -297,16 +260,13 @@ $result_trees{'more_sections_than_nodes'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -319,7 +279,6 @@ $result_trees{'more_sections_than_nodes'} = {
                   'normalized' => 'n-c3-s1-s2'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 11,
@@ -332,7 +291,6 @@ $result_trees{'more_sections_than_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'menu'
                     }
                   ],
@@ -340,7 +298,6 @@ $result_trees{'more_sections_than_nodes'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -349,7 +306,6 @@ $result_trees{'more_sections_than_nodes'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 12,
@@ -357,7 +313,6 @@ $result_trees{'more_sections_than_nodes'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => 'more_sections_than_nodes.texi',
             'line_nr' => 8,
@@ -365,7 +320,6 @@ $result_trees{'more_sections_than_nodes'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -374,7 +328,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 6,
@@ -386,7 +339,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c1'
             }
           ],
@@ -394,14 +346,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -410,7 +360,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 14,
@@ -422,7 +371,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'n c2'
             }
           ],
@@ -430,7 +378,6 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -450,7 +397,6 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'n-c2',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 16,
@@ -462,7 +408,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c2'
             }
           ],
@@ -470,14 +415,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -486,7 +429,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 17,
@@ -498,7 +440,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 's1'
             }
           ],
@@ -506,14 +447,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -522,7 +461,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 19,
@@ -534,43 +472,36 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'n c3'
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'n c3 s1 s2'
             }
           ],
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'n c2'
             }
           ],
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -579,7 +510,6 @@ $result_trees{'more_sections_than_nodes'} = {
 ',
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -617,7 +547,6 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'n-c3',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 21,
@@ -629,7 +558,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c3'
             }
           ],
@@ -637,14 +565,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -656,7 +582,6 @@ $result_trees{'more_sections_than_nodes'} = {
                 'spaces_after_argument' => ' 
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -665,22 +590,18 @@ $result_trees{'more_sections_than_nodes'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'n c3 s 2'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::',
                   'type' => 'menu_entry_separator'
                 },
@@ -689,16 +610,13 @@ $result_trees{'more_sections_than_nodes'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -711,7 +629,6 @@ $result_trees{'more_sections_than_nodes'} = {
                   'normalized' => 'n-c3-s-2'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 25,
@@ -724,7 +641,6 @@ $result_trees{'more_sections_than_nodes'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'menu'
                     }
                   ],
@@ -732,7 +648,6 @@ $result_trees{'more_sections_than_nodes'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -741,7 +656,6 @@ $result_trees{'more_sections_than_nodes'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'more_sections_than_nodes.texi',
                 'line_nr' => 26,
@@ -749,7 +663,6 @@ $result_trees{'more_sections_than_nodes'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => 'more_sections_than_nodes.texi',
             'line_nr' => 24,
@@ -757,7 +670,6 @@ $result_trees{'more_sections_than_nodes'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -766,7 +678,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 22,
@@ -778,7 +689,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'C3 s1'
             }
           ],
@@ -786,14 +696,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -802,7 +710,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 28,
@@ -814,7 +721,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'n c3 s 2'
             }
           ],
@@ -822,7 +728,6 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -842,7 +747,6 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'n-c3-s-2',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 30,
@@ -854,7 +758,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c3 s2'
             }
           ],
@@ -862,14 +765,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -878,7 +779,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 31,
@@ -890,7 +790,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c3 s3'
             }
           ],
@@ -898,14 +797,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -914,7 +811,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 33,
@@ -926,7 +822,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c4'
             }
           ],
@@ -934,14 +829,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -950,7 +843,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 35,
@@ -962,7 +854,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c3 s1'
             }
           ],
@@ -970,14 +861,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -986,7 +875,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 37,
@@ -998,7 +886,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c3 s1 s1'
             }
           ],
@@ -1006,14 +893,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'subsection',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1022,7 +907,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 39,
@@ -1034,31 +918,25 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'n c3 s1 s2'
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'n c3'
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -1066,7 +944,6 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -1099,7 +976,6 @@ $result_trees{'more_sections_than_nodes'} = {
         'normalized' => 'n-c3-s1-s2',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 41,
@@ -1111,7 +987,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'c3 s1 s2'
             }
           ],
@@ -1119,14 +994,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'subsection',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1135,7 +1008,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 42,
@@ -1147,7 +1019,6 @@ $result_trees{'more_sections_than_nodes'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'appendix'
             }
           ],
@@ -1155,14 +1026,12 @@ $result_trees{'more_sections_than_nodes'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'appendix',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1171,7 +1040,6 @@ $result_trees{'more_sections_than_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'more_sections_than_nodes.texi',
         'line_nr' => 44,
@@ -1181,175 +1049,39 @@ $result_trees{'more_sections_than_nodes'} = {
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[1]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[1];
 $result_trees{'more_sections_than_nodes'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[3];
 $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[3]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
 $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[3];
 $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
 $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'extra'}{'menu_entry_description'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[3];
 $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[3]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[3]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[4]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[4];
 $result_trees{'more_sections_than_nodes'}{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[4]{'args'}[0]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[4]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[4]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[5]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[5];
-$result_trees{'more_sections_than_nodes'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[5];
-$result_trees{'more_sections_than_nodes'}{'contents'}[5]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[6]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[6];
-$result_trees{'more_sections_than_nodes'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[6];
-$result_trees{'more_sections_than_nodes'}{'contents'}[6]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[7];
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[7];
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[7];
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[3]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[7];
 $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[1]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[2]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[7]{'args'}[3]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[7]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[3];
 $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[8];
-$result_trees{'more_sections_than_nodes'}{'contents'}[8]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[9]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[9];
-$result_trees{'more_sections_than_nodes'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[9];
-$result_trees{'more_sections_than_nodes'}{'contents'}[9]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[10]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[10];
 $result_trees{'more_sections_than_nodes'}{'contents'}[10]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[10]{'args'}[0]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[10]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[10]{'args'}[0]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[10]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[11]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[11];
-$result_trees{'more_sections_than_nodes'}{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[11];
-$result_trees{'more_sections_than_nodes'}{'contents'}[11]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[12]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[12];
-$result_trees{'more_sections_than_nodes'}{'contents'}[12]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[12];
-$result_trees{'more_sections_than_nodes'}{'contents'}[12]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[13]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[13];
-$result_trees{'more_sections_than_nodes'}{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[13];
-$result_trees{'more_sections_than_nodes'}{'contents'}[13]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[14]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[14];
-$result_trees{'more_sections_than_nodes'}{'contents'}[14]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[14];
-$result_trees{'more_sections_than_nodes'}{'contents'}[14]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[15]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[15]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[15];
-$result_trees{'more_sections_than_nodes'}{'contents'}[15]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[15];
-$result_trees{'more_sections_than_nodes'}{'contents'}[15]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[16];
-$result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[1]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[16];
-$result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[2];
-$result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[2]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[16];
-$result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[3];
-$result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[3]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[16];
 $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'extra'}{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[0]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[0]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[2]{'contents'}[0];
 $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'more_sections_than_nodes'}{'contents'}[16]{'args'}[3]{'contents'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[16]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[17]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[17]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[17]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[17];
-$result_trees{'more_sections_than_nodes'}{'contents'}[17]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[17];
-$result_trees{'more_sections_than_nodes'}{'contents'}[17]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[18]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[18]{'args'}[0];
-$result_trees{'more_sections_than_nodes'}{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[18];
-$result_trees{'more_sections_than_nodes'}{'contents'}[18]{'contents'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[18];
-$result_trees{'more_sections_than_nodes'}{'contents'}[18]{'parent'} = $result_trees{'more_sections_than_nodes'};
-$result_trees{'more_sections_than_nodes'}{'contents'}[19]{'args'}[0]{'parent'} = $result_trees{'more_sections_than_nodes'}{'contents'}[19];
-$result_trees{'more_sections_than_nodes'}{'contents'}[19]{'parent'} = $result_trees{'more_sections_than_nodes'};
 
 $result_texis{'more_sections_than_nodes'} = '\\input texinfo @c -*-texinfo-*-
 

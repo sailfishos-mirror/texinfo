@@ -16,11 +16,9 @@ $result_trees{'recursive_acronym'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'GNU'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
@@ -30,16 +28,13 @@ $result_trees{'recursive_acronym'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'GNU'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -47,19 +42,16 @@ $result_trees{'recursive_acronym'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '\'s Not Unix'
                     }
                   ],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'acronym',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -67,32 +59,18 @@ $result_trees{'recursive_acronym'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_acronym'}{'contents'}[0];
-$result_trees{'recursive_acronym'}{'contents'}[0]{'parent'} = $result_trees{'recursive_acronym'};
 
 $result_texis{'recursive_acronym'} = '@acronym{GNU, @acronym{GNU}\'s Not Unix}
 ';

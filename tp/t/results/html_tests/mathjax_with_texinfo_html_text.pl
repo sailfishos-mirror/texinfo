@@ -16,14 +16,12 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'displaymath',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'a'
             },
             {
@@ -31,17 +29,14 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'b - \\frac'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '\\xi'
                         }
                       ],
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -52,18 +47,15 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'phi '
                         },
                         {
                           'args' => [
                             {
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'copyright',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 2,
@@ -71,7 +63,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -80,12 +71,10 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                       'type' => 'bracketed'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'sup',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -93,7 +82,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -101,16 +89,13 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'i'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dotless',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -118,7 +103,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -127,7 +111,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'displaymath'
                     }
                   ],
@@ -135,7 +118,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -144,7 +126,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -152,7 +133,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -160,7 +140,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -168,7 +147,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Some '
             },
             {
@@ -176,18 +154,15 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'minus',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -195,18 +170,15 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' b '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'geq',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -214,18 +186,15 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'AA',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -233,7 +202,6 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -241,16 +209,13 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'e'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '^',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -258,12 +223,10 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'math',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -271,61 +234,18 @@ $result_trees{'mathjax_with_texinfo_html_text'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[3];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[5];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[7];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0];
-$result_trees{'mathjax_with_texinfo_html_text'}{'contents'}[0]{'parent'} = $result_trees{'mathjax_with_texinfo_html_text'};
 
 $result_texis{'mathjax_with_texinfo_html_text'} = '@displaymath
 a@sup{b - \\frac{\\xi}{phi @copyright{}}} @dotless{i}

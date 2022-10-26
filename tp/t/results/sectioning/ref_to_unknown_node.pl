@@ -16,11 +16,9 @@ $result_trees{'ref_to_unknown_node'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'unknown node'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -33,7 +31,6 @@ $result_trees{'ref_to_unknown_node'} = {
                   'normalized' => 'unknown-node'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -41,27 +38,18 @@ $result_trees{'ref_to_unknown_node'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_to_unknown_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_unknown_node'}{'contents'}[0];
-$result_trees{'ref_to_unknown_node'}{'contents'}[0]{'parent'} = $result_trees{'ref_to_unknown_node'};
 
 $result_texis{'ref_to_unknown_node'} = '@xref{unknown node}.';
 

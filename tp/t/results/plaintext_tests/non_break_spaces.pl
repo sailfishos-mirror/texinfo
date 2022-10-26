@@ -16,7 +16,6 @@ $result_trees{'non_break_spaces'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'utf-8'
                     }
                   ],
@@ -24,7 +23,6 @@ $result_trees{'non_break_spaces'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -35,7 +33,6 @@ $result_trees{'non_break_spaces'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'utf-8'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'non_break_spaces.texi',
                 'line_nr' => 1,
@@ -43,17 +40,14 @@ $result_trees{'non_break_spaces'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -61,7 +55,6 @@ $result_trees{'non_break_spaces'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -69,14 +62,12 @@ $result_trees{'non_break_spaces'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -84,17 +75,14 @@ $result_trees{'non_break_spaces'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => "NO-BREAK SPACE: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\x{a0}bbbbbbbbbbbbbbbbbbbbb
 "
             },
             {
-              'parent' => {},
               'text' => "NARROW NO-BREAK SPACE: ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\x{202f}dddddddddddddddddddd
 "
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
@@ -113,7 +101,6 @@ $result_trees{'non_break_spaces'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'non_break_spaces.texi',
         'line_nr' => 3,
@@ -123,21 +110,8 @@ $result_trees{'non_break_spaces'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'};
-$result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[1];
-$result_trees{'non_break_spaces'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[1];
-$result_trees{'non_break_spaces'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[1]{'contents'}[1];
-$result_trees{'non_break_spaces'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[1]{'contents'}[1];
-$result_trees{'non_break_spaces'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[1];
 $result_trees{'non_break_spaces'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'non_break_spaces'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[1]{'parent'} = $result_trees{'non_break_spaces'};
 
 $result_texis{'non_break_spaces'} = '@documentencoding utf-8
 

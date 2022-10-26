@@ -16,26 +16,21 @@ $result_trees{'abbr_acronym'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'an accronym'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'acronym',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -43,7 +38,6 @@ $result_trees{'abbr_acronym'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -52,16 +46,13 @@ $result_trees{'abbr_acronym'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'acronym',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -69,7 +60,6 @@ $result_trees{'abbr_acronym'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -78,28 +68,23 @@ $result_trees{'abbr_acronym'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '--a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'an accronym '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -107,18 +92,15 @@ $result_trees{'abbr_acronym'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'enddots',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -126,12 +108,10 @@ $result_trees{'abbr_acronym'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'acronym',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -139,16 +119,13 @@ $result_trees{'abbr_acronym'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -164,16 +141,13 @@ $result_trees{'abbr_acronym'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'E'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '\'',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -181,18 +155,15 @@ $result_trees{'abbr_acronym'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '--a. '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -200,11 +171,9 @@ $result_trees{'abbr_acronym'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => 'A.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
@@ -214,16 +183,13 @@ $result_trees{'abbr_acronym'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'E'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '\'',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -231,18 +197,15 @@ $result_trees{'abbr_acronym'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => 'tude--'
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -250,7 +213,6 @@ $result_trees{'abbr_acronym'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -258,16 +220,13 @@ $result_trees{'abbr_acronym'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'Autonome'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'b',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -279,12 +238,10 @@ $result_trees{'abbr_acronym'} = {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'abbr',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -292,7 +249,6 @@ $result_trees{'abbr_acronym'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -305,16 +261,13 @@ $result_trees{'abbr_acronym'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'E'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '\'',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 6,
@@ -322,18 +275,15 @@ $result_trees{'abbr_acronym'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '--a. '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'comma',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 6,
@@ -341,16 +291,13 @@ $result_trees{'abbr_acronym'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => 'A.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'abbr',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -358,77 +305,18 @@ $result_trees{'abbr_acronym'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[3];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[3]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[3]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[4]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[4];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'contents'}[4]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'abbr_acronym'}{'contents'}[0];
-$result_trees{'abbr_acronym'}{'contents'}[0]{'parent'} = $result_trees{'abbr_acronym'};
 
 $result_texis{'abbr_acronym'} = '@acronym{--a,an accronym}
 @acronym{--a}

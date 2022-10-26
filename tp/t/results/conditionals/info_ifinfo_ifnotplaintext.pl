@@ -12,24 +12,18 @@ $result_trees{'info_ifinfo_ifnotplaintext'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'This will be in Info, but not plain text.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'info_ifinfo_ifnotplaintext'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'info_ifinfo_ifnotplaintext'}{'contents'}[0]{'contents'}[0];
-$result_trees{'info_ifinfo_ifnotplaintext'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'info_ifinfo_ifnotplaintext'}{'contents'}[0];
-$result_trees{'info_ifinfo_ifnotplaintext'}{'contents'}[0]{'parent'} = $result_trees{'info_ifinfo_ifnotplaintext'};
 
 $result_texis{'info_ifinfo_ifnotplaintext'} = 'This will be in Info, but not plain text.
 ';

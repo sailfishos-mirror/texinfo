@@ -14,7 +14,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'iso-8859-1'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -33,7 +31,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'iso-8859-1'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -41,7 +38,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -51,7 +47,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'verbatim_encoded_latin1.texi'
                 }
               ],
@@ -59,7 +54,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -69,7 +63,6 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'verbatim_encoded_latin1.texi'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -77,20 +70,11 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[0];
-$result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0];
-$result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0];
-$result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[2];
-$result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0];
-$result_trees{'verbatiminclude_and_encoding_latin1'}{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude_and_encoding_latin1'};
 
 $result_texis{'verbatiminclude_and_encoding_latin1'} = '@documentencoding iso-8859-1
 

@@ -16,7 +16,6 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -25,12 +24,10 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'In TeX
 '
                 }
               ],
-              'parent' => {},
               'type' => 'rawpreformatted'
             },
             {
@@ -38,18 +35,15 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'tex'
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'asis',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -61,7 +55,6 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -70,7 +63,6 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -78,7 +70,6 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -86,22 +77,11 @@ $result_trees{'command_in_end_expanded_raw_command_empty_after'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0];
-$result_trees{'command_in_end_expanded_raw_command_empty_after'}{'contents'}[0]{'parent'} = $result_trees{'command_in_end_expanded_raw_command_empty_after'};
 
 $result_texis{'command_in_end_expanded_raw_command_empty_after'} = '@tex
 In TeX

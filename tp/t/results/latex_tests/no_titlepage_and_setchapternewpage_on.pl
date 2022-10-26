@@ -16,7 +16,6 @@ $result_trees{'no_titlepage_and_setchapternewpage_on'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'on'
                     }
                   ],
@@ -24,7 +23,6 @@ $result_trees{'no_titlepage_and_setchapternewpage_on'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -35,7 +33,6 @@ $result_trees{'no_titlepage_and_setchapternewpage_on'} = {
                 ],
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -43,21 +40,14 @@ $result_trees{'no_titlepage_and_setchapternewpage_on'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_on'}{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_on'};
 
 $result_texis{'no_titlepage_and_setchapternewpage_on'} = '@setchapternewpage on
 ';

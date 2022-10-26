@@ -14,23 +14,19 @@ $result_trees{'contents_in_document'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\input texinfo @c -*-texinfo-*-
 ',
                   'type' => 'text_before_beginning'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'text_before_beginning'
                 }
               ],
-              'parent' => {},
               'type' => 'preamble_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_setfilename'
         },
         {
@@ -40,7 +36,6 @@ $result_trees{'contents_in_document'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'contents_in_document.info'
                     }
                   ],
@@ -48,7 +43,6 @@ $result_trees{'contents_in_document'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'contents_in_document'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'contents_in_document.info'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'contents_in_document.texi',
                 'line_nr' => 3,
@@ -65,17 +58,14 @@ $result_trees{'contents_in_document'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -83,7 +73,6 @@ $result_trees{'contents_in_document'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -91,7 +80,6 @@ $result_trees{'contents_in_document'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -111,7 +99,6 @@ $result_trees{'contents_in_document'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'contents_in_document.texi',
         'line_nr' => 5,
@@ -123,7 +110,6 @@ $result_trees{'contents_in_document'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -131,14 +117,12 @@ $result_trees{'contents_in_document'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -146,14 +130,12 @@ $result_trees{'contents_in_document'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'contents',
-          'parent' => {},
           'source_info' => {
             'file_name' => 'contents_in_document.texi',
             'line_nr' => 8,
@@ -161,7 +143,6 @@ $result_trees{'contents_in_document'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -170,7 +151,6 @@ $result_trees{'contents_in_document'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'contents_in_document.texi',
         'line_nr' => 6,
@@ -182,7 +162,6 @@ $result_trees{'contents_in_document'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chap'
             }
           ],
@@ -190,14 +169,12 @@ $result_trees{'contents_in_document'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -206,7 +183,6 @@ $result_trees{'contents_in_document'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'contents_in_document.texi',
         'line_nr' => 10,
@@ -216,46 +192,18 @@ $result_trees{'contents_in_document'} = {
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[0];
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0];
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1];
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1];
-$result_trees{'contents_in_document'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[0];
-$result_trees{'contents_in_document'}{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'};
-$result_trees{'contents_in_document'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[1]{'args'}[0];
-$result_trees{'contents_in_document'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[1];
 $result_trees{'contents_in_document'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'contents_in_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'contents_in_document'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'contents_in_document'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'contents_in_document'}{'contents'}[1]{'parent'} = $result_trees{'contents_in_document'};
-$result_trees{'contents_in_document'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[2]{'args'}[0];
-$result_trees{'contents_in_document'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[2];
-$result_trees{'contents_in_document'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[2];
-$result_trees{'contents_in_document'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[2]{'contents'}[1];
-$result_trees{'contents_in_document'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[2];
-$result_trees{'contents_in_document'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[2];
-$result_trees{'contents_in_document'}{'contents'}[2]{'parent'} = $result_trees{'contents_in_document'};
-$result_trees{'contents_in_document'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[3]{'args'}[0];
-$result_trees{'contents_in_document'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[3];
-$result_trees{'contents_in_document'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[3];
-$result_trees{'contents_in_document'}{'contents'}[3]{'parent'} = $result_trees{'contents_in_document'};
-$result_trees{'contents_in_document'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'contents_in_document'}{'contents'}[4];
-$result_trees{'contents_in_document'}{'contents'}[4]{'parent'} = $result_trees{'contents_in_document'};
 
 $result_texis{'contents_in_document'} = '\\input texinfo @c -*-texinfo-*-
 

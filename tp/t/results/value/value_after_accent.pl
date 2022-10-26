@@ -12,12 +12,10 @@ $result_trees{'value_after_accent'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'a_letter',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => 'a',
               'type' => 'misc_arg'
             }
@@ -30,8 +28,7 @@ $result_trees{'value_after_accent'} = {
               'a_letter',
               'a'
             ]
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
@@ -40,11 +37,9 @@ $result_trees{'value_after_accent'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
@@ -52,7 +47,6 @@ $result_trees{'value_after_accent'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -60,7 +54,6 @@ $result_trees{'value_after_accent'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -69,16 +62,13 @@ $result_trees{'value_after_accent'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
               'cmdname' => '~',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -86,28 +76,14 @@ $result_trees{'value_after_accent'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[0];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[0];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1];
-$result_trees{'value_after_accent'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'value_after_accent'}{'contents'}[0];
-$result_trees{'value_after_accent'}{'contents'}[0]{'parent'} = $result_trees{'value_after_accent'};
 
 $result_texis{'value_after_accent'} = '@set a_letter a
 @ringaccent a

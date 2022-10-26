@@ -16,11 +16,9 @@ $result_trees{'math_leading_trailing_spaces'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a = b '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -28,7 +26,6 @@ $result_trees{'math_leading_trailing_spaces'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -36,21 +33,14 @@ $result_trees{'math_leading_trailing_spaces'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'math_leading_trailing_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_leading_trailing_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'math_leading_trailing_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'math_leading_trailing_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'math_leading_trailing_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_leading_trailing_spaces'}{'contents'}[0]{'contents'}[0];
-$result_trees{'math_leading_trailing_spaces'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_leading_trailing_spaces'}{'contents'}[0];
-$result_trees{'math_leading_trailing_spaces'}{'contents'}[0]{'parent'} = $result_trees{'math_leading_trailing_spaces'};
 
 $result_texis{'math_leading_trailing_spaces'} = '@math{ a = b }';
 

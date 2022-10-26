@@ -16,17 +16,14 @@ $result_trees{'verbatim_in_brace_command'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'samp',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -34,7 +31,6 @@ $result_trees{'verbatim_in_brace_command'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -44,14 +40,12 @@ $result_trees{'verbatim_in_brace_command'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in verbatim
 ',
               'type' => 'raw'
@@ -61,7 +55,6 @@ $result_trees{'verbatim_in_brace_command'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim'
                     }
                   ],
@@ -69,7 +62,6 @@ $result_trees{'verbatim_in_brace_command'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -78,7 +70,6 @@ $result_trees{'verbatim_in_brace_command'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -86,7 +77,6 @@ $result_trees{'verbatim_in_brace_command'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -94,29 +84,15 @@ $result_trees{'verbatim_in_brace_command'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 '
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'verbatim_in_brace_command'}{'contents'}[0];
-$result_trees{'verbatim_in_brace_command'}{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_brace_command'};
 
 $result_texis{'verbatim_in_brace_command'} = '@samp{
 }@verbatim

@@ -16,7 +16,6 @@ $result_trees{'no_brace'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -24,7 +23,6 @@ $result_trees{'no_brace'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'and '
             },
             {
@@ -32,7 +30,6 @@ $result_trees{'no_brace'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -40,7 +37,6 @@ $result_trees{'no_brace'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'code and '
             },
             {
@@ -48,7 +44,6 @@ $result_trees{'no_brace'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -56,28 +51,17 @@ $result_trees{'no_brace'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'footnote '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_brace'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_brace'}{'contents'}[0];
-$result_trees{'no_brace'}{'contents'}[0]{'parent'} = $result_trees{'no_brace'};
 
 $result_texis{'no_brace'} = '@TeX and @code code and @footnote footnote ';
 

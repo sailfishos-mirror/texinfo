@@ -14,7 +14,6 @@ $result_trees{'shorttitlepage'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'html-shorttitlepage.info'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'shorttitlepage'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -31,7 +29,6 @@ $result_trees{'shorttitlepage'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'html-shorttitlepage.info'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -43,11 +40,9 @@ $result_trees{'shorttitlepage'} = {
             {
               'contents' => [
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => 'title '
                 },
                 {
@@ -55,16 +50,13 @@ $result_trees{'shorttitlepage'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'html'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'sc',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -72,7 +64,6 @@ $result_trees{'shorttitlepage'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
@@ -80,16 +71,13 @@ $result_trees{'shorttitlepage'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'test'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'code',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -101,7 +89,6 @@ $result_trees{'shorttitlepage'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -109,7 +96,6 @@ $result_trees{'shorttitlepage'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -117,13 +103,11 @@ $result_trees{'shorttitlepage'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -131,7 +115,6 @@ $result_trees{'shorttitlepage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -139,7 +122,6 @@ $result_trees{'shorttitlepage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -159,7 +141,6 @@ $result_trees{'shorttitlepage'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -171,15 +152,12 @@ $result_trees{'shorttitlepage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top of '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'title '
             },
             {
@@ -187,16 +165,13 @@ $result_trees{'shorttitlepage'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'html'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'sc',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -204,7 +179,6 @@ $result_trees{'shorttitlepage'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -212,16 +186,13 @@ $result_trees{'shorttitlepage'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'test'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -233,14 +204,12 @@ $result_trees{'shorttitlepage'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -248,16 +217,13 @@ $result_trees{'shorttitlepage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -265,19 +231,16 @@ $result_trees{'shorttitlepage'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Second paragraph.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -287,45 +250,8 @@ $result_trees{'shorttitlepage'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[4];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'};
-$result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[1];
 $result_trees{'shorttitlepage'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'shorttitlepage'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'shorttitlepage'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'};
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[3];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[5];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'contents'}[1];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2]{'contents'}[3];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'shorttitlepage'}{'contents'}[2];
-$result_trees{'shorttitlepage'}{'contents'}[2]{'parent'} = $result_trees{'shorttitlepage'};
 
 $result_texis{'shorttitlepage'} = '@setfilename html-shorttitlepage.info
 @shorttitlepage @@title @sc{html} @code{test}

@@ -11,7 +11,6 @@ $result_trees{'empty_listoffloats'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
@@ -21,7 +20,6 @@ $result_trees{'empty_listoffloats'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -31,7 +29,6 @@ $result_trees{'empty_listoffloats'} = {
               'normalized' => ''
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -39,16 +36,11 @@ $result_trees{'empty_listoffloats'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_listoffloats'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats'}{'contents'}[0];
-$result_trees{'empty_listoffloats'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_listoffloats'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats'}{'contents'}[0];
-$result_trees{'empty_listoffloats'}{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats'};
 
 $result_texis{'empty_listoffloats'} = '@listoffloats
 ';

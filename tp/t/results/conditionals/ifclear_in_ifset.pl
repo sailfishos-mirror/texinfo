@@ -10,7 +10,6 @@ $result_trees{'ifclear_in_ifset'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,7 +17,6 @@ $result_trees{'ifclear_in_ifset'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => ' WRONG - missing @end ifset.
 ',
               'type' => 'misc_arg'
@@ -30,20 +28,14 @@ $result_trees{'ifclear_in_ifset'} = {
               ' WRONG - missing @end ifset.
 '
             ]
-          },
-          'parent' => {}
+          }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ifclear_in_ifset'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ifclear_in_ifset'}{'contents'}[0];
-$result_trees{'ifclear_in_ifset'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ifclear_in_ifset'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ifclear_in_ifset'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ifclear_in_ifset'}{'contents'}[0];
-$result_trees{'ifclear_in_ifset'}{'contents'}[0]{'parent'} = $result_trees{'ifclear_in_ifset'};
 
 $result_texis{'ifclear_in_ifset'} = '
 @c WRONG - missing @end ifset.

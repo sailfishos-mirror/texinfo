@@ -12,7 +12,6 @@ $result_trees{'html_expanded'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Before
 '
             },
@@ -23,7 +22,6 @@ $result_trees{'html_expanded'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -32,12 +30,10 @@ $result_trees{'html_expanded'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'html
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'rawpreformatted'
                 },
                 {
@@ -45,7 +41,6 @@ $result_trees{'html_expanded'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'html'
                         }
                       ],
@@ -53,7 +48,6 @@ $result_trees{'html_expanded'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -62,7 +56,6 @@ $result_trees{'html_expanded'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'html'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
@@ -70,7 +63,6 @@ $result_trees{'html_expanded'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -78,32 +70,18 @@ $result_trees{'html_expanded'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'after.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0];
-$result_trees{'html_expanded'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'html_expanded'}{'contents'}[0];
-$result_trees{'html_expanded'}{'contents'}[0]{'parent'} = $result_trees{'html_expanded'};
 
 $result_texis{'html_expanded'} = 'Before
 @html

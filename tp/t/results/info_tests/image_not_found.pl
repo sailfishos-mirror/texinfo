@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'image_not_found'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'image_not_found'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -24,7 +22,6 @@ $result_trees{'image_not_found'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -35,11 +32,9 @@ $result_trees{'image_not_found'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'n_f_image'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -47,7 +42,6 @@ $result_trees{'image_not_found'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -55,7 +49,6 @@ $result_trees{'image_not_found'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 '
         }
@@ -75,7 +68,6 @@ $result_trees{'image_not_found'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -85,16 +77,8 @@ $result_trees{'image_not_found'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'image_not_found'}{'contents'}[0]{'parent'} = $result_trees{'image_not_found'};
-$result_trees{'image_not_found'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_not_found'}{'contents'}[1]{'args'}[0];
-$result_trees{'image_not_found'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'image_not_found'}{'contents'}[1];
-$result_trees{'image_not_found'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_not_found'}{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'image_not_found'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'image_not_found'}{'contents'}[1]{'contents'}[0];
-$result_trees{'image_not_found'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'image_not_found'}{'contents'}[1];
-$result_trees{'image_not_found'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'image_not_found'}{'contents'}[1];
 $result_trees{'image_not_found'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'image_not_found'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'image_not_found'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'image_not_found'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'image_not_found'}{'contents'}[1]{'parent'} = $result_trees{'image_not_found'};
 
 $result_texis{'image_not_found'} = '@node Top
 @image{n_f_image}

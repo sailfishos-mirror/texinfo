@@ -12,7 +12,6 @@ $result_trees{'test_image'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'files-char',
               'type' => 'macro_name'
             }
@@ -20,19 +19,16 @@ $result_trees{'test_image'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => 'In text @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,1in, 1cm, alt @b{@^{@dotless{i}}--le@/.@.}  a@*<"%@@@verb{:  < & @ % " :}  ,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}.
 ',
               'type' => 'raw'
@@ -42,7 +38,6 @@ $result_trees{'test_image'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -50,7 +45,6 @@ $result_trees{'test_image'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -59,7 +53,6 @@ $result_trees{'test_image'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -71,7 +64,6 @@ $result_trees{'test_image'} = {
             'arg_line' => ' files-char
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -79,7 +71,6 @@ $result_trees{'test_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -91,7 +82,6 @@ $result_trees{'test_image'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -100,7 +90,6 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Text in copying.
 '
                 },
@@ -109,56 +98,44 @@ $result_trees{'test_image'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'f'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -166,7 +143,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
@@ -177,74 +153,58 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'spaces_after_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '.ext'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -252,7 +212,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
@@ -260,7 +219,6 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -268,7 +226,6 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 9,
@@ -276,16 +233,13 @@ $result_trees{'test_image'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -293,7 +247,6 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'In text '
                 },
                 {
@@ -301,56 +254,44 @@ $result_trees{'test_image'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'f'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -358,7 +299,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
@@ -369,36 +309,30 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'spaces_after_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '1in'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '1cm'
                         }
                       ],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'alt '
                         },
                         {
@@ -414,16 +348,13 @@ $result_trees{'test_image'} = {
                                             {
                                               'contents' => [
                                                 {
-                                                  'parent' => {},
                                                   'text' => 'i'
                                                 }
                                               ],
-                                              'parent' => {},
                                               'type' => 'brace_command_arg'
                                             }
                                           ],
                                           'cmdname' => 'dotless',
-                                          'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 9,
@@ -431,12 +362,10 @@ $result_trees{'test_image'} = {
                                           }
                                         }
                                       ],
-                                      'parent' => {},
                                       'type' => 'brace_command_arg'
                                     }
                                   ],
                                   'cmdname' => '^',
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 9,
@@ -444,28 +373,22 @@ $result_trees{'test_image'} = {
                                   }
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '--le'
                                 },
                                 {
-                                  'cmdname' => '/',
-                                  'parent' => {}
+                                  'cmdname' => '/'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '.'
                                 },
                                 {
-                                  'cmdname' => '.',
-                                  'parent' => {}
+                                  'cmdname' => '.'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'b',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
@@ -473,32 +396,26 @@ $result_trees{'test_image'} = {
                           }
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '*',
-                          'parent' => {}
+                          'cmdname' => '*'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -506,7 +423,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
@@ -518,62 +434,49 @@ $result_trees{'test_image'} = {
                         'spaces_after_argument' => '  ',
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '.ext'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -581,7 +484,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 9,
@@ -589,7 +491,6 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -597,7 +498,6 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 9,
@@ -605,12 +505,10 @@ $result_trees{'test_image'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -618,7 +516,6 @@ $result_trees{'test_image'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'copying'
                     }
                   ],
@@ -626,7 +523,6 @@ $result_trees{'test_image'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -635,7 +531,6 @@ $result_trees{'test_image'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -643,7 +538,6 @@ $result_trees{'test_image'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
@@ -651,13 +545,11 @@ $result_trees{'test_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -665,7 +557,6 @@ $result_trees{'test_image'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -673,14 +564,12 @@ $result_trees{'test_image'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -690,56 +579,44 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'f'
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => 'i--le'
                 },
                 {
-                  'cmdname' => '/',
-                  'parent' => {}
+                  'cmdname' => '/'
                 },
                 {
-                  'parent' => {},
                   'text' => '.'
                 },
                 {
-                  'cmdname' => '.',
-                  'parent' => {}
+                  'cmdname' => '.'
                 },
                 {
-                  'parent' => {},
                   'text' => '  a'
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => '<"%'
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
                   'args' => [
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '  < & @ % " ',
                           'type' => 'raw'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -747,7 +624,6 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'delimiter' => ':'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
@@ -758,74 +634,58 @@ $result_trees{'test_image'} = {
               'extra' => {
                 'spaces_after_argument' => ' '
               },
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
-              'parent' => {},
               'type' => 'brace_command_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '.ext'
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => 'i--le'
                 },
                 {
-                  'cmdname' => '/',
-                  'parent' => {}
+                  'cmdname' => '/'
                 },
                 {
-                  'parent' => {},
                   'text' => '.'
                 },
                 {
-                  'cmdname' => '.',
-                  'parent' => {}
+                  'cmdname' => '.'
                 },
                 {
-                  'parent' => {},
                   'text' => '  a'
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => '<"%'
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
                   'args' => [
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '  < & @ % " ',
                           'type' => 'raw'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -833,7 +693,6 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'delimiter' => ':'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
@@ -841,7 +700,6 @@ $result_trees{'test_image'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -849,7 +707,6 @@ $result_trees{'test_image'} = {
           'extra' => {
             'input_perl_encoding' => 'utf-8'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 14,
@@ -857,12 +714,10 @@ $result_trees{'test_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 '
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -870,7 +725,6 @@ $result_trees{'test_image'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In text '
             },
             {
@@ -878,56 +732,44 @@ $result_trees{'test_image'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'f'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => 'i--le'
                     },
                     {
-                      'cmdname' => '/',
-                      'parent' => {}
+                      'cmdname' => '/'
                     },
                     {
-                      'parent' => {},
                       'text' => '.'
                     },
                     {
-                      'cmdname' => '.',
-                      'parent' => {}
+                      'cmdname' => '.'
                     },
                     {
-                      'parent' => {},
                       'text' => '  a'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => '<"%'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
                       'args' => [
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '  < & @ % " ',
                               'type' => 'raw'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -935,7 +777,6 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
@@ -946,36 +787,30 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'spaces_after_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '1in'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '1cm'
                     }
                   ],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'alt '
                     },
                     {
@@ -991,16 +826,13 @@ $result_trees{'test_image'} = {
                                         {
                                           'contents' => [
                                             {
-                                              'parent' => {},
                                               'text' => 'i'
                                             }
                                           ],
-                                          'parent' => {},
                                           'type' => 'brace_command_arg'
                                         }
                                       ],
                                       'cmdname' => 'dotless',
-                                      'parent' => {},
                                       'source_info' => {
                                         'file_name' => '',
                                         'line_nr' => 14,
@@ -1008,12 +840,10 @@ $result_trees{'test_image'} = {
                                       }
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => '^',
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 14,
@@ -1021,28 +851,22 @@ $result_trees{'test_image'} = {
                               }
                             },
                             {
-                              'parent' => {},
                               'text' => '--le'
                             },
                             {
-                              'cmdname' => '/',
-                              'parent' => {}
+                              'cmdname' => '/'
                             },
                             {
-                              'parent' => {},
                               'text' => '.'
                             },
                             {
-                              'cmdname' => '.',
-                              'parent' => {}
+                              'cmdname' => '.'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'b',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
@@ -1050,32 +874,26 @@ $result_trees{'test_image'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '  a'
                     },
                     {
-                      'cmdname' => '*',
-                      'parent' => {}
+                      'cmdname' => '*'
                     },
                     {
-                      'parent' => {},
                       'text' => '<"%'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
                       'args' => [
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '  < & @ % " ',
                               'type' => 'raw'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -1083,7 +901,6 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
@@ -1095,62 +912,49 @@ $result_trees{'test_image'} = {
                     'spaces_after_argument' => '  ',
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.ext'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => 'i--le'
                     },
                     {
-                      'cmdname' => '/',
-                      'parent' => {}
+                      'cmdname' => '/'
                     },
                     {
-                      'parent' => {},
                       'text' => '.'
                     },
                     {
-                      'cmdname' => '.',
-                      'parent' => {}
+                      'cmdname' => '.'
                     },
                     {
-                      'parent' => {},
                       'text' => '  a'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => '<"%'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
                       'args' => [
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '  < & @ % " ',
                               'type' => 'raw'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -1158,7 +962,6 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 14,
@@ -1166,7 +969,6 @@ $result_trees{'test_image'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -1174,7 +976,6 @@ $result_trees{'test_image'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
@@ -1182,16 +983,13 @@ $result_trees{'test_image'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1199,25 +997,21 @@ $result_trees{'test_image'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Insertcopying
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'insertcopying',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 17,
@@ -1225,7 +1019,6 @@ $result_trees{'test_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1237,7 +1030,6 @@ $result_trees{'test_image'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -1250,56 +1042,44 @@ $result_trees{'test_image'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'f'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -1307,7 +1087,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
@@ -1318,74 +1097,58 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'spaces_after_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '.ext'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -1393,7 +1156,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
@@ -1401,7 +1163,6 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -1409,7 +1170,6 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 20,
@@ -1417,18 +1177,15 @@ $result_trees{'test_image'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
                 },
                 {
-                  'parent' => {},
                   'text' => 'In text '
                 },
                 {
@@ -1436,56 +1193,44 @@ $result_trees{'test_image'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'f'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -1493,7 +1238,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
@@ -1504,36 +1248,30 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'spaces_after_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '1in'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '1cm'
                         }
                       ],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'alt '
                         },
                         {
@@ -1549,16 +1287,13 @@ $result_trees{'test_image'} = {
                                             {
                                               'contents' => [
                                                 {
-                                                  'parent' => {},
                                                   'text' => 'i'
                                                 }
                                               ],
-                                              'parent' => {},
                                               'type' => 'brace_command_arg'
                                             }
                                           ],
                                           'cmdname' => 'dotless',
-                                          'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 20,
@@ -1566,12 +1301,10 @@ $result_trees{'test_image'} = {
                                           }
                                         }
                                       ],
-                                      'parent' => {},
                                       'type' => 'brace_command_arg'
                                     }
                                   ],
                                   'cmdname' => '^',
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 20,
@@ -1579,28 +1312,22 @@ $result_trees{'test_image'} = {
                                   }
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '--le'
                                 },
                                 {
-                                  'cmdname' => '/',
-                                  'parent' => {}
+                                  'cmdname' => '/'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '.'
                                 },
                                 {
-                                  'cmdname' => '.',
-                                  'parent' => {}
+                                  'cmdname' => '.'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'b',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
@@ -1608,32 +1335,26 @@ $result_trees{'test_image'} = {
                           }
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '*',
-                          'parent' => {}
+                          'cmdname' => '*'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -1641,7 +1362,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
@@ -1653,62 +1373,49 @@ $result_trees{'test_image'} = {
                         'spaces_after_argument' => '  ',
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '.ext'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -1716,7 +1423,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 20,
@@ -1724,7 +1430,6 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -1732,7 +1437,6 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 20,
@@ -1740,12 +1444,10 @@ $result_trees{'test_image'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -1753,7 +1455,6 @@ $result_trees{'test_image'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -1761,7 +1462,6 @@ $result_trees{'test_image'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -1770,7 +1470,6 @@ $result_trees{'test_image'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 21,
@@ -1778,7 +1477,6 @@ $result_trees{'test_image'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 19,
@@ -1786,7 +1484,6 @@ $result_trees{'test_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1796,17 +1493,14 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Image'
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Image with commands'
                 }
               ],
@@ -1815,7 +1509,6 @@ $result_trees{'test_image'} = {
 ',
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -1826,56 +1519,44 @@ $result_trees{'test_image'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'f'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => 'i--le'
                     },
                     {
-                      'cmdname' => '/',
-                      'parent' => {}
+                      'cmdname' => '/'
                     },
                     {
-                      'parent' => {},
                       'text' => '.'
                     },
                     {
-                      'cmdname' => '.',
-                      'parent' => {}
+                      'cmdname' => '.'
                     },
                     {
-                      'parent' => {},
                       'text' => '  a'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => '<"%'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
                       'args' => [
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '  < & @ % " ',
                               'type' => 'raw'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -1883,7 +1564,6 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 24,
@@ -1894,74 +1574,58 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'spaces_after_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.ext'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => 'i--le'
                     },
                     {
-                      'cmdname' => '/',
-                      'parent' => {}
+                      'cmdname' => '/'
                     },
                     {
-                      'parent' => {},
                       'text' => '.'
                     },
                     {
-                      'cmdname' => '.',
-                      'parent' => {}
+                      'cmdname' => '.'
                     },
                     {
-                      'parent' => {},
                       'text' => '  a'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => '<"%'
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
                       'args' => [
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '  < & @ % " ',
                               'type' => 'raw'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -1969,7 +1633,6 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'delimiter' => ':'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 24,
@@ -1977,7 +1640,6 @@ $result_trees{'test_image'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -1985,7 +1647,6 @@ $result_trees{'test_image'} = {
               'extra' => {
                 'input_perl_encoding' => 'utf-8'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 24,
@@ -1993,12 +1654,10 @@ $result_trees{'test_image'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -2006,7 +1665,6 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'In text '
                 },
                 {
@@ -2014,56 +1672,44 @@ $result_trees{'test_image'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'f'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -2071,7 +1717,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
@@ -2082,36 +1727,30 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'spaces_after_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '1in'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '1cm'
                         }
                       ],
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'alt '
                         },
                         {
@@ -2127,16 +1766,13 @@ $result_trees{'test_image'} = {
                                             {
                                               'contents' => [
                                                 {
-                                                  'parent' => {},
                                                   'text' => 'i'
                                                 }
                                               ],
-                                              'parent' => {},
                                               'type' => 'brace_command_arg'
                                             }
                                           ],
                                           'cmdname' => 'dotless',
-                                          'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 24,
@@ -2144,12 +1780,10 @@ $result_trees{'test_image'} = {
                                           }
                                         }
                                       ],
-                                      'parent' => {},
                                       'type' => 'brace_command_arg'
                                     }
                                   ],
                                   'cmdname' => '^',
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 24,
@@ -2157,28 +1791,22 @@ $result_trees{'test_image'} = {
                                   }
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '--le'
                                 },
                                 {
-                                  'cmdname' => '/',
-                                  'parent' => {}
+                                  'cmdname' => '/'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '.'
                                 },
                                 {
-                                  'cmdname' => '.',
-                                  'parent' => {}
+                                  'cmdname' => '.'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'b',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
@@ -2186,32 +1814,26 @@ $result_trees{'test_image'} = {
                           }
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '*',
-                          'parent' => {}
+                          'cmdname' => '*'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -2219,7 +1841,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
@@ -2231,62 +1852,49 @@ $result_trees{'test_image'} = {
                         'spaces_after_argument' => '  ',
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '.ext'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => 'i--le'
                         },
                         {
-                          'cmdname' => '/',
-                          'parent' => {}
+                          'cmdname' => '/'
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         },
                         {
-                          'cmdname' => '.',
-                          'parent' => {}
+                          'cmdname' => '.'
                         },
                         {
-                          'parent' => {},
                           'text' => '  a'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
-                          'parent' => {},
                           'text' => '<"%'
                         },
                         {
-                          'cmdname' => '@',
-                          'parent' => {}
+                          'cmdname' => '@'
                         },
                         {
                           'args' => [
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '  < & @ % " ',
                                   'type' => 'raw'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -2294,7 +1902,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'delimiter' => ':'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 24,
@@ -2302,7 +1909,6 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -2310,7 +1916,6 @@ $result_trees{'test_image'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 24,
@@ -2318,16 +1923,13 @@ $result_trees{'test_image'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -2341,56 +1943,44 @@ $result_trees{'test_image'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'f'
                             },
                             {
-                              'cmdname' => '@',
-                              'parent' => {}
+                              'cmdname' => '@'
                             },
                             {
-                              'parent' => {},
                               'text' => 'i--le'
                             },
                             {
-                              'cmdname' => '/',
-                              'parent' => {}
+                              'cmdname' => '/'
                             },
                             {
-                              'parent' => {},
                               'text' => '.'
                             },
                             {
-                              'cmdname' => '.',
-                              'parent' => {}
+                              'cmdname' => '.'
                             },
                             {
-                              'parent' => {},
                               'text' => '  a'
                             },
                             {
-                              'cmdname' => '@',
-                              'parent' => {}
+                              'cmdname' => '@'
                             },
                             {
-                              'parent' => {},
                               'text' => '<"%'
                             },
                             {
-                              'cmdname' => '@',
-                              'parent' => {}
+                              'cmdname' => '@'
                             },
                             {
                               'args' => [
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => '  < & @ % " ',
                                       'type' => 'raw'
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
@@ -2398,7 +1988,6 @@ $result_trees{'test_image'} = {
                               'extra' => {
                                 'delimiter' => ':'
                               },
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 26,
@@ -2409,74 +1998,58 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'spaces_after_argument' => ' '
                           },
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         },
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '.ext'
                             },
                             {
-                              'cmdname' => '@',
-                              'parent' => {}
+                              'cmdname' => '@'
                             },
                             {
-                              'parent' => {},
                               'text' => 'i--le'
                             },
                             {
-                              'cmdname' => '/',
-                              'parent' => {}
+                              'cmdname' => '/'
                             },
                             {
-                              'parent' => {},
                               'text' => '.'
                             },
                             {
-                              'cmdname' => '.',
-                              'parent' => {}
+                              'cmdname' => '.'
                             },
                             {
-                              'parent' => {},
                               'text' => '  a'
                             },
                             {
-                              'cmdname' => '@',
-                              'parent' => {}
+                              'cmdname' => '@'
                             },
                             {
-                              'parent' => {},
                               'text' => '<"%'
                             },
                             {
-                              'cmdname' => '@',
-                              'parent' => {}
+                              'cmdname' => '@'
                             },
                             {
                               'args' => [
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => '  < & @ % " ',
                                       'type' => 'raw'
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
@@ -2484,7 +2057,6 @@ $result_trees{'test_image'} = {
                               'extra' => {
                                 'delimiter' => ':'
                               },
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 26,
@@ -2492,7 +2064,6 @@ $result_trees{'test_image'} = {
                               }
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -2500,7 +2071,6 @@ $result_trees{'test_image'} = {
                       'extra' => {
                         'input_perl_encoding' => 'utf-8'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 26,
@@ -2508,12 +2078,10 @@ $result_trees{'test_image'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '
 '
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
@@ -2521,7 +2089,6 @@ $result_trees{'test_image'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'In text '
                         },
                         {
@@ -2529,56 +2096,44 @@ $result_trees{'test_image'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'f'
                                 },
                                 {
-                                  'cmdname' => '@',
-                                  'parent' => {}
+                                  'cmdname' => '@'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => 'i--le'
                                 },
                                 {
-                                  'cmdname' => '/',
-                                  'parent' => {}
+                                  'cmdname' => '/'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '.'
                                 },
                                 {
-                                  'cmdname' => '.',
-                                  'parent' => {}
+                                  'cmdname' => '.'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '  a'
                                 },
                                 {
-                                  'cmdname' => '@',
-                                  'parent' => {}
+                                  'cmdname' => '@'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '<"%'
                                 },
                                 {
-                                  'cmdname' => '@',
-                                  'parent' => {}
+                                  'cmdname' => '@'
                                 },
                                 {
                                   'args' => [
                                     {
                                       'contents' => [
                                         {
-                                          'parent' => {},
                                           'text' => '  < & @ % " ',
                                           'type' => 'raw'
                                         }
                                       ],
-                                      'parent' => {},
                                       'type' => 'brace_command_arg'
                                     }
                                   ],
@@ -2586,7 +2141,6 @@ $result_trees{'test_image'} = {
                                   'extra' => {
                                     'delimiter' => ':'
                                   },
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 26,
@@ -2597,36 +2151,30 @@ $result_trees{'test_image'} = {
                               'extra' => {
                                 'spaces_after_argument' => ' '
                               },
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             },
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '1in'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             },
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '1cm'
                                 }
                               ],
                               'extra' => {
                                 'spaces_before_argument' => ' '
                               },
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             },
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'alt '
                                 },
                                 {
@@ -2642,16 +2190,13 @@ $result_trees{'test_image'} = {
                                                     {
                                                       'contents' => [
                                                         {
-                                                          'parent' => {},
                                                           'text' => 'i'
                                                         }
                                                       ],
-                                                      'parent' => {},
                                                       'type' => 'brace_command_arg'
                                                     }
                                                   ],
                                                   'cmdname' => 'dotless',
-                                                  'parent' => {},
                                                   'source_info' => {
                                                     'file_name' => '',
                                                     'line_nr' => 26,
@@ -2659,12 +2204,10 @@ $result_trees{'test_image'} = {
                                                   }
                                                 }
                                               ],
-                                              'parent' => {},
                                               'type' => 'brace_command_arg'
                                             }
                                           ],
                                           'cmdname' => '^',
-                                          'parent' => {},
                                           'source_info' => {
                                             'file_name' => '',
                                             'line_nr' => 26,
@@ -2672,28 +2215,22 @@ $result_trees{'test_image'} = {
                                           }
                                         },
                                         {
-                                          'parent' => {},
                                           'text' => '--le'
                                         },
                                         {
-                                          'cmdname' => '/',
-                                          'parent' => {}
+                                          'cmdname' => '/'
                                         },
                                         {
-                                          'parent' => {},
                                           'text' => '.'
                                         },
                                         {
-                                          'cmdname' => '.',
-                                          'parent' => {}
+                                          'cmdname' => '.'
                                         }
                                       ],
-                                      'parent' => {},
                                       'type' => 'brace_command_arg'
                                     }
                                   ],
                                   'cmdname' => 'b',
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 26,
@@ -2701,32 +2238,26 @@ $result_trees{'test_image'} = {
                                   }
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '  a'
                                 },
                                 {
-                                  'cmdname' => '*',
-                                  'parent' => {}
+                                  'cmdname' => '*'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '<"%'
                                 },
                                 {
-                                  'cmdname' => '@',
-                                  'parent' => {}
+                                  'cmdname' => '@'
                                 },
                                 {
                                   'args' => [
                                     {
                                       'contents' => [
                                         {
-                                          'parent' => {},
                                           'text' => '  < & @ % " ',
                                           'type' => 'raw'
                                         }
                                       ],
-                                      'parent' => {},
                                       'type' => 'brace_command_arg'
                                     }
                                   ],
@@ -2734,7 +2265,6 @@ $result_trees{'test_image'} = {
                                   'extra' => {
                                     'delimiter' => ':'
                                   },
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 26,
@@ -2746,62 +2276,49 @@ $result_trees{'test_image'} = {
                                 'spaces_after_argument' => '  ',
                                 'spaces_before_argument' => ' '
                               },
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             },
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => '.ext'
                                 },
                                 {
-                                  'cmdname' => '@',
-                                  'parent' => {}
+                                  'cmdname' => '@'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => 'i--le'
                                 },
                                 {
-                                  'cmdname' => '/',
-                                  'parent' => {}
+                                  'cmdname' => '/'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '.'
                                 },
                                 {
-                                  'cmdname' => '.',
-                                  'parent' => {}
+                                  'cmdname' => '.'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '  a'
                                 },
                                 {
-                                  'cmdname' => '@',
-                                  'parent' => {}
+                                  'cmdname' => '@'
                                 },
                                 {
-                                  'parent' => {},
                                   'text' => '<"%'
                                 },
                                 {
-                                  'cmdname' => '@',
-                                  'parent' => {}
+                                  'cmdname' => '@'
                                 },
                                 {
                                   'args' => [
                                     {
                                       'contents' => [
                                         {
-                                          'parent' => {},
                                           'text' => '  < & @ % " ',
                                           'type' => 'raw'
                                         }
                                       ],
-                                      'parent' => {},
                                       'type' => 'brace_command_arg'
                                     }
                                   ],
@@ -2809,7 +2326,6 @@ $result_trees{'test_image'} = {
                                   'extra' => {
                                     'delimiter' => ':'
                                   },
-                                  'parent' => {},
                                   'source_info' => {
                                     'file_name' => '',
                                     'line_nr' => 26,
@@ -2817,7 +2333,6 @@ $result_trees{'test_image'} = {
                                   }
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
@@ -2825,7 +2340,6 @@ $result_trees{'test_image'} = {
                           'extra' => {
                             'input_perl_encoding' => 'utf-8'
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 26,
@@ -2833,15 +2347,12 @@ $result_trees{'test_image'} = {
                           }
                         },
                         {
-                          'parent' => {},
                           'text' => '.'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -2849,7 +2360,6 @@ $result_trees{'test_image'} = {
               'extra' => {
                 'float' => {}
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 26,
@@ -2857,7 +2367,6 @@ $result_trees{'test_image'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
@@ -2866,7 +2375,6 @@ $result_trees{'test_image'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
@@ -2874,7 +2382,6 @@ $result_trees{'test_image'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -2883,7 +2390,6 @@ $result_trees{'test_image'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 27,
@@ -2905,7 +2411,6 @@ $result_trees{'test_image'} = {
               'normalized' => 'Image'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 23,
@@ -2913,7 +2418,6 @@ $result_trees{'test_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -2923,7 +2427,6 @@ $result_trees{'test_image'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Image'
                 }
               ],
@@ -2931,7 +2434,6 @@ $result_trees{'test_image'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2945,7 +2447,6 @@ $result_trees{'test_image'} = {
               'normalized' => 'Image'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 29,
@@ -2953,7 +2454,6 @@ $result_trees{'test_image'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -2974,7 +2474,6 @@ $result_trees{'test_image'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 12,
@@ -2984,514 +2483,13 @@ $result_trees{'test_image'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[6];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0]{'contents'}[2];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[0]{'parent'} = $result_trees{'test_image'};
-$result_trees{'test_image'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[2];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[6];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[6];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[7];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[2];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[6]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[6];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[9];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[2];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[2];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[8]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[9]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'contents'}[10]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'extra'}{'float'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[6]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[7]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'caption'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'contents'}[5];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[1]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'extra'}{'type'}{'content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[12]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[13]{'args'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'test_image'}{'contents'}[1]{'contents'}[13];
 $result_trees{'test_image'}{'contents'}[1]{'contents'}[13]{'extra'}{'type'}{'content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'contents'}[13]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[13]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
-$result_trees{'test_image'}{'contents'}[1]{'contents'}[14]{'parent'} = $result_trees{'test_image'}{'contents'}[1];
 $result_trees{'test_image'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'test_image'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'test_image'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'test_image'}{'contents'}[1]{'parent'} = $result_trees{'test_image'};
 
 $result_texis{'test_image'} = '@macro files-char
 @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}

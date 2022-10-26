@@ -1,3 +1,9 @@
+2022-10-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/t/test_utils.pl (filter_tree_keys): Do not output 'parent'
+	keys in tree.  This makes the output files much smaller and also
+	makes the tests a bit faster.
+
 2022-10-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@minus): Do not state that '-' always produces

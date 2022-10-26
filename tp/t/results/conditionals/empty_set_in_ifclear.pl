@@ -12,12 +12,10 @@ $result_trees{'empty_set_in_ifclear'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'a',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => '',
               'type' => 'misc_arg'
             }
@@ -30,27 +28,19 @@ $result_trees{'empty_set_in_ifclear'} = {
               'a',
               ''
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_set_in_ifclear'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_set_in_ifclear'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_set_in_ifclear'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'empty_set_in_ifclear'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_set_in_ifclear'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_set_in_ifclear'}{'contents'}[0];
-$result_trees{'empty_set_in_ifclear'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_set_in_ifclear'}{'contents'}[0];
-$result_trees{'empty_set_in_ifclear'}{'contents'}[0]{'parent'} = $result_trees{'empty_set_in_ifclear'};
 
 $result_texis{'empty_set_in_ifclear'} = '@set a
 

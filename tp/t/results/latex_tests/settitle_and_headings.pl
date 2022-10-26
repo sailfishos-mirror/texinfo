@@ -16,15 +16,12 @@ $result_trees{'settitle_and_headings'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Title '
                     },
                     {
-                      'cmdname' => '*',
-                      'parent' => {}
+                      'cmdname' => '*'
                     },
                     {
-                      'parent' => {},
                       'text' => ' for a manual'
                     }
                   ],
@@ -32,7 +29,6 @@ $result_trees{'settitle_and_headings'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -40,7 +36,6 @@ $result_trees{'settitle_and_headings'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -48,7 +43,6 @@ $result_trees{'settitle_and_headings'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -58,7 +52,6 @@ $result_trees{'settitle_and_headings'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'double'
                     }
                   ],
@@ -66,7 +59,6 @@ $result_trees{'settitle_and_headings'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -77,7 +69,6 @@ $result_trees{'settitle_and_headings'} = {
                 ],
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -85,17 +76,14 @@ $result_trees{'settitle_and_headings'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -103,7 +91,6 @@ $result_trees{'settitle_and_headings'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chap'
             }
           ],
@@ -111,14 +98,12 @@ $result_trees{'settitle_and_headings'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -126,17 +111,14 @@ $result_trees{'settitle_and_headings'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'page',
-          'parent' => {}
+          'cmdname' => 'page'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -144,16 +126,13 @@ $result_trees{'settitle_and_headings'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'More text
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -161,17 +140,14 @@ $result_trees{'settitle_and_headings'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
-          'cmdname' => 'page',
-          'parent' => {}
+          'cmdname' => 'page'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -179,19 +155,16 @@ $result_trees{'settitle_and_headings'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Another page
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -201,33 +174,6 @@ $result_trees{'settitle_and_headings'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'};
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'args'}[0];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[3];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[5];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[7];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
-$result_trees{'settitle_and_headings'}{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'};
 
 $result_texis{'settitle_and_headings'} = '@settitle Title @* for a manual
 

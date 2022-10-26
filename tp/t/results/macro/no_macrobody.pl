@@ -12,12 +12,10 @@ $result_trees{'no_macrobody'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'nomacrobody',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg',
               'type' => 'macro_arg'
             }
@@ -29,7 +27,6 @@ $result_trees{'no_macrobody'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -37,7 +34,6 @@ $result_trees{'no_macrobody'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -46,7 +42,6 @@ $result_trees{'no_macrobody'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -58,7 +53,6 @@ $result_trees{'no_macrobody'} = {
             'arg_line' => ' nomacrobody {arg}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -66,19 +60,16 @@ $result_trees{'no_macrobody'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -86,33 +77,18 @@ $result_trees{'no_macrobody'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[4];
-$result_trees{'no_macrobody'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'no_macrobody'}{'contents'}[0];
-$result_trees{'no_macrobody'}{'contents'}[0]{'parent'} = $result_trees{'no_macrobody'};
 
 $result_texis{'no_macrobody'} = '@macro nomacrobody {arg}
 @end macro

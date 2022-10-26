@@ -12,14 +12,12 @@ $result_trees{'comment_between_text'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'text
 '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => ' comment
 ',
                   'type' => 'misc_arg'
@@ -31,30 +29,20 @@ $result_trees{'comment_between_text'} = {
                   ' comment
 '
                 ]
-              },
-              'parent' => {}
+              }
             },
             {
-              'parent' => {},
               'text' => 'end para'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_between_text'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_between_text'}{'contents'}[0];
-$result_trees{'comment_between_text'}{'contents'}[0]{'parent'} = $result_trees{'comment_between_text'};
 
 $result_texis{'comment_between_text'} = 'text
 @c comment

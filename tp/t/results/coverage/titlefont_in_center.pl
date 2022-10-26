@@ -10,7 +10,6 @@ $result_trees{'titlefont_in_center'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -24,16 +23,13 @@ $result_trees{'titlefont_in_center'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'A manual'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'titlefont',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -45,7 +41,6 @@ $result_trees{'titlefont_in_center'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -53,7 +48,6 @@ $result_trees{'titlefont_in_center'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -61,19 +55,11 @@ $result_trees{'titlefont_in_center'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlefont_in_center'}{'contents'}[0];
-$result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1];
-$result_trees{'titlefont_in_center'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'titlefont_in_center'}{'contents'}[0];
-$result_trees{'titlefont_in_center'}{'contents'}[0]{'parent'} = $result_trees{'titlefont_in_center'};
 
 $result_texis{'titlefont_in_center'} = '
 @center @titlefont{A manual}

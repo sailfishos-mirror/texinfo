@@ -11,11 +11,9 @@ $result_trees{'seealso_duplicate'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -23,7 +21,6 @@ $result_trees{'seealso_duplicate'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -31,14 +28,12 @@ $result_trees{'seealso_duplicate'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -52,16 +47,13 @@ $result_trees{'seealso_duplicate'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'awk'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'command',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
@@ -72,7 +64,6 @@ $result_trees{'seealso_duplicate'} = {
               'extra' => {
                 'spaces_after_argument' => ' '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -96,7 +87,6 @@ $result_trees{'seealso_duplicate'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'POSIX and'
                     }
                   ],
@@ -104,7 +94,6 @@ $result_trees{'seealso_duplicate'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -113,7 +102,6 @@ $result_trees{'seealso_duplicate'} = {
                 'level' => 1,
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -121,7 +109,6 @@ $result_trees{'seealso_duplicate'} = {
               }
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -139,16 +126,13 @@ $result_trees{'seealso_duplicate'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'awk'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'command',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
@@ -159,7 +143,6 @@ $result_trees{'seealso_duplicate'} = {
               'extra' => {
                 'spaces_after_argument' => ' '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -183,11 +166,9 @@ $result_trees{'seealso_duplicate'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'POSIX and'
                     },
                     {
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces_at_end'
                     },
@@ -196,7 +177,6 @@ $result_trees{'seealso_duplicate'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'POSIX '
                             },
                             {
@@ -204,16 +184,13 @@ $result_trees{'seealso_duplicate'} = {
                                 {
                                   'contents' => [
                                     {
-                                      'parent' => {},
                                       'text' => 'awk'
                                     }
                                   ],
-                                  'parent' => {},
                                   'type' => 'brace_command_arg'
                                 }
                               ],
                               'cmdname' => 'command',
-                              'parent' => {},
                               'source_info' => {
                                 'file_name' => '',
                                 'line_nr' => 4,
@@ -221,12 +198,10 @@ $result_trees{'seealso_duplicate'} = {
                               }
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'seealso',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
@@ -238,7 +213,6 @@ $result_trees{'seealso_duplicate'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -248,7 +222,6 @@ $result_trees{'seealso_duplicate'} = {
                 'seealso' => {},
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -256,7 +229,6 @@ $result_trees{'seealso_duplicate'} = {
               }
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
@@ -266,7 +238,6 @@ $result_trees{'seealso_duplicate'} = {
         },
         {},
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -276,7 +247,6 @@ $result_trees{'seealso_duplicate'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'cp'
                 }
               ],
@@ -284,7 +254,6 @@ $result_trees{'seealso_duplicate'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -295,7 +264,6 @@ $result_trees{'seealso_duplicate'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -319,7 +287,6 @@ $result_trees{'seealso_duplicate'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -329,52 +296,19 @@ $result_trees{'seealso_duplicate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'seealso_duplicate'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'subentry'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'subentry'}{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'subentry'}{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'subentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'subentry'}{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[2] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[1]{'extra'}{'subentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'};
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'extra'}{'seealso'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'args'}[0]{'contents'}[2];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'}{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[4] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[3]{'extra'}{'subentry'};
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[6]{'args'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[6];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'seealso_duplicate'}{'contents'}[1];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'seealso_duplicate'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'seealso_duplicate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'seealso_duplicate'}{'contents'}[1]{'parent'} = $result_trees{'seealso_duplicate'};
 
 $result_texis{'seealso_duplicate'} = '@node Top
 

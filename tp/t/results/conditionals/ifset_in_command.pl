@@ -10,7 +10,6 @@ $result_trees{'ifset_in_command'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -22,22 +21,18 @@ $result_trees{'ifset_in_command'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 '
                     },
                     {
-                      'parent' => {},
                       'text' => 'xclear
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'file',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -45,29 +40,18 @@ $result_trees{'ifset_in_command'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_command'}{'contents'}[0];
-$result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ifset_in_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ifset_in_command'}{'contents'}[0];
-$result_trees{'ifset_in_command'}{'contents'}[0]{'parent'} = $result_trees{'ifset_in_command'};
 
 $result_texis{'ifset_in_command'} = '
 @file{

@@ -16,12 +16,10 @@ $result_trees{'empty_center_with_arg'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'w',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -33,7 +31,6 @@ $result_trees{'empty_center_with_arg'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -41,7 +38,6 @@ $result_trees{'empty_center_with_arg'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -49,17 +45,11 @@ $result_trees{'empty_center_with_arg'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_center_with_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_center_with_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_center_with_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_center_with_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_center_with_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_center_with_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_center_with_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_center_with_arg'}{'contents'}[0];
-$result_trees{'empty_center_with_arg'}{'contents'}[0]{'parent'} = $result_trees{'empty_center_with_arg'};
 
 $result_texis{'empty_center_with_arg'} = '@center @w{}
 ';

@@ -14,7 +14,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'utf-8'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -33,7 +31,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'utf-8'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -41,7 +38,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -53,7 +49,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'AA'
                     },
                     {
@@ -61,16 +56,13 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'c'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => ',',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -78,7 +70,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -86,16 +77,13 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'r'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'u',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -103,7 +91,6 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -111,16 +98,13 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'e'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '`',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -128,12 +112,10 @@ $result_trees{'accents_in_var_enable_encoding'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'var',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -141,42 +123,18 @@ $result_trees{'accents_in_var_enable_encoding'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[3];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[5];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'accents_in_var_enable_encoding'}{'contents'}[0];
-$result_trees{'accents_in_var_enable_encoding'}{'contents'}[0]{'parent'} = $result_trees{'accents_in_var_enable_encoding'};
 
 $result_texis{'accents_in_var_enable_encoding'} = '@documentencoding utf-8
 

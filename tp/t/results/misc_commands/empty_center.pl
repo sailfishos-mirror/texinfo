@@ -16,7 +16,6 @@ $result_trees{'empty_center'} = {
                 'spaces_after_argument' => ' 
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -24,7 +23,6 @@ $result_trees{'empty_center'} = {
           'extra' => {
             'missing_argument' => 1
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -32,15 +30,11 @@ $result_trees{'empty_center'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_center'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_center'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_center'}{'contents'}[0];
-$result_trees{'empty_center'}{'contents'}[0]{'parent'} = $result_trees{'empty_center'};
 
 $result_texis{'empty_center'} = '@center 
 ';

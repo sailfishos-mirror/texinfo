@@ -12,7 +12,6 @@ $result_trees{'invalid_kbdinputstyle'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'kbdinputstyle '
             },
             {
@@ -20,7 +19,6 @@ $result_trees{'invalid_kbdinputstyle'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'wrong arg on line following kbdinputstyle'
                     }
                   ],
@@ -28,7 +26,6 @@ $result_trees{'invalid_kbdinputstyle'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -36,7 +33,6 @@ $result_trees{'invalid_kbdinputstyle'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -44,22 +40,14 @@ $result_trees{'invalid_kbdinputstyle'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0];
-$result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0];
-$result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid_kbdinputstyle'}{'contents'}[0];
-$result_trees{'invalid_kbdinputstyle'}{'contents'}[0]{'parent'} = $result_trees{'invalid_kbdinputstyle'};
 
 $result_texis{'invalid_kbdinputstyle'} = 'kbdinputstyle @kbdinputstyle wrong arg on line following kbdinputstyle
 ';

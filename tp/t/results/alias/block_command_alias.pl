@@ -14,7 +14,6 @@ $result_trees{'block_command_alias'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'lang=lisp'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'block_command_alias'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -34,7 +32,6 @@ $result_trees{'block_command_alias'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -42,7 +39,6 @@ $result_trees{'block_command_alias'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -54,7 +50,6 @@ $result_trees{'block_command_alias'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -63,7 +58,6 @@ $result_trees{'block_command_alias'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in lang
 '
                 },
@@ -72,7 +66,6 @@ $result_trees{'block_command_alias'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'lang'
                         }
                       ],
@@ -80,7 +73,6 @@ $result_trees{'block_command_alias'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -89,7 +81,6 @@ $result_trees{'block_command_alias'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'lang'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
@@ -97,11 +88,9 @@ $result_trees{'block_command_alias'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -109,24 +98,11 @@ $result_trees{'block_command_alias'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2];
-$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'};
 
 $result_texis{'block_command_alias'} = '@alias lang=lisp
 

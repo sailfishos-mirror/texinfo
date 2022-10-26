@@ -12,12 +12,10 @@ $result_trees{'expand_two_same'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'macrotwo',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg',
               'type' => 'macro_arg'
             }
@@ -25,13 +23,11 @@ $result_trees{'expand_two_same'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'With a doubles arg \\arg\\ and re \\arg\\
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
@@ -41,7 +37,6 @@ $result_trees{'expand_two_same'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -49,7 +44,6 @@ $result_trees{'expand_two_same'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -58,7 +52,6 @@ $result_trees{'expand_two_same'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -70,7 +63,6 @@ $result_trees{'expand_two_same'} = {
             'arg_line' => ' macrotwo { arg }
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -80,12 +72,10 @@ $result_trees{'expand_two_same'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Call macro2
 '
             },
             {
-              'parent' => {},
               'text' => 'With a doubles arg a simple '
             },
             {
@@ -93,21 +83,17 @@ $result_trees{'expand_two_same'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 '
                     },
                     {
-                      'parent' => {},
                       'text' => 'arg'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -115,12 +101,10 @@ $result_trees{'expand_two_same'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => ' and re a simple '
             },
             {
@@ -128,21 +112,17 @@ $result_trees{'expand_two_same'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 '
                     },
                     {
-                      'parent' => {},
                       'text' => 'arg'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -150,22 +130,18 @@ $result_trees{'expand_two_same'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -173,61 +149,27 @@ $result_trees{'expand_two_same'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Call macro2 with 2 args
 '
             },
             {
-              'parent' => {},
               'text' => 'With a doubles arg arg with comma , here  and re arg with comma , here 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[4];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[4];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'expand_two_same'}{'contents'}[0];
-$result_trees{'expand_two_same'}{'contents'}[0]{'parent'} = $result_trees{'expand_two_same'};
 
 $result_texis{'expand_two_same'} = '@macro macrotwo { arg }
 With a doubles arg \\arg\\ and re \\arg\\

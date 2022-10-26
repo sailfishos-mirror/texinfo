@@ -10,20 +10,16 @@ $result_trees{'info_ifplaintext'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'info_ifplaintext'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'info_ifplaintext'}{'contents'}[0];
-$result_trees{'info_ifplaintext'}{'contents'}[0]{'parent'} = $result_trees{'info_ifplaintext'};
 
 $result_texis{'info_ifplaintext'} = '
 ';

@@ -12,7 +12,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'spaces',
               'type' => 'macro_name'
             }
@@ -20,7 +19,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
@@ -30,7 +28,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -38,7 +35,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -47,7 +43,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -59,7 +54,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
             'arg_line' => ' spaces
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -67,7 +61,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -79,14 +72,12 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in verbatim
 ',
               'type' => 'raw'
@@ -96,14 +87,12 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim'
                     }
                   ],
                   'extra' => {
                     'spaces_after_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -112,7 +101,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -120,7 +108,6 @@ $result_trees{'space_macro_after_end_verbatim'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -128,26 +115,11 @@ $result_trees{'space_macro_after_end_verbatim'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_macro_after_end_verbatim'}{'contents'}[0];
-$result_trees{'space_macro_after_end_verbatim'}{'contents'}[0]{'parent'} = $result_trees{'space_macro_after_end_verbatim'};
 
 $result_texis{'space_macro_after_end_verbatim'} = '@macro spaces
 

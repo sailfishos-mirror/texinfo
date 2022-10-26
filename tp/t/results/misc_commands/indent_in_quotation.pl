@@ -16,7 +16,6 @@ $result_trees{'indent_in_quotation'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -24,7 +23,6 @@ $result_trees{'indent_in_quotation'} = {
           'contents' => [
             {
               'cmdname' => 'indent',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -32,7 +30,6 @@ $result_trees{'indent_in_quotation'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'ignorable_spaces_after_command'
@@ -40,7 +37,6 @@ $result_trees{'indent_in_quotation'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'indent in quotation
 '
                 }
@@ -48,7 +44,6 @@ $result_trees{'indent_in_quotation'} = {
               'extra' => {
                 'indent' => 1
               },
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -56,7 +51,6 @@ $result_trees{'indent_in_quotation'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -64,7 +58,6 @@ $result_trees{'indent_in_quotation'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -73,7 +66,6 @@ $result_trees{'indent_in_quotation'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -81,7 +73,6 @@ $result_trees{'indent_in_quotation'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -89,22 +80,11 @@ $result_trees{'indent_in_quotation'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indent_in_quotation'}{'contents'}[0];
-$result_trees{'indent_in_quotation'}{'contents'}[0]{'parent'} = $result_trees{'indent_in_quotation'};
 
 $result_texis{'indent_in_quotation'} = '@quotation
 @indent

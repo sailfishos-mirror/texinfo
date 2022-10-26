@@ -12,7 +12,6 @@ $result_trees{'ignored_macro_definition'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'mymacro',
               'type' => 'macro_name'
             }
@@ -20,7 +19,6 @@ $result_trees{'ignored_macro_definition'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'outside
 ',
               'type' => 'raw'
@@ -30,7 +28,6 @@ $result_trees{'ignored_macro_definition'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -38,7 +35,6 @@ $result_trees{'ignored_macro_definition'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -47,7 +43,6 @@ $result_trees{'ignored_macro_definition'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -59,7 +54,6 @@ $result_trees{'ignored_macro_definition'} = {
             'arg_line' => ' mymacro{}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -67,13 +61,11 @@ $result_trees{'ignored_macro_definition'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -85,15 +77,12 @@ $result_trees{'ignored_macro_definition'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'tex'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'elided'
                 }
               ],
@@ -101,7 +90,6 @@ $result_trees{'ignored_macro_definition'} = {
               'extra' => {
                 'format' => 'tex'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -109,16 +97,13 @@ $result_trees{'ignored_macro_definition'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -126,39 +111,18 @@ $result_trees{'ignored_macro_definition'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'outside.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[5];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'ignored_macro_definition'}{'contents'}[0];
-$result_trees{'ignored_macro_definition'}{'contents'}[0]{'parent'} = $result_trees{'ignored_macro_definition'};
 
 $result_texis{'ignored_macro_definition'} = '@macro mymacro{}
 outside

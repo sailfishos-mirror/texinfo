@@ -20,7 +20,6 @@ $result_trees{'empty_comment'} = {
                         'comment_at_end' => {
                           'args' => [
                             {
-                              'parent' => {},
                               'text' => '
 ',
                               'type' => 'misc_arg'
@@ -32,11 +31,9 @@ $result_trees{'empty_comment'} = {
                               '
 '
                             ]
-                          },
-                          'parent' => {}
+                          }
                         }
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -45,7 +42,6 @@ $result_trees{'empty_comment'} = {
                     'missing_argument' => 1,
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -53,7 +49,6 @@ $result_trees{'empty_comment'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -64,11 +59,9 @@ $result_trees{'empty_comment'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -77,7 +70,6 @@ $result_trees{'empty_comment'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -89,7 +81,6 @@ $result_trees{'empty_comment'} = {
             'max_columns' => 0,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -97,22 +88,11 @@ $result_trees{'empty_comment'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'};
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_comment'}{'contents'}[0];
-$result_trees{'empty_comment'}{'contents'}[0]{'parent'} = $result_trees{'empty_comment'};
 
 $result_texis{'empty_comment'} = '@multitable @columnfractions @c
 @end multitable';

@@ -8,27 +8,21 @@ use utf8;
 $result_trees{'bye'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'bye'}{'contents'}[0]{'parent'} = $result_trees{'bye'};
-$result_trees{'bye'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bye'}{'contents'}[1];
-$result_trees{'bye'}{'contents'}[1]{'parent'} = $result_trees{'bye'};
 
 $result_texis{'bye'} = '@bye
 ';

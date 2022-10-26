@@ -12,24 +12,18 @@ $result_trees{'simple'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In included file.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'parent'} = $result_trees{'simple'};
 
 $result_texis{'simple'} = 'In included file.
 ';

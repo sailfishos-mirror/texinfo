@@ -14,17 +14,14 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'text_before_beginning'
                 }
               ],
-              'parent' => {},
               'type' => 'preamble_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_setfilename'
         },
         {
@@ -34,7 +31,6 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'encoding_index_latin1.info'
                     }
                   ],
@@ -42,7 +38,6 @@ $result_trees{'encoding_index_latin1'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -51,7 +46,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'encoding_index_latin1.info'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'encoding_index_latin1.texi',
                 'line_nr' => 2,
@@ -63,7 +57,6 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'iso-8859-1'
                     }
                   ],
@@ -71,7 +64,6 @@ $result_trees{'encoding_index_latin1'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -82,7 +74,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'iso-8859-1'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'encoding_index_latin1.texi',
                 'line_nr' => 3,
@@ -90,17 +81,14 @@ $result_trees{'encoding_index_latin1'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -108,7 +96,6 @@ $result_trees{'encoding_index_latin1'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -116,7 +103,6 @@ $result_trees{'encoding_index_latin1'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -137,7 +123,6 @@ $result_trees{'encoding_index_latin1'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'encoding_index_latin1.texi',
         'line_nr' => 5,
@@ -149,7 +134,6 @@ $result_trees{'encoding_index_latin1'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -157,14 +141,12 @@ $result_trees{'encoding_index_latin1'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -174,7 +156,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => "\x{e9} \x{e9}"
                 }
               ],
@@ -182,7 +163,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -202,7 +182,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 8,
@@ -219,16 +198,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => '"',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 9,
@@ -236,7 +212,6 @@ $result_trees{'encoding_index_latin1'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
@@ -244,16 +219,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => '"',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 9,
@@ -265,16 +237,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => '"',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 9,
@@ -286,16 +255,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => '"',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 9,
@@ -307,7 +273,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -327,7 +292,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 9,
@@ -344,16 +308,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'following_arg'
                     }
                   ],
                   'cmdname' => '^',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 10,
@@ -361,7 +322,6 @@ $result_trees{'encoding_index_latin1'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
@@ -369,16 +329,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'following_arg'
                     }
                   ],
                   'cmdname' => '^',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 10,
@@ -390,16 +347,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'following_arg'
                     }
                   ],
                   'cmdname' => '^',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 10,
@@ -411,16 +365,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'following_arg'
                     }
                   ],
                   'cmdname' => '^',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 10,
@@ -432,16 +383,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'following_arg'
                     }
                   ],
                   'cmdname' => '^',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 10,
@@ -453,7 +401,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -473,7 +420,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 10,
@@ -486,7 +432,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'a'
                 }
               ],
@@ -494,7 +439,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -514,7 +458,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 11,
@@ -527,7 +470,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'b'
                 }
               ],
@@ -535,7 +477,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -555,7 +496,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 12,
@@ -568,7 +508,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'c'
                 }
               ],
@@ -576,7 +515,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -596,7 +534,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 13,
@@ -609,7 +546,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'd'
                 }
               ],
@@ -617,7 +553,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -637,7 +572,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 14,
@@ -650,7 +584,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'e'
                 }
               ],
@@ -658,7 +591,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -678,7 +610,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 15,
@@ -691,7 +622,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'f'
                 }
               ],
@@ -699,7 +629,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -719,7 +648,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 16,
@@ -732,7 +660,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'g'
                 }
               ],
@@ -740,7 +667,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -760,7 +686,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 17,
@@ -773,7 +698,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'h'
                 }
               ],
@@ -781,7 +705,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -801,7 +724,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 18,
@@ -814,7 +736,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'i'
                 }
               ],
@@ -822,7 +743,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -842,7 +762,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 19,
@@ -855,7 +774,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'j'
                 }
               ],
@@ -863,7 +781,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -883,7 +800,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 20,
@@ -896,7 +812,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'k'
                 }
               ],
@@ -904,7 +819,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -924,7 +838,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 21,
@@ -937,7 +850,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'l'
                 }
               ],
@@ -945,7 +857,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -965,7 +876,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 22,
@@ -978,7 +888,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'm'
                 }
               ],
@@ -986,7 +895,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1006,7 +914,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 23,
@@ -1019,7 +926,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'n'
                 }
               ],
@@ -1027,7 +933,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1047,7 +952,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 24,
@@ -1060,7 +964,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'o'
                 }
               ],
@@ -1068,7 +971,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1088,7 +990,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 25,
@@ -1101,7 +1002,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'p'
                 }
               ],
@@ -1109,7 +1009,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1129,7 +1028,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 26,
@@ -1142,7 +1040,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'q'
                 }
               ],
@@ -1150,7 +1047,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1170,7 +1066,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 27,
@@ -1183,7 +1078,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'r'
                 }
               ],
@@ -1191,7 +1085,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1211,7 +1104,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 28,
@@ -1224,7 +1116,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 's'
                 }
               ],
@@ -1232,7 +1123,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1252,7 +1142,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 29,
@@ -1265,7 +1154,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 't'
                 }
               ],
@@ -1273,7 +1161,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1293,7 +1180,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 30,
@@ -1306,7 +1192,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'u'
                 }
               ],
@@ -1314,7 +1199,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1334,7 +1218,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 31,
@@ -1347,7 +1230,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'v'
                 }
               ],
@@ -1355,7 +1237,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1375,7 +1256,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 32,
@@ -1388,7 +1268,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'w'
                 }
               ],
@@ -1396,7 +1275,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1416,7 +1294,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 33,
@@ -1429,7 +1306,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'x'
                 }
               ],
@@ -1437,7 +1313,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1457,7 +1332,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 34,
@@ -1470,7 +1344,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'y'
                 }
               ],
@@ -1478,7 +1351,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1498,7 +1370,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 35,
@@ -1511,7 +1382,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'z'
                 }
               ],
@@ -1519,7 +1389,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1539,7 +1408,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 36,
@@ -1552,7 +1420,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'A'
                 }
               ],
@@ -1560,7 +1427,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1580,7 +1446,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 37,
@@ -1593,7 +1458,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'B'
                 }
               ],
@@ -1601,7 +1465,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1621,7 +1484,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 38,
@@ -1636,12 +1498,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'l',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 39,
@@ -1653,7 +1513,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1673,7 +1532,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 39,
@@ -1688,12 +1546,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'L',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 40,
@@ -1705,7 +1561,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1725,7 +1580,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 40,
@@ -1742,16 +1596,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'dotless',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 41,
@@ -1759,7 +1610,6 @@ $result_trees{'encoding_index_latin1'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
@@ -1767,16 +1617,13 @@ $result_trees{'encoding_index_latin1'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'i'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'dotless',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 41,
@@ -1784,7 +1631,6 @@ $result_trees{'encoding_index_latin1'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' (dotless)'
                 }
               ],
@@ -1792,7 +1638,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1812,7 +1657,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 41,
@@ -1833,16 +1677,13 @@ $result_trees{'encoding_index_latin1'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'i'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => 'encoding_index_latin1.texi',
                             'line_nr' => 42,
@@ -1850,12 +1691,10 @@ $result_trees{'encoding_index_latin1'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => '^',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 42,
@@ -1863,7 +1702,6 @@ $result_trees{'encoding_index_latin1'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
@@ -1875,16 +1713,13 @@ $result_trees{'encoding_index_latin1'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'i'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => 'encoding_index_latin1.texi',
                             'line_nr' => 42,
@@ -1892,12 +1727,10 @@ $result_trees{'encoding_index_latin1'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => '^',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 42,
@@ -1905,7 +1738,6 @@ $result_trees{'encoding_index_latin1'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' (dotless)'
                 }
               ],
@@ -1913,7 +1745,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1933,7 +1764,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 42,
@@ -1948,12 +1778,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'ss',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 43,
@@ -1965,7 +1793,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1985,7 +1812,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 43,
@@ -2000,12 +1826,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'euro',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 44,
@@ -2017,7 +1841,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2037,7 +1860,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 44,
@@ -2052,12 +1874,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'AE',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 45,
@@ -2069,7 +1889,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2089,7 +1908,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 45,
@@ -2104,12 +1922,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'exclamdown',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 46,
@@ -2121,7 +1937,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2141,7 +1956,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 46,
@@ -2156,12 +1970,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'TH',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 47,
@@ -2173,7 +1985,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2193,7 +2004,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 47,
@@ -2208,12 +2018,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'DH',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 48,
@@ -2225,7 +2033,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2245,7 +2052,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 48,
@@ -2260,12 +2066,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'textdegree',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 49,
@@ -2277,7 +2081,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2297,7 +2100,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 49,
@@ -2310,7 +2112,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '0'
                 }
               ],
@@ -2318,7 +2119,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2338,7 +2138,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 50,
@@ -2351,7 +2150,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '9'
                 }
               ],
@@ -2359,7 +2157,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2379,7 +2176,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 51,
@@ -2394,12 +2190,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'quotedblleft',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 52,
@@ -2411,7 +2205,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2431,7 +2224,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 52,
@@ -2446,12 +2238,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'geq',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 53,
@@ -2463,7 +2253,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2483,7 +2272,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 53,
@@ -2498,12 +2286,10 @@ $result_trees{'encoding_index_latin1'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'comma',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'encoding_index_latin1.texi',
                     'line_nr' => 54,
@@ -2515,7 +2301,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2535,7 +2320,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 54,
@@ -2548,7 +2332,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '``'
                 }
               ],
@@ -2556,7 +2339,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2576,7 +2358,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 55,
@@ -2589,7 +2370,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '`'
                 }
               ],
@@ -2597,7 +2377,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2617,7 +2396,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 56,
@@ -2630,7 +2408,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\''
                 }
               ],
@@ -2638,7 +2415,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2658,7 +2434,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 57,
@@ -2671,7 +2446,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\'\''
                 }
               ],
@@ -2679,7 +2453,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2699,7 +2472,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 58,
@@ -2712,7 +2484,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '"'
                 }
               ],
@@ -2720,7 +2491,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2740,7 +2510,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 59,
@@ -2753,15 +2522,13 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 }
               ],
               'extra' => {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2781,7 +2548,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 60,
@@ -2794,7 +2560,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '--'
                 }
               ],
@@ -2802,7 +2567,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2822,7 +2586,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 61,
@@ -2835,7 +2598,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '---'
                 }
               ],
@@ -2843,7 +2605,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2863,7 +2624,6 @@ $result_trees{'encoding_index_latin1'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 62,
@@ -2872,7 +2632,6 @@ $result_trees{'encoding_index_latin1'} = {
           'type' => 'index_entry_command'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -2882,7 +2641,6 @@ $result_trees{'encoding_index_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'cp'
                 }
               ],
@@ -2890,7 +2648,6 @@ $result_trees{'encoding_index_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -2901,7 +2658,6 @@ $result_trees{'encoding_index_latin1'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'encoding_index_latin1.texi',
             'line_nr' => 64,
@@ -2912,7 +2668,6 @@ $result_trees{'encoding_index_latin1'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => 'encoding_index_latin1.texi',
         'line_nr' => 6,
@@ -2922,487 +2677,238 @@ $result_trees{'encoding_index_latin1'} = {
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'};
-$result_trees{'encoding_index_latin1'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[1]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
 $result_trees{'encoding_index_latin1'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'encoding_index_latin1'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'encoding_index_latin1'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'encoding_index_latin1'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[1]{'parent'} = $result_trees{'encoding_index_latin1'};
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[3];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[4];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[3];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[5];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[8]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[9]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[10]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[11]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[12]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[13]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[14]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[15]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[16]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[17]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[18]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[19]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[20]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[21]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[22]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[23]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[24]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[25]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[26]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[27]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[28]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[29]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[30]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[31]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[32]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[33]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[34]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[35]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[36]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[37]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[38]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[39]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[40]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[41]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[42]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[43]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[44]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[45]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[46]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'args'}[0]{'contents'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[47]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[48]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[49]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[50]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[51]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[52]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[53]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[54]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'args'}[0]{'contents'};
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55];
 $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'encoding_index_latin1'}{'contents'}[1];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[55]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[56]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[57]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[57]{'args'}[0];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[57]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[57];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'contents'}[57]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[2];
-$result_trees{'encoding_index_latin1'}{'contents'}[2]{'parent'} = $result_trees{'encoding_index_latin1'};
-$result_trees{'encoding_index_latin1'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'encoding_index_latin1'}{'contents'}[3];
-$result_trees{'encoding_index_latin1'}{'contents'}[3]{'parent'} = $result_trees{'encoding_index_latin1'};
 
 $result_texis{'encoding_index_latin1'} = '
 @setfilename encoding_index_latin1.info

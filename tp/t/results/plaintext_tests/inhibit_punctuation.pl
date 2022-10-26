@@ -12,139 +12,89 @@ $result_trees{'inhibit_punctuation'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'foo vs.'
             },
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             },
             {
-              'parent' => {},
               'text' => ' bar.
 '
             },
             {
-              'parent' => {},
               'text' => 'colon :'
             },
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             },
             {
-              'parent' => {},
               'text' => 'And something else.
 '
             },
             {
-              'parent' => {},
               'text' => 'semi colon ;'
             },
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             },
             {
-              'parent' => {},
               'text' => '.
 '
             },
             {
-              'parent' => {},
               'text' => 'And ? ?'
             },
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             },
             {
-              'parent' => {},
               'text' => '. ?'
             },
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'Now ! !'
             },
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => ' !'
             },
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'but , ,'
             },
             {
-              'cmdname' => ':',
-              'parent' => {}
+              'cmdname' => ':'
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inhibit_punctuation'}{'contents'}[0];
-$result_trees{'inhibit_punctuation'}{'contents'}[0]{'parent'} = $result_trees{'inhibit_punctuation'};
 
 $result_texis{'inhibit_punctuation'} = 'foo vs.@: bar.
 colon :@:And something else.

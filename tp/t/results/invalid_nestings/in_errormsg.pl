@@ -10,7 +10,6 @@ $result_trees{'in_errormsg'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -20,11 +19,9 @@ $result_trees{'in_errormsg'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in ref'
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -35,7 +32,6 @@ $result_trees{'in_errormsg'} = {
             ],
             'normalized' => 'in-ref'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -43,7 +39,6 @@ $result_trees{'in_errormsg'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'spaces_after_close_brace'
@@ -51,7 +46,6 @@ $result_trees{'in_errormsg'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text. '
             },
             {
@@ -63,11 +57,9 @@ $result_trees{'in_errormsg'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in anchor'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -78,7 +70,6 @@ $result_trees{'in_errormsg'} = {
                         ],
                         'normalized' => 'in-anchor'
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -86,7 +77,6 @@ $result_trees{'in_errormsg'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces_after_close_brace'
                     },
@@ -95,11 +85,9 @@ $result_trees{'in_errormsg'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in ref'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -113,7 +101,6 @@ $result_trees{'in_errormsg'} = {
                           'normalized' => 'in-ref'
                         }
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -121,12 +108,10 @@ $result_trees{'in_errormsg'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'errormsg',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -134,16 +119,13 @@ $result_trees{'in_errormsg'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -155,12 +137,10 @@ $result_trees{'in_errormsg'} = {
                 'spaces_before_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'errormsg',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -173,7 +153,6 @@ $result_trees{'in_errormsg'} = {
               'contents' => [
                 {
                   'cmdname' => 'asis',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
@@ -186,7 +165,6 @@ $result_trees{'in_errormsg'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -201,7 +179,6 @@ $result_trees{'in_errormsg'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'item'
                             }
                           ],
@@ -209,7 +186,6 @@ $result_trees{'in_errormsg'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -217,7 +193,6 @@ $result_trees{'in_errormsg'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 7,
@@ -225,11 +200,9 @@ $result_trees{'in_errormsg'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -237,7 +210,6 @@ $result_trees{'in_errormsg'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -245,7 +217,6 @@ $result_trees{'in_errormsg'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -254,7 +225,6 @@ $result_trees{'in_errormsg'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -266,7 +236,6 @@ $result_trees{'in_errormsg'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -274,49 +243,16 @@ $result_trees{'in_errormsg'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1];
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'label'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[1];
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[5];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6];
 $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'in_errormsg'}{'contents'}[0];
-$result_trees{'in_errormsg'}{'contents'}[0]{'parent'} = $result_trees{'in_errormsg'};
 
 $result_texis{'in_errormsg'} = '
 @anchor{in ref}

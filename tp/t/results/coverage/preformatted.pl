@@ -10,7 +10,6 @@ $result_trees{'preformatted'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -22,7 +21,6 @@ $result_trees{'preformatted'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -31,23 +29,19 @@ $result_trees{'preformatted'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'e--xample  some  
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
                 },
                 {
-                  'parent' => {},
                   'text' => '   text
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -55,7 +49,6 @@ $result_trees{'preformatted'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -63,7 +56,6 @@ $result_trees{'preformatted'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -72,7 +64,6 @@ $result_trees{'preformatted'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -80,7 +71,6 @@ $result_trees{'preformatted'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -88,7 +78,6 @@ $result_trees{'preformatted'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -100,7 +89,6 @@ $result_trees{'preformatted'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -112,7 +100,6 @@ $result_trees{'preformatted'} = {
                   'contents' => [
                     {
                       'cmdname' => 'code',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 9,
@@ -125,7 +112,6 @@ $result_trees{'preformatted'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -140,7 +126,6 @@ $result_trees{'preformatted'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'item in table in format'
                                 }
                               ],
@@ -148,7 +133,6 @@ $result_trees{'preformatted'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -167,7 +151,6 @@ $result_trees{'preformatted'} = {
                             },
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 10,
@@ -175,7 +158,6 @@ $result_trees{'preformatted'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_term'
                     },
                     {
@@ -183,26 +165,21 @@ $result_trees{'preformatted'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '
 ',
                               'type' => 'empty_line'
                             },
                             {
-                              'parent' => {},
                               'text' => 'in table in format
 '
                             }
                           ],
-                          'parent' => {},
                           'type' => 'preformatted'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_item'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_entry'
                 },
                 {
@@ -210,7 +187,6 @@ $result_trees{'preformatted'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'vtable'
                         }
                       ],
@@ -218,7 +194,6 @@ $result_trees{'preformatted'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -227,7 +202,6 @@ $result_trees{'preformatted'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'vtable'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 13,
@@ -239,7 +213,6 @@ $result_trees{'preformatted'} = {
                 'command_as_argument' => {},
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -251,7 +224,6 @@ $result_trees{'preformatted'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'format'
                     }
                   ],
@@ -259,7 +231,6 @@ $result_trees{'preformatted'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -268,7 +239,6 @@ $result_trees{'preformatted'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
@@ -276,7 +246,6 @@ $result_trees{'preformatted'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
@@ -284,48 +253,15 @@ $result_trees{'preformatted'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[1];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[1];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[1];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'preformatted'}{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'preformatted'}{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[1];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
 $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'preformatted'}{'contents'}[0]{'contents'}[3];
-$result_trees{'preformatted'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'preformatted'}{'contents'}[0];
-$result_trees{'preformatted'}{'contents'}[0]{'parent'} = $result_trees{'preformatted'};
 
 $result_texis{'preformatted'} = '
 @example

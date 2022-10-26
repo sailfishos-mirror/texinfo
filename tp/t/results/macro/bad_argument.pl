@@ -13,7 +13,6 @@ $result_trees{'bad_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in macro
 ',
               'type' => 'raw'
@@ -23,7 +22,6 @@ $result_trees{'bad_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -31,7 +29,6 @@ $result_trees{'bad_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -40,7 +37,6 @@ $result_trees{'bad_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -53,7 +49,6 @@ $result_trees{'bad_argument'} = {
 ',
             'invalid_syntax' => 1
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -61,7 +56,6 @@ $result_trees{'bad_argument'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -69,7 +63,6 @@ $result_trees{'bad_argument'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'abar',
               'type' => 'macro_name'
             }
@@ -77,7 +70,6 @@ $result_trees{'bad_argument'} = {
           'cmdname' => 'rmacro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in
 ',
               'type' => 'raw'
@@ -87,7 +79,6 @@ $result_trees{'bad_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'rmacro'
                     }
                   ],
@@ -95,7 +86,6 @@ $result_trees{'bad_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -104,7 +94,6 @@ $result_trees{'bad_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'rmacro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -117,7 +106,6 @@ $result_trees{'bad_argument'} = {
 ',
             'invalid_syntax' => 1
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -125,7 +113,6 @@ $result_trees{'bad_argument'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -133,12 +120,10 @@ $result_trees{'bad_argument'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'aftername',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'ggg',
               'type' => 'macro_arg'
             }
@@ -146,7 +131,6 @@ $result_trees{'bad_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in macro
 ',
               'type' => 'raw'
@@ -156,7 +140,6 @@ $result_trees{'bad_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -164,7 +147,6 @@ $result_trees{'bad_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -173,7 +155,6 @@ $result_trees{'bad_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -186,7 +167,6 @@ $result_trees{'bad_argument'} = {
 ',
             'invalid_syntax' => 1
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -194,7 +174,6 @@ $result_trees{'bad_argument'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -203,7 +182,6 @@ $result_trees{'bad_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in #
 ',
               'type' => 'raw'
@@ -213,7 +191,6 @@ $result_trees{'bad_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -221,7 +198,6 @@ $result_trees{'bad_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -230,7 +206,6 @@ $result_trees{'bad_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
@@ -243,7 +218,6 @@ $result_trees{'bad_argument'} = {
 ',
             'invalid_syntax' => 1
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
@@ -251,39 +225,11 @@ $result_trees{'bad_argument'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6];
-$result_trees{'bad_argument'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'bad_argument'}{'contents'}[0];
-$result_trees{'bad_argument'}{'contents'}[0]{'parent'} = $result_trees{'bad_argument'};
 
 $result_texis{'bad_argument'} = '@macro
 in macro

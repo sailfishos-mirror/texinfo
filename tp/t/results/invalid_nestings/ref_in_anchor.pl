@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'ref_in_anchor'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'ref_in_anchor'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -24,7 +22,6 @@ $result_trees{'ref_in_anchor'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -35,7 +32,6 @@ $result_trees{'ref_in_anchor'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'TOP '
                 },
                 {
@@ -43,11 +39,9 @@ $result_trees{'ref_in_anchor'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Top'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -61,7 +55,6 @@ $result_trees{'ref_in_anchor'} = {
                       'normalized' => 'Top'
                     }
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -69,7 +62,6 @@ $result_trees{'ref_in_anchor'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
@@ -81,7 +73,6 @@ $result_trees{'ref_in_anchor'} = {
             ],
             'normalized' => 'TOP-Top'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -89,7 +80,6 @@ $result_trees{'ref_in_anchor'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '',
           'type' => 'spaces_after_close_brace'
         }
@@ -109,7 +99,6 @@ $result_trees{'ref_in_anchor'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -119,23 +108,12 @@ $result_trees{'ref_in_anchor'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_in_anchor'}{'contents'}[0]{'parent'} = $result_trees{'ref_in_anchor'};
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1]{'args'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1];
 $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'label'} = $result_trees{'ref_in_anchor'}{'contents'}[1];
 $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0];
 $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'extra'}{'node_content'}[1] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'ref_in_anchor'}{'contents'}[1];
 $result_trees{'ref_in_anchor'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_anchor'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_in_anchor'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_anchor'}{'contents'}[1]{'parent'} = $result_trees{'ref_in_anchor'};
 
 $result_texis{'ref_in_anchor'} = '@node Top
 @anchor{TOP @ref{Top}}';

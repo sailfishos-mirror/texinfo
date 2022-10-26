@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'ignored_text'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,11 +15,9 @@ $result_trees{'ignored_text'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'before ignore '
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -28,7 +25,6 @@ $result_trees{'ignored_text'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -38,10 +34,6 @@ $result_trees{'ignored_text'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ignored_text'}{'contents'}[0]{'parent'} = $result_trees{'ignored_text'};
-$result_trees{'ignored_text'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_text'}{'contents'}[1]{'args'}[0];
-$result_trees{'ignored_text'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ignored_text'}{'contents'}[1];
-$result_trees{'ignored_text'}{'contents'}[1]{'parent'} = $result_trees{'ignored_text'};
 
 $result_texis{'ignored_text'} = '@node before ignore ';
 

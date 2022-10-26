@@ -14,7 +14,6 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Note'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -31,12 +29,10 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'A Note
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -44,7 +40,6 @@ $result_trees{'standard_quotations'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -52,7 +47,6 @@ $result_trees{'standard_quotations'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -61,7 +55,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -72,7 +65,6 @@ $result_trees{'standard_quotations'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -80,7 +72,6 @@ $result_trees{'standard_quotations'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -90,7 +81,6 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'note'
                 }
               ],
@@ -98,7 +88,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -107,12 +96,10 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'A note
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -120,7 +107,6 @@ $result_trees{'standard_quotations'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -128,7 +114,6 @@ $result_trees{'standard_quotations'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -137,7 +122,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -148,7 +132,6 @@ $result_trees{'standard_quotations'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -156,7 +139,6 @@ $result_trees{'standard_quotations'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -166,7 +148,6 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Caution'
                 }
               ],
@@ -174,7 +155,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -183,12 +163,10 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Caution
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -196,7 +174,6 @@ $result_trees{'standard_quotations'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -204,7 +181,6 @@ $result_trees{'standard_quotations'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -213,7 +189,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -224,7 +199,6 @@ $result_trees{'standard_quotations'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -232,7 +206,6 @@ $result_trees{'standard_quotations'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -242,7 +215,6 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Important'
                 }
               ],
@@ -250,7 +222,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -259,12 +230,10 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Important
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -272,7 +241,6 @@ $result_trees{'standard_quotations'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -280,7 +248,6 @@ $result_trees{'standard_quotations'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -289,7 +256,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
@@ -300,7 +266,6 @@ $result_trees{'standard_quotations'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
@@ -308,7 +273,6 @@ $result_trees{'standard_quotations'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -318,7 +282,6 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Tip'
                 }
               ],
@@ -326,7 +289,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -335,12 +297,10 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'a Tip
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -348,7 +308,6 @@ $result_trees{'standard_quotations'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -356,7 +315,6 @@ $result_trees{'standard_quotations'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -365,7 +323,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
@@ -376,7 +333,6 @@ $result_trees{'standard_quotations'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 17,
@@ -384,7 +340,6 @@ $result_trees{'standard_quotations'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -394,7 +349,6 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Warning'
                 }
               ],
@@ -402,7 +356,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -411,12 +364,10 @@ $result_trees{'standard_quotations'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'a Warning.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -424,7 +375,6 @@ $result_trees{'standard_quotations'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -432,7 +382,6 @@ $result_trees{'standard_quotations'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -441,7 +390,6 @@ $result_trees{'standard_quotations'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 23,
@@ -452,7 +400,6 @@ $result_trees{'standard_quotations'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 21,
@@ -460,66 +407,11 @@ $result_trees{'standard_quotations'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10];
-$result_trees{'standard_quotations'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'standard_quotations'}{'contents'}[0];
-$result_trees{'standard_quotations'}{'contents'}[0]{'parent'} = $result_trees{'standard_quotations'};
 
 $result_texis{'standard_quotations'} = '@quotation Note
 A Note

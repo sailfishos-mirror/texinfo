@@ -12,17 +12,14 @@ $result_trees{'implicit_quoting_recursion'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'cat',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'a',
               'type' => 'macro_arg'
             },
             {
-              'parent' => {},
               'text' => 'b',
               'type' => 'macro_arg'
             }
@@ -30,7 +27,6 @@ $result_trees{'implicit_quoting_recursion'} = {
           'cmdname' => 'rmacro',
           'contents' => [
             {
-              'parent' => {},
               'text' => '\\a\\\\b\\
 ',
               'type' => 'raw'
@@ -40,7 +36,6 @@ $result_trees{'implicit_quoting_recursion'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'rmacro'
                     }
                   ],
@@ -48,7 +43,6 @@ $result_trees{'implicit_quoting_recursion'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'implicit_quoting_recursion'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'rmacro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -69,7 +62,6 @@ $result_trees{'implicit_quoting_recursion'} = {
             'arg_line' => ' cat{a,b}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -77,7 +69,6 @@ $result_trees{'implicit_quoting_recursion'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -85,33 +76,18 @@ $result_trees{'implicit_quoting_recursion'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'natopocotuototam
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[2];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'implicit_quoting_recursion'}{'contents'}[0];
-$result_trees{'implicit_quoting_recursion'}{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_recursion'};
 
 $result_texis{'implicit_quoting_recursion'} = '@rmacro cat{a,b}
 \\a\\\\b\\

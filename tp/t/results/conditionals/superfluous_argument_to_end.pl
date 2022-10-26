@@ -12,24 +12,18 @@ $result_trees{'superfluous_argument_to_end'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'not html
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'superfluous_argument_to_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'superfluous_argument_to_end'}{'contents'}[0]{'contents'}[0];
-$result_trees{'superfluous_argument_to_end'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'superfluous_argument_to_end'}{'contents'}[0];
-$result_trees{'superfluous_argument_to_end'}{'contents'}[0]{'parent'} = $result_trees{'superfluous_argument_to_end'};
 
 $result_texis{'superfluous_argument_to_end'} = 'not html
 ';

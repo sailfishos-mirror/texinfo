@@ -18,7 +18,6 @@ $result_trees{'not_fraction'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'aaa'
                         }
                       ],
@@ -26,7 +25,6 @@ $result_trees{'not_fraction'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -34,7 +32,6 @@ $result_trees{'not_fraction'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -42,7 +39,6 @@ $result_trees{'not_fraction'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -53,11 +49,9 @@ $result_trees{'not_fraction'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -66,7 +60,6 @@ $result_trees{'not_fraction'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -78,7 +71,6 @@ $result_trees{'not_fraction'} = {
             'max_columns' => 0,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -86,21 +78,11 @@ $result_trees{'not_fraction'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_fraction'}{'contents'}[0];
-$result_trees{'not_fraction'}{'contents'}[0]{'parent'} = $result_trees{'not_fraction'};
 
 $result_texis{'not_fraction'} = '@multitable @columnfractions aaa
 @end multitable';

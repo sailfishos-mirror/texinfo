@@ -12,7 +12,6 @@ $result_trees{'transparent_text'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'AA'
             },
             {
@@ -22,20 +21,16 @@ $result_trees{'transparent_text'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'in footnote'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'footnote',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -43,7 +38,6 @@ $result_trees{'transparent_text'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '). B ('
             },
             {
@@ -51,16 +45,13 @@ $result_trees{'transparent_text'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'C'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'emph',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -68,33 +59,18 @@ $result_trees{'transparent_text'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '). D.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'parent'} = $result_trees{'transparent_text'};
 
 $result_texis{'transparent_text'} = 'AA@footnote{in footnote}). B (@emph{C}). D.
 ';

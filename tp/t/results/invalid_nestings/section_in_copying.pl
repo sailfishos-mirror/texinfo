@@ -16,14 +16,12 @@ $result_trees{'section_in_copying'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'copying',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -31,22 +29,18 @@ $result_trees{'section_in_copying'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in copying
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -54,7 +48,6 @@ $result_trees{'section_in_copying'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -62,7 +55,6 @@ $result_trees{'section_in_copying'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'section'
             }
           ],
@@ -70,7 +62,6 @@ $result_trees{'section_in_copying'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -78,7 +69,6 @@ $result_trees{'section_in_copying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -88,16 +78,6 @@ $result_trees{'section_in_copying'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0];
-$result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0];
-$result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0];
-$result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0];
-$result_trees{'section_in_copying'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_copying'}{'contents'}[0];
-$result_trees{'section_in_copying'}{'contents'}[0]{'parent'} = $result_trees{'section_in_copying'};
-$result_trees{'section_in_copying'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_copying'}{'contents'}[1]{'args'}[0];
-$result_trees{'section_in_copying'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_in_copying'}{'contents'}[1];
-$result_trees{'section_in_copying'}{'contents'}[1]{'parent'} = $result_trees{'section_in_copying'};
 
 $result_texis{'section_in_copying'} = '@copying
 

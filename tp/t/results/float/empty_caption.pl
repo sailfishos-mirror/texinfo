@@ -11,7 +11,6 @@ $result_trees{'empty_caption'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
@@ -19,17 +18,14 @@ $result_trees{'empty_caption'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'a'
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'b'
                 }
               ],
@@ -38,7 +34,6 @@ $result_trees{'empty_caption'} = {
 ',
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -47,18 +42,15 @@ $result_trees{'empty_caption'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'In float A, B
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -66,7 +58,6 @@ $result_trees{'empty_caption'} = {
               'extra' => {
                 'float' => {}
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -74,7 +65,6 @@ $result_trees{'empty_caption'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'spaces_after_close_brace'
@@ -84,7 +74,6 @@ $result_trees{'empty_caption'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
@@ -92,7 +81,6 @@ $result_trees{'empty_caption'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -101,7 +89,6 @@ $result_trees{'empty_caption'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -123,7 +110,6 @@ $result_trees{'empty_caption'} = {
               'normalized' => 'a'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -131,7 +117,6 @@ $result_trees{'empty_caption'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -139,13 +124,11 @@ $result_trees{'empty_caption'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'c'
                 }
               ],
@@ -154,7 +137,6 @@ $result_trees{'empty_caption'} = {
 ',
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -163,18 +145,15 @@ $result_trees{'empty_caption'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'In float , C
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -182,7 +161,6 @@ $result_trees{'empty_caption'} = {
               'extra' => {
                 'float' => {}
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -190,7 +168,6 @@ $result_trees{'empty_caption'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'spaces_after_close_brace'
@@ -200,7 +177,6 @@ $result_trees{'empty_caption'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
@@ -208,7 +184,6 @@ $result_trees{'empty_caption'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -217,7 +192,6 @@ $result_trees{'empty_caption'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -236,7 +210,6 @@ $result_trees{'empty_caption'} = {
               'normalized' => ''
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -244,7 +217,6 @@ $result_trees{'empty_caption'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -256,7 +228,6 @@ $result_trees{'empty_caption'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -265,18 +236,15 @@ $result_trees{'empty_caption'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'In float
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -284,7 +252,6 @@ $result_trees{'empty_caption'} = {
               'extra' => {
                 'float' => {}
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
@@ -292,7 +259,6 @@ $result_trees{'empty_caption'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'spaces_after_close_brace'
@@ -300,7 +266,6 @@ $result_trees{'empty_caption'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
@@ -308,7 +273,6 @@ $result_trees{'empty_caption'} = {
               'extra' => {
                 'float' => {}
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
@@ -316,7 +280,6 @@ $result_trees{'empty_caption'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'spaces_after_close_brace'
@@ -326,7 +289,6 @@ $result_trees{'empty_caption'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
@@ -334,7 +296,6 @@ $result_trees{'empty_caption'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -343,7 +304,6 @@ $result_trees{'empty_caption'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
@@ -358,7 +318,6 @@ $result_trees{'empty_caption'} = {
               'normalized' => ''
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
@@ -366,65 +325,22 @@ $result_trees{'empty_caption'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'args'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'extra'}{'shortcaption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'extra'}{'float'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'args'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[5]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'caption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
 $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'extra'}{'shortcaption'} = $result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'empty_caption'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'empty_caption'}{'contents'}[0];
-$result_trees{'empty_caption'}{'contents'}[0]{'parent'} = $result_trees{'empty_caption'};
 
 $result_texis{'empty_caption'} = '@float a, b
 In float A, B

@@ -16,15 +16,12 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'info'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'elided'
                 },
                 {
@@ -34,16 +31,13 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'text'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'emph',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -54,7 +48,6 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -63,7 +56,6 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                 'expand_index' => 2,
                 'format' => 'info'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -71,32 +63,18 @@ $result_trees{'inlinefmtifelse_nesting'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse_nesting'}{'contents'}[0];
-$result_trees{'inlinefmtifelse_nesting'}{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse_nesting'};
 
 $result_texis{'inlinefmtifelse_nesting'} = '@inlinefmtifelse{info,, @emph{text}}
 ';

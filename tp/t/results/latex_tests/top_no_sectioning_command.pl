@@ -11,11 +11,9 @@ $result_trees{'top_no_sectioning_command'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -23,7 +21,6 @@ $result_trees{'top_no_sectioning_command'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -31,14 +28,12 @@ $result_trees{'top_no_sectioning_command'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -59,7 +54,6 @@ $result_trees{'top_no_sectioning_command'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -71,7 +65,6 @@ $result_trees{'top_no_sectioning_command'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Chapter'
             }
           ],
@@ -79,7 +72,6 @@ $result_trees{'top_no_sectioning_command'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -99,7 +91,6 @@ $result_trees{'top_no_sectioning_command'} = {
         'normalized' => 'Chapter',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -111,7 +102,6 @@ $result_trees{'top_no_sectioning_command'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Chap'
             }
           ],
@@ -119,14 +109,12 @@ $result_trees{'top_no_sectioning_command'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -138,11 +126,9 @@ $result_trees{'top_no_sectioning_command'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Top'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -156,7 +142,6 @@ $result_trees{'top_no_sectioning_command'} = {
                   'normalized' => 'Top'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -164,19 +149,16 @@ $result_trees{'top_no_sectioning_command'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -186,30 +168,12 @@ $result_trees{'top_no_sectioning_command'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'top_no_sectioning_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[0];
-$result_trees{'top_no_sectioning_command'}{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'};
-$result_trees{'top_no_sectioning_command'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[1]{'args'}[0];
-$result_trees{'top_no_sectioning_command'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[1];
-$result_trees{'top_no_sectioning_command'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[1];
 $result_trees{'top_no_sectioning_command'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'top_no_sectioning_command'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'top_no_sectioning_command'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_no_sectioning_command'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'top_no_sectioning_command'}{'contents'}[1]{'parent'} = $result_trees{'top_no_sectioning_command'};
-$result_trees{'top_no_sectioning_command'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[2]{'args'}[0];
-$result_trees{'top_no_sectioning_command'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[2];
 $result_trees{'top_no_sectioning_command'}{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'top_no_sectioning_command'}{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'top_no_sectioning_command'}{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'top_no_sectioning_command'}{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'top_no_sectioning_command'}{'contents'}[2]{'parent'} = $result_trees{'top_no_sectioning_command'};
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'args'}[0];
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[3];
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[3];
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0];
 $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'top_no_sectioning_command'}{'contents'}[1];
 $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1];
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1];
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'top_no_sectioning_command'}{'contents'}[3];
-$result_trees{'top_no_sectioning_command'}{'contents'}[3]{'parent'} = $result_trees{'top_no_sectioning_command'};
 
 $result_texis{'top_no_sectioning_command'} = '@node Top
 

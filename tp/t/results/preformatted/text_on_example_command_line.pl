@@ -14,7 +14,6 @@ $result_trees{'text_on_example_command_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'text on line'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'text_on_example_command_line'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -33,7 +31,6 @@ $result_trees{'text_on_example_command_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -41,7 +38,6 @@ $result_trees{'text_on_example_command_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -50,7 +46,6 @@ $result_trees{'text_on_example_command_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -61,7 +56,6 @@ $result_trees{'text_on_example_command_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -69,7 +63,6 @@ $result_trees{'text_on_example_command_line'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -79,7 +72,6 @@ $result_trees{'text_on_example_command_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'text on line followed by text'
                 }
               ],
@@ -87,7 +79,6 @@ $result_trees{'text_on_example_command_line'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -96,12 +87,10 @@ $result_trees{'text_on_example_command_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'normal text
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -109,7 +98,6 @@ $result_trees{'text_on_example_command_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -117,7 +105,6 @@ $result_trees{'text_on_example_command_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -126,7 +113,6 @@ $result_trees{'text_on_example_command_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -137,7 +123,6 @@ $result_trees{'text_on_example_command_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
@@ -145,7 +130,6 @@ $result_trees{'text_on_example_command_line'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -157,7 +141,6 @@ $result_trees{'text_on_example_command_line'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -166,12 +149,10 @@ $result_trees{'text_on_example_command_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in example
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -179,7 +160,6 @@ $result_trees{'text_on_example_command_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example text after end'
                     }
                   ],
@@ -187,7 +167,6 @@ $result_trees{'text_on_example_command_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -196,7 +175,6 @@ $result_trees{'text_on_example_command_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example text after end'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -204,7 +182,6 @@ $result_trees{'text_on_example_command_line'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 8,
@@ -212,7 +189,6 @@ $result_trees{'text_on_example_command_line'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -224,7 +200,6 @@ $result_trees{'text_on_example_command_line'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -237,7 +212,6 @@ $result_trees{'text_on_example_command_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -248,7 +222,6 @@ $result_trees{'text_on_example_command_line'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'example text after end example nested in example'
                         }
                       ],
@@ -256,7 +229,6 @@ $result_trees{'text_on_example_command_line'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -265,7 +237,6 @@ $result_trees{'text_on_example_command_line'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example text after end example nested in example'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
@@ -273,7 +244,6 @@ $result_trees{'text_on_example_command_line'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
@@ -285,7 +255,6 @@ $result_trees{'text_on_example_command_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -293,7 +262,6 @@ $result_trees{'text_on_example_command_line'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -302,7 +270,6 @@ $result_trees{'text_on_example_command_line'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
@@ -310,7 +277,6 @@ $result_trees{'text_on_example_command_line'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 12,
@@ -318,47 +284,11 @@ $result_trees{'text_on_example_command_line'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'text_on_example_command_line'}{'contents'}[0];
-$result_trees{'text_on_example_command_line'}{'contents'}[0]{'parent'} = $result_trees{'text_on_example_command_line'};
 
 $result_texis{'text_on_example_command_line'} = '@example text on line
 @end example

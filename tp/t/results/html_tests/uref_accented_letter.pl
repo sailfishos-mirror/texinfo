@@ -16,7 +16,6 @@ $result_trees{'uref_accented_letter'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'http://example.com/acc_'
                     },
                     {
@@ -24,16 +23,13 @@ $result_trees{'uref_accented_letter'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'a'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '"',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -45,16 +41,13 @@ $result_trees{'uref_accented_letter'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'a'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ogonek',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -62,12 +55,10 @@ $result_trees{'uref_accented_letter'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'uref',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -75,33 +66,18 @@ $result_trees{'uref_accented_letter'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter'}{'contents'}[0];
-$result_trees{'uref_accented_letter'}{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter'};
 
 $result_texis{'uref_accented_letter'} = '@uref{http://example.com/acc_@"a@ogonek{a}}
 ';

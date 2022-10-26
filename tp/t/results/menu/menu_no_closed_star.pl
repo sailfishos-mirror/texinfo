@@ -16,7 +16,6 @@ $result_trees{'menu_no_closed_star'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -27,19 +26,15 @@ $result_trees{'menu_no_closed_star'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '* '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'preformatted'
                 }
               ],
-              'parent' => {},
               'type' => 'menu_comment'
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -47,18 +42,11 @@ $result_trees{'menu_no_closed_star'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_star'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_star'}{'contents'}[0];
-$result_trees{'menu_no_closed_star'}{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_star'};
 
 $result_texis{'menu_no_closed_star'} = '@menu
 * ';

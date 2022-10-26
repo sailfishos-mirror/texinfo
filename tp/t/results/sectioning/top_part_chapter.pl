@@ -9,116 +9,40 @@ $result_trees{'top_part_chapter'} = [
   {
     'contents' => [
       {
-        'parent' => {
-          'contents' => [
-            {},
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'top'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'top',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 1,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'part'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'part',
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 3,
-                'macro' => ''
-              }
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'chapter'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => ' 
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'chapter',
-              'extra' => {
-                'associated_part' => {},
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
-              }
-            }
-          ],
-          'type' => 'document_root'
-        },
         'type' => 'before_node_section'
       },
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'top'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'top',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 1,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -127,8 +51,64 @@ $result_trees{'top_part_chapter'} = [
   },
   {
     'contents' => [
-      {},
-      {}
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'part'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => '
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'part',
+        'contents' => [
+          {
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 3,
+          'macro' => ''
+        }
+      },
+      {
+        'args' => [
+          {
+            'contents' => [
+              {
+                'text' => 'chapter'
+              }
+            ],
+            'extra' => {
+              'spaces_after_argument' => ' 
+'
+            },
+            'type' => 'line_arg'
+          }
+        ],
+        'cmdname' => 'chapter',
+        'extra' => {
+          'associated_part' => {},
+          'spaces_before_argument' => ' '
+        },
+        'source_info' => {
+          'file_name' => '',
+          'line_nr' => 5,
+          'macro' => ''
+        }
+      }
     ],
     'extra' => {
       'unit_command' => {}
@@ -136,24 +116,9 @@ $result_trees{'top_part_chapter'} = [
     'type' => 'unit'
   }
 ];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'top_part_chapter'}[0]{'contents'}[0];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'};
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'};
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'extra'}{'associated_part'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[3]{'parent'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'};
-$result_trees{'top_part_chapter'}[0]{'contents'}[1] = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'top_part_chapter'}[0]{'extra'}{'unit_command'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
-$result_trees{'top_part_chapter'}[1]{'contents'}[0] = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
-$result_trees{'top_part_chapter'}[1]{'contents'}[1] = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
-$result_trees{'top_part_chapter'}[1]{'extra'}{'unit_command'} = $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'}{'contents'}[3];
+$result_trees{'top_part_chapter'}[0]{'extra'}{'unit_command'} = $result_trees{'top_part_chapter'}[0]{'contents'}[1];
+$result_trees{'top_part_chapter'}[1]{'contents'}[1]{'extra'}{'associated_part'} = $result_trees{'top_part_chapter'}[1]{'contents'}[0];
+$result_trees{'top_part_chapter'}[1]{'extra'}{'unit_command'} = $result_trees{'top_part_chapter'}[1]{'contents'}[1];
 
 $result_texis{'top_part_chapter'} = '@top top
 

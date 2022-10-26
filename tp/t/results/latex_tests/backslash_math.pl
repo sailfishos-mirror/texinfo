@@ -11,7 +11,6 @@ $result_trees{'backslash_math'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
@@ -21,26 +20,21 @@ $result_trees{'backslash_math'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a '
                     },
                     {
-                      'cmdname' => '\\',
-                      'parent' => {}
+                      'cmdname' => '\\'
                     },
                     {
-                      'parent' => {},
                       'text' => ' b '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'backslashchar',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -48,16 +42,13 @@ $result_trees{'backslash_math'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' c'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'math',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -65,33 +56,18 @@ $result_trees{'backslash_math'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[3];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1];
-$result_trees{'backslash_math'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'backslash_math'}{'contents'}[0];
-$result_trees{'backslash_math'}{'contents'}[0]{'parent'} = $result_trees{'backslash_math'};
 
 $result_texis{'backslash_math'} = '@math{a @\\ b @backslashchar{} c}.
 ';

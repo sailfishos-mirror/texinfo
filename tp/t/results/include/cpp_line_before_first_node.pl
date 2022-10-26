@@ -12,46 +12,38 @@ $result_trees{'cpp_line_before_first_node'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '\\input texinfo
 ',
               'type' => 'text_before_beginning'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'text_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -59,53 +51,33 @@ $result_trees{'cpp_line_before_first_node'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'aaa
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[0];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[1];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[2];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[4];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[0];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[0]{'parent'} = $result_trees{'cpp_line_before_first_node'};
-$result_trees{'cpp_line_before_first_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'cpp_line_before_first_node'}{'contents'}[1];
-$result_trees{'cpp_line_before_first_node'}{'contents'}[1]{'parent'} = $result_trees{'cpp_line_before_first_node'};
 
 $result_texis{'cpp_line_before_first_node'} = '\\input texinfo
 

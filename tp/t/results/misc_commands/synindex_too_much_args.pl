@@ -14,7 +14,6 @@ $result_trees{'synindex_too_much_args'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'cp fn    truc'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'synindex_too_much_args'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -30,7 +28,6 @@ $result_trees{'synindex_too_much_args'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -38,16 +35,11 @@ $result_trees{'synindex_too_much_args'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'synindex_too_much_args'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'synindex_too_much_args'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'synindex_too_much_args'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'synindex_too_much_args'}{'contents'}[0]{'contents'}[0];
-$result_trees{'synindex_too_much_args'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'synindex_too_much_args'}{'contents'}[0];
-$result_trees{'synindex_too_much_args'}{'contents'}[0]{'parent'} = $result_trees{'synindex_too_much_args'};
 
 $result_texis{'synindex_too_much_args'} = '@syncodeindex cp fn    truc
 ';

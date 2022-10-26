@@ -18,7 +18,6 @@ $result_trees{'titlepage_no_author'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -29,7 +28,6 @@ $result_trees{'titlepage_no_author'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Some manual tested'
                         }
                       ],
@@ -37,7 +35,6 @@ $result_trees{'titlepage_no_author'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -45,7 +42,6 @@ $result_trees{'titlepage_no_author'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -57,7 +53,6 @@ $result_trees{'titlepage_no_author'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'titlepage'
                         }
                       ],
@@ -65,7 +60,6 @@ $result_trees{'titlepage_no_author'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -74,7 +68,6 @@ $result_trees{'titlepage_no_author'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
@@ -82,7 +75,6 @@ $result_trees{'titlepage_no_author'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -90,17 +82,14 @@ $result_trees{'titlepage_no_author'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -108,7 +97,6 @@ $result_trees{'titlepage_no_author'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -116,7 +104,6 @@ $result_trees{'titlepage_no_author'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -136,7 +123,6 @@ $result_trees{'titlepage_no_author'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -148,7 +134,6 @@ $result_trees{'titlepage_no_author'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'section top'
             }
           ],
@@ -156,14 +141,12 @@ $result_trees{'titlepage_no_author'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -172,7 +155,6 @@ $result_trees{'titlepage_no_author'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 6,
@@ -184,7 +166,6 @@ $result_trees{'titlepage_no_author'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter'
             }
           ],
@@ -192,7 +173,6 @@ $result_trees{'titlepage_no_author'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -212,7 +192,6 @@ $result_trees{'titlepage_no_author'} = {
         'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 8,
@@ -224,7 +203,6 @@ $result_trees{'titlepage_no_author'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Chapter'
             }
           ],
@@ -232,14 +210,12 @@ $result_trees{'titlepage_no_author'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -247,19 +223,16 @@ $result_trees{'titlepage_no_author'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In chapter
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 9,
@@ -269,37 +242,10 @@ $result_trees{'titlepage_no_author'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'};
-$result_trees{'titlepage_no_author'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[1]{'args'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[1];
 $result_trees{'titlepage_no_author'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'titlepage_no_author'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'titlepage_no_author'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'titlepage_no_author'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[1]{'parent'} = $result_trees{'titlepage_no_author'};
-$result_trees{'titlepage_no_author'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[2]{'args'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[2];
-$result_trees{'titlepage_no_author'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[2];
-$result_trees{'titlepage_no_author'}{'contents'}[2]{'parent'} = $result_trees{'titlepage_no_author'};
-$result_trees{'titlepage_no_author'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[3]{'args'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[3];
 $result_trees{'titlepage_no_author'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'titlepage_no_author'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'titlepage_no_author'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'titlepage_no_author'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[3]{'parent'} = $result_trees{'titlepage_no_author'};
-$result_trees{'titlepage_no_author'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[4]{'args'}[0];
-$result_trees{'titlepage_no_author'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[4];
-$result_trees{'titlepage_no_author'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[4];
-$result_trees{'titlepage_no_author'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[4]{'contents'}[1];
-$result_trees{'titlepage_no_author'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'titlepage_no_author'}{'contents'}[4];
-$result_trees{'titlepage_no_author'}{'contents'}[4]{'parent'} = $result_trees{'titlepage_no_author'};
 
 $result_texis{'titlepage_no_author'} = '@titlepage
 @title Some manual tested

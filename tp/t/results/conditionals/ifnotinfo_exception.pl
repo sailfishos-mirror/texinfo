@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'ifnotinfo_exception'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ifnotinfo_exception'}{'contents'}[0]{'parent'} = $result_trees{'ifnotinfo_exception'};
 
 $result_texis{'ifnotinfo_exception'} = '';
 

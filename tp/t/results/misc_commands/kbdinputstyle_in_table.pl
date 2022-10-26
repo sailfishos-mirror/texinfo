@@ -12,7 +12,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'codekbdmacro',
               'type' => 'macro_name'
             }
@@ -20,103 +19,86 @@ $result_trees{'kbdinputstyle_in_table'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@table @kbd
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@item i--tem out of example
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@end table
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@table @kbd{}
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@item braced i--tem out of example
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@end table
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => 'in example
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@example
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@table @kbd
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@item i--tem in example
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@end table
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@table @kbd{}
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@item braced i--tem in example
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@end table
 ',
               'type' => 'raw'
             },
             {
-              'parent' => {},
               'text' => '@end example
 ',
               'type' => 'raw'
@@ -126,7 +108,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -134,7 +115,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -143,7 +123,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
@@ -155,7 +134,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             'arg_line' => ' codekbdmacro
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -163,7 +141,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -171,20 +148,16 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'contents' => [
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'kbdinputstyle code
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -194,7 +167,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'code'
                 }
               ],
@@ -202,7 +174,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -213,7 +184,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 23,
@@ -221,7 +191,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -235,7 +204,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'extra' => {
                     'code' => 1
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 25,
@@ -248,7 +216,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -263,7 +230,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'i--tem out of example'
                             }
                           ],
@@ -271,7 +237,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -279,7 +244,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 25,
@@ -287,11 +251,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -299,7 +261,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -307,7 +268,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -316,7 +276,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
@@ -329,7 +288,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             'command_as_argument_kbd_code' => 1,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 25,
@@ -337,7 +295,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -349,7 +306,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -357,7 +313,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'extra' => {
                     'code' => 1
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 25,
@@ -370,7 +325,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -385,7 +339,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'braced i--tem out of example'
                             }
                           ],
@@ -393,7 +346,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -401,7 +353,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 25,
@@ -409,11 +360,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -421,7 +370,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -429,7 +377,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -438,7 +385,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
@@ -451,7 +397,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             'command_as_argument_kbd_code' => 1,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 25,
@@ -459,7 +404,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -467,12 +411,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in example
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -482,7 +424,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -497,7 +438,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'extra' => {
                         'code' => 1
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 25,
@@ -510,7 +450,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -525,7 +464,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'i--tem in example'
                                 }
                               ],
@@ -533,7 +471,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -541,7 +478,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 25,
@@ -549,11 +485,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_term'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_entry'
                 },
                 {
@@ -561,7 +495,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'table'
                         }
                       ],
@@ -569,7 +502,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -578,7 +510,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 25,
@@ -591,7 +522,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'command_as_argument_kbd_code' => 1,
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
@@ -605,7 +535,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -613,7 +542,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'extra' => {
                         'code' => 1
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 25,
@@ -626,7 +554,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -641,7 +568,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'braced i--tem in example'
                                 }
                               ],
@@ -649,7 +575,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -657,7 +582,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 25,
@@ -665,11 +589,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_term'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_entry'
                 },
                 {
@@ -677,7 +599,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'table'
                         }
                       ],
@@ -685,7 +606,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -694,7 +614,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 25,
@@ -707,7 +626,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'command_as_argument_kbd_code' => 1,
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
@@ -719,7 +637,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -727,7 +644,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -736,7 +652,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 25,
@@ -744,7 +659,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 25,
@@ -752,7 +666,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -760,20 +673,16 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'contents' => [
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'kbdinputstyle example
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -783,7 +692,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'example'
                 }
               ],
@@ -791,7 +699,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -802,7 +709,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 29,
@@ -810,7 +716,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -824,7 +729,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'extra' => {
                     'code' => 1
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -837,7 +741,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -852,7 +755,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'i--tem out of example'
                             }
                           ],
@@ -860,7 +762,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -868,7 +769,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 31,
@@ -876,11 +776,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -888,7 +786,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -896,7 +793,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -905,7 +801,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 31,
@@ -918,7 +813,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             'command_as_argument_kbd_code' => 1,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 31,
@@ -926,7 +820,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -938,7 +831,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -946,7 +838,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'extra' => {
                     'code' => 1
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -959,7 +850,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -974,7 +864,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'braced i--tem out of example'
                             }
                           ],
@@ -982,7 +871,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -990,7 +878,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 31,
@@ -998,11 +885,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -1010,7 +895,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -1018,7 +902,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -1027,7 +910,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 31,
@@ -1040,7 +922,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             'command_as_argument_kbd_code' => 1,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 31,
@@ -1048,7 +929,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1056,12 +936,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in example
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -1071,7 +949,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -1083,7 +960,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'contents' => [
                     {
                       'cmdname' => 'kbd',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 31,
@@ -1096,7 +972,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1111,7 +986,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'i--tem in example'
                                 }
                               ],
@@ -1119,7 +993,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -1127,7 +1000,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 31,
@@ -1135,11 +1007,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_term'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_entry'
                 },
                 {
@@ -1147,7 +1017,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'table'
                         }
                       ],
@@ -1155,7 +1024,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -1164,7 +1032,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -1176,7 +1043,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'command_as_argument' => {},
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 31,
@@ -1190,12 +1056,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 31,
@@ -1208,7 +1072,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1223,7 +1086,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'braced i--tem in example'
                                 }
                               ],
@@ -1231,7 +1093,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -1239,7 +1100,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 31,
@@ -1247,11 +1107,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_term'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_entry'
                 },
                 {
@@ -1259,7 +1117,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'table'
                         }
                       ],
@@ -1267,7 +1124,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -1276,7 +1132,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -1288,7 +1143,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'command_as_argument' => {},
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 31,
@@ -1300,7 +1154,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -1308,7 +1161,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -1317,7 +1169,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 31,
@@ -1325,7 +1176,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 31,
@@ -1333,7 +1183,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1341,20 +1190,16 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'contents' => [
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'kbdinputstyle distinct
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1364,7 +1209,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'distinct'
                 }
               ],
@@ -1372,7 +1216,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -1383,7 +1226,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 35,
@@ -1391,7 +1233,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1402,7 +1243,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               'contents' => [
                 {
                   'cmdname' => 'kbd',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 37,
@@ -1415,7 +1255,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -1430,7 +1269,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'i--tem out of example'
                             }
                           ],
@@ -1438,7 +1276,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -1446,7 +1283,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 37,
@@ -1454,11 +1290,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -1466,7 +1300,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -1474,7 +1307,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -1483,7 +1315,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
@@ -1495,7 +1326,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 37,
@@ -1503,7 +1333,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1515,12 +1344,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'kbd',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 37,
@@ -1533,7 +1360,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -1548,7 +1374,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'braced i--tem out of example'
                             }
                           ],
@@ -1556,7 +1381,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -1564,7 +1388,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 37,
@@ -1572,11 +1395,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -1584,7 +1405,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -1592,7 +1412,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -1601,7 +1420,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
@@ -1613,7 +1431,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 37,
@@ -1621,7 +1438,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -1629,12 +1445,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in example
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -1644,7 +1458,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -1656,7 +1469,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'contents' => [
                     {
                       'cmdname' => 'kbd',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 37,
@@ -1669,7 +1481,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1684,7 +1495,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'i--tem in example'
                                 }
                               ],
@@ -1692,7 +1502,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -1700,7 +1509,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 37,
@@ -1708,11 +1516,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_term'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_entry'
                 },
                 {
@@ -1720,7 +1526,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'table'
                         }
                       ],
@@ -1728,7 +1533,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -1737,7 +1541,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 37,
@@ -1749,7 +1552,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'command_as_argument' => {},
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
@@ -1763,12 +1565,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 37,
@@ -1781,7 +1581,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -1796,7 +1595,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'braced i--tem in example'
                                 }
                               ],
@@ -1804,7 +1602,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -1812,7 +1609,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 37,
@@ -1820,11 +1616,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'table_term'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_entry'
                 },
                 {
@@ -1832,7 +1626,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'table'
                         }
                       ],
@@ -1840,7 +1633,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -1849,7 +1641,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 37,
@@ -1861,7 +1652,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'command_as_argument' => {},
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
@@ -1873,7 +1663,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -1881,7 +1670,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -1890,7 +1678,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 37,
@@ -1898,7 +1685,6 @@ $result_trees{'kbdinputstyle_in_table'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 37,
@@ -1906,239 +1692,23 @@ $result_trees{'kbdinputstyle_in_table'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[17]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[17]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[17]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[17];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[2];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[2];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[4];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[10];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[2]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[2];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[13];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[13];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[15]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[15];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[21]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[21];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[2];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'contents'}[2]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[23]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[24]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[24];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[24]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[24];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[24]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[25]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[26]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[26]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[26]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[26];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[26]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[27]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[28]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[29]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[30]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[31]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[32]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[32];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[32]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[1];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1];
 $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'extra'}{'command_as_argument'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[1]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[2]{'args'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[2];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'contents'}[2]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'contents'}[33]{'parent'} = $result_trees{'kbdinputstyle_in_table'}{'contents'}[0];
-$result_trees{'kbdinputstyle_in_table'}{'contents'}[0]{'parent'} = $result_trees{'kbdinputstyle_in_table'};
 
 $result_texis{'kbdinputstyle_in_table'} = '@macro codekbdmacro
 @table @kbd

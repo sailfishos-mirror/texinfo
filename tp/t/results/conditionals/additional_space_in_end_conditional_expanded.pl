@@ -12,24 +12,18 @@ $result_trees{'additional_space_in_end_conditional_expanded'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'not html
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'additional_space_in_end_conditional_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'additional_space_in_end_conditional_expanded'}{'contents'}[0]{'contents'}[0];
-$result_trees{'additional_space_in_end_conditional_expanded'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'additional_space_in_end_conditional_expanded'}{'contents'}[0];
-$result_trees{'additional_space_in_end_conditional_expanded'}{'contents'}[0]{'parent'} = $result_trees{'additional_space_in_end_conditional_expanded'};
 
 $result_texis{'additional_space_in_end_conditional_expanded'} = 'not html
 ';

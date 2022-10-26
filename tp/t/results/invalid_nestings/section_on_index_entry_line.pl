@@ -14,11 +14,9 @@ $result_trees{'section_on_index_entry_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'a '
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -26,7 +24,6 @@ $result_trees{'section_on_index_entry_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -34,7 +31,6 @@ $result_trees{'section_on_index_entry_line'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -42,7 +38,6 @@ $result_trees{'section_on_index_entry_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'b'
             }
           ],
@@ -50,14 +45,12 @@ $result_trees{'section_on_index_entry_line'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -65,19 +58,16 @@ $result_trees{'section_on_index_entry_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Somethin
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -87,16 +77,6 @@ $result_trees{'section_on_index_entry_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'section_on_index_entry_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_on_index_entry_line'}{'contents'}[0];
-$result_trees{'section_on_index_entry_line'}{'contents'}[0]{'parent'} = $result_trees{'section_on_index_entry_line'};
-$result_trees{'section_on_index_entry_line'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_on_index_entry_line'}{'contents'}[1]{'args'}[0];
-$result_trees{'section_on_index_entry_line'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_on_index_entry_line'}{'contents'}[1];
-$result_trees{'section_on_index_entry_line'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'section_on_index_entry_line'}{'contents'}[1];
-$result_trees{'section_on_index_entry_line'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'section_on_index_entry_line'}{'contents'}[1]{'contents'}[1];
-$result_trees{'section_on_index_entry_line'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'section_on_index_entry_line'}{'contents'}[1];
-$result_trees{'section_on_index_entry_line'}{'contents'}[1]{'parent'} = $result_trees{'section_on_index_entry_line'};
 
 $result_texis{'section_on_index_entry_line'} = '@cindex a @section b
 

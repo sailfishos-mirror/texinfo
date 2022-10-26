@@ -10,7 +10,6 @@ $result_trees{'verbatiminclude'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -20,7 +19,6 @@ $result_trees{'verbatiminclude'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'incl-incl.txi'
                 }
               ],
@@ -28,7 +26,6 @@ $result_trees{'verbatiminclude'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -38,7 +35,6 @@ $result_trees{'verbatiminclude'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -46,17 +42,11 @@ $result_trees{'verbatiminclude'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[0];
-$result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[0];
-$result_trees{'verbatiminclude'}{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude'};
 
 $result_texis{'verbatiminclude'} = '
 @verbatiminclude incl-incl.txi

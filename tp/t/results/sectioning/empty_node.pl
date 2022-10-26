@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'empty_node'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -18,14 +17,12 @@ $result_trees{'empty_node'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -36,7 +33,6 @@ $result_trees{'empty_node'} = {
           undef
         ]
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -46,39 +42,33 @@ $result_trees{'empty_node'} = {
     {
       'args' => [
         {
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'next'
             }
           ],
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'prev'
             }
           ],
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'up'
             }
           ],
@@ -87,7 +77,6 @@ $result_trees{'empty_node'} = {
 ',
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -116,7 +105,6 @@ $result_trees{'empty_node'} = {
         ],
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -126,21 +114,9 @@ $result_trees{'empty_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_node'}{'contents'}[0]{'parent'} = $result_trees{'empty_node'};
-$result_trees{'empty_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_node'}{'contents'}[1];
-$result_trees{'empty_node'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_node'}{'contents'}[1];
-$result_trees{'empty_node'}{'contents'}[1]{'parent'} = $result_trees{'empty_node'};
-$result_trees{'empty_node'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_node'}{'contents'}[2];
-$result_trees{'empty_node'}{'contents'}[2]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_node'}{'contents'}[2]{'args'}[1];
-$result_trees{'empty_node'}{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'empty_node'}{'contents'}[2];
-$result_trees{'empty_node'}{'contents'}[2]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'empty_node'}{'contents'}[2]{'args'}[2];
-$result_trees{'empty_node'}{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'empty_node'}{'contents'}[2];
-$result_trees{'empty_node'}{'contents'}[2]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'empty_node'}{'contents'}[2]{'args'}[3];
-$result_trees{'empty_node'}{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'empty_node'}{'contents'}[2];
 $result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[2]{'contents'}[0];
 $result_trees{'empty_node'}{'contents'}[2]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'empty_node'}{'contents'}[2]{'args'}[3]{'contents'}[0];
-$result_trees{'empty_node'}{'contents'}[2]{'parent'} = $result_trees{'empty_node'};
 
 $result_texis{'empty_node'} = '@node
 

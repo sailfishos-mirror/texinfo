@@ -12,12 +12,10 @@ $result_trees{'value_zero'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'zero',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => '0',
               'type' => 'misc_arg'
             }
@@ -30,38 +28,26 @@ $result_trees{'value_zero'} = {
               'zero',
               '0'
             ]
-          },
-          'parent' => {}
+          }
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Value
 '
             },
             {
-              'parent' => {},
               'text' => '0'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'value_zero'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'value_zero'}{'contents'}[0]{'contents'}[0];
-$result_trees{'value_zero'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'value_zero'}{'contents'}[0]{'contents'}[0];
-$result_trees{'value_zero'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_zero'}{'contents'}[0];
-$result_trees{'value_zero'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'value_zero'}{'contents'}[0]{'contents'}[1];
-$result_trees{'value_zero'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'value_zero'}{'contents'}[0]{'contents'}[1];
-$result_trees{'value_zero'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'value_zero'}{'contents'}[0];
-$result_trees{'value_zero'}{'contents'}[0]{'parent'} = $result_trees{'value_zero'};
 
 $result_texis{'value_zero'} = '@set zero 0
 Value

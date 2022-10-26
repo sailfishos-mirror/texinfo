@@ -16,36 +16,30 @@ $result_trees{'verb_not_closed_with_char'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => 'In verb
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => '*',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -53,7 +47,6 @@ $result_trees{'verb_not_closed_with_char'} = {
               'extra' => {
                 'delimiter' => '*'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -61,25 +54,14 @@ $result_trees{'verb_not_closed_with_char'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0];
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_not_closed_with_char'}{'contents'}[0];
-$result_trees{'verb_not_closed_with_char'}{'contents'}[0]{'parent'} = $result_trees{'verb_not_closed_with_char'};
 
 $result_texis{'verb_not_closed_with_char'} = '@verb{*
 

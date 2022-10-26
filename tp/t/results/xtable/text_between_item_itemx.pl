@@ -15,7 +15,6 @@ $result_trees{'text_between_item_itemx'} = {
               'contents' => [
                 {
                   'cmdname' => 'strong',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -28,7 +27,6 @@ $result_trees{'text_between_item_itemx'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -43,7 +41,6 @@ $result_trees{'text_between_item_itemx'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in item'
                             }
                           ],
@@ -51,7 +48,6 @@ $result_trees{'text_between_item_itemx'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -59,7 +55,6 @@ $result_trees{'text_between_item_itemx'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -71,16 +66,13 @@ $result_trees{'text_between_item_itemx'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'text
 '
                             }
                           ],
-                          'parent' => {},
                           'type' => 'paragraph'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'inter_item'
                     },
                     {
@@ -88,7 +80,6 @@ $result_trees{'text_between_item_itemx'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in itemx'
                             }
                           ],
@@ -96,7 +87,6 @@ $result_trees{'text_between_item_itemx'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -104,7 +94,6 @@ $result_trees{'text_between_item_itemx'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
@@ -112,11 +101,9 @@ $result_trees{'text_between_item_itemx'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -124,7 +111,6 @@ $result_trees{'text_between_item_itemx'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -132,7 +118,6 @@ $result_trees{'text_between_item_itemx'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -141,7 +126,6 @@ $result_trees{'text_between_item_itemx'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -153,7 +137,6 @@ $result_trees{'text_between_item_itemx'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -161,31 +144,12 @@ $result_trees{'text_between_item_itemx'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0];
 $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'}{'contents'}[0];
-$result_trees{'text_between_item_itemx'}{'contents'}[0]{'parent'} = $result_trees{'text_between_item_itemx'};
 
 $result_texis{'text_between_item_itemx'} = '@table @strong
 @item in item

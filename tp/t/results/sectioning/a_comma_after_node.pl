@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'a_comma_after_node'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,30 +15,25 @@ $result_trees{'a_comma_after_node'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Commands'
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Requirements'
             }
           ],
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Nodes and Menus'
             }
           ],
@@ -48,14 +42,12 @@ $result_trees{'a_comma_after_node'} = {
 ',
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -63,12 +55,10 @@ $result_trees{'a_comma_after_node'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'A comma in text, end.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
@@ -99,7 +89,6 @@ $result_trees{'a_comma_after_node'} = {
         'normalized' => 'Commands',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -109,21 +98,10 @@ $result_trees{'a_comma_after_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'a_comma_after_node'}{'contents'}[0]{'parent'} = $result_trees{'a_comma_after_node'};
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[0];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[1];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[2];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1]{'contents'}[1];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'a_comma_after_node'}{'contents'}[1];
 $result_trees{'a_comma_after_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'a_comma_after_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'a_comma_after_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[1]{'node_content'}[0] = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'a_comma_after_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[2]{'node_content'}[0] = $result_trees{'a_comma_after_node'}{'contents'}[1]{'args'}[2]{'contents'}[0];
-$result_trees{'a_comma_after_node'}{'contents'}[1]{'parent'} = $result_trees{'a_comma_after_node'};
 
 $result_texis{'a_comma_after_node'} = '@node Commands, Requirements, Nodes and Menus
 

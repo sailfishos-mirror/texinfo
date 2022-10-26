@@ -18,7 +18,6 @@ $result_trees{'good'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '0.4 .6 5.'
                         }
                       ],
@@ -26,7 +25,6 @@ $result_trees{'good'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -39,7 +37,6 @@ $result_trees{'good'} = {
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -47,7 +44,6 @@ $result_trees{'good'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -58,11 +54,9 @@ $result_trees{'good'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -71,7 +65,6 @@ $result_trees{'good'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -84,7 +77,6 @@ $result_trees{'good'} = {
             'max_columns' => 3,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -92,22 +84,12 @@ $result_trees{'good'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'good'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'good'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'good'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'good'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'good'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'good'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'good'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'good'}{'contents'}[0]{'contents'}[0];
-$result_trees{'good'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'good'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'good'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'good'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'good'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'good'}{'contents'}[0]{'contents'}[0];
 $result_trees{'good'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'good'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'good'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'good'}{'contents'}[0];
-$result_trees{'good'}{'contents'}[0]{'parent'} = $result_trees{'good'};
 
 $result_texis{'good'} = '@multitable @columnfractions 0.4 .6 5.
 @end multitable';

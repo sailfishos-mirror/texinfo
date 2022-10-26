@@ -14,7 +14,6 @@ $result_trees{'something_before_columnfractions'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'aaa '
                 },
                 {
@@ -22,7 +21,6 @@ $result_trees{'something_before_columnfractions'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '0.3 0.7'
                         }
                       ],
@@ -30,7 +28,6 @@ $result_trees{'something_before_columnfractions'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -42,7 +39,6 @@ $result_trees{'something_before_columnfractions'} = {
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -50,7 +46,6 @@ $result_trees{'something_before_columnfractions'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -61,11 +56,9 @@ $result_trees{'something_before_columnfractions'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -74,7 +67,6 @@ $result_trees{'something_before_columnfractions'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -87,7 +79,6 @@ $result_trees{'something_before_columnfractions'} = {
             'max_columns' => 2,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -95,23 +86,12 @@ $result_trees{'something_before_columnfractions'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0];
 $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'something_before_columnfractions'}{'contents'}[0];
-$result_trees{'something_before_columnfractions'}{'contents'}[0]{'parent'} = $result_trees{'something_before_columnfractions'};
 
 $result_texis{'something_before_columnfractions'} = '@multitable aaa @columnfractions 0.3 0.7
 @end multitable';

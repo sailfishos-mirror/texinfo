@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'double_top_section'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'double_top_section'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'First top'
             }
           ],
@@ -24,14 +22,12 @@ $result_trees{'double_top_section'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -39,16 +35,13 @@ $result_trees{'double_top_section'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'First top.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -57,7 +50,6 @@ $result_trees{'double_top_section'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -69,7 +61,6 @@ $result_trees{'double_top_section'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Second top'
             }
           ],
@@ -77,14 +68,12 @@ $result_trees{'double_top_section'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -92,19 +81,16 @@ $result_trees{'double_top_section'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Second top.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -114,20 +100,6 @@ $result_trees{'double_top_section'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_top_section'}{'contents'}[0]{'parent'} = $result_trees{'double_top_section'};
-$result_trees{'double_top_section'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_top_section'}{'contents'}[1]{'args'}[0];
-$result_trees{'double_top_section'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_top_section'}{'contents'}[1];
-$result_trees{'double_top_section'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_top_section'}{'contents'}[1];
-$result_trees{'double_top_section'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_top_section'}{'contents'}[1]{'contents'}[1];
-$result_trees{'double_top_section'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'double_top_section'}{'contents'}[1];
-$result_trees{'double_top_section'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'double_top_section'}{'contents'}[1];
-$result_trees{'double_top_section'}{'contents'}[1]{'parent'} = $result_trees{'double_top_section'};
-$result_trees{'double_top_section'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_top_section'}{'contents'}[2]{'args'}[0];
-$result_trees{'double_top_section'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'double_top_section'}{'contents'}[2];
-$result_trees{'double_top_section'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'double_top_section'}{'contents'}[2];
-$result_trees{'double_top_section'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_top_section'}{'contents'}[2]{'contents'}[1];
-$result_trees{'double_top_section'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'double_top_section'}{'contents'}[2];
-$result_trees{'double_top_section'}{'contents'}[2]{'parent'} = $result_trees{'double_top_section'};
 
 $result_texis{'double_top_section'} = '@top First top
 

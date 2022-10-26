@@ -16,7 +16,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'on'
                     }
                   ],
@@ -24,7 +23,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -35,7 +33,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                 ],
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -43,7 +40,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -55,7 +51,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -64,12 +59,10 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in titlepage
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 },
                 {
@@ -77,7 +70,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'titlepage'
                         }
                       ],
@@ -85,7 +77,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -94,7 +85,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
@@ -102,7 +92,6 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -110,36 +99,19 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0];
-$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'};
 
 $result_texis{'titlepage_and_setchapternewpage_on'} = '@setchapternewpage on
 

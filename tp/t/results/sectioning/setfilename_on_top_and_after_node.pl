@@ -11,11 +11,9 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -23,7 +21,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -31,7 +28,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -51,7 +47,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -63,7 +58,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In top '
             },
             {
@@ -71,7 +65,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'very badly placed setfilename'
                     }
                   ],
@@ -79,7 +72,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -88,7 +80,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'very badly placed setfilename'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -96,14 +87,12 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -113,7 +102,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'a bit too late'
                 }
               ],
@@ -121,7 +109,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -130,7 +117,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'a bit too late'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 4,
@@ -141,7 +127,6 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -151,23 +136,8 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[0];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'};
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'args'}[0];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1];
 $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[1]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'};
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0]{'contents'}[1];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'contents'}[1];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2];
-$result_trees{'setfilename_on_top_and_after_node'}{'contents'}[2]{'parent'} = $result_trees{'setfilename_on_top_and_after_node'};
 
 $result_texis{'setfilename_on_top_and_after_node'} = '@node Top
 @top In top @setfilename very badly placed setfilename

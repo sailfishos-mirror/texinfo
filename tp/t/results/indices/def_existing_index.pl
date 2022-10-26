@@ -14,7 +14,6 @@ $result_trees{'def_existing_index'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'cp'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'def_existing_index'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -30,7 +28,6 @@ $result_trees{'def_existing_index'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -38,16 +35,11 @@ $result_trees{'def_existing_index'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0];
-$result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_existing_index'}{'contents'}[0];
-$result_trees{'def_existing_index'}{'contents'}[0]{'parent'} = $result_trees{'def_existing_index'};
 
 $result_texis{'def_existing_index'} = '@defcodeindex cp
 ';

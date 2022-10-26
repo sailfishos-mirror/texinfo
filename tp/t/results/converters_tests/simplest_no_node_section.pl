@@ -14,23 +14,19 @@ $result_trees{'simplest_no_node_section'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\input texinfo @c -*-texinfo-*-
 ',
                   'type' => 'text_before_beginning'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'text_before_beginning'
                 }
               ],
-              'parent' => {},
               'type' => 'preamble_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_setfilename'
         },
         {
@@ -40,7 +36,6 @@ $result_trees{'simplest_no_node_section'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'simplest_no_node_section.info'
                     }
                   ],
@@ -48,7 +43,6 @@ $result_trees{'simplest_no_node_section'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'simplest_no_node_section'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'simplest_no_node_section.info'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'simplest_no_node_section.texi',
                 'line_nr' => 3,
@@ -65,76 +58,49 @@ $result_trees{'simplest_no_node_section'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'This is a very simple texi manual '
             },
             {
-              'cmdname' => ' ',
-              'parent' => {}
+              'cmdname' => ' '
             },
             {
-              'parent' => {},
               'text' => ' <>.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
       'args' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'misc_arg'
         }
       ],
-      'cmdname' => 'bye',
-      'parent' => {}
+      'cmdname' => 'bye'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[2];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[2];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[2];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[0];
-$result_trees{'simplest_no_node_section'}{'contents'}[0]{'parent'} = $result_trees{'simplest_no_node_section'};
-$result_trees{'simplest_no_node_section'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'simplest_no_node_section'}{'contents'}[1];
-$result_trees{'simplest_no_node_section'}{'contents'}[1]{'parent'} = $result_trees{'simplest_no_node_section'};
 
 $result_texis{'simplest_no_node_section'} = '\\input texinfo @c -*-texinfo-*-
 

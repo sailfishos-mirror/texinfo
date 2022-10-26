@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'not_set'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'not_set'}{'contents'}[0]{'parent'} = $result_trees{'not_set'};
 
 $result_texis{'not_set'} = '';
 

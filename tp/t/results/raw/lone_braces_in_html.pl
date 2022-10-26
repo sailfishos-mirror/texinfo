@@ -16,7 +16,6 @@ $result_trees{'lone_braces_in_html'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -25,12 +24,10 @@ $result_trees{'lone_braces_in_html'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '}
 '
                 }
               ],
-              'parent' => {},
               'type' => 'rawpreformatted'
             },
             {
@@ -38,7 +35,6 @@ $result_trees{'lone_braces_in_html'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'html'
                     }
                   ],
@@ -46,7 +42,6 @@ $result_trees{'lone_braces_in_html'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -55,7 +50,6 @@ $result_trees{'lone_braces_in_html'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -63,7 +57,6 @@ $result_trees{'lone_braces_in_html'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -71,7 +64,6 @@ $result_trees{'lone_braces_in_html'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -83,7 +75,6 @@ $result_trees{'lone_braces_in_html'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -92,12 +83,10 @@ $result_trees{'lone_braces_in_html'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '{
 '
                 }
               ],
-              'parent' => {},
               'type' => 'rawpreformatted'
             },
             {
@@ -105,7 +94,6 @@ $result_trees{'lone_braces_in_html'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'html'
                     }
                   ],
@@ -113,7 +101,6 @@ $result_trees{'lone_braces_in_html'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -122,7 +109,6 @@ $result_trees{'lone_braces_in_html'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -130,7 +116,6 @@ $result_trees{'lone_braces_in_html'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -138,28 +123,11 @@ $result_trees{'lone_braces_in_html'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'lone_braces_in_html'}{'contents'}[0];
-$result_trees{'lone_braces_in_html'}{'contents'}[0]{'parent'} = $result_trees{'lone_braces_in_html'};
 
 $result_texis{'lone_braces_in_html'} = '@html
 }

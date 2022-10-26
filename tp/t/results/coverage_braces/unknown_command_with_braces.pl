@@ -12,16 +12,13 @@ $result_trees{'unknown_command_with_braces'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Unknown thing 
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -29,16 +26,13 @@ $result_trees{'unknown_command_with_braces'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Unknown macro  first paragraph
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -46,16 +40,13 @@ $result_trees{'unknown_command_with_braces'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'second paragraph
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -63,16 +54,13 @@ $result_trees{'unknown_command_with_braces'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => ' first paragraph
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -80,16 +68,13 @@ $result_trees{'unknown_command_with_braces'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'second paragraph
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -97,39 +82,18 @@ $result_trees{'unknown_command_with_braces'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'third
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[2];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[4];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[6];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[8];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[10];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'unknown_command_with_braces'}{'contents'}[0];
-$result_trees{'unknown_command_with_braces'}{'contents'}[0]{'parent'} = $result_trees{'unknown_command_with_braces'};
 
 $result_texis{'unknown_command_with_braces'} = 'Unknown thing 
 

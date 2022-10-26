@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'note_in_strong_end_of_line'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -24,14 +22,12 @@ $result_trees{'note_in_strong_end_of_line'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -39,7 +35,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb vvvvvvvvvvvvvvvv '
             },
             {
@@ -47,16 +42,13 @@ $result_trees{'note_in_strong_end_of_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'note a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'strong',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -64,16 +56,13 @@ $result_trees{'note_in_strong_end_of_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -81,7 +70,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb vvvvvvvvvvvvvvvv '
             },
             {
@@ -89,21 +77,17 @@ $result_trees{'note_in_strong_end_of_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'note
 '
                     },
                     {
-                      'parent' => {},
                       'text' => 'a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'strong',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -111,12 +95,10 @@ $result_trees{'note_in_strong_end_of_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
@@ -135,7 +117,6 @@ $result_trees{'note_in_strong_end_of_line'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -145,27 +126,8 @@ $result_trees{'note_in_strong_end_of_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'};
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'args'}[0];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1];
 $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'note_in_strong_end_of_line'}{'contents'}[1]{'parent'} = $result_trees{'note_in_strong_end_of_line'};
 
 $result_texis{'note_in_strong_end_of_line'} = '@node Top
 

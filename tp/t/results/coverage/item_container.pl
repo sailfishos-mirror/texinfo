@@ -10,7 +10,6 @@ $result_trees{'item_container'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -20,7 +19,6 @@ $result_trees{'item_container'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '+'
                 }
               ],
@@ -28,7 +26,6 @@ $result_trees{'item_container'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -38,26 +35,22 @@ $result_trees{'item_container'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => ' ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'i--tem +
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
               'extra' => {
                 'item_number' => 1
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -69,7 +62,6 @@ $result_trees{'item_container'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'itemize'
                     }
                   ],
@@ -77,7 +69,6 @@ $result_trees{'item_container'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -86,7 +77,6 @@ $result_trees{'item_container'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -97,7 +87,6 @@ $result_trees{'item_container'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -105,7 +94,6 @@ $result_trees{'item_container'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -116,7 +104,6 @@ $result_trees{'item_container'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
@@ -129,7 +116,6 @@ $result_trees{'item_container'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -139,32 +125,27 @@ $result_trees{'item_container'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
-                  'parent' => {},
                   'text' => ' ',
                   'type' => 'spaces_before_paragraph'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'b--ullet
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
               'extra' => {
                 'item_number' => 1
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -176,7 +157,6 @@ $result_trees{'item_container'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'itemize'
                     }
                   ],
@@ -184,7 +164,6 @@ $result_trees{'item_container'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -193,7 +172,6 @@ $result_trees{'item_container'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -205,7 +183,6 @@ $result_trees{'item_container'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -213,7 +190,6 @@ $result_trees{'item_container'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -224,7 +200,6 @@ $result_trees{'item_container'} = {
               'contents' => [
                 {
                   'cmdname' => 'bullet',
-                  'parent' => {},
                   'type' => 'command_as_argument_inserted'
                 }
               ],
@@ -232,7 +207,6 @@ $result_trees{'item_container'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -242,26 +216,22 @@ $result_trees{'item_container'} = {
               'cmdname' => 'item',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => ' ',
                   'type' => 'ignorable_spaces_after_command'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'no itemize argument
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
               'extra' => {
                 'item_number' => 1
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
@@ -273,7 +243,6 @@ $result_trees{'item_container'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'itemize'
                     }
                   ],
@@ -281,7 +250,6 @@ $result_trees{'item_container'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -290,7 +258,6 @@ $result_trees{'item_container'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 13,
@@ -301,7 +268,6 @@ $result_trees{'item_container'} = {
           'extra' => {
             'command_as_argument' => {}
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
@@ -309,49 +275,13 @@ $result_trees{'item_container'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[1];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[2];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'extra'}{'command_as_argument'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[1];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5];
 $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'item_container'}{'contents'}[0];
-$result_trees{'item_container'}{'contents'}[0]{'parent'} = $result_trees{'item_container'};
 
 $result_texis{'item_container'} = '
 @itemize +

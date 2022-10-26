@@ -16,14 +16,12 @@ $result_trees{'double_titlepage_not_closed'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'titlepage',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -31,22 +29,18 @@ $result_trees{'double_titlepage_not_closed'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'This is in title page
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -58,14 +52,12 @@ $result_trees{'double_titlepage_not_closed'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
               'cmdname' => 'titlepage',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
@@ -73,16 +65,13 @@ $result_trees{'double_titlepage_not_closed'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'And still in title page
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -90,7 +79,6 @@ $result_trees{'double_titlepage_not_closed'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -98,25 +86,11 @@ $result_trees{'double_titlepage_not_closed'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_titlepage_not_closed'}{'contents'}[0];
-$result_trees{'double_titlepage_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'double_titlepage_not_closed'};
 
 $result_texis{'double_titlepage_not_closed'} = '@titlepage
 

@@ -12,7 +12,6 @@ $result_trees{'macro_not_closed'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'name',
               'type' => 'macro_name'
             }
@@ -20,7 +19,6 @@ $result_trees{'macro_not_closed'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in macro
 ',
               'type' => 'raw'
@@ -30,7 +28,6 @@ $result_trees{'macro_not_closed'} = {
             'arg_line' => ' name
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -38,16 +35,11 @@ $result_trees{'macro_not_closed'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_not_closed'}{'contents'}[0];
-$result_trees{'macro_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'macro_not_closed'};
 
 $result_texis{'macro_not_closed'} = '@macro name
 in macro

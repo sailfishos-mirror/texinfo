@@ -16,24 +16,20 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aa '
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         },
                         {
-                          'parent' => {},
                           'text' => '
 ',
                           'type' => 'empty_line'
                         }
                       ],
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -42,12 +38,10 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
                       'type' => 'bracketed'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'math',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -55,24 +49,14 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0];
-$result_trees{'math_bracketed_not_closed_next_line'}{'contents'}[0]{'parent'} = $result_trees{'math_bracketed_not_closed_next_line'};
 
 $result_texis{'math_bracketed_not_closed_next_line'} = '@math{aa {
 

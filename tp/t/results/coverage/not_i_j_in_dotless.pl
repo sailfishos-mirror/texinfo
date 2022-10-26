@@ -16,11 +16,9 @@ $result_trees{'not_i_j_in_dotless'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
@@ -28,7 +26,6 @@ $result_trees{'not_i_j_in_dotless'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -36,7 +33,6 @@ $result_trees{'not_i_j_in_dotless'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' bc, '
             },
             {
@@ -48,16 +44,13 @@ $result_trees{'not_i_j_in_dotless'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'q'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'dotless',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -65,12 +58,10 @@ $result_trees{'not_i_j_in_dotless'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => '^',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -78,32 +69,17 @@ $result_trees{'not_i_j_in_dotless'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'}{'contents'}[0];
-$result_trees{'not_i_j_in_dotless'}{'contents'}[0]{'parent'} = $result_trees{'not_i_j_in_dotless'};
 
 $result_texis{'not_i_j_in_dotless'} = '@dotless a bc, @^{@dotless{q}}.';
 

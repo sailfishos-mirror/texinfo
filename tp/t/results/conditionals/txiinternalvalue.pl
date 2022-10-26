@@ -12,24 +12,18 @@ $result_trees{'txiinternalvalue'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'txiinternalvalue'}{'contents'}[0]{'contents'}[0];
-$result_trees{'txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'txiinternalvalue'}{'contents'}[0];
-$result_trees{'txiinternalvalue'}{'contents'}[0]{'parent'} = $result_trees{'txiinternalvalue'};
 
 $result_texis{'txiinternalvalue'} = '
 ';

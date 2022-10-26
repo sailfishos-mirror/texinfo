@@ -14,7 +14,6 @@ $result_trees{'alias_table_command'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'myalias = code'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'alias_table_command'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -34,7 +32,6 @@ $result_trees{'alias_table_command'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -42,7 +39,6 @@ $result_trees{'alias_table_command'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -53,7 +49,6 @@ $result_trees{'alias_table_command'} = {
               'contents' => [
                 {
                   'cmdname' => 'code',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
@@ -66,7 +61,6 @@ $result_trees{'alias_table_command'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -81,7 +75,6 @@ $result_trees{'alias_table_command'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'table item (code)'
                             }
                           ],
@@ -89,7 +82,6 @@ $result_trees{'alias_table_command'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -97,7 +89,6 @@ $result_trees{'alias_table_command'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 4,
@@ -105,11 +96,9 @@ $result_trees{'alias_table_command'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -117,7 +106,6 @@ $result_trees{'alias_table_command'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -125,7 +113,6 @@ $result_trees{'alias_table_command'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -134,7 +121,6 @@ $result_trees{'alias_table_command'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -146,7 +132,6 @@ $result_trees{'alias_table_command'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -154,29 +139,12 @@ $result_trees{'alias_table_command'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2];
 $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'alias_table_command'}{'contents'}[0];
-$result_trees{'alias_table_command'}{'contents'}[0]{'parent'} = $result_trees{'alias_table_command'};
 
 $result_texis{'alias_table_command'} = '@alias myalias = code
 

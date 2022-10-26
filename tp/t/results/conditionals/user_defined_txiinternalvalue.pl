@@ -12,7 +12,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'txiinternalvalue',
               'type' => 'macro_name'
             }
@@ -20,7 +19,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'user internalvalue
 ',
               'type' => 'raw'
@@ -30,7 +28,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -38,7 +35,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -47,7 +43,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -59,7 +54,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
             'arg_line' => ' txiinternalvalue
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -67,7 +61,6 @@ $result_trees{'user_defined_txiinternalvalue'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -75,31 +68,18 @@ $result_trees{'user_defined_txiinternalvalue'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'user internalvalue
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[2];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'user_defined_txiinternalvalue'}{'contents'}[0];
-$result_trees{'user_defined_txiinternalvalue'}{'contents'}[0]{'parent'} = $result_trees{'user_defined_txiinternalvalue'};
 
 $result_texis{'user_defined_txiinternalvalue'} = '@macro txiinternalvalue
 user internalvalue

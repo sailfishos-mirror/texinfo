@@ -11,7 +11,6 @@ $result_trees{'empty_label_no_space'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
@@ -19,11 +18,9 @@ $result_trees{'empty_label_no_space'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Type'
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
@@ -31,7 +28,6 @@ $result_trees{'empty_label_no_space'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -42,7 +38,6 @@ $result_trees{'empty_label_no_space'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float'
                     }
                   ],
@@ -50,7 +45,6 @@ $result_trees{'empty_label_no_space'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -59,7 +53,6 @@ $result_trees{'empty_label_no_space'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -76,7 +69,6 @@ $result_trees{'empty_label_no_space'} = {
               'normalized' => 'Type'
             }
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -84,22 +76,12 @@ $result_trees{'empty_label_no_space'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1];
 $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'extra'}{'type'}{'content'}[0] = $result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_label_no_space'}{'contents'}[0];
-$result_trees{'empty_label_no_space'}{'contents'}[0]{'parent'} = $result_trees{'empty_label_no_space'};
 
 $result_texis{'empty_label_no_space'} = '@float Type,
 @end float

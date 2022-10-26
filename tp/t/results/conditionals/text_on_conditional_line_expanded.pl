@@ -12,24 +12,18 @@ $result_trees{'text_on_conditional_line_expanded'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'a
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'text_on_conditional_line_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_conditional_line_expanded'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text_on_conditional_line_expanded'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_conditional_line_expanded'}{'contents'}[0];
-$result_trees{'text_on_conditional_line_expanded'}{'contents'}[0]{'parent'} = $result_trees{'text_on_conditional_line_expanded'};
 
 $result_texis{'text_on_conditional_line_expanded'} = 'a
 ';

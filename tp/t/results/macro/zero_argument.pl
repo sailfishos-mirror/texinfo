@@ -12,7 +12,6 @@ $result_trees{'zero_argument'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'foo',
               'type' => 'macro_name'
             }
@@ -20,7 +19,6 @@ $result_trees{'zero_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in foo
 ',
               'type' => 'raw'
@@ -30,7 +28,6 @@ $result_trees{'zero_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -38,7 +35,6 @@ $result_trees{'zero_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -47,7 +43,6 @@ $result_trees{'zero_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -59,7 +54,6 @@ $result_trees{'zero_argument'} = {
             'arg_line' => ' foo {}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -67,7 +61,6 @@ $result_trees{'zero_argument'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -75,7 +68,6 @@ $result_trees{'zero_argument'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'abar',
               'type' => 'macro_name'
             }
@@ -83,7 +75,6 @@ $result_trees{'zero_argument'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in bar
 ',
               'type' => 'raw'
@@ -93,11 +84,9 @@ $result_trees{'zero_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -106,7 +95,6 @@ $result_trees{'zero_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -118,7 +106,6 @@ $result_trees{'zero_argument'} = {
             'arg_line' => ' abar
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -126,26 +113,11 @@ $result_trees{'zero_argument'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2];
-$result_trees{'zero_argument'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'zero_argument'}{'contents'}[0];
-$result_trees{'zero_argument'}{'contents'}[0]{'parent'} = $result_trees{'zero_argument'};
 
 $result_texis{'zero_argument'} = '@macro foo {}
 in foo

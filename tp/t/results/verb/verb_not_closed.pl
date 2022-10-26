@@ -16,12 +16,10 @@ $result_trees{'verb_not_closed'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '  }   . ',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -29,7 +27,6 @@ $result_trees{'verb_not_closed'} = {
               'extra' => {
                 'delimiter' => '.'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -37,21 +34,14 @@ $result_trees{'verb_not_closed'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'verb_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verb_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verb_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'verb_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'verb_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_not_closed'}{'contents'}[0];
-$result_trees{'verb_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'verb_not_closed'};
 
 $result_texis{'verb_not_closed'} = '@verb{.  }   . .}';
 

@@ -12,23 +12,17 @@ $result_trees{'text'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'text'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'text'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text'}{'contents'}[0]{'contents'}[0];
-$result_trees{'text'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text'}{'contents'}[0];
-$result_trees{'text'}{'contents'}[0]{'parent'} = $result_trees{'text'};
 
 $result_texis{'text'} = 'text';
 

@@ -14,7 +14,6 @@ $result_trees{'example_class'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'perl'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'example_class'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -31,99 +29,77 @@ $result_trees{'example_class'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'foreach my $unclosed_file (keys(%unclosed_files)) '
                 },
                 {
-                  'cmdname' => '{',
-                  'parent' => {}
+                  'cmdname' => '{'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '  if (!close($unclosed_files'
                 },
                 {
-                  'cmdname' => '{',
-                  'parent' => {}
+                  'cmdname' => '{'
                 },
                 {
-                  'parent' => {},
                   'text' => '$unclosed_file'
                 },
                 {
-                  'cmdname' => '}',
-                  'parent' => {}
+                  'cmdname' => '}'
                 },
                 {
-                  'parent' => {},
                   'text' => ')) '
                 },
                 {
-                  'cmdname' => '{',
-                  'parent' => {}
+                  'cmdname' => '{'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '    warn(sprintf("%s: error on closing %s: %s\\n",
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '                     $real_command_name, $unclosed_file, $!));
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '    $error_count++;
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '    _exit($error_count, \\'
                 },
                 {
-                  'cmdname' => '@',
-                  'parent' => {}
+                  'cmdname' => '@'
                 },
                 {
-                  'parent' => {},
                   'text' => 'opened_files);
 '
                 },
                 {
-                  'parent' => {},
                   'text' => '  '
                 },
                 {
-                  'cmdname' => '}',
-                  'parent' => {}
+                  'cmdname' => '}'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 },
                 {
-                  'cmdname' => '}',
-                  'parent' => {}
+                  'cmdname' => '}'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -131,7 +107,6 @@ $result_trees{'example_class'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -139,7 +114,6 @@ $result_trees{'example_class'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -148,7 +122,6 @@ $result_trees{'example_class'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
@@ -159,7 +132,6 @@ $result_trees{'example_class'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -167,41 +139,11 @@ $result_trees{'example_class'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'example_class'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_class'}{'contents'}[0];
-$result_trees{'example_class'}{'contents'}[0]{'parent'} = $result_trees{'example_class'};
 
 $result_texis{'example_class'} = '@example perl
 foreach my $unclosed_file (keys(%unclosed_files)) @{

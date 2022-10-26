@@ -12,7 +12,6 @@ $result_trees{'expanded_tex'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 '
             },
@@ -23,7 +22,6 @@ $result_trees{'expanded_tex'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -32,22 +30,18 @@ $result_trees{'expanded_tex'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'TTT
 '
                     },
                     {
-                      'parent' => {},
                       'text' => 'GGG
 '
                     },
                     {
-                      'parent' => {},
                       'text' => 'HHH
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'rawpreformatted'
                 },
                 {
@@ -55,7 +49,6 @@ $result_trees{'expanded_tex'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'tex'
                         }
                       ],
@@ -63,7 +56,6 @@ $result_trees{'expanded_tex'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -72,7 +64,6 @@ $result_trees{'expanded_tex'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'tex'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
@@ -80,7 +71,6 @@ $result_trees{'expanded_tex'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -88,34 +78,18 @@ $result_trees{'expanded_tex'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'bbbbbbbbb1 bbbbbbbbbbb2 bbbbbbbbbb3 bbbbbbbbbbbbbb4.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'}{'contents'}[0];
-$result_trees{'expanded_tex'}{'contents'}[0]{'parent'} = $result_trees{'expanded_tex'};
 
 $result_texis{'expanded_tex'} = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 @tex

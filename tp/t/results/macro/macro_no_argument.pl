@@ -15,7 +15,6 @@ $result_trees{'macro_no_argument'} = {
             'arg_line' => '',
             'invalid_syntax' => 1
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -23,14 +22,11 @@ $result_trees{'macro_no_argument'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_no_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_no_argument'}{'contents'}[0];
-$result_trees{'macro_no_argument'}{'contents'}[0]{'parent'} = $result_trees{'macro_no_argument'};
 
 $result_texis{'macro_no_argument'} = '@macro';
 

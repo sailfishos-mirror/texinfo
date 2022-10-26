@@ -14,16 +14,13 @@ $result_trees{'include_at_end_line'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'inc_file.texi'
                 },
                 {
                   'cmdname' => '
-',
-                  'parent' => {}
+'
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -32,7 +29,6 @@ $result_trees{'include_at_end_line'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'inc_file.texi'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -40,7 +36,6 @@ $result_trees{'include_at_end_line'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -48,28 +43,17 @@ $result_trees{'include_at_end_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'After.'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'};
 
 $result_texis{'include_at_end_line'} = '@include inc_file.texi@
 

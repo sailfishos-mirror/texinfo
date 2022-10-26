@@ -16,7 +16,6 @@ $result_trees{'syncode_index_print_both'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'fn cp'
                     }
                   ],
@@ -24,7 +23,6 @@ $result_trees{'syncode_index_print_both'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -36,7 +34,6 @@ $result_trees{'syncode_index_print_both'} = {
                 ],
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -44,17 +41,14 @@ $result_trees{'syncode_index_print_both'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -62,7 +56,6 @@ $result_trees{'syncode_index_print_both'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -70,7 +63,6 @@ $result_trees{'syncode_index_print_both'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -90,7 +82,6 @@ $result_trees{'syncode_index_print_both'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -102,7 +93,6 @@ $result_trees{'syncode_index_print_both'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -110,14 +100,12 @@ $result_trees{'syncode_index_print_both'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -126,7 +114,6 @@ $result_trees{'syncode_index_print_both'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -138,7 +125,6 @@ $result_trees{'syncode_index_print_both'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chapter index'
             }
           ],
@@ -146,7 +132,6 @@ $result_trees{'syncode_index_print_both'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -167,7 +152,6 @@ $result_trees{'syncode_index_print_both'} = {
         'normalized' => 'chapter-index',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 6,
@@ -179,7 +163,6 @@ $result_trees{'syncode_index_print_both'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'index'
             }
           ],
@@ -187,14 +170,12 @@ $result_trees{'syncode_index_print_both'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -204,7 +185,6 @@ $result_trees{'syncode_index_print_both'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'c---oncept'
                 }
               ],
@@ -212,7 +192,6 @@ $result_trees{'syncode_index_print_both'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -232,7 +211,6 @@ $result_trees{'syncode_index_print_both'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -245,7 +223,6 @@ $result_trees{'syncode_index_print_both'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'f---un'
                 }
               ],
@@ -253,7 +230,6 @@ $result_trees{'syncode_index_print_both'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -273,7 +249,6 @@ $result_trees{'syncode_index_print_both'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 10,
@@ -282,13 +257,11 @@ $result_trees{'syncode_index_print_both'} = {
           'type' => 'index_entry_command'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -296,16 +269,13 @@ $result_trees{'syncode_index_print_both'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Print fn
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -315,7 +285,6 @@ $result_trees{'syncode_index_print_both'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'fn'
                 }
               ],
@@ -323,7 +292,6 @@ $result_trees{'syncode_index_print_both'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -334,7 +302,6 @@ $result_trees{'syncode_index_print_both'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 15,
@@ -342,7 +309,6 @@ $result_trees{'syncode_index_print_both'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -350,16 +316,13 @@ $result_trees{'syncode_index_print_both'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Print cp
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -369,7 +332,6 @@ $result_trees{'syncode_index_print_both'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'cp'
                 }
               ],
@@ -377,7 +339,6 @@ $result_trees{'syncode_index_print_both'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -388,7 +349,6 @@ $result_trees{'syncode_index_print_both'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 19,
@@ -396,7 +356,6 @@ $result_trees{'syncode_index_print_both'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -405,7 +364,6 @@ $result_trees{'syncode_index_print_both'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 7,
@@ -415,60 +373,18 @@ $result_trees{'syncode_index_print_both'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'};
-$result_trees{'syncode_index_print_both'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[1]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[1];
 $result_trees{'syncode_index_print_both'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'syncode_index_print_both'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'syncode_index_print_both'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'syncode_index_print_both'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[1]{'parent'} = $result_trees{'syncode_index_print_both'};
-$result_trees{'syncode_index_print_both'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[2]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[2];
-$result_trees{'syncode_index_print_both'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[2];
-$result_trees{'syncode_index_print_both'}{'contents'}[2]{'parent'} = $result_trees{'syncode_index_print_both'};
-$result_trees{'syncode_index_print_both'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[3]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[3];
 $result_trees{'syncode_index_print_both'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'syncode_index_print_both'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'syncode_index_print_both'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'syncode_index_print_both'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[3]{'parent'} = $result_trees{'syncode_index_print_both'};
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1];
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1];
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'syncode_index_print_both'}{'contents'}[3];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2];
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2];
 $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'syncode_index_print_both'}{'contents'}[3];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[5];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[7]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[7];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[9];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[10]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[11]{'args'}[0];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[11];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[11]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'contents'}[12]{'parent'} = $result_trees{'syncode_index_print_both'}{'contents'}[4];
-$result_trees{'syncode_index_print_both'}{'contents'}[4]{'parent'} = $result_trees{'syncode_index_print_both'};
 
 $result_texis{'syncode_index_print_both'} = '@syncodeindex fn cp
 

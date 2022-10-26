@@ -16,7 +16,6 @@ $result_trees{'documentdescription'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -25,7 +24,6 @@ $result_trees{'documentdescription'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in '
                 },
                 {
@@ -33,16 +31,13 @@ $result_trees{'documentdescription'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'documentdescri---ption'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'code',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -50,18 +45,15 @@ $result_trees{'documentdescription'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' --- '
                 },
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'bullet',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -69,18 +61,15 @@ $result_trees{'documentdescription'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'enddots',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -88,7 +77,6 @@ $result_trees{'documentdescription'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
@@ -96,12 +84,10 @@ $result_trees{'documentdescription'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '"verb',
                           'type' => 'raw'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -109,7 +95,6 @@ $result_trees{'documentdescription'} = {
                   'extra' => {
                     'delimiter' => ':'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -117,18 +102,15 @@ $result_trees{'documentdescription'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'aa',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -136,7 +118,6 @@ $result_trees{'documentdescription'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
@@ -148,16 +129,13 @@ $result_trees{'documentdescription'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'i'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'dotless',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 2,
@@ -165,12 +143,10 @@ $result_trees{'documentdescription'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => '^',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -178,7 +154,6 @@ $result_trees{'documentdescription'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' '
                 },
                 {
@@ -190,16 +165,13 @@ $result_trees{'documentdescription'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'some'
                                 }
                               ],
-                              'parent' => {},
                               'type' => 'brace_command_arg'
                             }
                           ],
                           'cmdname' => 'code',
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 2,
@@ -207,16 +179,13 @@ $result_trees{'documentdescription'} = {
                           }
                         },
                         {
-                          'parent' => {},
                           'text' => 'body'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'email',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -224,12 +193,10 @@ $result_trees{'documentdescription'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -237,7 +204,6 @@ $result_trees{'documentdescription'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'documentdescription'
                     }
                   ],
@@ -245,7 +211,6 @@ $result_trees{'documentdescription'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -254,7 +219,6 @@ $result_trees{'documentdescription'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'documentdescription'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -262,7 +226,6 @@ $result_trees{'documentdescription'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -270,13 +233,11 @@ $result_trees{'documentdescription'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -284,7 +245,6 @@ $result_trees{'documentdescription'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -292,7 +252,6 @@ $result_trees{'documentdescription'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -300,7 +259,6 @@ $result_trees{'documentdescription'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -310,48 +268,6 @@ $result_trees{'documentdescription'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[7];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[9];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'args'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'documentdescription'}{'contents'}[0];
-$result_trees{'documentdescription'}{'contents'}[0]{'parent'} = $result_trees{'documentdescription'};
-$result_trees{'documentdescription'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[1]{'args'}[0];
-$result_trees{'documentdescription'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'documentdescription'}{'contents'}[1];
-$result_trees{'documentdescription'}{'contents'}[1]{'parent'} = $result_trees{'documentdescription'};
 
 $result_texis{'documentdescription'} = '@documentdescription
 in @code{documentdescri---ption} --- @bullet{} @enddots{} @verb{:"verb:} @aa{} @^{@dotless{i}} @email{@code{some}body}

@@ -10,7 +10,6 @@ $result_trees{'center'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -20,7 +19,6 @@ $result_trees{'center'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in center '
                 },
                 {
@@ -28,16 +26,13 @@ $result_trees{'center'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'in code'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'code',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 2,
@@ -49,7 +44,6 @@ $result_trees{'center'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -57,7 +51,6 @@ $result_trees{'center'} = {
           'extra' => {
             'spaces_before_argument' => '  '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -65,27 +58,16 @@ $result_trees{'center'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'center'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'center'}{'contents'}[0]{'contents'}[1];
-$result_trees{'center'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'center'}{'contents'}[0];
-$result_trees{'center'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'center'}{'contents'}[0];
-$result_trees{'center'}{'contents'}[0]{'parent'} = $result_trees{'center'};
 
 $result_texis{'center'} = '
 @center  in center @code{in code}

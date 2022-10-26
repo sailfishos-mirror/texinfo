@@ -12,30 +12,22 @@ $result_trees{'two_lines'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'text l 1
 '
             },
             {
-              'parent' => {},
               'text' => 'text l 2
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'two_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_lines'}{'contents'}[0]{'contents'}[0];
-$result_trees{'two_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'two_lines'}{'contents'}[0]{'contents'}[0];
-$result_trees{'two_lines'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_lines'}{'contents'}[0];
-$result_trees{'two_lines'}{'contents'}[0]{'parent'} = $result_trees{'two_lines'};
 
 $result_texis{'two_lines'} = 'text l 1
 text l 2

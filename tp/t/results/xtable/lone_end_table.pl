@@ -12,24 +12,18 @@ $result_trees{'lone_end_table'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'lone_end_table'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_end_table'}{'contents'}[0]{'contents'}[0];
-$result_trees{'lone_end_table'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_end_table'}{'contents'}[0];
-$result_trees{'lone_end_table'}{'contents'}[0]{'parent'} = $result_trees{'lone_end_table'};
 
 $result_texis{'lone_end_table'} = 'Text.
 ';

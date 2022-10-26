@@ -15,7 +15,6 @@ $result_trees{'email_table_command_as_argument'} = {
               'contents' => [
                 {
                   'cmdname' => 'email',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -28,7 +27,6 @@ $result_trees{'email_table_command_as_argument'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -43,15 +41,12 @@ $result_trees{'email_table_command_as_argument'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'www-discuss'
                             },
                             {
-                              'cmdname' => '@',
-                              'parent' => {}
+                              'cmdname' => '@'
                             },
                             {
-                              'parent' => {},
                               'text' => 'gnu.org'
                             }
                           ],
@@ -59,7 +54,6 @@ $result_trees{'email_table_command_as_argument'} = {
                             'spaces_after_argument' => '
 '
                           },
-                          'parent' => {},
                           'type' => 'line_arg'
                         }
                       ],
@@ -67,7 +61,6 @@ $result_trees{'email_table_command_as_argument'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -75,7 +68,6 @@ $result_trees{'email_table_command_as_argument'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_term'
                 },
                 {
@@ -83,20 +75,16 @@ $result_trees{'email_table_command_as_argument'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'discussion
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'table_item'
                 }
               ],
-              'parent' => {},
               'type' => 'table_entry'
             },
             {
@@ -104,7 +92,6 @@ $result_trees{'email_table_command_as_argument'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'table'
                     }
                   ],
@@ -112,7 +99,6 @@ $result_trees{'email_table_command_as_argument'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -121,7 +107,6 @@ $result_trees{'email_table_command_as_argument'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -133,7 +118,6 @@ $result_trees{'email_table_command_as_argument'} = {
             'command_as_argument' => {},
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -141,30 +125,12 @@ $result_trees{'email_table_command_as_argument'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0];
 $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'}{'contents'}[0];
-$result_trees{'email_table_command_as_argument'}{'contents'}[0]{'parent'} = $result_trees{'email_table_command_as_argument'};
 
 $result_texis{'email_table_command_as_argument'} = '@table @email
 @item www-discuss@@gnu.org

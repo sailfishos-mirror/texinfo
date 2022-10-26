@@ -10,20 +10,16 @@ $result_trees{'empty_ifset_in_ifset_no_set'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_ifset_in_ifset_no_set'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_no_set'}{'contents'}[0];
-$result_trees{'empty_ifset_in_ifset_no_set'}{'contents'}[0]{'parent'} = $result_trees{'empty_ifset_in_ifset_no_set'};
 
 $result_texis{'empty_ifset_in_ifset_no_set'} = '
 ';

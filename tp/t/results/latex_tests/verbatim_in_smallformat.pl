@@ -11,7 +11,6 @@ $result_trees{'verbatim_in_smallformat'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
@@ -21,7 +20,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -34,14 +32,12 @@ $result_trees{'verbatim_in_smallformat'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
               'cmdname' => 'verbatim',
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '... still verbatim, but in a smaller font ...
 ',
                   'type' => 'raw'
@@ -51,7 +47,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'verbatim'
                         }
                       ],
@@ -59,7 +54,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -68,7 +62,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'verbatim'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 4,
@@ -76,7 +69,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -88,7 +80,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'smallformat'
                     }
                   ],
@@ -96,7 +87,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -105,7 +95,6 @@ $result_trees{'verbatim_in_smallformat'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'smallformat'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -113,7 +102,6 @@ $result_trees{'verbatim_in_smallformat'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -121,25 +109,11 @@ $result_trees{'verbatim_in_smallformat'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'};
 
 $result_texis{'verbatim_in_smallformat'} = '@smallformat
 @verbatim

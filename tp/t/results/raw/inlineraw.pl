@@ -12,7 +12,6 @@ $result_trees{'inlineraw'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'A '
             },
             {
@@ -20,28 +19,23 @@ $result_trees{'inlineraw'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'plaintext'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'plaintext `` '
                     },
                     {
                       'args' => [
                         {
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'lbracechar',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 1,
@@ -49,14 +43,12 @@ $result_trees{'inlineraw'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     }
                   ],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -65,7 +57,6 @@ $result_trees{'inlineraw'} = {
                 'expand_index' => 1,
                 'format' => 'plaintext'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -73,7 +64,6 @@ $result_trees{'inlineraw'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' a.  Now html
 '
             },
@@ -82,17 +72,14 @@ $result_trees{'inlineraw'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'html'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in <i>'
                     },
                     {
@@ -100,16 +87,13 @@ $result_trees{'inlineraw'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'HTML'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'acronym',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -117,14 +101,12 @@ $result_trees{'inlineraw'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '</i>'
                     }
                   ],
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -133,7 +115,6 @@ $result_trees{'inlineraw'} = {
                 'expand_index' => 1,
                 'format' => 'html'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -141,43 +122,18 @@ $result_trees{'inlineraw'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineraw'}{'contents'}[0];
-$result_trees{'inlineraw'}{'contents'}[0]{'parent'} = $result_trees{'inlineraw'};
 
 $result_texis{'inlineraw'} = 'A @inlineraw{plaintext, plaintext `` @lbracechar{} } a.  Now html
 @inlineraw{html, in <i>@acronym{HTML}</i>}.

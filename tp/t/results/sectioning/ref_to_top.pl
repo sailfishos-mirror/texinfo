@@ -10,13 +10,11 @@ $result_trees{'ref_to_top'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -24,7 +22,6 @@ $result_trees{'ref_to_top'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'ToP'
             }
           ],
@@ -32,7 +29,6 @@ $result_trees{'ref_to_top'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -52,7 +48,6 @@ $result_trees{'ref_to_top'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -64,7 +59,6 @@ $result_trees{'ref_to_top'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -72,14 +66,12 @@ $result_trees{'ref_to_top'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -91,11 +83,9 @@ $result_trees{'ref_to_top'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'TOP'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -109,7 +99,6 @@ $result_trees{'ref_to_top'} = {
                   'normalized' => 'Top'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -117,19 +106,16 @@ $result_trees{'ref_to_top'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -139,24 +125,10 @@ $result_trees{'ref_to_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_to_top'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[0];
-$result_trees{'ref_to_top'}{'contents'}[0]{'parent'} = $result_trees{'ref_to_top'};
-$result_trees{'ref_to_top'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[1]{'args'}[0];
-$result_trees{'ref_to_top'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[1];
 $result_trees{'ref_to_top'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_to_top'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_to_top'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_to_top'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_to_top'}{'contents'}[1]{'parent'} = $result_trees{'ref_to_top'};
-$result_trees{'ref_to_top'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[2]{'args'}[0];
-$result_trees{'ref_to_top'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[2];
-$result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[2];
-$result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[0];
 $result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'label'} = $result_trees{'ref_to_top'}{'contents'}[1];
 $result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1];
-$result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1];
-$result_trees{'ref_to_top'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'ref_to_top'}{'contents'}[2];
-$result_trees{'ref_to_top'}{'contents'}[2]{'parent'} = $result_trees{'ref_to_top'};
 
 $result_texis{'ref_to_top'} = '
 @node ToP

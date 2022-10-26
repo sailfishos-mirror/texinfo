@@ -12,7 +12,6 @@ $result_trees{'w_end_sentence'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'a. '
             },
             {
@@ -20,16 +19,13 @@ $result_trees{'w_end_sentence'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'b'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'w',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -37,22 +33,14 @@ $result_trees{'w_end_sentence'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0];
-$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0];
-$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0];
-$result_trees{'w_end_sentence'}{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'};
 
 $result_texis{'w_end_sentence'} = 'a. @w{b}';
 

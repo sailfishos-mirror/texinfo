@@ -14,7 +14,6 @@ $result_trees{'uref_accented_letter_latin1'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'ISO-8859-1'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'uref_accented_letter_latin1'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -33,7 +31,6 @@ $result_trees{'uref_accented_letter_latin1'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'ISO-8859-1'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -41,7 +38,6 @@ $result_trees{'uref_accented_letter_latin1'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -53,7 +49,6 @@ $result_trees{'uref_accented_letter_latin1'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'http://example.com/acc_'
                     },
                     {
@@ -61,16 +56,13 @@ $result_trees{'uref_accented_letter_latin1'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'a'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'following_arg'
                         }
                       ],
                       'cmdname' => '"',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -82,16 +74,13 @@ $result_trees{'uref_accented_letter_latin1'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'a'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'ogonek',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -99,12 +88,10 @@ $result_trees{'uref_accented_letter_latin1'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'uref',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -112,37 +99,18 @@ $result_trees{'uref_accented_letter_latin1'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'uref_accented_letter_latin1'}{'contents'}[0];
-$result_trees{'uref_accented_letter_latin1'}{'contents'}[0]{'parent'} = $result_trees{'uref_accented_letter_latin1'};
 
 $result_texis{'uref_accented_letter_latin1'} = '@documentencoding ISO-8859-1
 

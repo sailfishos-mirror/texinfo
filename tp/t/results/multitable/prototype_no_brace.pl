@@ -14,7 +14,6 @@ $result_trees{'prototype_no_brace'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'aa'
                 },
                 {
@@ -22,16 +21,13 @@ $result_trees{'prototype_no_brace'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'FF'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'var',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -39,7 +35,6 @@ $result_trees{'prototype_no_brace'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' b    cc'
                 }
               ],
@@ -47,7 +42,6 @@ $result_trees{'prototype_no_brace'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -58,7 +52,6 @@ $result_trees{'prototype_no_brace'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
@@ -66,7 +59,6 @@ $result_trees{'prototype_no_brace'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -75,7 +67,6 @@ $result_trees{'prototype_no_brace'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -101,7 +92,6 @@ $result_trees{'prototype_no_brace'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -109,23 +99,11 @@ $result_trees{'prototype_no_brace'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'}{'contents'}[0];
-$result_trees{'prototype_no_brace'}{'contents'}[0]{'parent'} = $result_trees{'prototype_no_brace'};
 
 $result_texis{'prototype_no_brace'} = '@multitable aa@var{FF} b    cc
 @end multitable

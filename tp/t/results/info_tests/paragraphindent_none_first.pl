@@ -10,51 +10,42 @@ $result_trees{'paragraphindent_none_first'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '      ',
           'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'first
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '      ',
           'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'second
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -64,7 +55,6 @@ $result_trees{'paragraphindent_none_first'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'none'
                 }
               ],
@@ -72,7 +62,6 @@ $result_trees{'paragraphindent_none_first'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -83,7 +72,6 @@ $result_trees{'paragraphindent_none_first'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -91,51 +79,29 @@ $result_trees{'paragraphindent_none_first'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
-          'parent' => {},
           'text' => '      ',
           'type' => 'spaces_before_paragraph'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'after none
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[2];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[5];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[7];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[10];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'paragraphindent_none_first'}{'contents'}[0];
-$result_trees{'paragraphindent_none_first'}{'contents'}[0]{'parent'} = $result_trees{'paragraphindent_none_first'};
 
 $result_texis{'paragraphindent_none_first'} = '
       first

@@ -12,7 +12,6 @@ $result_trees{'multiline_verb_after_space'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'AA '
             },
             {
@@ -20,18 +19,15 @@ $result_trees{'multiline_verb_after_space'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'aa
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => 'bb',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -39,7 +35,6 @@ $result_trees{'multiline_verb_after_space'} = {
               'extra' => {
                 'delimiter' => '*'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -47,29 +42,18 @@ $result_trees{'multiline_verb_after_space'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'};
 
 $result_texis{'multiline_verb_after_space'} = 'AA @verb{*aa
 bb*}.

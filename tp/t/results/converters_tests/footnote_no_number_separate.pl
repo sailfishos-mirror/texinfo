@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'footnote_no_number_separate'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'footnote_no_number_separate'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -24,7 +22,6 @@ $result_trees{'footnote_no_number_separate'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -44,7 +41,6 @@ $result_trees{'footnote_no_number_separate'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -56,7 +52,6 @@ $result_trees{'footnote_no_number_separate'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -64,14 +59,12 @@ $result_trees{'footnote_no_number_separate'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -80,7 +73,6 @@ $result_trees{'footnote_no_number_separate'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -92,7 +84,6 @@ $result_trees{'footnote_no_number_separate'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chap'
             }
           ],
@@ -100,7 +91,6 @@ $result_trees{'footnote_no_number_separate'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -120,7 +110,6 @@ $result_trees{'footnote_no_number_separate'} = {
         'normalized' => 'chap',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -132,7 +121,6 @@ $result_trees{'footnote_no_number_separate'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Chapter'
             }
           ],
@@ -140,14 +128,12 @@ $result_trees{'footnote_no_number_separate'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -155,7 +141,6 @@ $result_trees{'footnote_no_number_separate'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Para'
             },
             {
@@ -165,20 +150,16 @@ $result_trees{'footnote_no_number_separate'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Footnote 1.'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'footnote',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -186,16 +167,13 @@ $result_trees{'footnote_no_number_separate'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -203,7 +181,6 @@ $result_trees{'footnote_no_number_separate'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Para2'
             },
             {
@@ -213,20 +190,16 @@ $result_trees{'footnote_no_number_separate'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Footnote 2.'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'footnote',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -234,19 +207,16 @@ $result_trees{'footnote_no_number_separate'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -256,40 +226,10 @@ $result_trees{'footnote_no_number_separate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnote_no_number_separate'}{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'};
-$result_trees{'footnote_no_number_separate'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[1]{'args'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[1];
 $result_trees{'footnote_no_number_separate'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'footnote_no_number_separate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_no_number_separate'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_no_number_separate'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[1]{'parent'} = $result_trees{'footnote_no_number_separate'};
-$result_trees{'footnote_no_number_separate'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[2]{'args'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[2];
-$result_trees{'footnote_no_number_separate'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[2];
-$result_trees{'footnote_no_number_separate'}{'contents'}[2]{'parent'} = $result_trees{'footnote_no_number_separate'};
-$result_trees{'footnote_no_number_separate'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[3]{'args'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[3];
 $result_trees{'footnote_no_number_separate'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'footnote_no_number_separate'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'footnote_no_number_separate'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnote_no_number_separate'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[3]{'parent'} = $result_trees{'footnote_no_number_separate'};
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'args'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'footnote_no_number_separate'}{'contents'}[4];
-$result_trees{'footnote_no_number_separate'}{'contents'}[4]{'parent'} = $result_trees{'footnote_no_number_separate'};
 
 $result_texis{'footnote_no_number_separate'} = '@node Top
 @top top

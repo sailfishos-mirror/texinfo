@@ -14,14 +14,12 @@ $result_trees{'lone_contents'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'misc_arg'
                 }
               ],
               'cmdname' => 'contents',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -29,20 +27,14 @@ $result_trees{'lone_contents'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0];
-$result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_contents'}{'contents'}[0];
-$result_trees{'lone_contents'}{'contents'}[0]{'parent'} = $result_trees{'lone_contents'};
 
 $result_texis{'lone_contents'} = '@contents
 ';

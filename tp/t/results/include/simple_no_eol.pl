@@ -12,24 +12,18 @@ $result_trees{'simple_no_eol'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In included file.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple_no_eol'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple_no_eol'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple_no_eol'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple_no_eol'}{'contents'}[0];
-$result_trees{'simple_no_eol'}{'contents'}[0]{'parent'} = $result_trees{'simple_no_eol'};
 
 $result_texis{'simple_no_eol'} = 'In included file.
 ';

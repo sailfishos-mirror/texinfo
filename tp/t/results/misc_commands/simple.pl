@@ -14,11 +14,9 @@ $result_trees{'simple'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'idx'
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -29,7 +27,6 @@ $result_trees{'simple'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -37,16 +34,11 @@ $result_trees{'simple'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'parent'} = $result_trees{'simple'};
 
 $result_texis{'simple'} = '@defindex idx';
 

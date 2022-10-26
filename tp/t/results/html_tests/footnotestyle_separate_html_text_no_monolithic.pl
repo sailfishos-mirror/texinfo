@@ -14,7 +14,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'separate'
                 }
               ],
@@ -22,7 +21,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -33,7 +31,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -41,13 +38,11 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -55,7 +50,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -63,7 +57,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -83,7 +76,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -95,7 +87,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -103,7 +94,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -112,7 +102,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In top'
             },
             {
@@ -122,20 +111,16 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Additional text'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'paragraph'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'footnote',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -143,16 +128,13 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -161,7 +143,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 4,
@@ -173,7 +154,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'chap'
             }
           ],
@@ -181,7 +161,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -201,7 +180,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         'normalized' => 'chap',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 7,
@@ -213,7 +191,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Chap'
             }
           ],
@@ -221,14 +198,12 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -237,7 +212,6 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 8,
@@ -247,36 +221,10 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0]{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'};
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'args'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1];
 $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[1]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'};
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'args'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[1];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[2]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'};
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'args'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3];
 $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[3]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'};
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[4]{'args'}[0];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[4];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[4];
-$result_trees{'footnotestyle_separate_html_text_no_monolithic'}{'contents'}[4]{'parent'} = $result_trees{'footnotestyle_separate_html_text_no_monolithic'};
 
 $result_texis{'footnotestyle_separate_html_text_no_monolithic'} = '@footnotestyle separate
 

@@ -14,11 +14,9 @@ $result_trees{'out_of_multitable'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '0.6 0.4 aaa'
                 }
               ],
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -30,7 +28,6 @@ $result_trees{'out_of_multitable'} = {
             ],
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -38,16 +35,11 @@ $result_trees{'out_of_multitable'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0];
-$result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'out_of_multitable'}{'contents'}[0];
-$result_trees{'out_of_multitable'}{'contents'}[0]{'parent'} = $result_trees{'out_of_multitable'};
 
 $result_texis{'out_of_multitable'} = '@columnfractions 0.6 0.4 aaa';
 

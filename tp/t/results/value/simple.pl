@@ -12,12 +12,10 @@ $result_trees{'simple'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'a-_5b',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => 'the value @b{b}',
               'type' => 'misc_arg'
             }
@@ -30,11 +28,9 @@ $result_trees{'simple'} = {
               'a-_5b',
               'the value @b{b}'
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -42,7 +38,6 @@ $result_trees{'simple'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'the value '
             },
             {
@@ -50,16 +45,13 @@ $result_trees{'simple'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'b'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'b',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -67,32 +59,18 @@ $result_trees{'simple'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' After value.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'simple'}{'contents'}[0]{'contents'}[2];
-$result_trees{'simple'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'simple'}{'contents'}[0];
-$result_trees{'simple'}{'contents'}[0]{'parent'} = $result_trees{'simple'};
 
 $result_texis{'simple'} = '@set a-_5b the value @b{b} @c comment
 

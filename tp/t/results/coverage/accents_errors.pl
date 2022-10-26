@@ -12,7 +12,6 @@ $result_trees{'accents_errors'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'accent at end of line '
             },
             {
@@ -20,11 +19,9 @@ $result_trees{'accents_errors'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
@@ -33,7 +30,6 @@ $result_trees{'accents_errors'} = {
                 'spaces' => '
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -41,7 +37,6 @@ $result_trees{'accents_errors'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'ccent at end of line and spaces '
             },
             {
@@ -49,11 +44,9 @@ $result_trees{'accents_errors'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
@@ -62,7 +55,6 @@ $result_trees{'accents_errors'} = {
                 'spaces' => '  
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -70,20 +62,16 @@ $result_trees{'accents_errors'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'ccent followed by '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'cmdname' => 'ringaccent',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -91,20 +79,16 @@ $result_trees{'accents_errors'} = {
               }
             },
             {
-              'cmdname' => '.',
-              'parent' => {}
+              'cmdname' => '.'
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -112,7 +96,6 @@ $result_trees{'accents_errors'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'accent character with spaces '
             },
             {
@@ -120,11 +103,9 @@ $result_trees{'accents_errors'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'f'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
@@ -132,7 +113,6 @@ $result_trees{'accents_errors'} = {
               'extra' => {
                 'spaces' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -140,12 +120,10 @@ $result_trees{'accents_errors'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'ollowing.
 '
             },
             {
-              'parent' => {},
               'text' => 'accent character at end of line '
             },
             {
@@ -153,11 +131,9 @@ $result_trees{'accents_errors'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'following_arg'
                 }
               ],
@@ -166,7 +142,6 @@ $result_trees{'accents_errors'} = {
                 'spaces' => '
 '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -174,20 +149,16 @@ $result_trees{'accents_errors'} = {
               }
             },
             {
-              'parent' => {},
               'text' => 'ccent character followed by '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
               'cmdname' => '~',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -195,58 +166,21 @@ $result_trees{'accents_errors'} = {
               }
             },
             {
-              'cmdname' => '.',
-              'parent' => {}
+              'cmdname' => '.'
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[4];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[8]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[9]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'contents'}[10]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2];
-$result_trees{'accents_errors'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'accents_errors'}{'contents'}[0];
-$result_trees{'accents_errors'}{'contents'}[0]{'parent'} = $result_trees{'accents_errors'};
 
 $result_texis{'accents_errors'} = 'accent at end of line @ringaccent
 accent at end of line and spaces @ringaccent  

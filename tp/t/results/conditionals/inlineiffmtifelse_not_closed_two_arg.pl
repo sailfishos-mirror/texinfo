@@ -16,15 +16,12 @@ $result_trees{'inlineiffmtifelse_not_closed_two_arg'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'html'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'elided'
                 }
               ],
@@ -33,7 +30,6 @@ $result_trees{'inlineiffmtifelse_not_closed_two_arg'} = {
                 'expand_index' => 2,
                 'format' => 'html'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -41,22 +37,14 @@ $result_trees{'inlineiffmtifelse_not_closed_two_arg'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0];
-$result_trees{'inlineiffmtifelse_not_closed_two_arg'}{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_two_arg'};
 
 $result_texis{'inlineiffmtifelse_not_closed_two_arg'} = '@inlinefmtifelse{html,}';
 

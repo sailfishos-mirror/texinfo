@@ -12,31 +12,23 @@ $result_trees{'one_line_no_content'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '\\input texinfo.tex
 ',
               'type' => 'text_before_beginning'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_beginning'
         },
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'one_line_no_content'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_line_no_content'}{'contents'}[0]{'contents'}[0];
-$result_trees{'one_line_no_content'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_line_no_content'}{'contents'}[0];
-$result_trees{'one_line_no_content'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'one_line_no_content'}{'contents'}[0];
-$result_trees{'one_line_no_content'}{'contents'}[0]{'parent'} = $result_trees{'one_line_no_content'};
 
 $result_texis{'one_line_no_content'} = '\\input texinfo.tex
 ';

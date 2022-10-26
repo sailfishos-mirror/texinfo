@@ -12,7 +12,6 @@ $result_trees{'kbd'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'kbd: '
             },
             {
@@ -20,16 +19,13 @@ $result_trees{'kbd'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in kbd'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -37,16 +33,13 @@ $result_trees{'kbd'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -54,7 +47,6 @@ $result_trees{'kbd'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'kbd in code: '
             },
             {
@@ -62,7 +54,6 @@ $result_trees{'kbd'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in first '
                     },
                     {
@@ -70,16 +61,13 @@ $result_trees{'kbd'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in nested kbd'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -87,12 +75,10 @@ $result_trees{'kbd'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -100,16 +86,13 @@ $result_trees{'kbd'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -117,7 +100,6 @@ $result_trees{'kbd'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'kbd in kbd: '
             },
             {
@@ -125,7 +107,6 @@ $result_trees{'kbd'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in top kbd '
                     },
                     {
@@ -133,16 +114,13 @@ $result_trees{'kbd'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'in nested kbd'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'kbd',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 5,
@@ -150,12 +128,10 @@ $result_trees{'kbd'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'kbd',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -163,16 +139,13 @@ $result_trees{'kbd'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -180,24 +153,19 @@ $result_trees{'kbd'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'kbd in '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'example:
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -209,7 +177,6 @@ $result_trees{'kbd'} = {
                 'spaces_after_argument' => ' 
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -218,7 +185,6 @@ $result_trees{'kbd'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in example
 '
                 },
@@ -227,16 +193,13 @@ $result_trees{'kbd'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'in example in kbd'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'code',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 11,
@@ -244,12 +207,10 @@ $result_trees{'kbd'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -257,7 +218,6 @@ $result_trees{'kbd'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -265,7 +225,6 @@ $result_trees{'kbd'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -274,7 +233,6 @@ $result_trees{'kbd'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 12,
@@ -282,7 +240,6 @@ $result_trees{'kbd'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -290,7 +247,6 @@ $result_trees{'kbd'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -298,24 +254,19 @@ $result_trees{'kbd'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'kbd in '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'format:
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -327,7 +278,6 @@ $result_trees{'kbd'} = {
                 'spaces_after_argument' => ' 
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -336,7 +286,6 @@ $result_trees{'kbd'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'in format
 '
                 },
@@ -345,16 +294,13 @@ $result_trees{'kbd'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'in format in kbd'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
                   'cmdname' => 'code',
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 18,
@@ -362,12 +308,10 @@ $result_trees{'kbd'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -375,7 +319,6 @@ $result_trees{'kbd'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'format'
                     }
                   ],
@@ -383,7 +326,6 @@ $result_trees{'kbd'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -392,7 +334,6 @@ $result_trees{'kbd'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
@@ -400,7 +341,6 @@ $result_trees{'kbd'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 16,
@@ -408,73 +348,11 @@ $result_trees{'kbd'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[2];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[2];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[2];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[4];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[4];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[4];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[6];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[6];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[6];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[8];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[10];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[10];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[10];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'contents'}[1]{'parent'} = $result_trees{'kbd'}{'contents'}[0]{'contents'}[12];
-$result_trees{'kbd'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'kbd'}{'contents'}[0];
-$result_trees{'kbd'}{'contents'}[0]{'parent'} = $result_trees{'kbd'};
 
 $result_texis{'kbd'} = 'kbd: @code{in kbd}.
 

@@ -10,14 +10,12 @@ $result_trees{'noindent_indent'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
           'cmdname' => 'indent',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -25,7 +23,6 @@ $result_trees{'noindent_indent'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'ignorable_spaces_after_command'
@@ -33,7 +30,6 @@ $result_trees{'noindent_indent'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'First para
 '
             }
@@ -41,18 +37,15 @@ $result_trees{'noindent_indent'} = {
           'extra' => {
             'indent' => 1
           },
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
           'cmdname' => 'noindent',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -60,7 +53,6 @@ $result_trees{'noindent_indent'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'ignorable_spaces_after_command'
@@ -68,12 +60,10 @@ $result_trees{'noindent_indent'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
 '
             },
             {
-              'parent' => {},
               'text' => 'qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
 '
             }
@@ -81,18 +71,15 @@ $result_trees{'noindent_indent'} = {
           'extra' => {
             'noindent' => 1
           },
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
           'cmdname' => 'noindent',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -100,14 +87,12 @@ $result_trees{'noindent_indent'} = {
           }
         },
         {
-          'parent' => {},
           'text' => ' ',
           'type' => 'ignorable_spaces_after_command'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'noindent in para.
 '
             }
@@ -115,18 +100,15 @@ $result_trees{'noindent_indent'} = {
           'extra' => {
             'noindent' => 1
           },
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         },
         {
           'cmdname' => 'indent',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
@@ -134,14 +116,12 @@ $result_trees{'noindent_indent'} = {
           }
         },
         {
-          'parent' => {},
           'text' => ' ',
           'type' => 'ignorable_spaces_after_command'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'unneeded indent
 '
             }
@@ -149,38 +129,14 @@ $result_trees{'noindent_indent'} = {
           'extra' => {
             'indent' => 1
           },
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[3];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[7];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[7];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[11];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[15]{'contents'}[0]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[15];
-$result_trees{'noindent_indent'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'noindent_indent'}{'contents'}[0];
-$result_trees{'noindent_indent'}{'contents'}[0]{'parent'} = $result_trees{'noindent_indent'};
 
 $result_texis{'noindent_indent'} = '
 @indent

@@ -12,7 +12,6 @@ $result_trees{'punctuation_in_command_end_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Text. Email '
             },
             {
@@ -20,26 +19,21 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'email',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -47,12 +41,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'dmn '
             },
             {
@@ -60,16 +52,13 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '1.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'dmn',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -77,12 +66,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'and text. indicateurl '
             },
             {
@@ -90,16 +77,13 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'indicateurl',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -107,12 +91,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'and then kbd '
             },
             {
@@ -120,16 +102,13 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'kbd',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 4,
@@ -137,12 +116,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'and math '
             },
             {
@@ -150,16 +127,13 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_context'
                 }
               ],
               'cmdname' => 'math',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -167,12 +141,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'and cite '
             },
             {
@@ -180,16 +152,13 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'cite',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -197,12 +166,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'and emph '
             },
             {
@@ -210,16 +177,13 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'emph',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -227,12 +191,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'text. asis in code '
             },
             {
@@ -244,16 +206,13 @@ $result_trees{'punctuation_in_command_end_line'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => '.'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'asis',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 8,
@@ -261,12 +220,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
                       }
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -274,12 +231,10 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             },
             {
-              'parent' => {},
               'text' => 'text. a dot before a emph open .'
             },
             {
@@ -287,21 +242,17 @@ $result_trees{'punctuation_in_command_end_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 '
                     },
                     {
-                      'parent' => {},
                       'text' => 'and in emph.'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'emph',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
@@ -309,73 +260,18 @@ $result_trees{'punctuation_in_command_end_line'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[7];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[10];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[13];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[16]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[16]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[16];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[19];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[23]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[25]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[25]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[25]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[25]{'args'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[25]{'args'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[25];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[25]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[26]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'}{'contents'}[0];
-$result_trees{'punctuation_in_command_end_line'}{'contents'}[0]{'parent'} = $result_trees{'punctuation_in_command_end_line'};
 
 $result_texis{'punctuation_in_command_end_line'} = 'Text. Email @email{.,.}
 dmn @dmn{1.}

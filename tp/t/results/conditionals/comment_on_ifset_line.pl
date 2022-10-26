@@ -12,12 +12,10 @@ $result_trees{'comment_on_ifset_line'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'x',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => '',
               'type' => 'misc_arg'
             }
@@ -30,11 +28,9 @@ $result_trees{'comment_on_ifset_line'} = {
               'x',
               ''
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -42,58 +38,38 @@ $result_trees{'comment_on_ifset_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Y1
 '
             },
             {
-              'parent' => {},
               'text' => 'Y2
 '
             },
             {
-              'parent' => {},
               'text' => 'Y3
 '
             },
             {
-              'parent' => {},
               'text' => 'Y4
 '
             },
             {
-              'parent' => {},
               'text' => 'Y5
 '
             },
             {
-              'parent' => {},
               'text' => 'Y6
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'comment_on_ifset_line'}{'contents'}[0];
-$result_trees{'comment_on_ifset_line'}{'contents'}[0]{'parent'} = $result_trees{'comment_on_ifset_line'};
 
 $result_texis{'comment_on_ifset_line'} = '@set x
 

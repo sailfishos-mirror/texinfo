@@ -12,7 +12,6 @@ $result_trees{'macro_definition_in_include'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'themacro',
               'type' => 'macro_name'
             }
@@ -20,7 +19,6 @@ $result_trees{'macro_definition_in_include'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in themacro
 ',
               'type' => 'raw'
@@ -30,7 +28,6 @@ $result_trees{'macro_definition_in_include'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -38,7 +35,6 @@ $result_trees{'macro_definition_in_include'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -47,7 +43,6 @@ $result_trees{'macro_definition_in_include'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'macro_included.texi',
                 'line_nr' => 3,
@@ -59,7 +54,6 @@ $result_trees{'macro_definition_in_include'} = {
             'arg_line' => ' themacro
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => 'macro_included.texi',
             'line_nr' => 1,
@@ -67,7 +61,6 @@ $result_trees{'macro_definition_in_include'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -75,37 +68,22 @@ $result_trees{'macro_definition_in_include'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Call macro
 '
             },
             {
-              'parent' => {},
               'text' => 'in themacro
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_definition_in_include'}{'contents'}[0];
-$result_trees{'macro_definition_in_include'}{'contents'}[0]{'parent'} = $result_trees{'macro_definition_in_include'};
 
 $result_texis{'macro_definition_in_include'} = '@macro themacro
 in themacro

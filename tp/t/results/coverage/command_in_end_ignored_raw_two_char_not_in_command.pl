@@ -16,23 +16,19 @@ $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'html',
           'contents' => [
             {
-              'parent' => {},
               'type' => 'elided_block'
             },
             {
-              'parent' => {},
               'text' => '',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -40,17 +36,11 @@ $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0];
-$result_trees{'command_in_end_ignored_raw_two_char_not_in_command'}{'contents'}[0]{'parent'} = $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'};
 
 $result_texis{'command_in_end_ignored_raw_two_char_not_in_command'} = '@html
 ';

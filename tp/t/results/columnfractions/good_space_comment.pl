@@ -18,7 +18,6 @@ $result_trees{'good_space_comment'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '0 1'
                         }
                       ],
@@ -26,7 +25,6 @@ $result_trees{'good_space_comment'} = {
                         'comment_at_end' => {
                           'args' => [
                             {
-                              'parent' => {},
                               'text' => ' space comment
 ',
                               'type' => 'misc_arg'
@@ -38,12 +36,10 @@ $result_trees{'good_space_comment'} = {
                               ' space comment
 '
                             ]
-                          },
-                          'parent' => {}
+                          }
                         },
                         'spaces_after_argument' => '  '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -55,7 +51,6 @@ $result_trees{'good_space_comment'} = {
                     ],
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -63,7 +58,6 @@ $result_trees{'good_space_comment'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -74,11 +68,9 @@ $result_trees{'good_space_comment'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -87,7 +79,6 @@ $result_trees{'good_space_comment'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -100,7 +91,6 @@ $result_trees{'good_space_comment'} = {
             'max_columns' => 2,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -108,24 +98,12 @@ $result_trees{'good_space_comment'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'};
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0];
 $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'extra'}{'columnfractions'} = $result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'good_space_comment'}{'contents'}[0];
-$result_trees{'good_space_comment'}{'contents'}[0]{'parent'} = $result_trees{'good_space_comment'};
 
 $result_texis{'good_space_comment'} = '@multitable @columnfractions 0 1  @c space comment
 @end multitable';

@@ -10,7 +10,6 @@ $result_trees{'end_ifset_in_format'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,12 +17,10 @@ $result_trees{'end_ifset_in_format'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'notset',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => '',
               'type' => 'misc_arg'
             }
@@ -36,11 +33,9 @@ $result_trees{'end_ifset_in_format'} = {
               'notset',
               ''
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -52,14 +47,12 @@ $result_trees{'end_ifset_in_format'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'ignore',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@end ifset
 ',
               'type' => 'raw'
@@ -69,7 +62,6 @@ $result_trees{'end_ifset_in_format'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'ignore'
                     }
                   ],
@@ -77,7 +69,6 @@ $result_trees{'end_ifset_in_format'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -86,7 +77,6 @@ $result_trees{'end_ifset_in_format'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ignore'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -94,7 +84,6 @@ $result_trees{'end_ifset_in_format'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -104,16 +93,13 @@ $result_trees{'end_ifset_in_format'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'text
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -125,14 +111,12 @@ $result_trees{'end_ifset_in_format'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'verbatim',
           'contents' => [
             {
-              'parent' => {},
               'text' => '@end ifset
 ',
               'type' => 'raw'
@@ -142,7 +126,6 @@ $result_trees{'end_ifset_in_format'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'verbatim'
                     }
                   ],
@@ -150,7 +133,6 @@ $result_trees{'end_ifset_in_format'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -159,7 +141,6 @@ $result_trees{'end_ifset_in_format'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
@@ -167,7 +148,6 @@ $result_trees{'end_ifset_in_format'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 12,
@@ -175,7 +155,6 @@ $result_trees{'end_ifset_in_format'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -187,19 +166,16 @@ $result_trees{'end_ifset_in_format'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => '@end ifset
 ',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -207,7 +183,6 @@ $result_trees{'end_ifset_in_format'} = {
               'extra' => {
                 'delimiter' => '%'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 18,
@@ -215,49 +190,18 @@ $result_trees{'end_ifset_in_format'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[4];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'end_ifset_in_format'}{'contents'}[0];
-$result_trees{'end_ifset_in_format'}{'contents'}[0]{'parent'} = $result_trees{'end_ifset_in_format'};
 
 $result_texis{'end_ifset_in_format'} = '
 @set notset

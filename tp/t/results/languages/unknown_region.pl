@@ -16,7 +16,6 @@ $result_trees{'unknown_region'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'fr_NOWHERE'
                     }
                   ],
@@ -24,7 +23,6 @@ $result_trees{'unknown_region'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -33,7 +31,6 @@ $result_trees{'unknown_region'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'fr_NOWHERE'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -41,17 +38,14 @@ $result_trees{'unknown_region'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -59,7 +53,6 @@ $result_trees{'unknown_region'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -67,14 +60,12 @@ $result_trees{'unknown_region'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'node',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -92,7 +83,6 @@ $result_trees{'unknown_region'} = {
                           'extra' => {
                             'documentlanguage' => 'fr_NOWHERE'
                           },
-                          'parent' => {},
                           'text' => 'Instance Variable',
                           'type' => 'untranslated'
                         }
@@ -100,14 +90,12 @@ $result_trees{'unknown_region'} = {
                       'extra' => {
                         'def_role' => 'category'
                       },
-                      'parent' => {},
                       'type' => 'bracketed_inserted'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces_inserted'
                     },
@@ -121,7 +109,6 @@ $result_trees{'unknown_region'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -135,7 +122,6 @@ $result_trees{'unknown_region'} = {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => ' ',
                       'type' => 'spaces'
                     },
@@ -143,20 +129,17 @@ $result_trees{'unknown_region'} = {
                       'extra' => {
                         'def_role' => 'arg'
                       },
-                      'parent' => {},
                       'text' => 'CCC'
                     },
                     {
                       'extra' => {
                         'def_role' => 'spaces'
                       },
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'spaces_at_end'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -194,7 +177,6 @@ $result_trees{'unknown_region'} = {
                 },
                 'original_def_cmdname' => 'defivar'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -207,7 +189,6 @@ $result_trees{'unknown_region'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'defivar'
                     }
                   ],
@@ -215,7 +196,6 @@ $result_trees{'unknown_region'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -224,7 +204,6 @@ $result_trees{'unknown_region'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'defivar'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 6,
@@ -235,7 +214,6 @@ $result_trees{'unknown_region'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -258,7 +236,6 @@ $result_trees{'unknown_region'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -268,23 +245,6 @@ $result_trees{'unknown_region'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0];
-$result_trees{'unknown_region'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[0];
-$result_trees{'unknown_region'}{'contents'}[0]{'parent'} = $result_trees{'unknown_region'};
-$result_trees{'unknown_region'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[4];
@@ -294,14 +254,8 @@ $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'ex
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'}[2] = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[2];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0];
 $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'unknown_region'}{'contents'}[1];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1];
-$result_trees{'unknown_region'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'unknown_region'}{'contents'}[1];
 $result_trees{'unknown_region'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'unknown_region'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'unknown_region'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unknown_region'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'unknown_region'}{'contents'}[1]{'parent'} = $result_trees{'unknown_region'};
 
 $result_texis{'unknown_region'} = '@documentlanguage fr_NOWHERE
 

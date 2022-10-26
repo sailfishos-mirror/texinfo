@@ -14,12 +14,10 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'TeX',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -27,18 +25,15 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. And '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'LaTeX',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -46,18 +41,15 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'copyright',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -65,18 +57,15 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. '
             },
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'registeredsymbol',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -84,35 +73,18 @@ $result_trees{'command_brace_no_arg_punctuation'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '. End.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[6];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0];
-$result_trees{'command_brace_no_arg_punctuation'}{'contents'}[0]{'parent'} = $result_trees{'command_brace_no_arg_punctuation'};
 
 $result_texis{'command_brace_no_arg_punctuation'} = '@TeX{}. And @LaTeX{}. @copyright{}. @registeredsymbol{}. End.
 ';

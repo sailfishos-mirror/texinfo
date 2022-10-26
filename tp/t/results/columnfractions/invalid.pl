@@ -18,7 +18,6 @@ $result_trees{'invalid'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '2x.2 2.23x'
                         }
                       ],
@@ -26,7 +25,6 @@ $result_trees{'invalid'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -34,7 +32,6 @@ $result_trees{'invalid'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -42,7 +39,6 @@ $result_trees{'invalid'} = {
                   }
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -53,11 +49,9 @@ $result_trees{'invalid'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'multitable'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -66,7 +60,6 @@ $result_trees{'invalid'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -78,7 +71,6 @@ $result_trees{'invalid'} = {
             'max_columns' => 0,
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -86,21 +78,11 @@ $result_trees{'invalid'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'parent'} = $result_trees{'invalid'};
 
 $result_texis{'invalid'} = '@multitable @columnfractions 2x.2 2.23x
 @end multitable';

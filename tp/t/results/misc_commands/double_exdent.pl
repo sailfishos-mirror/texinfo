@@ -16,7 +16,6 @@ $result_trees{'double_exdent'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -25,12 +24,10 @@ $result_trees{'double_exdent'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Example   Hoho.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -40,7 +37,6 @@ $result_trees{'double_exdent'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -49,12 +45,10 @@ $result_trees{'double_exdent'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Nested Other line
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'preformatted'
                 },
                 {
@@ -66,7 +60,6 @@ $result_trees{'double_exdent'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'double  exdented nested other line'
                                 }
                               ],
@@ -74,7 +67,6 @@ $result_trees{'double_exdent'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -82,7 +74,6 @@ $result_trees{'double_exdent'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 5,
@@ -90,7 +81,6 @@ $result_trees{'double_exdent'} = {
                           }
                         }
                       ],
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -98,7 +88,6 @@ $result_trees{'double_exdent'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
@@ -110,7 +99,6 @@ $result_trees{'double_exdent'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'example'
                         }
                       ],
@@ -118,7 +106,6 @@ $result_trees{'double_exdent'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -127,7 +114,6 @@ $result_trees{'double_exdent'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 6,
@@ -135,7 +121,6 @@ $result_trees{'double_exdent'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -147,7 +132,6 @@ $result_trees{'double_exdent'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -155,7 +139,6 @@ $result_trees{'double_exdent'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -164,7 +147,6 @@ $result_trees{'double_exdent'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -172,7 +154,6 @@ $result_trees{'double_exdent'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -180,32 +161,11 @@ $result_trees{'double_exdent'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_exdent'}{'contents'}[0];
-$result_trees{'double_exdent'}{'contents'}[0]{'parent'} = $result_trees{'double_exdent'};
 
 $result_texis{'double_exdent'} = '@example
 Example   Hoho.

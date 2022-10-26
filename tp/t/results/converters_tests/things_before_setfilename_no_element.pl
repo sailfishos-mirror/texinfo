@@ -14,19 +14,16 @@ $result_trees{'things_before_setfilename_no_element'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\input texinfo
 ',
                   'type' => 'text_before_beginning'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'text_before_beginning'
                 }
               ],
-              'parent' => {},
               'type' => 'preamble_before_beginning'
             },
             {
@@ -34,11 +31,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'An anchor'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -49,7 +44,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 ],
                 'normalized' => 'An-anchor'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 3,
@@ -57,13 +51,11 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'spaces_after_close_brace'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -71,7 +63,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Ref to the anchor:
 '
                 },
@@ -80,11 +71,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'An anchor'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -98,7 +87,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'normalized' => 'An-anchor'
                     }
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 6,
@@ -106,16 +94,13 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -123,7 +108,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Ref to the anchor in footnote:
 '
                 },
@@ -132,11 +116,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'Anchor in footnote'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -147,11 +129,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'Anchor in footnote'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -161,110 +141,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                           {}
                         ],
                         'normalized' => 'Anchor-in-footnote'
-                      },
-                      'parent' => {
-                        'contents' => [
-                          {
-                            'contents' => [
-                              {
-                                'parent' => {},
-                                'text' => 'In footnote.
-'
-                              }
-                            ],
-                            'parent' => {},
-                            'type' => 'paragraph'
-                          },
-                          {
-                            'parent' => {},
-                            'text' => '
-',
-                            'type' => 'empty_line'
-                          },
-                          {},
-                          {
-                            'parent' => {},
-                            'text' => '
-',
-                            'type' => 'spaces_after_close_brace'
-                          },
-                          {
-                            'parent' => {},
-                            'text' => '
-',
-                            'type' => 'empty_line'
-                          },
-                          {
-                            'contents' => [
-                              {
-                                'parent' => {},
-                                'text' => 'Ref to main text anchor
-'
-                              },
-                              {
-                                'args' => [
-                                  {
-                                    'contents' => [
-                                      {
-                                        'parent' => {},
-                                        'text' => 'An anchor'
-                                      }
-                                    ],
-                                    'parent' => {},
-                                    'type' => 'brace_command_arg'
-                                  }
-                                ],
-                                'cmdname' => 'ref',
-                                'extra' => {
-                                  'label' => {},
-                                  'node_argument' => {
-                                    'node_content' => [
-                                      {}
-                                    ],
-                                    'normalized' => 'An-anchor'
-                                  }
-                                },
-                                'parent' => {},
-                                'source_info' => {
-                                  'file_name' => 'things_before_setfilename_no_element.texi',
-                                  'line_nr' => 16,
-                                  'macro' => ''
-                                }
-                              },
-                              {
-                                'parent' => {},
-                                'text' => '
-'
-                              }
-                            ],
-                            'parent' => {},
-                            'type' => 'paragraph'
-                          }
-                        ],
-                        'parent' => {
-                          'args' => [
-                            {}
-                          ],
-                          'cmdname' => 'footnote',
-                          'parent' => {
-                            'contents' => [
-                              {},
-                              {
-                                'parent' => {},
-                                'text' => '
-'
-                              }
-                            ],
-                            'parent' => {},
-                            'type' => 'paragraph'
-                          },
-                          'source_info' => {
-                            'file_name' => 'things_before_setfilename_no_element.texi',
-                            'line_nr' => 11,
-                            'macro' => ''
-                          }
-                        },
-                        'type' => 'brace_command_context'
                       },
                       'source_info' => {
                         'file_name' => 'things_before_setfilename_no_element.texi',
@@ -279,7 +155,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'normalized' => 'Anchor-in-footnote'
                     }
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 9,
@@ -287,23 +162,107 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             },
-            {},
             {
-              'parent' => {},
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'In footnote.
+'
+                            }
+                          ],
+                          'type' => 'paragraph'
+                        },
+                        {
+                          'text' => '
+',
+                          'type' => 'empty_line'
+                        },
+                        {},
+                        {
+                          'text' => '
+',
+                          'type' => 'spaces_after_close_brace'
+                        },
+                        {
+                          'text' => '
+',
+                          'type' => 'empty_line'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'Ref to main text anchor
+'
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'text' => 'An anchor'
+                                    }
+                                  ],
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'ref',
+                              'extra' => {
+                                'label' => {},
+                                'node_argument' => {
+                                  'node_content' => [
+                                    {}
+                                  ],
+                                  'normalized' => 'An-anchor'
+                                }
+                              },
+                              'source_info' => {
+                                'file_name' => 'things_before_setfilename_no_element.texi',
+                                'line_nr' => 16,
+                                'macro' => ''
+                              }
+                            },
+                            {
+                              'text' => '
+'
+                            }
+                          ],
+                          'type' => 'paragraph'
+                        }
+                      ],
+                      'type' => 'brace_command_context'
+                    }
+                  ],
+                  'cmdname' => 'footnote',
+                  'source_info' => {
+                    'file_name' => 'things_before_setfilename_no_element.texi',
+                    'line_nr' => 11,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'text' => '
+'
+                }
+              ],
+              'type' => 'paragraph'
+            },
+            {
               'text' => '
 ',
               'type' => 'empty_line'
@@ -311,13 +270,11 @@ $result_trees{'things_before_setfilename_no_element'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'float anchor'
                     }
                   ],
@@ -326,7 +283,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
 ',
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -335,12 +291,10 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'In float
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 },
                 {
@@ -348,7 +302,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'float'
                         }
                       ],
@@ -356,7 +309,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -365,7 +317,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'float'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 21,
@@ -383,7 +334,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   'normalized' => ''
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 19,
@@ -391,7 +341,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -399,7 +348,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'Ref to float
 '
                 },
@@ -408,11 +356,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'float anchor'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -426,7 +372,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'normalized' => 'float-anchor'
                     }
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 24,
@@ -434,16 +379,13 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '.
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -453,17 +395,14 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Text'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'ta'
                     }
                   ],
@@ -472,7 +411,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
 ',
                     'spaces_before_argument' => ' '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -481,16 +419,13 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'In float
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 },
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'empty_line'
@@ -502,15 +437,12 @@ $result_trees{'things_before_setfilename_no_element'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'ta caption'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'paragraph'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_context'
                     }
                   ],
@@ -518,7 +450,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   'extra' => {
                     'float' => {}
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 29,
@@ -526,7 +457,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 },
@@ -535,7 +465,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'float'
                         }
                       ],
@@ -543,7 +472,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -552,7 +480,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'float'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 30,
@@ -574,7 +501,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   'normalized' => 'Text'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 26,
@@ -582,7 +508,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -590,14 +515,12 @@ $result_trees{'things_before_setfilename_no_element'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '
 ',
                   'type' => 'misc_arg'
                 }
               ],
               'cmdname' => 'contents',
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 32,
@@ -605,7 +528,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -617,7 +539,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -626,22 +547,18 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'args' => [
                     {
-                      'parent' => {},
                       'text' => '* ',
                       'type' => 'menu_entry_leading_text'
                     },
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'An anchor'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'menu_entry_node'
                     },
                     {
-                      'parent' => {},
                       'text' => '::                ',
                       'type' => 'menu_entry_separator'
                     },
@@ -650,16 +567,13 @@ $result_trees{'things_before_setfilename_no_element'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'menu entry pointing to the anchor.
 '
                             }
                           ],
-                          'parent' => {},
                           'type' => 'preformatted'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'menu_entry_description'
                     }
                   ],
@@ -672,7 +586,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'normalized' => 'An-anchor'
                     }
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 35,
@@ -685,7 +598,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'menu'
                         }
                       ],
@@ -693,7 +605,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -702,7 +613,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
                     'line_nr' => 36,
@@ -710,7 +620,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 34,
@@ -718,7 +627,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -728,7 +636,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'index entry'
                     }
                   ],
@@ -736,7 +643,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -755,7 +661,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 38,
@@ -764,7 +669,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
               'type' => 'index_entry_command'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -774,7 +678,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'cp'
                     }
                   ],
@@ -782,7 +685,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -793,7 +695,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 ],
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 40,
@@ -801,7 +702,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -811,7 +711,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Text'
                     }
                   ],
@@ -819,7 +718,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -833,7 +731,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   'normalized' => 'Text'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 42,
@@ -841,13 +738,11 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_setfilename'
         },
         {
@@ -857,7 +752,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'things_before_setfilename_no_element.info'
                     }
                   ],
@@ -865,7 +759,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                     'spaces_after_argument' => ' 
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -874,7 +767,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'things_before_setfilename_no_element.info'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 44,
@@ -882,19 +774,16 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Ref to anchor
 '
             },
@@ -903,11 +792,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'An anchor'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -921,7 +808,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   'normalized' => 'An-anchor'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 47,
@@ -929,16 +815,13 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -946,7 +829,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Ref to footnote anchor
 '
             },
@@ -955,11 +837,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'Anchor in footnote'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -973,7 +853,6 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   'normalized' => 'Anchor-in-footnote'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
                 'line_nr' => 50,
@@ -981,177 +860,48 @@ $result_trees{'things_before_setfilename_no_element'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'};
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[2] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[3]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[4]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'contents'}[5]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'parent'}{'args'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'parent'}{'parent'}{'contents'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'parent'}{'parent'}{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'parent'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'parent'}{'parent'}{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'}{'parent'}{'parent'}{'parent'};
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10];
+$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[2] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'};
+$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'args'}[1]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[10];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'extra'}{'float'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[3]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[4]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[4];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[4]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'caption'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'contents'}[2];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[1]{'contents'}[0];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'extra'}{'type'}{'content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[16];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[3];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[3];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'args'}[0]{'contents'};
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'args'}[0]{'contents'};
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[22];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[23]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[24];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'extra'}{'type'}{'content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[25]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'label'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[0]{'contents'}[6]{'contents'}[1]{'extra'}{'label'};
 $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'things_before_setfilename_no_element'}{'contents'}[0];
-$result_trees{'things_before_setfilename_no_element'}{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename_no_element'};
 
 $result_texis{'things_before_setfilename_no_element'} = '\\input texinfo
 

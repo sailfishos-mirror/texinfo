@@ -18,11 +18,9 @@ $result_trees{'multiline_image_and_align'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'figure'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -30,7 +28,6 @@ $result_trees{'multiline_image_and_align'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 1,
@@ -42,7 +39,6 @@ $result_trees{'multiline_image_and_align'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -50,7 +46,6 @@ $result_trees{'multiline_image_and_align'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -58,7 +53,6 @@ $result_trees{'multiline_image_and_align'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -68,7 +62,6 @@ $result_trees{'multiline_image_and_align'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'CCCC '
                 },
                 {
@@ -76,11 +69,9 @@ $result_trees{'multiline_image_and_align'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'figure'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -88,7 +79,6 @@ $result_trees{'multiline_image_and_align'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
@@ -100,7 +90,6 @@ $result_trees{'multiline_image_and_align'} = {
                 'spaces_after_argument' => ' 
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -108,7 +97,6 @@ $result_trees{'multiline_image_and_align'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 3,
@@ -116,7 +104,6 @@ $result_trees{'multiline_image_and_align'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -126,7 +113,6 @@ $result_trees{'multiline_image_and_align'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'fffffffffffffffffffffffffffffffffffffff '
                 },
                 {
@@ -134,11 +120,9 @@ $result_trees{'multiline_image_and_align'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'figure'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -146,7 +130,6 @@ $result_trees{'multiline_image_and_align'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 5,
@@ -158,7 +141,6 @@ $result_trees{'multiline_image_and_align'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -166,7 +148,6 @@ $result_trees{'multiline_image_and_align'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -174,7 +155,6 @@ $result_trees{'multiline_image_and_align'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -184,7 +164,6 @@ $result_trees{'multiline_image_and_align'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'dddd '
                 },
                 {
@@ -192,11 +171,9 @@ $result_trees{'multiline_image_and_align'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'figure'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -204,7 +181,6 @@ $result_trees{'multiline_image_and_align'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 7,
@@ -212,7 +188,6 @@ $result_trees{'multiline_image_and_align'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' iiiii'
                 }
               ],
@@ -220,7 +195,6 @@ $result_trees{'multiline_image_and_align'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -228,7 +202,6 @@ $result_trees{'multiline_image_and_align'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 7,
@@ -236,7 +209,6 @@ $result_trees{'multiline_image_and_align'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -248,7 +220,6 @@ $result_trees{'multiline_image_and_align'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -257,7 +228,6 @@ $result_trees{'multiline_image_and_align'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'AAA
 '
                 },
@@ -266,11 +236,9 @@ $result_trees{'multiline_image_and_align'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'figure'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -278,7 +246,6 @@ $result_trees{'multiline_image_and_align'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 11,
@@ -286,16 +253,13 @@ $result_trees{'multiline_image_and_align'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -303,7 +267,6 @@ $result_trees{'multiline_image_and_align'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'BBB '
                 },
                 {
@@ -311,11 +274,9 @@ $result_trees{'multiline_image_and_align'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'figure'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -323,7 +284,6 @@ $result_trees{'multiline_image_and_align'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 13,
@@ -331,7 +291,6 @@ $result_trees{'multiline_image_and_align'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' gggg '
                 },
                 {
@@ -339,11 +298,9 @@ $result_trees{'multiline_image_and_align'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'figure'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -351,7 +308,6 @@ $result_trees{'multiline_image_and_align'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 13,
@@ -359,16 +315,13 @@ $result_trees{'multiline_image_and_align'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => '
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -376,7 +329,6 @@ $result_trees{'multiline_image_and_align'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'HHH
 '
                 },
@@ -385,11 +337,9 @@ $result_trees{'multiline_image_and_align'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'figure'
                         }
                       ],
-                      'parent' => {},
                       'type' => 'brace_command_arg'
                     }
                   ],
@@ -397,7 +347,6 @@ $result_trees{'multiline_image_and_align'} = {
                   'extra' => {
                     'input_perl_encoding' => 'utf-8'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 16,
@@ -405,12 +354,10 @@ $result_trees{'multiline_image_and_align'} = {
                   }
                 },
                 {
-                  'parent' => {},
                   'text' => ' JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 '
                 }
               ],
-              'parent' => {},
               'type' => 'paragraph'
             },
             {
@@ -418,7 +365,6 @@ $result_trees{'multiline_image_and_align'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'flushright'
                     }
                   ],
@@ -426,7 +372,6 @@ $result_trees{'multiline_image_and_align'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -435,7 +380,6 @@ $result_trees{'multiline_image_and_align'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 17,
@@ -443,7 +387,6 @@ $result_trees{'multiline_image_and_align'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -451,70 +394,11 @@ $result_trees{'multiline_image_and_align'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[1];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[1];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[1];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[3];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'contents'}[1];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'multiline_image_and_align'}{'contents'}[0];
-$result_trees{'multiline_image_and_align'}{'contents'}[0]{'parent'} = $result_trees{'multiline_image_and_align'};
 
 $result_texis{'multiline_image_and_align'} = '@center @image{figure}
 

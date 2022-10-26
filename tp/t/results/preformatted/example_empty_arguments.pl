@@ -12,27 +12,21 @@ $result_trees{'example_empty_arguments'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
@@ -40,7 +34,6 @@ $result_trees{'example_empty_arguments'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -49,12 +42,10 @@ $result_trees{'example_empty_arguments'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'example with empty args
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -62,7 +53,6 @@ $result_trees{'example_empty_arguments'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -70,7 +60,6 @@ $result_trees{'example_empty_arguments'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -79,7 +68,6 @@ $result_trees{'example_empty_arguments'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -90,7 +78,6 @@ $result_trees{'example_empty_arguments'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -98,7 +85,6 @@ $result_trees{'example_empty_arguments'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -106,33 +92,27 @@ $result_trees{'example_empty_arguments'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'extra' => {
                 'spaces_before_argument' => '  '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
@@ -140,7 +120,6 @@ $result_trees{'example_empty_arguments'} = {
                 'spaces_after_argument' => ' 
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -149,12 +128,10 @@ $result_trees{'example_empty_arguments'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'example with empty args with spaces
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -162,7 +139,6 @@ $result_trees{'example_empty_arguments'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -170,7 +146,6 @@ $result_trees{'example_empty_arguments'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -179,7 +154,6 @@ $result_trees{'example_empty_arguments'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -190,7 +164,6 @@ $result_trees{'example_empty_arguments'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 5,
@@ -198,7 +171,6 @@ $result_trees{'example_empty_arguments'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -206,33 +178,26 @@ $result_trees{'example_empty_arguments'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'nonempty'
                 }
               ],
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
-              'parent' => {},
               'type' => 'block_line_arg'
             },
             {
@@ -240,7 +205,6 @@ $result_trees{'example_empty_arguments'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -249,12 +213,10 @@ $result_trees{'example_empty_arguments'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'example with empty and non empty args mix
 '
                 }
               ],
-              'parent' => {},
               'type' => 'preformatted'
             },
             {
@@ -262,7 +224,6 @@ $result_trees{'example_empty_arguments'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'example'
                     }
                   ],
@@ -270,7 +231,6 @@ $result_trees{'example_empty_arguments'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -279,7 +239,6 @@ $result_trees{'example_empty_arguments'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 11,
@@ -290,7 +249,6 @@ $result_trees{'example_empty_arguments'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 9,
@@ -298,55 +256,11 @@ $result_trees{'example_empty_arguments'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[4]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[5]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'args'}[6]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'args'}[4]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'args'}[5]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'args'}[6]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[2]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[3];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[3]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[4]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[5]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'args'}[6]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'example_empty_arguments'}{'contents'}[0];
-$result_trees{'example_empty_arguments'}{'contents'}[0]{'parent'} = $result_trees{'example_empty_arguments'};
 
 $result_texis{'example_empty_arguments'} = '@example ,,,,,,
 example with empty args

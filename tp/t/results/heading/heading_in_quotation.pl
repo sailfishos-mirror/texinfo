@@ -16,14 +16,12 @@ $result_trees{'heading_in_quotation'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'quotation',
           'contents' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -33,15 +31,12 @@ $result_trees{'heading_in_quotation'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in quotation '
                     },
                     {
-                      'cmdname' => '@',
-                      'parent' => {}
+                      'cmdname' => '@'
                     },
                     {
-                      'parent' => {},
                       'text' => ' '
                     },
                     {
@@ -49,16 +44,13 @@ $result_trees{'heading_in_quotation'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'heading'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
                       'cmdname' => 'emph',
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 3,
@@ -70,7 +62,6 @@ $result_trees{'heading_in_quotation'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -78,7 +69,6 @@ $result_trees{'heading_in_quotation'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -86,7 +76,6 @@ $result_trees{'heading_in_quotation'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
@@ -96,7 +85,6 @@ $result_trees{'heading_in_quotation'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'quotation'
                     }
                   ],
@@ -104,7 +92,6 @@ $result_trees{'heading_in_quotation'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -113,7 +100,6 @@ $result_trees{'heading_in_quotation'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -121,7 +107,6 @@ $result_trees{'heading_in_quotation'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -129,28 +114,11 @@ $result_trees{'heading_in_quotation'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'heading_in_quotation'}{'contents'}[0];
-$result_trees{'heading_in_quotation'}{'contents'}[0]{'parent'} = $result_trees{'heading_in_quotation'};
 
 $result_texis{'heading_in_quotation'} = '@quotation
 

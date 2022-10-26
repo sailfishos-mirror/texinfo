@@ -12,12 +12,10 @@ $result_trees{'ignored_value_definition'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'aa',
               'type' => 'misc_arg'
             },
             {
-              'parent' => {},
               'text' => 'outside',
               'type' => 'misc_arg'
             }
@@ -30,11 +28,9 @@ $result_trees{'ignored_value_definition'} = {
               'aa',
               'outside'
             ]
-          },
-          'parent' => {}
+          }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -46,15 +42,12 @@ $result_trees{'ignored_value_definition'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'tex'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'parent' => {},
                   'type' => 'elided'
                 }
               ],
@@ -62,7 +55,6 @@ $result_trees{'ignored_value_definition'} = {
               'extra' => {
                 'format' => 'tex'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -70,16 +62,13 @@ $result_trees{'ignored_value_definition'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -87,35 +76,18 @@ $result_trees{'ignored_value_definition'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'outside.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[4];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'ignored_value_definition'}{'contents'}[0];
-$result_trees{'ignored_value_definition'}{'contents'}[0]{'parent'} = $result_trees{'ignored_value_definition'};
 
 $result_texis{'ignored_value_definition'} = '@set aa outside
 

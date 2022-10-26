@@ -10,13 +10,11 @@ $result_trees{'section_node_before_part'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -24,7 +22,6 @@ $result_trees{'section_node_before_part'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -32,7 +29,6 @@ $result_trees{'section_node_before_part'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -52,7 +48,6 @@ $result_trees{'section_node_before_part'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 2,
@@ -64,7 +59,6 @@ $result_trees{'section_node_before_part'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'section'
             }
           ],
@@ -72,14 +66,12 @@ $result_trees{'section_node_before_part'} = {
             'spaces_after_argument' => ' 
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -88,7 +80,6 @@ $result_trees{'section_node_before_part'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 3,
@@ -100,7 +91,6 @@ $result_trees{'section_node_before_part'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'part'
             }
           ],
@@ -108,7 +98,6 @@ $result_trees{'section_node_before_part'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -116,7 +105,6 @@ $result_trees{'section_node_before_part'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -126,20 +114,8 @@ $result_trees{'section_node_before_part'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_node_before_part'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_node_before_part'}{'contents'}[0];
-$result_trees{'section_node_before_part'}{'contents'}[0]{'parent'} = $result_trees{'section_node_before_part'};
-$result_trees{'section_node_before_part'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_node_before_part'}{'contents'}[1]{'args'}[0];
-$result_trees{'section_node_before_part'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_node_before_part'}{'contents'}[1];
 $result_trees{'section_node_before_part'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'section_node_before_part'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'section_node_before_part'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'section_node_before_part'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'section_node_before_part'}{'contents'}[1]{'parent'} = $result_trees{'section_node_before_part'};
-$result_trees{'section_node_before_part'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_node_before_part'}{'contents'}[2]{'args'}[0];
-$result_trees{'section_node_before_part'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'section_node_before_part'}{'contents'}[2];
-$result_trees{'section_node_before_part'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'section_node_before_part'}{'contents'}[2];
-$result_trees{'section_node_before_part'}{'contents'}[2]{'parent'} = $result_trees{'section_node_before_part'};
-$result_trees{'section_node_before_part'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_node_before_part'}{'contents'}[3]{'args'}[0];
-$result_trees{'section_node_before_part'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'section_node_before_part'}{'contents'}[3];
-$result_trees{'section_node_before_part'}{'contents'}[3]{'parent'} = $result_trees{'section_node_before_part'};
 
 $result_texis{'section_node_before_part'} = '
 @node Top

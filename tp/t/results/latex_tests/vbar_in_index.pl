@@ -11,7 +11,6 @@ $result_trees{'vbar_in_index'} = {
       'contents' => [
         {
           'contents' => [],
-          'parent' => {},
           'type' => 'preamble_before_content'
         },
         {
@@ -19,7 +18,6 @@ $result_trees{'vbar_in_index'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'A|B'
                 }
               ],
@@ -27,7 +25,6 @@ $result_trees{'vbar_in_index'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -46,7 +43,6 @@ $result_trees{'vbar_in_index'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -59,7 +55,6 @@ $result_trees{'vbar_in_index'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'C|D'
                 }
               ],
@@ -67,7 +62,6 @@ $result_trees{'vbar_in_index'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -86,7 +80,6 @@ $result_trees{'vbar_in_index'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -95,26 +88,17 @@ $result_trees{'vbar_in_index'} = {
           'type' => 'index_entry_command'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'vbar_in_index'}{'contents'}[0];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1];
 $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'vbar_in_index'}{'contents'}[0];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2];
 $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'vbar_in_index'}{'contents'}[0];
-$result_trees{'vbar_in_index'}{'contents'}[0]{'parent'} = $result_trees{'vbar_in_index'};
 
 $result_texis{'vbar_in_index'} = '@findex A|B
 @cindex C|D

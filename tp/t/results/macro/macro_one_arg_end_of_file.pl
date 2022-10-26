@@ -12,12 +12,10 @@ $result_trees{'macro_one_arg_end_of_file'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'onearg',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg',
               'type' => 'macro_arg'
             }
@@ -25,7 +23,6 @@ $result_trees{'macro_one_arg_end_of_file'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Arg \\arg\\.
 ',
               'type' => 'raw'
@@ -35,7 +32,6 @@ $result_trees{'macro_one_arg_end_of_file'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -43,7 +39,6 @@ $result_trees{'macro_one_arg_end_of_file'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -52,7 +47,6 @@ $result_trees{'macro_one_arg_end_of_file'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -64,7 +58,6 @@ $result_trees{'macro_one_arg_end_of_file'} = {
             'arg_line' => ' onearg{arg}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -72,7 +65,6 @@ $result_trees{'macro_one_arg_end_of_file'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -80,31 +72,17 @@ $result_trees{'macro_one_arg_end_of_file'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Arg .'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_one_arg_end_of_file'}{'contents'}[0];
-$result_trees{'macro_one_arg_end_of_file'}{'contents'}[0]{'parent'} = $result_trees{'macro_one_arg_end_of_file'};
 
 $result_texis{'macro_one_arg_end_of_file'} = '@macro onearg{arg}
 Arg \\arg\\.

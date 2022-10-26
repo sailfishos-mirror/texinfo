@@ -12,12 +12,10 @@ $result_trees{'invalid_accent_punctuation'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'a. '
             },
             {
               'cmdname' => '^',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -25,25 +23,17 @@ $result_trees{'invalid_accent_punctuation'} = {
               }
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'invalid_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid_accent_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'invalid_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'invalid_accent_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'invalid_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'invalid_accent_punctuation'}{'contents'}[0]{'contents'}[0];
-$result_trees{'invalid_accent_punctuation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid_accent_punctuation'}{'contents'}[0];
-$result_trees{'invalid_accent_punctuation'}{'contents'}[0]{'parent'} = $result_trees{'invalid_accent_punctuation'};
 
 $result_texis{'invalid_accent_punctuation'} = 'a. @^@@';
 

@@ -12,17 +12,14 @@ $result_trees{'macro_name_with_hyphen'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'macro-one',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg-one',
               'type' => 'macro_arg'
             },
             {
-              'parent' => {},
               'text' => 'arg2',
               'type' => 'macro_arg'
             }
@@ -30,7 +27,6 @@ $result_trees{'macro_name_with_hyphen'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'This \\arg-one\\ and that \\arg2\\.
 ',
               'type' => 'raw'
@@ -40,7 +36,6 @@ $result_trees{'macro_name_with_hyphen'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -48,7 +43,6 @@ $result_trees{'macro_name_with_hyphen'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'macro_name_with_hyphen'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -69,7 +62,6 @@ $result_trees{'macro_name_with_hyphen'} = {
             'arg_line' => ' macro-one {arg-one, arg2}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -77,7 +69,6 @@ $result_trees{'macro_name_with_hyphen'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -85,7 +76,6 @@ $result_trees{'macro_name_with_hyphen'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'This blah and that '
             },
             {
@@ -93,16 +83,13 @@ $result_trees{'macro_name_with_hyphen'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'bli-bli'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 5,
@@ -110,37 +97,18 @@ $result_trees{'macro_name_with_hyphen'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_hyphen'}{'contents'}[0];
-$result_trees{'macro_name_with_hyphen'}{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_hyphen'};
 
 $result_texis{'macro_name_with_hyphen'} = '@macro macro-one {arg-one, arg2}
 This \\arg-one\\ and that \\arg2\\.

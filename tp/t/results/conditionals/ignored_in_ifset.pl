@@ -10,7 +10,6 @@ $result_trees{'ignored_in_ifset'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,7 +17,6 @@ $result_trees{'ignored_in_ifset'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'text
 '
             },
@@ -27,7 +25,6 @@ $result_trees{'ignored_in_ifset'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'ifset'
                     }
                   ],
@@ -35,7 +32,6 @@ $result_trees{'ignored_in_ifset'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -44,7 +40,6 @@ $result_trees{'ignored_in_ifset'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ifset'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -52,11 +47,9 @@ $result_trees{'ignored_in_ifset'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -66,7 +59,6 @@ $result_trees{'ignored_in_ifset'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'ifset'
                 }
               ],
@@ -74,7 +66,6 @@ $result_trees{'ignored_in_ifset'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'line_arg'
             }
           ],
@@ -83,7 +74,6 @@ $result_trees{'ignored_in_ifset'} = {
             'spaces_before_argument' => ' ',
             'text_arg' => 'ifset'
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
@@ -91,7 +81,6 @@ $result_trees{'ignored_in_ifset'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -99,7 +88,6 @@ $result_trees{'ignored_in_ifset'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => '%
 '
             },
@@ -108,7 +96,6 @@ $result_trees{'ignored_in_ifset'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'ifset'
                     }
                   ],
@@ -116,7 +103,6 @@ $result_trees{'ignored_in_ifset'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -125,7 +111,6 @@ $result_trees{'ignored_in_ifset'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'ifset'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 19,
@@ -133,33 +118,14 @@ $result_trees{'ignored_in_ifset'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[3];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'ignored_in_ifset'}{'contents'}[0];
-$result_trees{'ignored_in_ifset'}{'contents'}[0]{'parent'} = $result_trees{'ignored_in_ifset'};
 
 $result_texis{'ignored_in_ifset'} = '
 text

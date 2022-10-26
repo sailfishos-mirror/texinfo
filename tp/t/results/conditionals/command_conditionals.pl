@@ -12,16 +12,13 @@ $result_trees{'command_conditionals'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Good, the txicommandconditionals variable was set.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -29,24 +26,19 @@ $result_trees{'command_conditionals'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Good, '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'nodexyz is not defined.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -54,24 +46,19 @@ $result_trees{'command_conditionals'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Good, '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'node is defined.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -79,47 +66,24 @@ $result_trees{'command_conditionals'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Happily, '
             },
             {
-              'cmdname' => '@',
-              'parent' => {}
+              'cmdname' => '@'
             },
             {
-              'parent' => {},
               'text' => 'mathcode is not defined.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[0];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[2];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[2];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[2];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[4];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[4];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[4];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[6];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[6];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[6];
-$result_trees{'command_conditionals'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'command_conditionals'}{'contents'}[0];
-$result_trees{'command_conditionals'}{'contents'}[0]{'parent'} = $result_trees{'command_conditionals'};
 
 $result_texis{'command_conditionals'} = 'Good, the txicommandconditionals variable was set.
 

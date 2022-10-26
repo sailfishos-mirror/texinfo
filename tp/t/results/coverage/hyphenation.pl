@@ -10,7 +10,6 @@ $result_trees{'hyphenation'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -20,19 +19,16 @@ $result_trees{'hyphenation'} = {
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => 'some-where'
                 }
               ],
               'extra' => {
                 'spaces_after_argument' => ' '
               },
-              'parent' => {},
               'type' => 'brace_command_arg'
             }
           ],
           'cmdname' => 'hyphenation',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 2,
@@ -40,31 +36,21 @@ $result_trees{'hyphenation'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'spaces_after_close_brace'
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0];
-$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1];
-$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0];
-$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0];
-$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0];
-$result_trees{'hyphenation'}{'contents'}[0]{'parent'} = $result_trees{'hyphenation'};
 
 $result_texis{'hyphenation'} = '
 @hyphenation{some-where }

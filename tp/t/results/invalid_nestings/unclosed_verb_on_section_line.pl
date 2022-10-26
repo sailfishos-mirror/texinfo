@@ -8,7 +8,6 @@ use utf8;
 $result_trees{'unclosed_verb_on_section_line'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -16,7 +15,6 @@ $result_trees{'unclosed_verb_on_section_line'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'in section '
             },
             {
@@ -24,25 +22,21 @@ $result_trees{'unclosed_verb_on_section_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'ruc
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'raw'
                     },
                     {
-                      'parent' => {},
                       'text' => 'Now text.
 ',
                       'type' => 'raw'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
@@ -50,7 +44,6 @@ $result_trees{'unclosed_verb_on_section_line'} = {
               'extra' => {
                 'delimiter' => 'T'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -58,7 +51,6 @@ $result_trees{'unclosed_verb_on_section_line'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -66,7 +58,6 @@ $result_trees{'unclosed_verb_on_section_line'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 1,
@@ -76,15 +67,6 @@ $result_trees{'unclosed_verb_on_section_line'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[0]{'parent'} = $result_trees{'unclosed_verb_on_section_line'};
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0];
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0];
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'unclosed_verb_on_section_line'}{'contents'}[1];
-$result_trees{'unclosed_verb_on_section_line'}{'contents'}[1]{'parent'} = $result_trees{'unclosed_verb_on_section_line'};
 
 $result_texis{'unclosed_verb_on_section_line'} = '@section in section @verb{Truc
 

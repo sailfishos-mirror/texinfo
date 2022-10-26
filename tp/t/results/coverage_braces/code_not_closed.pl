@@ -16,16 +16,13 @@ $result_trees{'code_not_closed'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'in code'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'code',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -33,21 +30,14 @@ $result_trees{'code_not_closed'} = {
               }
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'code_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'code_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'code_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'code_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'code_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'code_not_closed'}{'contents'}[0];
-$result_trees{'code_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'code_not_closed'};
 
 $result_texis{'code_not_closed'} = '@code{in code}';
 

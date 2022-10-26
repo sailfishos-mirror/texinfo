@@ -14,12 +14,10 @@ $result_trees{'empty_w'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'w',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -27,7 +25,6 @@ $result_trees{'empty_w'} = {
               }
             },
             {
-              'parent' => {},
               'text' => ' '
             },
             {
@@ -35,16 +32,13 @@ $result_trees{'empty_w'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'a b'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'brace_command_arg'
                 }
               ],
               'cmdname' => 'w',
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -52,29 +46,17 @@ $result_trees{'empty_w'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '.'
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_w'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_w'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
-$result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_w'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_w'}{'contents'}[0]{'contents'}[0];
-$result_trees{'empty_w'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_w'}{'contents'}[0];
-$result_trees{'empty_w'}{'contents'}[0]{'parent'} = $result_trees{'empty_w'};
 
 $result_texis{'empty_w'} = '@w{} @w{a b}.';
 

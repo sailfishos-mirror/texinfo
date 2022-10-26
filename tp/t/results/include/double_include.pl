@@ -10,7 +10,6 @@ $result_trees{'double_include'} = {
     {
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -18,31 +17,22 @@ $result_trees{'double_include'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In included file.
 '
             },
             {
-              'parent' => {},
               'text' => 'In included file.
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_include'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_include'}{'contents'}[0];
-$result_trees{'double_include'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_include'}{'contents'}[0]{'contents'}[1];
-$result_trees{'double_include'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'double_include'}{'contents'}[0]{'contents'}[1];
-$result_trees{'double_include'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_include'}{'contents'}[0];
-$result_trees{'double_include'}{'contents'}[0]{'parent'} = $result_trees{'double_include'};
 
 $result_texis{'double_include'} = '
 In included file.

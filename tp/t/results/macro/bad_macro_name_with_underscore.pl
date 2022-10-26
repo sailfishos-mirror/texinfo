@@ -12,17 +12,14 @@ $result_trees{'bad_macro_name_with_underscore'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => 'the_macro',
               'type' => 'macro_name'
             },
             {
-              'parent' => {},
               'text' => 'arg1',
               'type' => 'macro_arg'
             },
             {
-              'parent' => {},
               'text' => 'arg2',
               'type' => 'macro_arg'
             }
@@ -30,7 +27,6 @@ $result_trees{'bad_macro_name_with_underscore'} = {
           'cmdname' => 'macro',
           'contents' => [
             {
-              'parent' => {},
               'text' => 'In macro
 ',
               'type' => 'raw'
@@ -40,7 +36,6 @@ $result_trees{'bad_macro_name_with_underscore'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'macro'
                     }
                   ],
@@ -48,7 +43,6 @@ $result_trees{'bad_macro_name_with_underscore'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -57,7 +51,6 @@ $result_trees{'bad_macro_name_with_underscore'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -69,7 +62,6 @@ $result_trees{'bad_macro_name_with_underscore'} = {
             'arg_line' => ' the_macro {arg1, arg2}
 '
           },
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -77,21 +69,11 @@ $result_trees{'bad_macro_name_with_underscore'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'};
 
 $result_texis{'bad_macro_name_with_underscore'} = '@macro the_macro {arg1, arg2}
 In macro

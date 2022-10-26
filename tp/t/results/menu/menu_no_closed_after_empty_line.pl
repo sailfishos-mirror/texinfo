@@ -16,7 +16,6 @@ $result_trees{'menu_no_closed_after_empty_line'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -25,30 +24,24 @@ $result_trees{'menu_no_closed_after_empty_line'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '('
                     },
                     {
-                      'parent' => {},
                       'text' => 'manual_in_menu'
                     },
                     {
-                      'parent' => {},
                       'text' => ')'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => ':: ',
                   'type' => 'menu_entry_separator'
                 },
@@ -57,16 +50,13 @@ $result_trees{'menu_no_closed_after_empty_line'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'desc2
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -78,7 +68,6 @@ $result_trees{'menu_no_closed_after_empty_line'} = {
                   ]
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -91,27 +80,22 @@ $result_trees{'menu_no_closed_after_empty_line'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'after_menu_description_line'
                     },
                     {
-                      'parent' => {},
                       'text' => '
 ',
                       'type' => 'empty_line'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'preformatted'
                 }
               ],
-              'parent' => {},
               'type' => 'menu_comment'
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -119,31 +103,13 @@ $result_trees{'menu_no_closed_after_empty_line'} = {
           }
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[2]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[3];
 $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[1];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0];
-$result_trees{'menu_no_closed_after_empty_line'}{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_after_empty_line'};
 
 $result_texis{'menu_no_closed_after_empty_line'} = '@menu
 * (manual_in_menu):: desc2

@@ -8,13 +8,11 @@ use utf8;
 $result_trees{'ifset_nonalpha'} = {
   'contents' => [
     {
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'ifset_nonalpha'}{'contents'}[0]{'parent'} = $result_trees{'ifset_nonalpha'};
 
 $result_texis{'ifset_nonalpha'} = '';
 

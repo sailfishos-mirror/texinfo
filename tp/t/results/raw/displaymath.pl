@@ -16,24 +16,20 @@ $result_trees{'displaymath'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'displaymath',
           'contents' => [
             {
-              'parent' => {},
               'text' => '\\int_D ('
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\nabla\\cdot'
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -42,17 +38,14 @@ $result_trees{'displaymath'} = {
               'type' => 'bracketed'
             },
             {
-              'parent' => {},
               'text' => ' F)dV=\\int_'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\partial D'
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 2,
@@ -61,7 +54,6 @@ $result_trees{'displaymath'} = {
               'type' => 'bracketed'
             },
             {
-              'parent' => {},
               'text' => ' F\\cdot ndS
 '
             },
@@ -70,7 +62,6 @@ $result_trees{'displaymath'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'displaymath'
                     }
                   ],
@@ -78,7 +69,6 @@ $result_trees{'displaymath'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -87,7 +77,6 @@ $result_trees{'displaymath'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 3,
@@ -95,7 +84,6 @@ $result_trees{'displaymath'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 1,
@@ -103,7 +91,6 @@ $result_trees{'displaymath'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -111,12 +98,10 @@ $result_trees{'displaymath'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'before
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         },
         {
@@ -126,24 +111,20 @@ $result_trees{'displaymath'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
           'cmdname' => 'displaymath',
           'contents' => [
             {
-              'parent' => {},
               'text' => '\\int_D ('
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\nabla\\cdot'
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -152,17 +133,14 @@ $result_trees{'displaymath'} = {
               'type' => 'bracketed'
             },
             {
-              'parent' => {},
               'text' => ' F)dV=\\int_'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
                   'text' => '\\partial D'
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 7,
@@ -171,7 +149,6 @@ $result_trees{'displaymath'} = {
               'type' => 'bracketed'
             },
             {
-              'parent' => {},
               'text' => ' F\\cdot ndS
 '
             },
@@ -180,7 +157,6 @@ $result_trees{'displaymath'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'displaymath'
                     }
                   ],
@@ -188,7 +164,6 @@ $result_trees{'displaymath'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -197,7 +172,6 @@ $result_trees{'displaymath'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 8,
@@ -205,7 +179,6 @@ $result_trees{'displaymath'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 6,
@@ -215,51 +188,18 @@ $result_trees{'displaymath'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'after
 '
             }
           ],
-          'parent' => {},
           'type' => 'paragraph'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[5];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[2];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[5];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[0]{'parent'} = $result_trees{'displaymath'};
 
 $result_texis{'displaymath'} = '@displaymath
 \\int_D ({\\nabla\\cdot} F)dV=\\int_{\\partial D} F\\cdot ndS

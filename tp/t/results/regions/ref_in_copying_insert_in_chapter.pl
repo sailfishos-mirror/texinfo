@@ -18,7 +18,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'block_line_arg'
                 }
               ],
@@ -31,11 +30,9 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                         {
                           'contents' => [
                             {
-                              'parent' => {},
                               'text' => 'GFDL'
                             }
                           ],
-                          'parent' => {},
                           'type' => 'brace_command_arg'
                         }
                       ],
@@ -46,7 +43,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                             {
                               'contents' => [
                                 {
-                                  'parent' => {},
                                   'text' => 'GFDL'
                                 }
                               ],
@@ -54,7 +50,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                                 'spaces_after_argument' => '
 '
                               },
-                              'parent' => {},
                               'type' => 'line_arg'
                             }
                           ],
@@ -74,7 +69,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                             'normalized' => 'GFDL',
                             'spaces_before_argument' => ' '
                           },
-                          'parent' => {},
                           'source_info' => {
                             'file_name' => '',
                             'line_nr' => 17,
@@ -88,7 +82,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                           'normalized' => 'GFDL'
                         }
                       },
-                      'parent' => {},
                       'source_info' => {
                         'file_name' => '',
                         'line_nr' => 2,
@@ -96,12 +89,10 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                       }
                     },
                     {
-                      'parent' => {},
                       'text' => '
 '
                     }
                   ],
-                  'parent' => {},
                   'type' => 'paragraph'
                 },
                 {
@@ -109,7 +100,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => 'copying'
                         }
                       ],
@@ -117,7 +107,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                         'spaces_after_argument' => '
 '
                       },
-                      'parent' => {},
                       'type' => 'line_arg'
                     }
                   ],
@@ -126,7 +115,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                     'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
                   },
-                  'parent' => {},
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 3,
@@ -134,7 +122,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                   }
                 }
               ],
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 1,
@@ -142,17 +129,14 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               }
             },
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
             }
           ],
-          'parent' => {},
           'type' => 'preamble_before_content'
         }
       ],
-      'parent' => {},
       'type' => 'before_node_section'
     },
     {
@@ -160,7 +144,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Top'
             }
           ],
@@ -168,7 +151,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -188,7 +170,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         'normalized' => 'Top',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 5,
@@ -200,7 +181,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'top'
             }
           ],
@@ -208,14 +188,12 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'top',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -224,7 +202,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 6,
@@ -236,7 +213,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Intro'
             }
           ],
@@ -244,7 +220,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
@@ -264,7 +239,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         'normalized' => 'Intro',
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 8,
@@ -276,7 +250,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'Introduction'
             }
           ],
@@ -284,14 +257,12 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'chapter',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -299,14 +270,12 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         {
           'args' => [
             {
-              'parent' => {},
               'text' => '
 ',
               'type' => 'misc_arg'
             }
           ],
           'cmdname' => 'insertcopying',
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 11,
@@ -314,7 +283,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -326,7 +294,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                 'spaces_after_argument' => '
 '
               },
-              'parent' => {},
               'type' => 'block_line_arg'
             }
           ],
@@ -335,22 +302,18 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             {
               'args' => [
                 {
-                  'parent' => {},
                   'text' => '* ',
                   'type' => 'menu_entry_leading_text'
                 },
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'GFDL'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_node'
                 },
                 {
-                  'parent' => {},
                   'text' => '::',
                   'type' => 'menu_entry_separator'
                 },
@@ -359,16 +322,13 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                     {
                       'contents' => [
                         {
-                          'parent' => {},
                           'text' => '
 '
                         }
                       ],
-                      'parent' => {},
                       'type' => 'preformatted'
                     }
                   ],
-                  'parent' => {},
                   'type' => 'menu_entry_description'
                 }
               ],
@@ -381,7 +341,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                   'normalized' => 'GFDL'
                 }
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
@@ -394,7 +353,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                 {
                   'contents' => [
                     {
-                      'parent' => {},
                       'text' => 'menu'
                     }
                   ],
@@ -402,7 +360,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                     'spaces_after_argument' => '
 '
                   },
-                  'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
@@ -411,7 +368,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                 'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
               },
-              'parent' => {},
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
@@ -419,7 +375,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               }
             }
           ],
-          'parent' => {},
           'source_info' => {
             'file_name' => '',
             'line_nr' => 13,
@@ -427,7 +382,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
           }
         },
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -436,7 +390,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 9,
@@ -449,7 +402,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         {
           'contents' => [
             {
-              'parent' => {},
               'text' => 'GFDL'
             }
           ],
@@ -457,14 +409,12 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             'spaces_after_argument' => '
 '
           },
-          'parent' => {},
           'type' => 'line_arg'
         }
       ],
       'cmdname' => 'section',
       'contents' => [
         {
-          'parent' => {},
           'text' => '
 ',
           'type' => 'empty_line'
@@ -473,7 +423,6 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'parent' => {},
       'source_info' => {
         'file_name' => '',
         'line_nr' => 18,
@@ -483,67 +432,16 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'};
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'}{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'};
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'};
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1]{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1];
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'};
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[2]{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[2];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[2];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[2]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'};
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3]{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3];
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3]{'args'}[0]{'contents'}[0];
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[3]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'};
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[1];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[1];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[3]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[3];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0];
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_description'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[3];
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'args'}[1]{'contents'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[1];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[4]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'};
 $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[5] = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'label'};
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[6]{'args'}[0];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[6];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[6];
-$result_trees{'ref_in_copying_insert_in_chapter'}{'contents'}[6]{'parent'} = $result_trees{'ref_in_copying_insert_in_chapter'};
 
 $result_texis{'ref_in_copying_insert_in_chapter'} = '@copying
 @ref{GFDL}
