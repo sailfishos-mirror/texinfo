@@ -57,8 +57,8 @@ if (defined($dest_dir)) {
 my $converted_dest_path = Encode::decode($from, $dest_path);
 # not that converted_dest_path may not be in UTF-8, depends what perl internally
 # does.
-# The Yen and Yuan sign is used as it is common to many 8bit codepages.
-$converted_dest_path =~ s/latin/lat¥n/;
+# The character which is used is common to many 8bit codepages.
+$converted_dest_path =~ s/latin/lat§n/;
 my $dest_path_in_utf8 = Encode::encode('UTF-8', $converted_dest_path);
 # use another variable, since from_to argument is converted in-place
 my $dest_path_in_to_encoding = $dest_path_in_utf8;

@@ -1,5 +1,11 @@
 2022-10-25  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/maintain/copy_change_file_name_encoding.pl: change the character
+	appearing in the test of 8bit encoded include file, as it may be
+	special on Windows.  Report from Gavin.
+
+2022-10-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/maintain/copy_change_file_name_encoding.pl: use a character
 	appearing in more 8bit encodings in the test of 8bit encoded
 	include file.  Eli Zaretskii idea.
