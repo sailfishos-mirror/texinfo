@@ -221,7 +221,10 @@ run all tests with valgrind:
 
 parsetexi memory leak checks with valgrind
 
-NYTProf profiling for Perl code to check for avoidable hotspots
+NYTProf profiling for Perl code
+* e.g. 'perl -d:NYTProf ../tp/texi2any.pl FILE.texi'.  See Devel::NYTProf
+  man page.
+
 
 try groff.texinfo from groff source repo.
 Check "make ccheck" and "make vcheck" work in "doc/refcard".
