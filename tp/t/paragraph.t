@@ -545,7 +545,7 @@ $result .= add_text($line, ' after');
 $result .= Texinfo::Convert::Paragraph::end($line);
 is ($result, "aa.)_  after", 'line add char after end sentence');
 
-$para = _new_line_formatter();
+$line = _new_line_formatter();
 $result = '';
 $result .= end_line($line);
 $result .= add_text($line, ' after');
@@ -572,7 +572,7 @@ is ($result, "\n", 'line call end_line after add_pending_word');
 $result = Texinfo::Convert::Paragraph::end($line);
 is ($result, "", 'line call end after end_line');
 
-$para = _new_line_formatter();
+$line = _new_line_formatter();
 $result = '';
 $result .= add_text($line, 'aa.)');
 $result .= add_pending_word($line);
@@ -580,7 +580,7 @@ $result .= add_text($line, ' after');
 $result .= Texinfo::Convert::Paragraph::end($line);
 is ($result, "aa.)  after", 'line space after sentence and add_pending_word');
 
-$para = _new_line_formatter();
+$line = _new_line_formatter();
 $result = '';
 $result .= add_text($line, 'aA');
 $result .= add_next($line, '.');
