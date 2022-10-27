@@ -1,5 +1,9 @@
 2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/UnFilled.pm: remove unused module.
+
+2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (process_printindex): Reuse
 	line formatter for all index entries in an index.
 

@@ -105,7 +105,6 @@ dist_converters_DATA = \
  Texinfo/Convert/TexinfoXML.pm \
  Texinfo/Convert/Text.pm \
  Texinfo/Convert/TextContent.pm \
- Texinfo/Convert/UnFilled.pm \
  Texinfo/Convert/Unicode.pm \
  Texinfo/Convert/Utils.pm
 

@@ -11,7 +11,6 @@ BEGIN { plan tests => 119 ; }
 
 use Texinfo::Convert::Paragraph;
 use Texinfo::Convert::Line;
-use Texinfo::Convert::UnFilled;
 
 ok(1, "modules loading"); # If we made it this far, we're ok.
 
