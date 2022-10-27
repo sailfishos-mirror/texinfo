@@ -2235,17 +2235,30 @@ sub _convert($$)
           $result .= _convert($self, {'contents' => $file});
         }
 
-        # format ref node argument outside of the document context to determine
-        # if it should be quoted
-        $self->{'silent'} = 0 if (!defined($self->{'silent'}));
-        $self->{'silent'}++;
-        push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
-        my $node_line_name = $self->convert_line({'type' => '_code',
-                                         'contents' => $node_content},
-                                       {'suppress_styles' => 1,
-                                         'no_added_eol' => 1});
-        pop @{$self->{'count_context'}};
-        $self->{'silent'}--;
+        my $node_line_name;
+        # Get the node name to be output.
+        # Due to the way the paragraph formatter holds pending text, converting
+        # the node name with the current formatter does not yield all the
+        # converted text.  To get the full node name (and no more), we
+        # can convert in a new context, using convert_line.
+        # However, it is slow to do this for every node.  So in the most
+        # frequent case when the node name is a simple text element, use
+        # that text instead.
+        if (scalar(@{$node_content}) == 1
+            and defined($node_content->[0]->{'text'})) {
+          $node_line_name =  $node_content->[0]->{'text'};
+        } else {
+          $self->{'silent'} = 0 if (!defined($self->{'silent'}));
+          $self->{'silent'}++;
+          push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
+
+          $node_line_name = $self->convert_line({'type' => '_code',
+                                          'contents' => $node_content},
+                                        {'suppress_styles' => 1,
+                                          'no_added_eol' => 1});
+          pop @{$self->{'count_context'}};
+          $self->{'silent'}--;
+        }
 
         my $check_chars;
         if ($name) {
