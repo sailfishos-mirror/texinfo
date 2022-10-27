@@ -93,7 +93,6 @@ dist_converters_DATA = \
  Texinfo/Convert/IXINSXML.pm \
  Texinfo/Convert/Info.pm \
  Texinfo/Convert/LaTeX.pm \
- Texinfo/Convert/Line.pm \
  Texinfo/Convert/NodeNameNormalization.pm \
  Texinfo/Convert/Paragraph.pm \
  Texinfo/Convert/ParagraphNonXS.pm \

@@ -1,5 +1,10 @@
 2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Line.pm: remove
+	* tp/t/paragraph.t: copy line formatter constructor from Line.pm
+
+2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/UnFilled.pm: remove unused module.
 
 2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
