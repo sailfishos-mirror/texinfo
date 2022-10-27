@@ -1380,6 +1380,13 @@ sub process_printindex($$;$)
   # this is used to count entries that are the same
   my %entry_counts = ();
 
+  # Use the same line formatter for all the index entries.  This is
+  # slightly faster than making a new one for each entry.
+  my $formatter = $self->new_formatter('line',
+                                 {'indent' => 0, 'suppress_styles' => 1,
+                                  'no_added_eol' => 1});
+  push @{$self->{'formatters'}}, $formatter;
+
   foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
     next if ($ignored_entries{$entry});
     my $entry_tree = {'contents' => $entry->{'entry_content'}};
@@ -1395,18 +1402,12 @@ sub process_printindex($$;$)
     }
     my $entry_text = '';
 
-    my $formatter = $self->new_formatter('line',
-                                   {'indent' => 0, 'suppress_styles' => 1,
-                                    'no_added_eol' => 1});
-    push @{$self->{'formatters'}}, $formatter;
     $entry_text = $self->_convert($entry_tree);
     $entry_text .= $self->_convert($subentries_tree)
       if (defined($subentries_tree));
 
     $entry_text .= _count_added($self, $formatter->{'container'},
                   Texinfo::Convert::Paragraph::end($formatter->{'container'}));
-    pop @{$self->{'formatters'}};
-
     next if ($entry_text !~ /\S/);
 
     # No need for protection, the Info readers should find the last : on
@@ -1517,6 +1518,8 @@ sub process_printindex($$;$)
     add_text_to_count($self, $line_part);
     $result .= $line_part;
   }
+  pop @{$self->{'formatters'}};
+
 
   $result .= "\n"; 
   add_text_to_count($self, "\n");

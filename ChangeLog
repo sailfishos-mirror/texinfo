@@ -1,5 +1,10 @@
 2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (process_printindex): Reuse
+	line formatter for all index entries in an index.
+
+2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <node name quoting>:
 	Optimise for the usual case where the node name is simple text,
 	in which case avoid calling convert_line.
