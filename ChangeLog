@@ -1,5 +1,10 @@
 2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/Plaintext.pm (new_formatter): Access 'conf'
+	hash directly for efficiency, rather than calling get_conf.
+
+2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: more on Devel::NYTProf
 
 2022-10-25  Patrice Dumas  <pertusus@free.fr>
