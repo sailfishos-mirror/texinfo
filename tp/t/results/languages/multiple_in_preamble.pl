@@ -1049,7 +1049,7 @@ $result_converted{'html'}->{'multiple_in_preamble'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Primjer varijable of copying: a b
+<!-- Primjer varijable od copying: a b
 greška→ -->
 <title>top section</title>
 
@@ -1094,7 +1094,7 @@ Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a>, Gore: <a hre
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Primjer varijable of <code class="code">hr</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Primjer varijable od <code class="code">hr</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 
