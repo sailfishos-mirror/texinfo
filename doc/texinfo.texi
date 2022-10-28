@@ -2886,7 +2886,7 @@ letting @code{makeinfo} determine them.
 @cindex Automatic pointer creation with @code{makeinfo}
 @cindex Implicit pointer creation with @code{makeinfo}
 The @code{makeinfo} program automatically determines node pointers
-for a hierarchically organized document.  For it do to do this, each
+for a hierarchically organized document.  For it to do this, each
 @code{@@node} command should be followed immediately by a sectioning
 command such as @code{@@chapter} or @code{@@section} (except that
 comment lines may intervene).  Finally, you must follow the `Top'
@@ -2907,7 +2907,7 @@ hierarchically or in fact to contain sectioning commands at all (for
 example, if you never intend the document to be printed), so node
 pointers may still be specified explicitly, in full generality.
 
-If you are using GNU Emacs, and want explict pointers, you can use the
+If you are using GNU Emacs, and want explicit pointers, you can use the
 update node commands provided by Texinfo mode to insert the names of
 the pointers.  (@xref{Updating Nodes and Menus}.)
 
@@ -12637,7 +12637,7 @@ However, this text will appear only in Info and plain text.
 And this text will only appear in HTML.
 @end ifhtml
 @iflatex
-Morever, this text will only appear in @LaTeX{}.
+Moreover, this text will only appear in @LaTeX{}.
 @end iflatex
 @ifplaintext
 Whereas this text will only appear in plain text.

@@ -1,3 +1,8 @@
+2020-10-28  Vincent Lefevre <vincent@vinc17.net>  (tiny change)
+
+	* doc/texinfo.texi (Writing a Node, Conditional Commands):
+	Fix typos.
+
 2022-10-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/t/paragraph.t: use intended formatter in tests
