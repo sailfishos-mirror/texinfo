@@ -56,7 +56,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-$VERSION = '6.8.90';
+$VERSION = '6.8.91';
 
 
 my %normalize_node_brace_no_arg_commands

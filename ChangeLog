@@ -1,3 +1,9 @@
+2022-10-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	pretest 6.8.91
+
+	* configure.ac: version
+
 2020-10-28  Vincent Lefevre <vincent@vinc17.net>  (tiny change)
 
 	* doc/texinfo.texi (Writing a Node, Conditional Commands):
