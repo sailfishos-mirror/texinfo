@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-28 18:07+0100\n"
+"POT-Creation-Date: 2022-10-29 13:22+0100\n"
 "PO-Revision-Date: 2022-10-21 16:22+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -2323,7 +2323,7 @@ msgstr "%s: eroare la închiderea ieșirii standard: %s\n"
 #: tp/Texinfo/Convert/HTML.pm:9372 tp/Texinfo/Convert/HTML.pm:9438
 #: tp/Texinfo/Convert/HTML.pm:9475 tp/Texinfo/Convert/HTML.pm:10056
 #: tp/Texinfo/Convert/HTML.pm:10157 tp/Texinfo/Convert/HTML.pm:10271
-#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:321
+#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:320
 #: tp/Texinfo/Convert/LaTeX.pm:1047 tp/Texinfo/Convert/Text.pm:834
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:310
 #, perl-format
@@ -2334,8 +2334,8 @@ msgstr "nu s-a putut deschide %s pentru scriere: %s"
 #: tp/Texinfo/Convert/Converter.pm:464 tp/Texinfo/Convert/DocBook.pm:515
 #: tp/Texinfo/Convert/HTML.pm:9367 tp/Texinfo/Convert/HTML.pm:10095
 #: tp/Texinfo/Convert/HTML.pm:10176 tp/Texinfo/Convert/IXIN.pm:988
-#: tp/Texinfo/Convert/Info.pm:175 tp/Texinfo/Convert/Info.pm:202
-#: tp/Texinfo/Convert/Info.pm:231 tp/Texinfo/Convert/Info.pm:295
+#: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
+#: tp/Texinfo/Convert/Info.pm:230 tp/Texinfo/Convert/Info.pm:294
 #: tp/Texinfo/Convert/LaTeX.pm:1115 tp/Texinfo/Convert/TexinfoMarkup.pm:338
 #: tp/Texinfo/ParserNonXS.pm:2113
 #, perl-format
@@ -2563,35 +2563,35 @@ msgstr "eroare la copierea lui %s în %s"
 msgid "error on closing redirection node file %s: %s"
 msgstr "eroare la închiderea fișierului nodului de redirecționare %s: %s"
 
-#: tp/Texinfo/Convert/Info.pm:117
+#: tp/Texinfo/Convert/Info.pm:116
 msgid "document without nodes"
 msgstr "document fără noduri"
 
-#: tp/Texinfo/Convert/Info.pm:134
+#: tp/Texinfo/Convert/Info.pm:133
 msgid "document without Top node"
 msgstr "document fără nod Top"
 
-#: tp/Texinfo/Convert/Info.pm:185
+#: tp/Texinfo/Convert/Info.pm:184
 #, perl-format
 msgid "rename %s failed: %s"
 msgstr "redenumirea %s a eșuat: %s"
 
-#: tp/Texinfo/Convert/Info.pm:268
+#: tp/Texinfo/Convert/Info.pm:267
 #, perl-format
 msgid "@%s output more than once: %s"
 msgstr "@%s iese mai mult de o dată: %s"
 
-#: tp/Texinfo/Convert/Info.pm:424
+#: tp/Texinfo/Convert/Info.pm:423
 #, perl-format
 msgid "@%s outside of any node"
 msgstr "@%s în afara oricărui nod"
 
-#: tp/Texinfo/Convert/Info.pm:467
+#: tp/Texinfo/Convert/Info.pm:466
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr "numele @node nu trebuie să conțină «,»: %s"
 
-#: tp/Texinfo/Convert/Info.pm:503
+#: tp/Texinfo/Convert/Info.pm:502
 #, perl-format
 msgid "@node %s name should not contain `,': %s"
 msgstr "numele @node %s nu trebuie să conțină «,»: %s"
@@ -2683,17 +2683,17 @@ msgstr "numele nodului de intrare din meniu nu trebuie să conțină „:”"
 msgid "menu entry name should not contain `:'"
 msgstr "numele intrării din meniu nu trebuie să conțină „:”"
 
-#: tp/Texinfo/Convert/Utils.pm:249
+#: tp/Texinfo/Convert/Utils.pm:250
 #, perl-format
 msgid "could not read %s: %s"
 msgstr "nu s-a putut citi %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:272
+#: tp/Texinfo/Convert/Utils.pm:273
 #, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "eroare la închiderea fișierului @verbatiminclude %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:279 tp/Texinfo/ParserNonXS.pm:3354
+#: tp/Texinfo/Convert/Utils.pm:280 tp/Texinfo/ParserNonXS.pm:3354
 #, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: nu s-a putut găsi %s"

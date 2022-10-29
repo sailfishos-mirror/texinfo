@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the texinfo package.
 # Vladimir Michl <Vladimir.Michl@seznam.cz>, 1997.
 # Petr Pisar <petr.pisar@atlas.cz>, 2014, 2015, 2016, 2017, 2018, 2019, 2021.
+# Petr Pisar <petr.pisar@atlas.cz>, 2022.
 #
 # Note: 2 messages untranslated, it's ok.
 # gnulib messages copied from gnulib-3.0.0.6062.a6b16.
@@ -17,10 +18,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.7.92\n"
+"Project-Id-Version: texinfo 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-28 18:07+0100\n"
-"PO-Revision-Date: 2021-07-01 19:22+02:00\n"
+"POT-Creation-Date: 2022-10-29 13:22+0100\n"
+"PO-Revision-Date: 2022-10-29 13:27+02:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "Language: cs\n"
@@ -528,44 +529,48 @@ msgstr ""
 
 #: info/info.c:1136
 msgid "Examples:"
-msgstr ""
+msgstr "Příklady:"
 
 #: info/info.c:1139
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid "  info                         show top-level dir menu"
-msgstr "    --top                   vrcholový uzel hlavního manuálu"
+msgstr "  info                         zobrazí nabídku vrcholového adresáře"
 
 #: info/info.c:1141
 msgid "  info info-stnd               show the manual for this Info program"
-msgstr ""
+msgstr "  info info-stnd               zobrazí manuál pro tento program info"
 
 #: info/info.c:1143
 msgid "  info emacs                   start at emacs node from top-level dir"
 msgstr ""
+"  info emacs                   začne na uzlu emacs z vrcholového adresáře"
 
 #: info/info.c:1145
 msgid ""
 "  info emacs buffers           select buffers menu entry in emacs manual"
-msgstr ""
+msgstr "  info emacs buffers           začne na uzlu buffers v manuálu emacs"
 
 #: info/info.c:1147
 msgid "  info emacs -n Files          start at Files node within emacs manual"
 msgstr ""
+"  info emacs -n Files          začne na uzlu Files uvnitř manuálu emacs"
 
 #: info/info.c:1149
 msgid "  info '(emacs)Files'          alternative way to start at Files node"
-msgstr ""
+msgstr "  info '(emacs)Files'          jiný způsob jako začít na uzlu Files"
 
 #: info/info.c:1151
 msgid ""
 "  info --subnodes -o out.txt emacs\n"
 "                               dump entire emacs manual to out.txt"
 msgstr ""
+"  info --subnodes -o out.txt emacs\n"
+"                               vypíše celý manuál do souboru out.txt"
 
 #: info/info.c:1154
 msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
+"  info -f ./foo.info           zobrazí soubor ./foo.info, adresář se\n"
+"                               neprohledává"
 
 #: info/info.c:1159 install-info/install-info.c:576
 #: Pod-Simple-Texinfo/pod2texi.pl:137 tp/texi2any.pl:941
@@ -2009,16 +2014,6 @@ msgid "Usage: pod2texi [OPTION]... POD..."
 msgstr "Použití: pod2texi [PŘEPÍNAČ]… POD…"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:109
-#, fuzzy
-#| msgid ""
-#| "Translate Perl pod documentation file(s) to Texinfo.  There are two\n"
-#| "basic modes of operation.  First, by default, each pod is translated to\n"
-#| "a standalone Texinfo manual.\n"
-#| "\n"
-#| "Second, if C<--base-level> is set higher than 0, each pod is translated\n"
-#| "to a file suitable for C<@include>, and one more file with all the\n"
-#| "C<@include>s is generated, intended to be C<@include>d in turn within\n"
-#| "a hand-written top-level file."
 msgid ""
 "Translate Perl Pod documentation file(s) to Texinfo.  There are two\n"
 "basic modes of operation.  First, by default, each Pod is translated to\n"
@@ -2032,10 +2027,9 @@ msgstr ""
 "způsoby použití. První, a výchozí, přeloží každý POD to samostatného\n"
 "manuálu Texinfa.\n"
 "\n"
-"Druhý, je-li C<--base-level> nastaveno výše než 0, přeloží každý POD do\n"
-"samostatného souboru vhodného pro začlenění příkazem C<@include> a jednoho\n"
-"dalšího souboru obsahující všechny tyto příkazy C<@include> určeného pro\n"
-"vložení pomocí C<@include> do ručně psaného vrcholového souboru."
+"Druhý, je-li --base-level nastaveno výše než 0, přeloží každý POD do\n"
+"samostatného souboru vhodného pro začlenění příkazem @include a jednoho\n"
+"dalšího souboru s hlavní nabídkou obsahující všechny tyto příkazy @include."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:117
 msgid ""
@@ -2054,10 +2048,8 @@ msgid "    --debug=NUM             set debugging level"
 msgstr "    --debug=ČÍSLO           nastaví úroveň ladění"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:121
-#, fuzzy
-#| msgid "    --unnumbered-sections   do not number sections"
 msgid "    --headings-as-sections  no structuring command for sections"
-msgstr "    --unumbered-sections    nečísluje oddíly"
+msgstr "    --headings-as-sections  žádný strukturní příkaz pro oddíly"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:122
 msgid "    --help                  display this help and exit"
@@ -2072,10 +2064,8 @@ msgid "    --no-section-nodes      use anchors for sections instead of nodes"
 msgstr "    --no-section-nodes      pro oddíly použije kotvy namísto uzlů"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:125
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid "    --menus                 generate node menus"
-msgstr "    --top                   vrcholový uzel hlavního manuálu"
+msgstr "    --menus                 vytvoří nabídky uzlů"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
 msgid ""
@@ -2087,18 +2077,16 @@ msgstr ""
 "                            na standardní výstup"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
-#, fuzzy
-#| msgid "    --preamble=STR          insert STR as beginning boilerplate"
 msgid ""
 "    --preamble=STR          insert STR as beginning boilerplate.\n"
 "                            Defaults to a minimal Texinfo document beginning"
-msgstr "    --preamble=ŘETĚZEC      vloží ŘETĚZEC jako zahajující hlavičku"
+msgstr ""
+"    --preamble=ŘETĚZEC      vloží ŘETĚZEC jako zahajující hlavičku. Výchozí\n"
+"                            je minimální zahájení dokumentu Texinfa"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:130
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid "    --setfilename           @setfilename for the main manual"
-msgstr "    --top                   vrcholový uzel hlavního manuálu"
+msgstr "    --setfilename           použije @setfilename pro hlavní manuál"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:131
 msgid ""
@@ -2180,7 +2168,7 @@ msgstr "%s: chyba při zavírání standardního výstupu: %s\n"
 #: tp/Texinfo/Convert/HTML.pm:9372 tp/Texinfo/Convert/HTML.pm:9438
 #: tp/Texinfo/Convert/HTML.pm:9475 tp/Texinfo/Convert/HTML.pm:10056
 #: tp/Texinfo/Convert/HTML.pm:10157 tp/Texinfo/Convert/HTML.pm:10271
-#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:321
+#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:320
 #: tp/Texinfo/Convert/LaTeX.pm:1047 tp/Texinfo/Convert/Text.pm:834
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:310
 #, perl-format
@@ -2191,8 +2179,8 @@ msgstr "%s nebylo možno otevřít pro zápis: %s"
 #: tp/Texinfo/Convert/Converter.pm:464 tp/Texinfo/Convert/DocBook.pm:515
 #: tp/Texinfo/Convert/HTML.pm:9367 tp/Texinfo/Convert/HTML.pm:10095
 #: tp/Texinfo/Convert/HTML.pm:10176 tp/Texinfo/Convert/IXIN.pm:988
-#: tp/Texinfo/Convert/Info.pm:175 tp/Texinfo/Convert/Info.pm:202
-#: tp/Texinfo/Convert/Info.pm:231 tp/Texinfo/Convert/Info.pm:295
+#: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
+#: tp/Texinfo/Convert/Info.pm:230 tp/Texinfo/Convert/Info.pm:294
 #: tp/Texinfo/Convert/LaTeX.pm:1115 tp/Texinfo/Convert/TexinfoMarkup.pm:338
 #: tp/Texinfo/ParserNonXS.pm:2113
 #, perl-format
@@ -2218,16 +2206,16 @@ msgid "%s: warning: %s"
 msgstr "%s: varování: "
 
 #: tp/Texinfo/Config.pm:137 tp/texi2any.pl:1256
-#, fuzzy, perl-format
-#| msgid "error loading %s: %s\n"
+#, perl-format
 msgid "error loading %s: %s"
-msgstr "chyba při zavádění %s: %s\n"
+msgstr "chyba při zavádění %s: %s"
 
 #: tp/Texinfo/Config.pm:150
-#, perl-format
+#, fuzzy, perl-format
+#| msgid "%s: %s"
 msgctxt "init file: error_message"
 msgid "%s: %s"
-msgstr ""
+msgstr "%s: %s"
 
 #: tp/Texinfo/Config.pm:156
 #, fuzzy, perl-format
@@ -2237,10 +2225,9 @@ msgid "%s: warning: %s"
 msgstr "%s: varování: "
 
 #: tp/Texinfo/Config.pm:191
-#, fuzzy, perl-format
-#| msgid "obsolete variable %s\n"
+#, perl-format
 msgid "obsolete option: %s"
-msgstr "zastaralá proměnná %s\n"
+msgstr "zastaralý přepínač: %s"
 
 #: tp/Texinfo/Config.pm:216
 #, perl-format
@@ -2248,17 +2235,15 @@ msgid "%s: unknown variable %s"
 msgstr "%s: neznámá proměnná %s"
 
 #: tp/Texinfo/Config.pm:241
-#, fuzzy, perl-format
-#| msgid "%s: unknown variable %s\n"
+#, perl-format
 msgid "unknown variable from command line: %s\n"
-msgstr "%s: neznámá proměnná %s\n"
+msgstr "neznámá proměnná v příkazovém řádku: %s\n"
 
 #: tp/Texinfo/Config.pm:524 tp/Texinfo/Config.pm:551 tp/Texinfo/Config.pm:573
 #: tp/Texinfo/Config.pm:596
-#, fuzzy, perl-format
-#| msgid "%s: unknown variable %s\n"
+#, perl-format
 msgid "%s: unknown formatting context %s\n"
-msgstr "%s: neznámá proměnná %s\n"
+msgstr "%s: neznámý formátovací kontext %s\n"
 
 #: tp/Texinfo/Convert/Converter.pm:326
 #, perl-format
@@ -2321,21 +2306,19 @@ msgid "error on closing html refs config file %s: %s"
 msgstr "chyba při zavírání konfiguračního souboru s HTML odkazy %s: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:6857
-#, fuzzy, perl-format
-#| msgid "could not open html refs config file %s: %s"
+#, perl-format
 msgid "could not find html refs config file %s"
-msgstr "nebylo možné otevřít konfigurační soubor s HTML odkazy %s: %s"
+msgstr "nebylo možné nelézt konfigurační soubor s HTML odkazy %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7272
 #, perl-format
 msgid "Unknown file and id setting function: %s"
-msgstr ""
+msgstr "Neznámá funkce nastavující soubor a identifikátor: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7286
-#, fuzzy, perl-format
-#| msgid "unknown action `%s'"
+#, perl-format
 msgid "Unknown formatting function: %s"
-msgstr "neznámý úkon „%s“"
+msgstr "Neznámá formátovací funkce: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7522
 msgid "string not closed in css file"
@@ -2367,7 +2350,7 @@ msgstr "chyba při zavírání CSS souboru %s: %s"
 #: tp/Texinfo/Convert/HTML.pm:7767
 #, perl-format
 msgid "user-defined node file name not set for `%s'"
-msgstr ""
+msgstr "název souboru s uživatelem definovaným uzlem není pro „%s“ nastaven"
 
 #: tp/Texinfo/Convert/HTML.pm:8517 tp/Texinfo/Convert/HTML.pm:8524
 #, perl-format
@@ -2422,45 +2405,43 @@ msgstr "chyba při kopírování %s do %s"
 msgid "error on closing redirection node file %s: %s"
 msgstr "chyba při zavírání souboru s uzly přesměrování %s: %s"
 
-#: tp/Texinfo/Convert/Info.pm:117
+#: tp/Texinfo/Convert/Info.pm:116
 msgid "document without nodes"
 msgstr "dokument bez uzlů"
 
-#: tp/Texinfo/Convert/Info.pm:134
+#: tp/Texinfo/Convert/Info.pm:133
 msgid "document without Top node"
 msgstr "dokument bez vrcholového uzlu"
 
-#: tp/Texinfo/Convert/Info.pm:185
+#: tp/Texinfo/Convert/Info.pm:184
 #, perl-format
 msgid "rename %s failed: %s"
 msgstr "přejmenování %s selhalo: %s"
 
-#: tp/Texinfo/Convert/Info.pm:268
+#: tp/Texinfo/Convert/Info.pm:267
 #, perl-format
 msgid "@%s output more than once: %s"
 msgstr "@%s výstup více než jednou: %s"
 
-#: tp/Texinfo/Convert/Info.pm:424
+#: tp/Texinfo/Convert/Info.pm:423
 #, perl-format
 msgid "@%s outside of any node"
 msgstr "@%s mimo jakýkoliv uzel"
 
-#: tp/Texinfo/Convert/Info.pm:467
+#: tp/Texinfo/Convert/Info.pm:466
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr "název @node by neměl obsahovat „,“: %s"
 
-#: tp/Texinfo/Convert/Info.pm:503
-#, fuzzy, perl-format
-#| msgid "@node name should not contain `,': %s"
+#: tp/Texinfo/Convert/Info.pm:502
+#, perl-format
 msgid "@node %s name should not contain `,': %s"
-msgstr "název @node by neměl obsahovat „,“: %s"
+msgstr "název @node %s by neměl obsahovat „,“: %s"
 
 #: tp/Texinfo/Convert/LaTeX.pm:2632
-#, fuzzy, perl-format
-#| msgid "@image file `%s' (for HTML) not found, using `%s'"
+#, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
-msgstr "@image soubor „%s“ (pro HTML) nenalezen, použije se „%s“"
+msgstr "@image soubor „%s“ (pro LaTeX) nenalezen"
 
 #: tp/Texinfo/Convert/NodeNameNormalization.pm:360
 #, perl-format
@@ -2495,10 +2476,9 @@ msgid "entry for index `%s' outside of any node"
 msgstr "položka pro rejstřík „%s“ je mimo všechny uzly"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1482
-#, fuzzy, perl-format
-#| msgid "@%s node name should not contain `%s'"
+#, perl-format
 msgid "node name with index entries should not contain `%s'"
-msgstr "název uzlu @%s by neměl obsahovat „%s“"
+msgstr "název uzlu s položkami rejstříku by neměl obsahovat „%s“"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1593
 #, perl-format
@@ -2544,17 +2524,17 @@ msgstr "název uzlu položky nabídky by neměl obsahovat „:“"
 msgid "menu entry name should not contain `:'"
 msgstr "název položky nabídky by neměl obsahovat „:“"
 
-#: tp/Texinfo/Convert/Utils.pm:249
+#: tp/Texinfo/Convert/Utils.pm:250
 #, perl-format
 msgid "could not read %s: %s"
 msgstr "%s nebylo možné přečíst: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:272
+#: tp/Texinfo/Convert/Utils.pm:273
 #, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "chyba při zavírání @verbatiminclude souboru %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:279 tp/Texinfo/ParserNonXS.pm:3354
+#: tp/Texinfo/Convert/Utils.pm:280 tp/Texinfo/ParserNonXS.pm:3354
 #, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: nebylo možné nalézt %s"
@@ -2862,10 +2842,9 @@ msgid "unknown command `%s'"
 msgstr "neznámý příkaz „%s“"
 
 #: tp/Texinfo/ParserNonXS.pm:4303 tp/Texinfo/XS/parsetexi/parser.c:1576
-#, fuzzy, c-format, perl-format
-#| msgid "accent command `@%s' must not be followed by new line"
+#, c-format, perl-format
 msgid "command `@%s' must not be followed by new line"
-msgstr "zdůrazňovací příkaz „@%s“ nesmí být následován novým řádkem"
+msgstr "příkaz „@%s“ nesmí být následován novým řádkem"
 
 #: tp/Texinfo/ParserNonXS.pm:4343 tp/Texinfo/ParserNonXS.pm:5444
 #, perl-format
@@ -2878,16 +2857,14 @@ msgid "undefined flag: %s"
 msgstr "nedefinovaný příznak: %s"
 
 #: tp/Texinfo/ParserNonXS.pm:4504
-#, fuzzy, perl-format
-#| msgid "bad syntax for @value"
+#, perl-format
 msgid "bad syntax for %c%s"
-msgstr "chybná skladba ve @value"
+msgstr "chybná skladba ve %c%s"
 
 #: tp/Texinfo/ParserNonXS.pm:4511
-#, fuzzy, perl-format
-#| msgid "%c%s is obsolete."
+#, perl-format
 msgid "%c%s is obsolete"
-msgstr "%c%s je zastaralé."
+msgstr "%c%s je zastaralé"
 
 #: tp/Texinfo/ParserNonXS.pm:4524 tp/Texinfo/XS/parsetexi/parser.c:1784
 #, c-format, perl-format
@@ -3298,91 +3275,79 @@ msgid "chm.pm: error on closing %s: %s"
 msgstr "chm.pm: chyba při zavírání %s: %s"
 
 #: tp/ext/epub3.pm:283
-#, fuzzy, perl-format
-#| msgid "@image file `%s' unreadable: %s"
+#, perl-format
 msgid "@image file `%s' can not be copied"
-msgstr "soubor „%s“ v příkazu @image je nečitelný: %s"
+msgstr "soubor „%s“ v příkazu @image nelze zkopírovat"
 
 #: tp/ext/epub3.pm:295
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "could not create images directory `%s': %s"
-msgstr "adresář „%s“ nebylo možno vytvořit: %s"
+msgstr "adresář s obrázky „%s“ nebylo možno vytvořit: %s"
 
 #: tp/ext/epub3.pm:315
-#, fuzzy, perl-format
-#| msgid "could not create directories `%s' or `%s': %s"
+#, perl-format
 msgid "could not copy `%s' to `%s': %s"
-msgstr "adresáře „%s“ nebo „%s„ nebylo možné vytvořit: %s"
+msgstr "„%s“ do „%s“ nebylo možné zkopírovat: %s"
 
 #: tp/ext/epub3.pm:377
-#, fuzzy, perl-format
-#| msgid "error writing to %s: %s"
+#, perl-format
 msgid "error removing directory: %s: %s"
-msgstr "chyba při zápisu od %s: %s"
+msgstr "chyba při odstraňování adresáře: %s: %s"
 
 #: tp/ext/epub3.pm:382
-#, fuzzy, perl-format
-#| msgid "error on closing %s: %s"
+#, perl-format
 msgid "error removing directory: %s: unlinking %s: %s"
-msgstr "chyba při zavírání %s: %s"
+msgstr "chyba při odstraňování adresáře: %s: odebrání odkazu %s: %s"
 
 #: tp/ext/epub3.pm:423
 msgid "Archive::Zip is required for EPUB file output"
-msgstr ""
+msgstr "pro výstup do souboru EPUB je potřeba Archive::Zip"
 
 #: tp/ext/epub3.pm:518
-#, fuzzy, perl-format
-#| msgid "error writing to %s: %s"
+#, perl-format
 msgid "error creating directory: %s: %s"
-msgstr "chyba při zápisu od %s: %s"
+msgstr "chyba při vytváření adresáře: %s: %s"
 
 #: tp/ext/epub3.pm:523
-#, fuzzy, perl-format
-#| msgid "error on closing redirection node file %s: %s"
+#, perl-format
 msgid "error creating directory: %s: creating %s: %s"
-msgstr "chyba při zavírání souboru s uzly přesměrování %s: %s"
+msgstr "chyba při vytváření adresáře: %s: vytváření %s: %s"
 
 #: tp/ext/epub3.pm:545
 msgid "epub: no filename output"
-msgstr ""
+msgstr "epub: chybí výstup názvu souboru"
 
 #: tp/ext/epub3.pm:556
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "could not create meta informations directory `%s': %s"
-msgstr "adresář „%s“ nebylo možno vytvořit: %s"
+msgstr "adresář s metaúdaji „%s“ nebylo možno vytvořit: %s"
 
 #: tp/ext/epub3.pm:570 tp/ext/epub3.pm:606 tp/ext/epub3.pm:636
 #: tp/ext/epub3.pm:746
-#, fuzzy, perl-format
-#| msgid "chm.pm: could not open %s for writing: %s\n"
+#, perl-format
 msgid "epub3.pm: could not open %s for writing: %s\n"
-msgstr "chm.pm: %s nebylo možné otevřít pro zápis: %s\n"
+msgstr "epub3.pm: %s nebylo možné otevřít pro zápis: %s\n"
 
 #: tp/ext/epub3.pm:590 tp/ext/epub3.pm:618 tp/ext/epub3.pm:716
 #: tp/ext/epub3.pm:895
-#, fuzzy, perl-format
-#| msgid "chm.pm: error on closing %s: %s"
+#, perl-format
 msgid "epub3.pm: error on closing %s: %s"
-msgstr "chm.pm: chyba při zavírání %s: %s"
+msgstr "epub3.pm: chyba při zavírání %s: %s"
 
 #: tp/ext/epub3.pm:847
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: chdir %s failed: %s"
+#, perl-format
 msgid "epub3.pm: readdir %s error: %s"
-msgstr "tex4ht.pm: změna pracovního adresáře do %s selhala: %s"
+msgstr "epub3.pm: čtení adresáře %s selhalo: %s"
 
 #: tp/ext/epub3.pm:915 tp/ext/epub3.pm:924 tp/ext/epub3.pm:937
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
-msgstr ""
+msgstr "epub3.pm: chyba při přidávání %s do archivu"
 
 #: tp/ext/epub3.pm:946
-#, fuzzy, perl-format
-#| msgid "error writing to `%s'"
+#, perl-format
 msgid "epub3.pm: error writing archive %s"
-msgstr "chyba při zápisu do „%s“"
+msgstr "epub3.pm: chyba při zápisu do archivu %s"
 
 #: tp/ext/latex2html.pm:123
 #, perl-format
@@ -3390,14 +3355,9 @@ msgid "l2h: could not open latex file %s for writing: %s"
 msgstr "l2h: latexový soubor %s nebylo možné otevřít pro zápis: %s"
 
 #: tp/ext/latex2html.pm:363
-#, fuzzy, perl-format
-#| msgid ""
-#| "latex2html.pm: processing produced %d items in HTML; expected %d, the "
-#| "number of items found in the document"
+#, perl-format
 msgid "latex2html.pm: processing produced %d items in HTML; expected %d"
-msgstr ""
-"latex2html.pm: zpracování vyrobilo %d položek v HTML; očekáváno %d, počet "
-"položek nalezených v dokumentu"
+msgstr "latex2html.pm: zpracování vyrobilo %d položek v HTML; očekáváno %d"
 
 #: tp/ext/latex2html.pm:401
 msgid "l2h: L2H_TMP directory contains a dot"
@@ -3408,10 +3368,8 @@ msgid "l2h: current directory contains a dot"
 msgstr "l2h: současný adresář obsahuje tečku"
 
 #: tp/ext/latex2html.pm:414
-#, fuzzy
-#| msgid "l2h: command did not succeed: %s"
 msgid "l2h: command not set"
-msgstr "l2h: příkaz neuspěl: %s"
+msgstr "l2h: příkaz nenastaven"
 
 #: tp/ext/latex2html.pm:468
 #, perl-format
@@ -3434,25 +3392,19 @@ msgid "l2h: could not open %s: %s"
 msgstr "l2h: %s nebylo možné otevřít: %s"
 
 #: tp/ext/latex2html.pm:604
-#, fuzzy, perl-format
-#| msgid "latex2html.pm: end of @%s item %d not found"
+#, perl-format
 msgid "latex2html.pm: end of @%s text %d not found"
-msgstr "latex2html.pm: konec @%s položky %d nebyl nalezen"
+msgstr "latex2html.pm: konec @%s textu %d nebyl nalezen"
 
 #: tp/ext/latex2html.pm:684
-#, fuzzy, perl-format
-#| msgid ""
-#| "l2h: could not extract the fragment %d for @%s with output counter %d "
-#| "from HTML"
+#, perl-format
 msgid "l2h: could not extract the fragment %d for @%s, text %d, from HTML"
-msgstr ""
-"l2h: z HTML nebylo možné získat fragment %d pro @%s s výstupním počítadlem %d"
+msgstr "l2h: z HTML nebylo možné získat fragment %d pro @%s, text %d"
 
 #: tp/ext/latex2html.pm:776
-#, fuzzy, perl-format
-#| msgid "l2h: could not open %s: %s"
+#, perl-format
 msgid "l2h: could not compile %s: %s"
-msgstr "l2h: %s nebylo možné otevřít: %s"
+msgstr "l2h: %s nebylo možné přeložit: %s"
 
 #: tp/ext/latex2html.pm:781
 #, perl-format
@@ -3460,10 +3412,9 @@ msgid "l2h: could not load %s: %s"
 msgstr "l2h: %s nebylo možné zavést: %s"
 
 #: tp/ext/latex2html.pm:785
-#, fuzzy, perl-format
-#| msgid "error loading %s: %s\n"
+#, perl-format
 msgid "l2h: error loading %s"
-msgstr "chyba při zavádění %s: %s\n"
+msgstr "l2h: chyba při zavádění %s"
 
 #: tp/ext/latex2html.pm:805
 #, perl-format
@@ -3471,19 +3422,22 @@ msgid "l2h: could not open %s for writing: %s"
 msgstr "l2h: %s nebylo možné otevřít pro zápis: %s"
 
 #: tp/ext/tex4ht.pm:122
-#, perl-format
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: unknown converstion type for math: %s"
 msgid "tex4ht.pm: unknown conversion type for math: %s"
-msgstr ""
+msgstr "tex4ht.pm: neznámý konverzní typ pro matematiku: %s"
 
 #: tp/ext/tex4ht.pm:131
-#, perl-format
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: unknown converstion type for @tex: %s"
 msgid "tex4ht.pm: unknown conversion type for @tex: %s"
-msgstr ""
+msgstr "tex4ht.pm: neznámý konverzní typ pro @tex: %s"
 
 #: tp/ext/tex4ht.pm:140
-#, perl-format
+#, fuzzy, perl-format
+#| msgid "tex4ht.pm: unknown converstion type for @latex: %s"
 msgid "tex4ht.pm: unknown conversion type for @latex: %s"
-msgstr ""
+msgstr "tex4ht.pm: neznámý konverzní typ pro @latex: %s"
 
 #: tp/ext/tex4ht.pm:234 tp/ext/tex4ht.pm:420
 #, perl-format
@@ -3516,21 +3470,16 @@ msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: uzavření komunikace selhalo: %s: %s"
 
 #: tp/ext/tex4ht.pm:456
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: end of @%s item %d not found"
+#, perl-format
 msgid "tex4ht.pm: end of %s item %d for @%s not found"
-msgstr "tex4ht.pm: konec @%s položky %d nenalezen"
+msgstr "tex4ht.pm: konec %s položky %d pro @%s nenalezen"
 
 #: tp/ext/tex4ht.pm:465
-#, fuzzy, perl-format
-#| msgid ""
-#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
-#| "of items found in the document for @%s"
+#, perl-format
 msgid ""
 "tex4ht.pm: processing produced %d items in HTML; expected %d for format %s"
 msgstr ""
-"tex4ht.pm: zpracování vyrobilo %d položek v HTML; očekáváno %d, počet "
-"položek nalezených v dokumentu pro @%s"
+"tex4ht.pm: zpracování vyrobilo %d položek v HTML; očekáváno %d pro formát %s"
 
 #: tp/ext/tex4ht.pm:500
 #, perl-format
@@ -3538,47 +3487,35 @@ msgid "tex4ht.pm: output has no HTML item for @%s %s"
 msgstr "tex4ht.pm: výstup nemá žádnou HTML položku pro @%s %s"
 
 #: tp/ext/tex4ht.pm:517
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "tex4ht.pm: output counter UNDEF; expected %d for @%s"
-msgstr "tex4ht.pm: výstup nemá žádnou HTML položku pro @%s %s"
+msgstr "tex4ht.pm: počítadlo výstupu je UNDEF, očekáváno %d pro @%s"
 
 #: tp/ext/tex4ht.pm:521
-#, fuzzy, perl-format
-#| msgid ""
-#| "tex4ht.pm: processing produced %d items in HTML; expected %d, the number "
-#| "of items found in the document for @%s"
+#, perl-format
 msgid "tex4ht.pm: no expected items in the document for @%s"
-msgstr ""
-"tex4ht.pm: zpracování vyrobilo %d položek v HTML; očekáváno %d, počet "
-"položek nalezených v dokumentu pro @%s"
+msgstr "tex4ht.pm: žádné očekávané položky v dokumentu pro @%s"
 
 #: tp/ext/tex4ht.pm:528
-#, fuzzy, perl-format
-#| msgid ""
-#| "tex4ht.pm: processing retrieved %d items in HTML; expected %d, the number "
-#| "of items found in the document for @%s"
+#, perl-format
 msgid "tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s"
 msgstr ""
-"tex4ht.pm: zpracování získalo %d položek v HTML; očekáváno %d, počet položek "
-"nalezených v dokumentu pro @%s"
+"tex4ht.pm: zpracování získalo %d položek v HTML; shromážděno %d pro @%s"
 
 #: tp/init/highlight_syntax.pm:54
 #, perl-format
 msgid "%s: %s"
-msgstr ""
+msgstr "%s: %s"
 
 #: tp/init/highlight_syntax.pm:65
-#, fuzzy, perl-format
-#| msgid "highlight_syntax.pm: %s: %s: cannot parse language line"
+#, perl-format
 msgid "%s: %s: cannot parse language line"
-msgstr "highlight_syntax.pm: %s: %s: nelze rozebrat řádek s jazykem"
+msgstr "%s: %s: nelze rozebrat řádek s jazykem"
 
 #: tp/init/highlight_syntax.pm:87
-#, fuzzy, perl-format
-#| msgid "%s is not a valid language code"
+#, perl-format
 msgid "%s: no highlighted language found"
-msgstr "%s není platný kód jazyka"
+msgstr "%s nenalezen žádný zvýrazňovaný jazyk"
 
 #: tp/init/highlight_syntax.pm:212 tp/init/highlight_syntax.pm:291
 #, perl-format
@@ -3604,14 +3541,9 @@ msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
 msgstr "highlight_syntax.pm: %s: konec @%s položky %d nenalezen"
 
 #: tp/init/highlight_syntax.pm:344
-#, fuzzy, perl-format
-#| msgid ""
-#| "highlight_syntax.pm: %s: processing produced %d items in HTML; expected "
-#| "%d, the number found in the document"
+#, perl-format
 msgid "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"
-msgstr ""
-"highlight_syntax.pm: %s: zpracování vyrobilo %d položek v HTML; očekáváno "
-"%d, počet položek nalezených v dokumentu"
+msgstr "highlight_syntax.pm: %s: získáno %d položek v HTML; očekáváno %d"
 
 #: tp/init/highlight_syntax.pm:386
 #, perl-format
@@ -3637,10 +3569,9 @@ msgid "could not read init file %s"
 msgstr "inicializační soubor %s nebylo možné přečíst"
 
 #: tp/texi2any.pl:459
-#, fuzzy, perl-format
-#| msgid "could not read init file %s"
+#, perl-format
 msgid "could not read extension file %s"
-msgstr "inicializační soubor %s nebylo možné přečíst"
+msgstr "rozšiřující soubor %s nebylo možné přečíst"
 
 #: tp/texi2any.pl:683
 #, perl-format
@@ -3704,55 +3635,54 @@ msgstr ""
 
 #: tp/texi2any.pl:809
 msgid "Output format selection (default is to produce Info):"
-msgstr ""
+msgstr "Výběr výstupního formátu (výchozí je výstup do formátu Info):"
 
 #: tp/texi2any.pl:810
 msgid "      --docbook               output Docbook XML."
-msgstr ""
+msgstr "      --docbook               výstup do DocBook XML."
 
 #: tp/texi2any.pl:811
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid "      --html                  output HTML."
-msgstr "    --top                   vrcholový uzel hlavního manuálu"
+msgstr "      --html                  výstup do HTML."
 
 #: tp/texi2any.pl:812
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid "      --epub3                 output EPUB 3."
-msgstr "    --top                   vrcholový uzel hlavního manuálu"
+msgstr "      --epub3                 výstup do EPUB 3."
 
 #: tp/texi2any.pl:813
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid "      --latex                 output LaTeX."
-msgstr "    --top                   vrcholový uzel hlavního manuálu"
+msgstr "      --latex                 výstup do LaTeXu."
 
 #: tp/texi2any.pl:814
 msgid "      --plaintext             output plain text rather than Info."
 msgstr ""
+"      --plaintext             výstup do obyčejného textu namísto do Infa."
 
 #: tp/texi2any.pl:815
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid "      --xml                   output Texinfo XML."
-msgstr "    --top                   vrcholový uzel hlavního manuálu"
+msgstr "      --xml                   výstup do Texinfo XML."
 
 #: tp/texi2any.pl:816
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE."
 msgstr ""
+"      --dvi, --dvipdf, --ps, --pdf\n"
+"                              pro získání zadaného výstupu zavolá texi2dvi\n"
+"                              po té, co zkontroluje platnost SOUBORU_TEXINFA."
 
 #: tp/texi2any.pl:820
 msgid "General output options:"
-msgstr ""
+msgstr "Obecné přepínače výstupu:"
 
 #: tp/texi2any.pl:822
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename."
 msgstr ""
+"  -E, --macro-expand=SOUBOR   vypíše zdroj s expandovanými makry do "
+"SOUBORU,\n"
+"                              ignoruje jakýkoliv @setfilename."
 
 #: tp/texi2any.pl:825
 msgid ""
@@ -3765,25 +3695,28 @@ msgid ""
 "                                Also, if producing Info, write to\n"
 "                                standard output by default."
 msgstr ""
+"      --no-headers            potlačí oddělovače uzlů, Uzel: řádky a "
+"nabídky\n"
+"                              z Info výstupu (tudíž vytvoří obyčejný text)\n"
+"                              nebo z HTML (tudíž vytvoří kratší výstup).\n"
+"                              Také, když vytváří Info, zapisuje na\n"
+"                              standardní výstup."
 
 #: tp/texi2any.pl:831
-#, fuzzy
-#| msgid ""
-#| "    --output=NAME           output to NAME for the first or main manual\n"
-#| "                            instead of standard output"
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file."
 msgstr ""
-"    --output=NÁZEV          první nebo hlavní manuál vypíše do NÁZVU "
-"namísto\n"
-"                            na standardní výstup"
+"      --no-split              potlačí jakékoliv dělení výstupu;\n"
+"                              vytvoří pouze jeden výstupní soubor."
 
 #: tp/texi2any.pl:834
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on."
 msgstr ""
+"      --[no-]number-sections  generuje čísla kapitol a oddílů;\n"
+"                              standardně zapnuto."
 
 #: tp/texi2any.pl:837
 msgid ""
@@ -3796,12 +3729,22 @@ msgid ""
 "                                put the output file there.\n"
 "                                Otherwise, DEST names the output file."
 msgstr ""
+"  -o, --output=CÍL            zapisuje do CÍLE.\n"
+"                              Při děleném výstupu vytvoří CÍL jako adresář\n"
+"                              a výstupní soubory umístí do něj.\n"
+"                              Při neděleném výstupu, je-li CÍL již adresář\n"
+"                              nebo končí-li na /, umístí výstupní soubor "
+"tam.\n"
+"                              Jinak CÍL určuje název výstupního souboru."
 
 #: tp/texi2any.pl:845
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info output based on document encoding."
 msgstr ""
+"      --disable-encoding      nevypisuje znaky s diakritikou a zvláštní "
+"znaky\n"
+"                              do Info výstupu na základě kódování dokumentu."
 
 #: tp/texi2any.pl:848
 msgid ""
@@ -3810,16 +3753,22 @@ msgid ""
 "                                special characters in HTML instead of\n"
 "                                entities."
 msgstr ""
+"      --enable-encoding       podle kódování dokumentu vypisuje do XML "
+"znaky\n"
+"                              s diakritikou a rovněž do HTML zvláštní znaky\n"
+"                              namísto entit."
 
 #: tp/texi2any.pl:853
 msgid "Options for Info and plain text:"
-msgstr ""
+msgstr "Přepínače pro Info a prostý text:"
 
 #: tp/texi2any.pl:855
 #, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)."
 msgstr ""
+"      --fill-column=ČÍSLO     zalomí řádky Infa na sloupci ČÍSLO (výchozí "
+"%d)."
 
 #: tp/texi2any.pl:857
 msgid ""
@@ -3829,6 +3778,12 @@ msgid ""
 "in\n"
 "                                which they are defined (this is the default)."
 msgstr ""
+"      --footnote-style=STYL   do Infa vypisuje poznámky pod čarou podle "
+"STYLU:\n"
+"                              „separate“ je umístí do jejich vlastního "
+"uzlu,\n"
+"                              „end“ je umístí na konec uzlu, v kterém jsou\n"
+"                              definovány (výchozí chování)."
 
 #: tp/texi2any.pl:862
 #, perl-format
@@ -3838,12 +3793,18 @@ msgid ""
 "                                If VAL is `none', do not indent; if VAL is\n"
 "                                `asis', preserve existing indentation."
 msgstr ""
+"      --paragraph-indent=HODNOTA\n"
+"                              odsadí Info odstavce o HODNOTU mezer (výchozí\n"
+"                              %d). Je-li HODNOTA „none“, neodsazuje. Je-li\n"
+"                              HODNOTA „asis“, zachová existující zarovnání."
 
 #: tp/texi2any.pl:866
 #, perl-format
 msgid ""
 "      --split-size=NUM        split Info files at size NUM (default %d)."
 msgstr ""
+"      --split-size=ČÍSLO      rozdělí Info soubory na velikosti ČÍSLO\n"
+"                              (výchozí %d)."
 
 #: tp/texi2any.pl:874
 msgid ""
@@ -3884,108 +3845,108 @@ msgstr ""
 
 #: tp/texi2any.pl:891
 msgid "Input file options:"
-msgstr ""
+msgstr "Přepínače pro vstupní soubor:"
 
 #: tp/texi2any.pl:892
 msgid " -D VAR                       define the variable VAR, as with @set."
 msgstr ""
+" -D PROMĚNNÁ                  definuje proměnnou PROMĚNNÁ jako příkaz @set."
 
 #: tp/texi2any.pl:893
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgstr ""
+" -D 'PROMĚNNÁ HODNOTA'        definuje PROMĚNNOU na HODNOTU (jeden shellový\n"
+"                              argument)."
 
 #: tp/texi2any.pl:894
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid " -I DIR                       append DIR to the @include search path."
-msgstr "    --top                   vrcholový uzel hlavního manuálu"
+msgstr ""
+" -I ADRESÁŘ                   připojí ADRESÁŘ do vyhledávací cesty @include."
 
 #: tp/texi2any.pl:895
 msgid " -P DIR                       prepend DIR to the @include search path."
 msgstr ""
+" -P ADRESÁŘ                   předřadí ADRESÁŘ do vyhledávací cesty @include."
 
 #: tp/texi2any.pl:896
 msgid ""
 " -U VAR                       undefine the variable VAR, as with @clear."
 msgstr ""
+" -U PROMĚNNÁ                  zruší proměnnou PROMĚNNÁ jako příkaz @clear."
 
 #: tp/texi2any.pl:898
 msgid "Conditional processing in input:"
-msgstr ""
+msgstr "Podmíněné zpracování ve vstupu:"
 
 #: tp/texi2any.pl:899
 msgid ""
 "  --ifdocbook       process @ifdocbook and @docbook even if\n"
 "                      not generating Docbook."
 msgstr ""
+"  --ifdocbook       zpracuje @ifdocbook a @docbook, i když se nevytváří\n"
+"                    DocBook."
 
 #: tp/texi2any.pl:901
 msgid ""
 "  --ifhtml          process @ifhtml and @html even if not generating HTML."
 msgstr ""
+"  --ifhtml          zpracuje @ifhtml a @html, i když se nevytváří HTML."
 
 #: tp/texi2any.pl:902
 msgid "  --ifinfo          process @ifinfo even if not generating Info."
-msgstr ""
+msgstr "  --ifinfo          zpracuje @ifinfo, i když se nevytváří Info."
 
 #: tp/texi2any.pl:903
 msgid "  --iflatex         process @iflatex and @latex."
-msgstr ""
+msgstr "  --iflatex         zpracuje @iflatex a @latex."
 
 #: tp/texi2any.pl:904
 msgid ""
 "  --ifplaintext     process @ifplaintext even if not generating plain text."
 msgstr ""
+"  --ifplaintext     zpracuje @ifplaintext, i když se nevytváří prostý text."
 
 #: tp/texi2any.pl:905
 msgid "  --iftex           process @iftex and @tex."
-msgstr ""
+msgstr "  --iftex           zpracuje @iftex a @tex."
 
 #: tp/texi2any.pl:906
 msgid "  --ifxml           process @ifxml and @xml."
-msgstr ""
+msgstr "  --ifxml           zpracuje @ifxml a @xml."
 
 #: tp/texi2any.pl:907
 msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
-msgstr ""
+msgstr "  --no-ifdocbook    nezpracuje text mezi @ifdocbook a @docbook."
 
 #: tp/texi2any.pl:908
 msgid "  --no-ifhtml       do not process @ifhtml and @html text."
-msgstr ""
+msgstr "  --no-ifhtml       nezpracuje text mezi @ifhtml a @html."
 
 #: tp/texi2any.pl:909
 msgid "  --no-ifinfo       do not process @ifinfo text."
-msgstr ""
+msgstr "  --no-ifinfo       nezpracuje text podmíněný @ifinfo."
 
 #: tp/texi2any.pl:910
 msgid "  --no-iflatex      do not process @iflatex and @latex text."
-msgstr ""
+msgstr "  --no-iflatex      nezpracuje text mezi @iflatex a @latex."
 
 #: tp/texi2any.pl:911
 msgid "  --no-ifplaintext  do not process @ifplaintext text."
-msgstr ""
+msgstr "  --no-ifplaintext  nezpracuje text podmíněný @ifplaintext."
 
 #: tp/texi2any.pl:912
 msgid "  --no-iftex        do not process @iftex and @tex text."
-msgstr ""
+msgstr "  --no-iftex        nezpracuje text mezi @iftex a @tex."
 
 #: tp/texi2any.pl:913
 msgid "  --no-ifxml        do not process @ifxml and @xml text."
-msgstr ""
+msgstr "  --no-ifxml        nezpracuje text mezi @ifxml a @xml."
 
 #: tp/texi2any.pl:915
 msgid "  Also, for the --no-ifFORMAT options, do process @ifnotFORMAT text."
-msgstr ""
+msgstr "  Rovněž přepínače --no-ifFORMÁT zpracují text podmíněný @ifnotFORMÁT."
 
 #: tp/texi2any.pl:919
-#, fuzzy
-#| msgid ""
-#| "  The defaults for the @if... conditionals depend on the output format:\n"
-#| "  if generating Docbook, --ifdocbook is on and the others are off;\n"
-#| "  if generating HTML, --ifhtml is on and the others are off;\n"
-#| "  if generating Info, --ifinfo is on and the others are off;\n"
-#| "  if generating plain text, --ifplaintext is on and the others are off;\n"
-#| "  if generating XML, --ifxml is on and the others are off.\n"
 msgid ""
 "  The defaults for the @if... conditionals depend on the output format:\n"
 "  if generating Docbook, --ifdocbook is on and the others are off;\n"
@@ -4000,7 +3961,8 @@ msgstr ""
 "  vytváří-li se HTML, --ifhtml se zapne a ostatní se vypnou;\n"
 "  vytváří-li se Info, --ifinfo se zapne a ostatní se vypnou;\n"
 "  vytváří-li se prostý text, --ifplaintext se zapne a ostatní se vypnou;\n"
-"  vytváří-li se XML, --ifxml se zapne a ostatní se vypnou.\n"
+"  vytváří-li se LaTeX, --iflatex se zapne a ostatní se vypnou;\n"
+"  vytváří-li se XML, --ifxml se zapne a ostatní se vypnou."
 
 #: tp/texi2any.pl:929
 msgid ""
@@ -4279,16 +4241,14 @@ msgid "@dotless expects `i' or `j' as argument, not `%c'"
 msgstr "@dotless vyžaduje „i“ nebo „j“ jako argument, ne „%c“"
 
 #: tp/Texinfo/XS/parsetexi/parser.c:1740
-#, fuzzy, c-format
-#| msgid "bad name for @%s"
+#, c-format
 msgid "bad syntax for @%s"
-msgstr "chybný název pro @%s"
+msgstr "chybná skladba pro @%s"
 
 #: tp/Texinfo/XS/parsetexi/parser.c:1757
-#, fuzzy, c-format
-#| msgid "@%s is obsolete."
+#, c-format
 msgid "@%s is obsolete"
-msgstr "@%s je zastaralý."
+msgstr "@%s je zastaralý"
 
 #: tp/Texinfo/XS/parsetexi/parser.c:1759
 #, c-format
@@ -4343,27 +4303,21 @@ msgstr "špatně umístěný znak }"
 #~ "  info -f ./foo.info           zobrazí soubor ./foo.info, adresář se\n"
 #~ "                               neprohledává"
 
-#, perl-format
 #~ msgid "@%s node name should not contain `:'"
 #~ msgstr "název uzlu @%s by neměl obsahovat „:“"
 
-#, c-format, perl-format
 #~ msgid "accent command `@%s' must not be followed by whitespace"
 #~ msgstr "zdůrazňovací příkaz „@%s“ nesmí být následován bílým místem"
 
-#, c-format, perl-format
 #~ msgid "use braces to give a command as an argument to @%s"
 #~ msgstr "použijte závorky k zadání příkazu jako argumentu @%s"
 
-#, perl-format
 #~ msgid "%c%s is obsolete; %s"
 #~ msgstr "%c%s je zastaralé; %s"
 
-#, perl-format
 #~ msgid "l2h: could not determine the fragment %d for @%s"
 #~ msgstr "l2h: nebylo možné určit fragment %d pro @%s"
 
-#, perl-format
 #~ msgid "highlight_syntax.pm: command failed: %s"
 #~ msgstr "highlight_syntax.pm: příkaz selhal: %s"
 
@@ -4440,7 +4394,6 @@ msgstr "špatně umístěný znak }"
 #~ "tam.\n"
 #~ "                              Jinak CÍL určuje název výstupního souboru.\n"
 
-#, perl-format
 #~ msgid ""
 #~ "Options for Info and plain text:\n"
 #~ "      --disable-encoding      do not output accented and special "
@@ -4561,7 +4514,6 @@ msgstr "špatně umístěný znak }"
 #~ "\n"
 #~ "  Rovněž přepínače --no-ifFORMÁT zpracují text podmíněný @ifnotFORMÁT.\n"
 
-#, c-format
 #~ msgid "@%s not meaningful inside @%s block"
 #~ msgstr "@%s nemá smysl uvnitř bloku @%s"
 

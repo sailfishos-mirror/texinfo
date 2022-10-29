@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo 6.8.90\n"
+"Project-Id-Version: GNU texinfo 6.8.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-28 18:07+0100\n"
+"POT-Creation-Date: 2022-10-29 13:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -290,13 +290,13 @@ msgid "@center --- @emph{{author}}"
 msgstr ""
 
 #: tp/Texinfo/Convert/Plaintext.pm:1186 tp/Texinfo/Convert/HTML.pm:1072
-#: tp/Texinfo/Convert/Utils.pm:305
+#: tp/Texinfo/Convert/Utils.pm:306
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr ""
 
 #: tp/Texinfo/Convert/Plaintext.pm:1191 tp/Texinfo/Convert/HTML.pm:1078
-#: tp/Texinfo/Convert/Utils.pm:309
+#: tp/Texinfo/Convert/Utils.pm:310
 #, perl-brace-format
 msgid "{number} {section_title}"
 msgstr ""
@@ -891,17 +891,17 @@ msgstr ""
 msgid "Untitled Document"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:83
+#: tp/Texinfo/Convert/Utils.pm:84
 #, perl-brace-format
 msgid "{month} {day}, {year}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:139
+#: tp/Texinfo/Convert/Utils.pm:140
 #, perl-brace-format
 msgid "{category} on @code{{class}}"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:149
+#: tp/Texinfo/Convert/Utils.pm:150
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr ""

@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-28 18:07+0100\n"
-"PO-Revision-Date: 2022-10-28 16:27+0200\n"
+"POT-Creation-Date: 2022-10-29 13:22+0100\n"
+"PO-Revision-Date: 2022-10-29 14:00+0200\n"
 "Last-Translator: Jean-Charles Malahieude <lilyfan@orange.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -2176,7 +2176,7 @@ msgstr "%s : erreur de fermeture de stdout : %s\n"
 #: tp/Texinfo/Convert/HTML.pm:9372 tp/Texinfo/Convert/HTML.pm:9438
 #: tp/Texinfo/Convert/HTML.pm:9475 tp/Texinfo/Convert/HTML.pm:10056
 #: tp/Texinfo/Convert/HTML.pm:10157 tp/Texinfo/Convert/HTML.pm:10271
-#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:321
+#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:320
 #: tp/Texinfo/Convert/LaTeX.pm:1047 tp/Texinfo/Convert/Text.pm:834
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:310
 #, perl-format
@@ -2187,8 +2187,8 @@ msgstr "impossible d'ouvrir %s en écriture : %s"
 #: tp/Texinfo/Convert/Converter.pm:464 tp/Texinfo/Convert/DocBook.pm:515
 #: tp/Texinfo/Convert/HTML.pm:9367 tp/Texinfo/Convert/HTML.pm:10095
 #: tp/Texinfo/Convert/HTML.pm:10176 tp/Texinfo/Convert/IXIN.pm:988
-#: tp/Texinfo/Convert/Info.pm:175 tp/Texinfo/Convert/Info.pm:202
-#: tp/Texinfo/Convert/Info.pm:231 tp/Texinfo/Convert/Info.pm:295
+#: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
+#: tp/Texinfo/Convert/Info.pm:230 tp/Texinfo/Convert/Info.pm:294
 #: tp/Texinfo/Convert/LaTeX.pm:1115 tp/Texinfo/Convert/TexinfoMarkup.pm:338
 #: tp/Texinfo/ParserNonXS.pm:2113
 #, perl-format
@@ -2415,35 +2415,35 @@ msgstr "erreur lors de la copie de %s en %s"
 msgid "error on closing redirection node file %s: %s"
 msgstr "erreur de fermeture du fichier de redirection des nœuds %s : %s"
 
-#: tp/Texinfo/Convert/Info.pm:117
+#: tp/Texinfo/Convert/Info.pm:116
 msgid "document without nodes"
 msgstr "document sans nœud."
 
-#: tp/Texinfo/Convert/Info.pm:134
+#: tp/Texinfo/Convert/Info.pm:133
 msgid "document without Top node"
 msgstr "document sans nœud Top."
 
-#: tp/Texinfo/Convert/Info.pm:185
+#: tp/Texinfo/Convert/Info.pm:184
 #, perl-format
 msgid "rename %s failed: %s"
 msgstr "échec du renommage de %s : %s"
 
-#: tp/Texinfo/Convert/Info.pm:268
+#: tp/Texinfo/Convert/Info.pm:267
 #, perl-format
 msgid "@%s output more than once: %s"
 msgstr "@%s affiché plus d'une fois : %s"
 
-#: tp/Texinfo/Convert/Info.pm:424
+#: tp/Texinfo/Convert/Info.pm:423
 #, perl-format
 msgid "@%s outside of any node"
 msgstr "@%s hors de tout nœud"
 
-#: tp/Texinfo/Convert/Info.pm:467
+#: tp/Texinfo/Convert/Info.pm:466
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr "nom de @node ne doit pas contenir de « , » : %s"
 
-#: tp/Texinfo/Convert/Info.pm:503
+#: tp/Texinfo/Convert/Info.pm:502
 #, perl-format
 msgid "@node %s name should not contain `,': %s"
 msgstr "nom du @node %s ne doit pas contenir de « , » : %s"
@@ -2536,17 +2536,17 @@ msgstr "un nom de nœud en entrée de menu ne devrait contenir de « : »"
 msgid "menu entry name should not contain `:'"
 msgstr "une entrée de menu ne devrait pas contenir de « : »"
 
-#: tp/Texinfo/Convert/Utils.pm:249
+#: tp/Texinfo/Convert/Utils.pm:250
 #, perl-format
 msgid "could not read %s: %s"
 msgstr "impossible de lire %s : %s"
 
-#: tp/Texinfo/Convert/Utils.pm:272
+#: tp/Texinfo/Convert/Utils.pm:273
 #, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "erreur de fermeture du fichier @verbatiminclude %s : %s"
 
-#: tp/Texinfo/Convert/Utils.pm:279 tp/Texinfo/ParserNonXS.pm:3354
+#: tp/Texinfo/Convert/Utils.pm:280 tp/Texinfo/ParserNonXS.pm:3354
 #, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s : impossible de trouver %s"
@@ -3459,7 +3459,7 @@ msgstr "l2h : impossible d'ouvrir %s en écriture : %s"
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unknown converstion type for math: %s"
 msgid "tex4ht.pm: unknown conversion type for math: %s"
-msgstr "tex4ht.pm : type de conversion inconnu pour @math : %s"
+msgstr "tex4ht.pm : type de conversion inconnu pour math : %s"
 
 #: tp/ext/tex4ht.pm:131
 #, fuzzy, perl-format

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-28 18:07+0100\n"
+"POT-Creation-Date: 2022-10-29 13:22+0100\n"
 "PO-Revision-Date: 2018-01-23 10:13+0800\n"
 "Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -2372,7 +2372,7 @@ msgstr "关闭输出文件“%s”时出错"
 #: tp/Texinfo/Convert/HTML.pm:9372 tp/Texinfo/Convert/HTML.pm:9438
 #: tp/Texinfo/Convert/HTML.pm:9475 tp/Texinfo/Convert/HTML.pm:10056
 #: tp/Texinfo/Convert/HTML.pm:10157 tp/Texinfo/Convert/HTML.pm:10271
-#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:321
+#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:320
 #: tp/Texinfo/Convert/LaTeX.pm:1047 tp/Texinfo/Convert/Text.pm:834
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:310
 #, fuzzy, perl-format
@@ -2384,8 +2384,8 @@ msgstr "%s: 无法打开 --css-file: %s"
 #: tp/Texinfo/Convert/Converter.pm:464 tp/Texinfo/Convert/DocBook.pm:515
 #: tp/Texinfo/Convert/HTML.pm:9367 tp/Texinfo/Convert/HTML.pm:10095
 #: tp/Texinfo/Convert/HTML.pm:10176 tp/Texinfo/Convert/IXIN.pm:988
-#: tp/Texinfo/Convert/Info.pm:175 tp/Texinfo/Convert/Info.pm:202
-#: tp/Texinfo/Convert/Info.pm:231 tp/Texinfo/Convert/Info.pm:295
+#: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
+#: tp/Texinfo/Convert/Info.pm:230 tp/Texinfo/Convert/Info.pm:294
 #: tp/Texinfo/Convert/LaTeX.pm:1115 tp/Texinfo/Convert/TexinfoMarkup.pm:338
 #: tp/Texinfo/ParserNonXS.pm:2113
 #, fuzzy, perl-format
@@ -2639,38 +2639,38 @@ msgstr "关闭输出文件“%s”时出错"
 msgid "error on closing redirection node file %s: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/Texinfo/Convert/Info.pm:117
+#: tp/Texinfo/Convert/Info.pm:116
 #, fuzzy
 #| msgid "No menu in this node."
 msgid "document without nodes"
 msgstr "该节点中没有菜单。"
 
-#: tp/Texinfo/Convert/Info.pm:134
+#: tp/Texinfo/Convert/Info.pm:133
 msgid "document without Top node"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:185
+#: tp/Texinfo/Convert/Info.pm:184
 #, perl-format
 msgid "rename %s failed: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:268
+#: tp/Texinfo/Convert/Info.pm:267
 #, perl-format
 msgid "@%s output more than once: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:424
+#: tp/Texinfo/Convert/Info.pm:423
 #, fuzzy, perl-format
 #| msgid "(outside of any node)"
 msgid "@%s outside of any node"
 msgstr "(超出任何节点)"
 
-#: tp/Texinfo/Convert/Info.pm:467
+#: tp/Texinfo/Convert/Info.pm:466
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/Info.pm:503
+#: tp/Texinfo/Convert/Info.pm:502
 #, fuzzy, perl-format
 #| msgid "No %sindex entries containing `%s'."
 msgid "@node %s name should not contain `,': %s"
@@ -2771,19 +2771,19 @@ msgstr ""
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
-#: tp/Texinfo/Convert/Utils.pm:249
+#: tp/Texinfo/Convert/Utils.pm:250
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not read %s: %s"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:272
+#: tp/Texinfo/Convert/Utils.pm:273
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/Texinfo/Convert/Utils.pm:279 tp/Texinfo/ParserNonXS.pm:3354
+#: tp/Texinfo/Convert/Utils.pm:280 tp/Texinfo/ParserNonXS.pm:3354
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "@%s: could not find %s"

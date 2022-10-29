@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-28 18:07+0100\n"
+"POT-Creation-Date: 2022-10-29 13:22+0100\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -2147,7 +2147,7 @@ msgstr "%s: lỗi đóng tập tin %s: %s\n"
 #: tp/Texinfo/Convert/HTML.pm:9372 tp/Texinfo/Convert/HTML.pm:9438
 #: tp/Texinfo/Convert/HTML.pm:9475 tp/Texinfo/Convert/HTML.pm:10056
 #: tp/Texinfo/Convert/HTML.pm:10157 tp/Texinfo/Convert/HTML.pm:10271
-#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:321
+#: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:320
 #: tp/Texinfo/Convert/LaTeX.pm:1047 tp/Texinfo/Convert/Text.pm:834
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:310
 #, perl-format
@@ -2158,8 +2158,8 @@ msgstr "không thể mở “%s” để ghi: %s"
 #: tp/Texinfo/Convert/Converter.pm:464 tp/Texinfo/Convert/DocBook.pm:515
 #: tp/Texinfo/Convert/HTML.pm:9367 tp/Texinfo/Convert/HTML.pm:10095
 #: tp/Texinfo/Convert/HTML.pm:10176 tp/Texinfo/Convert/IXIN.pm:988
-#: tp/Texinfo/Convert/Info.pm:175 tp/Texinfo/Convert/Info.pm:202
-#: tp/Texinfo/Convert/Info.pm:231 tp/Texinfo/Convert/Info.pm:295
+#: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
+#: tp/Texinfo/Convert/Info.pm:230 tp/Texinfo/Convert/Info.pm:294
 #: tp/Texinfo/Convert/LaTeX.pm:1115 tp/Texinfo/Convert/TexinfoMarkup.pm:338
 #: tp/Texinfo/ParserNonXS.pm:2113
 #, perl-format
@@ -2389,35 +2389,35 @@ msgstr "gặp lỗi khi đóng %s: %s"
 msgid "error on closing redirection node file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin nút chuyển hướng %s: %s"
 
-#: tp/Texinfo/Convert/Info.pm:117
+#: tp/Texinfo/Convert/Info.pm:116
 msgid "document without nodes"
 msgstr "tài liệu chẳng có nút nào cả"
 
-#: tp/Texinfo/Convert/Info.pm:134
+#: tp/Texinfo/Convert/Info.pm:133
 msgid "document without Top node"
 msgstr "tài liệu không có nút “Đỉnh”"
 
-#: tp/Texinfo/Convert/Info.pm:185
+#: tp/Texinfo/Convert/Info.pm:184
 #, perl-format
 msgid "rename %s failed: %s"
 msgstr "đổi tên %s gặp lỗi: %s"
 
-#: tp/Texinfo/Convert/Info.pm:268
+#: tp/Texinfo/Convert/Info.pm:267
 #, perl-format
 msgid "@%s output more than once: %s"
 msgstr "@%s kết xuất nhiều hơn một: %s"
 
-#: tp/Texinfo/Convert/Info.pm:424
+#: tp/Texinfo/Convert/Info.pm:423
 #, perl-format
 msgid "@%s outside of any node"
 msgstr "@%s nằm ngoài mọi nút"
 
-#: tp/Texinfo/Convert/Info.pm:467
+#: tp/Texinfo/Convert/Info.pm:466
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr "tên @node không được chứa “,”: %s"
 
-#: tp/Texinfo/Convert/Info.pm:503
+#: tp/Texinfo/Convert/Info.pm:502
 #, fuzzy, perl-format
 #| msgid "@node name should not contain `,': %s"
 msgid "@node %s name should not contain `,': %s"
@@ -2513,17 +2513,17 @@ msgstr "tên nút mục trình đơn không được chứa dấu hai chấm “
 msgid "menu entry name should not contain `:'"
 msgstr "tên mục trình đơn không được chứa dấu hai chấm “:”"
 
-#: tp/Texinfo/Convert/Utils.pm:249
+#: tp/Texinfo/Convert/Utils.pm:250
 #, perl-format
 msgid "could not read %s: %s"
 msgstr "không thể đọc %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:272
+#: tp/Texinfo/Convert/Utils.pm:273
 #, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin @verbatiminclude %s: %s"
 
-#: tp/Texinfo/Convert/Utils.pm:279 tp/Texinfo/ParserNonXS.pm:3354
+#: tp/Texinfo/Convert/Utils.pm:280 tp/Texinfo/ParserNonXS.pm:3354
 #, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: không tìm thấy %s"

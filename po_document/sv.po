@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-28 18:07+0100\n"
+"POT-Creation-Date: 2022-10-29 13:22+0100\n"
 "PO-Revision-Date: 2022-10-20 15:17+0200\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -293,13 +293,13 @@ msgid "@center --- @emph{{author}}"
 msgstr "@center --- @emph{{author}}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1186 tp/Texinfo/Convert/HTML.pm:1072
-#: tp/Texinfo/Convert/Utils.pm:305
+#: tp/Texinfo/Convert/Utils.pm:306
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr "Appendix {number} {section_title}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1191 tp/Texinfo/Convert/HTML.pm:1078
-#: tp/Texinfo/Convert/Utils.pm:309
+#: tp/Texinfo/Convert/Utils.pm:310
 #, perl-brace-format
 msgid "{number} {section_title}"
 msgstr "{number} {section_title}"
@@ -899,17 +899,17 @@ msgstr "Underavsnitt Ett-Fyra"
 msgid "Untitled Document"
 msgstr "Namnlöst dokument"
 
-#: tp/Texinfo/Convert/Utils.pm:83
+#: tp/Texinfo/Convert/Utils.pm:84
 #, perl-brace-format
 msgid "{month} {day}, {year}"
 msgstr "{month} {day}, {year}"
 
-#: tp/Texinfo/Convert/Utils.pm:139
+#: tp/Texinfo/Convert/Utils.pm:140
 #, perl-brace-format
 msgid "{category} on @code{{class}}"
 msgstr "{category} på @code{{class}}"
 
-#: tp/Texinfo/Convert/Utils.pm:149
+#: tp/Texinfo/Convert/Utils.pm:150
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{category} av @code{{class}}"

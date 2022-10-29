@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-10-28 18:07+0100\n"
+"POT-Creation-Date: 2022-10-29 13:22+0100\n"
 "PO-Revision-Date: 2021-12-17 11:12+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -302,13 +302,13 @@ msgid "@center --- @emph{{author}}"
 msgstr "@center --- @emph{{author}}\n"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1186 tp/Texinfo/Convert/HTML.pm:1072
-#: tp/Texinfo/Convert/Utils.pm:305
+#: tp/Texinfo/Convert/Utils.pm:306
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr "Додатак {number} {section_title}"
 
 #: tp/Texinfo/Convert/Plaintext.pm:1191 tp/Texinfo/Convert/HTML.pm:1078
-#: tp/Texinfo/Convert/Utils.pm:309
+#: tp/Texinfo/Convert/Utils.pm:310
 #, perl-brace-format
 msgid "{number} {section_title}"
 msgstr "{number} {section_title}"
@@ -918,18 +918,18 @@ msgstr "Садржани одељак један-четири"
 msgid "Untitled Document"
 msgstr "Неименовани документ"
 
-#: tp/Texinfo/Convert/Utils.pm:83
+#: tp/Texinfo/Convert/Utils.pm:84
 #, perl-brace-format
 msgid "{month} {day}, {year}"
 msgstr "{day}. {month}. {year}."
 
-#: tp/Texinfo/Convert/Utils.pm:139
+#: tp/Texinfo/Convert/Utils.pm:140
 #, fuzzy, perl-brace-format
 #| msgid "{category} on {class}"
 msgid "{category} on @code{{class}}"
 msgstr "{category} на {class}"
 
-#: tp/Texinfo/Convert/Utils.pm:149
+#: tp/Texinfo/Convert/Utils.pm:150
 #, fuzzy, perl-brace-format
 #| msgid "{category} of {class}"
 msgid "{category} of @code{{class}}"
