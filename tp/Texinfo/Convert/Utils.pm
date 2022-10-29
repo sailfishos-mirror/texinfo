@@ -305,11 +305,11 @@ sub add_heading_number($$$;$)
           and $current->{'structure'}->{'section_level'} == 1) {
         $result = $self->gdt('Appendix {number} {section_title}',
                    {'number' => $number, 'section_title' => $text},
-                   'translated_text');
+                   undef, 'translated_text');
       } else {
         $result = $self->gdt('{number} {section_title}',
                    {'number' => $number, 'section_title' => $text},
-                   'translated_text');
+                   undef, 'translated_text');
       }
     } else {
       $result = $text;

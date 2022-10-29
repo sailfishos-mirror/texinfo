@@ -97,9 +97,9 @@ sub _switch_messages_locale
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree
-sub gdt($$;$$$)
+sub gdt($$;$$$$)
 {
-  my ($self, $message, $replaced_substrings, $type, $lang) = @_;
+  my ($self, $message, $replaced_substrings, $message_context, $type, $lang) = @_;
 
   # In addition to being settable from the command line,
   # the language needs to be dynamic in case there is an untranslated string
@@ -183,7 +183,14 @@ sub gdt($$;$$$)
 
   Locale::Messages::nl_putenv("LANGUAGE=$locales");
 
-  my $translated_message = Locale::Messages::gettext($message);
+  my $translated_message;
+
+  if (defined($message_context)) {
+    $translated_message = Locale::Messages::pgettext($message_context,
+                                                     $message);
+  } else {
+    $translated_message = Locale::Messages::gettext($message);
+  }
 
   Locale::Messages::textdomain($messages_textdomain);
 
@@ -328,6 +335,13 @@ sub _substitute ($$) {
   return $tree;
 }
 
+sub pgdt($$$;$$$)
+{
+  my ($self, $message_context, $message, $replaced_substrings, $type, $lang) = @_;
+  # FIXME would it be better to call $self->gdt?
+  return gdt($self, $message, $replaced_substrings, $message_context, $type, $lang);
+}
+
 
 sub _non_bracketed_contents($) {
   my $current = shift;
@@ -380,7 +394,7 @@ sub complete_indices($)
             $index_entry = gdt($self, '{name} on {class}',
                                       {'name' => $def_parsed_hash->{'name'},
                                        'class' => $def_parsed_hash->{'class'}},
-                                      undef, $entry_language);
+                                      undef, undef, $entry_language);
             $index_contents_normalized
               = [_non_bracketed_contents($def_parsed_hash->{'name'}),
                 { 'text' => ' on '},
@@ -391,7 +405,7 @@ sub complete_indices($)
             $index_entry = gdt($self, '{name} of {class}',
                                       {'name' => $def_parsed_hash->{'name'},
                                        'class' => $def_parsed_hash->{'class'}},
-                                      undef, $entry_language);
+                                      undef, undef, $entry_language);
             $index_contents_normalized
               = [_non_bracketed_contents($def_parsed_hash->{'name'}),
                  { 'text' => ' of '},
@@ -456,7 +470,7 @@ converted documents, and returns, in general, a texinfo tree.
 
 =over
 
-=item $tree = $object->gdt($string, $replaced_substrings, $mode, $lang)
+=item $tree = $object->gdt($string, $replaced_substrings, $message_context, $mode, $lang)
 X<C<gdt>>
 
 The I<$string> is a string to be translated.  In the default case,
@@ -468,10 +482,15 @@ reference identifies what is to be substituted, and the value is
 some string, texinfo tree or array content that is substituted in
 the resulting texinfo tree.  In the string to be translated word
 in brace matching keys of I<$replaced_substrings> are replaced.
+
 The I<$object> is typically a converter, but can be any object that implements
 C<get_conf>, or undefined (C<undef>).  If not undefined, the information in the
 I<$object> is used to determine the encoding, the documentlanguage and get some
-customization information. I<$lang> is optional. If set, it overrides the
+customization information.
+
+The I<$message_context> is optional.  If not C<undef> this is a translation
+context string for I<$string>.  It is the first argument of C<pgettext>
+in the C API of Gettext.  I<$lang> is optional. If set, it overrides the
 documentlanguage.
 
 =begin comment
@@ -508,6 +527,14 @@ that is returned after translation and substitution.  The substitutions
 may only be strings in that case.
 
 =back
+
+=item $tree = $object->pgdt($message_context, $string, $replaced_substrings, $mode, $lang)
+X<C<pgdt>>
+
+Same to C<gdt> except that the I<$message_context> is not optional.
+Calls C<gdt>.  This function is useful to mark strings with a
+translation context for translation.  This function is similar to pgettext
+in the Gettext C API.
 
 =back
 

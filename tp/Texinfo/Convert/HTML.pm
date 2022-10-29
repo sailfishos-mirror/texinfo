@@ -1903,6 +1903,7 @@ my %default_translated_directions_strings = (
      ' ' =>           {'converted' => ' '.$html_default_entity_nbsp.' '},
      'Top' =>         {'to_convert' => Texinfo::Common::gdt('Top')},
      'Contents' =>    {'to_convert' => Texinfo::Common::gdt('Contents')},
+                        # pgdt('Contents direction string text', 'Contents')
      'Overview' =>    {'to_convert' => Texinfo::Common::gdt('Overview')},
      'Index' =>       {'to_convert' => Texinfo::Common::gdt('Index')},
      'This' =>        {'to_convert' => Texinfo::Common::gdt('current')},
@@ -2049,7 +2050,7 @@ sub _translate_names($)
         $translated_commands{$command} = 1;
         $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'}
          = $self->gdt($self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'translated'},
-                      undef, 'translated_text');
+                      undef, undef, 'translated_text');
       } elsif ($context eq 'normal') {
         # default translated commands
         my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,

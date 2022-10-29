@@ -2743,7 +2743,7 @@ sub _convert($$)
                                    $element->{'args'}->[1]->{'contents'}});
             my $text = $self->gdt('{text} ({url})',
                           {'text' => $description, 'url' => "\\nolinkurl{$url_text}"},
-                                       'translated_text');
+                                       undef, 'translated_text');
             $result .= "\\href{$url_text}{$text}";
             return $result;
           } else {

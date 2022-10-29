@@ -19,7 +19,18 @@
 	initialize ACTIVE_ICONS and PASSIVE_ICONS to empty strings, instead
 	set to undef the customization variables as a whole.
 
+2022-10-27  Patrice Dumas  <pertusus@free.fr>
+
+	Add optional translation context for in-document string translations
+
+	* doc/texi2any_api.texi (Internationalization of Strings Function),
+	tp/Texinfo/Translations.pm (gdt, pgdt), po_document/Makevars
+	(XGETTEXT_OPTIONS), tp/Texinfo/Convert/HTML.pm (_translate_names):
+	add a translation context argument to gdt() and add pgdt() which
+	has the translation context as first argument.
+	Update po_document/Makevars to have pgdt arguments in the correct
+	order.
+
 2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* README-hacking: new ChangeLog file done
-

@@ -1317,13 +1317,25 @@ the default code can be used in practice.
 @end quotation
 
 @vindex texinfo_document @r{Gettext domain}
-The subroutine @code{gdt}, from the @code{Texinfo::Translations} module
-is used for translated strings:
+The subroutines @code{gdt} or @code{pgdt}, from the
+@code{Texinfo::Translations} module is used for translated strings:
 
-@deftypefun {@var{$translated_tree} =} @var{$converter}->gdt (@var{$string}, @var{\%variables_hash})
+@deftypefun {@var{$translated_tree} =} @var{$converter}->gdt (@var{$string}, @var{\%variables_hash}, @var{$message_context})
+@deftypefunx {@var{$translated_tree} =} @var{$converter}->pgdt (@var{$message_context}, @var{$string}, @var{\%variables_hash})
 @var{$string} is the string to be translated, @var{\%variables_hash}
 is a hash reference holding the variable parts of the translated
-string.  The result returned is a perl Texinfo tree.
+string.   @var{$message_context} is an optional translation context
+that limits the search of the translated string to that context
+(@pxref{Contexts,,,gettext,GNU gettext tools}).
+The result returned is a perl Texinfo tree.
+
+If called as @code{pgdt}, @var{$message_context} is not optional
+and is the first argument.  @code{pgdt} is used to mark
+that the translated string has a context for tools extracting
+translatable strings to produce template files, which is not the case for
+@code{gdt}.  Since it is unlikely that marking a string for translation
+is of use in a user-defined code, @code{gdt} should be usable in all
+the cases.
 @end deftypefun
 
 When the string is expanded as Texinfo, and converted to a
