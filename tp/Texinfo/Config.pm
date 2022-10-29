@@ -396,6 +396,7 @@ my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
 my $GNUT_accent_command_formatting_info = {};
 my $GNUT_types_formatting_info = {};
+my $GNUT_direction_string_info = {};
 
 # called from init files
 sub texinfo_register_file_id_setting_function($$)
@@ -642,6 +643,26 @@ sub GNUT_get_types_formatting_info()
 {
   # NOTE a deep copy could also be done if needed
   return { %$GNUT_types_formatting_info };
+}
+
+# no check on type and direction, but only the ones known in the HTML
+# converted will be used
+sub texinfo_register_direction_string_info($$;$$)
+{
+  my $direction = shift;
+  my $type = shift;
+  my $converted_string = shift;
+  my $string_to_convert = shift;
+
+  $GNUT_direction_string_info->{$type} = {}
+    if (not exists($GNUT_direction_string_info->{$type}));
+  $GNUT_direction_string_info->{$type}->{$direction}
+     = {'to_convert' => $string_to_convert, 'converted' => $converted_string};
+}
+
+sub GNUT_get_direction_string_info()
+{
+  return { %$GNUT_direction_string_info };
 }
 
 

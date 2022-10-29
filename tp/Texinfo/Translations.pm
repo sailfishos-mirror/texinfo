@@ -27,6 +27,7 @@ use strict;
 
 use Encode;
 use POSIX qw(setlocale LC_ALL LC_MESSAGES);
+#use Carp qw(confess);
 use Locale::Messages;
 
 # note that there is a circular dependency with the parser module, as
@@ -59,6 +60,9 @@ sub _decode_i18n_string($$)
 {
   my $string = shift;
   my $encoding = shift;
+  #if (!defined($encoding)) {
+  #  confess("_decode_i18n_string $string undef encoding\n");
+  #}
   return Encode::decode($encoding, $string);
 }
 

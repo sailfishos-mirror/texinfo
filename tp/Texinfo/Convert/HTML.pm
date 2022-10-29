@@ -1336,6 +1336,36 @@ sub from_element_direction($$$;$$$)
   }
 }
 
+
+my %valid_direction_string_type = (
+  # accesskey associated to the direction
+  'accesskey' => 1,
+  # direction button name
+  'button' => 1,
+  # description of the direction
+  'description' => 1,
+  # section number corresponding to the example in About text
+  'example' => 1,
+  # rel/ref string associated to the direction
+  'rel' => 1,
+  # few words text associated to the direction
+  'text' => 1,
+);
+
+sub direction_string($$$)
+{
+  my $self = shift;
+  my $direction = shift;
+  my $type = shift;
+
+  if (!$valid_direction_string_type{$type}) {
+    print STDERR "Incorrect type $type in direction_string call\n";
+    return undef;
+  }
+
+  return $self->{'directions_strings'}->{$type}->{$direction};
+}
+
 # API for misc conversion and formatting functions
 
 # it is considered 'top' only if element corresponds to @top or
@@ -1646,141 +1676,7 @@ sub convert_tree_new_formatting_context($$;$$$)
   return $result;
 }
 
-# see http://www.w3.org/TR/REC-html40/types.html#type-links
-my %BUTTONS_REL =
-(
- 'Top',         'start',
- 'Contents',    'contents',
- 'Overview',    '',
- 'Index',       'index',
- 'This',        '',
- 'Back',        'prev',
- 'FastBack',    '',
- 'Prev',        'prev',
- 'Up',          'up',
- 'Next',        'next',
- 'NodeUp',      'up',
- 'NodeNext',    'next',
- 'NodePrev',    'prev',
- 'NodeForward', '',
- 'NodeBack',    '',
- 'Forward',     'next',
- 'FastForward', '',
- 'About' ,      'help',
- 'First',       '',
- 'Last',        '',
- 'NextFile',    'next',
- 'PrevFile',    'prev',
-);
-
-my %BUTTONS_ACCESSKEY =
-(
- 'Top',         '',
- 'Contents',    '',
- 'Overview',    '',
- 'Index',       '',
- 'This',        '',
- 'Back',        'p',
- 'FastBack',    '',
- 'Prev',        'p',
- 'Up',          'u',
- 'Next',        'n',
- 'NodeUp',      'u',
- 'NodeNext',    'n',
- 'NodePrev',    'p',
- 'NodeForward', '',
- 'NodeBack',    '',
- 'Forward',     'n',
- 'FastForward', '',
- 'About' ,      '',
- 'First',       '',
- 'Last',        '',
- 'NextFile',    '',
- 'PrevFile',    '',
-);
-
-my %BUTTONS_EXAMPLE =
-    (
-     'Top',         ' '.$html_default_entity_nbsp.' ',
-     'Contents',    ' '.$html_default_entity_nbsp.' ',
-     'Overview',    ' '.$html_default_entity_nbsp.' ',
-     'Index',       ' '.$html_default_entity_nbsp.' ',
-     'This',        '1.2.3',
-     'Back',        '1.2.2',
-     'FastBack',    '1',
-     'Prev',        '1.2.2',
-     'Up',          '1.2',
-     'Next',        '1.2.4',
-     'NodeUp',      '1.2',
-     'NodeNext',    '1.2.4',
-     'NodePrev',    '1.2.2',
-     'NodeForward', '1.2.4',
-     'NodeBack',    '1.2.2',
-     'Forward',     '1.2.4',
-     'FastForward', '2',
-     'About',       ' '.$html_default_entity_nbsp.' ',
-     'First',       '1.',
-     'Last',        '1.2.4',
-     'NextFile',    ' '.$html_default_entity_nbsp.' ',
-     'PrevFile',    ' '.$html_default_entity_nbsp.' ',
-    );
-
-
-# insert here name of icon images for buttons
-# Icons are used, if ICONS and resp. value are set
-my %ACTIVE_ICONS = (
-     'Top',         '',
-     'Contents',    '',
-     'Overview',    '',
-     'Index',       '',
-     'This',        '',
-     'Back',        '',
-     'FastBack',    '',
-     'Prev',        '',
-     'Up',          '',
-     'Next',        '',
-     'NodeUp',      '',
-     'NodeNext',    '',
-     'NodePrev',    '',
-     'NodeForward', '',
-     'NodeBack',    '',
-     'Forward',     '',
-     'FastForward', '',
-     'About' ,      '',
-     'First',       '',
-     'Last',        '',
-     'NextFile',    '',
-     'PrevFile',    '',
-     ' ',           '',
-);
-
-# insert here name of icon images for these, if button is inactive
-my %PASSIVE_ICONS = (
-     'Top',         '',
-     'Contents',    '',
-     'Overview',    '',
-     'Index',       '',
-     'This',        '',
-     'Back',        '',
-     'FastBack',    '',
-     'Prev',        '',
-     'Up',          '',
-     'Next',        '',
-     'NodeUp',      '',
-     'NodeNext',    '',
-     'NodePrev',    '',
-     'NodeForward', '',
-     'NodeBack',    '',
-     'Forward',     '',
-     'FastForward', '',
-     'About',       '',
-     'First',       '',
-     'Last',        '',
-     'NextFile',    '',
-     'PrevFile',    '',
-);
-
-my (%BUTTONS_TEXT, %BUTTONS_GOTO, %BUTTONS_NAME, %SPECIAL_ELEMENTS_HEADING);
+my %SPECIAL_ELEMENTS_HEADING;
 
 my %defaults = (
   'AVOID_MENU_REDUNDANCY' => 0,
@@ -1873,14 +1769,8 @@ my %defaults = (
   'FOOTNOTE_END_HEADER_LEVEL' => 4,
   'FOOTNOTE_SEPARATE_HEADER_LEVEL' => 4,
   
-  'BUTTONS_REL'          => \%BUTTONS_REL,
-  'BUTTONS_ACCESSKEY'    => \%BUTTONS_ACCESSKEY,
-  'BUTTONS_EXAMPLE'      => \%BUTTONS_EXAMPLE,
-  'BUTTONS_GOTO'         => \%BUTTONS_GOTO,
-  'BUTTONS_NAME'         => \%BUTTONS_NAME,
-  'BUTTONS_TEXT'         => \%BUTTONS_TEXT,
-  'ACTIVE_ICONS'         => \%ACTIVE_ICONS,
-  'PASSIVE_ICONS'        => \%PASSIVE_ICONS,
+  'ACTIVE_ICONS'         => undef,
+  'PASSIVE_ICONS'        => undef,
   'SPECIAL_ELEMENTS_HEADING' => \%SPECIAL_ELEMENTS_HEADING,
   'SPECIAL_ELEMENTS_CLASS' => {
     'about'       => 'about',
@@ -1917,10 +1807,185 @@ foreach my $special_element_variety (keys %{$defaults{'SPECIAL_ELEMENTS_DIRECTIO
   $global_and_special_directions{$defaults{'SPECIAL_ELEMENTS_DIRECTIONS'}->{$special_element_variety}} = 1;
 }
 
-foreach my $hash (\%BUTTONS_REL, \%BUTTONS_ACCESSKEY,
-                  \%ACTIVE_ICONS, \%PASSIVE_ICONS) {
-  foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %$hash) {
-    $hash->{'FirstInFile'.$button} = $hash->{$button};
+my %default_converted_directions_strings = (
+
+  # see http://www.w3.org/TR/REC-html40/types.html#type-links
+  'rel' =>
+   {
+     'Top',         'start',
+     'Contents',    'contents',
+     'Overview',    '',
+     'Index',       'index',
+     'This',        '',
+     'Back',        'prev',
+     'FastBack',    '',
+     'Prev',        'prev',
+     'Up',          'up',
+     'Next',        'next',
+     'NodeUp',      'up',
+     'NodeNext',    'next',
+     'NodePrev',    'prev',
+     'NodeForward', '',
+     'NodeBack',    '',
+     'Forward',     'next',
+     'FastForward', '',
+     'About' ,      'help',
+     'First',       '',
+     'Last',        '',
+     'NextFile',    'next',
+     'PrevFile',    'prev',
+   },
+
+  'accesskey' =>
+   {
+     'Top',         '',
+     'Contents',    '',
+     'Overview',    '',
+     'Index',       '',
+     'This',        '',
+     'Back',        'p',
+     'FastBack',    '',
+     'Prev',        'p',
+     'Up',          'u',
+     'Next',        'n',
+     'NodeUp',      'u',
+     'NodeNext',    'n',
+     'NodePrev',    'p',
+     'NodeForward', '',
+     'NodeBack',    '',
+     'Forward',     'n',
+     'FastForward', '',
+     'About' ,      '',
+     'First',       '',
+     'Last',        '',
+     'NextFile',    '',
+     'PrevFile',    '',
+   },
+
+  'example' =>
+   {
+     'Top',         ' '.$html_default_entity_nbsp.' ',
+     'Contents',    ' '.$html_default_entity_nbsp.' ',
+     'Overview',    ' '.$html_default_entity_nbsp.' ',
+     'Index',       ' '.$html_default_entity_nbsp.' ',
+     'This',        '1.2.3',
+     'Back',        '1.2.2',
+     'FastBack',    '1',
+     'Prev',        '1.2.2',
+     'Up',          '1.2',
+     'Next',        '1.2.4',
+     'NodeUp',      '1.2',
+     'NodeNext',    '1.2.4',
+     'NodePrev',    '1.2.2',
+     'NodeForward', '1.2.4',
+     'NodeBack',    '1.2.2',
+     'Forward',     '1.2.4',
+     'FastForward', '2',
+     'About',       ' '.$html_default_entity_nbsp.' ',
+     'First',       '1.',
+     'Last',        '1.2.4',
+     'NextFile',    ' '.$html_default_entity_nbsp.' ',
+     'PrevFile',    ' '.$html_default_entity_nbsp.' ',
+   },
+);
+
+foreach my $string_type (keys(%default_converted_directions_strings)) {
+  foreach my $button (grep
+                 {not exists($global_and_special_directions{$_}) and $_ ne ' '}
+                 keys %{$default_converted_directions_strings{$string_type}}) {
+    $default_converted_directions_strings{$string_type}->{'FirstInFile'.$button}
+      = $default_converted_directions_strings{$string_type}->{$button};
+  }
+}
+
+my %default_translated_directions_strings = (
+  'text' => {
+     ' ' =>           {'converted' => ' '.$html_default_entity_nbsp.' '},
+     'Top' =>         {'to_convert' => Texinfo::Common::gdt('Top')},
+     'Contents' =>    {'to_convert' => Texinfo::Common::gdt('Contents')},
+     'Overview' =>    {'to_convert' => Texinfo::Common::gdt('Overview')},
+     'Index' =>       {'to_convert' => Texinfo::Common::gdt('Index')},
+     'This' =>        {'to_convert' => Texinfo::Common::gdt('current')},
+     'Back' =>        {'converted' => ' &lt; '},
+     'FastBack' =>    {'converted' => ' &lt;&lt; '},
+     'Prev' =>        {'to_convert' => Texinfo::Common::gdt('Prev')},
+     'Up' =>          {'to_convert' => Texinfo::Common::gdt(' Up ')},
+     'Next' =>        {'to_convert' => Texinfo::Common::gdt('Next')},
+     #'NodeUp' =>      {'to_convert' => Texinfo::Common::gdt('Node up')},
+     'NodeUp' =>      {'to_convert' => Texinfo::Common::gdt('Up')},
+     #'NodeNext' =>    {'to_convert' => Texinfo::Common::gdt('Next node')},
+     'NodeNext' =>    {'to_convert' => Texinfo::Common::gdt('Next')},
+     #'NodePrev' =>    {'to_convert' => Texinfo::Common::gdt('Previous node')},
+     'NodePrev' =>    {'to_convert' => Texinfo::Common::gdt('Previous')},
+     'NodeForward' => {'to_convert' => Texinfo::Common::gdt('Forward node')},
+     'NodeBack' =>    {'to_convert' => Texinfo::Common::gdt('Back node')},
+     'Forward' =>     {'converted' => ' &gt; '},
+     'FastForward' => {'converted' => ' &gt;&gt; '},
+     'About' =>       {'converted' => ' ? '},
+     'First' =>       {'converted' => ' |&lt; '},
+     'Last' =>        {'converted' => ' &gt;| '},
+     'NextFile' =>    {'to_convert' => Texinfo::Common::gdt('Next file')},
+     'PrevFile' =>    {'to_convert' => Texinfo::Common::gdt('Previous file')},
+  },
+
+  'description' => {
+     'Top' =>         {'to_convert' => Texinfo::Common::gdt('Cover (top) of document')},
+     'Contents' =>    {'to_convert' => Texinfo::Common::gdt('Table of contents')},
+     'Overview' =>    {'to_convert' => Texinfo::Common::gdt('Short table of contents')},
+     'Index' =>       {'to_convert' => Texinfo::Common::gdt('Index')},
+     'This' =>        {'to_convert' => Texinfo::Common::gdt('Current section')},
+     'Back' =>        {'to_convert' => Texinfo::Common::gdt('Previous section in reading order')},
+     'FastBack' =>    {'to_convert' => Texinfo::Common::gdt('Beginning of this chapter or previous chapter')},
+     'Prev' =>        {'to_convert' => Texinfo::Common::gdt('Previous section on same level')},
+     'Up' =>          {'to_convert' => Texinfo::Common::gdt('Up section')},
+     'Next' =>        {'to_convert' => Texinfo::Common::gdt('Next section on same level')},
+     'NodeUp' =>      {'to_convert' => Texinfo::Common::gdt('Up node')},
+     'NodeNext' =>    {'to_convert' => Texinfo::Common::gdt('Next node')},
+     'NodePrev' =>    {'to_convert' => Texinfo::Common::gdt('Previous node')},
+     'NodeForward' => {'to_convert' => Texinfo::Common::gdt('Next node in node reading order')},
+     'NodeBack' =>    {'to_convert' => Texinfo::Common::gdt('Previous node in node reading order')},
+     'Forward' =>     {'to_convert' => Texinfo::Common::gdt('Next section in reading order')},
+     'FastForward' => {'to_convert' => Texinfo::Common::gdt('Next chapter')},
+     'About'  =>      {'to_convert' => Texinfo::Common::gdt('About (help)')},
+     'First' =>       {'to_convert' => Texinfo::Common::gdt('First section in reading order')},
+     'Last' =>        {'to_convert' => Texinfo::Common::gdt('Last section in reading order')},
+     'NextFile' =>    {'to_convert' => Texinfo::Common::gdt('Forward section in next file')},
+     'PrevFile' =>    {'to_convert' => Texinfo::Common::gdt('Back section in previous file')},
+  },
+
+  'button' => {
+     ' ' =>           {'converted' => ' '},
+     'Top' =>         {'to_convert' => Texinfo::Common::gdt('Top')},
+     'Contents' =>    {'to_convert' => Texinfo::Common::gdt('Contents')},
+     'Overview' =>    {'to_convert' => Texinfo::Common::gdt('Overview')},
+     'Index' =>       {'to_convert' => Texinfo::Common::gdt('Index')},
+     'This' =>        {'to_convert' => Texinfo::Common::gdt('This')},
+     'Back' =>        {'to_convert' => Texinfo::Common::gdt('Back')},
+     'FastBack' =>    {'to_convert' => Texinfo::Common::gdt('FastBack')},
+     'Prev' =>        {'to_convert' => Texinfo::Common::gdt('Prev')},
+     'Up' =>          {'to_convert' => Texinfo::Common::gdt('Up')},
+     'Next' =>        {'to_convert' => Texinfo::Common::gdt('Next')},
+     'NodeUp' =>      {'to_convert' => Texinfo::Common::gdt('NodeUp')},
+     'NodeNext' =>    {'to_convert' => Texinfo::Common::gdt('NodeNext')},
+     'NodePrev' =>    {'to_convert' => Texinfo::Common::gdt('NodePrev')},
+     'NodeForward' => {'to_convert' => Texinfo::Common::gdt('NodeForward')},
+     'NodeBack' =>    {'to_convert' => Texinfo::Common::gdt('NodeBack')},
+     'Forward' =>     {'to_convert' => Texinfo::Common::gdt('Forward')},
+     'FastForward' => {'to_convert' => Texinfo::Common::gdt('FastForward')},
+     'About' =>       {'to_convert' => Texinfo::Common::gdt('About')},
+     'First' =>       {'to_convert' => Texinfo::Common::gdt('First')},
+     'Last' =>        {'to_convert' => Texinfo::Common::gdt('Last')},
+     'NextFile' =>    {'to_convert' => Texinfo::Common::gdt('NextFile')},
+     'PrevFile' =>    {'to_convert' => Texinfo::Common::gdt('PrevFile')},
+  }
+);
+
+foreach my $string_type (keys(%default_translated_directions_strings)) {
+  foreach my $button (grep
+                 {not exists($global_and_special_directions{$_}) and $_ ne ' '}
+                 keys %{$default_translated_directions_strings{$string_type}}) {
+    $default_translated_directions_strings{$string_type}->{'FirstInFile'.$button}
+      = $default_translated_directions_strings{$string_type}->{$button};
   }
 }
 
@@ -1931,97 +1996,26 @@ sub _translate_names($)
     ." documentlanguage: ".$self->get_conf('documentlanguage')."\n"
    if ($self->get_conf('DEBUG'));
 
-
-  %BUTTONS_TEXT = (
-     'Top',         $self->gdt('Top'),
-     'Contents',    $self->gdt('Contents'),
-     'Overview',    $self->gdt('Overview'),
-     'Index',       $self->gdt('Index'),
-     ' ',           ' '.$self->get_info('non_breaking_space').' ',
-     'This',        $self->gdt('current'),
-     'Back',        ' &lt; ',
-     'FastBack',    ' &lt;&lt; ',
-     'Prev',        $self->gdt('Prev'),
-     'Up',          $self->gdt(' Up '),
-     'Next',        $self->gdt('Next'),
-     #'NodeUp',      $self->gdt('Node up'),
-     'NodeUp',      $self->gdt('Up'),
-     #'NodeNext',    $self->gdt('Next node'),
-     'NodeNext',    $self->gdt('Next'),
-     #'NodePrev',    $self->gdt('Previous node'),
-     'NodePrev',    $self->gdt('Previous'),
-     'NodeForward', $self->gdt('Forward node'),
-     'NodeBack',    $self->gdt('Back node'),
-     'Forward',     ' &gt; ',
-     'FastForward', ' &gt;&gt; ',
-     'About',       ' ? ',
-     'First',       ' |&lt; ',
-     'Last',        ' &gt;| ',
-     'NextFile',    $self->gdt('Next file'),
-     'PrevFile',    $self->gdt('Previous file'),
-  );
-
-  foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %BUTTONS_TEXT) {
-    $BUTTONS_TEXT{'FirstInFile'.$button} = $BUTTONS_TEXT{$button};
-  }
-
-  %BUTTONS_GOTO = (
-     'Top',         $self->gdt('Cover (top) of document'),
-     'Contents',    $self->gdt('Table of contents'),
-     'Overview',    $self->gdt('Short table of contents'),
-     'Index',       $self->gdt('Index'),
-     'This',        $self->gdt('Current section'),
-     'Back',        $self->gdt('Previous section in reading order'),
-     'FastBack',    $self->gdt('Beginning of this chapter or previous chapter'),
-     'Prev',        $self->gdt('Previous section on same level'),
-     'Up',          $self->gdt('Up section'),
-     'Next',        $self->gdt('Next section on same level'),
-     'NodeUp',      $self->gdt('Up node'),
-     'NodeNext',    $self->gdt('Next node'),
-     'NodePrev',    $self->gdt('Previous node'),
-     'NodeForward', $self->gdt('Next node in node reading order'),
-     'NodeBack',    $self->gdt('Previous node in node reading order'),
-     'Forward',     $self->gdt('Next section in reading order'),
-     'FastForward', $self->gdt('Next chapter'),
-     'About' ,      $self->gdt('About (help)'),
-     'First',       $self->gdt('First section in reading order'),
-     'Last',        $self->gdt('Last section in reading order'),
-     'NextFile',    $self->gdt('Forward section in next file'),
-     'PrevFile',    $self->gdt('Back section in previous file'),
-  );
-
-  foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %BUTTONS_GOTO) {
-    $BUTTONS_GOTO{'FirstInFile'.$button} = $BUTTONS_GOTO{$button};
-  }
-
-  %BUTTONS_NAME = (
-     'Top',         $self->gdt('Top'),
-     'Contents',    $self->gdt('Contents'),
-     'Overview',    $self->gdt('Overview'),
-     'Index',       $self->gdt('Index'),
-     ' ',           ' ',
-     'This',        $self->gdt('This'),
-     'Back',        $self->gdt('Back'),
-     'FastBack',    $self->gdt('FastBack'),
-     'Prev',        $self->gdt('Prev'),
-     'Up',          $self->gdt('Up'),
-     'Next',        $self->gdt('Next'),
-     'NodeUp',      $self->gdt('NodeUp'),
-     'NodeNext',    $self->gdt('NodeNext'),
-     'NodePrev',    $self->gdt('NodePrev'),
-     'NodeForward', $self->gdt('NodeForward'),
-     'NodeBack',    $self->gdt('NodeBack'),
-     'Forward',     $self->gdt('Forward'),
-     'FastForward', $self->gdt('FastForward'),
-     'About',       $self->gdt('About'),
-     'First',       $self->gdt('First'),
-     'Last',        $self->gdt('Last'),
-     'NextFile',    $self->gdt('NextFile'),
-     'PrevFile',    $self->gdt('PrevFile'),
-  );
-
-  foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %BUTTONS_NAME) {
-    $BUTTONS_NAME{'FirstInFile'.$button} = $BUTTONS_NAME{$button};
+  my $translated_directions_strings = $self->{'translated_direction_strings'};
+  foreach my $string_type (keys(%default_translated_directions_strings)) {
+    foreach my $direction (keys(%{$translated_directions_strings->{$string_type}})) {
+      if (defined($translated_directions_strings->{$string_type}->{$direction}->{'converted'})) {
+        # translate already converted direction strings
+        my $result_string
+          = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'converted'},
+                       undef, 'translated_text');
+        $self->{'directions_strings'}->{$string_type}->{$direction}
+          = $self->substitute_html_non_breaking_space($result_string);
+      } elsif (defined($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'})) {
+        # translate direction strings that need to be translated and converted
+        my $translated_tree
+          = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'});
+        my $result_string = $self->convert_tree_new_formatting_context($translated_tree,
+                               "direction $direction", undef, "direction $direction");
+        $self->{'directions_strings'}->{$string_type}->{$direction}
+          = $result_string;
+      }
+    }
   }
 
   %SPECIAL_ELEMENTS_HEADING = (
@@ -2047,14 +2041,6 @@ sub _translate_names($)
     }
   }
   
-  foreach my $hash (\%BUTTONS_TEXT, \%BUTTONS_GOTO, \%BUTTONS_NAME) {
-    foreach my $button (keys (%$hash)) {
-      if (ref($hash->{$button})) {
-        $hash->{$button} = $self->convert_tree_new_formatting_context(
-                   $hash->{$button}, "button $button", undef, "button $button");
-      }
-    }
-  }
   my %translated_commands;
   foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
     foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}->{$context}})) {
@@ -3317,7 +3303,7 @@ sub _default_panel_button_dynamic_direction($$;$$$)
   }
   if (defined($hyperlink)) {
     # i18n
-    $result = $self->get_conf('BUTTONS_TEXT')->{$direction}.": $hyperlink";
+    $result = $self->direction_string($direction, 'text').": $hyperlink";
   }
   # 1 to communicate that a delimiter is needed for that button
   return ($result, 1);
@@ -3379,15 +3365,14 @@ sub _direction_href_attributes($$)
   my $direction = shift;
 
   my $href_attributes = '';
-  if ($self->get_conf('USE_ACCESSKEY')
-      and $self->get_conf('BUTTONS_ACCESSKEY')) {
-    my $accesskey = $self->get_conf('BUTTONS_ACCESSKEY')->{$direction};
+  if ($self->get_conf('USE_ACCESSKEY')) {
+    my $accesskey = $self->direction_string($direction, 'accesskey');
     if (defined($accesskey) and ($accesskey ne '')) {
       $href_attributes = " accesskey=\"$accesskey\"";
     }
   }
-  if ($self->get_conf('USE_REL_REV') and $self->get_conf('BUTTONS_REL')) {
-    my $button_rel = $self->get_conf('BUTTONS_REL')->{$direction};
+  if ($self->get_conf('USE_REL_REV')) {
+    my $button_rel = $self->direction_string($direction, 'rel');
     if (defined($button_rel) and ($button_rel ne '')) {
       $href_attributes .= " rel=\"$button_rel\"";
     }
@@ -3458,11 +3443,11 @@ sub _default_format_button($$;$)
     if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')
         and defined($self->get_conf('ACTIVE_ICONS')->{$button})
         and $self->get_conf('ACTIVE_ICONS')->{$button} ne '') {
-      my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
+      my $button_name = $self->direction_string($button, 'button');
       $active = &{$self->formatting_function('format_button_icon_img')}($self,
                         $button_name, $self->get_conf('ACTIVE_ICONS')->{' '});
     } else {
-      $active = $self->get_conf('BUTTONS_TEXT')->{$button};
+      $active = $self->direction_string($button, 'text');
     }
     $need_delimiter = 0;
   } else {
@@ -3471,28 +3456,26 @@ sub _default_format_button($$;$)
     if ($href) {
       # button is active
       my $btitle = '';
-      if ($self->get_conf('BUTTONS_GOTO')
-          and defined($self->get_conf('BUTTONS_GOTO')->{$button})) {
-        $btitle = ' title="' . $self->get_conf('BUTTONS_GOTO')->{$button} . '"';
+      my $description = $self->direction_string($button, 'description');
+      if (defined($description)) {
+        $btitle = ' title="' . $description . '"';
       }
-      if ($self->get_conf('USE_ACCESSKEY')
-          and $self->get_conf('BUTTONS_ACCESSKEY')) {
-        my $accesskey = $self->get_conf('BUTTONS_ACCESSKEY')->{$button};
+      if ($self->get_conf('USE_ACCESSKEY')) {
+        my $accesskey = $self->direction_string($button, 'accesskey');
         if (defined($accesskey) and $accesskey ne '') {
           $btitle .= " accesskey=\"$accesskey\"";
         }
       }
-      if ($self->get_conf('USE_REL_REV') and ($self->get_conf('BUTTONS_REL'))) {
-        my $button_rel = $self->get_conf('BUTTONS_REL')->{$button};
+      if ($self->get_conf('USE_REL_REV')) {
+        my $button_rel = $self->direction_string($button, 'rel');
         if (defined($button_rel) and $button_rel ne '') {
           $btitle .= " rel=\"$button_rel\"";
         }
       }
       my $use_icon;
-      if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')
-          and $self->get_conf('BUTTONS_NAME')) {
+      if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')) {
         my $active_icon = $self->get_conf('ACTIVE_ICONS')->{$button};
-        my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
+        my $button_name = $self->direction_string($button, 'button');
         if (defined($active_icon) and $active_icon ne ''
             and defined($button_name)) {
           # use icon
@@ -3506,15 +3489,14 @@ sub _default_format_button($$;$)
       if (!$use_icon) {
         # use text
         $active = '[' . "<a href=\"$href\"${btitle}>".
-          $self->get_conf('BUTTONS_TEXT')->{$button}."</a>" . ']';
+          $self->direction_string($button, 'text')."</a>" . ']';
       }
     } else {
       # button is passive
       my $use_icon;
-      if ($self->get_conf('ICONS') and $self->get_conf('PASSIVE_ICONS')
-          and $self->get_conf('BUTTONS_NAME')) {
+      if ($self->get_conf('ICONS') and $self->get_conf('PASSIVE_ICONS')) {
         my $passive_icon = $self->get_conf('PASSIVE_ICONS')->{$button};
-        my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
+        my $button_name = $self->direction_string($button, 'button');
         if ($passive_icon and $passive_icon ne '') {
           $passive = &{$self->formatting_function('format_button_icon_img')}(
                       $self, $button_name, $passive_icon,
@@ -3523,7 +3505,7 @@ sub _default_format_button($$;$)
         }
       }
       if (!$use_icon) {
-        $passive =  '[' . $self->get_conf('BUTTONS_TEXT')->{$button} . ']';
+        $passive =  '[' . $self->direction_string($button, 'text') . ']';
       }
     }
     $need_delimiter = 0;
@@ -7084,6 +7066,46 @@ sub converter_initialize($)
   $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
     = $self->{'line_break_element'};
 
+  # three types of direction strings:
+  # * strings not translated, already converted
+  # * strings translated
+  #   - strings already converted
+  #   - strings not already converted
+  $self->{'directions_strings'} = {};
+
+  my $customized_direction_strings = Texinfo::Config::GNUT_get_direction_string_info();
+  foreach my $string_type (keys(%default_converted_directions_strings)) {
+    foreach my $direction (keys(%{$default_converted_directions_strings{$string_type}})) {
+      my $string = '';
+      if ($customized_direction_strings->{$string_type}
+          and $customized_direction_strings->{$string_type}->{$direction}) {
+        if (defined($customized_direction_strings->{$string_type}->{$direction}->{'converted'})) {
+          $string
+            = $customized_direction_strings->{$string_type}->{$direction}->{'converted'}
+        }
+      } else {
+        $string
+          = $default_converted_directions_strings{$string_type}->{$direction};
+      }
+      $self->{'directions_strings'}->{$string_type}->{$direction}
+        = $self->substitute_html_non_breaking_space($string);
+    }
+  }
+  $self->{'translated_direction_strings'} = {};
+  foreach my $string_type (keys(%default_translated_directions_strings)) {
+    $self->{'translated_direction_strings'}->{$string_type} = {};
+    foreach my $direction (keys(%{$default_translated_directions_strings{$string_type}})) {
+      if ($customized_direction_strings->{$string_type}
+          and $customized_direction_strings->{$string_type}->{$direction}) {
+        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+          = $customized_direction_strings->{$string_type}->{$direction};
+      } else {
+        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+          = $default_translated_directions_strings{$string_type}->{$direction};
+      }
+    }
+  }
+
   $self->{'types_conversion'} = {};
   my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
   foreach my $type (keys(%default_types_conversion)) {
@@ -9009,8 +9031,8 @@ sub _get_links($$$$)
         my $link_title = '';
         $link_title = " title=\"$link_string\"" if (defined($link_string));
         my $rel = '';
-        $rel = " rel=\"".$self->get_conf('BUTTONS_REL')->{$link}.'"'
-           if (defined($self->get_conf('BUTTONS_REL')->{$link}));
+        my $button_rel = $self->direction_string($link, 'rel');
+        $rel = " rel=\"".$button_rel.'"' if (defined($button_rel));
         $links .= $self->close_html_lone_element(
                     "<link href=\"$link_href\"${rel}${link_title}")."\n";
       }
@@ -9208,21 +9230,20 @@ EOT
   foreach my $button (@{$self->get_conf('SECTION_BUTTONS')}) {
     next if ($button eq ' ' or ref($button) eq 'CODE' or ref($button) eq 'SCALAR'
               or ref($button) eq 'ARRAY');
-    my $button_name = $self->get_conf('BUTTONS_NAME')->{$button};
+    my $button_name = $self->direction_string($button, 'button');
     $about .= "  <tr>\n    ".$self->html_attribute_class('td',
                                              ['button-direction-about']) .'>';
     $about .=
       ($self->get_conf('ICONS') && $self->get_conf('ACTIVE_ICONS')->{$button} ?
        &{$self->formatting_function('format_button_icon_img')}($self,
                      $button_name, $self->get_conf('ACTIVE_ICONS')->{$button}) :
-           ' [' . $self->get_conf('BUTTONS_TEXT')->{$button} . '] ');
+           ' [' . $self->direction_string($button, 'text') . '] ');
     $about .= "</td>\n";
     $about .=
 '    '.$self->html_attribute_class('td', ['name-direction-about']).'>'
     .$button_name."</td>
-    <td>".$self->get_conf('BUTTONS_GOTO')->{$button}."</td>
-    <td>".$self->substitute_html_non_breaking_space(
-               $self->get_conf('BUTTONS_EXAMPLE')->{$button})."</td>
+    <td>".$self->direction_string($button, 'description')."</td>
+    <td>".$self->direction_string($button, 'example')."</td>
   </tr>
 ";
   }
@@ -9510,6 +9531,12 @@ sub _initialize_output_state($)
   # Needed for CSS gathering, even if nothing related to CSS is output
   $self->{'document_global_context_css'} = {};
   $self->{'file_css'} = {};
+
+  # direction strings
+  foreach my $string_type (keys(%default_translated_directions_strings)) {
+    # those will be determined from translatable strings
+    $self->{'directions_strings'}->{$string_type} = {};
+  };
 
   # targets and directions
 

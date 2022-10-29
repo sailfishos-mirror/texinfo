@@ -946,7 +946,9 @@ Up node element unit.
 
 @end table
 
-@anchor{Element Direction Information Type}
+@node Element Direction Information Type
+@subsection Element Direction Information Type
+
 @cindex Direction information type
 @cindex Type, of direction information
 The element directions also have types of information associated,
@@ -990,6 +992,63 @@ associated with the element unit direction in priority.
 @code{text}, @code{tree} and @code{string} also have a variant with
 @samp{_nonumber} prepended, such as @code{text_nonumber} without sectioning
 command number in the representation.
+
+
+@node Direction Strings
+@subsection Direction Strings
+
+Directions have strings associated, corresponding to their names, description
+or specific HTML keywords:
+
+@cindex Direction strings
+
+@table @code
+@item accesskey
+Direction @code{accesskey} attribute used in navigation.
+
+@item button
+Direction short name typically used for buttons.
+
+@item description
+Description of the direction.
+
+@item example
+Section number corresponding to the example used in the About special
+element text.
+
+@item rel
+Direction @code{rel} attribute used in navigation.
+
+@item text
+Direction text in a few words.
+@end table
+
+@cindex Translated direction strings
+@samp{button}, @samp{description} and @samp{text} are translated based
+on the document language.
+
+
+@node Direction Strings Customization
+@section Direction Strings Customization
+
+The direction strings can be customized with
+@code{texinfo_register_direction_string_info}:
+
+@defun texinfo_register_direction_string_info ($direction, @
+                  $type, $converted_string, $string_to_convert)
+@var{$direction} is a direction (@pxref{Directions}), @var{type}
+is the type of string (@pxref{Direction Strings}).  Both
+@var{$converted_string} and @var{$string_to_convert} are optional,
+if both are unset or @code{undef}, the direction string is unset.
+@var{$converted_string} is the string, already converted to HTML.
+Alternatively, @var{$string_to_convert} can be specified to set the
+string to the corresponding Texinfo code after translation
+and conversion to HTML.
+
+@var{$string_to_convert} is ignored for
+special strings that do not need to be translated and cannot contain
+Texinfo @@-commands (@samp{accesskey}, @samp{rel} and @samp{example}).
+@end defun
 
 
 @node Simple Navigation Panel Customization
@@ -1059,18 +1118,14 @@ values is the following:
 
 @table @emph
 @item string with an element unit direction
-@vindex BUTTONS_TEXT
 If icons are not used, the button is a link to the corresponding
-element whose text is defined by the value associated with the element
-direction in the hash associated with the @code{BUTTONS_TEXT} customization
-variable, surrounded by @samp{[} and
+element whose text is the @code{text} direction string
+(@pxref{Direction Strings}), surrounded by @samp{[} and
 @samp{]}. If the element direction is @samp{ }, the @samp{[} and @samp{]}
 are omitted.
 
 @vindex ACTIVE_ICONS
-@vindex BUTTONS_NAME
 @vindex PASSIVE_ICONS
-@vindex BUTTONS_GOTO
 @cindex Icons, in navigation buttons
 If icons are used, the button is an image whose file is determined by
 the value associated with the element direction in the
@@ -1078,9 +1133,10 @@ the value associated with the element direction in the
 @code{PASSIVE_ICONS} variable hash if there is no element to link to.  If
 there is a link to the element, the icon links to that element.  The
 button name and button description are given as HTML attributes to
-have a textual description of the icon.  The corresponding strings are
-in the @code{BUTTONS_NAME} variable hash for the button name and
-@code{BUTTONS_GOTO} variable hash for a more detailed description.
+have a textual description of the icon.  The corresponding strings
+correspond to the @code{button} direction string for the button name
+and the @code{description} for a more detailed description (@pxref{Direction
+Strings}).
 
 @item function reference
 The function is called with one boolean argument, true if the
@@ -1123,19 +1179,17 @@ based on the name of the node associated with the next section element unit.
 @end table
 
 @anchor{Accesskey and @code{rel} Navigation}
-@vindex BUTTONS_ACCESSKEY
 @cindex @code{accesskey} navigation
 If the customization variable @code{USE_ACCESSKEY} is set, the
-@code{accesskey} attribute is used in navigation.  The
-@code{BUTTONS_ACCESSKEY} customization variable hash is then used for the
-@code{accesskey} attributes.
+@code{accesskey} attribute is used in navigation.  The @code{accesskey}
+direction string is then used for the @code{accesskey} attributes
+(@pxref{Direction Strings}).
 
-@vindex BUTTONS_REL@r{, for navigation}
 @cindex @code{rel} navigation
 Similarly, if the @code{USE_REL_REV} customization variable is set,
 the @code{rel} attribute is used in navigation.  In that case the
-@code{BUTTONS_REL} customization variable hash is used for the @code{rel}
-attribute.
+@code{rel} direction string is used for the @code{rel}
+attribute (@pxref{Direction Strings}).
 
 
 @node User Defined Functions
@@ -2626,8 +2680,8 @@ the navigation panel (@pxref{Simple Navigation Panel Customization}).
 
 @deftypefn {Function Reference} @var{$text} format_button_icon_img @
                   (@var{$converter}, @var{$button}, @var{$icon}, @var{$name})
-@var{$button} is a button name, typically obtained from the @code{BUTTONS_NAME}
-customization variable hash using a direction as key (@pxref{Directions}).
+@var{$button} is a button name, typically obtained from the @code{button}
+direction string (@pxref{Direction Strings}).
 @var{$icon} is an image file name to be used as icon.  @var{$name} is the
 direction heading, typically formatted in string context.  @xref{Init File
 Expansion Contexts}.
@@ -2933,6 +2987,21 @@ Navigation headers, navigation panels, end or beginning of files, @code{@@xref}
 and similar @@-commands output, @code{@@menu}, @code{@@node}, sectioning
 commands, @code{@@printindex} and @code{@@listoffloats} formatting requires
 directions, links, labels and files information.
+
+
+@node Getting Direction Strings
+@section Getting Direction Strings
+
+@cindex Direction strings, getting
+
+To get direction strings, use @code{direction_string}:
+
+@deftypefun {@var{$string} =} @var{$converter}->direction_string @
+                                     (@var{$direction}, @var{string_type})
+Retrieve the @var{$direction} (@pxref{Directions}) string of type
+@var{string_type} (@pxref{Direction Strings}).  The string will be translated
+if needed.
+@end deftypefun
 
 
 @node Target Commands Links@comma{} Texts and Associated Commands
@@ -3344,14 +3413,10 @@ conversion function, depending on the @code{CONTENTS_OUTPUT_LOCATION} value.
 
 The default About element has an explanation of the buttons used in
 the document, controlled by @code{SECTION_BUTTONS}.
-The formatting of this text may be influenced by
-@code{BUTTONS_GOTO}, @code{BUTTONS_NAME}, @code{ACTIVE_ICONS}
+The formatting of this is influenced by
+the @code{text}, @code{description} and @code{example}
+direction strings (@pxref{Direction Strings}) and by @code{ACTIVE_ICONS}
 (@pxref{Simple Navigation Panel Customization}).
-
-@vindex BUTTONS_EXAMPLE
-@code{BUTTONS_EXAMPLE} also influences the formatting. The keys of this hash
-are element directions (@pxref{Directions}) and the values
-are the text from the About example, typically a section number.
 
 @vindex PROGRAM_NAME_IN_ABOUT
 @code{PROGRAM_NAME_IN_ABOUT} can also be used to change the beginning of
@@ -3443,7 +3508,7 @@ The buttons images can be formatted with @code{format_button_icon_img}
 
 Customization information described in @ref{Simple Navigation Panel Customization}
 such as @code{BUTTONS_TEXT}, @code{BUTTONS_NAME}, @code{BUTTONS_GOTO},
-@code{USE_ACCESSKEY}, @code{BUTTONS_ACCESSKEY},
+@code{USE_ACCESSKEY},
 @code{USE_REL_REV} and @code{BUTTONS_REL} can be relevant for the
 formatting of a button.
 @end deftypefn
