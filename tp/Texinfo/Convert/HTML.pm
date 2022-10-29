@@ -5372,9 +5372,6 @@ sub _convert_informative_command($$$)
 
   Texinfo::Common::set_informative_command_value($self, $command);
 
-  if ($cmdname eq 'documentlanguage') {
-    $self->_translate_names();
-  }
   return '';
 }
 
@@ -10608,6 +10605,9 @@ sub _convert($$;$)
       } else {
         $result .= &{$self->{'commands_conversion'}->{$command_name}}($self,
                 $command_name, $element, undef, $content_formatted);
+      }
+      if ($command_name eq 'documentlanguage') {
+        $self->_translate_names();
       }
       return $result;
     } else {

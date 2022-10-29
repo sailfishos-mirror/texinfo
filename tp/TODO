@@ -20,8 +20,6 @@ Issues
 ------
 
 Some private function used in conversion
- _convert_informative_command
-  _translate_names
  _convert_printindex_command
   _new_document_context
 
