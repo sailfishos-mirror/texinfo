@@ -1356,14 +1356,36 @@ sub direction_string($$$)
 {
   my $self = shift;
   my $direction = shift;
-  my $type = shift;
+  my $string_type = shift;
 
-  if (!$valid_direction_string_type{$type}) {
-    print STDERR "Incorrect type $type in direction_string call\n";
+  if (!$valid_direction_string_type{$string_type}) {
+    print STDERR "Incorrect type $string_type in direction_string call\n";
     return undef;
   }
 
-  return $self->{'directions_strings'}->{$type}->{$direction};
+  if (not exists($self->{'directions_strings'}->{$string_type}->{$direction})) {
+    my $translated_directions_strings = $self->{'translated_direction_strings'};
+    if (defined($translated_directions_strings->{$string_type}->{$direction}->{'converted'})) {
+      # translate already converted direction strings
+      my $result_string
+        = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'converted'},
+                     undef, undef, 'translated_text');
+      $self->{'directions_strings'}->{$string_type}->{$direction}
+        = $self->substitute_html_non_breaking_space($result_string);
+    } elsif (defined($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'})) {
+      # translate direction strings that need to be translated and converted
+      my $translated_tree
+        = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'});
+      my $result_string = $self->convert_tree_new_formatting_context($translated_tree,
+                             "direction $direction", undef, "direction $direction");
+      $self->{'directions_strings'}->{$string_type}->{$direction}
+        = $result_string;
+    } else {
+      # FIXME or ''
+      $self->{'directions_strings'}->{$string_type}->{$direction} = undef;
+    }
+  }
+  return $self->{'directions_strings'}->{$string_type}->{$direction};
 }
 
 # API for misc conversion and formatting functions
@@ -1997,26 +2019,9 @@ sub _translate_names($)
     ." documentlanguage: ".$self->get_conf('documentlanguage')."\n"
    if ($self->get_conf('DEBUG'));
 
-  my $translated_directions_strings = $self->{'translated_direction_strings'};
+  # reset strings such that they are translated when needed.
   foreach my $string_type (keys(%default_translated_directions_strings)) {
-    foreach my $direction (keys(%{$translated_directions_strings->{$string_type}})) {
-      if (defined($translated_directions_strings->{$string_type}->{$direction}->{'converted'})) {
-        # translate already converted direction strings
-        my $result_string
-          = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'converted'},
-                       undef, undef, 'translated_text');
-        $self->{'directions_strings'}->{$string_type}->{$direction}
-          = $self->substitute_html_non_breaking_space($result_string);
-      } elsif (defined($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'})) {
-        # translate direction strings that need to be translated and converted
-        my $translated_tree
-          = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'});
-        my $result_string = $self->convert_tree_new_formatting_context($translated_tree,
-                               "direction $direction", undef, "direction $direction");
-        $self->{'directions_strings'}->{$string_type}->{$direction}
-          = $result_string;
-      }
-    }
+    $self->{'directions_strings'}->{$string_type} = {};
   }
 
   %SPECIAL_ELEMENTS_HEADING = (

@@ -1,5 +1,13 @@
 2022-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (direction_string, _translate_names):
+	translate direction strings only when needed and cache them
+	afterwards.  Remove the contents of the translated direction
+	string types in _translate_names such that they will be re-translated
+	in the next direction_string call.
+
+2022-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_informative_command, _convert):
 	call _translate_names() after documentlanguage conversion in converter
 	code instead of calling in conversion function.
