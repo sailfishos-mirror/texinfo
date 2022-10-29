@@ -2004,7 +2004,7 @@ sub _translate_names($)
         # translate already converted direction strings
         my $result_string
           = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'converted'},
-                       undef, 'translated_text');
+                       undef, undef, 'translated_text');
         $self->{'directions_strings'}->{$string_type}->{$direction}
           = $self->substitute_html_non_breaking_space($result_string);
       } elsif (defined($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'})) {

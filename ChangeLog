@@ -1,5 +1,9 @@
 2022-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_translate_names): update gdt call.
+
+2022-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Element Direction Information Type)
 	(Direction Strings, Getting Direction Strings), tp/Texinfo/Common.pm
 	(@variable_other_settables), tp/Texinfo/Config.pm
