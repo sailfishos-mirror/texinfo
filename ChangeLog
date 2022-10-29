@@ -1,5 +1,17 @@
 2022-10-29  Patrice Dumas  <pertusus@free.fr>
 
+	Add customization of translated strings
+
+	* doc/texi2any_api.texi (Internationalization of Strings Function)
+	(Basic Formatting Customization), tp/Texinfo/Convert/HTML.pm (gdt):
+	override Texinfo::Translations gdt to call format_translate_string
+	user-defined formatting reference if the formatting reference is
+	defined.
+	Document more arguments of gdt, as they are also used for
+	format_translate_string.
+
+2022-10-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (direction_string, _translate_names):
 	translate direction strings only when needed and cache them
 	afterwards.  Remove the contents of the translated direction

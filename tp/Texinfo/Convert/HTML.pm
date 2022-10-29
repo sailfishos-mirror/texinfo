@@ -2076,6 +2076,28 @@ sub _translate_names($)
 }
 
 
+# redefined functions
+#
+# Texinfo::Translations redefined to call user defined function.
+sub gdt($$;$$$$)
+{
+  my ($self, $message, $replaced_substrings, $message_context, $type, $lang) = @_;
+  if (defined($self->{'formatting_function'}->{'format_translate_string'})) {
+    my $format_lang = $lang;
+    $format_lang = $self->get_conf('documentlanguage')
+                           if ($self and !defined($format_lang));
+    my $translated_string
+      = &{$self->{'formatting_function'}->{'format_translate_string'}}($self,
+                                 $message, $format_lang, $replaced_substrings,
+                                 $message_context, $type);
+    if (defined($translated_string)) {
+      return $translated_string;
+    }
+  }
+  return $self->SUPER::gdt($message, $replaced_substrings, $message_context, $type, $lang);
+}
+
+
 sub converter_defaults($$)
 {
   my $self = shift;
@@ -6633,6 +6655,7 @@ foreach my $customized_reference ('label_target_name', 'node_file_name',
      'format_separate_anchor' => \&_default_format_separate_anchor,
      'format_titlepage' => \&_default_format_titlepage,
      'format_title_titlepage' => \&_default_format_title_titlepage,
+     'format_translate_string' => undef,
 );
 
 # not up for customization
@@ -7307,7 +7330,7 @@ sub converter_initialize($)
   # are in default_formatting_references
   foreach my $customized_formatting_reference
        (sort(keys(%{$customized_formatting_references}))) {
-    if (!$default_formatting_references{$customized_formatting_reference}) {
+    if (!exists($default_formatting_references{$customized_formatting_reference})) {
       $self->document_warn($self, sprintf(__("Unknown formatting function: %s"),
                                           $customized_formatting_reference));
     }
