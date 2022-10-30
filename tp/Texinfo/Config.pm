@@ -669,17 +669,26 @@ sub GNUT_get_types_formatting_info()
 
 # no check on type and direction, but only the ones known in the HTML
 # converted will be used
-sub texinfo_register_direction_string_info($$;$$)
+sub texinfo_register_direction_string_info($$;$$$)
 {
   my $direction = shift;
   my $type = shift;
   my $converted_string = shift;
   my $string_to_convert = shift;
+  my $context = shift;
+
+  $context = 'normal' if (!defined($context));
 
   $GNUT_direction_string_info->{$type} = {}
     if (not exists($GNUT_direction_string_info->{$type}));
-  $GNUT_direction_string_info->{$type}->{$direction}
-     = {'to_convert' => $string_to_convert, 'converted' => $converted_string};
+  $GNUT_direction_string_info->{$type}->{$direction} = {}
+    if (not exists($GNUT_direction_string_info->{$type}->{$direction}));
+  $GNUT_direction_string_info->{$type}->{$direction}->{'to_convert'}
+     = $string_to_convert;
+  $GNUT_direction_string_info->{$type}->{$direction}->{'converted'} = {}
+   if (!defined($GNUT_direction_string_info->{$type}->{$direction}->{'converted'}));
+  $GNUT_direction_string_info->{$type}->{$direction}->{'converted'}->{$context}
+    = $converted_string;
 }
 
 sub GNUT_get_direction_string_info()

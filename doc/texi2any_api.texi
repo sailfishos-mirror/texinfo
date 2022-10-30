@@ -1031,19 +1031,28 @@ The direction strings can be customized with
 @code{texinfo_register_direction_string_info}:
 
 @defun texinfo_register_direction_string_info ($direction, @
-                  $type, $converted_string, $string_to_convert)
+          $type, $converted_string, $string_to_convert, $context)
 @var{$direction} is a direction (@pxref{Directions}), @var{$type}
-is the type of string (@pxref{Direction Strings}).  Both
-@var{$converted_string} and @var{$string_to_convert} are optional,
-if both are unset or @code{undef}, the direction string is unset.
-@var{$converted_string} is the string, already converted to HTML.
+is the type of string (@pxref{Direction Strings}).  The other
+arguments are optional.  @var{$context} is @samp{normal} or @samp{string}.
+@xref{Init File Expansion Contexts}.  If
+$context is @code{undef}, the @samp{normal} context is assumed.
+
+@var{$converted_string} is the string, already converted to HTML
+that is used for the specified context.  If the @samp{normal} context
+@var{$converted_string} only is specified, the same string will be
+used for the @samp{string} context.
+
 Alternatively, @var{$string_to_convert} can be specified to set the
 string to the corresponding Texinfo code after translation
-and conversion to HTML.
+and conversion to HTML.  In that case, the context is ignored, as
+it will be set at the time of the conversion.
 
 @var{$string_to_convert} is ignored for
 special strings that do not need to be translated and cannot contain
 Texinfo @@-commands (@samp{accesskey}, @samp{rel} and @samp{example}).
+@var{$string_to_convert} is also ignored if @var{$converted_string} is set
+for any context.
 @end defun
 
 
@@ -3105,10 +3114,12 @@ directions, links, labels and files information.
 To get direction strings, use @code{direction_string}:
 
 @deftypefun {@var{$string} =} @var{$converter}->direction_string @
-                                     (@var{$direction}, @var{string_type})
+                    (@var{$direction}, @var{string_type}, @var{$context})
 Retrieve the @var{$direction} (@pxref{Directions}) string of type
-@var{string_type} (@pxref{Direction Strings}).  The string will be translated
-if needed.
+@var{string_type} (@pxref{Direction Strings}).  @var{$context} is
+@samp{normal} or @samp{string}.  @xref{Init File Expansion Contexts}.  If
+$context is @code{undef}, the @samp{normal} context is assumed.
+The string will be translated if needed.
 @end deftypefun
 
 

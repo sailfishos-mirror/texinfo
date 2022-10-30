@@ -126,7 +126,7 @@ Set to the number of arguments separated by commas that may appear in braces or
 on the @-command line.  That means 0 or unset for most block commands,
 including C<@example> which has an unlimited (variadic) number of arguments, 1
 for C<@quotation>, 2 for C<@float>, 1 for most brace commands, 2 for C<@email>
-or C<@abbr>, 5 for C<@image> of C<@ref>.
+and C<@abbr>, 5 for C<@image> and C<@ref>.
 
 Values are not necessarily set for all the commands, as commands are
 also classified by type of command, some type of commands implying a

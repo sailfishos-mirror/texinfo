@@ -1352,40 +1352,82 @@ my %valid_direction_string_type = (
   'text' => 1,
 );
 
-sub direction_string($$$)
+my %valid_direction_string_context = (
+  'normal' => 1,
+  'string' => 1,
+);
+
+sub direction_string($$$;$)
 {
   my $self = shift;
   my $direction = shift;
   my $string_type = shift;
+  my $context = shift;
 
   if (!$valid_direction_string_type{$string_type}) {
     print STDERR "Incorrect type $string_type in direction_string call\n";
     return undef;
   }
 
-  if (not exists($self->{'directions_strings'}->{$string_type}->{$direction})) {
+  $context = 'normal' if (!defined($context));
+
+  if (!$valid_direction_string_context{$context}) {
+    print STDERR "Incorrect context $context in direction_string call\n";
+    return undef;
+  }
+
+  if (not exists($self->{'directions_strings'}->{$string_type}->{$direction})
+      or not exists($self->{'directions_strings'}->{$string_type}
+                                                 ->{$direction}->{$context})) {
+    $self->{'directions_strings'}->{$string_type}->{$direction} = {}
+      if not exists($self->{'directions_strings'}->{$string_type}->{$direction});
     my $translated_directions_strings = $self->{'translated_direction_strings'};
-    if (defined($translated_directions_strings->{$string_type}->{$direction}->{'converted'})) {
+    if (defined($translated_directions_strings->{$string_type}
+                                                ->{$direction}->{'converted'})) {
       # translate already converted direction strings
-      my $result_string
-        = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'converted'},
-                     undef, undef, 'translated_text');
-      $self->{'directions_strings'}->{$string_type}->{$direction}
-        = $self->substitute_html_non_breaking_space($result_string);
-    } elsif (defined($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'})) {
+      my $converted_directions
+       = $translated_directions_strings->{$string_type}->{$direction}->{'converted'};
+      my $context_converted_string;
+      if ($converted_directions->{$context}) {
+        $context_converted_string = $converted_directions->{$context};
+      } elsif ($context eq 'string'
+               and defined($converted_directions->{'normal'})) {
+        $context_converted_string = $converted_directions->{'normal'};
+      }
+      if (defined($context_converted_string)) {
+        my $result_string
+          = $self->gdt($context_converted_string, undef, undef, 'translated_text');
+        $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
+          = $self->substitute_html_non_breaking_space($result_string);
+      } else {
+        $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
+          = undef;
+      }
+    } elsif (defined($translated_directions_strings->{$string_type}
+                                            ->{$direction}->{'to_convert'})) {
       # translate direction strings that need to be translated and converted
       my $translated_tree
-        = $self->gdt($translated_directions_strings->{$string_type}->{$direction}->{'to_convert'});
-      my $result_string = $self->convert_tree_new_formatting_context($translated_tree,
+        = $self->gdt($translated_directions_strings->{$string_type}
+                                            ->{$direction}->{'to_convert'});
+      my $converted_tree;
+      if ($context eq 'string') {
+        $converted_tree = {
+              'type' => '_string',
+              'contents' => [$translated_tree]};
+      } else {
+        $converted_tree = $translated_tree;
+      }
+      my $result_string = $self->convert_tree_new_formatting_context($converted_tree,
                              "direction $direction", undef, "direction $direction");
-      $self->{'directions_strings'}->{$string_type}->{$direction}
+      $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
         = $result_string;
     } else {
       # FIXME or ''
-      $self->{'directions_strings'}->{$string_type}->{$direction} = undef;
+      $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
+         = undef;
     }
   }
-  return $self->{'directions_strings'}->{$string_type}->{$direction};
+  return $self->{'directions_strings'}->{$string_type}->{$direction}->{$context};
 }
 
 # API for misc conversion and formatting functions
@@ -3394,13 +3436,13 @@ sub _direction_href_attributes($$)
 
   my $href_attributes = '';
   if ($self->get_conf('USE_ACCESSKEY')) {
-    my $accesskey = $self->direction_string($direction, 'accesskey');
+    my $accesskey = $self->direction_string($direction, 'accesskey', 'string');
     if (defined($accesskey) and ($accesskey ne '')) {
       $href_attributes = " accesskey=\"$accesskey\"";
     }
   }
   if ($self->get_conf('USE_REL_REV')) {
-    my $button_rel = $self->direction_string($direction, 'rel');
+    my $button_rel = $self->direction_string($direction, 'rel', 'string');
     if (defined($button_rel) and ($button_rel ne '')) {
       $href_attributes .= " rel=\"$button_rel\"";
     }
@@ -3471,9 +3513,10 @@ sub _default_format_button($$;$)
     if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')
         and defined($self->get_conf('ACTIVE_ICONS')->{$button})
         and $self->get_conf('ACTIVE_ICONS')->{$button} ne '') {
-      my $button_name = $self->direction_string($button, 'button');
+      my $button_name_string = $self->direction_string($button, 'button', 'string');
+      # FIXME button_name used in string context
       $active = &{$self->formatting_function('format_button_icon_img')}($self,
-                        $button_name, $self->get_conf('ACTIVE_ICONS')->{' '});
+                        $button_name_string, $self->get_conf('ACTIVE_ICONS')->{' '});
     } else {
       $active = $self->direction_string($button, 'text');
     }
@@ -3484,18 +3527,18 @@ sub _default_format_button($$;$)
     if ($href) {
       # button is active
       my $btitle = '';
-      my $description = $self->direction_string($button, 'description');
+      my $description = $self->direction_string($button, 'description', 'string');
       if (defined($description)) {
         $btitle = ' title="' . $description . '"';
       }
       if ($self->get_conf('USE_ACCESSKEY')) {
-        my $accesskey = $self->direction_string($button, 'accesskey');
+        my $accesskey = $self->direction_string($button, 'accesskey', 'string');
         if (defined($accesskey) and $accesskey ne '') {
           $btitle .= " accesskey=\"$accesskey\"";
         }
       }
       if ($self->get_conf('USE_REL_REV')) {
-        my $button_rel = $self->direction_string($button, 'rel');
+        my $button_rel = $self->direction_string($button, 'rel', 'string');
         if (defined($button_rel) and $button_rel ne '') {
           $btitle .= " rel=\"$button_rel\"";
         }
@@ -3503,13 +3546,12 @@ sub _default_format_button($$;$)
       my $use_icon;
       if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')) {
         my $active_icon = $self->get_conf('ACTIVE_ICONS')->{$button};
-        my $button_name = $self->direction_string($button, 'button');
-        if (defined($active_icon) and $active_icon ne ''
-            and defined($button_name)) {
+        my $button_name_string = $self->direction_string($button, 'button', 'string');
+        if (defined($active_icon) and $active_icon ne '') {
           # use icon
           $active = "<a href=\"$href\"${btitle}>".
              &{$self->formatting_function('format_button_icon_img')}($self,
-                      $button_name, $active_icon,
+                      $button_name_string, $active_icon,
                       $self->from_element_direction($button, 'string')) ."</a>";
           $use_icon = 1;
         }
@@ -3524,10 +3566,10 @@ sub _default_format_button($$;$)
       my $use_icon;
       if ($self->get_conf('ICONS') and $self->get_conf('PASSIVE_ICONS')) {
         my $passive_icon = $self->get_conf('PASSIVE_ICONS')->{$button};
-        my $button_name = $self->direction_string($button, 'button');
+        my $button_name_string = $self->direction_string($button, 'button', 'string');
         if ($passive_icon and $passive_icon ne '') {
           $passive = &{$self->formatting_function('format_button_icon_img')}(
-                      $self, $button_name, $passive_icon,
+                      $self, $button_name_string, $passive_icon,
                       $self->from_element_direction($button, 'string'));
           $use_icon = 1;
         }
@@ -7102,19 +7144,25 @@ sub converter_initialize($)
   my $customized_direction_strings = Texinfo::Config::GNUT_get_direction_string_info();
   foreach my $string_type (keys(%default_converted_directions_strings)) {
     foreach my $direction (keys(%{$default_converted_directions_strings{$string_type}})) {
-      my $string = '';
+      my $string_contexts;
       if ($customized_direction_strings->{$string_type}
           and $customized_direction_strings->{$string_type}->{$direction}) {
         if (defined($customized_direction_strings->{$string_type}->{$direction}->{'converted'})) {
-          $string
+          $string_contexts
             = $customized_direction_strings->{$string_type}->{$direction}->{'converted'}
         }
       } else {
-        $string
+        my $string
           = $default_converted_directions_strings{$string_type}->{$direction};
+        $string_contexts
+          = {'normal' => $string};
       }
-      $self->{'directions_strings'}->{$string_type}->{$direction}
-        = $self->substitute_html_non_breaking_space($string);
+      $string_contexts->{'string'} = $string_contexts->{'normal'}
+        if (not defined($string_contexts->{'string'}));
+      foreach my $context (keys(%$string_contexts)) {
+        $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
+          = $self->substitute_html_non_breaking_space($string_contexts->{$context});
+      }
     }
   }
   $self->{'translated_direction_strings'} = {};
@@ -7126,8 +7174,18 @@ sub converter_initialize($)
         $self->{'translated_direction_strings'}->{$string_type}->{$direction}
           = $customized_direction_strings->{$string_type}->{$direction};
       } else {
-        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
-          = $default_translated_directions_strings{$string_type}->{$direction};
+        if ($default_translated_directions_strings{$string_type}->{$direction}
+                                                                ->{'converted'}) {
+          foreach my $context ('normal', 'string') {
+            $self->{'translated_direction_strings'}->{$string_type}
+                     ->{$direction}->{'converted'}->{$context}
+               = $default_translated_directions_strings{$string_type}
+                                                     ->{$direction}->{'converted'};
+          }
+        } else {
+          $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+            = $default_translated_directions_strings{$string_type}->{$direction};
+        }
       }
     }
   }
@@ -9057,7 +9115,7 @@ sub _get_links($$$$)
         my $link_title = '';
         $link_title = " title=\"$link_string\"" if (defined($link_string));
         my $rel = '';
-        my $button_rel = $self->direction_string($link, 'rel');
+        my $button_rel = $self->direction_string($link, 'rel', 'string');
         $rel = " rel=\"".$button_rel.'"' if (defined($button_rel));
         $links .= $self->close_html_lone_element(
                     "<link href=\"$link_href\"${rel}${link_title}")."\n";
@@ -9242,7 +9300,9 @@ sub _default_format_special_body_about($$$)
   $about .= <<EOT;
 <p>
 EOT
-  $about .= $self->convert_tree($self->gdt('  The buttons in the navigation panels have the following meaning:')) . "\n";
+  $about .= $self->convert_tree(
+    $self->gdt('  The buttons in the navigation panels have the following meaning:'))
+            . "\n";
   $about .= <<EOT;
 </p>
 <table border="1">
@@ -9251,20 +9311,25 @@ EOT
   $about .= '    <th> ' . $self->convert_tree($self->gdt('Button')) . " </th>\n" .
    '    <th> ' . $self->convert_tree($self->gdt('Name')) . " </th>\n" .
    '    <th> ' . $self->convert_tree($self->gdt('Go to')) . " </th>\n" .
-   '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n" . "  </tr>\n";
+   '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n"
+ . "  </tr>\n";
 
   foreach my $button (@{$self->get_conf('SECTION_BUTTONS')}) {
-    next if ($button eq ' ' or ref($button) eq 'CODE' or ref($button) eq 'SCALAR'
-              or ref($button) eq 'ARRAY');
-    my $button_name = $self->direction_string($button, 'button');
+    next if ($button eq ' ' or ref($button) eq 'CODE'
+             or ref($button) eq 'SCALAR' or ref($button) eq 'ARRAY');
+    my $button_name_string
+          = $self->direction_string($button, 'button', 'string');
     $about .= "  <tr>\n    ".$self->html_attribute_class('td',
-                                             ['button-direction-about']) .'>';
+                                          ['button-direction-about']) .'>';
     $about .=
-      ($self->get_conf('ICONS') && $self->get_conf('ACTIVE_ICONS')->{$button} ?
-       &{$self->formatting_function('format_button_icon_img')}($self,
-                     $button_name, $self->get_conf('ACTIVE_ICONS')->{$button}) :
-           ' [' . $self->direction_string($button, 'text') . '] ');
+      (($self->get_conf('ICONS') &&
+         $self->get_conf('ACTIVE_ICONS')->{$button}) ?
+          &{$self->formatting_function('format_button_icon_img')}($self,
+             $button_name_string, $self->get_conf('ACTIVE_ICONS')->{$button})
+        : ' [' . $self->direction_string($button, 'text') . '] ');
     $about .= "</td>\n";
+    my $button_name
+          = $self->direction_string($button, 'button');
     $about .=
 '    '.$self->html_attribute_class('td', ['name-direction-about']).'>'
     .$button_name."</td>

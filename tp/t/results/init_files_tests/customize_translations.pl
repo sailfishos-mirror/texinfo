@@ -871,7 +871,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="chapter-level-extent" id="Chapter-fr">
 <div class="nav-panel">
 <p>
-N&oelig; suivant: <a href="#Chapter-de" accesskey="n" rel="next">chap de</a>, Pr&eacute;c&eacute;dent: <a href="#Chapter" accesskey="p" rel="prev">chap</a>, Monter: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="La <em class="emph">Table des mati&egrave;res</em>" rel="contents">Table des mati&egrave;res</a>]</p>
+N&oelig; suivant: <a href="#Chapter-de" accesskey="n" rel="next">chap de</a>, Pr&eacute;c&eacute;dent: <a href="#Chapter" accesskey="p" rel="prev">chap</a>, Monter: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="La Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>]</p>
 </div>
 <h2 class="chapter" id="chap-fr">2 chap fr</h2>
 
@@ -882,7 +882,7 @@ N&oelig; suivant: <a href="#Chapter-de" accesskey="n" rel="next">chap de</a>, Pr
 <div class="chapter-level-extent" id="Chapter-de">
 <div class="nav-panel">
 <p>
-Nächster Knoten: <a href="#Last-chapter" accesskey="n" rel="next">Last Chapter</a>, Vorige: <a href="#Chapter-fr" accesskey="p" rel="prev">chap fr</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Das <em class="emph">Inhaltsverzeichnis</em>" rel="contents">Inhalt</a>]</p>
+Nächster Knoten: <a href="#Last-chapter" accesskey="n" rel="next">Last Chapter</a>, Vorige: <a href="#Chapter-fr" accesskey="p" rel="prev">chap fr</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Das Inhaltsverzeichnis" rel="contents">Inhalt</a>]</p>
 </div>
 <h2 class="chapter" id="chap-de">3 chap de</h2>
 
@@ -893,7 +893,7 @@ Nächster Knoten: <a href="#Last-chapter" accesskey="n" rel="next">Last Chapter<
 <div class="chapter-level-extent" id="Last-chapter">
 <div class="nav-panel">
 <p>
-Vorige: <a href="#Chapter-de" accesskey="p" rel="prev">chap de</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Das <em class="emph">Inhaltsverzeichnis</em>" rel="contents">Inhalt</a>]</p>
+Vorige: <a href="#Chapter-de" accesskey="p" rel="prev">chap de</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Das Inhaltsverzeichnis" rel="contents">Inhalt</a>]</p>
 </div>
 <h2 class="chapter" id="Last-Chapter">4 Last Chapter</h2>
 
