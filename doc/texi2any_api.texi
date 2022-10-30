@@ -1332,8 +1332,8 @@ and is the first argument.  @code{pgdt} is used to mark
 that the translated string has a context for tools extracting
 translatable strings to produce template files, which is not the case for
 @code{gdt}.  Since it is unlikely that marking a string for translation
-is of use in a user-defined code, @code{gdt} should be usable in all
-the cases.
+is of use in user-defined code, @code{gdt} should be usable in most
+cases.
 @end deftypefun
 
 When the string is expanded as Texinfo, and converted to a
@@ -1373,7 +1373,7 @@ $converter->convert_tree($converter->gdt(
 @end example
 
 In the default case, the @code{gdt} function from the @code{Texinfo::Translations}
-module is used for translated strings.  It is possible to use a user-user defined
+module is used for translated strings.  It is possible to use a user-defined
 function instead (@pxref{@code{format_translate_string}}).
 @xref{Texinfo::Translations,,,texi2any_internals} for more
 on @code{Texinfo::Translations}.
@@ -1693,7 +1693,7 @@ The values set in converter with @code{set_conf} will not override command-line
 set customization variables, nor variables set early in init files.  This is the
 expected behaviour, in particular when the values are set from the document.
 In the rare cases when overriding the customization would be needed, the
-@code{force_conf} functions can be used:
+@code{force_conf} function can be used:
 
 @defun @var{$converter}->force_conf ($variable_name, $variable_value)
 @var{$variable_name} is the name of the variable; its value in the converter
@@ -2125,7 +2125,7 @@ It is possible to have access to the default opening function reference.
 The function used is:
 @deftypefun {@var{\&default_command_open} =} @var{$converter}->default_command_open (@var{$command_name})
 @var{$command_name} is the @@-command name without the @@. Returns the
-default opening function reference for @var{$command_name}, or undef if there is none.
+default opening function reference for @var{$command_name}, or @samp{undef} if there is none.
 @end deftypefun
 
 
@@ -2210,7 +2210,7 @@ should first be retrieved using @code{command_conversion}:
 
 @deftypefun {@var{\&command_conversion} =} @var{$converter}->command_conversion (@var{$command_name})
 @var{$command_name} is the @@-command name without the @@. Returns the
-conversion function reference for @var{$command_name}, or undef if there is none,
+conversion function reference for @var{$command_name}, or @samp{undef} if there is none,
 which should only be the case for @@-commands ignored in HTML not defined by the user.
 @end deftypefun
 
@@ -2226,7 +2226,7 @@ The function used is:
 
 @deftypefun {@var{\&default_command_conversion} =} @var{$converter}->default_command_conversion (@var{$command_name})
 @var{$command_name} is the @@-command name without the @@. Returns the
-default conversion function reference for @var{$command_name}, or undef if there is none,
+default conversion function reference for @var{$command_name}, or @samp{undef} if there is none,
 which should only be the case for @@-commands ignored in HTML.
 @end deftypefun
 
@@ -2259,7 +2259,7 @@ It is possible to have access to the default opening function reference.
 The function used is:
 @deftypefun {@var{\&default_type_open} =} @var{$converter}->default_type_open (@var{$type})
 @var{$command_name} is the element type. Returns the
-default opening function reference for @var{$type}, or undef if there is none.
+default opening function reference for @var{$type}, or @samp{undef} if there is none.
 @end deftypefun
 
 
@@ -2293,7 +2293,7 @@ should first be retrieved using @code{type_conversion}:
 
 @deftypefun {@var{\&type_conversion} =} @var{$converter}->type_conversion (@var{$type})
 @var{$type} is the element type.  Returns the
-conversion function reference for @var{$type}, or undef if there is none,
+conversion function reference for @var{$type}, or @samp{undef} if there is none,
 which should only be the case for types ignored in HTML not defined by the user.
 @end deftypefun
 
@@ -2302,7 +2302,7 @@ The function used is:
 
 @deftypefun {@var{\&default_type_conversion} =} @var{$converter}->default_type_conversion (@var{$type})
 @var{$type} is the element type.  Returns the
-default conversion function reference for @var{$type}, or undef if there is none,
+default conversion function reference for @var{$type}, or @samp{undef} if there is none,
 which should only be the case for types ignored in HTML.
 @end deftypefun
 
@@ -2400,15 +2400,17 @@ function reference should first be retrieved using
 @deftypefun {@var{\&special_element_body_formatting} =} @var{$converter}->special_element_body_formatting @
                                               (@var{$special_element_variety})
 @var{$special_element_variety} is the special element variety.  Returns the
-conversion function reference for @var{$variety}, or undef if there is none,
+conversion function reference for @var{$variety}, or @samp{undef} if there is none,
 which should not happen for the special elements described in this manual.
 @end deftypefun
 
 For example:
 @example
+@group
 my $footnotes_element_body
- = &@{$converter->special_element_body_formatting('footnotes')@}($converter,
-                                                     'footnotes', $element);
+ = &@{$converter->special_element_body_formatting('footnotes')@}(
+                                   $converter, 'footnotes', $element);
+@end group
 @end example
 
 It is possible to have access to the default conversion function reference.
@@ -2776,8 +2778,8 @@ called (@pxref{Internationalization of Strings Function}).
 @deftypefn {Function Reference} @var{$translated_tree} format_translate_string @
   (@var{$converter}, @var{$string}, @var{$lang}, @var{\%variables_hash}, @
   @var{$translation_context}, @var{$mode})
-@var{$string} is the string to be translated, @var{lang} is the current document
-language.  @var{$translation_context} is an optional translation context.
+@var{$string} is the string to be translated, @var{$lang} is the language.
+@var{$translation_context} is an optional translation context.
 @var{$mode} is an optional string which should modify how the function behaves.
 
 The result returned should be a perl Texinfo tree in the default case, or
@@ -2800,7 +2802,7 @@ converter.
 
 For advanced customization, it is also often necessary to pass information
 during conversion between different formatting functions or between
-different calls calls of the same function.
+different calls of the same function.
 
 The information is often useful for the formatting of paragraph and
 preformatted containers and @@-comands such as @code{@@abbr}, @code{@@footnote},
@@ -2900,9 +2902,12 @@ down to section level @var{$level}.  The closing texts are returned in the
 
 Example of use:
 @example
+@group
 my $level = $opening_section->@{'structure'@}->@{'section_level'@};
-$result .= join('', $converter->close_registered_sections_level($level));
+$result
+   .= join('', $converter->close_registered_sections_level($level));
 $converter->register_opened_section_level($level, "</div>\n");
+@end group
 @end example
 
 
