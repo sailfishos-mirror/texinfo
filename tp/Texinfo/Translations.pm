@@ -99,16 +99,13 @@ sub _switch_messages_locale
 # Return a parsed Texinfo tree
 sub gdt($$;$$$$)
 {
-  my ($self, $message, $replaced_substrings, $message_context, $type, $lang) = @_;
+  my ($self, $string, $replaced_substrings, $translation_context, $type, $lang) = @_;
 
   # In addition to being settable from the command line,
   # the language needs to be dynamic in case there is an untranslated string
   # from another language that needs to be translated.
   $lang = $self->get_conf('documentlanguage') if ($self and !defined($lang));
   $lang = $DEFAULT_LANGUAGE if (!defined($lang));
-
-  my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings
-      if (defined($replaced_substrings) and ref($replaced_substrings));
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
@@ -183,13 +180,13 @@ sub gdt($$;$$$$)
 
   Locale::Messages::nl_putenv("LANGUAGE=$locales");
 
-  my $translated_message;
+  my $translated_string;
 
-  if (defined($message_context)) {
-    $translated_message = Locale::Messages::pgettext($message_context,
-                                                     $message);
+  if (defined($translation_context)) {
+    $translated_string = Locale::Messages::pgettext($translation_context,
+                                                     $string);
   } else {
-    $translated_message = Locale::Messages::gettext($message);
+    $translated_string = Locale::Messages::gettext($string);
   }
 
   Locale::Messages::textdomain($messages_textdomain);
@@ -208,10 +205,22 @@ sub gdt($$;$$$$)
     }
   }
 
-  my $translation_result = $translated_message;
+  return replace_convert_substrings($self, $translated_string,
+                                    $replaced_substrings, $type);
+}
+
+sub replace_convert_substrings($$;$$)
+{
+  my $self = shift;
+  my $translated_string = shift;
+  my $replaced_substrings = shift;
+  my $type = shift;
+
+  my $translation_result = $translated_string;
 
   if ($type and $type eq 'translated_text') {
-    if (defined($re)) {
+    if (defined($replaced_substrings) and ref($replaced_substrings)) {
+      my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
       # next line taken from libintl perl, copyright Guido. sub __expand
       $translation_result
   =~ s/\{($re)\}/defined $replaced_substrings->{$1} ? $replaced_substrings->{$1} : "{$1}"/ge;
@@ -226,7 +235,8 @@ sub gdt($$;$$$$)
   # Using a special command that is invalid unless a special
   # configuration is set means that there should be no clash
   # with @-commands used in translations.
-  if (defined($re)) {
+  if (defined($replaced_substrings) and ref($replaced_substrings)) {
+    my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
     # next line taken from libintl perl, copyright Guido. sub __expand
     $translation_result =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
@@ -235,7 +245,7 @@ sub gdt($$;$$$$)
   # is worth it.  The current use case, that is allow to specify the state of
   # clickstyle and kbdinputstyle is relevant (though not implemented in thet XS
   # parser, but could be) but not necessarily determining.  Converters and
-  # users could easily avoid using @kbd and @click in the translated messages.
+  # users could easily avoid using @kbd and @click in the translated strings.
   # FIXME why not use $self->get_conf('clickstyle'), ...?  It would not be used
   # everytime, only if and where the $self object sets 'clickstyle'
   # and 'kbdinputstyle'
@@ -285,7 +295,7 @@ sub gdt($$;$$$$)
   my ($errors, $errors_count) = $registrar->errors();
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";
-    warn "translated message: $translated_message\n";
+    warn "translated string: $translated_string\n";
     warn "Error messages: \n";
     foreach my $error_message (@$errors) {
       warn $error_message->{'error_line'};
@@ -337,9 +347,9 @@ sub _substitute ($$) {
 
 sub pgdt($$$;$$$)
 {
-  my ($self, $message_context, $message, $replaced_substrings, $type, $lang) = @_;
+  my ($self, $translation_context, $string, $replaced_substrings, $type, $lang) = @_;
   # FIXME would it be better to call $self->gdt?
-  return gdt($self, $message, $replaced_substrings, $message_context, $type, $lang);
+  return gdt($self, $string, $replaced_substrings, $translation_context, $type, $lang);
 }
 
 
@@ -465,12 +475,16 @@ elements are in L<Texinfo::Common C<__> and C<__p>|Texinfo::Common/$translated_s
 
 No method is exported.
 
-The C<gdt> method is used to translate strings to be output in
-converted documents, and returns, in general, a texinfo tree.
+The C<gdt> and C<pgdt> methods are used to translate strings to be output in
+converted documents, and returns, in general, a Texinfo tree.
+
+The C<replace_convert_substrings> method is called by C<gdt> to substitute
+replaced substrings in a translated string and convert to a Texinfo tree.
+It may be especially useful when overriding or reimplementing C<gdt>.
 
 =over
 
-=item $tree = $object->gdt($string, $replaced_substrings, $message_context, $mode, $lang)
+=item $tree = $object->gdt($string, $replaced_substrings, $translation_context, $mode, $lang)
 X<C<gdt>>
 
 The I<$string> is a string to be translated.  In the default case,
@@ -488,7 +502,7 @@ C<get_conf>, or undefined (C<undef>).  If not undefined, the information in the
 I<$object> is used to determine the encoding, the documentlanguage and get some
 customization information.
 
-The I<$message_context> is optional.  If not C<undef> this is a translation
+The I<$translation_context> is optional.  If not C<undef> this is a translation
 context string for I<$string>.  It is the first argument of C<pgettext>
 in the C API of Gettext.  I<$lang> is optional. If set, it overrides the
 documentlanguage.
@@ -528,13 +542,28 @@ may only be strings in that case.
 
 =back
 
-=item $tree = $object->pgdt($message_context, $string, $replaced_substrings, $mode, $lang)
+=item $tree = $object->pgdt($translation_context, $string, $replaced_substrings, $mode, $lang)
 X<C<pgdt>>
 
-Same to C<gdt> except that the I<$message_context> is not optional.
+Same to C<gdt> except that the I<$translation_context> is not optional.
 Calls C<gdt>.  This function is useful to mark strings with a
 translation context for translation.  This function is similar to pgettext
 in the Gettext C API.
+
+=item $tree = $object->replace_convert_substrings($translated_string, $replaced_substrings, $mode)
+X<C<replace_convert_substrings>>
+
+I<$translated_string> is a string already translated.  I<$replaced_substrings>
+is an optional hash reference specifying some substitution to be done.
+I<$mode> is an optional string which may modify how the function behaves, and
+in particular whether the translated string should be converted to a Texinfo
+tree.  I<$object> is typically a converter, but can be any object that
+implements C<get_conf>, or undefined (C<undef>).  If not undefined, the
+information in the I<$object> is used to get some customization information.
+
+The function performs the substitutions of substrings in the translated
+string and converts to a Texinfo tree if needed.  It is called from C<gdt>
+after the retrieval of the translated string.
 
 =back
 

@@ -1,3 +1,23 @@
+2022-10-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Translations.pm (gdt, replace_convert_substrings):
+	Split replace_convert_substrings out of gdt, corresponding to the
+	substitution of replaced_substrings and conversion to Texinfo
+	tree.
+
+	* doc/texi2any_api.texi (Internationalization of Strings Function)
+	(Translations Output and Customization)
+	(Translated Strings Customization): add a whole chapter on
+	strings internationalization, grouping Internationalization of Strings
+	Function and information formerly in Basic Formatting Customization.
+
+	* tp/t/test_utils.pl (test), tp/Texinfo/Config.pm
+	(_GNUT_initialize_stage_handlers)
+	(_GNUT_initialize_no_arg_commands_formatting_strings)
+	(_GNUT_initialize_style_commands_formatting_info)
+	(GNUT_reinitialize_init_files): add initialization of init files
+	information in Texinfo::Config to isolate tests.
+
 2022-10-29  Patrice Dumas  <pertusus@free.fr>
 
 	Add customization of translated strings
@@ -64,3 +84,9 @@
 2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* README-hacking: new ChangeLog file done
+
+Copyright 2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.

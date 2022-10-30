@@ -355,11 +355,18 @@ my $default_priority = 'default';
 
 # FIXME add another level with format?  Not needed now as HTML is
 # the only customizable format for now.
-my $GNUT_stage_handlers = {};
+my $GNUT_stage_handlers;
 
-foreach my $stage (@possible_stages) {
-  $GNUT_stage_handlers->{$stage} = {};
+sub _GNUT_initialize_stage_handlers()
+{
+  $GNUT_stage_handlers = {};
+
+  foreach my $stage (@possible_stages) {
+    $GNUT_stage_handlers->{$stage} = {};
+  }
 }
+
+_GNUT_initialize_stage_handlers();
 
 sub texinfo_register_handler($$;$)
 {
@@ -498,11 +505,26 @@ sub GNUT_get_formatting_special_element_body_references()
 }
 
 my $default_formatting_context = 'normal';
-foreach my $possible_formatting_context (($default_formatting_context,
-                       'preformatted', 'string', 'css_string')) {
-  $GNUT_no_arg_commands_formatting_strings->{$possible_formatting_context} = {};
-  $GNUT_style_commands_formatting_info->{$possible_formatting_context} = {};
+my @all_possible_formatting_context = ($default_formatting_context,
+                               'preformatted', 'string', 'css_string');
+
+sub _GNUT_initialize_no_arg_commands_formatting_strings()
+{
+  foreach my $possible_formatting_context (@all_possible_formatting_context) {
+    $GNUT_no_arg_commands_formatting_strings->{$possible_formatting_context} = {};
+  }
 }
+
+_GNUT_initialize_no_arg_commands_formatting_strings();
+
+sub _GNUT_initialize_style_commands_formatting_info()
+{
+  foreach my $possible_formatting_context (@all_possible_formatting_context) {
+    $GNUT_style_commands_formatting_info->{$possible_formatting_context} = {};
+  }
+}
+
+_GNUT_initialize_style_commands_formatting_info();
 
 # $translated_string is supposed to be already formatted.
 # It may also be relevant to be able to pass a 'tree'
@@ -663,6 +685,26 @@ sub texinfo_register_direction_string_info($$;$$)
 sub GNUT_get_direction_string_info()
 {
   return { %$GNUT_direction_string_info };
+}
+
+
+# Not needed from the main program, as the init files should affect all
+# the manuals, but needed for tests, to have isolated tests.
+
+sub GNUT_reinitialize_init_files()
+{
+  @init_file_loading_messages = ();
+  foreach my $reference ($init_files_options,
+     $GNUT_file_id_setting_references,
+     $GNUT_formatting_references, $GNUT_formatting_special_element_body,
+     $GNUT_commands_conversion, $GNUT_commands_open, $GNUT_types_conversion,
+     $GNUT_types_open, $GNUT_accent_command_formatting_info,
+     $GNUT_types_formatting_info, $GNUT_direction_string_info) {
+    $reference = {};
+  }
+  _GNUT_initialize_stage_handlers();
+  _GNUT_initialize_no_arg_commands_formatting_strings();
+  _GNUT_initialize_style_commands_formatting_info();
 }
 
 

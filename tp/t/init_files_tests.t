@@ -28,6 +28,34 @@ pt @error{}.
 
 ',{'init_files' => ['translate_txiinternalvalue_macro.init'],
 }],
+['customize_translations',
+'
+@contents
+
+@node Top
+@top top
+
+@node Chapter
+@chapter chap
+
+@error{}.
+
+@documentlanguage fr
+@node Chapter fr
+@chapter chap fr
+
+@error{}.
+
+@documentlanguage de
+@node Chapter de
+@chapter chap de
+
+@error{}.
+
+@node Last chapter
+@chapter Last Chapter
+
+', {'init_files' => ['translated_strings_customization.pm']}],
 );
 
 my @file_tests = (

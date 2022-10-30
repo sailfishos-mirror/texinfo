@@ -510,7 +510,7 @@ texinfo_register_no_arg_command_formatting('error', undef, undef, undef,
                                            'error--&gt;');
 @end example
 
-@xref{@code{format_translate_string}} for
+@xref{Translated Strings Customization} for
 customization of translated strings.
 
 
@@ -1301,84 +1301,6 @@ according to the arguments.
 
 @xref{Setting the Context for Conversion} on how to set a specific context for
 a Texinfo tree conversion.
-
-
-@node Internationalization of Strings Function
-@subsection Internationalization of Strings Function
-
-@vindex texinfo_document @r{Gettext domain}
-The subroutines @code{gdt} or @code{pgdt}, are used for translated strings:
-
-@deftypefun {@var{$translated_tree} =} @var{$converter}->gdt (@var{$string}, @var{\%variables_hash}, @var{$translation_context}, @var{$mode})
-@deftypefunx {@var{$translated_tree} =} @var{$converter}->pgdt (@var{$translation_context}, @var{$string}, @var{\%variables_hash}, @var{$mode})
-@var{$string} is the string to be translated, @var{\%variables_hash}
-is a hash reference holding the variable parts of the translated
-string.   @var{$translation_context} is an optional translation context
-that limits the search of the translated string to that context
-(@pxref{Contexts,,,gettext,GNU gettext tools}).
-The result returned is a perl Texinfo tree in the default case.
-
-@var{$mode} is an optional string which may modify how the function behaves. The
-possible values are:
-@table @code
-@item translated_text
-In that case the string is not considered to be Texinfo, a plain string
-that is returned after translation and substitution. The substitutions
-may only be strings in that case.
-@end table
-
-If called as @code{pgdt}, @var{$translation_context} is not optional
-and is the first argument.  @code{pgdt} is used to mark
-that the translated string has a context for tools extracting
-translatable strings to produce template files, which is not the case for
-@code{gdt}.  Since it is unlikely that marking a string for translation
-is of use in user-defined code, @code{gdt} should be usable in most
-cases.
-@end deftypefun
-
-When the string is expanded as Texinfo, and converted to a
-Texinfo tree in perl, the arguments are substituted; for
-example, @samp{@{arg_name@}} is replaced by the corresponding
-actual argument, which should be Texinfo perl trees, Texinfo
-perl tree contents arrays or strings.
-
-In the following example, @samp{@{date@}}, @samp{@{program_homepage@}}
-and @samp{@{program@}} are the arguments of the string.  Since they
-are used in @code{@@uref}, their order in the formatted output depends on
-the formatting and is not predictable.
-@samp{@{date@}}, @samp{@{program_homepage@}} and @samp{@{program@}} are
-substituted after the expansion, which means that they should already be
-Texinfo perl trees, Texinfo perl tree contents.  A string is turned
-into a Texinfo text element without type, with the string as @code{text}.
-
-@example
-  $converter->gdt('Generated @@emph@{@@today@{@}@} using '
-   .'@@uref@{@{program_homepage@}, @@emph@{@{program@}@}@}.',
-      @{ 'program_homepage' => $converter->get_conf('PACKAGE_URL'),
-        'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@}));
-@end example
-
-In the example, the @code{$converter->get_conf('PACKAGE_URL')} string is turned
-into @code{@{ 'text' => $converter->get_conf('PACKAGE_URL')  @}}.
-
-An example of combining conversion with translation:
-@example
-$converter->convert_tree($converter->gdt(
-       '@{explained_string@} (@{explanation@})',
-       @{'explained_string' => @{'type' => '_converted',
-                               'text' => $result@},
-        'explanation' => @{'type' => '_converted',
-                          'text' => $explanation_result@}@}),
-                         "convert explained $cmdname");
-@end example
-
-In the default case, the @code{gdt} function from the @code{Texinfo::Translations}
-module is used for translated strings.  It is possible to use a user-defined
-function instead (@pxref{@code{format_translate_string}}).
-@xref{Texinfo::Translations,,,texi2any_internals} for more
-on @code{Texinfo::Translations}.
-@xref{Internationalization of Document Strings,,, texinfo, Texinfo} for additional
-information on the default case.
 
 
 @node Error Reporting in User Defined Functions
@@ -2769,27 +2691,6 @@ add an identifier attribute to.
 Return an anchor with identifier @var{$id}.
 @end deftypefn
 
-@item format_translate_string
-@anchor{@code{format_translate_string}}
-This function reference is not set in the default case, in the default case
-the @code{gdt} method from the @code{Texinfo::Translations} module is
-called (@pxref{Internationalization of Strings Function}).
-
-@deftypefn {Function Reference} @var{$translated_tree} format_translate_string @
-  (@var{$converter}, @var{$string}, @var{$lang}, @var{\%variables_hash}, @
-  @var{$translation_context}, @var{$mode})
-@var{$string} is the string to be translated, @var{$lang} is the language.
-@var{$translation_context} is an optional translation context.
-@var{$mode} is an optional string which should modify how the function behaves.
-
-The result returned should be a perl Texinfo tree in the default case, or
-a string if @var{$mode} is set to @code{translated_text}.
-The result returned may also be @samp{undef}, in which case the translation
-is done as if the function reference had not been defined.
-
-@xref{Internationalization of Strings Function} for more information on the
-arguments that are common with @code{gdt}.
-@end deftypefn
 
 @end table
 
@@ -3020,6 +2921,172 @@ my $foot_num_reference
 $@{$foot_num_reference@}++;
 @end example
 
+
+@node Translations Output and Customization
+@chapter Translations Output and Customization
+
+Translated strings can be specified in customization functions, for
+@@-commands without arguments (@pxref{Simple Customization for Commands
+Without Arguments}), and for direction strings (@pxref{Direction Strings
+Customization}).  Translated strings can also be inserted in the output
+using specific functions for internationalization of strings.
+
+It is possible to customize the translated strings, to
+change the translations of the translated strings used in the default case.
+If new translated strings are added, it is required to use translated strings
+customization to add translations for the strings that are not in the
+default translated strings.
+
+@xref{Internationalization of Document Strings,,, texinfo, Texinfo} for additional
+information on the default case.
+
+@node Internationalization of Strings Function
+@section Internationalization of Strings Function
+
+@vindex texinfo_document @r{Gettext domain}
+The subroutines @code{gdt} or @code{pgdt}, are used for translated strings:
+
+@deftypefun {@var{$translated_tree} =} @var{$converter}->gdt (@var{$string}, @var{\%variables_hash}, @var{$translation_context}, @var{$mode})
+@deftypefunx {@var{$translated_tree} =} @var{$converter}->pgdt (@var{$translation_context}, @var{$string}, @var{\%variables_hash}, @var{$mode})
+@var{$string} is the string to be translated, @var{\%variables_hash}
+is a hash reference holding the variable parts of the translated
+string.   @var{$translation_context} is an optional translation context
+that limits the search of the translated string to that context
+(@pxref{Contexts,,,gettext,GNU gettext tools}).
+The result returned is a perl Texinfo tree in the default case.
+
+@var{$mode} is an optional string which may modify how the function behaves. The
+possible values are:
+@table @code
+@item translated_text
+In that case the string is not considered to be Texinfo, a plain string
+that is returned after translation and substitution. The substitutions
+may only be strings in that case.
+@end table
+
+If called as @code{pgdt}, @var{$translation_context} is not optional
+and is the first argument.  @code{pgdt} is used to mark
+that the translated string has a context for tools extracting
+translatable strings to produce template files, which is not the case for
+@code{gdt}.  Since it is unlikely that marking a string for translation
+is of use in user-defined code, @code{gdt} should be usable in most
+cases.
+@end deftypefun
+
+When the string is expanded as Texinfo, and converted to a
+Texinfo tree in perl, the arguments are substituted; for
+example, @samp{@{arg_name@}} is replaced by the corresponding
+actual argument, which should be Texinfo perl trees, Texinfo
+perl tree contents arrays or strings.
+
+In the following example, @samp{@{date@}}, @samp{@{program_homepage@}}
+and @samp{@{program@}} are the arguments of the string.  Since they
+are used in @code{@@uref}, their order in the formatted output depends on
+the formatting and is not predictable.
+@samp{@{date@}}, @samp{@{program_homepage@}} and @samp{@{program@}} are
+substituted after the expansion, which means that they should already be
+Texinfo perl trees, Texinfo perl tree contents.  A string is turned
+into a Texinfo text element without type, with the string as @code{text}.
+
+@example
+  $converter->gdt('Generated @@emph@{@@today@{@}@} using '
+   .'@@uref@{@{program_homepage@}, @@emph@{@{program@}@}@}.',
+      @{ 'program_homepage' => $converter->get_conf('PACKAGE_URL'),
+        'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@}));
+@end example
+
+In the example, the @code{$converter->get_conf('PACKAGE_URL')} string is turned
+into @code{@{ 'text' => $converter->get_conf('PACKAGE_URL')  @}}.
+
+An example of combining conversion with translation:
+@example
+$converter->convert_tree($converter->gdt(
+       '@{explained_string@} (@{explanation@})',
+       @{'explained_string' => @{'type' => '_converted',
+                               'text' => $result@},
+        'explanation' => @{'type' => '_converted',
+                          'text' => $explanation_result@}@}),
+                         "convert explained $cmdname");
+@end example
+
+In the default case, the @code{gdt} function from the @code{Texinfo::Translations}
+module is used for translated strings.  It is possible to use a user-defined
+function instead as seen next.  @xref{Texinfo::Translations,,,texi2any_internals} for more
+on @code{Texinfo::Translations}.
+
+
+@node Translated Strings Customization
+@section Translated Strings Customization
+
+To translate strings, register the @code{format_translate_string} function reference:
+
+@deftypefn {Function Reference} @var{$translated_tree} format_translate_string @
+  (@var{$converter}, @var{$string}, @var{$lang}, @var{\%variables_hash}, @
+  @var{$translation_context}, @var{$mode})
+@var{$string} is the string to be translated, @var{$lang} is the language.
+@var{$translation_context} is an optional translation context.
+@var{$mode} is an optional string which should modify how the function behaves.
+
+The result returned should be a perl Texinfo tree in the default case, or
+a string if @var{$mode} is set to @code{translated_text}.
+The result returned may also be @samp{undef}, in which case the translation
+is done as if the function reference had not been defined.
+
+@xref{Internationalization of Strings Function} for more information on the
+arguments that are common with @code{gdt}.
+
+The @code{replace_convert_substrings} method of @code{Texinfo::Translations}
+can be used to substitute @var{\%variables_hash} and return a Texinfo tree
+based on a translated string, taking into account @var{$mode}
+(@pxref{Texinfo@asis{::}Translations $tree = $object->replace_convert_substrings($translated_string@comma{} $replaced_substrings@comma{} $mode),,
+Texinfo@asis{::}Translations replace_convert_substrings, texi2any_internals}).
+@end deftypefn
+
+This function reference is not set in the default case, in the default case
+the @code{gdt} method from the @code{Texinfo::Translations} module is
+called (@pxref{Internationalization of Strings Function}).
+@xref{Specific formating Functions} for information on how to register and get
+the function reference.
+
+Here is an example with new translated strings added and definition
+of @code{format_translate_string} to translate the strings:
+
+@example
+texinfo_register_no_arg_command_formatting('error', undef, undef,
+                                                undef, 'error--&gt;');
+my %translations = (
+ 'fr' => @{
+           'error--&gt;' => @{'' => 'erreur--&gt;',@},
+           # @dots{}
+         @}
+ 'de' => @{
+           'error--&gt;' => @{'' => 'Fehler--&gt;',@},
+           # @dots{}
+         @}
+ # @dots{}
+);
+
+sub my_format_translate_string($$$;$$$)
+@{
+  my ($self, $string, $lang, $replaced_substrings,
+                              $translation_context, $type) = @_;
+  $translation_context = '' if (!defined($translation_context));
+  if (exists($translations@{$lang@})
+      and exists($translations@{$lang@}->@{$string@})
+      and exists($translations@{$lang@}->@{$string@}
+                                  ->@{$translation_context@})) @{
+    my $translation = $translations@{$lang@}->@{$string@}
+                                      ->@{$translation_context@};
+    return $self->replace_convert_substrings($translation,
+                           $replaced_substrings, $type);
+  @}
+  return undef;
+@}
+
+texinfo_register_formatting_function('format_translate_string',
+                                       \&_my_format_translate_string);
+
+@end example
 
 @node Directions@comma{} Links@comma{} Labels and Files
 @chapter Directions, Links, Labels and Files

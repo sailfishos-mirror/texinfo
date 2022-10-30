@@ -952,6 +952,8 @@ sub test($$)
     delete $parser_options->{'test_formats'};
   }
 
+  # reset Texinfo::Config informations to have isolated tests
+  Texinfo::Config::GNUT_reinitialize_init_files();
   my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
   # the init file names are supposed to be binary strings.  Since they
   # are not encoded anywhere, probably only non ascii file names should
