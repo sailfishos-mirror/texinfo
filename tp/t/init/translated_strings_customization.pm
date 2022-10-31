@@ -20,6 +20,7 @@ my %translations = (
            ' -&gt; ' => {'' => 'N&oelig; suivant'},
            'error--&gt;' => {'' => 'Erreur--&gt;',},
 
+           'Forward' => {'' => 'Vers l\'avant @result{}',},
            'Table of contents' => {'' => 'La @emph{Table des mati@`eres}',},
            '{number} {section_title}' => {'' => '{number}@ : {section_title}'},
           },
@@ -28,6 +29,7 @@ my %translations = (
            ' -&gt; ' => {'' => 'Nächster Knoten'},
            'error--&gt;' => {'' => 'Fehler--&gt;',},
 
+           'Forward' => {'' => 'Nach vorne @result{}',},
            'Table of contents' => {'' => 'Das @emph{Inhaltsverzeichnis}',},
            '{number} {section_title}' => {'' => '{number}: {section_title}'},
           },
@@ -50,5 +52,21 @@ sub _my_format_translate_string($$$;$$$)
 
 texinfo_register_formatting_function('format_translate_string',
                                        \&_my_format_translate_string);
+
+# avoid doing twice if there are more than one manual processed
+my $button_added;
+sub _my_add_button
+{
+  my ($self, $tree, $stage) = @_;
+
+  if (!$button_added) {
+    my @section_buttons = @{$self->get_conf('SECTION_BUTTONS')};
+    push @section_buttons, (' ', 'Forward');
+    $self->set_conf('SECTION_BUTTONS', \@section_buttons);
+    $button_added = 1;
+  }
+}
+
+texinfo_register_handler('setup', \&_my_add_button);
 
 1;

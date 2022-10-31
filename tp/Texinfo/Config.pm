@@ -685,10 +685,12 @@ sub texinfo_register_direction_string_info($$;$$$)
     if (not exists($GNUT_direction_string_info->{$type}->{$direction}));
   $GNUT_direction_string_info->{$type}->{$direction}->{'to_convert'}
      = $string_to_convert;
-  $GNUT_direction_string_info->{$type}->{$direction}->{'converted'} = {}
-   if (!defined($GNUT_direction_string_info->{$type}->{$direction}->{'converted'}));
-  $GNUT_direction_string_info->{$type}->{$direction}->{'converted'}->{$context}
-    = $converted_string;
+  if (defined($converted_string)) {
+    $GNUT_direction_string_info->{$type}->{$direction}->{'converted'} = {}
+      if (!defined($GNUT_direction_string_info->{$type}->{$direction}->{'converted'}));
+    $GNUT_direction_string_info->{$type}->{$direction}->{'converted'}->{$context}
+      = $converted_string;
+  }
 }
 
 sub GNUT_get_direction_string_info()
