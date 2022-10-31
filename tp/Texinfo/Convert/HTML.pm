@@ -1811,7 +1811,12 @@ my %defaults = (
                               'Frame' => '_frame',
                               'Toc_Frame' => '_toc_frame',
                               },
-  'special_elements_order'  => ['footnotes', 'contents', 'shortcontents', 'about'],
+  'special_elements_order'  => {
+                              'contents' => 20,
+                              'shortcontents' => 30,
+                              'footnotes' => 10,
+                              'about' => 40,
+                            },
   'DOCTYPE'              => '<!DOCTYPE html>',
   'FRAMESET_DOCTYPE'     => '<!DOCTYPE html>',
   'DEFAULT_RULE'         => '<hr>',
@@ -7640,7 +7645,7 @@ sub _process_css_file($$$)
 sub _prepare_css($)
 {
   my $self = shift;
-  
+
   return if ($self->get_conf('NO_CSS'));
 
   my @css_import_lines;
@@ -8013,7 +8018,7 @@ sub _html_set_pages_files($$$$$$$$)
   } else {
     my $node_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
-  
+
     my $top_node_filename = $self->top_node_filename($document_name);
     my $node_top_tree_unit;
     # first determine the top node file name.
@@ -8245,7 +8250,26 @@ sub _prepare_special_elements($$$$)
     if (defined($self->get_conf('EXTENSION')));
 
   my $special_elements = [];
-  foreach my $special_element_variety (@{$self->{'special_elements_order'}}) {
+  # sort special elements according to their index order from
+  # 'special_elements_order'.
+  # First reverse the hash, using arrays in case some elements are at the
+  # same index, and sort to get alphabetically sorted special element
+  # varieties that are at the same index.
+  my %special_elements_indices;
+  foreach my $special_element_variety
+      (sort(keys(%{$self->{'special_elements_order'}}))) {
+    my $index = $self->{'special_elements_order'}->{$special_element_variety};
+    $special_elements_indices{$index} = []
+      if (not exists ($special_elements_indices{$index}));
+    push @{$special_elements_indices{$index}}, $special_element_variety;
+  }
+  # now sort according to indices
+  my @sorted_elements_varieties;
+  foreach my $index (sort { $a <=> $b } (keys(%special_elements_indices))) {
+    push @sorted_elements_varieties, @{$special_elements_indices{$index}};
+  }
+
+  foreach my $special_element_variety (@sorted_elements_varieties) {
     next unless ($do_special{$special_element_variety});
 
     my $element = {'type' => 'special_element',

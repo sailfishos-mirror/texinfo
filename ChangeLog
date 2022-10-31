@@ -1,5 +1,12 @@
 2022-10-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_prepare_special_elements): for
+	special elements order, use a hash with indices to be used to order
+	the special elements instead of an array.  More code, but much easier
+	to customize/modify.
+
+2022-10-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm: remove 'Top' from %defaults
 	'special_elements_targets', instead hardcode the empty @top target in
 	the code.
