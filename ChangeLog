@@ -1,5 +1,12 @@
 2022-10-31  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Translated Strings Customization),
+	tp/init/documentation_examples.pm (my_format_translate_string):
+	add translation strings customization example in
+	documentation_examples.pm and fix in manual.
+
+2022-10-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (texinfo_register_direction_string_info):
 	set converted string structure only if the argument is defined.
 

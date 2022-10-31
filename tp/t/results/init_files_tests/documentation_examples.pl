@@ -237,7 +237,7 @@ $result_trees{'documentation_examples'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 18,
+                    'line_nr' => 21,
                     'macro' => ''
                   }
                 },
@@ -524,6 +524,59 @@ $result_trees{'documentation_examples'} = {
           'type' => 'empty_line'
         },
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'text' => 'fr'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'documentlanguage',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'fr'
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 17,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'error',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 19,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '.
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
           'text' => '
 ',
           'type' => 'empty_line'
@@ -577,6 +630,9 @@ $result_texis{'documentation_examples'} = '
 @sansserif{in--example} @- c. @error{}
 @end example
 
+@documentlanguage fr
+
+@error{}.
 
 @node my node
 
@@ -595,6 +651,8 @@ in--math  a=b error-->
 
 in--example  c. error-->
 
+
+error-->.
 
 
 ';

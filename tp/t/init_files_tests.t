@@ -82,6 +82,9 @@ my @file_tests = (
 @sansserif{in--example} @- c. @error{}
 @end example
 
+@documentlanguage fr
+
+@error{}.
 
 @node my node
 

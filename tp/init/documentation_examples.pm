@@ -18,6 +18,18 @@ if (not defined($default_footnotestyle)) {
   $main_program_footnotestyle = 'not separate '.$default_footnotestyle;
 }
 
+my %translations = (
+'fr' => {
+'error--&gt;' => {'' => 'erreur--&gt;',},
+# ...
+},
+'de' => {
+'error--&gt;' => {'' => 'Fehler--&gt;',},
+# ...
+}
+# ...
+);
+
 texinfo_register_no_arg_command_formatting('-', undef, '&shy;');
 
 texinfo_register_no_arg_command_formatting('error', undef, undef, undef,
@@ -129,4 +141,21 @@ sub my_label_target_name($$$) {
 texinfo_register_file_id_setting_function('label_target_name',
                                           \&my_label_target_name);
 
+sub my_format_translate_string($$$;$$$)
+{
+  my ($self, $string, $lang, $replaced_substrings,
+                             $translation_context, $type) = @_;
+  $translation_context = '' if (!defined($translation_context));
+  if (exists($translations{$lang})
+      and exists($translations{$lang}->{$string})
+      and exists($translations{$lang}->{$string}->{$translation_context})) {
+    my $translation = $translations{$lang}->{$string}->{$translation_context};
+    return $self->replace_convert_substrings($translation,
+                                                 $replaced_substrings, $type);
+  }
+  return undef;
+}
+
+texinfo_register_formatting_function('format_translate_string',
+                                          \&my_format_translate_string);
 1;

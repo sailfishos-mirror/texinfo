@@ -3067,7 +3067,7 @@ my %translations = (
  'fr' => @{
            'error--&gt;' => @{'' => 'erreur--&gt;',@},
            # @dots{}
-         @}
+         @},
  'de' => @{
            'error--&gt;' => @{'' => 'Fehler--&gt;',@},
            # @dots{}
@@ -3078,7 +3078,7 @@ my %translations = (
 sub my_format_translate_string($$$;$$$)
 @{
   my ($self, $string, $lang, $replaced_substrings,
-                              $translation_context, $type) = @_;
+                              $translation_context, $type) = @@_;
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations@{$lang@})
       and exists($translations@{$lang@}->@{$string@})
@@ -3093,7 +3093,7 @@ sub my_format_translate_string($$$;$$$)
 @}
 
 texinfo_register_formatting_function('format_translate_string',
-                                       \&_my_format_translate_string);
+                                       \&my_format_translate_string);
 
 @end example
 
