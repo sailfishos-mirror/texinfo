@@ -2120,7 +2120,7 @@ sub _translate_names($)
 
 # redefined functions
 #
-# Texinfo::Translations redefined to call user defined function.
+# Texinfo::Translations::gdt redefined to call user defined function.
 sub gdt($$;$$$$)
 {
   my ($self, $message, $replaced_substrings, $message_context, $type, $lang) = @_;

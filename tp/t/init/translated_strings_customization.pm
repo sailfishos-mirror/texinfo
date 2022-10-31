@@ -35,7 +35,7 @@ my %translations = (
           },
 );
 
-sub _my_format_translate_string($$$;$$$)
+sub _texi2any_tests_format_translate_string($$$;$$$)
 {
   my ($self, $string, $lang, $replaced_substrings,
                               $translation_context, $type) = @_;
@@ -51,11 +51,11 @@ sub _my_format_translate_string($$$;$$$)
 }
 
 texinfo_register_formatting_function('format_translate_string',
-                                       \&_my_format_translate_string);
+                                       \&_texi2any_tests_format_translate_string);
 
 # avoid doing twice if there are more than one manual processed
 my $button_added;
-sub _my_add_button
+sub _texi2any_tests_translate_add_button
 {
   my ($self, $tree, $stage) = @_;
 
@@ -67,6 +67,6 @@ sub _my_add_button
   }
 }
 
-texinfo_register_handler('setup', \&_my_add_button);
+texinfo_register_handler('setup', \&_texi2any_tests_translate_add_button);
 
 1;
