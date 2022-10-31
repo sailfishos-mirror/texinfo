@@ -1,5 +1,13 @@
 2022-10-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_load_htmlxref_files): do not
+	set htmlxref_files converter state, use a regular array.
+
+	* tp/Texinfo/Convert/HTML.pm (_external_node_href): remove
+	_htmlxref, access directly the 'htmlxref' converter state.
+
+2022-10-31  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Translated Strings Customization),
 	tp/init/documentation_examples.pm (my_format_translate_string):
 	add translation strings customization example in

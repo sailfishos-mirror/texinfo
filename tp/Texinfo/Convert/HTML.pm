@@ -5235,9 +5235,9 @@ sub _convert_printindex_command($$$$)
                and ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}
                     or $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'}));
       $entry_nr++;
-      # to avoid double error messages set ignore_notice if an entry was
-      # already formatted once, for example if there are multiple printindex.
-      my $already_formatted;
+      # to avoid double error messages, call convert_tree_new_formatting_context
+      # below with a multiple_pass argument if an entry was already formatted once,
+      # for example if there are multiple printindex.
       if (!$formatted_index_entries->{$index_entry_ref}) {
         $formatted_index_entries->{$index_entry_ref} = 1;
       } else {
@@ -5253,6 +5253,7 @@ sub _convert_printindex_command($$$$)
 
       my $entry;
       if ($formatted_index_entries->{$index_entry_ref} > 1) {
+        # call with multiple_pass argument
         $entry = $self->convert_tree_new_formatting_context($entry_tree,
                        "index $index_name l $letter index entry $entry_nr",
                    "index formatted $formatted_index_entries->{$index_entry_ref}")
@@ -6891,6 +6892,7 @@ sub _parse_htmlxref_files($$)
 sub _load_htmlxref_files {
   my ($self) = @_;
 
+  my @htmlxref_files;
   my $htmlxref_mode = $self->get_conf('HTMLXREF_MODE');
   return if (defined($htmlxref_mode) and $htmlxref_mode eq 'none');
   my $htmlxref_file_name = 'htmlxref.cnf';
@@ -6901,7 +6903,7 @@ sub _load_htmlxref_files {
     my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
       = $self->encoded_output_file_name($htmlxref_file_name);
     if (-e $encoded_htmlxref_file_name and -r $encoded_htmlxref_file_name) {
-      $self->{'htmlxref_files'} = [$encoded_htmlxref_file_name];
+      @htmlxref_files = ($encoded_htmlxref_file_name);
     } else {
       $self->document_warn($self,
         sprintf(__("could not find html refs config file %s"),
@@ -6928,7 +6930,6 @@ sub _load_htmlxref_files {
     }
     unshift @htmlxref_dirs, '.';
 
-    my @texinfo_htmlxref_files;
     # no htmlxref for tests, unless explicitly specified
     if ($self->get_conf('TEST')) {
       if (defined($self->get_conf('HTMLXREF_FILE'))) {
@@ -6943,17 +6944,16 @@ sub _load_htmlxref_files {
     if (defined($htmlxref_file_name)) {
       my ($encoded_htmlxref_file_name, $htmlxref_file_encoding)
         = $self->encoded_output_file_name($htmlxref_file_name);
-      @texinfo_htmlxref_files
+      @htmlxref_files
         = Texinfo::Common::locate_init_file($encoded_htmlxref_file_name,
                                           \@htmlxref_dirs, 1);
     }
-    $self->{'htmlxref_files'} = \@texinfo_htmlxref_files;
   }
 
   $self->{'htmlxref'} = {};
-  if (scalar(@{$self->{'htmlxref_files'}})) {
+  if (scalar(@htmlxref_files)) {
     $self->{'htmlxref'} = _parse_htmlxref_files($self,
-                                                $self->{'htmlxref_files'});
+                                                \@htmlxref_files);
   }
 }
 
@@ -6963,6 +6963,9 @@ sub _load_htmlxref_files {
 #
 #     API exists
 #  shared_conversion_state
+#   Set through the shared_conversion_state API (among others):
+#  explained_commands         # used only in an @-command conversion function
+#  element_explanation_contents    # same as above
 #
 #     API exists
 #  current_filename
@@ -7020,6 +7023,10 @@ sub _load_htmlxref_files {
 #  global_target_elements_directions
 #
 #    API exists
+#  directions_strings
+#  translated_direction_strings
+#
+#    API exists
 #  elements_in_file_count    # the number of tree unit elements in file
 #  file_counters             # begin at elements_in_file_count decrease
 #                            # each time the tree unit element is closed
@@ -7031,22 +7038,18 @@ sub _load_htmlxref_files {
 #     API exists
 #  files_information
 #
+#     No API, converter internals
 #  tree_units
-#  out_filepaths
+#  out_filepaths          (partially common with Texinfo::Converter)
 #  current_root_element
 #  seen_ids
 #  ignore_notice
 #  options_latex_math
-#  htmlxref_files
 #  htmlxref
 #  check_htmlxref_already_warned
 #
 #    from Converter
 #  labels
-#
-#  explained_commands         # not defined in the converter per se but in an
-#                             # @-command conversion function and only used there
-#  element_explanation_contents    # same as above
 
 my %special_characters = (
   'paragraph_symbol' => ['&para;', '00B6'],
@@ -8547,17 +8550,6 @@ sub _prepare_footnotes($)
   }
 }
 
-# TODO this encapsulates some information.
-# The encapsulation and API should be more consistent for
-# the overall module.
-sub _htmlxref($$)
-{
-  my $self = shift;
-  my $file = shift;
-
-  return $self->{'htmlxref'}->{$file};
-}
-
 sub _external_node_href($$$;$)
 {
   my $self = shift;
@@ -8601,7 +8593,7 @@ sub _external_node_href($$$;$)
     $document_split = 'mono' if (!$document_split);
     my $split_found;
     my $href;
-    my $htmlxref_info = $self->_htmlxref($manual_base);
+    my $htmlxref_info = $self->{'htmlxref'}->{$manual_base};
     if ($htmlxref_info) {
       foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
         if (defined($htmlxref_info->{$split_ordered})) {
