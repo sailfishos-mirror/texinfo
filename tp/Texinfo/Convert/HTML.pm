@@ -1800,7 +1800,6 @@ my %defaults = (
                              'contents' => 'SEC_Contents',
                              'footnotes' => 'SEC_Footnotes',
                              'about' => 'SEC_About',
-                             'Top' => 'SEC_Top',
                             },
   'special_elements_file_string' => {
                               'contents' => '_toc',
@@ -7757,9 +7756,9 @@ sub _new_sectioning_command_target($$)
     = $self->normalized_sectioning_command_filename($command);
 
   my $target_base = _normalized_to_id($normalized_name);
-  if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top'
-      and defined($self->{'special_elements_targets'}->{'Top'})) {
-    $target_base = $self->{'special_elements_targets'}->{'Top'};
+  if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top') {
+    # @top is allowed to be empty.  In that case it gets this target name
+    $target_base = 'SEC_Top';
   }
   my $nr=1;
   my $target = $target_base;
