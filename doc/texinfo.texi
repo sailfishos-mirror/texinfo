@@ -17130,7 +17130,11 @@ is @var{documentlanguage}@code{.}@var{documentencoding}.
 
 @cindex @code{us-ascii} encoding, and translations
 If the @var{documentlanguage} has the form @samp{ll_CC}, that is
-tried first, and then just @samp{ll}.  If that does not exist, and the
+tried first, and then just @samp{ll}.
+
+To cope with the possibility of having multiple encodings, a
+special use of the @code{us-ascii} locale encoding is also possible.
+If the @samp{ll} locale in the current encoding does not exist, and the
 encoding is not @code{us-ascii}, then @code{us-ascii} is tried.
 
 The idea is that if there is a @code{us-ascii} encoding, it means that
