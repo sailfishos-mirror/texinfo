@@ -1449,11 +1449,11 @@ sub special_element_info($$;$) {
 
     if (not exists($self->{'special_element_info'}->{$type}
                                     ->{$special_element_variety})) {
-      my $special_element_heading = $translated_special_element_info
+      my $special_element_info_string = $translated_special_element_info
                                             ->{$special_element_variety};
       my $translated_tree;
-      if (defined($special_element_heading)) {
-        $translated_tree = $self->gdt($special_element_heading);
+      if (defined($special_element_info_string)) {
+        $translated_tree = $self->gdt($special_element_info_string);
       }
       $self->{'special_element_info'}->{$type}->{$special_element_variety}
         = $translated_tree;
@@ -2120,6 +2120,7 @@ sub _translate_names($)
     $self->{'directions_strings'}->{$string_type} = {};
   }
 
+  # could also use keys of $self->{'translated_special_element_info'}
   foreach my $type (keys(%default_translated_special_element_info)) {
     $self->{'special_element_info'}->{$type.'_tree'} = {};
   }
