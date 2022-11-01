@@ -1206,9 +1206,26 @@ sub convert_to_latex_math($$;$$)
   return $result;
 }
 
+# associates to an inputenc and fontenc
 my %LaTeX_encoding_names_map = (
-  'utf-8' => 'utf8',
-  'iso-8859-1' => 'latin1',
+  'utf-8' => ['utf8', 'T1'],
+  # from https://ctan.gutenberg-asso.fr/macros/latex/base/inputenc.pdf
+  # The ASCII encoding only allows characters in the range 32–127,
+  'us-ascii' => ['ascii', 'T1'],
+  'iso-8859-1' => ['latin1', 'T1'],
+  # The ISO Latin-9 encoding file defines the characters in the ISO 8859-15
+  # encoding
+  'iso-8859-15' => ['latin9', 'T1'],
+  # The ISO Latin-2 encoding file defines the characters in the ISO 8859-2
+  # encoding.
+  'iso-8859-2' => ['latin2', 'T1'],
+
+  # requires texlive-lang-cyrillic on debian.
+  # T2A seems to be the only required fontenc for Russian and Ukrainian according to
+  # https://www.latex-project.org/help/documentation/cyrguide.pdf
+  # Font encodings for Cyrillic languages
+  'koi8-r' => ['koi8-r', 'T2A'],
+  'koi8-u' => ['koi8-u', 'T2A'],
 );
 
 # book or report?
@@ -1440,6 +1457,7 @@ roundcorner=10pt}
 
 ';
   }
+  $header_code .= "\\makeatother\n";
 
   # amsfonts for \circledR
   # amsmath for \text in math
@@ -1461,25 +1479,35 @@ roundcorner=10pt}
   # titleps is used and not fancyhdr as with fancyhdr it is hard to get
   # the section or chapter title
   my $header = "\\documentclass{$documentclass}\n";
+  $header .= '\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[gen]{eurosym}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{titleps}
+';
+  my $fontenc = 'T1';
+  if ($self->{'output_encoding_name'}) {
+    my $output_encoding = $self->{'output_encoding_name'};
+    my $encoding = $output_encoding;
+    if (defined($LaTeX_encoding_names_map{$output_encoding})) {
+      ($encoding, $fontenc) = @{$LaTeX_encoding_names_map{$output_encoding}};
+    }
+    $header .= "\\usepackage[$encoding]{inputenc}\n";
+  }
+  $header .= "\\usepackage[$fontenc]{fontenc}\n";
+
   if ($self->{'index_entries'}
       and scalar(keys(%{$self->{'index_entries'}}))) {
     $header .= "\\usepackage{imakeidx}\n";
   }
-  $header .= '\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage[gen]{eurosym}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage{graphicx}
-';
   if ($self->{'packages'}->{'needspace'}) {
     $header .= "\\usepackage{needspace}\n";
   }
   if ($self->{'packages'}->{'microtype'}) {
     $header .= "\\usepackage[activate=false]{microtype}\n";
   }
-  $header .= '\usepackage{etoolbox}
-';
   if ($self->{'packages'}->{'array'}) {
     $header .= "\\usepackage{array}\n";
   }
@@ -1503,31 +1531,16 @@ roundcorner=10pt}
   if ($self->{'packages'}->{'geometry'}) {
     $header .= "\\usepackage{geometry}\n";
   }
-  $header .= '\usepackage{titleps}
-';
   if ($self->{'floats'}) {
     $header .= "\\usepackage{float}\n";
   }
   if ($self->{'packages'}->{'babel'}) {
     $header .= "\\usepackage{babel}\n";
   }
+  # Documentation says to include last
   $header .= '% use hidelinks to remove boxes around links to be similar to Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 ';
-  if ($self->{'output_encoding_name'}) {
-    my $encoding = $self->{'output_encoding_name'};
-    if (defined($LaTeX_encoding_names_map{$encoding})) {
-      $encoding = $LaTeX_encoding_names_map{$encoding};
-    }# else {
-      # FIXME Warn?
-    #}
-    $header .= "\\usepackage[$encoding]{inputenc}\n";
-  }
-  #if ($self->{'global_commands'}->{'shortcontents'}) {
-  #  # in texlive-latex-extra in debian
-  #  $header .= "\\usepackage{shorttoc}\n";
-  #}
-  $header_code .= "\\makeatother\n";
   $header .= "\n";
 
   return $header . $header_code;
@@ -1893,7 +1906,7 @@ my %setchapternewpage_new_page_spec_code = (
 sub _set_chapter_new_page($$)
 {
   my ($self, $setchapternewpage_spec) = @_;
-  
+
   my $substituted_code;
   if (defined($self->{'prev_chapter_new_page_substitution'})) {
     $substituted_code = $self->{'prev_chapter_new_page_substitution'};
@@ -2418,7 +2431,7 @@ sub _convert($$)
             }
           }
         } else {
-          # always protect, even in math mode 
+          # always protect, even in math mode
           $result .= "\\$cmdname";
         }
       } elsif ($cmdname eq '\\'

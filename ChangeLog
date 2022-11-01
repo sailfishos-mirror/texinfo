@@ -1,5 +1,23 @@
 2022-11-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_encoding_names_map)
+	(_latex_header): associate both a fontenc and an inputenc to
+	an encoding.
+	Separate the 'fixed' part of the LaTeX use package part of preamble at
+	the beginning, including inputenc and fontenc and the usepackage
+	lines determined by the use of Texinfo commands.
+
+2022-11-01  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (@command{texi2html}): update now that translated
+	strings customization is done.
+
+	* doc/texi2oldapi.texi: update to expand history to the point where
+	the texi2html implementation was abandonned.  Mark that the part on
+	the early texi2any API has been obsoleted by texi2any_api.
+
+2022-11-01  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Common Customization of Special Elements)
 	(Special Elements Information Customization)
 	(Special Element Body Formatting Functions), tp/Texinfo/Common.pm
