@@ -17280,12 +17280,9 @@ approximate equivalents is given below.
 
 @item Indices cannot be split.
 
-@item Translated strings cannot be customized; we hope to introduce
-this feature in @command{texi2any} in the future.
-
 @end itemize
 
-Aside from the last, we do not intend to reimplement these
+We do not intend to reimplement these
 differences.  Therefore, the route forward for authors is alter
 manuals and build processes as necessary to use the new features and
 methods of @command{texi2any}.  The @command{texi2html} maintainers
@@ -17323,11 +17320,10 @@ corresponding @command{texi2any} customization variables.
 @item @option{--test}                 @tab @code{TEST}
 @end multitable
 
-@cindex @file{texi2oldapi.texi}, for @command{texi2any}
-Finally, any @command{texi2html} users seeking more detailed
-information can check the draft file @file{doc/texi2oldapi.texi} in
-the Texinfo source repository.  It consists mainly of very rough
-notes, but may still be useful to some.
+@cindex @file{texi2oldapi.texi}, for @command{texi2html}
+Finally, any @command{texi2html} users seeking more detailed information can
+check the first part of the archived file @file{doc/texi2oldapi.texi} in the
+Texinfo source repository.
 
 
 @node Creating and Installing Info Files
@@ -18054,9 +18050,9 @@ the CHM format.  As another example, @file{highlight_syntax.pm} uses
 blocks using the first argument to specify the language of the code
 (@pxref{@code{@@example}}). @xref{,,,source-highlight, GNU Source-highlight}.
 
-The draft documentation of @command{texi2any} HTML output
-adaptation using customization files is in a separate
-manual.  @xref{,,,customization_api,GNU Texinfo @command{texi2any} Output Customization}.
+The documentation of @command{texi2any} HTML output adaptation using
+customization files is in a separate manual.  @xref{,,, texi2any_api, GNU
+Texinfo @command{texi2any} Output Customization}.
 
 @menu
 * HTML Translation::       Details of the HTML output.

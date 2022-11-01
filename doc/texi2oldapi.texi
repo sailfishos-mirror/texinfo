@@ -1,18 +1,30 @@
 @c history and some customization sections from the texi2html manual
-@c (only partly edited), excised
-@c because the new tree-based translator is likely to obviate them.
-@c Doesn't format on its own, is just here (for now) for archival purposes.
+@c (only partly edited), excised.
+@c
+@c The information in the 'texi2any Output Customization' Appendix has been
+@c merged in texi2any_api.texi when relevant, and therefore should
+@c not be of interest anymore.
+@c
+@c Here (for now) for archival purposes.
 @c
 @c   Copyright (C) 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
 @c   2001, 2002, 2003, 2004, 2009, 2010, 2011, 2013 Free Software
 @c   Foundation, Inc.
 @c
-@c See texinfo.etxi for copying conditions.
+@c See texinfo.texi for copying conditions.
+
+@node Top
+@top Archived information on Texi2HTML and early texi2any API
+
+The early texi2any API has been obsoleted by the texi2any_api
+manual (@pxref{,,, texi2any_api, GNU Texinfo @command{texi2any}
+Output Customization}}).
 
 @node Texi2HTML
 @appendix Texi2HTML history and relations with @command{makeinfo}
 
-In 2010 Texi2HTML was merged in GNU Texinfo.  Some informations are
+In 2010 Texi2HTML was merged in GNU Texinfo.  The resulting program, however
+was never released.  Some informations gathered at the time of the merge are
 retained here, mainly for historical purposes.
 
 @menu
@@ -43,11 +55,10 @@ at @uref{http://www.nongnu.org/texi2html/} was made
 compatible with @command{makeinfo}, losing the focus on HTML to become a
 more generic translator, and merged in 
 @uref{http://www.gnu.org/software/texinfo/, GNU Texinfo} to
-replace @command{makeinfo} in C.
-@command{texi2html} is now installed as part of the texinfo package install,
-as an alias of @command{texi2any}.  The @command{texi2html} documentation 
-is also merged here in the Texinfo manual, as 
-the @command{texi2any}/@command{makeinfo} documentation.
+replace @command{makeinfo} in C.  That implementation, however, was
+never released and was abandoned in favor of another implementation
+that parses the Texinfo input into a tree for processing.
+
 
 @node Texi2HTML texi2any differences
 @appendixsec Differences between @command{texi2html} and @command{texi2any} invokation
@@ -3459,7 +3470,7 @@ to format them:
 @deftypefn {Function Reference} $resulting_text line_command @
            $command $arg_text $arg_texi \%state
 
-@var{$command} is the @@-command, @var{$arg_text} is the
+@var{$command} is the @@-command, @var{$arg_text} is the
 @@-command's formatted argument, and @var{$arg_texi} is the @@-command
 argument without any formatting.  @var{\%state} is a hash reference
 containing context information.  The function returns
