@@ -1,3 +1,16 @@
+2022-11-01  Patrice Dumas  <pertusus@free.fr>
+
+	Update translations encoding explanations
+
+	* doc/texinfo.texi (@code{@@documentencoding}): is is only possible
+	for 8-bit encodings to lack the possibility to use a character for an
+	accented character or a glyph.  All are in UTF-8.  Report from Bruno
+	Haible.
+
+	* doc/texinfo.texi (Internationalization of Document Strings):
+	clarify the use of the us-ascii locales and note that @-commands for
+	accented characters can be used in any locale.
+
 2022-10-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	pretest 6.8.91
