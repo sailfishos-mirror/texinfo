@@ -1,3 +1,15 @@
+2022-11-01  Patrice Dumas  <pertusus@free.fr>, and
+            Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (@documentencoding): Mention possibility
+	of ASCII transliteration.  Don't say "UTF-8 character in
+	the output encoding", as this can only mean one encoding (UTF-8).
+	Reorder to say "8-bit character in the output encoding".
+
+	(Internationalization of Document Strings): State accent commands
+	have to be used in us-ascii translations, but that these may
+	be inconvenient.
+
 2022-10-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	pretest 6.8.91

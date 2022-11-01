@@ -12441,11 +12441,12 @@ coding: UTF-8
 End:
 @end example
 
-Also, in Info and plain text output, unless the option
-@option{--disable-encoding} is given to @command{texi2any}, accent
-constructs and special characters, such as @code{@@'e}, are output as
-the actual 8-bit or UTF-8 character in the output encoding where
-possible.
+By default, for Info and plain text output, @command{texi2any} outputs
+accent constructs and special characters (such as @code{@@'e})
+as the actual UTF-8 sequence or 8-bit character in the output
+encoding where possible.  If this is not possible, or if the option
+@option{--disable-encoding} is given, an ASCII transliteration is
+used instead.
 
 @cindex HTML output, and encodings
 @cindex @code{http-equiv}, and charset specification
@@ -12463,9 +12464,10 @@ this:
 
 In HTML and @LaTeX{} output, if the option @option{--enable-encoding} is given
 to @command{texi2any}, accent constructs and special characters, such as
-@code{@@'e} or @code{``}, are output as the actual 8-bit or UTF-8 character in
-the output encoding where possible.  Otherwise HTML entities are used for those
-characters in HTML, and @LaTeX{} macros are used in @LaTeX{}.
+lcode{@@'e} or @code{``}, are output as the actual UTF-8 sequence or
+8-bit character in the output encoding where possible.  Otherwise, HTML
+entities are used for those characters in HTML, and @LaTeX{} macros
+are used in @LaTeX{}.
 
 In DocBook output, if the encoding is different from UTF-8,
 an @code{encoding} attribute is added to the XML declaration.
@@ -17139,6 +17141,11 @@ any encoding, since all the Latin@tie{}1 characters have associated
 @code{ja.utf-8}, since there are no @@-commands for Japanese
 characters.
 
+The @code{us-ascii} locales are not needed much now that
+UTF-8 is used for most documents.  Note that accented characters
+are required to be expressed as @@-commands in the @code{us-ascii} locales,
+which may be inconvenient for translators.
+
 @item Next, the string is expanded as Texinfo, and converted.
 The arguments are substituted; for example, @samp{@{arg_name@}} is
 replaced by the corresponding actual argument.
@@ -17164,7 +17171,7 @@ format---yet still be language-dependent.  For example, the
 @samp{@@pxref} translation string can be like this:
 
 @example
-see @{node_file_href@} section `@{section@}\' in @@cite@{@{book@}@}
+see @{node_file_href@} section `@{section@}' in @@cite@{@{book@}@}
 @end example
 
 @noindent
