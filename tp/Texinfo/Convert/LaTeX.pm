@@ -257,6 +257,7 @@ my %LaTeX_in_heading_commands_formatting = (
   # default for texinfo.tex is similar:
   #   \putwordChapter{} \thischapternum: \thischaptername}
   # see doc/txi-zh.tex for how it could be in chinese
+  # TODO translation
   'thischapter' => '\chaptername{} \thechapter{} \chaptertitle{}',
   'thischaptername' => '\chaptertitle{}',
   'thischapternum' => '\thechapter{}',
@@ -2478,7 +2479,7 @@ sub _convert($$)
           # https://github.com/latex3/hyperref/issues/207#issuecomment-920712424
           $result .= '\texorpdfstring{'.
             $LaTeX_no_arg_brace_commands{$command_format_context}->{$converted_command}
-            # FIXME translation
+            # TODO translation
             .'}{error}'
         } else {
           $result .= $LaTeX_no_arg_brace_commands{$command_format_context}->{$converted_command};
@@ -2934,7 +2935,7 @@ sub _convert($$)
             $text_representation .= $name_text if (defined($text_representation));
           }
 
-          # FIXME translation
+          # TODO translation
           if (defined($float_type)) {
             # no page for float reference in Texinfo TeX
             if (defined($name_text)) {
@@ -3663,7 +3664,6 @@ sub _convert($$)
         # condition
         and !($def_commands{$cmdname}
               and $cmdname =~ /x$/)) {
-      # this is output for errormsg
       warn "Unhandled $cmdname\n";
       #$result .= "!!!!!!!!! Unhandled $cmdname !!!!!!!!!\n";
     }
