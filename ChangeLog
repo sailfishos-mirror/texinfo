@@ -1,3 +1,25 @@
+2022-11-01  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Common Customization of Special Elements)
+	(Special Elements Information Customization)
+	(Special Element Body Formatting Functions), tp/Texinfo/Common.pm
+	(@variable_other_settables), tp/Texinfo/Config.pm
+	(_GNUT_initialize_special_element_info)
+	(texinfo_register_special_element_info,
+	GNUT_get_special_element_info), tp/Texinfo/Convert/HTML.pm
+	(special_element_info, _translate_names, converter_initialize):
+	hange information on special elements to be set with a function,
+	texinfo_register_special_element_info in Texinfo::Config, retrieved in
+	the converted with GNUT_get_special_element_info, instead of using
+	customization variables.  Use the special_element_info function to
+	retrieve the special elements information in the HTML Converter,
+	translating special element headings only when needed.  Allow special
+	element heading and targets to be undef.
+	Remove SPECIAL_ELEMENTS_HEADING, SPECIAL_ELEMENTS_CLASS,
+	SPECIAL_ELEMENTS_DIRECTIONS, special_elements_targets,
+	special_elements_file_string and special_elements_order customozation
+	variables.
+
 2022-10-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_prepare_special_elements): for

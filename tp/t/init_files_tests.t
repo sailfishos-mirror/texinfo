@@ -65,6 +65,25 @@ my @file_tests = (
 @node Other
 ',{'init_files' => ['undef_node_file_name.init'],
 }, {'VERBOSE' => 1}],
+['customize_special_element',
+'
+@footnotestyle separate
+
+@contents
+@shortcontents
+
+@node Top
+@top top
+
+@node Chapter
+@chapter chap
+
+@documentlanguage fr
+@node Chapter fr
+@chapter chap fr
+
+Text@footnote{In footnote}.
+', {'init_files' => ['special_element_customization.pm']}],
 ['documentation_examples',
 '
 @settitle @email{someone@@example.com, me} @sansserif{in--title} @error{}

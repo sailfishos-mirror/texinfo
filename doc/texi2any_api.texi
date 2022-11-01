@@ -525,7 +525,8 @@ The formatting of the output produced by ``indicator'' and font
 commands (e.g., @code{@@code}, @code{@@t}),
 and other simple commands with
 arguments (e.g., @code{@@asis}, @code{@@clicksequence},
-@code{@@sup}, @code{@@verb}) can be changed with @code{texinfo_register_style_command_formatting}:
+@code{@@sup}, @code{@@verb}) can be changed with
+@code{texinfo_register_style_command_formatting}:
 
 @defun texinfo_register_style_command_formatting ($command_name, @
                                      $html_element, $in_quotes, $context)
@@ -551,10 +552,12 @@ For example, to set @code{@@sansserif@{argument@}} to be formatted as
 and as a quoted string in string context, use:
 
 @example
-texinfo_register_style_command_formatting('sansserif', 'code', 0, 'normal');
+texinfo_register_style_command_formatting('sansserif', 'code', 0,
+                                          'normal');
 texinfo_register_style_command_formatting('sansserif', 'code', 0,
                                           'preformatted');
-texinfo_register_style_command_formatting('sansserif', undef, 1, 'string');
+texinfo_register_style_command_formatting('sansserif', undef, 1,
+                                          'string');
 @end example
 
 To output the formatted argument of @code{@@t} as is:
@@ -971,7 +974,7 @@ with HTML elements (preformatted and normal contexts).
 A Texinfo tree element representing the direction.
 
 @item target
-A string representing target of the direction, typically used as id
+A string representing the target of the direction, typically used as id
 attribute in the element unit corresponding to the direction, and in href
 attribute.
 
@@ -2287,82 +2290,6 @@ and the call of the formatting functions are documented in the following section
 the manual, depending on where they are relevant.
 
 
-@node Special Element Body Formatting Functions
-@subsection Special Element Body Formatting Functions
-
-To register body formating user defined functions for special element
-(@pxref{Output Element Units}), the special elements varieties are used, as
-described in @ref{Special Elements Varieties}.
-
-@float Table, Special Elements Varieties
-@multitable {Short table of contents} {Special Element Variety}
-@headitem Special Element @tab Special Element Variety
-@item Table of contents @tab @code{contents}
-@item Short table of contents @tab @code{shortcontents}
-@item Footnotes @tab @code{footnotes}
-@item About @tab @code{about}
-@end multitable
-@caption{Association of special elements names with their special element variety}
-@end float
-
-Special element body formatting user defined functions are registered with
-@code{texinfo_register_formatting_special_element_body}:
-
-@defun texinfo_register_formatting_special_element_body ($special_element_variety, @
-                            \@ampchar{}handler)
-@var{$special_element_variety} is the element variety
-(@pxref{Special Elements Varieties}).  @var{\&handler} is the user defined
-function reference.
-@end defun
-
-The call of the user defined functions is:
-@deftypefn {Function Reference} @var{$text} special_element_body (@var{$converter}, @
-                                @var{$special_element_variety}, @var{\%element})
-@var{$converter} is a converter object. @var{$special_element_variety} is the
-element variety.  @var{\%element} is the Texinfo element.
-
-The @var{$text} returned is the formatted special element body.
-@end deftypefn
-
-To call a special element body formatting function from user defined code, the
-function reference should first be retrieved using
-@code{special_element_body_formatting}:
-
-@deftypefun {@var{\&special_element_body_formatting} =} @var{$converter}->special_element_body_formatting @
-                                              (@var{$special_element_variety})
-@var{$special_element_variety} is the special element variety.  Returns the
-conversion function reference for @var{$variety}, or @samp{undef} if there is none,
-which should not happen for the special elements described in this manual.
-@end deftypefun
-
-For example:
-@example
-@group
-my $footnotes_element_body
- = &@{$converter->special_element_body_formatting('footnotes')@}(
-                                   $converter, 'footnotes', $element);
-@end group
-@end example
-
-It is possible to have access to the default conversion function reference.
-The function used is:
-
-@deftypefun {@var{\&default_special_element_body_formatting} =} @
-               @var{$converter}->defaults_special_element_body_formatting @
-                                               (@var{$special_element_variety})
-@var{$special_element_variety} is the special element variety.  Returns the
-default conversion function reference for @var{$special_element_variety}, or
-@code{undef} if there is none, which should not happen for the special elements
-described in this manual.
-@end deftypefun
-
-@xref{Customizing Footnotes} for more on the footnotes special element body
-formatting.  @xref{Contents and Short Table of Contents Customization}
-for more on the @code{contents} and @code{shortcontents} special elements
-body formatting.  @xref{About Element Customization} for more
-on the @code{about} special element body formatting.
-
-
 @node Mandatory Conversion Function Calls
 @chapter Mandatory Conversion Function Calls
 
@@ -3348,8 +3275,159 @@ Return the total number of element units associated with the file.
 @end deftypefun
 
 
+@node Common Customization of Special Elements
+@chapter Common Customization of Special Elements
+
+Some customization is relevant for all the special elements
+(@pxref{Output Element Units}).  The formatting of special elements bodies
+is also handled the same for all the special elements formatted as separate
+elements (@pxref{Output Element Units}).
+To specify a special element in those contexts, the special elements varieties
+are used, as described in
+@ref{Special Elements Varieties}.
+
+@float Table, Special Elements Varieties
+@multitable {Short table of contents} {Special Element Variety}
+@headitem Special Element @tab Special Element Variety
+@item Table of contents @tab @code{contents}
+@item Short table of contents @tab @code{shortcontents}
+@item Footnotes @tab @code{footnotes}
+@item About @tab @code{about}
+@end multitable
+@caption{Association of special elements names with their special element variety}
+@end float
+
+
+@node Special Elements Information Customization
+@section Special Elements Information Customization
+
+The following items are common to all the special elements:
+
+@table @code
+@item class
+String for special element HTML class attributes.
+
+@item direction
+Direction corresponding to the special element. @xref{Directions}.
+
+@item heading
+Special element heading Texinfo code.
+
+@item heading_tree
+Special element heading Texinfo tree.
+
+@item order
+Index determining the sorting order of special elements.
+
+@item file_string
+File string portion prepended to the special element file names, such as
+@samp{_toc}.
+
+@item target
+A string representing the target of the special element, typically used
+as id attribute and in href attribute.
+
+@end table
+
+The heading string is set with @code{heading}, and should be a Texinfo code
+string.  @code{heading_tree} cannot be set directly, but can be retrieved.
+It is determined from @code{heading} after translation and conversion to
+a Texinfo tree.
+
+To set the information, use @code{texinfo_register_special_element_info}
+in an init file:
+
+@defun texinfo_register_special_element_info ($item_type, @
+                           $special_element_variety, $value)
+Set @var{$item_type} information for the special element variety
+@var{$special_element_variety} to @var{$value}.  @var{$value} may be
+@samp{undef}, or an empty string, but only @code{heading} and
+@code{target} should be set to that value as a non-empty value is
+needed for the other items for formatting.
+@end defun
+
+To retrieve the information for formatting, use @code{special_element_info}:
+
+@deftypefun {@var{$list_or_value} =} @var{$converter}->special_element_info @
+                  (@var{$item_type}, @var{$special_element_variety})
+@var{$item_type} is the type of information to be retrieved as described above.
+If @var{$special_element_variety} is @samp{undef}, the list of the special elements
+varieties with information for the @var{$item_type} is returned.  If
+@var{$special_element_variety} is a special element variety, the corresponding
+value is returned.
+
+The value returned is translated and converted to a Texinfo tree
+for @samp{heading_tree}.
+@end deftypefun
+
+
+@node Special Element Body Formatting Functions
+@section Special Element Body Formatting Functions
+
+To register body formating user defined functions for special element
+(@pxref{Output Element Units}), the special elements varieties are used, as
+described in @ref{Special Elements Varieties}.
+Special element body formatting user defined functions are registered with
+@code{texinfo_register_formatting_special_element_body}:
+
+@defun texinfo_register_formatting_special_element_body ($special_element_variety, @
+                            \@ampchar{}handler)
+@var{$special_element_variety} is the element variety
+(@pxref{Special Elements Varieties}).  @var{\&handler} is the user defined
+function reference.
+@end defun
+
+The call of the user defined functions is:
+@deftypefn {Function Reference} @var{$text} special_element_body (@var{$converter}, @
+                                @var{$special_element_variety}, @var{\%element})
+@var{$converter} is a converter object. @var{$special_element_variety} is the
+element variety.  @var{\%element} is the Texinfo element.
+
+The @var{$text} returned is the formatted special element body.
+@end deftypefn
+
+To call a special element body formatting function from user defined code, the
+function reference should first be retrieved using
+@code{special_element_body_formatting}:
+
+@deftypefun {@var{\&special_element_body_formatting} =} @var{$converter}->special_element_body_formatting @
+                                              (@var{$special_element_variety})
+@var{$special_element_variety} is the special element variety.  Returns the
+conversion function reference for @var{$variety}, or @samp{undef} if there is none,
+which should not happen for the special elements described in this manual.
+@end deftypefun
+
+For example:
+@example
+@group
+my $footnotes_element_body
+ = &@{$converter->special_element_body_formatting('footnotes')@}(
+                                   $converter, 'footnotes', $element);
+@end group
+@end example
+
+It is possible to have access to the default conversion function reference.
+The function used is:
+
+@deftypefun {@var{\&default_special_element_body_formatting} =} @
+               @var{$converter}->defaults_special_element_body_formatting @
+                                               (@var{$special_element_variety})
+@var{$special_element_variety} is the special element variety.  Returns the
+default conversion function reference for @var{$special_element_variety}, or
+@code{undef} if there is none, which should not happen for the special elements
+described in this manual.
+@end deftypefun
+
+@xref{Customizing Footnotes} for more on footnotes
+formatting.  @xref{Contents and Short Table of Contents Customization}
+for more on the @code{contents} and @code{shortcontents} formatting.
+@xref{About Element Customization} for more on the @code{about} special
+element body formatting.
+
+
 @node Customizing Footnotes@comma{} Tables of Contents and About
 @chapter Customizing Footnotes, Tables of Contents and About
+
 
 @node Customizing Footnotes
 @section Customizing Footnotes
@@ -3425,8 +3503,8 @@ Returns the footnotes formatted.  In the default case, the function reference
 calls @code{format_footnotes_sequence} and also sets up a header with
 @code{format_heading_text} (@pxref{Basic Formatting Customization}), using the
 customization variables @code{FOOTNOTE_END_HEADER_LEVEL} and
-@code{SPECIAL_ELEMENTS_HEADING} with the @code{footnotes} special element
-variety key.
+the special @code{footnotes} element @code{heading} information
+(@pxref{Special Elements Information Customization}).
 @end deftypefn
 
 
@@ -3720,20 +3798,6 @@ Header and Footer Formatting}).  The conversion for these elements with type
 @code{special_element_type} can be be replaced by user defined functions for a
 precise control of conversion (@pxref{Type Tree Element Conversion Functions}).
 
-Specific customization variable hashes taking
-special element varieties as keys are used in special elements formatting:
-
-@vtable @code
-@item SPECIAL_ELEMENTS_HEADING
-heading text of the special element.
-
-@item SPECIAL_ELEMENTS_CLASS
-string for special element HTML class attributes.
-
-@item SPECIAL_ELEMENTS_DIRECTIONS
-direction corresponding to the special element. @xref{Directions}.
-
-@end vtable
 
 @node Beginning and Ending Files
 @chapter Beginning and Ending Files
