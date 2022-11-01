@@ -12464,7 +12464,7 @@ this:
 
 In HTML and @LaTeX{} output, if the option @option{--enable-encoding} is given
 to @command{texi2any}, accent constructs and special characters, such as
-lcode{@@'e} or @code{``}, are output as the actual UTF-8 sequence or
+@code{@@'e} or @code{``}, are output as the actual UTF-8 sequence or
 8-bit character in the output encoding where possible.  Otherwise, HTML
 entities are used for those characters in HTML, and @LaTeX{} macros
 are used in @LaTeX{}.
