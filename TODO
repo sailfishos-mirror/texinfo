@@ -49,7 +49,8 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     as parsed by the Parser.  A lisp-like format for GUILE? Maybe JSON?
   - Support other graphical documentation browsers like GNOME DevHelp
     - DevHelp support could need to wait for a specification of the DevHelp
-      XML file format, which was not documented in 2022. Fromn DevHelp help:
+      XML file format, which was not documented in 2022. From DevHelp help
+      in 'Index file format':
       "Unfortunately the *.devhelp2 XML file format is not well documented.
       There is still some hope that it will be fixed in the near future."
       There was an early discussion in 2015. The *.devhelp format at that time
@@ -80,8 +81,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     after new texi2dvi is deployed (2022?).
 
 * Doc:
-  - Use/distribute pod2texi generated documentation of the perl modules in 
-    tp generated in doc/tp_api.
   - Verify/proofread Documentation of the HTML customization.
 
 * Info:
