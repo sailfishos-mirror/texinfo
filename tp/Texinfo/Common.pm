@@ -431,14 +431,16 @@ our @variable_string_settables = (
 'XREF_USE_NODE_NAME_ARG',
 );
 
-# Not strings.  Documented in the texi2any_api manual
+# Not strings.
 my @variable_other_settables = (
+  # Documented in the texi2any_api manual
   'LINKS_BUTTONS', 'TOP_BUTTONS', 'SECTION_BUTTONS',
   'CHAPTER_FOOTER_BUTTONS', 'SECTION_FOOTER_BUTTONS',
   'NODE_FOOTER_BUTTONS',
   'MISC_BUTTONS', 'CHAPTER_BUTTONS',
   'ACTIVE_ICONS', 'PASSIVE_ICONS',
-  # set from command line
+  # set from command line.
+  # TODO not documented.
   'CSS_FILES',            # --css-include
   'CSS_REFS',             # --css-ref
   'EXPANDED_FORMATS',     # --if*

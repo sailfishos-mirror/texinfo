@@ -1077,6 +1077,20 @@ The customization variables
 may be used to change the navigation panel formatting.
 @xref{HTML Customization Variables,,, texinfo, Texinfo}.
 
+Setting @code{ICONS} is necessary but not sufficient to get icons for direction
+buttons since no button image is specified in the default case.
+The @code{ACTIVE_ICONS} and @code{PASSIVE_ICONS} customization
+variables need to be set in addition:
+
+@vtable @code
+@item ACTIVE_ICONS
+@itemx PASSIVE_ICONS
+Hash references with element directions as key (@pxref{Directions}) and button
+image icons as values.  @code{ACTIVE_ICONS} is used for directions actually
+linking to an element, and @code{PASSIVE_ICONS} are used if there is no
+element to link to.  The button images are interpreted as URLs.
+@end vtable
+
 @cindex Navigation panel button specification
 @cindex Button specification, navigation panel
 
@@ -1703,7 +1717,7 @@ as keys and with array references as values.  The array references contain
 information on each of the file licences, with content
 @enumerate
 @item licence name
-@item license url
+@item license URL
 @item file name or source of file
 @end enumerate
 
@@ -2117,7 +2131,7 @@ The Texinfo tree element corresponding to the argument.
 @item url
 Similar with monospacetext.  The difference is that UTF-8 encoding is always
 used for the conversion of accented and special insertion @@-commands to plain
-text.  This is best for percent encoding of url, which should always be
+text.  This is best for percent encoding of URLs, which should always be
 produced from UTF-8 encoded strings.
 
 @end table

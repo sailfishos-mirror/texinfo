@@ -3566,7 +3566,6 @@ sub _default_format_button($$;$)
         and defined($self->get_conf('ACTIVE_ICONS')->{$button})
         and $self->get_conf('ACTIVE_ICONS')->{$button} ne '') {
       my $button_name_string = $self->direction_string($button, 'button', 'string');
-      # FIXME button_name used in string context
       $active = &{$self->formatting_function('format_button_icon_img')}($self,
                         $button_name_string, $self->get_conf('ACTIVE_ICONS')->{' '});
     } else {

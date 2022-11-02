@@ -1,6 +1,11 @@
 2022-11-02  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Simple Navigation Panel Customization):
+	describe ACTIVE_ICONS and PASSIVE_ICONS more explicitely.
+
+2022-11-02  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Simple Navigation Panel Customization):
 	add CHAPTER_FOOTER_BUTTONS, update explanations.
 
 2022-11-01  Patrice Dumas  <pertusus@free.fr>
