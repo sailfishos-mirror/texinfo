@@ -431,8 +431,7 @@ our @variable_string_settables = (
 'XREF_USE_NODE_NAME_ARG',
 );
 
-# Not strings.  Not documented in the manual nor elsewhere.
-# FIXME To be documented somewhere, but where?
+# Not strings.  Documented in the texi2any_api manual
 my @variable_other_settables = (
   'LINKS_BUTTONS', 'TOP_BUTTONS', 'SECTION_BUTTONS',
   'CHAPTER_FOOTER_BUTTONS', 'SECTION_FOOTER_BUTTONS',

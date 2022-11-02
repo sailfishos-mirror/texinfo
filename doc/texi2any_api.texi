@@ -1090,20 +1090,20 @@ buttons present in the various navigation panels:
 
 @vtable @code
 @item SECTION_BUTTONS
-Specifies the navigation panel buttons present at the beginning of
-sectioning elements.  If the output is split at nodes or sections,
-they are also used at the page footer, and in the case of section
-navigation being enabled, at the page header.
+Specifies the navigation panel buttons present at the beginning of sectioning
+elements in the case of section navigation being enabled or if split at nodes.
+Specifies the navigation panel buttons present at the page header if split at
+section and there is no section navigation.
 
 @item SECTION_FOOTER_BUTTONS
+@itemx CHAPTER_FOOTER_BUTTONS
 @itemx NODE_FOOTER_BUTTONS
 These arrays specify the navigation panel buttons present in the page
-footer when the output is split at sections or nodes, respectively.
+footer when the output is split at sections, chapters or nodes, respectively.
 
 @item CHAPTER_BUTTONS
-Specifies the buttons appearing at the page footer if split at
-chapters, and at the page header if split at chapters and there is no
-section navigation.
+Specifies the buttons appearing at the page header if split at chapters and
+there is no section navigation.
 
 @item MISC_BUTTONS
 Specifies the buttons appearing at the beginning of special elements
