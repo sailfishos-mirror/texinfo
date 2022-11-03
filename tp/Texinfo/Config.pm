@@ -542,20 +542,18 @@ sub _GNUT_initialize_special_element_info()
 
 _GNUT_initialize_special_element_info();
 
-# $translated_string is supposed to be already formatted.
+# $translated_converted_string is supposed to be already formatted.
 # It may also be relevant to be able to pass a 'tree'
 # directly (it is actually handled by the converter code).
-# Passing a texinfo string that can be translated (like
-# the 'translated_commands' customization variable) may also
-# be interesting.
-sub texinfo_register_no_arg_command_formatting($$;$$$)
+sub texinfo_register_no_arg_command_formatting($$;$$$$)
 {
   my $command = shift;
   my $context = shift;
   my $text = shift;
   # html element
   my $element = shift;
-  my $translated_string = shift;
+  my $translated_converted_string = shift;
+  my $translated_to_convert_string = shift;
 
   if (!defined($context)) {
     $context = $default_formatting_context;
@@ -571,9 +569,17 @@ sub texinfo_register_no_arg_command_formatting($$;$$$)
   if (defined($element)) {
     $specification->{'element'} = $element;
   }
-  if (defined($translated_string)) {
-    $specification->{'translated'} = $translated_string;
+  if (defined($translated_converted_string)) {
+    $specification->{'translated_converted'} = $translated_converted_string;
     # NOTE unset 'text'?  A priori not needed, it will be overwritten
+  }
+  if (defined($translated_to_convert_string)) {
+    # only need to register in normal context, as the Texinfo code
+    # will be converted in the appropriate context.
+    if ($context ne $default_formatting_context) {
+      return 0;
+    }
+    $specification->{'translated_to_convert'} = $translated_to_convert_string;
   }
   $GNUT_no_arg_commands_formatting_strings->{$context}->{$command} = $specification;
   return 1;

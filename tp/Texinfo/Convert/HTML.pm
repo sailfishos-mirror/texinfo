@@ -2144,16 +2144,26 @@ sub _translate_names($)
   my %translated_commands;
   foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
     foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}->{$context}})) {
-      if (defined($self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'translated'})
-          and not $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'unset'}) {
+      if (defined($self->{'no_arg_commands_formatting'}
+                         ->{$context}->{$command}->{'translated_converted'})
+          and not $self->{'no_arg_commands_formatting'}
+                                        ->{$context}->{$command}->{'unset'}) {
         $translated_commands{$command} = 1;
         $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'}
-         = $self->gdt($self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'translated'},
+         = $self->gdt($self->{'no_arg_commands_formatting'}
+                             ->{$context}->{$command}->{'translated_converted'},
                       undef, undef, 'translated_text');
       } elsif ($context eq 'normal') {
-        # default translated commands
-        my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
+        my $translated_tree;
+        if (defined($self->{'no_arg_commands_formatting'}
+                      ->{$context}->{$command}->{'translated_to_convert'})) {
+          $translated_tree = $self->gdt($self->{'no_arg_commands_formatting'}
+                          ->{$context}->{$command}->{'translated_to_convert'});
+        } else {
+          # default translated commands
+          $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
                                                                            $command);
+        }
         if (defined($translated_tree) and $translated_tree ne '') {
           $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'tree'}
             = $translated_tree;
@@ -2168,7 +2178,6 @@ sub _translate_names($)
 
   print STDERR "END TRANSLATE_NAMES\n\n" if ($self->get_conf('DEBUG'));
 }
-
 
 # redefined functions
 #
@@ -2400,7 +2409,7 @@ $default_no_arg_commands_formatting{'normal'}->{"\n"} = {'text' => '&nbsp;'};
 # possible example of use, right now not used, as
 # the generic Converter customization is directly used through
 # the call to Texinfo::Convert::Utils::translated_command_tree().
-#$default_no_arg_commands_formatting{'normal'}->{'error'}->{'translated'} = 'error--&gt;';
+#$default_no_arg_commands_formatting{'normal'}->{'error'}->{'translated_converted'} = 'error--&gt;';
 ## This is used to have gettext pick up the chain to be translated
 #if (0) {
 #  my $not_existing;
@@ -6786,7 +6795,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
   if (defined($ref_context)) {
     if ($no_arg_command_context->{'unset'}) {
       foreach my $key (keys(%{$self->{'no_arg_commands_formatting'}->{$ref_context}->{$cmdname}})) {
-        # both 'translated' and (possibly translated) 'text' are
+        # both 'translated_converted' and (possibly translated) 'text' are
         # reused
         $no_arg_command_context->{$key}
           = $self->{'no_arg_commands_formatting'}->{$ref_context}->{$cmdname}->{$key}
@@ -6795,7 +6804,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$)
   }
   if ($translate
       and $no_arg_command_context->{'tree'}
-      and not defined($no_arg_command_context->{'translated'})) {
+      and not defined($no_arg_command_context->{'translated_converted'})) {
     my $translated_tree
       = $no_arg_command_context->{'tree'};
     my $translation_result;

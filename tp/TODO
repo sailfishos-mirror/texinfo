@@ -42,11 +42,6 @@ Other
 For converter writers,
 'output_init_conf' and 'converter_init_conf'.
 
-'translated_commands' in converters is not documented anywhere nor is there
-a clean way to set it from user code with an API.  Not urgent, as long as
-it is not possible for users to register translated strings and provide with
-translations.
-
 
 Delayed bugs
 ============

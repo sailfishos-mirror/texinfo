@@ -89,6 +89,22 @@ $result_trees{'documentation_examples'} = {
                     'line_nr' => 2,
                     'macro' => ''
                   }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'args' => [
+                    {
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'equiv',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 2,
+                    'macro' => ''
+                  }
                 }
               ],
               'extra' => {
@@ -181,6 +197,22 @@ $result_trees{'documentation_examples'} = {
               }
             },
             {
+              'text' => ' '
+            },
+            {
+              'args' => [
+                {
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'equiv',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              }
+            },
+            {
               'text' => '
 '
             },
@@ -218,6 +250,96 @@ $result_trees{'documentation_examples'} = {
                       'text' => '
 ',
                       'type' => 'empty_line'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'de'
+                            }
+                          ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'documentlanguage',
+                      'extra' => {
+                        'spaces_before_argument' => ' ',
+                        'text_arg' => 'de'
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 25,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'text' => '
+',
+                      'type' => 'empty_line'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'error',
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 27,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'text' => '.
+'
+                        }
+                      ],
+                      'type' => 'paragraph'
+                    },
+                    {
+                      'text' => '
+',
+                      'type' => 'empty_line'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'equiv',
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 29,
+                            'macro' => ''
+                          }
+                        },
+                        {
+                          'text' => '
+'
+                        }
+                      ],
+                      'type' => 'paragraph'
+                    },
+                    {
+                      'text' => '
+',
+                      'type' => 'empty_line'
+                    },
+                    {
+                      'text' => '
+',
+                      'type' => 'empty_line'
                     }
                   ],
                   'extra' => {
@@ -237,7 +359,7 @@ $result_trees{'documentation_examples'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 21,
+                    'line_nr' => 23,
                     'macro' => ''
                   }
                 },
@@ -400,6 +522,22 @@ $result_trees{'documentation_examples'} = {
                         'line_nr' => 11,
                         'macro' => ''
                       }
+                    },
+                    {
+                      'text' => ' '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'equiv',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 11,
+                        'macro' => ''
+                      }
                     }
                   ],
                   'type' => 'brace_command_context'
@@ -472,6 +610,22 @@ $result_trees{'documentation_examples'} = {
                     }
                   ],
                   'cmdname' => 'error',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 14,
+                    'macro' => ''
+                  }
+                },
+                {
+                  'text' => ' '
+                },
+                {
+                  'args' => [
+                    {
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'equiv',
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 14,
@@ -580,6 +734,33 @@ $result_trees{'documentation_examples'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'equiv',
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 21,
+                'macro' => ''
+              }
+            },
+            {
+              'text' => '
+'
+            }
+          ],
+          'type' => 'paragraph'
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'extra' => {
@@ -607,34 +788,43 @@ $result_trees{'documentation_examples'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
-$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'extra'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'}{'args'}[0]{'contents'}[0];
+$result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'node_argument'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'args'}[0]{'contents'}[0];
 $result_trees{'documentation_examples'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'documentation_examples'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'documentation_examples'}{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'documentation_examples'}{'contents'}[2] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[6]{'extra'}{'label'};
+$result_trees{'documentation_examples'}{'contents'}[2] = $result_trees{'documentation_examples'}{'contents'}[1]{'contents'}[1]{'contents'}[8]{'extra'}{'label'};
 
 $result_texis{'documentation_examples'} = '
-@settitle @email{someone@@example.com, me} @sansserif{in--title} @error{}
+@settitle @email{someone@@example.com, me} @sansserif{in--title} @error{} @equiv{}
 
 @node Top
 
-@sansserif{in--text} @- p--n. @error{}
+@sansserif{in--text} @- p--n. @error{} @equiv{}
 @xref{my node}@footnote{in footnote}.
 @titlefont{in titlefont}
 @email{a@@b.c, someone}
 
-@math{@sansserif{in--math} @- a=b @error{}}
+@math{@sansserif{in--math} @- a=b @error{} @equiv{}}
 
 @example
-@sansserif{in--example} @- c. @error{}
+@sansserif{in--example} @- c. @error{} @equiv{}
 @end example
 
 @documentlanguage fr
 
 @error{}.
 
+@equiv{}
+
 @node my node
+
+@documentlanguage de
+
+@error{}.
+
+@equiv{}
+
 
 ';
 
@@ -642,17 +832,25 @@ $result_texis{'documentation_examples'} = '
 $result_texts{'documentation_examples'} = '
 
 
-in-text  p-n. error-->
+in-text  p-n. error--> ==
 my node.
 in titlefont
 someone
 
-in--math  a=b error-->
+in--math  a=b error--> ==
 
-in--example  c. error-->
+in--example  c. error--> ==
 
 
 error-->.
+
+==
+
+
+
+error-->.
+
+==
 
 
 ';

@@ -86,26 +86,35 @@ Text@footnote{In footnote}.
 ', {'init_files' => ['special_element_customization.pm']}],
 ['documentation_examples',
 '
-@settitle @email{someone@@example.com, me} @sansserif{in--title} @error{}
+@settitle @email{someone@@example.com, me} @sansserif{in--title} @error{} @equiv{}
 
 @node Top
 
-@sansserif{in--text} @- p--n. @error{}
+@sansserif{in--text} @- p--n. @error{} @equiv{}
 @xref{my node}@footnote{in footnote}.
 @titlefont{in titlefont}
 @email{a@@b.c, someone}
 
-@math{@sansserif{in--math} @- a=b @error{}}
+@math{@sansserif{in--math} @- a=b @error{} @equiv{}}
 
 @example
-@sansserif{in--example} @- c. @error{}
+@sansserif{in--example} @- c. @error{} @equiv{}
 @end example
 
 @documentlanguage fr
 
 @error{}.
 
+@equiv{}
+
 @node my node
+
+@documentlanguage de
+
+@error{}.
+
+@equiv{}
+
 
 ',{'init_files' => ['documentation_examples.pm']},
 ],

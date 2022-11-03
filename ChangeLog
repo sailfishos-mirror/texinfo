@@ -1,3 +1,12 @@
+2022-11-03  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Simple Customization for Commands Without
+	Arguments), tp/Texinfo/Config.pm
+	(texinfo_register_no_arg_command_formatting),
+	tp/Texinfo/Convert/HTML.pm (_translate_names): allow to set
+	a Texinfo code to be translated and converted as command without
+	arguments output.
+
 2022-11-02  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Simple Navigation Panel Customization):

@@ -466,7 +466,8 @@ To change the formatting of a command, the functions is
 @code{texinfo_register_no_arg_command_formatting}:
 
 @defun texinfo_register_no_arg_command_formatting ($command_name, @
-                  $context, $text, $html_element, $translated_string)
+    $context, $text, $html_element, $translated_string_converted, @
+    $translated_string_to_convert)
 @var{$command_name} is the @@-command name, without the leading @@.
 @var{$context} is @samp{normal}, @samp{preformatted} or @samp{string}.
 There is no separate math context, @samp{preformatted} should be used
@@ -474,12 +475,18 @@ for math context. @xref{Init File Expansion Contexts}.  If @var{$context}
 is @code{undef}, the @samp{normal} context is assumed.
 
 The remaining arguments determine the formatting.  If @var{$text} is set,
-the corresponding text is output when the @@-command is formatted.  @var{text}
+the corresponding text is output when the @@-command is formatted.  @var{$text}
 can contain HTML elements if needed.  If @var{$html_element} is set, the text
 is enclosed between the @var{$html_element} element opening and the element
-closing.  If @var{$translated_string} is set, @var{$translated_string} is used
-as text and is translated when the document language changes.
-@xref{Texinfo::Translations METHODS,,,texi2any_internals}.
+closing.  If @var{$translated_string_converted} is set, the corresponding
+text is translated when the document language changes and used as text.
+@var{$translated_string_converted} should already be HTML.  If
+@var{$translated_string_to_convert} is set, the corresponding
+text is translated when the document language changes and converted from
+Texinfo code to HTML.  Since the conversion is done in the appropriate
+context, @var{$translated_string_to_convert} should only be set for the
+@samp{normal} context. @xref{Texinfo::Translations
+METHODS,,,texi2any_internals}.
 @end defun
 
 It is not required to set values for all the contexts.  If preformatted context
@@ -508,6 +515,14 @@ with a translation when the document language changes, call
 @example
 texinfo_register_no_arg_command_formatting('error', undef, undef, undef,
                                            'error--&gt;');
+@end example
+
+If you want @code{is the @strong{same} as} to be used for @code{@@equiv},
+translated when the document language changes, and converted from Texinfo to
+HTML in the context of the translation, call
+@example
+texinfo_register_no_arg_command_formatting('equiv', undef, undef, undef,
+                                 undef, 'is the @@strong@{same@} as');
 @end example
 
 @xref{Translated Strings Customization} for

@@ -35,6 +35,12 @@ texinfo_register_no_arg_command_formatting('-', undef, '&shy;');
 texinfo_register_no_arg_command_formatting('error', undef, undef, undef,
                                            'error--&gt;');
 
+texinfo_register_no_arg_command_formatting('equiv', undef, undef, undef,
+                                         undef, 'is the @strong{same} as');
+
+$translations{'fr'}->{'is the @strong{same} as'}->{''}
+                                     = 'est la @strong{m@^eme} que';
+
 texinfo_register_style_command_formatting('sansserif', 'code', 0, 'normal');
 texinfo_register_style_command_formatting('sansserif', 'code', 0, 'preformatted');
 texinfo_register_style_command_formatting('sansserif', undef, 1, 'string');
