@@ -1,3 +1,15 @@
+2022-11-04  Patrice Dumas  <pertusus@free.fr>
+
+	Format @subentry in HTML similarly as in printed output
+
+	* tp/Texinfo/Convert/Converter.pm (comma_index_subentries_tree),
+	tp/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	pass directly the first element with a possible subentry to
+	comma_index_subentries_tree to be able to start frmo a subentry, not
+	only from the main entry.
+	Format subentries in HTML by indenting and not redoing the formatting
+	of previous lines first levels, similar with Texinfo TeX.
+
 2022-11-03  Patrice Dumas  <pertusus@free.fr>
 
 	Also use subentries for index entries sorting in texi2any

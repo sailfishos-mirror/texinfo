@@ -1390,7 +1390,8 @@ sub process_printindex($$;$)
   foreach my $entry (@{$self->{'index_entries'}->{$index_name}}) {
     next if ($ignored_entries{$entry});
     my $entry_tree = {'contents' => $entry->{'entry_content'}};
-    my $subentries_tree = $self->comma_index_subentries_tree($entry);
+    my $subentries_tree
+       = $self->comma_index_subentries_tree($entry->{'entry_element'});
     if ($entry->{'in_code'}) {
       $entry_tree->{'type'} = '_code';
       $subentries_tree->{'type'} = '_code'

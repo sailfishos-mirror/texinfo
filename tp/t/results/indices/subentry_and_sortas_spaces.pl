@@ -805,10 +805,12 @@ $result_converted{'html_text'}->{'subentry_and_sortas_spaces'} = '<div class="to
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa">aaa, bbb sort as c</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-1">aaa, </a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-3">aaa, bbb, ccc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-2">aaa, bbb, ccc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry">aaa</td><td>&nbsp;</td><td class="printindex-index-section"></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa"><span class="index-entry-level-1">bbb sort as c</span></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-1"><span class="index-entry-level-1"></span></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1">bbb</span></td><td>&nbsp;</td><td class="printindex-index-section"></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-3"><span class="index-entry-level-2">ccc</span></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-2"><span class="index-entry-level-2">ccc</span></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>

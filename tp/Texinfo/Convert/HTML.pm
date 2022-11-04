@@ -2227,6 +2227,8 @@ my %css_element_class_styles = (
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal; font-style: normal',
      'span.w-nolinebreak-text'   => 'white-space: nowrap',
+     'span.index-entry-level-1'  => 'margin-left: 0.5em',
+     'span.index-entry-level-2'  => 'margin-left: 1.0em',
      'kbd.key'            => 'font-style: normal',
      'kbd.kbd'            => 'font-style: oblique',
      'strong.def-name'    => 'font-family: monospace; font-weight: bold; '
@@ -5289,12 +5291,22 @@ sub _convert_printindex_command($$$$)
     my $letter = $letter_entry->{'letter'};
     my $entries_text = '';
     my $entry_nr = -1;
+    # since we normalize, a different formatting will not trigger a new
+    # formatting of the main entry or a subentry level.  This is the
+    # same for Texinfo TeX
+    my $normalized_entry_levels = [];
     foreach my $index_entry_ref (@{$letter_entry->{'entries'}}) {
       # FIXME format instead of ignoring
       next if ($index_entry_ref->{'entry_element'}->{'extra'}
                and ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}
                     or $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'}));
       $entry_nr++;
+      next if ($self->get_conf('NO_TOP_NODE_OUTPUT')
+               and defined($index_entry_ref->{'entry_node'})
+               and $index_entry_ref->{'entry_node'}->{'extra'}
+               and $index_entry_ref->{'entry_node'}->{'extra'}->{'normalized'}
+               and $index_entry_ref->{'entry_node'}->{'extra'}->{'normalized'} eq 'Top');
+
       # to avoid double error messages, call convert_tree_new_formatting_context
       # below with a multiple_pass argument if an entry was already formatted once,
       # for example if there are multiple printindex.
@@ -5304,13 +5316,100 @@ sub _convert_printindex_command($$$$)
         $formatted_index_entries->{$index_entry_ref}++;
       }
 
-      # div.display {margin-left: 3.2em}
-      my $subentries_tree = $self->comma_index_subentries_tree($index_entry_ref);
-      my @entry_contents = @{$index_entry_ref->{'entry_content'}};
-      push @entry_contents, @{$subentries_tree->{'contents'}}
-        if (defined($subentries_tree));
-      my $entry_tree = {'contents' => \@entry_contents};
-      $entry_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+      # determine the trees and normalized main entry and subentries, to be
+      # compared with the previous line normalized entries to determine
+      # what is already formatted as part of the previous lines and
+      # what levels should be added.  The last level is always formatted.
+      my @new_normalized_entry_levels;
+      my @entry_trees;
+      my $entry_ref_tree = {'contents' => $index_entry_ref->{'entry_content'}};
+      $entry_ref_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+      $new_normalized_entry_levels[0]
+        = uc(Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
+             $entry_ref_tree));
+      $entry_trees[0] = $entry_ref_tree;
+      my $subentry = $index_entry_ref->{'entry_element'};
+      my $subentry_level = 1;
+      my $subentries_max_level = 2;
+      while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}
+             and $subentry_level <= $subentries_max_level) {
+        $subentry = $subentry->{'extra'}->{'subentry'};
+        my @subentry_contents;
+        if ($subentry->{'args'} and $subentry->{'args'}->[0]
+            and $subentry->{'args'}->[0]->{'contents'}) {
+          @subentry_contents = @{$subentry->{'args'}->[0]->{'contents'}};
+        }
+        my $subentry_tree = {'contents' => \@subentry_contents};
+        $subentry_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+        if ($subentry_level >= $subentries_max_level) {
+          # at the max, concatenate the remaining subentries
+          my $other_subentries_tree = $self->comma_index_subentries_tree($subentry);
+          push @{$subentry_tree->{'contents'}},
+             @{$other_subentries_tree->{'contents'}}
+                if defined($other_subentries_tree);
+        } else {
+          push @new_normalized_entry_levels,
+            uc(Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
+              $subentry_tree));
+        }
+        push @entry_trees, $subentry_tree;
+        $subentry_level ++;
+      }
+      #print STDERR join('|', @new_normalized_entry_levels)."\n";
+      # last entry, always converted, associated to chapter/node and
+      # with an hyperlinh
+      my $entry_tree = pop @entry_trees;
+      # indentation level of the last entry
+      my $entry_level = 0;
+
+      # format the leading entries when there are subentries.
+      # Each on a line with increasing indentation, no hyperlink.
+      if (scalar(@entry_trees) > 0) {
+        # find the level not already formatted as part of the previous lines
+        my $starting_subentry_level = 0;
+        foreach my $subentry_tree (@entry_trees) {
+          if ((scalar(@$normalized_entry_levels) > $starting_subentry_level)
+               and $normalized_entry_levels->[$starting_subentry_level]
+                 eq $new_normalized_entry_levels[$starting_subentry_level]) {
+          } else {
+            last;
+          }
+          $starting_subentry_level ++;
+        }
+        $entry_level = $starting_subentry_level;
+        foreach my $level ($starting_subentry_level .. scalar(@entry_trees)-1) {
+          my $entry;
+          if ($formatted_index_entries->{$index_entry_ref} > 1) {
+            # call with multiple_pass argument
+            $entry = $self->convert_tree_new_formatting_context($entry_trees[$level],
+                   "index $index_name l $letter index entry $entry_nr subentry $level",
+                   "index formatted $formatted_index_entries->{$index_entry_ref}")
+          } else {
+            $entry = $self->convert_tree($entry_trees[$level],
+                  "index $index_name l $letter index entry $entry_nr subentry $level");
+          }
+          $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+          # indent
+          if ($level > 0) {
+            my $open = $self->html_attribute_class('span', ["index-entry-level-$level"]);
+            if ($open ne '') {
+              $open .= '>';
+              $entry = $open.$entry.'</span>';
+            }
+          }
+          $entries_text .= '<tr><td></td>'
+           # FIXME same class used for leading element of the entry and
+           # last element of the entry.  Could be different.
+           .$self->html_attribute_class('td', ["$cmdname-index-entry"]).'>'
+           . $entry .
+           # following is empty, not sure if useful
+           '</td><td>'.$self->get_info('non_breaking_space').'</td>'
+            .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
+          $entries_text .= "</td></tr>\n";
+
+          $entry_level = $level+1;
+        }
+      }
 
       my $entry;
       if ($formatted_index_entries->{$index_entry_ref} > 1) {
@@ -5323,13 +5422,18 @@ sub _convert_printindex_command($$$$)
                             "index $index_name l $letter index entry $entry_nr");
       }
 
-      next if ($entry !~ /\S/);
-      next if ($self->get_conf('NO_TOP_NODE_OUTPUT')
-               and defined($index_entry_ref->{'entry_node'})
-               and $index_entry_ref->{'entry_node'}->{'extra'}
-               and $index_entry_ref->{'entry_node'}->{'extra'}->{'normalized'}
-               and $index_entry_ref->{'entry_node'}->{'extra'}->{'normalized'} eq 'Top');
+      next if ($entry !~ /\S/ and $entry_level == 0);
+
+      $normalized_entry_levels = [@new_normalized_entry_levels];
       $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+      # indent if it is a subentry
+      if ($entry_level > 0) {
+        my $open = $self->html_attribute_class('span', ["index-entry-level-$entry_level"]);
+        if ($open ne '') {
+          $open .= '>';
+          $entry = $open.$entry.'</span>';
+        }
+      }
       my $entry_href = $self->command_href($index_entry_ref->{'entry_element'});
       my $associated_command;
       if ($self->get_conf('NODE_NAME_IN_INDEX')) {

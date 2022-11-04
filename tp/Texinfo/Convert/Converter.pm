@@ -1385,13 +1385,12 @@ sub convert_accents($$$;$)
 
 # index sub-entries specified with @subentry, separated by commas.
 sub comma_index_subentries_tree {
-  my ($self, $entry) = @_;
+  my ($self, $current_entry) = @_;
 
   my @contents;
-  my $tmp = $entry->{'entry_element'};
-  while ($tmp->{'extra'} and $tmp->{'extra'}->{'subentry'}) {
-    $tmp = $tmp->{'extra'}->{'subentry'};
-    push @contents, {'text' => ', '}, $tmp->{'args'}->[0];
+  while ($current_entry->{'extra'} and $current_entry->{'extra'}->{'subentry'}) {
+    $current_entry = $current_entry->{'extra'}->{'subentry'};
+    push @contents, {'text' => ', '}, $current_entry->{'args'}->[0];
   }
   if (scalar(@contents)) {
     return {'contents' => \@contents};
