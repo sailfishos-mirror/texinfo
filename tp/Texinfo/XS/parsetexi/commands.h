@@ -73,6 +73,7 @@ void wipe_user_commands (void);
 /* CF_internal is not used in code, but it should be kept as internal
  * commands marker */
 #define CF_internal		        0x8000
+/* command that affect the document as a whole and can appear more than once */
 #define CF_global			0x00010000
 #define CF_def		        	0x00020000
 #define CF_def_alias	        	0x00040000
@@ -96,6 +97,7 @@ void wipe_user_commands (void);
 #define CF_inline			0x10000000
 #define CF_MACRO 			0x20000000
 #define CF_index_entry_command  	0x40000000
+/* command that affect the document as a whole and should appear only once */
 #define CF_global_unique		0x80000000
 
 /* NOTE: We often run out of spaces for flags
