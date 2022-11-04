@@ -696,6 +696,228 @@ $result_trees{'sorted_subentries'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'hhh'
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'samp',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 19,
+                    'macro' => ''
+                  }
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => ' '
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'content_normalized' => [],
+              'entry_content' => [],
+              'entry_element' => {},
+              'entry_node' => {},
+              'entry_number' => 9,
+              'in_code' => 0,
+              'index_at_command' => 'cindex',
+              'index_ignore_chars' => {},
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex'
+            },
+            'spaces_before_argument' => ' ',
+            'subentry' => {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'jjj'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'subentry',
+              'extra' => {
+                'level' => 1,
+                'spaces_before_argument' => ' '
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 19,
+                'macro' => ''
+              }
+            }
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 19,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
+        },
+        {},
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'hhh'
+                        }
+                      ],
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'kbd',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 20,
+                    'macro' => ''
+                  }
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => ' '
+              },
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'content_normalized' => [],
+              'entry_content' => [],
+              'entry_element' => {},
+              'entry_node' => {},
+              'entry_number' => 10,
+              'in_code' => 0,
+              'index_at_command' => 'cindex',
+              'index_ignore_chars' => {},
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex'
+            },
+            'spaces_before_argument' => ' ',
+            'subentry' => {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'jjj'
+                            }
+                          ],
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'sc',
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 20,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => ' '
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'subentry',
+              'extra' => {
+                'level' => 1,
+                'spaces_before_argument' => ' ',
+                'subentry' => {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'jjj'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
+                            },
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'mymail'
+                                }
+                              ],
+                              'type' => 'brace_command_arg'
+                            }
+                          ],
+                          'cmdname' => 'email',
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 20,
+                            'macro' => ''
+                          }
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'subentry',
+                  'extra' => {
+                    'level' => 2,
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 20,
+                    'macro' => ''
+                  }
+                }
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 20,
+                'macro' => ''
+              }
+            }
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 20,
+            'macro' => ''
+          },
+          'type' => 'index_entry_command'
+        },
+        {},
+        {},
+        {
+          'args' => [
+            {
               'type' => 'line_arg'
             }
           ],
@@ -725,14 +947,14 @@ $result_trees{'sorted_subentries'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 21,
                 'macro' => ''
               }
             }
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 19,
+            'line_nr' => 21,
             'macro' => ''
           }
         },
@@ -758,7 +980,7 @@ $result_trees{'sorted_subentries'} = {
               'entry_content' => [],
               'entry_element' => {},
               'entry_node' => {},
-              'entry_number' => 9,
+              'entry_number' => 11,
               'in_code' => 0,
               'index_at_command' => 'cindex',
               'index_ignore_chars' => {},
@@ -809,7 +1031,7 @@ $result_trees{'sorted_subentries'} = {
                           'cmdname' => 'sortas',
                           'source_info' => {
                             'file_name' => '',
-                            'line_nr' => 20,
+                            'line_nr' => 22,
                             'macro' => ''
                           }
                         }
@@ -829,21 +1051,21 @@ $result_trees{'sorted_subentries'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 20,
+                    'line_nr' => 22,
                     'macro' => ''
                   }
                 }
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 20,
+                'line_nr' => 22,
                 'macro' => ''
               }
             }
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 20,
+            'line_nr' => 22,
             'macro' => ''
           },
           'type' => 'index_entry_command'
@@ -879,7 +1101,7 @@ $result_trees{'sorted_subentries'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 22,
+            'line_nr' => 24,
             'macro' => ''
           }
         }
@@ -941,6 +1163,10 @@ $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3]{'extra'}{'index
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3]{'args'}[0]{'contents'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4];
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[5] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[4]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'args'}[0]{'contents'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'args'}[0]{'contents'};
@@ -948,6 +1174,13 @@ $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'index
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[7] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'subentry'};
 $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[8] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[6]{'extra'}{'subentry'}{'extra'}{'subentry'};
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[10] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[9]{'extra'}{'subentry'};
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'args'}[0]{'contents'};
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'args'}[0]{'contents'};
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11];
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'sorted_subentries'}{'contents'}[5];
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[12] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'subentry'};
+$result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[13] = $result_trees{'sorted_subentries'}{'contents'}[6]{'contents'}[11]{'extra'}{'subentry'}{'extra'}{'subentry'};
 
 $result_texis{'sorted_subentries'} = '@node Top
 @top
@@ -967,6 +1200,8 @@ $result_texis{'sorted_subentries'} = '@node Top
 @chapter second
 @cindex hhh @subentry jjj @subentry lll
 @cindex hhh 
+@cindex @samp{hhh} @subentry jjj
+@cindex @kbd{hhh} @subentry @sc{jjj} @subentry @email{jjj,mymail}
 @cindex @subentry aa
 @cindex hhh @subentry jjj @subentry lll @sortas{A}
 
@@ -1134,7 +1369,7 @@ $result_errors{'sorted_subentries'} = [
     'error_line' => 'warning: @cindex missing argument
 ',
     'file_name' => '',
-    'line_nr' => 19,
+    'line_nr' => 21,
     'macro' => '',
     'text' => '@cindex missing argument',
     'type' => 'warning'
@@ -1160,9 +1395,11 @@ $result_indices_sort_strings{'sorted_subentries'} = {
     'hhh',
     'hhh, ',
     'hhh, jjj',
+    'hhh, jjj',
     'hhh, jjj, A',
     'hhh, jjj, lll',
     'hhh, jjj, lll',
+    'hhh, JJJ, mymail',
     'hhh, k',
     'hhh jjj'
   ]
@@ -1199,9 +1436,11 @@ File: ,  Node: chapter second,  Prev: chapter one,  Up: Top
 * hhh <1>:                               chapter second.        (line 6)
 * hhh, :                                 chapter one.           (line 6)
 * hhh, jjj:                              chapter one.           (line 6)
+* hhh, jjj <1>:                          chapter second.        (line 6)
 * hhh, jjj, lll:                         chapter second.        (line 6)
 * hhh, jjj, lll <1>:                     chapter one.           (line 6)
 * hhh, jjj, lll <2>:                     chapter second.        (line 6)
+* hhh, JJJ, mymail <jjj>:                chapter second.        (line 6)
 * hhh, k:                                chapter one.           (line 6)
 * hhh jjj:                               chapter one.           (line 6)
 
@@ -1246,9 +1485,11 @@ $result_converted{'plaintext'}->{'sorted_subentries'} = '1 one
 * hhh <1>:                               chapter second.        (line 6)
 * hhh, :                                 chapter one.           (line 3)
 * hhh, jjj:                              chapter one.           (line 3)
+* hhh, jjj <1>:                          chapter second.        (line 6)
 * hhh, jjj, lll:                         chapter second.        (line 6)
 * hhh, jjj, lll <1>:                     chapter one.           (line 3)
 * hhh, jjj, lll <2>:                     chapter second.        (line 6)
+* hhh, JJJ, mymail <jjj>:                chapter second.        (line 6)
 * hhh, k:                                chapter one.           (line 3)
 * hhh jjj:                               chapter one.           (line 3)
 
@@ -1305,6 +1546,8 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <a class="index-entry-id" id="index-hhh-5"></a>
 <a class="index-entry-id" id="index-hhh-6"></a>
 <a class="index-entry-id" id="index-hhh-7"></a>
+<a class="index-entry-id" id="index-hhh-8"></a>
+<a class="index-entry-id" id="index-hhh-9"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
@@ -1315,9 +1558,11 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-6">hhh</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-3">hhh, </a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-1">hhh, jjj</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-7">hhh, jjj, lll</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-7">&lsquo;<samp class="samp">hhh</samp>&rsquo;, jjj</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-9">hhh, jjj, lll</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh">hhh, jjj, lll</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-5">hhh, jjj, lll</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-8"><kbd class="kbd">hhh</kbd>, <small class="sc">JJJ</small>, <a class="email" href="mailto:jjj">mymail</a></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-2">hhh, k</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-jjj">hhh jjj</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -1361,8 +1606,10 @@ $result_converted{'xml'}->{'sorted_subentries'} = '<node name="Top" spaces=" "><
 <chapter spaces=" "><sectiontitle>second</sectiontitle>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="7">hhh</indexterm></cindex> <subentry spaces=" ">jjj </subentry><subentry spaces=" ">lll</subentry>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="8">hhh</indexterm></cindex> 
+<cindex index="cp" spaces=" "><indexterm index="cp" number="9"><samp>hhh</samp></indexterm></cindex> <subentry spaces=" ">jjj</subentry>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="10"><kbd>hhh</kbd></indexterm></cindex> <subentry spaces=" "><sc>jjj</sc> </subentry><subentry spaces=" "><email><emailaddress>jjj</emailaddress><emailname>mymail</emailname></email></subentry>
 <cindex spaces=" "></cindex><subentry spaces=" ">aa</subentry>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="9">hhh</indexterm></cindex> <subentry spaces=" ">jjj </subentry><subentry spaces=" ">lll <sortas>A</sortas></subentry>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="11">hhh</indexterm></cindex> <subentry spaces=" ">jjj </subentry><subentry spaces=" ">lll <sortas>A</sortas></subentry>
 
 <printindex spaces=" " value="cp" line="cp"></printindex>
 </chapter>

@@ -111,8 +111,10 @@ $tree = $parser->parse_texi_text('@node Top
 @cindex hhh 
 @cindex hhh @subentry jjj @subentry lll
 @cindex hhh 
-@cindex hhh @subentry jjj @subentry lll @sortas{A}
+@cindex @samp{hhh} @subentry jjj
+@cindex @kbd{hhh} @subentry @sc{jjj} @subentry @email{jjj,mymail}
 @cindex @subentry aa
+@cindex hhh @subentry jjj @subentry lll @sortas{A}
 ');
 
 $registrar = $parser->registered_errors();
@@ -130,6 +132,7 @@ foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
 #print STDERR join(', ', map {"'$_'"} @entries)."\n";
 
 # the entry @cindex @subentry aa does not appear, has a missing argument
-@entries_ref = ('hhh', 'hhh', 'hhh, ', 'hhh, jjj', 'hhh, jjj, A', 'hhh, jjj, lll', 'hhh, jjj, lll', 'hhh, k', 'hhh jjj');
+@entries_ref = ('hhh', 'hhh', 'hhh, ', 'hhh, jjj', 'hhh, jjj', 'hhh, jjj, A',
+ 'hhh, jjj, lll', 'hhh, jjj, lll', 'hhh, JJJ, mymail', 'hhh, k', 'hhh jjj');
 
 cmp_deeply (\@entries, \@entries_ref, 'subentry sorted');
