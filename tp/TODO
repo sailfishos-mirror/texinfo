@@ -71,9 +71,7 @@ my $collator = Unicode::Collate::Locale->new('locale' => $documentlanguage, 'nor
 @sorted = $collator->sort(@not_sorted);
 
 
-in hyphenation: only text and accent commands, and should
-only appear in toplevel.  Not the only command with only
-text and accent commands, there is a FIXME in Common.pm.
+hyphenation: should only appear in toplevel.
 
 
 Some dubious nesting could be warned against.  The parsers context

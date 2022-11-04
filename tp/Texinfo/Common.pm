@@ -75,6 +75,7 @@ $VERSION = '7.0';
 
 
 # i18n
+# For the messages translations.
 my $messages_textdomain = 'texinfo';
 
 sub __($) {
@@ -86,6 +87,25 @@ sub __p($$) {
   my $context = shift;
   my $msgid = shift;
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
+}
+
+
+# For the in-document output strings translations in the texinfo_document
+# textdomain.
+#
+# Return the string but do nothing else, used to mark strings to be translated
+# in the Gettext framework.
+# Can be used in other modules, inparticular if the modules already overwrite
+# gdt from Texinfo::Translations.
+sub gdt($)
+{
+  return $_[0];
+}
+
+# First argument is the translation context.
+sub pgdt($$)
+{
+  return $_[1];
 }
 
 
@@ -468,7 +488,7 @@ sub valid_customization_option($)
   return $valid_customization_options{$option};
 }
 
-# not documented on purpose, should not be called in user-defined
+# not documented on purpose, should not be directly called in user-defined
 # codes
 sub add_valid_customization_option($)
 {
@@ -565,13 +585,6 @@ foreach my $unformatted_brace_command ('anchor', 'shortcaption',
   $unformatted_brace_commands{$unformatted_brace_command} = 1;
 }
 
-# Do nothing, used to mark translations for gettext.  The strings
-# are marked to be translated in the parsers with type 'untranslated'.
-sub gdt($)
-{
-  return $_[0];
-}
-
 our %def_map = (
     # basic commands.
     # 'arg' and 'argtype' are for everything appearing after the other
@@ -586,6 +599,8 @@ our %def_map = (
     'defop',     [ 'category', 'class' , 'name', 'arg' ],
     'deftp',     [ 'category', 'name', 'argtype' ],
     # shortcuts
+    # The strings are marked to be translated in the parsers with type
+    # 'untranslated'.
     'defun',         {'deffn'     => gdt('Function')},
     'defmac',        {'deffn'     => gdt('Macro')},
     'defspec',       {'deffn'     => gdt('Special Form')},
@@ -629,8 +644,7 @@ for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
   $small_block_associated_command{'small'.$cmd} = $cmd;
 };
 
-# commands that should only appear at the root level and contain up to
-# the next root command.  @node and sectioning commands.
+# Section and heading commands hierarchical levels
 our %command_structuring_level = (
               'top'               => 0,
               'part'              => 0, # out of the main hierarchy
@@ -811,8 +825,9 @@ sub output_files_initialize
 # $FILE_PATH is the file path, it should be a binary string.
 # If $USE_BINMODE is set, call binmode() to set binary mode.
 # $OUTPUT_ENCODING argument overrides the output encoding.
-# returns the opened filehandle, or undef if opening failed,
-# and the $! error message or undef if opening succeeded.
+# Returns
+#  - the opened filehandle, or undef if opening failed,
+#  - the $! error message or undef if opening succeeded.
 sub output_files_open_out($$$;$$)
 {
   my $self = shift;
@@ -926,14 +941,14 @@ sub rearrange_tree_beginning($$)
     delete $before_node_section->{'contents'}
       if (scalar(@{$before_node_section->{'contents'}}) == 0);
   }
-  
+
   _add_preamble_before_content($before_node_section);
 }
 
 sub _add_preamble_before_content($)
 {
   my $before_node_section = shift;
-  
+
   # add a preamble for informational commands
   my $informational_preamble = {'type' => 'preamble_before_content',
                                 'parent' => $before_node_section,
@@ -1772,7 +1787,7 @@ sub _collect_commands_list_in_tree($$$)
 # associated_section part_associated_section associated_node associated_part
 # @prototypes @columnfractions titlepage quotation @author command
 # menu_entry_description menu_entry_name
-# 
+#
 # should point to other elements, or be copied.  And some should be recursed
 # into too.
 # extra->type->content
@@ -1868,7 +1883,7 @@ sub _substitute_references($$$)
   my $current = shift;
   my $new = shift;
   my $reference_associations = shift;
-  
+
   foreach my $key ('args', 'contents') {
     if ($new->{$key}) {
       my $index = 0;

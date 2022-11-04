@@ -1,5 +1,10 @@
 2022-11-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (pgdt): add pgdt that does nothing to
+	be able to marks translated strings with a translation context.
+
+2022-11-04  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS: update with @subentry, @seealso and @seeentry formatting
 	in HTML.
 
