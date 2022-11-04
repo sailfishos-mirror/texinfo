@@ -709,10 +709,10 @@ $result_floats{'subentry_and_sortas_spaces'} = {};
 
 $result_indices_sort_strings{'subentry_and_sortas_spaces'} = {
   'cp' => [
-    'A---S',
-    'aaa',
-    'aaa',
-    'aaa'
+    'A---S, C---S1',
+    'aaa, B---S1',
+    'aaa, bbb, ccc',
+    'aaa, bbb, D'
   ]
 };
 
@@ -807,8 +807,8 @@ $result_converted{'html_text'}->{'subentry_and_sortas_spaces'} = '<div class="to
 <tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-aaa">aaa, bbb sort as c</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-1">aaa, </a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-2">aaa, bbb, ccc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-3">aaa, bbb, ccc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-2">aaa, bbb, ccc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>

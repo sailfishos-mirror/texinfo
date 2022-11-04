@@ -4,7 +4,7 @@ use lib '.';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 use Test::More;
-BEGIN { plan tests => 6; };
+BEGIN { plan tests => 7; };
 
 use Texinfo::Convert::Text;
 use Texinfo::Parser;
@@ -99,3 +99,37 @@ local $Data::Dumper::Indent = 1;
 }
 
 cmp_deeply (\@letter_entries, \@letter_entries_ref, 'by letter index entries');
+
+$parser = Texinfo::Parser::parser();
+$tree = $parser->parse_texi_text('@node Top
+
+@cindex hhh @subentry jjj @subentry lll
+@cindex hhh @subentry jjj
+@cindex hhh jjj
+@cindex hhh @subentry k
+@cindex hhh @subentry 
+@cindex hhh 
+@cindex hhh @subentry jjj @subentry lll
+@cindex hhh 
+@cindex hhh @subentry jjj @subentry lll @sortas{A}
+@cindex @subentry aa
+');
+
+$registrar = $parser->registered_errors();
+($index_names, $merged_indices) = $parser->indices_information();
+$index_entries = Texinfo::Structuring::merge_indices($index_names);
+($sorted_index_entries, $index_entries_sort_strings)
+  = Texinfo::Structuring::sort_indices($registrar, $main_configuration,
+                                       $index_entries);
+
+@entries = ();
+foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
+  push @entries, $index_entries_sort_strings->{$entry};
+}
+
+#print STDERR join(', ', map {"'$_'"} @entries)."\n";
+
+# the entry @cindex @subentry aa does not appear, has a missing argument
+@entries_ref = ('hhh', 'hhh', 'hhh, ', 'hhh, jjj', 'hhh, jjj, A', 'hhh, jjj, lll', 'hhh, jjj, lll', 'hhh, k', 'hhh jjj');
+
+cmp_deeply (\@entries, \@entries_ref, 'subentry sorted');

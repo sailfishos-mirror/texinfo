@@ -706,6 +706,7 @@ $result_floats{'double_seeentry_seealso'} = {};
 
 $result_indices_sort_strings{'double_seeentry_seealso'} = {
   'cp' => [
+    ', subggg',
     'aaa',
     'ddd',
     'ggg'

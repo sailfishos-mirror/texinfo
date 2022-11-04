@@ -1059,7 +1059,7 @@ $result_indices_sort_strings{'indices'} = {
   'cp' => [
     '\\cmd',
     '\\some\\command for file',
-    'a!"@b "!@ a" o"',
+    'a!"@b "!@ a" o", a!"@b',
     'cmd'
   ],
   'fn' => [

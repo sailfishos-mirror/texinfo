@@ -347,8 +347,8 @@ $result_floats{'seealso_duplicate'} = {};
 
 $result_indices_sort_strings{'seealso_duplicate'} = {
   'cp' => [
-    'awk',
-    'awk'
+    'awk, POSIX and',
+    'awk, POSIX and'
   ]
 };
 

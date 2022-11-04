@@ -564,6 +564,30 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex fn
 ', {'test_formats' => ['docbook']}
 ],
+['sorted_subentries',
+'@node Top
+@top
+
+@node chapter one
+@chapter one
+
+
+@cindex hhh @subentry jjj @subentry lll
+@cindex hhh @subentry jjj
+@cindex hhh jjj
+@cindex hhh @subentry k
+@cindex hhh @subentry 
+@cindex hhh 
+
+@node chapter second
+@chapter second
+@cindex hhh @subentry jjj @subentry lll
+@cindex hhh 
+@cindex @subentry aa
+@cindex hhh @subentry jjj @subentry lll @sortas{A}
+
+@printindex cp
+'],
 ['seeentry',
 '@node Top
 @top

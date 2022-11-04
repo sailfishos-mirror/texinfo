@@ -577,10 +577,10 @@ $result_floats{'subentry_and_sortas'} = {};
 
 $result_indices_sort_strings{'subentry_and_sortas'} = {
   'cp' => [
-    'A---S'
+    'A---S, B---S1'
   ],
   'fn' => [
-    'X---S'
+    'X---S, X---S1'
   ]
 };
 

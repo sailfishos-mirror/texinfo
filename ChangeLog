@@ -1,5 +1,13 @@
 2022-11-03  Patrice Dumas  <pertusus@free.fr>
 
+	Also use subentries for index entries sorting in texi2any
+
+	* tp/Texinfo/Structuring.pm (_sort_index_entries, sort_indices):
+	collect subentries sorting keys and use them to sort the index
+	entries.
+
+2022-11-03  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Simple Customization for Commands Without
 	Arguments), tp/Texinfo/Config.pm
 	(texinfo_register_no_arg_command_formatting),

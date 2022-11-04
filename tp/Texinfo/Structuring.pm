@@ -121,7 +121,7 @@ sub sectioning_structure($$$)
 
   my $section_top;
   my @sections_list;
-  
+
   # holds the current number for all the levels.  It is not possible to use
   # something like the last child index, because of @unnumbered.
   my @command_numbers;
@@ -1628,9 +1628,19 @@ sub _sort_index_entries($$)
 {
   my $key1 = shift;
   my $key2 = shift;
-  my $a = uc($key1->{'key'});
-  my $b = uc($key2->{'key'});
-  my $res = _sort_string($a, $b);
+
+  my $key_index = 0;
+  foreach my $key1_str (@{$key1->{'keys'}}) {
+    my $res = _sort_string(uc($key1_str), uc($key2->{'keys'}->[$key_index]));
+    if ($res != 0) {
+      return $res;
+    }
+    $key_index ++;
+    if (scalar(@{$key2->{'keys'}}) <= $key_index) {
+      last;
+    }
+  }
+  my $res = (scalar(@{$key1->{'keys'}}) <=> scalar(@{$key2->{'keys'}}));
   if ($res == 0) {
     $res = ($key1->{'number'} <=> $key2->{'number'});
   }
@@ -1716,24 +1726,53 @@ sub sort_indices($$$;$)
       my $entry_key = index_entry_sort_string($entry,
                                  {'contents' => $entry->{'entry_content'}},
                                               $entry->{'sortas'}, $options);
-      $index_entries_sort_strings->{$entry} = $entry_key;
+      my @entry_keys;
+      my $letter = '';
       if ($entry_key !~ /\S/) {
         $registrar->line_warn($customization_information,
                      sprintf(__("empty index key in \@%s"),
                                  $entry->{'index_at_command'}),
                         $entry->{'entry_element'}->{'source_info'});
+        push @entry_keys, '';
       } else {
-        my $sortable_entry = {'entry' => $entry, 'key' => $entry_key,
-           'number' => $entry->{'entry_number'},
-           'index_at_command' => $entry->{'index_at_command'}};
-
+        push @entry_keys, $entry_key;
         if ($sort_by_letter) {
-          my $letter = uc(substr($entry_key, 0, 1));
-          push @{$index_letter_hash->{$letter}}, $sortable_entry;
-        } else {
-          push @{$sortable_index_entries}, $sortable_entry;
+          $letter = uc(substr($entry_key, 0, 1));
         }
       }
+      my $subentry_nr = 0;
+      my $subentry = $entry->{'entry_element'};
+      while ($subentry->{'extra'} and $subentry->{'extra'}->{'subentry'}) {
+        $subentry_nr ++;
+        $subentry = $subentry->{'extra'}->{'subentry'};
+        my $subentry_key = index_entry_sort_string($entry,
+                     {'contents' => $subentry->{'args'}->[0]->{'contents'}},
+                                    $subentry->{'extra'}->{'sortas'}, $options);
+        if ($subentry_key !~ /\S/) {
+          $registrar->line_warn($customization_information,
+                     sprintf(__("empty index sub entry %d key in \@%s"),
+                                 $subentry_nr,
+                                 $entry->{'index_at_command'}),
+                        $entry->{'entry_element'}->{'source_info'});
+          push @entry_keys, '';
+        } else {
+          push @entry_keys, $subentry_key;
+        }
+      }
+      foreach my $sub_entry_key (@entry_keys) {
+        if ($sub_entry_key ne '') {
+          my $sortable_entry = {'entry' => $entry, 'keys' => \@entry_keys,
+             'number' => $entry->{'entry_number'},
+             'index_at_command' => $entry->{'index_at_command'}};
+          if ($sort_by_letter) {
+            push @{$index_letter_hash->{$letter}}, $sortable_entry;
+          } else {
+            push @{$sortable_index_entries}, $sortable_entry;
+          }
+          last;
+        }
+      }
+      $index_entries_sort_strings->{$entry} = join(', ', @entry_keys);
     }
     if ($sort_by_letter) {
       foreach my $letter (sort _sort_string (keys %$index_letter_hash)) {

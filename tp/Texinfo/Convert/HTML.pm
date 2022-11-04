@@ -5304,6 +5304,7 @@ sub _convert_printindex_command($$$$)
         $formatted_index_entries->{$index_entry_ref}++;
       }
 
+      # div.display {margin-left: 3.2em}
       my $subentries_tree = $self->comma_index_subentries_tree($index_entry_ref);
       my @entry_contents = @{$index_entry_ref->{'entry_content'}};
       push @entry_contents, @{$subentries_tree->{'contents'}}

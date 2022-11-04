@@ -1031,15 +1031,15 @@ $result_floats{'subentries'} = {};
 $result_indices_sort_strings{'subentries'} = {
   'cp' => [
     'a--a',
-    'b--b',
-    'd--dd',
-    'g--gg'
+    'b--b, c--c',
+    'd--dd, e--ee, f--ff',
+    'g--gg, h--hh jjj, k--kk, l--ll'
   ],
   'fn' => [
     'f---aa',
-    'f---bb',
-    'f---ddd',
-    'f---ggg'
+    'f---bb, f---cc',
+    'f---ddd, f---eee, ffff',
+    'f---ggg, f---hhh fjjj, f---kkk, f---lll'
   ]
 };
 
