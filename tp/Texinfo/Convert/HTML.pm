@@ -5296,10 +5296,6 @@ sub _convert_printindex_command($$$$)
     # same for Texinfo TeX
     my $normalized_entry_levels = [];
     foreach my $index_entry_ref (@{$letter_entry->{'entries'}}) {
-      # FIXME format instead of ignoring
-      next if ($index_entry_ref->{'entry_element'}->{'extra'}
-               and ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}
-                    or $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'}));
       $entry_nr++;
       next if ($self->get_conf('NO_TOP_NODE_OUTPUT')
                and defined($index_entry_ref->{'entry_node'})
@@ -5316,14 +5312,106 @@ sub _convert_printindex_command($$$$)
         $formatted_index_entries->{$index_entry_ref}++;
       }
 
+      my $entry_ref_tree = {'contents' => $index_entry_ref->{'entry_content'}};
+      $entry_ref_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+
+      # index entry with @seeentry or @seealso
+      if ($index_entry_ref->{'entry_element'}->{'extra'}
+            and ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}
+              or $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'})) {
+        my $referred_entry;
+        my $seenentry = 1;
+        if ($index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'}) {
+          $referred_entry
+             = $index_entry_ref->{'entry_element'}->{'extra'}->{'seeentry'};
+        } else {
+          $referred_entry
+             = $index_entry_ref->{'entry_element'}->{'extra'}->{'seealso'};
+          $seenentry = 0;
+        }
+        my @referred_contents;
+        if ($referred_entry->{'args'} and $referred_entry->{'args'}->[0]
+            and $referred_entry->{'args'}->[0]->{'contents'}) {
+          @referred_contents
+             = @{$referred_entry->{'args'}->[0]->{'contents'}};
+        }
+        my $referred_tree = {'contents' => \@referred_contents};
+        $referred_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
+        my $entry;
+        # for @seealso, to appear where chapter/node ususally appear
+        my $reference = '';
+        my $delimiter = '';
+        my $entry_class;
+        my $section_class;
+        if ($seenentry) {
+          my $result_tree;
+          if ($index_entry_ref->{'in_code'}) {
+            $result_tree
+        = $self->gdt('@code{{main_index_entry}}, @emph{See} @code{{seenentry}}',
+                                        {'main_index_entry' => $entry_ref_tree,
+                                         'seenentry' => $referred_tree});
+          } else {
+            $result_tree
+               = $self->gdt('{main_index_entry}, @emph{See} {seenentry}',
+                                        {'main_index_entry' => $entry_ref_tree,
+                                         'seenentry' => $referred_tree});
+          }
+          if ($formatted_index_entries->{$index_entry_ref} > 1) {
+            # call with multiple_pass argument
+            $entry = $self->convert_tree_new_formatting_context($result_tree,
+                 "index $index_name l $letter index entry $entry_nr seenentry",
+                 "index formatted $formatted_index_entries->{$index_entry_ref}")
+          } else {
+            $entry = $self->convert_tree($result_tree,
+                  "index $index_name l $letter index entry $entry_nr seenentry");
+          }
+          $entry_class = "$cmdname-index-see-entry";
+          $section_class = "$cmdname-index-see-entry-section";
+        } else {
+          my $reference_tree = $self->gdt('@emph{See also} {see_also_entry}',
+                                       {'see_also_entry' => $referred_tree});
+          if ($formatted_index_entries->{$index_entry_ref} > 1) {
+            # call with multiple_pass argument
+            $entry = $self->convert_tree_new_formatting_context($entry_ref_tree,
+               "index $index_name l $letter index entry $entry_nr (with seealso)",
+               "index formatted $formatted_index_entries->{$index_entry_ref}");
+            $reference
+               = $self->convert_tree_new_formatting_context($reference_tree,
+                "index $index_name l $letter index entry $entry_nr seealso",
+                 "index formatted $formatted_index_entries->{$index_entry_ref}");
+          } else {
+            $entry = $self->convert_tree($entry_ref_tree,
+             "index $index_name l $letter index entry $entry_nr (with seealso)");
+            $reference
+               = $self->convert_tree_new_formatting_context($reference_tree,
+                  "index $index_name l $letter index entry $entry_nr seealso");
+          }
+          $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+          $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
+          # TODO add the information that it is associated with see also?
+          $entry_class = "$cmdname-index-entry";
+          $section_class = "$cmdname-index-see-also";
+        }
+
+        $entries_text .= '<tr><td></td>'
+         .$self->html_attribute_class('td', [$entry_class]).'>'
+         . $entry .
+          $delimiter .
+        '</td><td>'.$self->get_info('non_breaking_space').'</td>'
+        .$self->html_attribute_class('td', [$section_class]).'>';
+        $entries_text .= $reference;
+        $entries_text .= "</td></tr>\n";
+
+        $normalized_entry_levels = [];
+        next;
+      }
+
       # determine the trees and normalized main entry and subentries, to be
       # compared with the previous line normalized entries to determine
       # what is already formatted as part of the previous lines and
       # what levels should be added.  The last level is always formatted.
       my @new_normalized_entry_levels;
       my @entry_trees;
-      my $entry_ref_tree = {'contents' => $index_entry_ref->{'entry_content'}};
-      $entry_ref_tree->{'type'} = '_code' if ($index_entry_ref->{'in_code'});
       $new_normalized_entry_levels[0]
         = uc(Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
              $entry_ref_tree));

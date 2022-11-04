@@ -1,5 +1,13 @@
 2022-11-04  Patrice Dumas  <pertusus@free.fr>
 
+	Format index entry with @seealso or @seeentry in HTML
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	format entry with @seealso or @seeentry similarly with Texinfo
+	TeX.
+
+2022-11-04  Patrice Dumas  <pertusus@free.fr>
+
 	Format @subentry in HTML similarly as in printed output
 
 	* tp/Texinfo/Convert/Converter.pm (comma_index_subentries_tree),

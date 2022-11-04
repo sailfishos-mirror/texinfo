@@ -665,13 +665,33 @@ $result_converted{'html_text'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 <a class="index-entry-id" id="index-other-second"></a>
 
 <div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+</td></tr></table>
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-see-entry">aaa continue aagain, <em class="emph">See</em> other second</td><td>&nbsp;</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-other-second">other second</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_cp_letter-E">E</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-see-entry">entry secret, <em class="emph">See</em> something else</td><td>&nbsp;</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 </table>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+</td></tr></table>
 </div>
 </div>
 </div>

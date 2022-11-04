@@ -692,6 +692,38 @@ $result_converted{'html_text'}->{'seeentry'} = '<div class="top-level-extent" id
 
 
 
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="cp-entries-printindex" border="0">
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-see-entry">aaa, <em class="emph">See</em> bbb</td><td>&nbsp;</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_cp_letter-D">D</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry">ddd:</td><td>&nbsp;</td><td class="printindex-index-see-also"><em class="emph">See also</em> ccc</td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+</td></tr></table>
+</div>
+<div class="printindex fn-printindex">
+<table class="fn-entries-printindex" border="0">
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_fn_letter-F">F</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-see-entry"><code class="code">f---aaa</code>, <em class="emph">See</em> <code class="code">f---bbb</code></td><td>&nbsp;</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><td></td><td class="printindex-index-entry"><code>f---ddd</code>:</td><td>&nbsp;</td><td class="printindex-index-see-also"><em class="emph">See also</em> f---ccc</td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+</div>
 </div>
 </div>
 ';

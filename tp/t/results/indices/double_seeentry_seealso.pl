@@ -814,6 +814,44 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '<div class="top-l
 <h2 class="chapter" id="Chapter-Index">1 Chapter Index</h2>
 
 
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b></b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="cp-entries-printindex" border="0">
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_cp_symbol-1"></th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry">:</td><td>&nbsp;</td><td class="printindex-index-see-also"><em class="emph">See also</em> fff</td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-see-entry">aaa, <em class="emph">See</em> ccc</td><td>&nbsp;</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_cp_letter-D">D</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-entry">ddd:</td><td>&nbsp;</td><td class="printindex-index-see-also"><em class="emph">See also</em> eee</td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_i_cp_letter-G">G</th><td></td><td></td></tr>
+<tr><td></td><td class="printindex-index-see-entry">ggg, <em class="emph">See</em> hhh</td><td>&nbsp;</td><td class="printindex-index-see-entry-section"></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_symbol-1"><b></b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter-printindex" href="#t_i_cp_letter-G"><b>G</b></a>
+ &nbsp; 
+</td></tr></table>
+</div>
 </div>
 </div>
 ';
