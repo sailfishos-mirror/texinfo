@@ -571,6 +571,10 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @node chapter one
 @chapter one
 
+@cindex aa @subentry bb
+@cindex ab @subentry cc
+@cindex aa @subentry dd
+@cindex bb @subentry cc
 
 @cindex hhh @subentry jjj @subentry lll
 @cindex hhh @subentry jjj
@@ -589,6 +593,7 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @cindex @subentry aa
 @cindex hhh @subentry jjj @subentry lll @sortas{A}
 @cindex hhh @subentry k @subentry nnn
+@cindex hhh @subentry l @subentry third
 
 @printindex cp
 '],
