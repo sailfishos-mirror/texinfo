@@ -313,6 +313,75 @@ $result_trees{'customize_translations'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 14,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'section fr'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'node',
+      'extra' => {
+        'node_content' => [
+          {}
+        ],
+        'nodes_manuals' => [
+          {
+            'node_content' => [
+              {}
+            ],
+            'normalized' => 'section-fr'
+          }
+        ],
+        'normalized' => 'section-fr',
+        'spaces_before_argument' => ' '
+      },
+      'source_info' => {
+        'file_name' => '',
+        'line_nr' => 18,
+        'macro' => ''
+      }
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'text' => 'sec fr'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'section',
+      'contents' => [
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'args' => [
@@ -336,7 +405,7 @@ $result_trees{'customize_translations'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 18,
+            'line_nr' => 21,
             'macro' => ''
           }
         }
@@ -346,7 +415,7 @@ $result_trees{'customize_translations'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 14,
+        'line_nr' => 19,
         'macro' => ''
       }
     },
@@ -383,7 +452,7 @@ $result_trees{'customize_translations'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 19,
+        'line_nr' => 22,
         'macro' => ''
       }
     },
@@ -420,7 +489,7 @@ $result_trees{'customize_translations'} = {
               'cmdname' => 'error',
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 22,
+                'line_nr' => 25,
                 'macro' => ''
               }
             },
@@ -442,7 +511,7 @@ $result_trees{'customize_translations'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 20,
+        'line_nr' => 23,
         'macro' => ''
       }
     },
@@ -479,7 +548,7 @@ $result_trees{'customize_translations'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 24,
+        'line_nr' => 27,
         'macro' => ''
       }
     },
@@ -511,7 +580,7 @@ $result_trees{'customize_translations'} = {
       },
       'source_info' => {
         'file_name' => '',
-        'line_nr' => 25,
+        'line_nr' => 28,
         'macro' => ''
       }
     }
@@ -528,6 +597,8 @@ $result_trees{'customize_translations'}{'contents'}[7]{'extra'}{'node_content'}[
 $result_trees{'customize_translations'}{'contents'}[7]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'customize_translations'}{'contents'}[9]{'extra'}{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[9]{'args'}[0]{'contents'}[0];
 $result_trees{'customize_translations'}{'contents'}[9]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[9]{'args'}[0]{'contents'}[0];
+$result_trees{'customize_translations'}{'contents'}[11]{'extra'}{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[11]{'args'}[0]{'contents'}[0];
+$result_trees{'customize_translations'}{'contents'}[11]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'customize_translations'}{'contents'}[11]{'args'}[0]{'contents'}[0];
 
 $result_texis{'customize_translations'} = '
 @contents
@@ -545,6 +616,9 @@ $result_texis{'customize_translations'} = '
 @chapter chap fr
 
 @error{}.
+
+@node section fr
+@section sec fr
 
 @documentlanguage de
 @node Chapter de
@@ -572,6 +646,9 @@ error-->.
 *********
 
 error-->.
+
+2.1 sec fr
+==========
 
 3 chap de
 *********
@@ -630,6 +707,25 @@ $result_sectioning{'customize_translations'} = {
                 }
               },
               'structure' => {
+                'section_childs' => [
+                  {
+                    'cmdname' => 'section',
+                    'extra' => {
+                      'associated_node' => {
+                        'cmdname' => 'node',
+                        'extra' => {
+                          'normalized' => 'section-fr'
+                        },
+                        'structure' => {}
+                      }
+                    },
+                    'structure' => {
+                      'section_level' => 2,
+                      'section_number' => '2.1',
+                      'section_up' => {}
+                    }
+                  }
+                ],
                 'section_level' => 1,
                 'section_number' => 2,
                 'section_prev' => {},
@@ -690,6 +786,7 @@ $result_sectioning{'customize_translations'} = {
 $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1];
 $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
 $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0];
 $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'customize_translations'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
@@ -802,108 +899,20 @@ $result_menus{'customize_translations'} = {
   'structure' => {}
 };
 
-$result_errors{'customize_translations'} = [];
+$result_errors{'customize_translations'} = [
+  {
+    'error_line' => 'warning: node `section fr\' unreferenced
+',
+    'file_name' => '',
+    'line_nr' => 18,
+    'macro' => '',
+    'text' => 'node `section fr\' unreferenced',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'customize_translations'} = {};
 
-
-
-$result_converted{'html'}->{'customize_translations'} = '<!DOCTYPE html>
-<html>
-<!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>top</title>
-
-<meta name="description" content="top">
-<meta name="keywords" content="top">
-<meta name="resource-type" content="document">
-<meta name="distribution" content="global">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<link href="#Top" rel="start" title="Top">
-<link href="#SEC_Contents" rel="contents" title="Inhaltsverzeichnis">
-<style type="text/css">
-<!--
-ul.toc-numbered-mark {list-style: none}
--->
-</style>
-
-
-</head>
-
-<body lang="en">
-
-
-<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
- -&gt; : <a href="#Chapter" accesskey="n" rel="next">chap</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<h1 class="top" id="top">top</h1>
-
-<div class="element-contents" id="SEC_Contents">
-<h2 class="contents-heading">Table of Contents</h2>
-
-<div class="contents">
-
-<ul class="toc-numbered-mark">
-  <li><a id="toc-chap" href="#Chapter">1 chap</a></li>
-  <li><a id="toc-chap-fr" href="#Chapter-fr">2 chap fr</a></li>
-  <li><a id="toc-chap-de" href="#Chapter-de">3 chap de</a></li>
-  <li><a id="toc-Last-Chapter" href="#Last-chapter">4 Last Chapter</a></li>
-</ul>
-</div>
-</div>
-<hr>
-<div class="chapter-level-extent" id="Chapter">
-<div class="nav-panel">
-<p>
- -&gt; : <a href="#Chapter-fr" accesskey="n" rel="next">chap fr</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>] &nbsp; [<a href="#Chapter-fr" title="Next section in reading order" accesskey="n" rel="next">Forward</a>]</p>
-</div>
-<h2 class="chapter" id="chap">1 chap</h2>
-
-<p>error--&gt;.
-</p>
-<hr>
-</div>
-<div class="chapter-level-extent" id="Chapter-fr">
-<div class="nav-panel">
-<p>
-N&oelig; suivant: <a href="#Chapter-de" accesskey="n" rel="next">chap de</a>, Pr&eacute;c&eacute;dent: <a href="#Chapter" accesskey="p" rel="prev">chap</a>, Monter: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="La Table des mati&egrave;res" rel="contents">Table des mati&egrave;res</a>] &nbsp; [<a href="#Chapter-de" title="Section suivante dans l&rsquo;ordre de lecture" accesskey="n" rel="next">Vers l&rsquo;avant &rArr;</a>]</p>
-</div>
-<h2 class="chapter" id="chap-fr">2 chap fr</h2>
-
-<p>Erreur--&gt;.
-</p>
-<hr>
-</div>
-<div class="chapter-level-extent" id="Chapter-de">
-<div class="nav-panel">
-<p>
-Nächster Knoten: <a href="#Last-chapter" accesskey="n" rel="next">Last Chapter</a>, Vorige: <a href="#Chapter-fr" accesskey="p" rel="prev">chap fr</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Das Inhaltsverzeichnis" rel="contents">Inhalt</a>] &nbsp; [<a href="#Last-chapter" title="Nächster Abschnitt in Lesereihenfolge" accesskey="n" rel="next">Nach vorne &rArr;</a>]</p>
-</div>
-<h2 class="chapter" id="chap-de">3 chap de</h2>
-
-<p>Fehler--&gt;.
-</p>
-<hr>
-</div>
-<div class="chapter-level-extent" id="Last-chapter">
-<div class="nav-panel">
-<p>
-Vorige: <a href="#Chapter-de" accesskey="p" rel="prev">chap de</a>, Nach oben: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Das Inhaltsverzeichnis" rel="contents">Inhalt</a>] &nbsp; </p>
-</div>
-<h2 class="chapter" id="Last-Chapter">4 Last Chapter</h2>
-
-</div>
-</div>
-
-
-
-</body>
-</html>
-';
 
 1;

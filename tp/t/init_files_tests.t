@@ -28,6 +28,9 @@ pt @error{}.
 
 ',{'init_files' => ['translate_txiinternalvalue_macro.init'],
 }],
+);
+
+my @file_tests = (
 ['customize_translations',
 '
 @contents
@@ -46,6 +49,9 @@ pt @error{}.
 
 @error{}.
 
+@node section fr
+@section sec fr
+
 @documentlanguage de
 @node Chapter de
 @chapter chap de
@@ -55,10 +61,8 @@ pt @error{}.
 @node Last chapter
 @chapter Last Chapter
 
-', {'init_files' => ['translated_strings_customization.pm']}],
-);
-
-my @file_tests = (
+', {'init_files' => ['translated_strings_customization.pm']},
+   {'SPLIT' => 'chapter'}],
 ['undefined_node_filename',
 '@node Top
 

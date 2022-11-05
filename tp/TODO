@@ -125,7 +125,7 @@ In fact @image is completly formatted outside of usual formatting containers.
 Not sure what should be the right way?
 test in info_test/image_and_punctuation
 
-There should be a warning for block commands without argument
+There could be a warning for block commands without argument
 that have an argument on their line, like:
 @blockcmd text
 ...
@@ -199,7 +199,7 @@ anchor in flushright, on an empty line, with a current byte offset.
 Future features
 ===============
 
-Add in_math (for /) as flag in command_data.txt?
+Add in_math (for \) as flag in command_data.txt?
 
 
 From Gavin on the preamble_before_beginning implementation:
