@@ -1321,6 +1321,16 @@ $unnumbered_top_without_node_text,
 
 @ref{@asis{(}manual2) name2}.
 '],
+['automatic_menu_referencing_node',
+'@node Top
+@top top
+
+@node Chapter
+@chapter chap
+
+@node section
+@section sec
+']
 );
 
 my $complex_case = '@node Top,First node,(dir)

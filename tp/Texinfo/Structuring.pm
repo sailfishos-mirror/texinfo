@@ -417,6 +417,18 @@ sub check_nodes_are_referenced
     if ($node->{'structure'}->{'menu_up_hash'}) {
       $referenced_nodes{$node} = 1;
     }
+    # If an automatic menu can be setup, consider that all
+    # the nodes appearing in the automatic menu are referenced.
+    # Note that the menu may not be actually setup, but
+    # it is better not to warn for nothing.
+    if ((scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1)
+        and (not $node->{'extra'}->{'menus'}
+             or not scalar(@{$node->{'extra'}->{'menus'}}))) {
+      my @node_childs = get_node_node_childs_from_sectioning($node);
+      foreach my $node_child (@node_childs) {
+        $referenced_nodes{$node_child} = 1;
+      }
+    }
   }
 
   # consider nodes in @*ref commands to be referenced
@@ -1470,7 +1482,10 @@ sub get_node_node_childs_from_sectioning
 
   my @node_childs;
 
-  if ($node->{'extra'}->{'associated_section'}->{'structure'}->{'section_childs'}) {
+  if ($node->{'extra'}
+      and $node->{'extra'}->{'associated_section'}
+      and $node->{'extra'}->{'associated_section'}->{'structure'}
+      and $node->{'extra'}->{'associated_section'}->{'structure'}->{'section_childs'}) {
     foreach my $child (@{$node->{'extra'}->{'associated_section'}->{'structure'}->{'section_childs'}}) {
       if ($child->{'extra'} and $child->{'extra'}->{'associated_node'}) {
         push @node_childs, $child->{'extra'}->{'associated_node'};
@@ -1479,9 +1494,12 @@ sub get_node_node_childs_from_sectioning
   }
   # Special case for @top.  Gather all the children of the @part following
   # @top.
-  if ($node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
+  if ($node->{'extra'}
+      and $node->{'extra'}->{'associated_section'}
+      and $node->{'extra'}->{'associated_section'}->{'cmdname'} eq 'top') {
     my $current = $node->{'extra'}->{'associated_section'};
-    while ($current->{'structure'}->{'section_next'}) {
+    while ($current->{'structure'}
+           and $current->{'structure'}->{'section_next'}) {
       $current = $current->{'structure'}->{'section_next'};
       if ($current->{'cmdname'} and $current->{'cmdname'} eq 'part'
           and $current->{'structure'}->{'section_childs'}) {
@@ -1490,7 +1508,8 @@ sub get_node_node_childs_from_sectioning
             push @node_childs, $child->{'extra'}->{'associated_node'};
           }
         }
-      } elsif ($current->{'extra'}->{'associated_node'}) {
+      } elsif ($current->{'extra'}
+               and $current->{'extra'}->{'associated_node'}) {
         # for @appendix, and what follows, as it stops a @part, but is
         # not below @top
         push @node_childs, $current->{'extra'}->{'associated_node'};

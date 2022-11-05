@@ -899,17 +899,7 @@ $result_menus{'customize_translations'} = {
   'structure' => {}
 };
 
-$result_errors{'customize_translations'} = [
-  {
-    'error_line' => 'warning: node `section fr\' unreferenced
-',
-    'file_name' => '',
-    'line_nr' => 18,
-    'macro' => '',
-    'text' => 'node `section fr\' unreferenced',
-    'type' => 'warning'
-  }
-];
+$result_errors{'customize_translations'} = [];
 
 
 $result_floats{'customize_translations'} = {};

@@ -1,3 +1,13 @@
+2022-11-05  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (check_nodes_are_referenced): consider
+	that a node is referenced if it appears in a manu that would be
+	setup automatically.  That is if a node has automatic direction,
+	no menu, all the children determined by automatic directions are
+	considered to be referenced.
+	(get_node_node_childs_from_sectioning): avoid spurious
+	auto-vivification.
+
 2022-11-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (pgdt): add pgdt that does nothing to
