@@ -1,17 +1,17 @@
 # HTML.pm: output tree as HTML.
 #
 # Copyright 2011-2022 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
@@ -565,7 +565,7 @@ sub count_elements_in_filename($$$)
   my $self = shift;
   my $spec = shift;
   my $filename = shift;
-  
+
   if ($spec eq 'total') {
     if (defined($self->{'elements_in_file_count'}->{$filename})) {
       return $self->{'elements_in_file_count'}->{$filename};
@@ -1117,14 +1117,14 @@ sub command_text($$;$)
     return $target->{'tree_nonumber'} if ($type eq 'tree_nonumber'
                                           and $target->{'tree_nonumber'});
     return $tree if ($type eq 'tree' or $type eq 'tree_nonumber');
-    
+
     $self->_new_document_context($command->{'cmdname'}, $explanation);
 
     if ($type eq 'string') {
       $tree = {'type' => '_string',
                'contents' => [$tree]};
     }
-    
+
     if ($type =~ /^(.*)_nonumber$/) {
       $tree = $target->{'tree_nonumber'}
         if (defined($target->{'tree_nonumber'}));
@@ -1806,41 +1806,65 @@ sub convert_tree_new_formatting_context($$;$$$)
 
 my %defaults = (
   'AVOID_MENU_REDUNDANCY' => 0,
+  'BIG_RULE'              => '<hr>',
+  'BODYTEXT'              => undef,
+  'CHAPTER_HEADER_LEVEL'  => 2,
+  'CLOSE_QUOTE_SYMBOL'    => undef,
   'CONTENTS_OUTPUT_LOCATION' => 'after_top',
   'CONVERT_TO_LATEX_IN_MATH' => undef,
-  'ENABLE_ENCODING'      => 0,
+  'COMPLEX_FORMAT_IN_TABLE' => 0,
+  'COPIABLE_LINKS'        => 1,
+  'DATE_IN_HEADER'        => 0,
+  'DEFAULT_RULE'          => '<hr>',
+  'documentlanguage'      => 'en',
+  'DOCTYPE'               => '<!DOCTYPE html>',
+  'DO_ABOUT'              => 0,
+  'ENABLE_ENCODING'       => 0,
+  'EXTENSION'             => 'html',
   'EXTERNAL_CROSSREF_EXTENSION' => undef, # based on EXTENSION
+  'FOOTNOTE_END_HEADER_LEVEL' => 4,
+  'FOOTNOTE_SEPARATE_HEADER_LEVEL' => 4,
   'FORMAT_MENU'           => 'sectiontoc',
-  'JS_WEBLABELS'         => 'generate',
-  'JS_WEBLABELS_FILE'    => 'js_licenses.html', # no clash with node name
+  'HEADERS'               => 1,
+  'INDEX_ENTRY_COLON'     => ':',
 # if set style is added in attribute.
-  'INLINE_CSS_STYLE'     => 0,
+  'INLINE_CSS_STYLE'      => 0,
+  'JS_WEBLABELS'          => 'generate',
+  'JS_WEBLABELS_FILE'     => 'js_licenses.html', # no clash with node name
+  'MAX_HEADER_LEVEL'      => 4,
+  'MENU_ENTRY_COLON'      => ':',
+  'MENU_SYMBOL'           => undef,
+  'MONOLITHIC'            => 1,
+  'NO_CUSTOM_HTML_ATTRIBUTE' => 0,
 # if set, no css is used.
-  'NO_CSS'               => 0,
+  'NO_CSS'                => 0,
+  'NO_NUMBER_FOOTNOTE_SYMBOL' => '*',
+  'NODE_NAME_IN_MENU'     => 1,
+  'NODE_NAME_IN_INDEX'    => 1,
+  'OPEN_QUOTE_SYMBOL'     => undef,
   'OUTPUT_ENCODING_NAME'  => 'utf-8',
-  'SPLIT'                => 'node',
-  'USE_NODES'            => 1,
-  'USE_NODE_DIRECTIONS'  => undef,
-  'OPEN_QUOTE_SYMBOL'    => undef,
-  'CLOSE_QUOTE_SYMBOL'   => undef,
-  'USE_ISO'              => 1,
-  'TOP_FILE'             => 'index.html', # ignores EXTENSION
-  'EXTENSION'            => 'html',
-  'TOP_NODE_FILE_TARGET' => 'index.html', # ignores EXTENSION
-  'USE_LINKS'            => 1,
-  'DATE_IN_HEADER'       => 0,
-  'HEADERS'              => 1,
-  'DO_ABOUT'             => 0,
-  'USE_ACCESSKEY'        => 1,
-  'USE_REL_REV'          => 1,
-  'NODE_NAME_IN_MENU'    => 1,
-  'NODE_NAME_IN_INDEX'   => 1,
+  'SECTION_NAME_IN_TITLE' => 0,
+  'SHORT_TOC_LINK_TO_TOC' => 1,
+  'SHOW_TITLE'            => undef,
+  'SPLIT'                 => 'node',
+  'TOP_FILE'              => 'index.html', # ignores EXTENSION
+  'TOP_NODE_FILE_TARGET'  => 'index.html', # ignores EXTENSION
+  'USE_ACCESSKEY'         => 1,
+  'USE_ISO'               => 1,
+  'USE_LINKS'             => 1,
+  'USE_NODES'             => 1,
+  'USE_NODE_DIRECTIONS'   => undef,
+  'USE_REL_REV'           => 1,
+  'USE_TITLEPAGE_FOR_TITLE' => 1,
+  'WORDS_IN_PAGE'         => 300,
   'XREF_USE_NODE_NAME_ARG' => undef,
   'XREF_USE_FLOAT_LABEL'   => 0,
-  'SHORT_TOC_LINK_TO_TOC' => 1,
-  'NO_CUSTOM_HTML_ATTRIBUTE' => 0,
-  'COMPLEX_FORMAT_IN_TABLE' => 0,
-  'WORDS_IN_PAGE'        => 300,
+  'xrefautomaticsectiontitle' => 'on',
+
+  # obsolete
+  'FRAMESET_DOCTYPE'      => '<!DOCTYPE html>',
+
+  # Non-string customization variables
   # _default_panel_button_dynamic_direction use nodes direction based on USE_NODE_DIRECTIONS
   # or USE_NODES if USE_NODE_DIRECTIONS is undefined
   'SECTION_BUTTONS'      => [[ 'Next', \&_default_panel_button_dynamic_direction ],
@@ -1857,34 +1881,15 @@ my %defaults = (
                              [ 'Prev', \&_default_panel_button_dynamic_direction_node_footer ],
                              [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
                              ' ', 'Contents', 'Index'],
+  'ACTIVE_ICONS'         => undef,
+  'PASSIVE_ICONS'        => undef,
+  # obsolete
   'frame_pages_file_string' => {
                               'Frame' => '_frame',
                               'Toc_Frame' => '_toc_frame',
                               },
-  'DOCTYPE'              => '<!DOCTYPE html>',
-  'FRAMESET_DOCTYPE'     => '<!DOCTYPE html>',
-  'DEFAULT_RULE'         => '<hr>',
-  'BIG_RULE'             => '<hr>',
-  'MENU_SYMBOL'          => undef,
-  'NO_NUMBER_FOOTNOTE_SYMBOL' => '*',
-  'MENU_ENTRY_COLON'     => ':',
-  'INDEX_ENTRY_COLON'    => ':',
-  'BODYTEXT'             => undef,
-  'documentlanguage'     => 'en',
-  'xrefautomaticsectiontitle' => 'on',
-  'SHOW_TITLE'           => undef,
-  'SECTION_NAME_IN_TITLE' => 0,
-  'USE_TITLEPAGE_FOR_TITLE' => 1,
-  'MONOLITHIC'           => 1,
-  'CHAPTER_HEADER_LEVEL' => 2,
-  'MAX_HEADER_LEVEL'     => 4,
-  'FOOTNOTE_END_HEADER_LEVEL' => 4,
-  'FOOTNOTE_SEPARATE_HEADER_LEVEL' => 4,
-  
-  'ACTIVE_ICONS'         => undef,
-  'PASSIVE_ICONS'        => undef,
-  'COPIABLE_LINKS' => 1,
 
+  # non-customization variable converter defaults
   'converted_format'   => 'html',
 );
 
@@ -1895,6 +1900,7 @@ foreach my $buttons ('CHAPTER_BUTTONS', 'MISC_BUTTONS', 'TOP_BUTTONS') {
 foreach my $buttons ('CHAPTER_FOOTER_BUTTONS') {
   $defaults{$buttons} = [@{$defaults{'SECTION_FOOTER_BUTTONS'}}];
 }
+
 
 my %default_special_element_info = (
 
@@ -2122,9 +2128,10 @@ my %default_translated_directions_strings = (
 sub _translate_names($)
 {
   my $self = shift;
-  print STDERR "\nTRANSLATE_NAMES encoding_name: ".$self->get_conf('OUTPUT_ENCODING_NAME')
+  print STDERR "\nTRANSLATE_NAMES encoding_name: "
+    .$self->get_conf('OUTPUT_ENCODING_NAME')
     ." documentlanguage: ".$self->get_conf('documentlanguage')."\n"
-   if ($self->get_conf('DEBUG'));
+      if ($self->get_conf('DEBUG'));
 
   # reset strings such that they are translated when needed.
   foreach my $string_type (keys(%default_translated_directions_strings)) {
@@ -3618,6 +3625,7 @@ sub _default_format_button($$;$)
       }
       my $use_icon;
       if ($self->get_conf('ICONS') and $self->get_conf('ACTIVE_ICONS')) {
+        # FIXME strip FirstInFile from $button to get $active_icon?
         my $active_icon = $self->get_conf('ACTIVE_ICONS')->{$button};
         my $button_name_string = $self->direction_string($button, 'button', 'string');
         if (defined($active_icon) and $active_icon ne '') {
@@ -3638,6 +3646,7 @@ sub _default_format_button($$;$)
       # button is passive
       my $use_icon;
       if ($self->get_conf('ICONS') and $self->get_conf('PASSIVE_ICONS')) {
+        # FIXME strip FirstInFile from $button to get $passive_icon?
         my $passive_icon = $self->get_conf('PASSIVE_ICONS')->{$button};
         my $button_name_string = $self->direction_string($button, 'button', 'string');
         if ($passive_icon and $passive_icon ne '') {
@@ -9673,6 +9682,7 @@ EOT
           = $self->direction_string($button, 'button', 'string');
     $about .= "  <tr>\n    ".$self->html_attribute_class('td',
                                           ['button-direction-about']) .'>';
+    # FIXME strip FirstInFile from $button to get active icon file?
     $about .=
       (($self->get_conf('ICONS') &&
          $self->get_conf('ACTIVE_ICONS')->{$button}) ?
