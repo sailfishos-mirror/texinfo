@@ -10,6 +10,11 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Check uses of __p and determine if a context is better or a comment
+using the -c option of xgettext.  Same for in string documents, determine
+if a context is better or add a comment if the string would benefit
+from additional information
+
 Bugs
 ====
 
