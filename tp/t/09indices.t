@@ -543,6 +543,21 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 
 @printindex cp
 '],
+['ignored_sort_char_empty_entries',
+'@set txiindexhyphenignore
+
+@node Top
+@top
+
+@node node
+
+@findex -
+@findex --
+@findex A
+@findex @sortas{--} --
+
+@printindex fn
+'],
 ['subentries',
 '@node Top
 @top
