@@ -1405,6 +1405,8 @@ sub direction_string($$$;$)
     return undef;
   }
 
+  $direction =~ s/^FirstInFile//;
+
   if (not exists($self->{'directions_strings'}->{$string_type}->{$direction})
       or not exists($self->{'directions_strings'}->{$string_type}
                                                  ->{$direction}->{$context})) {
@@ -2034,15 +2036,6 @@ my %default_converted_directions_strings = (
    },
 );
 
-foreach my $string_type (keys(%default_converted_directions_strings)) {
-  foreach my $button (grep
-                 {not exists($global_and_special_directions{$_}) and $_ ne ' '}
-                 keys %{$default_converted_directions_strings{$string_type}}) {
-    $default_converted_directions_strings{$string_type}->{'FirstInFile'.$button}
-      = $default_converted_directions_strings{$string_type}->{$button};
-  }
-}
-
 my %default_translated_directions_strings = (
   'text' => {
      ' ' =>           {'converted' => ' '.$html_default_entity_nbsp.' '},
@@ -2125,15 +2118,6 @@ my %default_translated_directions_strings = (
      'PrevFile' =>    {'to_convert' => Texinfo::Common::gdt('PrevFile')},
   }
 );
-
-foreach my $string_type (keys(%default_translated_directions_strings)) {
-  foreach my $button (grep
-                 {not exists($global_and_special_directions{$_}) and $_ ne ' '}
-                 keys %{$default_translated_directions_strings{$string_type}}) {
-    $default_translated_directions_strings{$string_type}->{'FirstInFile'.$button}
-      = $default_translated_directions_strings{$string_type}->{$button};
-  }
-}
 
 sub _translate_names($)
 {

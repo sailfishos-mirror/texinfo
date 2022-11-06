@@ -872,14 +872,14 @@ associated with a button (@pxref{Simple Navigation Panel Customization}).
 
 Each element direction has a name and a reference to the element unit they
 point to, when such an element exists.  The element is either a
-global element unit (for example, the first element) or relative to the
+global element unit (for example, the Top element) or relative to the
 current element unit (for example, the next element unit).  Such relative
 elements are determined with respect to the document structure defined
 by the section structuring commands (@code{@@chapter},
 @code{@@unnumbered}@dots{}) or by the nodes if the node pointers are
 specified on @code{@@node} lines or in menus (@pxref{Two Paths,,, texinfo, Texinfo}).
 
-Here is the list of element units directions:
+Here is the list of global element units directions:
 
 @table @emph
 @item @samp{@ }
@@ -904,6 +904,11 @@ Units}).
 @item Index
 The first element unit with @code{@@printindex}.
 
+@end table
+
+Here is the list of relative element units directions:
+
+@table @emph
 @item This
 The current element unit.
 
@@ -959,6 +964,15 @@ Previous node element unit.
 Up node element unit.
 
 @end table
+
+@cindex @code{FirstInFile} direction variant
+@anchor{@code{FirstInFile} direction variant}
+Relative direction elements are each associated to a variant, with
+@samp{FirstInFile} prepended, which points to the direction relative
+to the first element in file.  For example, @code{FirstInFileNodeNext}
+is the next node element relative to the first element in file.  The
+@samp{FirstInFile} directions are usually used in footers.
+
 
 @node Element Direction Information Type
 @subsection Element Direction Information Type
@@ -1040,6 +1054,11 @@ Direction text in a few words.
 @cindex Translated direction strings
 @samp{button}, @samp{description} and @samp{text} are translated based
 on the document language.
+
+The @code{FirstInFile} direction variants are associated with the same
+strings as the direction they are prepended to (@pxref{@code{FirstInFile}
+direction variant}).  For example @code{FirstInFileNodeNext} is associated
+with the same strings as @code{NodeNext}.
 
 
 @node Direction Strings Customization
