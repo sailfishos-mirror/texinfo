@@ -8661,8 +8661,7 @@ produces under backslash.
 @vindex txiindexhyphenignore
 @vindex txiindexlessthanignore
 @vindex txiindexatsignignore
-To reduce the quantity of sort keys you need to provide explicitly,
-you may choose to ignore certain characters in index entries
+You may choose to ignore certain characters in index entries
 for the purposes of sorting.  The characters that you can
 currently choose to ignore are @samp{\}, @samp{-}, @samp{<}
 and @samp{@@}, which are ignored by giving as an argument to the
@@ -8672,6 +8671,17 @@ and @samp{@@}, which are ignored by giving as an argument to the
 txiindexbackslashignore} causes the @samp{\mathopsup} entry in the
 index for this manual to be sorted as if it were @samp{mathopsup},
 so that it appears among the other entries beginning with `M'.
+This avoids the need to provide explicit sort keys for index
+entries containing these characters.
+
+When using these options, it is possible to get an index entry with
+an empty sort key.  To avoid this, specify a @code{@@sortas} directive
+in the index entry.  For example:
+
+@example
+@@set txiindexbackslashignore
+@@findex @@sortas@{\@} \
+@end example
 
 
 @node Advanced Indexing
