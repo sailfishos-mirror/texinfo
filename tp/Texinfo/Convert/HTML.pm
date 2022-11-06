@@ -204,8 +204,10 @@ sub html_attribute_class($$;$)
       if (not defined($style_class)) {
         confess ("class not defined (for $element)");
       }
-      if (defined($self->{'css_element_class_styles'}->{"$element.$style_class"})) {
-        push @styles, $self->{'css_element_class_styles'}->{"$element.$style_class"};
+      if (defined($self->{'css_element_class_styles'}
+                                   ->{"$element.$style_class"})) {
+        push @styles,
+          $self->{'css_element_class_styles'}->{"$element.$style_class"};
       }
     }
     if (scalar(@styles) >  0) {
@@ -306,7 +308,8 @@ sub html_image_file_location_name($$$$)
   my $image_extension;
   # this variable is bytes encoded in the filesystem encoding
   my ($image_path, $image_path_encoding);
-  if (defined($args->[0]->{'monospacetext'}) and $args->[0]->{'monospacetext'} ne '') {
+  if (defined($args->[0]->{'monospacetext'})
+      and $args->[0]->{'monospacetext'} ne '') {
     $image_basefile = $args->[0]->{'monospacetext'};
     my $extension;
     if (defined($args->[4]) and defined($args->[4]->{'monospacetext'})) {
@@ -414,16 +417,18 @@ sub html_convert_css_string($$;$)
     $self->{'types_conversion'}->{$type}
       = $default_css_string_types_conversion{$type};
   }
-  foreach my $formatting_reference (keys(%default_css_string_formatting_references)) {
+  foreach my $formatting_reference
+                          (keys(%default_css_string_formatting_references)) {
     $saved_formatting_references->{$formatting_reference}
       = $self->{'formatting_function'}->{$formatting_reference};
     $self->{'formatting_function'}->{$formatting_reference}
       = $default_css_string_formatting_references{$formatting_reference};
   }
 
-  my $result = $self->convert_tree_new_formatting_context({'type' => '_string',
-                                                           'contents' => [$element]},
-                                                          'css_string', $explanation);
+  my $result = $self->convert_tree_new_formatting_context(
+                                           {'type' => '_string',
+                                            'contents' => [$element]},
+                                            'css_string', $explanation);
   foreach my $cmdname (keys (%default_css_string_commands_conversion)) {
     $self->{'commands_conversion'}->{$cmdname} = $saved_commands->{$cmdname};
   }
@@ -497,13 +502,15 @@ sub in_preformatted($)
 sub in_upper_case($)
 {
   my $self = shift;
-  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'};
+  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                              ->{'upper_case'};
 }
 
 sub in_non_breakable_space($)
 {
   my $self = shift;
-  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'space_protected'};
+  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                         ->{'space_protected'};
 }
 
 sub in_code($)
@@ -542,13 +549,15 @@ sub in_multi_expanded($)
 sub paragraph_number($)
 {
   my $self = shift;
-  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'paragraph_number'};
+  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                     ->{'paragraph_number'};
 }
 
 sub preformatted_number($)
 {
   my $self = shift;
-  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'preformatted_number'};
+  return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                  ->{'preformatted_number'};
 }
 
 sub count_elements_in_filename($$$)
@@ -619,23 +628,27 @@ sub is_format_expanded($$)
 #             'id' attribute.
 #   'contents_target': A unique string representing the target to the location
 #                      of the element in the table of content.
-#   'shortcontents_target': A unique string representing the target to the location
-#                      of the element in the short table of contents
+#   'shortcontents_target': A unique string representing the target to the
+#                      location of the element in the short table of contents
 #   'node_filename': the file name deriving from the element node name
 #   'section_filename': the file name deriving from the element section name
-#   'special_element_filename': the file name of special elements (separate contents, about...)
+#   'special_element_filename': the file name of special elements
+#                               (separate contents, about...)
 #   'filename': the file name the element content is output to
-#   'text', 'text_nonumber': a textual representation of the element where there is
-#                   no restriction on the text formatting (ie HTML elements can be used).
+#   'text', 'text_nonumber': a textual representation of the element where
+#              there is no restriction on the text formatting (ie HTML elements
+#              can be used).
+#              With _nonumber, no section number.
+#   'string', 'string_nonumber': a textual representation of the element with
+#                   restrictions on the available formatting, in practice no
+#                   HTML elements, only entities to be able to use in attributes.
 #                   With _nonumber, no section number.
-#   'string', 'string_nonumber': a textual representation of the element with restrictions
-#                   on the available formatting, in practice no HTML elements, only entities
-#                   to be able to use in attributes. With _nonumber, no section number.
 #
 # Other types
 #
-#   'tree', 'tree_nonumber: a Texinfo tree element which conversion should correspond to
-#                   the element name.  With _nonumber, no section number.
+#   'tree', 'tree_nonumber: a Texinfo tree element which conversion should
+#                   correspond to the element name.
+#                   With _nonumber, no section number.
 #   'node_command': the node element associated with the target element.
 #   'root_element_command': the command associated to the top level element
 #                           associated with the target element.
@@ -807,8 +820,10 @@ sub command_node($$)
         if ($root_command->{'cmdname'} and $root_command->{'cmdname'} eq 'node') {
           $target->{'node_command'} = $root_command;
         }
-        if ($root_command->{'extra'} and $root_command->{'extra'}->{'associated_node'}) {
-          $target->{'node_command'} = $root_command->{'extra'}->{'associated_node'};
+        if ($root_command->{'extra'}
+            and $root_command->{'extra'}->{'associated_node'}) {
+          $target->{'node_command'}
+                = $root_command->{'extra'}->{'associated_node'};
         }
       } else {
         $target->{'node_command'} = undef;
@@ -833,7 +848,8 @@ sub command_href($$;$$$)
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
 
   if ($command->{'manual_content'}) {
-    return $self->_external_node_href($command, $source_filename, $source_command);
+    return $self->_external_node_href($command, $source_filename,
+                                      $source_command);
   }
 
   my $target;
@@ -858,9 +874,11 @@ sub command_href($$;$$$)
     # titlepage is not output.
     if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
         and $self->{'tree_units'}->[0]->{'structure'}
-        and defined($self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'})) {
+        and defined($self->{'tree_units'}->[0]
+                                   ->{'structure'}->{'unit_filename'})) {
       # In that case use the first page.
-      $target_filename = $self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'};
+      $target_filename
+        = $self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'};
     }
   }
   if (defined($target_filename)) {
@@ -869,12 +887,14 @@ sub command_href($$;$$$)
       $href .= $target_filename;
       # omit target if the command is an element command, there is only
       # one element in file and there is a file in the href
-      my $command_root_element_command = $self->command_root_element_command($command);
+      my $command_root_element_command
+               = $self->command_root_element_command($command);
       if (defined($source_filename)
           and defined($command_root_element_command)
           and ($command_root_element_command eq $command
             or (defined($command_root_element_command->{'extra'})
-              and defined($command_root_element_command->{'extra'}->{'associated_section'})
+              and defined($command_root_element_command->{'extra'}
+                                                       ->{'associated_section'})
               and $command_root_element_command->{'extra'}->{'associated_section'}
                     eq $command))) {
         my $count_elements_in_file
@@ -1072,16 +1092,16 @@ sub command_text($$;$)
           if ($command->{'cmdname'} eq 'appendix'
               and $command->{'structure'}->{'section_level'} == 1) {
             $tree = $self->gdt('Appendix {number} {section_title}',
-                             {'number'
-                                => {'text' => $command->{'structure'}->{'section_number'}},
-                              'section_title'
+                    {'number' => {'text' => $command->{'structure'}
+                                                    ->{'section_number'}},
+                     'section_title'
                                 => {'contents' => $section_arg_contents}});
           } else {
             $tree = $self->gdt('{number} {section_title}',
-                             {'number'
-                                => {'text' => $command->{'structure'}->{'section_number'}},
-                              'section_title'
-                                => {'contents' => $section_arg_contents}});
+                     {'number' => {'text' => $command->{'structure'}
+                                                       ->{'section_number'}},
+                     'section_title'
+                         => {'contents' => $section_arg_contents}});
           }
         } else {
           $tree = {'contents' => $section_arg_contents};
@@ -1144,7 +1164,8 @@ sub command_name_special_element_information($$)
 
   my $special_element_variety;
   if (exists($contents_command_special_element_variety{$cmdname})) {
-    $special_element_variety = $contents_command_special_element_variety{$cmdname};
+    $special_element_variety
+       = $contents_command_special_element_variety{$cmdname};
   } elsif ($cmdname eq 'footnote') {
     $special_element_variety = 'footnotes';
   } else {
@@ -1194,8 +1215,8 @@ foreach my $no_number_type ('text', 'tree', 'string') {
 # sub from_element_direction($SELF, $DIRECTION, $TYPE, $SOURCE_ELEMENT,
 #                            $SOURCE_FILENAME, $SOURCE_FOR_MESSAGES)
 #
-# Return text used for linking from $SOURCE_ELEMENT in direction $DIRECTION.  The
-# text returned depends on $TYPE.
+# Return text used for linking from $SOURCE_ELEMENT in direction $DIRECTION.
+# The text returned depends on $TYPE.
 #
 # This is used both for tree unit elements and external nodes
 #
@@ -1206,10 +1227,10 @@ foreach my $no_number_type ('text', 'tree', 'string') {
 # sectioning command associated with the element, as the error messages
 # are about external nodes not found.
 #
-# $self->{'current_root_element'} undef happens at least when there is no output file,
-# or for the table of content when frames are used.  That call would result
-# for instance from from_element_direction being called from _get_links,
-# itself called from 'format_begin_file' which, in the default case
+# $self->{'current_root_element'} undef happens at least when there is no
+# output file, or for the table of content when frames are used.  That call
+# would result for instance from from_element_direction being called from
+# _get_links, itself called from 'format_begin_file' which, in the default case
 # points to _default_format_begin_file.
 # TODO are there other cases?
 sub from_element_direction($$$;$$$)
@@ -1246,12 +1267,14 @@ sub from_element_direction($$$;$$$)
   # defined which should mostly correspond to cases when there is no
   # output file, for example in the tests.
   } elsif ((not defined($source_element)
-            or ($source_element and $self->element_is_tree_unit_top($source_element)))
+            or ($source_element
+                and $self->element_is_tree_unit_top($source_element)))
            and defined($self->get_conf('TOP_NODE_UP_URL'))
            and ($direction eq 'Up' or $direction eq 'NodeUp')) {
     if ($type eq 'href') {
       return $self->get_conf('TOP_NODE_UP_URL');
-    } elsif ($type eq 'text' or $type eq 'node' or $type eq 'string' or $type eq 'section') {
+    } elsif ($type eq 'text' or $type eq 'node' or $type eq 'string'
+                                                or $type eq 'section') {
       return $self->get_conf('TOP_NODE_UP');
     } else {
       cluck("type $type not available for TOP_NODE_UP\n");
@@ -1284,8 +1307,10 @@ sub from_element_direction($$$;$$$)
       if ($target_element->{'extra'}->{'unit_command'}) {
         if ($target_element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
           $command = $target_element->{'extra'}->{'unit_command'};
-        } elsif ($target_element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_node'}) {
-          $command = $target_element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_node'};
+        } elsif ($target_element->{'extra'}->{'unit_command'}
+                                          ->{'extra'}->{'associated_node'}) {
+          $command = $target_element->{'extra'}->{'unit_command'}
+                                          ->{'extra'}->{'associated_node'};
         }
       }
       $target = $self->{'targets'}->{$command} if ($command);
@@ -1294,8 +1319,10 @@ sub from_element_direction($$$;$$$)
       if ($target_element->{'extra'}->{'unit_command'}) {
         if ($target_element->{'extra'}->{'unit_command'}->{'cmdname'} ne 'node') {
           $command = $target_element->{'extra'}->{'unit_command'};
-        } elsif ($target_element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}) {
-          $command = $target_element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'};
+        } elsif ($target_element->{'extra'}->{'unit_command'}
+                                         ->{'extra'}->{'associated_section'}) {
+          $command = $target_element->{'extra'}->{'unit_command'}
+                                        ->{'extra'}->{'associated_section'};
         }
       }
       $target = $self->{'targets'}->{$command} if ($command);
@@ -7406,15 +7433,19 @@ sub converter_initialize($)
   #   - strings not already converted
   $self->{'directions_strings'} = {};
 
-  my $customized_direction_strings = Texinfo::Config::GNUT_get_direction_string_info();
+  my $customized_direction_strings
+      = Texinfo::Config::GNUT_get_direction_string_info();
   foreach my $string_type (keys(%default_converted_directions_strings)) {
-    foreach my $direction (keys(%{$default_converted_directions_strings{$string_type}})) {
+    foreach my $direction
+            (keys(%{$default_converted_directions_strings{$string_type}})) {
       my $string_contexts;
       if ($customized_direction_strings->{$string_type}
           and $customized_direction_strings->{$string_type}->{$direction}) {
-        if (defined($customized_direction_strings->{$string_type}->{$direction}->{'converted'})) {
+        if (defined($customized_direction_strings->{$string_type}
+                                              ->{$direction}->{'converted'})) {
           $string_contexts
-            = $customized_direction_strings->{$string_type}->{$direction}->{'converted'}
+            = $customized_direction_strings->{$string_type}
+                                          ->{$direction}->{'converted'};
         }
       } else {
         my $string
@@ -7426,26 +7457,28 @@ sub converter_initialize($)
         if (not defined($string_contexts->{'string'}));
       foreach my $context (keys(%$string_contexts)) {
         $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
-          = $self->substitute_html_non_breaking_space($string_contexts->{$context});
+          = $self->substitute_html_non_breaking_space(
+                                                  $string_contexts->{$context});
       }
     }
   }
   $self->{'translated_direction_strings'} = {};
   foreach my $string_type (keys(%default_translated_directions_strings)) {
     $self->{'translated_direction_strings'}->{$string_type} = {};
-    foreach my $direction (keys(%{$default_translated_directions_strings{$string_type}})) {
+    foreach my $direction
+           (keys(%{$default_translated_directions_strings{$string_type}})) {
       if ($customized_direction_strings->{$string_type}
-          and $customized_direction_strings->{$string_type}->{$direction}) {
+            and $customized_direction_strings->{$string_type}->{$direction}) {
         $self->{'translated_direction_strings'}->{$string_type}->{$direction}
           = $customized_direction_strings->{$string_type}->{$direction};
       } else {
         if ($default_translated_directions_strings{$string_type}->{$direction}
-                                                                ->{'converted'}) {
+                                                              ->{'converted'}) {
           foreach my $context ('normal', 'string') {
             $self->{'translated_direction_strings'}->{$string_type}
                      ->{$direction}->{'converted'}->{$context}
                = $default_translated_directions_strings{$string_type}
-                                                     ->{$direction}->{'converted'};
+                                                 ->{$direction}->{'converted'};
           }
         } else {
           $self->{'translated_direction_strings'}->{$string_type}->{$direction}
@@ -7563,7 +7596,8 @@ sub converter_initialize($)
                 and $command ne 'bullet' and $command ne 'w'
                 and not $special_list_mark_css_string_no_arg_command{$command}) {
               my $css_string
-                = $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'};
+                = $self->{'no_arg_commands_formatting'}
+                                    ->{$context}->{$command}->{'text'};
               $css_string = '"'.$css_string.'"';
               $self->{'css_element_class_styles'}->{"ul.mark-$command"}
                 = "list-style-type: $css_string";
@@ -7648,7 +7682,8 @@ sub converter_initialize($)
     }
   }
 
-  my $customized_formatting_references = Texinfo::Config::GNUT_get_formatting_references();
+  my $customized_formatting_references
+       = Texinfo::Config::GNUT_get_formatting_references();
   # first check that all the customized_formatting_references
   # are in default_formatting_references
   foreach my $customized_formatting_reference
@@ -8344,7 +8379,8 @@ sub _html_set_pages_files($$$$$$$$)
             my $node_filename;
             # double node are not normalized, they are handled here
             if (!defined($root_command->{'extra'}->{'normalized'})
-                or !defined($self->{'labels'}->{$root_command->{'extra'}->{'normalized'}})) {
+                or !defined($self->{'labels'}->{
+                                  $root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
               $node_filename .= $extension;
             } else {
@@ -8718,10 +8754,11 @@ sub _prepare_contents_elements($)
           print STDERR "Add content $contents_element $special_element_variety: target $target,\n".
              "    filename $str_filename\n";
         }
-        $self->{'targets'}->{$contents_element} = {'target' => $target,
-                                                   'special_element_filename' => $filename,
-                                                   'filename' => $filename,
-                                                  };
+        $self->{'targets'}->{$contents_element}
+                               = {'target' => $target,
+                                  'special_element_filename' => $filename,
+                                  'filename' => $filename,
+                                 };
       }
     }
   }
@@ -8767,7 +8804,8 @@ sub _prepare_tree_units_global_targets($$)
   my $section_top;
   $section_top = $self->{'global_commands'}->{'top'} if ($self->{'global_commands'});
   if ($section_top) {
-    $self->{'global_target_elements_directions'}->{'Top'} = $section_top->{'structure'}->{'associated_unit'};
+    $self->{'global_target_elements_directions'}->{'Top'}
+            = $section_top->{'structure'}->{'associated_unit'};
   } elsif ($node_top) {
     my $tree_unit_top = $node_top->{'structure'}->{'associated_unit'};
     if (!$tree_unit_top) {
@@ -9126,8 +9164,9 @@ sub _default_format_contents($$;$$)
         my $toc_id = $self->command_contents_target($section, $cmdname);
         if ($text ne '') {
           # no indenting for shortcontents
-          $result .= (' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level)))
-            if ($contents);
+          $result .= (' ' x 
+            (2*($section->{'structure'}->{'section_level'} - $min_root_level)))
+              if ($contents);
           if ($toc_id ne '' or $href ne '') {
             my $toc_name_attribute = '';
             if ($toc_id ne '') {
@@ -9155,10 +9194,12 @@ sub _default_format_contents($$;$$)
       }
       # for shortcontents don't do child if child is not toplevel
       if ($section->{'structure'}->{'section_childs'}
-          and ($contents or $section->{'structure'}->{'section_level'} < $max_root_level)) {
+          and ($contents
+               or $section->{'structure'}->{'section_level'} < $max_root_level)) {
         # no indenting for shortcontents
-        $result .= "\n". ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
-          if ($contents);
+        $result .= "\n"
+         . ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
+            if ($contents);
         $result .= $self->html_attribute_class('ul', \@toc_ul_classes) .">\n";
         $section = $section->{'structure'}->{'section_childs'}->[0];
       } elsif ($section->{'structure'}->{'section_next'}
@@ -9174,7 +9215,8 @@ sub _default_format_contents($$;$$)
         }
         while ($section->{'structure'}->{'section_up'}) {
           $section = $section->{'structure'}->{'section_up'};
-          $result .= "</li>\n". ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
+          $result .= "</li>\n"
+           . ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
             . "</ul>";
           if ($section eq $top_section) {
             $result .= "</li>\n" if ($toplevel_contents);
@@ -10317,7 +10359,8 @@ sub output($$)
     # 'file_counters' is dynamic, decreased when the element is encountered
     # 'elements_in_file_count' is not modified afterwards
     foreach my $filename (keys(%{$self->{'file_counters'}})) {
-      $self->{'elements_in_file_count'}->{$filename} = $self->{'file_counters'}->{$filename};
+      $self->{'elements_in_file_count'}->{$filename}
+                            = $self->{'file_counters'}->{$filename};
     }
   }
 
@@ -10360,7 +10403,8 @@ sub output($$)
   if (!$fulltitle and $self->{'global_commands'}->{'titlefont'}
       and $self->{'global_commands'}->{'titlefont'}->[0]->{'args'}
       and defined($self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0])
-      and @{$self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0]->{'contents'}}) {
+      and @{$self->{'global_commands'}->{'titlefont'}->[0]
+                                                ->{'args'}->[0]->{'contents'}}) {
     $fulltitle = $self->{'global_commands'}->{'titlefont'}->[0];
   }
   # prepare simpletitle
@@ -10510,7 +10554,8 @@ sub output($$)
       # Not sure if it is an issue.
       foreach my $tree_unit (@$tree_units, @$special_elements) {
         print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));
-        my $tree_unit_text = $self->_convert($tree_unit, "no-page output unit $unit_nr");
+        my $tree_unit_text
+          = $self->_convert($tree_unit, "no-page output unit $unit_nr");
         $body .= $tree_unit_text;
         $unit_nr++;
       }
@@ -10563,7 +10608,8 @@ sub output($$)
       if (defined($element->{'type'})
           and $element->{'type'} eq 'special_element') {
         print STDERR "\nUNIT SPECIAL\n" if ($self->get_conf('DEBUG'));
-        $special_element_content .= $self->_convert($element, "output s-unit $unit_nr");
+        $special_element_content
+                       .= $self->_convert($element, "output s-unit $unit_nr");
         if ($special_element_content eq '') {
           $self->{'file_counters'}->{$element_filename}--;
           next ;
@@ -10605,8 +10651,8 @@ sub output($$)
         # do end file first in case it requires some CSS
         my $end_file = &{$self->formatting_function('format_end_file')}($self,
                                                            $element_filename);
-        print $file_fh "".&{$self->formatting_function('format_begin_file')}($self,
-                                               $element_filename, $file_element);
+        print $file_fh "".&{$self->formatting_function('format_begin_file')}(
+                                       $self, $element_filename, $file_element);
         print $file_fh "".$files{$element_filename}->{'body'};
         # end file
         print $file_fh "". $end_file;
@@ -10732,7 +10778,8 @@ sub output($$)
 }
 
 #my $characters_replaced_from_class_names = quotemeta('[](),~#:/\\@+=!;.,?* ');
-# FIXME not clear what character should be allowed and which ones replaced besides space
+# FIXME not clear what character should be allowed and which ones replaced
+# besides space
 my $characters_replaced_from_class_names = quotemeta(' ');
 sub _protect_class_name($$)
 {
@@ -10741,7 +10788,7 @@ sub _protect_class_name($$)
   $class_name =~ s/[$characters_replaced_from_class_names]/-/g;
 
   # API info: using the API to allow for customization would be:
-  #  return &{$self->formatting_function('format_protect_text')}($self, $class_name);
+  # return &{$self->formatting_function('format_protect_text')}($self, $class_name);
   return _default_format_protect_text($self, $class_name);
 }
 
@@ -10879,12 +10926,14 @@ sub _convert($$;$)
                and $brace_commands{$command_name} eq 'style_no_code') {
         push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
       } elsif ($upper_case_commands{$command_name}) {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'}++;
+        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                             ->{'upper_case'}++;
       } elsif ($math_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'math'}++;
         $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
       } elsif ($command_name eq 'w') {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'space_protected'}++;
+        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                        ->{'space_protected'}++;
       }
       my $result = '';
       if (defined($self->{'commands_open'}->{$command_name})) {
@@ -10901,7 +10950,8 @@ sub _convert($$;$)
         } else {
           my $content_idx = 0;
           foreach my $content (@{$element->{'contents'}}) {
-            $content_formatted .= _convert($self, $content, "$command_type c[$content_idx]");
+            $content_formatted
+                .= _convert($self, $content, "$command_type c[$content_idx]");
             $content_idx++;
           }
         }
@@ -10953,8 +11003,9 @@ sub _convert($$;$)
                 $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacetext') {
                 $arg_formatted->{$arg_type}
-                  = Texinfo::Convert::Text::convert_to_text($arg, {'code' => 1,
-                     Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
+                  = Texinfo::Convert::Text::convert_to_text($arg,
+                         {'code' => 1,
+            Texinfo::Convert::Text::copy_options_for_convert_text($self, 1)});
               } elsif ($arg_type eq 'url') {
                 # set the encoding to UTF-8 to always have a string that is suitable
                 # for percent encoding.
@@ -10988,11 +11039,13 @@ sub _convert($$;$)
           or $brace_code_commands{$command_name}) {
         pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       } elsif ($upper_case_commands{$command_name}) {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'upper_case'}--;
+        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                        ->{'upper_case'}--;
       } elsif ($math_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'math'}--;
       } elsif ($command_name eq 'w') {
-        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'space_protected'}--;
+        $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                   ->{'space_protected'}--;
       }
       if ($format_raw_commands{$command_name}) {
         $self->{'document_context'}->[-1]->{'raw'}--;
@@ -11046,10 +11099,12 @@ sub _convert($$;$)
                                                $type_name, $element);
     }
     if ($type_name eq 'paragraph') {
-      $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'paragraph_number'}++;
+      $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                      ->{'paragraph_number'}++;
     } elsif ($type_name eq 'preformatted'
              or $type_name eq 'rawpreformatted') {
-      $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'preformatted_number'}++;
+      $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                   ->{'preformatted_number'}++;
     } elsif ($type_name eq 'unit'
              or $type_name eq 'special_element') {
       $self->{'current_root_element'} = $element;
@@ -11075,7 +11130,8 @@ sub _convert($$;$)
     } elsif ($element->{'contents'}) {
       my $content_idx = 0;
       foreach my $content (@{$element->{'contents'}}) {
-        $content_formatted .= _convert($self, $content, "$command_type c[$content_idx]");
+        $content_formatted
+          .= _convert($self, $content, "$command_type c[$content_idx]");
         $content_idx++;
       }
     }
