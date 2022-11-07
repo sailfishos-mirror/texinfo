@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: GNU texinfo-6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2022-10-29 13:22+0100\n"
-"PO-Revision-Date: 2022-10-27 12:52-0700\n"
+"PO-Revision-Date: 2022-11-06 17:19-0800\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -81,15 +81,15 @@ msgstr "Nevaljani znak razvrstavanja"
 
 #: gnulib/lib/regcomp.c:134
 msgid "Invalid character class name"
-msgstr "Nevaljano ime znakovne klase"
+msgstr "Nevaljano ime klase znakova"
 
 #: gnulib/lib/regcomp.c:137
 msgid "Trailing backslash"
-msgstr "Zaostala obratna kosa crta („\\“)"
+msgstr "Zaostala obratna kosa crta („\\“, backslash)"
 
 #: gnulib/lib/regcomp.c:140
 msgid "Invalid back reference"
-msgstr "Nevaljana povratna poveznica"
+msgstr "Nevaljana povratna referencija"
 
 #: gnulib/lib/regcomp.c:143
 msgid "Unmatched [, [^, [:, [., or [="
@@ -105,7 +105,7 @@ msgstr "Nesparena \\{"
 
 #: gnulib/lib/regcomp.c:152
 msgid "Invalid content of \\{\\}"
-msgstr "Nevaljani sadržaj u \\{\\}"
+msgstr "Nevaljani sadržaj \\{\\}"
 
 #: gnulib/lib/regcomp.c:155
 msgid "Invalid range end"
@@ -117,11 +117,11 @@ msgstr "Nema dovoljno memorije"
 
 #: gnulib/lib/regcomp.c:161
 msgid "Invalid preceding regular expression"
-msgstr "Nevaljani prethodni regularni izraz"
+msgstr "Prethodni regularni izraz nije valjan"
 
 #: gnulib/lib/regcomp.c:164
 msgid "Premature end of regular expression"
-msgstr "Neočekivani završetak regularnog izraza"
+msgstr "Prerani kraj regularnog izraza"
 
 #: gnulib/lib/regcomp.c:167
 msgid "Regular expression too big"
@@ -621,7 +621,7 @@ msgstr "Nepoznata Info-naredba „%c“; pokušajte „?“ za pomoć"
 #: info/info.c:1203
 #, c-format
 msgid "Terminal type '%s' is not smart enough to run Info"
-msgstr "Terminal vrste „%s“ nije dovoljno „pametan“ za Info"
+msgstr "Terminal tipa „%s“ nije dovoljno „pametan“ za Info"
 
 #: info/info.c:1204
 msgid "You are already at the last page of this node"
@@ -1931,10 +1931,15 @@ msgstr ""
 "%s\tVrh stabla INFO dokumenata (.../info/dir)\n"
 "\n"
 "  Ovaj čvor („dir“ node) prikaže menī s glavnim temama.\n"
-"   -- Nekoliko korisnih naredbi --  „q“ izlaz, iziđete iz Info  „H“ vam "
-"izlista sve Info-naredbe  „d“ vas uvijek se vraća ovamo  „h“ otvora tutorial "
-"za početnike  „mTexinfo<Enter>“ otvori priručnik za Texinfo, itd.\n"
-"  ---------------------------------------------------\n"
+"   Tipka „q“ izlaz iz Info, „H“ vam izlista sve Info-naredbe, „d“ vas vraća\n"
+"   ovamo, „h“ otvora tutorial za početnike, „mEmacs<Enter>“ otvori "
+"priručnik\n"
+"   za Emacs , itd.\n"
+"\n"
+"    In Emacs, you can click mouse button 2 on a menu item or cross "
+"reference\n"
+"    to select it.\n"
+"\n"
 "%s\n"
 
 #: install-info/install-info.c:626
@@ -2291,12 +2296,12 @@ msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:6810
 msgid "missing type"
-msgstr "nema vrste"
+msgstr "nema tipa"
 
 #: tp/Texinfo/Convert/HTML.pm:6814
 #, perl-format
 msgid "unrecognized type: %s"
-msgstr "neprepoznata vrsta: %s"
+msgstr "neprepoznati tip: %s"
 
 #: tp/Texinfo/Convert/HTML.pm:6834
 #, perl-format
@@ -3643,7 +3648,7 @@ msgstr ""
 "VARIJABLU\n"
 "                                na VRIJEDNOST\n"
 "  -v, --verbose               objašnjava što se izvršava\n"
-"      --version               informacije o inačici ovog programa\n"
+"      --version               informira o inačici ovog programa i iziđe\n"
 
 #: tp/texi2any.pl:809
 msgid "Output format selection (default is to produce Info):"
