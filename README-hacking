@@ -247,6 +247,8 @@ make po-check             # update po/POTFILES.in as needed
 
 check indices of Texinfo manuals and check for duplicates (with <1> in Info)
 
+- Official releases only:
+make V=1 pdf and fix underfull/overfull boxes.
 
 - Final (easy) checks:
 
@@ -275,6 +277,13 @@ check that texindex version is updated properly
 (cd tp && ./maintain/change_perl_modules_version.sh auto)
   -- this updates all the version numbers in the Perl modules
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
+
+- Official releases only:
+version and date in NEWS.
+version number in txirefcard.tex.
+(cd tp && maintain/regenerate_documentlanguages-loc.pl)
+  -- regenerates tp/Texinfo/Documentlanguages.pm (requires Text::CSV)
+
 one last "git diff" to check release commit looks good
 make distcheck
 (export MALLOC_CHECK_=2; make distcheck)  # repeat until clean
@@ -284,18 +293,11 @@ after uploading distribution,
 pretest announcement -> bug-texinfo / beebe / platform-testers to try.
 bcc coordinator@translationproject.org.
 
-- Official releases only:
-version and date in NEWS.
-version number in txirefcard.tex.
-(cd tp && maintain/regenerate_documentlanguages-loc.pl)
-  -- regenerates tp/Texinfo/Documentlanguages.pm (requires Text::CSV)
-
-make V=1 pdf and fix underfull/overfull boxes.
 
 
 - To do the actual upload:
 pkg=texinfo
-ver=6.0
+ver=7.0
 
 then do one of:
 gnupload --to alpha.gnu.org:$pkg $pkg-$ver.tar.xz                #pretest
