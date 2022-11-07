@@ -1,3 +1,9 @@
+2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi
+	(Cross Reference Parts, Other Customization Variables):
+	Reword to avoid underful and overful hboxes.
+
 2022-11-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\doindexsegment):

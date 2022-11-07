@@ -4392,14 +4392,14 @@ comma or period).  This gives you the choice of whether to have a comma
 there in other output formats.  For example,
 
 @example
-@@xref@{Another Section@} for more information
+@@xref@{Another Section@} for more info
 @end example
 
-@noindent produces
-@w{`See Another Section, page @var{ppp}, for more information'} with
-TeX, and
-@w{@samp{*Note Another Section:: for more information}} in the Info 
-output.
+@noindent
+with TeX produces @w{`See Another Section, page @var{ppp}, for more info'},
+and in the Info output produces
+@w{@samp{*Note Another Section:: for more info}}.
+
 
 If an unwanted comma is added, follow the argument
 with a command such as @samp{@@:}.  For example,
@@ -16993,9 +16993,9 @@ can be applied to the Texinfo tree prior to outputting the result.  If
 more than one is specified, the ordering is irrelevant; each is always
 applied at the necessary point during processing.
 
-The tree transformations executed by default are
-@samp{move_index_entries_after_items} and
-@samp{relate_index_entries_to_table_entries} for HTML and DocBook output.
+By default, the tree transformations @samp{move_index_entries_after_items}
+and @samp{relate_index_entries_to_table_entries} are executed
+for HTML and DocBook output.
 Here's an example of updating the master menu in a document:
 
 @example
