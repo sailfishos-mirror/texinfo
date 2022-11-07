@@ -1,5 +1,13 @@
 2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\mtadjustprotcode): Use new count \countC
+	instead of reusing \countB which appears to clash with \pdfgettoks,
+	leading to an error "pdfTeX warning (dest): name{} has 
+        been referenced but does not exist, replaced by a fixed one" always
+	being output.
+
+2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi
 	(Cross Reference Parts, Other Customization Variables):
 	Reword to avoid underful and overful hboxes.
