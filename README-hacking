@@ -315,15 +315,6 @@ cp $tutil/texinfo.dtd $ver
 cvs add -kb $ver $ver/texinfo.dtd
 cvs commit -m$ver $ver
 
-#  ... make diffs at official release:
-prev=5.2
-ver=6.0
-tar xf texinfo-$ver.tar.gz
-tar xf texinfo-$prev.tar.gz
-diff -Nrc2 texinfo-$prev texinfo-$ver | xz >texinfo-$prev-$ver.diff.xz
-ls -l !$
-gnupload --to ftp.gnu.org:texinfo !$
-
 
 - When official release is out there ...
 update home page (texinfo.html) and commit as needed.
