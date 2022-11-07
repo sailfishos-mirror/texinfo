@@ -123,6 +123,12 @@ manual1_title = "GNU standalone info manual"
 manual2 = texinfo
 manual2_title = "GNU Texinfo manual"
 #
+manual3 = texi2any_api
+manual3_title = "GNU Texinfo texi2any Output Customization"
+#
+manual4 = texi2any_internals
+manual4_title = "GNU Texinfo texi2any modules documentation"
+
 # We also make a little HTML document for pod2texi script.
 
 # destination directory.
@@ -133,8 +139,12 @@ wwwdoc-build:
 	rm -rf $(doctemp) && mkdir $(doctemp)
 	cd $(doctemp) \
 	&& ln -s ../*.texi . \
+	&& ln -s ../tp_api/*.texi . \
+	&& ln -s ../tp_api/api_includes . \
 	&& $(gendocs_invoke) -o $(manual1) $(manual1) $(manual1_title) \
 	&& $(gendocs_invoke) -o $(manual2) $(manual2) $(manual2_title) \
+	&& $(gendocs_invoke) -o $(manual3) $(manual3) $(manual3_title) \
+	&& $(gendocs_invoke) -o $(manual4) $(manual4) $(manual4_title) \
 	&& pod2html $(pod2texi_pl) >pod2texi.html \
 	&& echo "Manuals ready for web distribution under: $(doctemp)/"
 #
@@ -142,6 +152,7 @@ wwwdoc-build:
 # http://www.gnu.org/software/texinfo/manual/
 wwwdoc-install:
 	cp -arf $(doctemp)/$(manual1) $(doctemp)/$(manual2) \
+                $(doctemp)/$(manual3) $(doctemp)/$(manual4) \
                 $(doctemp)/pod2texi.html \
                 $(www_target)
 	ls -ltu $(www_target)/*/html_node | tail  # cvs rm -f obsolete files

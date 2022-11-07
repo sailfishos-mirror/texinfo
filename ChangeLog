@@ -1,5 +1,10 @@
 2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (wwwdoc-build, wwwdoc-install): handle
+	new manuals texi2any_api and texi2any_internals
+
+2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: not making diffs any more
 
 2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
