@@ -78,7 +78,7 @@ use Texinfo::Convert::TexinfoSXML;
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
-$VERSION = '6.8.91';
+$VERSION = '7.0';
 
 
 my $ixin_version = 1;
