@@ -324,9 +324,6 @@ including:
   pod2html $txi/Pod-Simple-Texinfo/pod2texi.pl \
   | grep -Fv 'rev="made"' >manual/pod2texi.html
 
-check for http links that should be changed to https - then delete
-this item
-
 Build web documentation with
   make -C doc wwwdoc-build
 

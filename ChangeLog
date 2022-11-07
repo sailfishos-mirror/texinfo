@@ -1,5 +1,9 @@
 2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: remove to-do item
+
+2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	7.0
 
 	* configure.ac, NEWS, util/texi2dvi, util/texi2pdf: version
