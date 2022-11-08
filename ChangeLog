@@ -1,3 +1,9 @@
+2022-11-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/texi2any.pl: Call _encode_message on messages passed to
+	"die" to avoid "Wide character in die" warning.  Report from
+	Werner.
+
 2022-11-05  Patrice Dumas  <pertusus@free.fr>
 
 	Do not use FirstInFile in direction strings, document FirstInFile
@@ -244,6 +250,7 @@
 2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* README-hacking: new ChangeLog file done
+
 
 Copyright 2022 Free Software Foundation, Inc.
 
