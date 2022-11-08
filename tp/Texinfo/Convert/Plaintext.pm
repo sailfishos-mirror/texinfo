@@ -3468,13 +3468,18 @@ sub _convert($$)
           $result .= _convert($self, $tree);
         }
       }
-    } elsif (($command eq 'quotation' 
+    } elsif (($command eq 'quotation'
                or $command eq 'smallquotation')
              and $element->{'extra'} and $element->{'extra'}->{'authors'}) {
       foreach my $author (@{$element->{'extra'}->{'authors'}}) {
-        $result .= _convert($self, 
-                 $self->gdt("\@center --- \@emph{{author}}\n",
-                    {'author' => $author->{'args'}->[0]->{'contents'}}));
+        # this cannot happen as this should be caugth by 'missing_argument'
+        # but it is more robust to check anyway
+        if ($author->{'args'}->[0]
+            and $author->{'args'}->[0]->{'contents'}) {
+          $result .= _convert($self,
+                   $self->gdt("\@center --- \@emph{{author}}\n",
+                      {'author' => $author->{'args'}->[0]->{'contents'}}));
+        }
       }
     } elsif (($command eq 'multitable')) {
       $self->{'document_context'}->[-1]->{'in_multitable'}--;
@@ -3500,7 +3505,7 @@ sub _convert($$)
         }
       }
     }
- 
+
     # close the contexts and register the cells
     if ($self->{'preformatted_context_commands'}->{$command}
         or $command eq 'float') {

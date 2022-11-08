@@ -6,6 +6,15 @@
 
 2022-11-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm: avoid formatting when contents
+	is not set, avoiding a crash with empty @titlefont as title.
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): do not format
+	author if there is no contents, this cannot happen for now but is more
+	robust.
+
+2022-11-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Info.pm (_convert): avoid crashes in case
 	of empty arguments.
 
