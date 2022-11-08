@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 5.9.93\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:53+0100\n"
+"POT-Creation-Date: 2022-11-09 00:33+0100\n"
 "PO-Revision-Date: 2015-06-07 06:25-0300\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin10@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -18,10 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=us-ascii\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tp/Texinfo/Common.pm:604
-msgctxt "Function"
-msgid "category of functions for @defun"
-msgstr ""
+#: tp/Texinfo/Common.pm:605
+#, fuzzy
+msgctxt "category of functions for @defun"
+msgid "Function"
+msgstr "Se@,{c}@~ao"
 
 #. TRANSLATORS: category of macros for @defmac
 #: tp/Texinfo/Common.pm:607
@@ -33,10 +34,12 @@ msgstr "Macro"
 msgid "Special Form"
 msgstr "Forma Especial"
 
-#: tp/Texinfo/Common.pm:610
-msgctxt "Variable"
-msgid "category of variables for @defvar"
-msgstr ""
+#: tp/Texinfo/Common.pm:611
+#, fuzzy
+#| msgid "Variable"
+msgctxt "category of variables for @defvar"
+msgid "Variable"
+msgstr "Vari@'{a}vel"
 
 #. TRANSLATORS: category of users modifiable options for @defopt
 #: tp/Texinfo/Common.pm:613
@@ -44,49 +47,67 @@ msgstr ""
 msgid "User Option"
 msgstr "Se@,{c}@~ao acima"
 
-#: tp/Texinfo/Common.pm:615
-msgctxt "Function"
-msgid "category of general definition for functions for @deftypefun"
-msgstr ""
+#: tp/Texinfo/Common.pm:616
+#, fuzzy
+msgctxt "category of general definition for functions for @deftypefun"
+msgid "Function"
+msgstr "Se@,{c}@~ao"
 
-#: tp/Texinfo/Common.pm:618
-msgctxt "Variable"
-msgid "category of variables in typed languages for @deftypevar"
-msgstr ""
+#: tp/Texinfo/Common.pm:619
+#, fuzzy
+#| msgid "Variable"
+msgctxt "category of variables in typed languages for @deftypevar"
+msgid "Variable"
+msgstr "Vari@'{a}vel"
 
-#: tp/Texinfo/Common.pm:621
-msgctxt "Instance Variable"
-msgid ""
+#: tp/Texinfo/Common.pm:622
+#, fuzzy
+#| msgid "Instance Variable"
+msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
-msgstr ""
+msgid "Instance Variable"
+msgstr "Vari@'{a}vel de inst@^{a}ncia"
 
-#: tp/Texinfo/Common.pm:624
-msgctxt "Instance Variable"
-msgid ""
+#: tp/Texinfo/Common.pm:625
+#, fuzzy
+#| msgid "Instance Variable"
+msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
-msgstr ""
+msgid "Instance Variable"
+msgstr "Vari@'{a}vel de inst@^{a}ncia"
 
-#: tp/Texinfo/Common.pm:627
-msgid "category of methods in object-oriented programming for @defmethod"
-msgstr ""
+#: tp/Texinfo/Common.pm:628
+#, fuzzy
+#| msgid "Method"
+msgctxt "category of methods in object-oriented programming for @defmethod"
+msgid "Method"
+msgstr "M@'{e}todo"
 
-#: tp/Texinfo/Common.pm:630
-msgid ""
+#: tp/Texinfo/Common.pm:631
+#, fuzzy
+#| msgid "Method"
+msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"
-msgstr ""
+msgid "Method"
+msgstr "M@'{e}todo"
 
 #: tp/Texinfo/Transformations.pm:597
 msgid " --- The Detailed Node Listing ---"
 msgstr ""
 
-#: tp/Texinfo/Translations.pm:373
+#. TRANSLATORS: association of a method or operation name with a class
+#. in object-oriented programming methods or operations descriptions.
+#: tp/Texinfo/Translations.pm:375
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} na {class}"
 
-#: tp/Texinfo/Translations.pm:374
+#. TRANSLATORS: association of a variable or instance variable with
+#. a class in object-oriented programming variables or instance variable
+#. descriptions.
+#: tp/Texinfo/Translations.pm:379
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} da {class}"
@@ -974,19 +995,6 @@ msgstr "{name} na {class}"
 #, fuzzy, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{name} da {class}"
-
-#~ msgid "Variable"
-#~ msgstr "Vari@'{a}vel"
-
-#, fuzzy
-#~ msgid "Function"
-#~ msgstr "Se@,{c}@~ao"
-
-#~ msgid "Instance Variable"
-#~ msgstr "Vari@'{a}vel de inst@^{a}ncia"
-
-#~ msgid "Method"
-#~ msgstr "M@'{e}todo"
 
 #, perl-brace-format
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"

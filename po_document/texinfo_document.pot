@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 7.0\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:53+0100\n"
+"POT-Creation-Date: 2022-11-09 00:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,9 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tp/Texinfo/Common.pm:604
-msgctxt "Function"
-msgid "category of functions for @defun"
+#: tp/Texinfo/Common.pm:605
+msgctxt "category of functions for @defun"
+msgid "Function"
 msgstr ""
 
 #. TRANSLATORS: category of macros for @defmac
@@ -32,9 +32,9 @@ msgstr ""
 msgid "Special Form"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:610
-msgctxt "Variable"
-msgid "category of variables for @defvar"
+#: tp/Texinfo/Common.pm:611
+msgctxt "category of variables for @defvar"
+msgid "Variable"
 msgstr ""
 
 #. TRANSLATORS: category of users modifiable options for @defopt
@@ -42,49 +42,56 @@ msgstr ""
 msgid "User Option"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:615
-msgctxt "Function"
-msgid "category of general definition for functions for @deftypefun"
+#: tp/Texinfo/Common.pm:616
+msgctxt "category of general definition for functions for @deftypefun"
+msgid "Function"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:618
-msgctxt "Variable"
-msgid "category of variables in typed languages for @deftypevar"
+#: tp/Texinfo/Common.pm:619
+msgctxt "category of variables in typed languages for @deftypevar"
+msgid "Variable"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:621
-msgctxt "Instance Variable"
-msgid ""
+#: tp/Texinfo/Common.pm:622
+msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
+msgid "Instance Variable"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:624
-msgctxt "Instance Variable"
-msgid ""
+#: tp/Texinfo/Common.pm:625
+msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
+msgid "Instance Variable"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:627
-msgid "category of methods in object-oriented programming for @defmethod"
+#: tp/Texinfo/Common.pm:628
+msgctxt "category of methods in object-oriented programming for @defmethod"
+msgid "Method"
 msgstr ""
 
-#: tp/Texinfo/Common.pm:630
-msgid ""
+#: tp/Texinfo/Common.pm:631
+msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"
+msgid "Method"
 msgstr ""
 
 #: tp/Texinfo/Transformations.pm:597
 msgid " --- The Detailed Node Listing ---"
 msgstr ""
 
-#: tp/Texinfo/Translations.pm:373
+#. TRANSLATORS: association of a method or operation name with a class
+#. in object-oriented programming methods or operations descriptions.
+#: tp/Texinfo/Translations.pm:375
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr ""
 
-#: tp/Texinfo/Translations.pm:374
+#. TRANSLATORS: association of a variable or instance variable with
+#. a class in object-oriented programming variables or instance variable
+#. descriptions.
+#: tp/Texinfo/Translations.pm:379
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr ""

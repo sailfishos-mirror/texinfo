@@ -370,7 +370,12 @@ if (0) {
   # it is needed to mark the translation as gdt is called like
   # gdt($self, '....')
   # and not like gdt('....')
+  # TRANSLATORS: association of a method or operation name with a class
+  # in object-oriented programming methods or operations descriptions.
   gdt('{name} on {class}', undef, undef);
+  # TRANSLATORS: association of a variable or instance variable with
+  # a class in object-oriented programming variables or instance variable
+  # descriptions.
   gdt('{name} of {class}', undef, undef);
 }
 
@@ -409,7 +414,8 @@ sub complete_indices($)
               = [_non_bracketed_contents($def_parsed_hash->{'name'}),
                 { 'text' => ' on '},
                 _non_bracketed_contents($def_parsed_hash->{'class'})];
-          } elsif ($def_command eq 'defivar'
+          } elsif ($def_command eq 'defcv'
+                   or $def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
                    or $def_command eq 'deftypecv') {
             $index_entry = gdt($self, '{name} of {class}',

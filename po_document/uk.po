@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:53+0100\n"
+"POT-Creation-Date: 2022-11-09 00:33+0100\n"
 "PO-Revision-Date: 2022-10-20 18:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -20,10 +20,12 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: tp/Texinfo/Common.pm:604
-msgctxt "Function"
-msgid "category of functions for @defun"
-msgstr ""
+#: tp/Texinfo/Common.pm:605
+#, fuzzy
+#| msgid "Function"
+msgctxt "category of functions for @defun"
+msgid "Function"
+msgstr "Функція"
 
 #. TRANSLATORS: category of macros for @defmac
 #: tp/Texinfo/Common.pm:607
@@ -35,59 +37,80 @@ msgstr "Макрос"
 msgid "Special Form"
 msgstr "Спеціальна форма"
 
-#: tp/Texinfo/Common.pm:610
-msgctxt "Variable"
-msgid "category of variables for @defvar"
-msgstr ""
+#: tp/Texinfo/Common.pm:611
+#, fuzzy
+#| msgid "Variable"
+msgctxt "category of variables for @defvar"
+msgid "Variable"
+msgstr "Змінна"
 
 #. TRANSLATORS: category of users modifiable options for @defopt
 #: tp/Texinfo/Common.pm:613
 msgid "User Option"
 msgstr "Вибір користувача"
 
-#: tp/Texinfo/Common.pm:615
-msgctxt "Function"
-msgid "category of general definition for functions for @deftypefun"
-msgstr ""
+#: tp/Texinfo/Common.pm:616
+#, fuzzy
+#| msgid "Function"
+msgctxt "category of general definition for functions for @deftypefun"
+msgid "Function"
+msgstr "Функція"
 
-#: tp/Texinfo/Common.pm:618
-msgctxt "Variable"
-msgid "category of variables in typed languages for @deftypevar"
-msgstr ""
+#: tp/Texinfo/Common.pm:619
+#, fuzzy
+#| msgid "Variable"
+msgctxt "category of variables in typed languages for @deftypevar"
+msgid "Variable"
+msgstr "Змінна"
 
-#: tp/Texinfo/Common.pm:621
-msgctxt "Instance Variable"
-msgid ""
+#: tp/Texinfo/Common.pm:622
+#, fuzzy
+#| msgid "Instance Variable"
+msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
-msgstr ""
+msgid "Instance Variable"
+msgstr "Змінна екземпляра"
 
-#: tp/Texinfo/Common.pm:624
-msgctxt "Instance Variable"
-msgid ""
+#: tp/Texinfo/Common.pm:625
+#, fuzzy
+#| msgid "Instance Variable"
+msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
-msgstr ""
+msgid "Instance Variable"
+msgstr "Змінна екземпляра"
 
-#: tp/Texinfo/Common.pm:627
-msgid "category of methods in object-oriented programming for @defmethod"
-msgstr ""
+#: tp/Texinfo/Common.pm:628
+#, fuzzy
+#| msgid "Method"
+msgctxt "category of methods in object-oriented programming for @defmethod"
+msgid "Method"
+msgstr "Метод"
 
-#: tp/Texinfo/Common.pm:630
-msgid ""
+#: tp/Texinfo/Common.pm:631
+#, fuzzy
+#| msgid "Method"
+msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"
-msgstr ""
+msgid "Method"
+msgstr "Метод"
 
 #: tp/Texinfo/Transformations.pm:597
 msgid " --- The Detailed Node Listing ---"
 msgstr " --- Докладний список вузлів ---"
 
-#: tp/Texinfo/Translations.pm:373
+#. TRANSLATORS: association of a method or operation name with a class
+#. in object-oriented programming methods or operations descriptions.
+#: tp/Texinfo/Translations.pm:375
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} щодо {class}"
 
-#: tp/Texinfo/Translations.pm:374
+#. TRANSLATORS: association of a variable or instance variable with
+#. a class in object-oriented programming variables or instance variable
+#. descriptions.
+#: tp/Texinfo/Translations.pm:379
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} {class}"
@@ -957,18 +980,6 @@ msgstr "{category} щодо @code{{class}}"
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{category} @code{{class}}"
-
-#~ msgid "Variable"
-#~ msgstr "Змінна"
-
-#~ msgid "Function"
-#~ msgstr "Функція"
-
-#~ msgid "Instance Variable"
-#~ msgstr "Змінна екземпляра"
-
-#~ msgid "Method"
-#~ msgstr "Метод"
 
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"
 #~ msgstr "Див. файл Info @file{{myfile}}, вузол @samp{{mynode}}"

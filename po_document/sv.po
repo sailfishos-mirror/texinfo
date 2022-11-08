@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:53+0100\n"
+"POT-Creation-Date: 2022-11-09 00:33+0100\n"
 "PO-Revision-Date: 2022-10-20 15:17+0200\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -20,10 +20,12 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: tp/Texinfo/Common.pm:604
-msgctxt "Function"
-msgid "category of functions for @defun"
-msgstr ""
+#: tp/Texinfo/Common.pm:605
+#, fuzzy
+#| msgid "Function"
+msgctxt "category of functions for @defun"
+msgid "Function"
+msgstr "Funktion"
 
 #. TRANSLATORS: category of macros for @defmac
 #: tp/Texinfo/Common.pm:607
@@ -35,59 +37,80 @@ msgstr "Makro"
 msgid "Special Form"
 msgstr "Specialform"
 
-#: tp/Texinfo/Common.pm:610
-msgctxt "Variable"
-msgid "category of variables for @defvar"
-msgstr ""
+#: tp/Texinfo/Common.pm:611
+#, fuzzy
+#| msgid "Variable"
+msgctxt "category of variables for @defvar"
+msgid "Variable"
+msgstr "Variable"
 
 #. TRANSLATORS: category of users modifiable options for @defopt
 #: tp/Texinfo/Common.pm:613
 msgid "User Option"
 msgstr "Användarinställning"
 
-#: tp/Texinfo/Common.pm:615
-msgctxt "Function"
-msgid "category of general definition for functions for @deftypefun"
-msgstr ""
+#: tp/Texinfo/Common.pm:616
+#, fuzzy
+#| msgid "Function"
+msgctxt "category of general definition for functions for @deftypefun"
+msgid "Function"
+msgstr "Funktion"
 
-#: tp/Texinfo/Common.pm:618
-msgctxt "Variable"
-msgid "category of variables in typed languages for @deftypevar"
-msgstr ""
+#: tp/Texinfo/Common.pm:619
+#, fuzzy
+#| msgid "Variable"
+msgctxt "category of variables in typed languages for @deftypevar"
+msgid "Variable"
+msgstr "Variable"
 
-#: tp/Texinfo/Common.pm:621
-msgctxt "Instance Variable"
-msgid ""
+#: tp/Texinfo/Common.pm:622
+#, fuzzy
+#| msgid "Instance Variable"
+msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
-msgstr ""
+msgid "Instance Variable"
+msgstr "Instantsvariabel"
 
-#: tp/Texinfo/Common.pm:624
-msgctxt "Instance Variable"
-msgid ""
+#: tp/Texinfo/Common.pm:625
+#, fuzzy
+#| msgid "Instance Variable"
+msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
-msgstr ""
+msgid "Instance Variable"
+msgstr "Instantsvariabel"
 
-#: tp/Texinfo/Common.pm:627
-msgid "category of methods in object-oriented programming for @defmethod"
-msgstr ""
+#: tp/Texinfo/Common.pm:628
+#, fuzzy
+#| msgid "Method"
+msgctxt "category of methods in object-oriented programming for @defmethod"
+msgid "Method"
+msgstr "Metod"
 
-#: tp/Texinfo/Common.pm:630
-msgid ""
+#: tp/Texinfo/Common.pm:631
+#, fuzzy
+#| msgid "Method"
+msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"
-msgstr ""
+msgid "Method"
+msgstr "Metod"
 
 #: tp/Texinfo/Transformations.pm:597
 msgid " --- The Detailed Node Listing ---"
 msgstr " --- Den detaljerade nodlistningen ---"
 
-#: tp/Texinfo/Translations.pm:373
+#. TRANSLATORS: association of a method or operation name with a class
+#. in object-oriented programming methods or operations descriptions.
+#: tp/Texinfo/Translations.pm:375
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} på {class}"
 
-#: tp/Texinfo/Translations.pm:374
+#. TRANSLATORS: association of a variable or instance variable with
+#. a class in object-oriented programming variables or instance variable
+#. descriptions.
+#: tp/Texinfo/Translations.pm:379
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} av {class}"
@@ -958,18 +981,6 @@ msgstr "{category} på @code{{class}}"
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{category} av @code{{class}}"
-
-#~ msgid "Variable"
-#~ msgstr "Variable"
-
-#~ msgid "Function"
-#~ msgstr "Funktion"
-
-#~ msgid "Instance Variable"
-#~ msgstr "Instantsvariabel"
-
-#~ msgid "Method"
-#~ msgstr "Metod"
 
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"
 #~ msgstr "Se Info-fil @file{{myfile}}, nod @samp{{mynode}}"
