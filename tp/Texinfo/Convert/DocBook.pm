@@ -394,8 +394,8 @@ sub output($$)
     if ($self->{'global_commands'}->{$title_cmdname}) {
       my $command = $self->{'global_commands'}->{$title_cmdname};
       next if (!$command->{'args'}
-               or (!$command->{'args'}->[0]->{'contents'}
-                   or $command->{'extra'}->{'missing_argument'}));
+               or !$command->{'args'}->[0]->{'contents'}
+               or $command->{'extra'}->{'missing_argument'});
       $fulltitle_command = $command;
       last;
     }
@@ -449,8 +449,8 @@ sub output($$)
     my $command = $self->{'global_commands'}->{'settitle'};
     $settitle_command = $command
       unless (!$command->{'args'}
-               or (!$command->{'args'}->[0]->{'contents'}
-                   or $command->{'extra'}->{'missing_argument'}));
+               or !$command->{'args'}->[0]->{'contents'}
+               or $command->{'extra'}->{'missing_argument'});
 
   }
 
@@ -465,12 +465,12 @@ sub output($$)
     my $command = $self->{'global_commands'}->{'top'};
     $fulltitle_command = $command
       unless (!$command->{'args'}
-               or (!$command->{'args'}->[0]->{'contents'}
-                   or $command->{'extra'}->{'missing_argument'}));
+               or !$command->{'args'}->[0]->{'contents'}
+               or $command->{'extra'}->{'missing_argument'});
   }
 
   my $title_info = '';
-  
+
   if ($fulltitle_command) {
     foreach my $element_command ([$fulltitle_command, 'title'],
                                  [$titleabbrev_command, 'titleabbrev']) {
@@ -703,7 +703,7 @@ sub _convert($$;$)
       #warn "  has no_arg_commands_formatting \n";
       my $command;
       if ($element->{'cmdname'} eq 'click'
-          and $element->{'extra'} 
+          and $element->{'extra'}
           and defined($element->{'extra'}->{'clickstyle'})) {
         $command = $element->{'extra'}->{'clickstyle'};
       } elsif ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]
@@ -747,12 +747,15 @@ sub _convert($$;$)
                and $element->{'parent'}->{'type'}
                and $element->{'parent'}->{'type'} eq 'table_term') {
 
-        my $table_item_tree = $self->table_item_content_tree($element,
-                                         $element->{'args'}->[0]->{'contents'});
-
         $result .= "<term>";
         $result .= $self->_index_entry($element);
-        $result .= $self->_convert($table_item_tree);
+        if ($element->{'args'}->[0]
+            and $element->{'args'}->[0]->{'contents'}) {
+          my $table_item_tree = $self->table_item_content_tree($element,
+                                         $element->{'args'}->[0]->{'contents'});
+
+          $result .= $self->_convert($table_item_tree);
+        }
         chomp ($result);
         $result .= "\n";
         $result .= "</term>";
@@ -1030,6 +1033,7 @@ sub _convert($$;$)
           } else {
             if (scalar(@{$element->{'args'}}) == 5
                 and defined($element->{'args'}->[-1])
+                and $element->{'args'}->[-1]->{'contents'}
                 and @{$element->{'args'}->[-1]->{'contents'}}) {
               $book_contents = $element->{'args'}->[-1]->{'contents'};
             }
@@ -1329,7 +1333,9 @@ sub _convert($$;$)
       } elsif ($element->{'cmdname'} eq 'abbr' or $element->{'cmdname'} eq 'acronym') {
         my $argument;
         if (scalar(@{$element->{'args'}}) >= 1
-            and defined($element->{'args'}->[0]) and @{$element->{'args'}->[0]->{'contents'}}) {
+            and defined($element->{'args'}->[0])
+            and $element->{'args'}->[0]->{'contents'}
+            and @{$element->{'args'}->[0]->{'contents'}}) {
           my $arg = $self->_convert({'contents' 
                       => $element->{'args'}->[0]->{'contents'}});
           if ($arg ne '') {
@@ -1344,7 +1350,9 @@ sub _convert($$;$)
         }
         #
         if (scalar(@{$element->{'args'}}) == 2
-           and defined($element->{'args'}->[-1]) and @{$element->{'args'}->[-1]->{'contents'}}) {
+           and defined($element->{'args'}->[-1])
+           and $element->{'args'}->[-1]->{'contents'}
+           and @{$element->{'args'}->[-1]->{'contents'}}) {
           if (defined($argument)) {
             my $tree = $self->gdt('{abbr_or_acronym} ({explanation})',
                            {'abbr_or_acronym' => {'type' => '_converted',
