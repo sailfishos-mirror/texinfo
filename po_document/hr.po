@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:19+0100\n"
+"POT-Creation-Date: 2022-11-08 23:53+0100\n"
 "PO-Revision-Date: 2022-11-06 17:20-0800\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -22,33 +22,63 @@ msgstr ""
 "X-Generator: Poedit 3.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: tp/Texinfo/Common.pm:604 tp/Texinfo/Common.pm:609
-msgid "Function"
-msgstr "Funkcija"
+#: tp/Texinfo/Common.pm:604
+msgctxt "Function"
+msgid "category of functions for @defun"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:605
+#. TRANSLATORS: category of macros for @defmac
+#: tp/Texinfo/Common.pm:607
 msgid "Macro"
 msgstr "Makro"
 
-#: tp/Texinfo/Common.pm:606
+#. TRANSLATORS: category of special forms for @defspec
+#: tp/Texinfo/Common.pm:609
 msgid "Special Form"
 msgstr "Specijalna forma"
 
-#: tp/Texinfo/Common.pm:607 tp/Texinfo/Common.pm:610
-msgid "Variable"
-msgstr "Varijabla"
+#: tp/Texinfo/Common.pm:610
+msgctxt "Variable"
+msgid "category of variables for @defvar"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:608
+#. TRANSLATORS: category of users modifiable options for @defopt
+#: tp/Texinfo/Common.pm:613
 msgid "User Option"
 msgstr "Korisnička opcija"
 
-#: tp/Texinfo/Common.pm:611 tp/Texinfo/Common.pm:612
-msgid "Instance Variable"
-msgstr "Primjer varijable"
+#: tp/Texinfo/Common.pm:615
+msgctxt "Function"
+msgid "category of general definition for functions for @deftypefun"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:613 tp/Texinfo/Common.pm:614
-msgid "Method"
-msgstr "Metoda"
+#: tp/Texinfo/Common.pm:618
+msgctxt "Variable"
+msgid "category of variables in typed languages for @deftypevar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:621
+msgctxt "Instance Variable"
+msgid ""
+"category of instance variables in object-oriented programming for @defivar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:624
+msgctxt "Instance Variable"
+msgid ""
+"category of instance variables with data type in object-oriented programming "
+"for @deftypeivar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:627
+msgid "category of methods in object-oriented programming for @defmethod"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:630
+msgid ""
+"category of methods with data type in object-oriented programming for "
+"@deftypemethod"
+msgstr ""
 
 #: tp/Texinfo/Transformations.pm:597
 msgid " --- The Detailed Node Listing ---"
@@ -929,6 +959,18 @@ msgstr "{category} na @code{{class}}"
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{category} od @code{{class}}"
+
+#~ msgid "Variable"
+#~ msgstr "Varijabla"
+
+#~ msgid "Function"
+#~ msgstr "Funkcija"
+
+#~ msgid "Instance Variable"
+#~ msgstr "Primjer varijable"
+
+#~ msgid "Method"
+#~ msgstr "Metoda"
 
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"
 #~ msgstr "Pogledajte Info-datoteku @file{{myfile}}, čvor @samp{{mynode}}"

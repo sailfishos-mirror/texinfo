@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:19+0100\n"
+"POT-Creation-Date: 2022-11-08 23:53+0100\n"
 "PO-Revision-Date: 2021-07-08 14:19+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -2121,13 +2121,13 @@ msgstr "%s: ei voitu avata tiedostoa %s kirjoitettavaksi: %s\n"
 msgid "error on closing %s: %s"
 msgstr "virhe suljettaessa: %s: %s"
 
-#: tp/Texinfo/Common.pm:993 tp/Texinfo/XS/parsetexi/end_line.c:1609
+#: tp/Texinfo/Common.pm:1010 tp/Texinfo/XS/parsetexi/end_line.c:1609
 #: tp/Texinfo/XS/parsetexi/end_line.c:1619
 #, c-format, perl-format
 msgid "%s is not a valid language code"
 msgstr "%s ei ole kelvollinen kielikoodi"
 
-#: tp/Texinfo/Common.pm:998 tp/Texinfo/XS/parsetexi/end_line.c:1636
+#: tp/Texinfo/Common.pm:1015 tp/Texinfo/XS/parsetexi/end_line.c:1636
 #, c-format, perl-format
 msgid "%s is not a valid region code"
 msgstr "%s ei ole kelvollinen aluekoodi"

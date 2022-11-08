@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 5.9.93\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:19+0100\n"
+"POT-Creation-Date: 2022-11-08 23:53+0100\n"
 "PO-Revision-Date: 2015-06-07 06:25-0300\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin10@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -18,35 +18,64 @@ msgstr ""
 "Content-Type: text/plain; charset=us-ascii\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: tp/Texinfo/Common.pm:604 tp/Texinfo/Common.pm:609
-#, fuzzy
-msgid "Function"
-msgstr "Se@,{c}@~ao"
+#: tp/Texinfo/Common.pm:604
+msgctxt "Function"
+msgid "category of functions for @defun"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:605
+#. TRANSLATORS: category of macros for @defmac
+#: tp/Texinfo/Common.pm:607
 msgid "Macro"
 msgstr "Macro"
 
-#: tp/Texinfo/Common.pm:606
+#. TRANSLATORS: category of special forms for @defspec
+#: tp/Texinfo/Common.pm:609
 msgid "Special Form"
 msgstr "Forma Especial"
 
-#: tp/Texinfo/Common.pm:607 tp/Texinfo/Common.pm:610
-msgid "Variable"
-msgstr "Vari@'{a}vel"
+#: tp/Texinfo/Common.pm:610
+msgctxt "Variable"
+msgid "category of variables for @defvar"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:608
+#. TRANSLATORS: category of users modifiable options for @defopt
+#: tp/Texinfo/Common.pm:613
 #, fuzzy
 msgid "User Option"
 msgstr "Se@,{c}@~ao acima"
 
-#: tp/Texinfo/Common.pm:611 tp/Texinfo/Common.pm:612
-msgid "Instance Variable"
-msgstr "Vari@'{a}vel de inst@^{a}ncia"
+#: tp/Texinfo/Common.pm:615
+msgctxt "Function"
+msgid "category of general definition for functions for @deftypefun"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:613 tp/Texinfo/Common.pm:614
-msgid "Method"
-msgstr "M@'{e}todo"
+#: tp/Texinfo/Common.pm:618
+msgctxt "Variable"
+msgid "category of variables in typed languages for @deftypevar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:621
+msgctxt "Instance Variable"
+msgid ""
+"category of instance variables in object-oriented programming for @defivar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:624
+msgctxt "Instance Variable"
+msgid ""
+"category of instance variables with data type in object-oriented programming "
+"for @deftypeivar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:627
+msgid "category of methods in object-oriented programming for @defmethod"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:630
+msgid ""
+"category of methods with data type in object-oriented programming for "
+"@deftypemethod"
+msgstr ""
 
 #: tp/Texinfo/Transformations.pm:597
 msgid " --- The Detailed Node Listing ---"
@@ -945,6 +974,19 @@ msgstr "{name} na {class}"
 #, fuzzy, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{name} da {class}"
+
+#~ msgid "Variable"
+#~ msgstr "Vari@'{a}vel"
+
+#, fuzzy
+#~ msgid "Function"
+#~ msgstr "Se@,{c}@~ao"
+
+#~ msgid "Instance Variable"
+#~ msgstr "Vari@'{a}vel de inst@^{a}ncia"
+
+#~ msgid "Method"
+#~ msgstr "M@'{e}todo"
 
 #, perl-brace-format
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"

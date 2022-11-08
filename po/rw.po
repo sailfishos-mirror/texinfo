@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.94\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:19+0100\n"
+"POT-Creation-Date: 2022-11-08 23:53+0100\n"
 "PO-Revision-Date: 2005-04-04 10:55-0700\n"
 "Last-Translator: Steven Michael Murphy <murf@e-tools.com>\n"
 "Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>\n"
@@ -2240,13 +2240,13 @@ msgstr "%s:OYA Gufungura IDOSIYE"
 msgid "error on closing %s: %s"
 msgstr "Ikosa Kuri"
 
-#: tp/Texinfo/Common.pm:993 tp/Texinfo/XS/parsetexi/end_line.c:1609
+#: tp/Texinfo/Common.pm:1010 tp/Texinfo/XS/parsetexi/end_line.c:1609
 #: tp/Texinfo/XS/parsetexi/end_line.c:1619
 #, fuzzy, c-format, perl-format
 msgid "%s is not a valid language code"
 msgstr "%sni OYA a Byemewe Ururimi ITEGEKONGENGA"
 
-#: tp/Texinfo/Common.pm:998 tp/Texinfo/XS/parsetexi/end_line.c:1636
+#: tp/Texinfo/Common.pm:1015 tp/Texinfo/XS/parsetexi/end_line.c:1636
 #, fuzzy, c-format, perl-format
 msgid "%s is not a valid region code"
 msgstr "%sni OYA a Byemewe Ururimi ITEGEKONGENGA"

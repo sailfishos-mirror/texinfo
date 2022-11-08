@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:19+0100\n"
+"POT-Creation-Date: 2022-11-08 23:53+0100\n"
 "PO-Revision-Date: 2022-10-21 16:22+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -2342,13 +2342,13 @@ msgstr "nu s-a putut deschide %s pentru scriere: %s"
 msgid "error on closing %s: %s"
 msgstr "eroare la închiderea %s: %s"
 
-#: tp/Texinfo/Common.pm:993 tp/Texinfo/XS/parsetexi/end_line.c:1609
+#: tp/Texinfo/Common.pm:1010 tp/Texinfo/XS/parsetexi/end_line.c:1609
 #: tp/Texinfo/XS/parsetexi/end_line.c:1619
 #, c-format, perl-format
 msgid "%s is not a valid language code"
 msgstr "%s nu este un cod de limbă valid"
 
-#: tp/Texinfo/Common.pm:998 tp/Texinfo/XS/parsetexi/end_line.c:1636
+#: tp/Texinfo/Common.pm:1015 tp/Texinfo/XS/parsetexi/end_line.c:1636
 #, c-format, perl-format
 msgid "%s is not a valid region code"
 msgstr "%s nu este un cod de regiune valid"

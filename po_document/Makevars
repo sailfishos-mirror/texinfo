@@ -8,7 +8,8 @@ subdir = po_document
 top_builddir = ..
 
 # These options get passed to xgettext.
-XGETTEXT_OPTIONS = --language=Perl --keyword=gdt --keyword=pgdt:1,2c
+XGETTEXT_OPTIONS = -cTRANSLATORS --language=Perl \
+  --keyword=gdt --keyword=pgdt:1,2c
 
 # This is the copyright holder that gets inserted into the header of the
 # $(DOMAIN).pot file.  Set this to the copyright holder of the surrounding

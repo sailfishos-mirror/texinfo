@@ -847,14 +847,14 @@ top section
 1 chap
 ******
 
- -- Instanzvariable von c: BBB CCC
+ -- Instance Variable von c: BBB CCC
      error→
 ';
 
 
 $result_converted{'info'}->{'multiple_in_preamble_before_node'} = 'This is , produced from .
 
- -- Primjer varijable od copying: a b
+ -- Instance Variable od copying: a b
      greška→
 
    Text ending the preamble
@@ -875,7 +875,7 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 chap
 ******
 
- -- Instanzvariable von c: BBB CCC
+ -- Instance Variable von c: BBB CCC
      error→
 
 
@@ -897,7 +897,7 @@ $result_converted{'html'}->{'multiple_in_preamble_before_node'} = '<!DOCTYPE htm
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Primjer varijable od copying: a b
+<!-- Instance Variable od copying: a b
 greška→ -->
 <title>top section</title>
 
@@ -945,7 +945,7 @@ Vorige: <a href="#Top" accesskey="p" rel="prev">top section</a>, Nach oben: <a h
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span class="category-def">Instanzvariable of <code class="code">c</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-c\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-c"><span class="category-def">Instance Variable of <code class="code">c</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-c\'> &para;</a></span></dt>
 <dd><p>error&rarr;
 </p></dd></dl>
 </div>

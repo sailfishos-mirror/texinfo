@@ -997,16 +997,16 @@ $result_converted{'plaintext'}->{'multiple_in_preamble'} = 'top section
 1 chap
 ******
 
- -- Primjer varijable od hr: BBB CCC
+ -- Instance Variable od hr: BBB CCC
      greška→
 
- -- Instanzvariable von de: FFF GGG
+ -- Instance Variable von de: FFF GGG
 ';
 
 
 $result_converted{'info'}->{'multiple_in_preamble'} = 'This is , produced from .
 
- -- Primjer varijable od copying: a b
+ -- Instance Variable od copying: a b
      greška→
 
 
@@ -1025,10 +1025,10 @@ File: ,  Node: chapter,  Prev: Top,  Up: Top
 1 chap
 ******
 
- -- Primjer varijable od hr: BBB CCC
+ -- Instance Variable od hr: BBB CCC
      greška→
 
- -- Instanzvariable von de: FFF GGG
+ -- Instance Variable von de: FFF GGG
 
 
 Tag Table:
@@ -1049,7 +1049,7 @@ $result_converted{'html'}->{'multiple_in_preamble'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Primjer varijable od copying: a b
+<!-- Instance Variable od copying: a b
 greška→ -->
 <title>top section</title>
 
@@ -1094,13 +1094,13 @@ Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a>, Gore: <a hre
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Primjer varijable od <code class="code">hr</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-hr"><span class="category-def">Instance Variable od <code class="code">hr</code>: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-hr\'> &para;</a></span></dt>
 <dd><p>greška&rarr;
 </p></dd></dl>
 
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-FFF-of-de"><span class="category-def">Instanzvariable of <code class="code">de</code>: </span><span><strong class="def-name">FFF</strong> <var class="def-var-arguments">GGG</var><a class="copiable-link" href=\'#index-FFF-of-de\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-FFF-of-de"><span class="category-def">Instance Variable of <code class="code">de</code>: </span><span><strong class="def-name">FFF</strong> <var class="def-var-arguments">GGG</var><a class="copiable-link" href=\'#index-FFF-of-de\'> &para;</a></span></dt>
 </dl>
 </div>
 </div>

@@ -601,17 +601,34 @@ our %def_map = (
     # shortcuts
     # The strings are marked to be translated in the parsers with type
     # 'untranslated'.
-    'defun',         {'deffn'     => gdt('Function')},
+    'defun',         {'deffn'     => pgdt('category of functions for @defun',
+                                         'Function')},
+    # TRANSLATORS: category of macros for @defmac
     'defmac',        {'deffn'     => gdt('Macro')},
+    # TRANSLATORS: category of special forms for @defspec
     'defspec',       {'deffn'     => gdt('Special Form')},
-    'defvar',        {'defvr'     => gdt('Variable')},
+    'defvar',        {'defvr'     => pgdt('category of variables for @defvar',
+                                          'Variable')},
+    # TRANSLATORS: category of users modifiable options for @defopt
     'defopt',        {'defvr'     => gdt('User Option')},
-    'deftypefun',    {'deftypefn' => gdt('Function')},
-    'deftypevar',    {'deftypevr' => gdt('Variable')},
-    'defivar',       {'defcv'     => gdt('Instance Variable')},
-    'deftypeivar',   {'deftypecv' => gdt('Instance Variable')},
-    'defmethod',     {'defop'     => gdt('Method')},
-    'deftypemethod', {'deftypeop' => gdt('Method')},
+    'deftypefun',    {'deftypefn' => pgdt(
+     'category of general definition for functions for @deftypefun',
+                                         'Function')},
+    'deftypevar',    {'deftypevr' => pgdt(
+                     'category of variables in typed languages for @deftypevar',
+                                         'Variable')},
+    'defivar',       {'defcv'     => pgdt(
+      'category of instance variables in object-oriented programming for @defivar',
+                                          'Instance Variable')},
+    'deftypeivar',   {'deftypecv' => pgdt(
+      'category of instance variables with data type in object-oriented programming for @deftypeivar',
+                                          'Instance Variable')},
+    'defmethod',     {'defop'     => pgdt(
+       'category of methods in object-oriented programming for @defmethod',
+                                         'Method')},
+    'deftypemethod', {'deftypeop' => pgdt(
+        'category of methods with data type in object-oriented programming for @deftypemethod',
+                                         'Method')},
 );
 
 # Argument not metasyntactic variables only.

@@ -309,7 +309,7 @@ $result_indices_sort_strings{'unknown_region'} = {
 
 
 
-$result_converted{'plaintext'}->{'unknown_region'} = ' -- Variable d\'instance de AAA : BBB CCC
+$result_converted{'plaintext'}->{'unknown_region'} = ' -- Instance Variable de AAA : BBB CCC
 ';
 
 
@@ -318,7 +318,7 @@ $result_converted{'info'}->{'unknown_region'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
- -- Variable d\'instance de AAA : BBB CCC
+ -- Instance Variable de AAA : BBB CCC
 
 
 Tag Table:
@@ -363,7 +363,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 <h1 class="node" id="Top">Top</h1>
 
 <dl class="first-defcv first-defivar-alias-first-defcv">
-<dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span class="category-def">Variable d&rsquo;instance de <code class="code">AAA</code>&nbsp;: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>
+<dt class="defcv defivar-alias-defcv" id="index-BBB-of-AAA"><span class="category-def">Instance Variable de <code class="code">AAA</code>&nbsp;: </span><span><strong class="def-name">BBB</strong> <var class="def-var-arguments">CCC</var><a class="copiable-link" href=\'#index-BBB-of-AAA\'> &para;</a></span></dt>
 </dl>
 
 

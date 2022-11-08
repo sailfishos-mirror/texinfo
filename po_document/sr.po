@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:19+0100\n"
+"POT-Creation-Date: 2022-11-08 23:53+0100\n"
 "PO-Revision-Date: 2021-12-17 11:12+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -18,33 +18,63 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: tp/Texinfo/Common.pm:604 tp/Texinfo/Common.pm:609
-msgid "Function"
-msgstr "Функција"
+#: tp/Texinfo/Common.pm:604
+msgctxt "Function"
+msgid "category of functions for @defun"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:605
+#. TRANSLATORS: category of macros for @defmac
+#: tp/Texinfo/Common.pm:607
 msgid "Macro"
 msgstr "Макро"
 
-#: tp/Texinfo/Common.pm:606
+#. TRANSLATORS: category of special forms for @defspec
+#: tp/Texinfo/Common.pm:609
 msgid "Special Form"
 msgstr "Специјални облик"
 
-#: tp/Texinfo/Common.pm:607 tp/Texinfo/Common.pm:610
-msgid "Variable"
-msgstr "Променљива"
+#: tp/Texinfo/Common.pm:610
+msgctxt "Variable"
+msgid "category of variables for @defvar"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:608
+#. TRANSLATORS: category of users modifiable options for @defopt
+#: tp/Texinfo/Common.pm:613
 msgid "User Option"
 msgstr "Корисничка опција"
 
-#: tp/Texinfo/Common.pm:611 tp/Texinfo/Common.pm:612
-msgid "Instance Variable"
-msgstr "Променљива примерка"
+#: tp/Texinfo/Common.pm:615
+msgctxt "Function"
+msgid "category of general definition for functions for @deftypefun"
+msgstr ""
 
-#: tp/Texinfo/Common.pm:613 tp/Texinfo/Common.pm:614
-msgid "Method"
-msgstr "Метода"
+#: tp/Texinfo/Common.pm:618
+msgctxt "Variable"
+msgid "category of variables in typed languages for @deftypevar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:621
+msgctxt "Instance Variable"
+msgid ""
+"category of instance variables in object-oriented programming for @defivar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:624
+msgctxt "Instance Variable"
+msgid ""
+"category of instance variables with data type in object-oriented programming "
+"for @deftypeivar"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:627
+msgid "category of methods in object-oriented programming for @defmethod"
+msgstr ""
+
+#: tp/Texinfo/Common.pm:630
+msgid ""
+"category of methods with data type in object-oriented programming for "
+"@deftypemethod"
+msgstr ""
 
 #: tp/Texinfo/Transformations.pm:597
 msgid " --- The Detailed Node Listing ---"
@@ -949,6 +979,18 @@ msgstr "{category} на {class}"
 #| msgid "{category} of {class}"
 msgid "{category} of @code{{class}}"
 msgstr "{category} од {class}"
+
+#~ msgid "Variable"
+#~ msgstr "Променљива"
+
+#~ msgid "Function"
+#~ msgstr "Функција"
+
+#~ msgid "Instance Variable"
+#~ msgstr "Променљива примерка"
+
+#~ msgid "Method"
+#~ msgstr "Метода"
 
 #, perl-brace-format
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"

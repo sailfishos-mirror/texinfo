@@ -299,7 +299,7 @@ $result_indices_sort_strings{'simple'} = {
 
 
 
-$result_converted{'plaintext'}->{'simple'} = ' -- Variable d\'instance de AAA : BBB CCC
+$result_converted{'plaintext'}->{'simple'} = ' -- Instance Variable de AAA : BBB CCC
 ';
 
 1;
