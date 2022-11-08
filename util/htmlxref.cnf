@@ -1,6 +1,6 @@
 # htmlxref.cnf - reference file for free Texinfo manuals on the web.
 
-htmlxrefversion=2022-10-11.20; # UTC
+htmlxrefversion=2022-11-08.18; # UTC
 
 # Copyright 2010-2022 Free Software Foundation, Inc.
 # 
@@ -685,6 +685,12 @@ texinfo		node	${TEXINFO}/texinfo/html_node/
  #
  info-stnd	mono	${TEXINFO}/info-stnd/info-stnd.html
  info-stnd	node	${TEXINFO}/info-stnd/html_node/
+ #
+ texi2any_api	mono	${TEXINFO}/texi2any_api/texi2any_api.html
+ texi2any_api	node	${TEXINFO}/texi2any_api/html_node/
+ #
+ texi2any_internals	mono	${TEXINFO}/texi2any_internals/texi2any_internals.html
+ texi2any_internals	node	${TEXINFO}/texi2any_internals/html_node/
 
 thales		node	${GS}/thales/manual/
 
