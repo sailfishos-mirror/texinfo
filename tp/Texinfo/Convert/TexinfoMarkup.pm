@@ -992,6 +992,7 @@ sub _convert($$;$)
         my $command_result = '';
         if (scalar (@{$element->{'args'}}) == 2
               and defined($element->{'args'}->[-1])
+              and $element->{'args'}->[-1]->{'contents'}
               and @{$element->{'args'}->[-1]->{'contents'}}) {
           $command_result = $self->_convert({'contents'
                         => $element->{'args'}->[-1]->{'contents'}});
@@ -1313,7 +1314,8 @@ sub _convert($$;$)
                 # Like 'prototypes' extra value, but keeping spaces information
                 if (defined $element->{'args'}->[0]
                     and defined $element->{'args'}->[0]->{'type'}
-                    and $element->{'args'}->[0]->{'type'} eq 'block_line_arg') {
+                    and $element->{'args'}->[0]->{'type'} eq 'block_line_arg'
+                    and $element->{'args'}->[0]->{'contents'}) {
                   foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
                     if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
                       push @prototype_line, $content;
@@ -1374,7 +1376,8 @@ sub _convert($$;$)
                 $result .= $self->txi_markup_close_element('columnprototypes');
                 $result .= $self->format_comment_or_return_end_line($element);
               } elsif ($element->{'extra'}
-                         and $element->{'extra'}->{'columnfractions'}) {
+                       and $element->{'extra'}->{'columnfractions'}
+                       and $element->{'args'}->[0]->{'contents'}) {
                 my $cmd;
                 foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
                   if ($content->{'cmdname'}
