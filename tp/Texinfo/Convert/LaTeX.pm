@@ -1211,7 +1211,7 @@ sub convert_to_latex_math($$;$$)
 my %LaTeX_encoding_names_map = (
   'utf-8' => ['utf8', 'T1'],
   # from https://ctan.gutenberg-asso.fr/macros/latex/base/inputenc.pdf
-  # The ASCII encoding only allows characters in the range 32–127,
+  # The ASCII encoding only allows characters in the range 32-127,
   'us-ascii' => ['ascii', 'T1'],
   'iso-8859-1' => ['latin1', 'T1'],
   # The ISO Latin-9 encoding file defines the characters in the ISO 8859-15
