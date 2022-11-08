@@ -933,7 +933,34 @@ HHH
 ['empty_copying_not_ended',
 '
 @copying
-']
+'],
+['empty_arguments',
+'
+@strong{}
+@uref{,}
+@abbr{a,}
+'],
+['float_without_type',
+'
+@node Top
+
+@float a,
+aa
+@end float
+
+@listoffloats a
+'],
+['empty_caption',
+'
+@node Top
+
+@float a,b
+aa
+@caption{}
+@end float
+
+@listoffloats a
+'],
 );
 
 my @file_tests = (
