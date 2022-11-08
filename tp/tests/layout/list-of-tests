@@ -21,6 +21,9 @@ formatting_textcontent formatting.texi -c TEXINFO_OUTPUT_FORMAT=textcontent
 # used to format text fragments in converters, minimal formatting
 formatting_rawtext formatting.texi -c TEXINFO_OUTPUT_FORMAT=rawtext
 
+# count words
+formatting_sort_element_counts formatting.texi -c SORT_ELEMENT_COUNT=@OUT_DIR@formatting_elt_counts.txt
+
 # formats present in the documentation not tested: debugtree and texinfosxml
 #formatting_sxml formatting.texi -c TEXINFO_OUTPUT_FORMAT=texinfosxml
 

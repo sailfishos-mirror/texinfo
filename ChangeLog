@@ -1,5 +1,14 @@
 2022-11-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (sort_element_counts): use
+	node name only if set.
+	Add a space between sectioning command and @-command and name.
+
+	* tp/texi2any.pl: fix SORT_ELEMENT_COUNT by requiring the correct
+	module.
+
+2022-11-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert): avoid formatting when
 	contents is not set.
 

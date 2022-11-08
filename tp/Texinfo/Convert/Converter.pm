@@ -1433,11 +1433,16 @@ sub sort_element_counts($$;$$)
     my $name = 'UNNAMED tree element';
     if ($element->{'extra'} and $element->{'extra'}->{'unit_command'}) {
       my $command = $element->{'extra'}->{'unit_command'};
-      if ($command->{'cmdname'} eq 'node') {
+      if ($command->{'cmdname'} eq 'node'
+          and $command->{'extra'}
+          and $command->{'extra'}->{'nodes_manuals'}
+          and scalar(@{$command->{'extra'}->{'nodes_manuals'}})
+          and $command->{'extra'}->{'nodes_manuals'}->[0]
+          and $command->{'extra'}->{'nodes_manuals'}->[0]->{'node_content'}) {
         $name = Texinfo::Convert::Texinfo::convert_to_texinfo(
     {'contents' => $command->{'extra'}->{'nodes_manuals'}->[0]->{'node_content'}});
       } else {
-        $name = "\@$command->{'cmdname'}"
+        $name = "\@$command->{'cmdname'} "
           .Texinfo::Convert::Texinfo::convert_to_texinfo($command->{'args'}->[0]);
       }
     }

@@ -1682,7 +1682,7 @@ while(@input_files) {
     }
   }
   if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {
-    require Texinfo::Convert::Converter;
+    require Texinfo::Convert::TextContent;
     my $converter_element_count_file 
       = Texinfo::Convert::TextContent->converter($converter_options);
     # here could be $format or $converted_format.  Since $converted_format
