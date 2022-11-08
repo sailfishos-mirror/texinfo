@@ -256,6 +256,7 @@ sub expand_verbatiminclude($$$)
       }
       $verbatiminclude = { 'cmdname' => 'verbatim',
                            'parent' => $current->{'parent'},
+                           'contents' => [],
                            'extra' =>
                         {'text_arg' => $current->{'extra'}->{'text_arg'}} };
       while (<VERBINCLUDE>) {
