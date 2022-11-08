@@ -930,6 +930,10 @@ HHH
 @image{figure, , , ,txt} JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 @end flushright
 '],
+['empty_copying_not_ended',
+'
+@copying
+']
 );
 
 my @file_tests = (
