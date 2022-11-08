@@ -1,5 +1,11 @@
 2022-11-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Report.pm (line_warn, document_warn), tp/texi2any.pl
+	(document_warn): remove \n from translated string marked for
+	translation with __p.
+
+2022-11-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/TexinfoMarkup.pm,
 	tp/Texinfo/Convert/Utils.pm: convert only if contents are defined,
 	initialize contents if needed.

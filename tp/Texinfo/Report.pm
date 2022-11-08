@@ -83,11 +83,11 @@ sub line_warn($$$$)
   if (defined($error_location_info->{'macro'})
       and $error_location_info->{'macro'} ne '') {
     $warn_line = sprintf(__p("Texinfo source file warning",
-                             "warning: %s (possibly involving \@%s)\n"),
+                             "warning: %s (possibly involving \@%s)")."\n",
                          $text, $error_location_info->{'macro'});
   } else {
     $warn_line = sprintf(__p("Texinfo source file warning",
-                             "warning: %s\n"),
+                             "warning: %s")."\n",
                          $text);
   }
   warn $warn_line if (defined($configuration_information)
@@ -137,10 +137,10 @@ sub document_warn($$$)
   if (defined($configuration_information)
       and defined($configuration_information->get_conf('PROGRAM'))
       and $configuration_information->get_conf('PROGRAM') ne '') {
-    $warn_line = sprintf(__p("whole document warning", "%s: warning: %s\n"),
+    $warn_line = sprintf(__p("whole document warning", "%s: warning: %s")."\n",
                   $configuration_information->get_conf('PROGRAM'), $text);
   } else {
-    $warn_line = sprintf(__p("whole document warning", "warning: %s\n"),
+    $warn_line = sprintf(__p("whole document warning", "warning: %s")."\n",
                          $text);
   }
   push @{$self->{'errors_warnings'}},

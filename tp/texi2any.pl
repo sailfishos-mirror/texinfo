@@ -412,7 +412,7 @@ sub document_warn($) {
   chomp ($text);
   warn(_encode_message(
        sprintf(__p("program name: warning: warning_message", 
-                   "%s: warning: %s\n"), $real_command_name, $text)));
+                   "%s: warning: %s")."\n", $real_command_name, $text)));
 }
 
 sub _decode_input($)
