@@ -960,8 +960,10 @@ sub _prepare_conversion($;$)
 
   if ($self->{'global_commands'}->{'settitle'}) {
     my $settitle_root = $self->{'global_commands'}->{'settitle'};
-    if (not ($settitle_root->{'extra'}
-             and $settitle_root->{'extra'}->{'missing_argument'})) {
+    if ($settitle_root->{'args'}->[0]
+        and $settitle_root->{'args'}->[0]->{'contents'}
+        and not ($settitle_root->{'extra'}
+                 and $settitle_root->{'extra'}->{'missing_argument'})) {
       $self->{'settitle_tree'} =
          {'contents' => $settitle_root->{'args'}->[0]->{'contents'}};
     }
@@ -1083,7 +1085,8 @@ sub output($$)
   # in a container that can be used to mark that content should not
   # be ignored anymore.
   if ($in_top_node) {
-    $modified_root = {'contents' => [ @{$root->{'contents'}} ], 'type' => $root->{'type'}}
+    $modified_root = {'contents' => [ @{$root->{'contents'}} ],
+                      'type' => $root->{'type'}}
       if (not defined($modified_root));
     push @{$modified_root->{'contents'}},
         {'type' => 'ignored_top_node_paragraph', 'contents' => [
@@ -2029,11 +2032,15 @@ sub _title_font($$)
 {
   my $self = shift;
   my $element = shift;
-  # in Texinfo TeX seems a bit smaller, but LARGE seems too small
-  my $result = "{\\huge \\bfseries ";
-  $result .= _convert($self, {'contents' => $element->{'args'}->[0]->{'contents'}});
-  $result .= '}';
-  return $result;
+
+  if ($element->{'args'}->[0] and $element->{'args'}->[0]->{'contents'}) {
+    # in Texinfo TeX seems a bit smaller, but LARGE seems too small
+    my $result = "{\\huge \\bfseries ";
+    $result .= _convert($self, {'contents' => $element->{'args'}->[0]->{'contents'}});
+    $result .= '}';
+    return $result;
+  }
+  return '';
 }
 
 sub _set_environment_options($$$)
@@ -2739,10 +2746,12 @@ sub _convert($$)
       if ($element->{'args'}) {
         if (scalar(@{$element->{'args'}}) == 3
              and defined($element->{'args'}->[2])
+             and $element->{'args'}->[2]->{'contents'}
              and @{$element->{'args'}->[2]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]},
             {'contents' => $element->{'args'}->[2]->{'contents'}};
-        } elsif ($element->{'args'}->[0]->{'contents'}
+        } elsif ($element->{'args'}->[0]
+                 and $element->{'args'}->[0]->{'contents'}
                  and @{$element->{'args'}->[0]->{'contents'}}) {
           my $url_content = $element->{'args'}->[0]->{'contents'};
           my $url_text = $self->_protect_url(
@@ -2750,9 +2759,9 @@ sub _convert($$)
                {'contents' => $url_content},
                {'code' => 1, %{$self->{'convert_text_options'}}}));
           if (scalar(@{$element->{'args'}}) == 2
-             and defined($element->{'args'}->[1])
-             and $element->{'args'}->[1]->{'contents'}
-             and @{$element->{'args'}->[1]->{'contents'}}) {
+              and defined($element->{'args'}->[1])
+              and $element->{'args'}->[1]->{'contents'}
+              and @{$element->{'args'}->[1]->{'contents'}}) {
             my $description = _convert($self, {'contents',
                                    $element->{'args'}->[1]->{'contents'}});
             my $text = $self->gdt('{text} ({url})',
@@ -2766,6 +2775,7 @@ sub _convert($$)
           }
         } elsif (scalar(@{$element->{'args'}}) == 2
                  and defined($element->{'args'}->[1])
+                 and $element->{'args'}->[1]->{'contents'}
                  and @{$element->{'args'}->[1]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]},
             {'contents' => $element->{'args'}->[1]->{'contents'}};
@@ -3047,6 +3057,7 @@ sub _convert($$)
         }
         if (scalar (@{$element->{'args'}}) == 2
             and defined($element->{'args'}->[-1])
+            and $element->{'args'}->[-1]->{'contents'}
             and @{$element->{'args'}->[-1]->{'contents'}}) {
           my $prepended = $self->gdt('{abbr_or_acronym} ({explanation})',
                            {'abbr_or_acronym' => $argument,
@@ -3125,17 +3136,21 @@ sub _convert($$)
           $shortcaption = $float->{'extra'}->{'shortcaption'};
         }
       }
-      _push_new_context($self, 'latex_caption');
-      my $caption_text = _convert($self,
-         {'contents' => $element->{'args'}->[0]->{'contents'}});
-      _pop_context($self);
+      my $caption_text = '';
+      if ($element->{'args'}->[0]->{'contents'}) {
+        _push_new_context($self, 'latex_caption');
+         $caption_text = _convert($self,
+           {'contents' => $element->{'args'}->[0]->{'contents'}});
+        _pop_context($self);
+      }
       
       $result .= '\caption';
 
-      if (defined($shortcaption)) {
+      if (defined($shortcaption)
+          and $shortcaption->{'args'}->[0]->{'contents'}) {
         _push_new_context($self, 'latex_shortcaption');
         my $shortcaption_text = _convert($self,
-                       {'contents' => $shortcaption->{'args'}->[0]->{'contents'}});
+                 {'contents' => $shortcaption->{'args'}->[0]->{'contents'}});
         _pop_context($self);
         $result .= '['.$shortcaption_text.']';
       }
@@ -3308,11 +3323,15 @@ sub _convert($$)
           my $heading = '';
           if ($element->{'args'}->[0]->{'contents'}) {
             # It is useful to know that this is a heading formatting as
-            # the formatted heading is in the table of content, and some formatting
-            # may be different for that case, for instance with \texorpdfstring
-            $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 1;
-            $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
-            $self->{'formatting_context'}->[-1]->{'in_sectioning_command_heading'} = 0;
+            # the formatted heading is in the table of content, and some
+            # formatting may be different for that case, for instance with
+            # \texorpdfstring
+            $self->{'formatting_context'}->[-1]
+                                  ->{'in_sectioning_command_heading'} = 1;
+            $heading = $self->_convert(
+                        {'contents' => $element->{'args'}->[0]->{'contents'}});
+            $self->{'formatting_context'}->[-1]
+                                  ->{'in_sectioning_command_heading'} = 0;
           }
           my $section_cmd = $section_map{$cmdname};
           die "BUG: no section_map for $cmdname"
@@ -3388,19 +3407,24 @@ sub _convert($$)
       # nothing to do here.  The condition ensures that the commands are not
       # considered as unknown commands in the else below.
     } elsif ($cmdname eq 'center') {
-      $result .= "\\begin{center}\n";
-      $result .= $self->_convert (
+      if ($element->{'args'}->[0]->{'contents'}) {
+        $result .= "\\begin{center}\n";
+        $result .= $self->_convert (
                        {'contents' => $element->{'args'}->[0]->{'contents'}});
-      $result .= "\n\\end{center}\n";
+        $result .= "\n\\end{center}\n";
+      }
       return $result;
     } elsif ($cmdname eq 'exdent') {
-      # FIXME \leavevmode{} is added to avoid
-      # ! LaTeX Error: There's no line here to end.
-      # but it is not clearly correct
-      $result .= "\\leavevmode{}\\\\\n";
-      $result .= "\\hbox{\\kern -\\leftmargin}%\n";
-      $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
-      $result .= "\\\\\n";
+      if ($element->{'args'}->[0]->{'contents'}) {
+        # FIXME \leavevmode{} is added to avoid
+        # ! LaTeX Error: There's no line here to end.
+        # but it is not clearly correct
+        $result .= "\\leavevmode{}\\\\\n";
+        $result .= "\\hbox{\\kern -\\leftmargin}%\n";
+        $result .= $self->_convert(
+                   {'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
+        $result .= "\\\\\n";
+      }
       return $result;
     } elsif ($cmdname eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
@@ -3498,31 +3522,35 @@ sub _convert($$)
       $self->{'titlepage_formatting'}->{'title'} = 1
          if ($self->{'titlepage_formatting'});
     } elsif ($cmdname eq 'subtitle') {
-      my $subtitle_text = _convert($self,
+      if ($element->{'args'}->[0]->{'contents'}) {
+        my $subtitle_text = _convert($self,
                {'contents' => $element->{'args'}->[0]->{'contents'}});
-      # too much vertical spacing with flushright environment
-      #$result .= "\\begin{flushright}\n";
-      #$result .= $subtitle_text."\n";
-      #$result .= "\\end{flushright}\n";
-      $result .= "\\rightline{$subtitle_text}\n";
+        # too much vertical spacing with flushright environment
+        #$result .= "\\begin{flushright}\n";
+        #$result .= $subtitle_text."\n";
+        #$result .= "\\end{flushright}\n";
+        $result .= "\\rightline{$subtitle_text}\n";
+      }
     } elsif ($cmdname eq 'author') {
       if (not $self->{'formatting_context'}->[-1]->{'in_quotation'}) {
-        my $author_name = _convert($self,
+        if ($element->{'args'}->[0]->{'contents'}) {
+          my $author_name = _convert($self,
                        {'contents' => $element->{'args'}->[0]->{'contents'}});
-        if ($self->{'titlepage_formatting'}
-            and $self->{'titlepage_formatting'}->{'in_front_cover'}) {
-          if (not $self->{'titlepage_formatting'}->{'author'}) {
-            # first author, add space before
-            $self->{'titlepage_formatting'}->{'author'} = 1;
-            $result .= "\\vskip 0pt plus 1filll\n";
+          if ($self->{'titlepage_formatting'}
+              and $self->{'titlepage_formatting'}->{'in_front_cover'}) {
+            if (not $self->{'titlepage_formatting'}->{'author'}) {
+              # first author, add space before
+              $self->{'titlepage_formatting'}->{'author'} = 1;
+              $result .= "\\vskip 0pt plus 1filll\n";
+            }
+            # use \leftline as in Texinfo TeX
+            # FIXME In Texinfo TeX the interline space between @author lines
+            # seems better
+            $result .= "\\leftline{\\Large \\bfseries $author_name}%\n";
+          } else {
+            # author in regular text.  Should not happen
+            $result .= "{\\bfseries $author_name}%\n";
           }
-          # use \leftline as in Texinfo TeX
-          # FIXME In Texinfo TeX the interline space between @author lines
-          # seems better
-          $result .= "\\leftline{\\Large \\bfseries $author_name}%\n";
-        } else {
-          # author in regular text.  Should not happen
-          $result .= "{\\bfseries $author_name}%\n";
         }
         return $result;
       }
@@ -3978,9 +4006,11 @@ sub _convert($$)
         # we are not in a preformatted type here, such that the conversion
         # does not take into account the preformatted environment.  Probably best.
         foreach my $author (@{$element->{'extra'}->{'authors'}}) {
-          $result .= _convert($self,
+          if ($author->{'args'}->[0]->{'contents'}) {
+            $result .= _convert($self,
                  $self->gdt('@center --- @emph{{author}}',
                     {'author' => $author->{'args'}->[0]->{'contents'}}));
+          }
         }
       }
       $self->{'formatting_context'}->[-1]->{'in_quotation'} -= 1;
