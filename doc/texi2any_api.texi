@@ -425,7 +425,7 @@ are usually rendered using @code{<pre>} elements in HTML.
 @item code context
 When quotes and minus are kept.  In particular @code{---}, @code{``}
 and other similar constructs are not converted to dash and quote special
-characters.  For exampe, in @code{@@code} or @code{@@option} commands
+characters.  For example, in @code{@@code} or @code{@@option} commands
 (@pxref{Useful Highlighting,,, texinfo, Texinfo}).
 
 @item math context

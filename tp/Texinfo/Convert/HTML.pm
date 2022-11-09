@@ -5641,15 +5641,17 @@ sub _convert_printindex_command($$$$)
 
       $normalized_entry_levels = [@new_normalized_entry_levels];
       $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+      my $entry_href = $self->command_href($index_entry_ref->{'entry_element'});
+      my $formatted_entry = "<a href=\"$entry_href\">$entry</a>";
       # indent if it is a subentry
       if ($entry_level > 0) {
         my $open = $self->html_attribute_class('span', ["index-entry-level-$entry_level"]);
         if ($open ne '') {
           $open .= '>';
-          $entry = $open.$entry.'</span>';
+          $formatted_entry = $open.$formatted_entry.'</span>';
         }
       }
-      my $entry_href = $self->command_href($index_entry_ref->{'entry_element'});
+
       my $associated_command;
       if ($self->get_conf('NODE_NAME_IN_INDEX')) {
         $associated_command = $index_entry_ref->{'entry_node'};
@@ -5676,8 +5678,7 @@ sub _convert_printindex_command($$$$)
       
       $entries_text .= '<tr><td></td>'
         .$self->html_attribute_class('td', ["$cmdname-index-entry"]).'>'
-         . "<a href=\"$entry_href\">$entry</a>" .
-          $self->get_conf('INDEX_ENTRY_COLON') .
+         . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') .
         '</td><td>'.$self->get_info('non_breaking_space').'</td>'
         .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
       $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"

@@ -678,7 +678,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '<div class="top-level
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry">aaa</td><td>&nbsp;</td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-aaa"><span class="index-entry-level-1">bbb</span></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aaa">bbb</a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>
@@ -688,7 +688,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '<div class="top-level
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_fn_letter-X">X</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><code>xxx</code></td><td>&nbsp;</td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-xxx"><span class="index-entry-level-1"><code>zzz</code></span></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-xxx"><code>zzz</code></a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>
