@@ -1,3 +1,8 @@
+2022-11-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* configure.ac (AM_INIT_AUTOMAKE): Increase required automake
+	version to 1.16.2.  From Patrice.
+
 2022-11-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
