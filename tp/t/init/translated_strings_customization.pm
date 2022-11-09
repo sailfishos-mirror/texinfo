@@ -20,8 +20,10 @@ my %translations = (
            ' -&gt; ' => {'' => 'N&oelig; suivant'},
            'error--&gt;' => {'' => 'Erreur--&gt;',},
 
-           'Forward' => {'' => 'Vers l\'avant @result{}',},
-           'Table of contents' => {'' => 'La @emph{Table des mati@`eres}',},
+           'Forward' => {'Forward direction string'
+                                => 'Vers l\'avant @result{}',},
+           'Table of contents' => {'Contents direction description'
+                                => 'La @emph{Table des mati@`eres}',},
            '{number} {section_title}' => {'' => '{number}@ : {section_title}'},
           },
   'de' => {
@@ -29,8 +31,9 @@ my %translations = (
            ' -&gt; ' => {'' => 'Nächster Knoten'},
            'error--&gt;' => {'' => 'Fehler--&gt;',},
 
-           'Forward' => {'' => 'Nach vorne @result{}',},
-           'Table of contents' => {'' => 'Das @emph{Inhaltsverzeichnis}',},
+           'Forward' => {'Forward direction string' => 'Nach vorne @result{}',},
+           'Table of contents' => {'Contents direction description'
+                                     => 'Das @emph{Inhaltsverzeichnis}',},
            '{number} {section_title}' => {'' => '{number}: {section_title}'},
           },
 );

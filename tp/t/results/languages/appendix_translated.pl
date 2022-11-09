@@ -306,7 +306,7 @@ $result_converted{'html'}->{'appendix_translated'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
-<link href="#SEC_Contents" rel="contents" title="Table des mati&egrave;res">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--
 ul.toc-numbered-mark {list-style: none}
@@ -322,7 +322,7 @@ ul.toc-numbered-mark {list-style: none}
 <h1 class="top" id="top">top</h1>
 
 <div class="element-contents" id="SEC_Contents">
-<h2 class="contents-heading">Table des mati&egrave;res</h2>
+<h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 

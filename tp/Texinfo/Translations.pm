@@ -348,8 +348,7 @@ sub _substitute ($$) {
 sub pgdt($$$;$$$)
 {
   my ($self, $translation_context, $string, $replaced_substrings, $type, $lang) = @_;
-  # FIXME would it be better to call $self->gdt?
-  return gdt($self, $string, $replaced_substrings, $translation_context, $type, $lang);
+  return $self->gdt($string, $replaced_substrings, $translation_context, $type, $lang);
 }
 
 

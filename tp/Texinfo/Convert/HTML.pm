@@ -1387,6 +1387,12 @@ my %valid_direction_string_context = (
   'string' => 1,
 );
 
+my %direction_type_translation_context = (
+  'button' => 'button label',
+  'description' => 'description',
+  'text' => 'string',
+);
+
 sub direction_string($$$;$)
 {
   my $self = shift;
@@ -1438,8 +1444,13 @@ sub direction_string($$$;$)
     } elsif (defined($translated_directions_strings->{$string_type}
                                             ->{$direction}->{'to_convert'})) {
       # translate direction strings that need to be translated and converted
+      my $context_string = $direction;
+      $context_string .= ' (current section)' if ($direction eq 'This');
+      $context_string = $context_string.' direction '
+                       .$direction_type_translation_context{$string_type};
       my $translated_tree
-        = $self->gdt($translated_directions_strings->{$string_type}
+        = $self->pgdt($context_string,
+                      $translated_directions_strings->{$string_type}
                                             ->{$direction}->{'to_convert'});
       my $converted_tree;
       if ($context eq 'string') {
@@ -1483,7 +1494,9 @@ sub special_element_info($$;$) {
                                             ->{$special_element_variety};
       my $translated_tree;
       if (defined($special_element_info_string)) {
-        $translated_tree = $self->gdt($special_element_info_string);
+        my $translation_context = "$special_element_variety section heading";
+        $translated_tree = $self->pgdt($translation_context,
+                                       $special_element_info_string);
       }
       $self->{'special_element_info'}->{$type}->{$special_element_variety}
         = $translated_tree;
@@ -1941,13 +1954,19 @@ my %default_special_element_info = (
    },
 );
 
+# translation context should be consistent with special_element_info()
 %default_translated_special_element_info = (
 
    'heading' => {
-     'about'       => Texinfo::Common::gdt('About This Document'),
-     'contents'    => Texinfo::Common::gdt('Table of Contents'),
-     'shortcontents'    => Texinfo::Common::gdt('Short Table of Contents'),
-     'footnotes'   => Texinfo::Common::gdt('Footnotes'),
+     'about'       => Texinfo::Common::pgdt('about section heading',
+                                            'About This Document'),
+     'contents'    => Texinfo::Common::pgdt('contents section heading',
+                                            'Table of Contents'),
+     'shortcontents' => Texinfo::Common::pgdt(
+                                           'shortcontents section heading',
+                                           'Short Table of Contents'),
+     'footnotes'   => Texinfo::Common::pgdt('footnotes section heading',
+                                            'Footnotes'),
    },
 );
 
@@ -2043,86 +2062,160 @@ my %default_converted_directions_strings = (
    },
 );
 
+# translation contexts should be consistent with
+# %direction_type_translation_context.  If the direction is not used
+# as is, it should also be taken into account in direction_string().
+# For now 'This' becomes 'This (current section)'.
 my %default_translated_directions_strings = (
   'text' => {
      ' ' =>           {'converted' => ' '.$html_default_entity_nbsp.' '},
-     'Top' =>         {'to_convert' => Texinfo::Common::gdt('Top')},
-     'Contents' =>    {'to_convert' => Texinfo::Common::gdt('Contents')},
-                        # pgdt('Contents direction string text', 'Contents')
-     'Overview' =>    {'to_convert' => Texinfo::Common::gdt('Overview')},
-     'Index' =>       {'to_convert' => Texinfo::Common::gdt('Index')},
-     'This' =>        {'to_convert' => Texinfo::Common::gdt('current')},
+     'Top' =>         {'to_convert'
+        => Texinfo::Common::pgdt('Top direction string', 'Top')},
+     'Contents' =>    {'to_convert'
+        => Texinfo::Common::pgdt('Contents direction string', 'Contents')},
+     'Overview' =>    {'to_convert'
+        => Texinfo::Common::pgdt(
+                          'Overview direction string', 'Overview')},
+     'Index' =>       {'to_convert'
+        => Texinfo::Common::pgdt('Index direction string', 'Index')},
+     'This' =>        {'to_convert'
+        => Texinfo::Common::pgdt('This (current section) direction string',
+                                 'current')},
      'Back' =>        {'converted' => ' &lt; '},
      'FastBack' =>    {'converted' => ' &lt;&lt; '},
-     'Prev' =>        {'to_convert' => Texinfo::Common::gdt('Prev')},
-     'Up' =>          {'to_convert' => Texinfo::Common::gdt(' Up ')},
-     'Next' =>        {'to_convert' => Texinfo::Common::gdt('Next')},
-     #'NodeUp' =>      {'to_convert' => Texinfo::Common::gdt('Node up')},
-     'NodeUp' =>      {'to_convert' => Texinfo::Common::gdt('Up')},
-     #'NodeNext' =>    {'to_convert' => Texinfo::Common::gdt('Next node')},
-     'NodeNext' =>    {'to_convert' => Texinfo::Common::gdt('Next')},
-     #'NodePrev' =>    {'to_convert' => Texinfo::Common::gdt('Previous node')},
-     'NodePrev' =>    {'to_convert' => Texinfo::Common::gdt('Previous')},
-     'NodeForward' => {'to_convert' => Texinfo::Common::gdt('Forward node')},
-     'NodeBack' =>    {'to_convert' => Texinfo::Common::gdt('Back node')},
+     'Prev' =>        {'to_convert'
+        => Texinfo::Common::pgdt('Prev direction string', 'Prev')},
+     'Up' =>          {'to_convert'
+        => Texinfo::Common::pgdt('Up direction string', ' Up ')},
+     'Next' =>        {'to_convert'
+        => Texinfo::Common::pgdt('Next direction string', 'Next')},
+     'NodeUp' =>      {'to_convert'
+        => Texinfo::Common::pgdt('NodeUp direction string', 'Up')},
+     'NodeNext' =>    {'to_convert'
+        => Texinfo::Common::pgdt('NodeNext direction string', 'Next')},
+     'NodePrev' =>    {'to_convert'
+        => Texinfo::Common::pgdt('NodePrev direction string', 'Previous')},
+     'NodeForward' => {'to_convert'
+        => Texinfo::Common::pgdt('NodeForward direction string', 'Forward node')},
+     'NodeBack' =>    {'to_convert'
+        => Texinfo::Common::pgdt('NodeBack direction string', 'Back node')},
      'Forward' =>     {'converted' => ' &gt; '},
      'FastForward' => {'converted' => ' &gt;&gt; '},
      'About' =>       {'converted' => ' ? '},
      'First' =>       {'converted' => ' |&lt; '},
      'Last' =>        {'converted' => ' &gt;| '},
-     'NextFile' =>    {'to_convert' => Texinfo::Common::gdt('Next file')},
-     'PrevFile' =>    {'to_convert' => Texinfo::Common::gdt('Previous file')},
+     'NextFile' =>    {'to_convert'
+        => Texinfo::Common::pgdt('NextFile direction string', 'Next file')},
+     'PrevFile' =>    {'to_convert'
+        => Texinfo::Common::pgdt('PrevFile direction string', 'Previous file')},
   },
 
   'description' => {
-     'Top' =>         {'to_convert' => Texinfo::Common::gdt('Cover (top) of document')},
-     'Contents' =>    {'to_convert' => Texinfo::Common::gdt('Table of contents')},
-     'Overview' =>    {'to_convert' => Texinfo::Common::gdt('Short table of contents')},
-     'Index' =>       {'to_convert' => Texinfo::Common::gdt('Index')},
-     'This' =>        {'to_convert' => Texinfo::Common::gdt('Current section')},
-     'Back' =>        {'to_convert' => Texinfo::Common::gdt('Previous section in reading order')},
-     'FastBack' =>    {'to_convert' => Texinfo::Common::gdt('Beginning of this chapter or previous chapter')},
-     'Prev' =>        {'to_convert' => Texinfo::Common::gdt('Previous section on same level')},
-     'Up' =>          {'to_convert' => Texinfo::Common::gdt('Up section')},
-     'Next' =>        {'to_convert' => Texinfo::Common::gdt('Next section on same level')},
-     'NodeUp' =>      {'to_convert' => Texinfo::Common::gdt('Up node')},
-     'NodeNext' =>    {'to_convert' => Texinfo::Common::gdt('Next node')},
-     'NodePrev' =>    {'to_convert' => Texinfo::Common::gdt('Previous node')},
-     'NodeForward' => {'to_convert' => Texinfo::Common::gdt('Next node in node reading order')},
-     'NodeBack' =>    {'to_convert' => Texinfo::Common::gdt('Previous node in node reading order')},
-     'Forward' =>     {'to_convert' => Texinfo::Common::gdt('Next section in reading order')},
-     'FastForward' => {'to_convert' => Texinfo::Common::gdt('Next chapter')},
-     'About'  =>      {'to_convert' => Texinfo::Common::gdt('About (help)')},
-     'First' =>       {'to_convert' => Texinfo::Common::gdt('First section in reading order')},
-     'Last' =>        {'to_convert' => Texinfo::Common::gdt('Last section in reading order')},
-     'NextFile' =>    {'to_convert' => Texinfo::Common::gdt('Forward section in next file')},
-     'PrevFile' =>    {'to_convert' => Texinfo::Common::gdt('Back section in previous file')},
+     'Top' =>         {'to_convert' => Texinfo::Common::pgdt(
+                      'Top direction description', 'Cover (top) of document')},
+     'Contents' =>    {'to_convert' => Texinfo::Common::pgdt(
+                                            'Contents direction description',
+                                            'Table of contents')},
+     'Overview' =>    {'to_convert' => Texinfo::Common::pgdt(
+                                              'Overview direction description',
+                                              'Short table of contents')},
+     'Index' =>       {'to_convert' => Texinfo::Common::pgdt(
+                                       'Index direction description', 'Index')},
+     'This' =>        {'to_convert' => Texinfo::Common::pgdt(
+                                 'This (current section) direction description',
+                                 'Current section')},
+     'Back' =>        {'to_convert' => Texinfo::Common::pgdt(
+                                        'Back direction description',
+                                        'Previous section in reading order')},
+     'FastBack' =>    {'to_convert' => Texinfo::Common::pgdt(
+                              'FastBack direction description',
+                              'Beginning of this chapter or previous chapter')},
+     'Prev' =>        {'to_convert' => Texinfo::Common::pgdt(
+                                          'Prev direction description',
+                                          'Previous section on same level')},
+     'Up' =>          {'to_convert' => Texinfo::Common::pgdt(
+                            'Up direction description', 'Up section')},
+     'Next' =>        {'to_convert' => Texinfo::Common::pgdt(
+                    'Next direction description', 'Next section on same level')},
+     'NodeUp' =>      {'to_convert' => Texinfo::Common::pgdt(
+                                   'NodeUp direction description', 'Up node')},
+     'NodeNext' =>    {'to_convert' => Texinfo::Common::pgdt(
+                               'NodeNext direction description', 'Next node')},
+     'NodePrev' =>    {'to_convert' => Texinfo::Common::pgdt(
+                            'NodePrev direction description', 'Previous node')},
+     'NodeForward' => {'to_convert' => Texinfo::Common::pgdt(
+                                           'NodeForward direction description',
+                                           'Next node in node reading order')},
+     'NodeBack' =>    {'to_convert' => Texinfo::Common::pgdt(
+                                        'NodeBack direction description',
+                                        'Previous node in node reading order')},
+     'Forward' =>     {'to_convert' => Texinfo::Common::pgdt(
+                                               'Forward direction description',
+                                               'Next section in reading order')},
+     'FastForward' => {'to_convert' => Texinfo::Common::pgdt(
+                            'FastForward direction description', 'Next chapter')},
+     'About'  =>      {'to_convert' => Texinfo::Common::pgdt(
+                            'About direction description', 'About (help)')},
+     'First' =>       {'to_convert' => Texinfo::Common::pgdt(
+                                          'First direction description',
+                                          'First section in reading order')},
+     'Last' =>        {'to_convert' => Texinfo::Common::pgdt(
+                                            'Last direction description',
+                                            'Last section in reading order')},
+     'NextFile' =>    {'to_convert' => Texinfo::Common::pgdt(
+                                             'NextFile direction description',
+                                             'Forward section in next file')},
+     'PrevFile' =>    {'to_convert' => Texinfo::Common::pgdt(
+                                             'PrevFile direction description',
+                                             'Back section in previous file')},
   },
 
   'button' => {
      ' ' =>           {'converted' => ' '},
-     'Top' =>         {'to_convert' => Texinfo::Common::gdt('Top')},
-     'Contents' =>    {'to_convert' => Texinfo::Common::gdt('Contents')},
-     'Overview' =>    {'to_convert' => Texinfo::Common::gdt('Overview')},
-     'Index' =>       {'to_convert' => Texinfo::Common::gdt('Index')},
-     'This' =>        {'to_convert' => Texinfo::Common::gdt('This')},
-     'Back' =>        {'to_convert' => Texinfo::Common::gdt('Back')},
-     'FastBack' =>    {'to_convert' => Texinfo::Common::gdt('FastBack')},
-     'Prev' =>        {'to_convert' => Texinfo::Common::gdt('Prev')},
-     'Up' =>          {'to_convert' => Texinfo::Common::gdt('Up')},
-     'Next' =>        {'to_convert' => Texinfo::Common::gdt('Next')},
-     'NodeUp' =>      {'to_convert' => Texinfo::Common::gdt('NodeUp')},
-     'NodeNext' =>    {'to_convert' => Texinfo::Common::gdt('NodeNext')},
-     'NodePrev' =>    {'to_convert' => Texinfo::Common::gdt('NodePrev')},
-     'NodeForward' => {'to_convert' => Texinfo::Common::gdt('NodeForward')},
-     'NodeBack' =>    {'to_convert' => Texinfo::Common::gdt('NodeBack')},
-     'Forward' =>     {'to_convert' => Texinfo::Common::gdt('Forward')},
-     'FastForward' => {'to_convert' => Texinfo::Common::gdt('FastForward')},
-     'About' =>       {'to_convert' => Texinfo::Common::gdt('About')},
-     'First' =>       {'to_convert' => Texinfo::Common::gdt('First')},
-     'Last' =>        {'to_convert' => Texinfo::Common::gdt('Last')},
-     'NextFile' =>    {'to_convert' => Texinfo::Common::gdt('NextFile')},
-     'PrevFile' =>    {'to_convert' => Texinfo::Common::gdt('PrevFile')},
+     'Top' =>         {'to_convert'
+        => Texinfo::Common::pgdt('Top direction button label', 'Top')},
+     'Contents' =>    {'to_convert' 
+        => Texinfo::Common::pgdt('Contents direction button label', 'Contents')},
+     'Overview' =>    {'to_convert'
+        => Texinfo::Common::pgdt('Overview direction button label', 'Overview')},
+     'Index' =>       {'to_convert'
+        => Texinfo::Common::pgdt('Index direction button label', 'Index')},
+     'This' =>        {'to_convert'
+        => Texinfo::Common::pgdt('This direction button label', 'This')},
+     'Back' =>        {'to_convert'
+        => Texinfo::Common::pgdt('Back direction button label', 'Back')},
+     'FastBack' =>    {'to_convert'
+        => Texinfo::Common::pgdt('FastBack direction button label', 'FastBack')},
+     'Prev' =>        {'to_convert'
+        => Texinfo::Common::pgdt('Prev direction button label', 'Prev')},
+     'Up' =>          {'to_convert'
+        => Texinfo::Common::pgdt('Up direction button label', 'Up')},
+     'Next' =>        {'to_convert'
+        => Texinfo::Common::pgdt('Next direction button label', 'Next')},
+     'NodeUp' =>      {'to_convert'
+        => Texinfo::Common::pgdt('NodeUp direction button label', 'NodeUp')},
+     'NodeNext' =>    {'to_convert'
+        => Texinfo::Common::pgdt('NodeNext direction button label', 'NodeNext')},
+     'NodePrev' =>    {'to_convert'
+        => Texinfo::Common::pgdt('NodePrev direction button label', 'NodePrev')},
+     'NodeForward' => {'to_convert'
+        => Texinfo::Common::pgdt('NodeForward direction button label', 'NodeForward')},
+     'NodeBack' =>    {'to_convert'
+        => Texinfo::Common::pgdt('NodeBack direction button label', 'NodeBack')},
+     'Forward' =>     {'to_convert'
+        => Texinfo::Common::pgdt('Forward direction button label', 'Forward')},
+     'FastForward' => {'to_convert'
+        => Texinfo::Common::pgdt('FastForward direction button label', 'FastForward')},
+     'About' =>       {'to_convert'
+        => Texinfo::Common::pgdt('About direction button label', 'About')},
+     'First' =>       {'to_convert'
+        => Texinfo::Common::pgdt('First direction button label', 'First')},
+     'Last' =>        {'to_convert'
+        => Texinfo::Common::pgdt('Last direction button label', 'Last')},
+     'NextFile' =>    {'to_convert'
+        => Texinfo::Common::pgdt('NextFile direction button label', 'NextFile')},
+     'PrevFile' =>    {'to_convert'
+        => Texinfo::Common::pgdt('PrevFile direction button label', 'PrevFile')},
   }
 );
 

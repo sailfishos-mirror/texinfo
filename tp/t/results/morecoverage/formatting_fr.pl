@@ -4023,11 +4023,11 @@ ul.toc-numbered-mark {list-style: none}
 <div class="top-level-extent" id="Top">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td>[ &lt; ]</td>
-<td>[<a href="#chapter" title="Section suivante dans l&rsquo;ordre de lecture"> &gt; </a>]</td>
+<td>[<a href="#chapter" title="Next section in reading order"> &gt; </a>]</td>
 <td> &nbsp; </td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="top" id="Top-section">Top section</h1>
 
@@ -4164,19 +4164,19 @@ Menu comment
 <hr style="height: 6px;">
 <div class="chapter-level-extent" id="chapter">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
-<td>[<a href="#Top" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
-<td>[<a href="#Top" title="Section sup&eacute;rieure">Plus haut</a>]</td>
-<td>[<a href="#s_002d_002dect_002cion" title="Section suivante dans l&rsquo;ordre de lecture"> &gt; </a>]</td>
-<td>[<a href="#chapter2" title="Chapitre suivant"> &gt;&gt; </a>]</td>
+<tr><td>[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td>[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
+<td>[<a href="#Top" title="Up section"> Up </a>]</td>
+<td>[<a href="#s_002d_002dect_002cion" title="Next section in reading order"> &gt; </a>]</td>
+<td>[<a href="#chapter2" title="Next chapter"> &gt;&gt; </a>]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter" id="chapter-1">1 chapter</h1>
 
@@ -4197,19 +4197,19 @@ Menu comment
 <hr>
 <div class="section-level-extent" id="s_002d_002dect_002cion">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
-<td>[<a href="#chapter" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
-<td>[<a href="#chapter" title="Section sup&eacute;rieure">Plus haut</a>]</td>
-<td>[<a href="#subsection" title="Section suivante dans l&rsquo;ordre de lecture"> &gt; </a>]</td>
-<td>[<a href="#chapter2" title="Chapitre suivant"> &gt;&gt; </a>]</td>
+<tr><td>[<a href="#chapter" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td>[<a href="#chapter" title="Previous section in reading order"> &lt; </a>]</td>
+<td>[<a href="#chapter" title="Up section"> Up </a>]</td>
+<td>[<a href="#subsection" title="Next section in reading order"> &gt; </a>]</td>
+<td>[<a href="#chapter2" title="Next chapter"> &gt;&gt; </a>]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section" id="A-section">1.1 A section</h2>
 
@@ -4229,19 +4229,19 @@ Menu comment
 <hr>
 <div class="subsection-level-extent" id="subsection">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
-<td>[<a href="#s_002d_002dect_002cion" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
-<td>[<a href="#s_002d_002dect_002cion" title="Section sup&eacute;rieure">Plus haut</a>]</td>
-<td>[<a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" title="Section suivante dans l&rsquo;ordre de lecture"> &gt; </a>]</td>
-<td>[<a href="#chapter2" title="Chapitre suivant"> &gt;&gt; </a>]</td>
+<tr><td>[<a href="#chapter" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td>[<a href="#s_002d_002dect_002cion" title="Previous section in reading order"> &lt; </a>]</td>
+<td>[<a href="#s_002d_002dect_002cion" title="Up section"> Up </a>]</td>
+<td>[<a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" title="Next section in reading order"> &gt; </a>]</td>
+<td>[<a href="#chapter2" title="Next chapter"> &gt;&gt; </a>]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection" id="subsection-1">1.1.1 subsection</h3>
 
@@ -4256,19 +4256,19 @@ Menu comment
 <hr>
 <div class="subsubsection-level-extent" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
-<td>[<a href="#subsection" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
-<td>[<a href="#subsection" title="Section sup&eacute;rieure">Plus haut</a>]</td>
-<td>[<a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" title="Section suivante dans l&rsquo;ordre de lecture"> &gt; </a>]</td>
-<td>[<a href="#chapter2" title="Chapitre suivant"> &gt;&gt; </a>]</td>
+<tr><td>[<a href="#chapter" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td>[<a href="#subsection" title="Previous section in reading order"> &lt; </a>]</td>
+<td>[<a href="#subsection" title="Up section"> Up </a>]</td>
+<td>[<a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" title="Next section in reading order"> &gt; </a>]</td>
+<td>[<a href="#chapter2" title="Next chapter"> &gt;&gt; </a>]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h4 class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
 
@@ -4276,19 +4276,19 @@ Menu comment
 </div>
 <div class="subsubsection-level-extent" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
-<td>[<a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
-<td>[<a href="#subsection" title="Section sup&eacute;rieure">Plus haut</a>]</td>
-<td>[<a href="#chapter2" title="Section suivante dans l&rsquo;ordre de lecture"> &gt; </a>]</td>
-<td>[<a href="#chapter2" title="Chapitre suivant"> &gt;&gt; </a>]</td>
+<tr><td>[<a href="#chapter" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td>[<a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" title="Previous section in reading order"> &lt; </a>]</td>
+<td>[<a href="#subsection" title="Up section"> Up </a>]</td>
+<td>[<a href="#chapter2" title="Next section in reading order"> &gt; </a>]</td>
+<td>[<a href="#chapter2" title="Next chapter"> &gt;&gt; </a>]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h4 class="subsubsection" id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
 
@@ -4299,19 +4299,19 @@ Menu comment
 </div>
 <div class="centerchap-level-extent" id="chapter2">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
-<td>[<a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" title="Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture"> &lt; </a>]</td>
-<td>[<a href="#Top" title="Section sup&eacute;rieure">Plus haut</a>]</td>
+<tr><td>[<a href="#chapter" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td>[<a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" title="Previous section in reading order"> &lt; </a>]</td>
+<td>[<a href="#Top" title="Up section"> Up </a>]</td>
 <td>[ &gt; ]</td>
 <td>[ &gt;&gt; ]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="centerchap" id="chapter-2">chapter 2</h1>
 
@@ -4399,24 +4399,24 @@ Menu comment
 <hr>
 <div class="element-footnotes" id="SEC_Footnotes">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="footnotes-heading">Notes de bas de page</h1>
+<h1 class="footnotes-heading">Footnotes</h1>
 
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote</p>
 </div><hr>
 <div class="element-contents" id="SEC_Contents">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="contents-heading">Table des mati&egrave;res</h1>
+<h1 class="contents-heading">Table of Contents</h1>
 
 <div class="contents">
 
@@ -4438,12 +4438,12 @@ Menu comment
 </div><hr>
 <div class="element-shortcontents" id="SEC_Shortcontents">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="shortcontents-heading">R&eacute;sum&eacute; du contenu</h1>
+<h1 class="shortcontents-heading">Short Table of Contents</h1>
 
 <div class="shortcontents">
 <ul class="toc-numbered-mark">
@@ -4454,12 +4454,12 @@ Menu comment
 </div><hr>
 <div class="element-about" id="SEC_About">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="about-heading">A propos de ce document</h1>
+<h1 class="about-heading">About This Document</h1>
 
 <p>
   Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em class="emph">a sunny day</em>.
@@ -4476,44 +4476,44 @@ Menu comment
   </tr>
   <tr>
     <td class="button-direction-about"> [ &lt;&lt; ] </td>
-    <td class="name-direction-about">RetourRapide</td>
-    <td>D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent</td>
+    <td class="name-direction-about">FastBack</td>
+    <td>Beginning of this chapter or previous chapter</td>
     <td>1</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &lt; ] </td>
-    <td class="name-direction-about">Arri&egrave;re</td>
-    <td>Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture</td>
+    <td class="name-direction-about">Back</td>
+    <td>Previous section in reading order</td>
     <td>1.2.2</td>
   </tr>
   <tr>
-    <td class="button-direction-about"> [Plus haut] </td>
-    <td class="name-direction-about">Monter</td>
-    <td>Section sup&eacute;rieure</td>
+    <td class="button-direction-about"> [ Up ] </td>
+    <td class="name-direction-about">Up</td>
+    <td>Up section</td>
     <td>1.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &gt; ] </td>
-    <td class="name-direction-about">Avant</td>
-    <td>Section suivante dans l&rsquo;ordre de lecture</td>
+    <td class="name-direction-about">Forward</td>
+    <td>Next section in reading order</td>
     <td>1.2.4</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &gt;&gt; ] </td>
-    <td class="name-direction-about">AvanceRapide</td>
-    <td>Chapitre suivant</td>
+    <td class="name-direction-about">FastForward</td>
+    <td>Next chapter</td>
     <td>2</td>
   </tr>
   <tr>
-    <td class="button-direction-about"> [Racine] </td>
-    <td class="name-direction-about">Racine</td>
-    <td>Couverture (top) du document</td>
+    <td class="button-direction-about"> [Top] </td>
+    <td class="name-direction-about">Top</td>
+    <td>Cover (top) of document</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td class="button-direction-about"> [Table des mati&egrave;res] </td>
-    <td class="name-direction-about">Table des mati&egrave;res</td>
-    <td>Table des mati&egrave;res</td>
+    <td class="button-direction-about"> [Contents] </td>
+    <td class="name-direction-about">Contents</td>
+    <td>Table of contents</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
@@ -4524,8 +4524,8 @@ Menu comment
   </tr>
   <tr>
     <td class="button-direction-about"> [ ? ] </td>
-    <td class="name-direction-about">A propos</td>
-    <td>A propos (page d&rsquo;aide)</td>
+    <td class="name-direction-about">About</td>
+    <td>About (help)</td>
     <td> &nbsp; </td>
   </tr>
 </table>
@@ -4589,9 +4589,9 @@ $result_converted{'html_text'}->{'formatting_fr'} = '<h1 class="title">title &nd
 <tr><td>[ &lt; ]</td>
 <td>[ &gt; ]</td>
 <td> &nbsp; </td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="top" id="Top-section">Top section</h1>
 
@@ -4730,17 +4730,17 @@ Menu comment
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td>[ &lt;&lt; ]</td>
 <td>[ &lt; ]</td>
-<td>[Plus haut]</td>
+<td>[ Up ]</td>
 <td>[ &gt; ]</td>
 <td>[ &gt;&gt; ]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="chapter" id="chapter-1">1 chapter</h1>
 
@@ -4763,17 +4763,17 @@ Menu comment
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td>[ &lt;&lt; ]</td>
 <td>[ &lt; ]</td>
-<td>[Plus haut]</td>
+<td>[ Up ]</td>
 <td>[ &gt; ]</td>
 <td>[ &gt;&gt; ]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section" id="A-section">1.1 A section</h2>
 
@@ -4795,17 +4795,17 @@ Menu comment
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td>[ &lt;&lt; ]</td>
 <td>[ &lt; ]</td>
-<td>[Plus haut]</td>
+<td>[ Up ]</td>
 <td>[ &gt; ]</td>
 <td>[ &gt;&gt; ]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h3 class="subsection" id="subsection-1">1.1.1 subsection</h3>
 
@@ -4822,17 +4822,17 @@ Menu comment
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td>[ &lt;&lt; ]</td>
 <td>[ &lt; ]</td>
-<td>[Plus haut]</td>
+<td>[ Up ]</td>
 <td>[ &gt; ]</td>
 <td>[ &gt;&gt; ]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h4 class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
 
@@ -4842,17 +4842,17 @@ Menu comment
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td>[ &lt;&lt; ]</td>
 <td>[ &lt; ]</td>
-<td>[Plus haut]</td>
+<td>[ Up ]</td>
 <td>[ &gt; ]</td>
 <td>[ &gt;&gt; ]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h4 class="subsubsection" id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
 
@@ -4865,17 +4865,17 @@ Menu comment
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
 <tr><td>[ &lt;&lt; ]</td>
 <td>[ &lt; ]</td>
-<td>[Plus haut]</td>
+<td>[ Up ]</td>
 <td>[ &gt; ]</td>
 <td>[ &gt;&gt; ]</td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
 <td> &nbsp; </td>
-<td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h1 class="centerchap" id="chapter-2">chapter 2</h1>
 
@@ -4963,24 +4963,24 @@ Menu comment
 <hr>
 <div class="element-footnotes" id="SEC_Footnotes">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="footnotes-heading">Notes de bas de page</h1>
+<h1 class="footnotes-heading">Footnotes</h1>
 
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote</p>
 </div><hr>
 <div class="element-contents" id="SEC_Contents">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="contents-heading">Table des mati&egrave;res</h1>
+<h1 class="contents-heading">Table of Contents</h1>
 
 <div class="contents">
 
@@ -5002,12 +5002,12 @@ Menu comment
 </div><hr>
 <div class="element-shortcontents" id="SEC_Shortcontents">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="shortcontents-heading">R&eacute;sum&eacute; du contenu</h1>
+<h1 class="shortcontents-heading">Short Table of Contents</h1>
 
 <div class="shortcontents">
 <ul class="toc-numbered-mark">
@@ -5018,12 +5018,12 @@ Menu comment
 </div><hr>
 <div class="element-about" id="SEC_About">
 <table class="nav-panel" cellpadding="1" cellspacing="1" border="0">
-<tr><td>[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
-<td>[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<tr><td>[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
+<td>[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
 <td>[<a href="#Top" title="Index">Index</a>]</td>
-<td>[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+<td>[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<h1 class="about-heading">A propos de ce document</h1>
+<h1 class="about-heading">About This Document</h1>
 
 <p>
   Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em class="emph">a sunny day</em>.
@@ -5040,44 +5040,44 @@ Menu comment
   </tr>
   <tr>
     <td class="button-direction-about"> [ &lt;&lt; ] </td>
-    <td class="name-direction-about">RetourRapide</td>
-    <td>D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent</td>
+    <td class="name-direction-about">FastBack</td>
+    <td>Beginning of this chapter or previous chapter</td>
     <td>1</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &lt; ] </td>
-    <td class="name-direction-about">Arri&egrave;re</td>
-    <td>Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture</td>
+    <td class="name-direction-about">Back</td>
+    <td>Previous section in reading order</td>
     <td>1.2.2</td>
   </tr>
   <tr>
-    <td class="button-direction-about"> [Plus haut] </td>
-    <td class="name-direction-about">Monter</td>
-    <td>Section sup&eacute;rieure</td>
+    <td class="button-direction-about"> [ Up ] </td>
+    <td class="name-direction-about">Up</td>
+    <td>Up section</td>
     <td>1.2</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &gt; ] </td>
-    <td class="name-direction-about">Avant</td>
-    <td>Section suivante dans l&rsquo;ordre de lecture</td>
+    <td class="name-direction-about">Forward</td>
+    <td>Next section in reading order</td>
     <td>1.2.4</td>
   </tr>
   <tr>
     <td class="button-direction-about"> [ &gt;&gt; ] </td>
-    <td class="name-direction-about">AvanceRapide</td>
-    <td>Chapitre suivant</td>
+    <td class="name-direction-about">FastForward</td>
+    <td>Next chapter</td>
     <td>2</td>
   </tr>
   <tr>
-    <td class="button-direction-about"> [Racine] </td>
-    <td class="name-direction-about">Racine</td>
-    <td>Couverture (top) du document</td>
+    <td class="button-direction-about"> [Top] </td>
+    <td class="name-direction-about">Top</td>
+    <td>Cover (top) of document</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
-    <td class="button-direction-about"> [Table des mati&egrave;res] </td>
-    <td class="name-direction-about">Table des mati&egrave;res</td>
-    <td>Table des mati&egrave;res</td>
+    <td class="button-direction-about"> [Contents] </td>
+    <td class="name-direction-about">Contents</td>
+    <td>Table of contents</td>
     <td> &nbsp; </td>
   </tr>
   <tr>
@@ -5088,8 +5088,8 @@ Menu comment
   </tr>
   <tr>
     <td class="button-direction-about"> [ ? ] </td>
-    <td class="name-direction-about">A propos</td>
-    <td>A propos (page d&rsquo;aide)</td>
+    <td class="name-direction-about">About</td>
+    <td>About (help)</td>
     <td> &nbsp; </td>
   </tr>
 </table>

@@ -1078,7 +1078,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Sljedeće: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
+Next: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top-section">top section</h1>
 
@@ -1089,7 +1089,7 @@ Sljedeće: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <div class="chapter-level-extent" id="chapter">
 <div class="nav-panel">
 <p>
-Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a>, Gore: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
+Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="chap">1 chap</h2>
 

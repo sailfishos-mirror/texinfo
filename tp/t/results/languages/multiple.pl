@@ -1226,7 +1226,7 @@ th.sections-header-printindex {text-align:left}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Suivant: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="top" id="top">top</h1>
 
@@ -1237,7 +1237,7 @@ Suivant: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#cha
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
 <h2 class="chapter" id="Chap">1 Chap</h2>
 

@@ -16,19 +16,19 @@ texinfo_set_from_init_file('footnotestyle', 'separate');
 
 my %translations = (
   'fr' => {
-           'The @emph{Table of Contents}' => {'' 
+           'The @emph{Table of Contents}' => {'contents section heading'
                              => '@result{} La @emph{Table des mati@`eres}',},
-           'The @emph{Overview}' => {'' 
+           'The @emph{Overview}' => {'shortcontents section heading'
                              => '@result{} La @emph{Liste des chapitres}',},
-           'The @emph{Footnotes}' => {'' 
+           'The @emph{Footnotes}' => {'footnotes section heading'
                              => '@result{} Les @emph{Notes de bas de page}',},
           },
   'de' => {
-           'The @emph{Table of Contents}' => {'' 
+           'The @emph{Table of Contents}' => {'contents section heading'
                               => '@result{} Das @emph{Inhaltsverzeichnis}',},
-           'The @emph{Overview}' => {''         
+           'The @emph{Overview}' => {'shortcontents section heading'
                              => '@result{} Das @emph{Liste der Kapitel}',},
-           'The @emph{Footnotes}' => {''
+           'The @emph{Footnotes}' => {'footnotes section heading'
                              => '@result{} Les @emph{Fußnoten}',},
           },
 );

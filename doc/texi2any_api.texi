@@ -2690,7 +2690,7 @@ during conversion between different formatting functions or between
 different calls of the same function.
 
 The information is often useful for the formatting of paragraph and
-preformatted containers and @@-comands such as @code{@@abbr}, @code{@@footnote},
+preformatted containers and @@-commands such as @code{@@abbr}, @code{@@footnote},
 @code{@@node}, sectioning commands, @code{@@quotation} and @code{@@float}.
 
 
@@ -2913,13 +2913,13 @@ Translated strings can be specified in customization functions, for
 @@-commands without arguments (@pxref{Simple Customization for Commands
 Without Arguments}), and for direction strings (@pxref{Direction Strings
 Customization}).  Translated strings can also be inserted in the output
-using specific functions for internationalization of strings.
+in user-defined customization functions, by using specific functions
+for internationalization of strings, @code{gdt} or @code{pgdt}.
 
-It is possible to customize the translated strings, to
-change the translations of the translated strings used in the default case.
-If new translated strings are added, it is required to use translated strings
-customization to add translations for the strings that are not in the
-default translated strings.
+It is possible to customize the translated strings, in order to
+change the translations of the strings translated in the default case.
+If new translated strings are added, it is even required to use translated
+strings customization to add translations for the added strings.
 
 @xref{Internationalization of Document Strings,,, texinfo, Texinfo} for additional
 information on the default case.
@@ -2949,12 +2949,7 @@ may only be strings in that case.
 @end table
 
 If called as @code{pgdt}, @var{$translation_context} is not optional
-and is the first argument.  @code{pgdt} is used to mark
-that the translated string has a context for tools extracting
-translatable strings to produce template files, which is not the case for
-@code{gdt}.  Since it is unlikely that marking a string for translation
-is of use in user-defined code, @code{gdt} should be usable in most
-cases.
+and is the first argument.
 @end deftypefun
 
 When the string is expanded as Texinfo, and converted to a
@@ -2998,11 +2993,17 @@ module is used for translated strings.  It is possible to use a user-defined
 function instead as seen next.  @xref{Texinfo::Translations,,,texi2any_internals} for more
 on @code{Texinfo::Translations}.
 
+In @command{texi2any} code, @code{gdt} is also used to mark translated
+strings for tools extracting translatable strings to produce template
+files.  @code{pgdt} is used to mark translated string with a translation
+context associated.
+
 
 @node Translated Strings Customization
 @section Translated Strings Customization
 
-To translate strings, register the @code{format_translate_string} function reference:
+To customize strings translations, register the @code{format_translate_string}
+function reference:
 
 @deftypefn {Function Reference} @var{$translated_tree} format_translate_string @
   (@var{$converter}, @var{$string}, @var{$lang}, @var{\%variables_hash}, @
@@ -3016,8 +3017,8 @@ a string if @var{$mode} is set to @code{translated_text}.
 The result returned may also be @samp{undef}, in which case the translation
 is done as if the function reference had not been defined.
 
-@xref{Internationalization of Strings Function} for more information on the
-arguments that are common with @code{gdt}.
+@xref{Internationalization of Strings Function} for more information on
+strings translations function arguments.
 
 The @code{replace_convert_substrings} method of @code{Texinfo::Translations}
 can be used to substitute @var{\%variables_hash} and return a Texinfo tree
@@ -3072,6 +3073,64 @@ texinfo_register_formatting_function('format_translate_string',
 
 @end example
 
+
+@node Translation Contexts
+@section Translation Contexts
+
+Translation contexts are for translated direction strings (@pxref{Direction
+Strings}) and for special elements headings (@pxref{Common Customization of
+Special Elements}).
+
+For direction strings, the translation context is based on the direction
+name (@pxref{Directions}), with @samp{direction} prepended and another
+string prepended, depending on the type of string:
+
+@table @code
+@item button
+@samp{button label} is prepended
+
+@item description
+@samp{description} is prepended
+
+@item text
+@samp{string} is prepended
+@end table
+
+For example, the @code{Top} direction @code{button} direction string
+translation context is @samp{Top direction button label}.
+
+As an exception, the @code{This} direction has @samp{(current section)}
+prepended to have a more explicit translation context.  The @code{This}
+direction @code{text} direction string translation context is thus @samp{This
+(current section) direction string}.
+
+For special element headings, the translation context is obtained by
+prepending @samp{section heading} to the special element variety.  For example,
+the @code{footnotes} special element variety heading translation context is
+@samp{footnotes section heading}.
+
+Here is an example, which could be used with the same
+function registered as @code{format_translate_string} as in the example above:
+
+@example
+texinfo_register_direction_string_info('Forward', 'text', undef,
+                                       'Forward');
+texinfo_register_special_element_info('heading', 'contents',
+                              'The @@emph@{Table of Contents@}');
+
+my %translations = (
+  'fr' => @{
+         'The @@emph@{Table of Contents@}' => @{'contents section heading'
+                       => '@@result@{@} La @@emph@{Table des mati@@`eres@}',@},
+         'Forward' => @{'Forward direction string'
+                       => 'Vers l\'avant @@result@{@}',@},
+          @}
+   @dots{}
+);
+
+@end example
+
+
 @node Directions@comma{} Links@comma{} Labels and Files
 @chapter Directions, Links, Labels and Files
 
@@ -3089,11 +3148,11 @@ directions, links, labels and files information.
 To get direction strings, use @code{direction_string}:
 
 @deftypefun {@var{$string} =} @var{$converter}->direction_string @
-                    (@var{$direction}, @var{string_type}, @var{$context})
+                    (@var{$direction}, @var{$string_type}, @var{$context})
 Retrieve the @var{$direction} (@pxref{Directions}) string of type
-@var{string_type} (@pxref{Direction Strings}).  @var{$context} is
+@var{$string_type} (@pxref{Direction Strings}).  @var{$context} is
 @samp{normal} or @samp{string}.  @xref{Init File Expansion Contexts}.  If
-$context is @code{undef}, the @samp{normal} context is assumed.
+@var{$context} is @code{undef}, the @samp{normal} context is assumed.
 The string will be translated if needed.
 @end deftypefun
 
@@ -3101,7 +3160,7 @@ The string will be translated if needed.
 @node Target Commands Links@comma{} Texts and Associated Commands
 @section Target Commands Links, Texts and Associated Commands
 
-Target @@-commands are @@-comands that are associated with an identifier
+Target @@-commands are @@-commands that are associated with an identifier
 and can be linked to.  They corresponds first to @@-commands with unique identifier
 used as labels, @code{@@node}, @code{@@anchor} and @code{@@float}.  Sectioning
 commands, index entries and footnotes are also associated to targets.

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.0.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-09 14:35+0100\n"
+"POT-Creation-Date: 2022-11-09 16:10+0100\n"
 "PO-Revision-Date: 2015-12-28 00:59+0200\n"
 "Last-Translator: Tsiolkas Michail <cs112152@cs.uoi.gr>\n"
 "Language-Team: Greek <team@lists.gnome.gr>\n"
@@ -1995,9 +1995,9 @@ msgstr ""
 
 #: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:392
 #: tp/Texinfo/Convert/Converter.pm:447 tp/Texinfo/Convert/DocBook.pm:346
-#: tp/Texinfo/Convert/HTML.pm:9882 tp/Texinfo/Convert/HTML.pm:9948
-#: tp/Texinfo/Convert/HTML.pm:9985 tp/Texinfo/Convert/HTML.pm:10578
-#: tp/Texinfo/Convert/HTML.pm:10681 tp/Texinfo/Convert/HTML.pm:10795
+#: tp/Texinfo/Convert/HTML.pm:9975 tp/Texinfo/Convert/HTML.pm:10041
+#: tp/Texinfo/Convert/HTML.pm:10078 tp/Texinfo/Convert/HTML.pm:10671
+#: tp/Texinfo/Convert/HTML.pm:10774 tp/Texinfo/Convert/HTML.pm:10888
 #: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:320
 #: tp/Texinfo/Convert/LaTeX.pm:1050 tp/Texinfo/Convert/Text.pm:834
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:310
@@ -2007,8 +2007,8 @@ msgstr ""
 
 #: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:424
 #: tp/Texinfo/Convert/Converter.pm:465 tp/Texinfo/Convert/DocBook.pm:515
-#: tp/Texinfo/Convert/HTML.pm:9877 tp/Texinfo/Convert/HTML.pm:10618
-#: tp/Texinfo/Convert/HTML.pm:10700 tp/Texinfo/Convert/IXIN.pm:992
+#: tp/Texinfo/Convert/HTML.pm:9970 tp/Texinfo/Convert/HTML.pm:10711
+#: tp/Texinfo/Convert/HTML.pm:10793 tp/Texinfo/Convert/IXIN.pm:992
 #: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
 #: tp/Texinfo/Convert/Info.pm:230 tp/Texinfo/Convert/Info.pm:294
 #: tp/Texinfo/Convert/LaTeX.pm:1119 tp/Texinfo/Convert/TexinfoMarkup.pm:338
@@ -2108,129 +2108,129 @@ msgstr ""
 msgid "no argument specified for @U"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:3099 tp/ext/epub3.pm:261
+#: tp/Texinfo/Convert/HTML.pm:3192 tp/ext/epub3.pm:261
 #, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:4118
+#: tp/Texinfo/Convert/HTML.pm:4211
 #, perl-format
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7133
+#: tp/Texinfo/Convert/HTML.pm:7226
 #, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7161
+#: tp/Texinfo/Convert/HTML.pm:7254
 msgid "missing type"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7165
+#: tp/Texinfo/Convert/HTML.pm:7258
 #, perl-format
 msgid "unrecognized type: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7185
+#: tp/Texinfo/Convert/HTML.pm:7278
 #, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7209
+#: tp/Texinfo/Convert/HTML.pm:7302
 #, perl-format
 msgid "could not find html refs config file %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7692
+#: tp/Texinfo/Convert/HTML.pm:7785
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7707
+#: tp/Texinfo/Convert/HTML.pm:7800
 #, perl-format
 msgid "Unknown formatting function: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7985
+#: tp/Texinfo/Convert/HTML.pm:8078
 msgid "string not closed in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7987
+#: tp/Texinfo/Convert/HTML.pm:8080
 msgid "--css-include ended in comment"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7989
+#: tp/Texinfo/Convert/HTML.pm:8082
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8020
+#: tp/Texinfo/Convert/HTML.pm:8113
 #, perl-format
 msgid "CSS file %s not found"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8030
+#: tp/Texinfo/Convert/HTML.pm:8123
 #, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8046
+#: tp/Texinfo/Convert/HTML.pm:8139
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8230
+#: tp/Texinfo/Convert/HTML.pm:8323
 #, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8995 tp/Texinfo/Convert/HTML.pm:9002
+#: tp/Texinfo/Convert/HTML.pm:9088 tp/Texinfo/Convert/HTML.pm:9095
 #, perl-format
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9427
+#: tp/Texinfo/Convert/HTML.pm:9520
 #, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9859
+#: tp/Texinfo/Convert/HTML.pm:9952
 #, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9942
+#: tp/Texinfo/Convert/HTML.pm:10035
 #, perl-format
 msgid "error on closing frame file %s: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9979
+#: tp/Texinfo/Convert/HTML.pm:10072
 #, perl-format
 msgid "error on closing TOC frame file %s: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10179
+#: tp/Texinfo/Convert/HTML.pm:10272
 #, perl-format
 msgid "handler %s of stage %s priority %s failed"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10471
+#: tp/Texinfo/Convert/HTML.pm:10564
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10714
+#: tp/Texinfo/Convert/HTML.pm:10807
 #, perl-format
 msgid "%s already exists but is not a directory"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10733
+#: tp/Texinfo/Convert/HTML.pm:10826
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10803
+#: tp/Texinfo/Convert/HTML.pm:10896
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr ""
