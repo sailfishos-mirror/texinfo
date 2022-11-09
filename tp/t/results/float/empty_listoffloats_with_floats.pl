@@ -508,7 +508,6 @@ $result_floats{'empty_listoffloats_with_floats'}{''}[3]{'extra'}{'caption'}{'ext
 $result_converted{'plaintext'}->{'empty_listoffloats_with_floats'} = 'Label no caption.
 
 1
-
 Label and caption.
 
 
@@ -549,8 +548,7 @@ $result_converted{'html'}->{'empty_listoffloats_with_floats'} = '<!DOCTYPE html>
 <body lang="en">
 <div class="float" id="label1">
 <p>Label no caption.
-</p><div class="type-number-float"><p><strong class="strong">1
-</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">1</strong></p></div></div>
 <div class="float" id="label2">
 <p>Label and caption.
 </p>

@@ -292,7 +292,6 @@ $result_floats{'comment_space_comand_in_float'} = {
 $result_converted{'plaintext'}->{'comment_space_comand_in_float'} = 'Float
 
 Text   1
-
 * Menu:
 
 * Text   1: label  .                     
@@ -308,7 +307,6 @@ File: ,  Node: Top,  Up: (dir)
 Float
 
 Text   1
-
 * Menu:
 
 * Text   1: label  .                     
@@ -351,8 +349,7 @@ $result_converted{'html'}->{'comment_space_comand_in_float'} = '<!DOCTYPE html>
 
 <div class="float" id="label-">
 <p>Float
-</p><div class="type-number-float"><p><strong class="strong">Text &nbsp; 1
-</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">Text &nbsp; 1</strong></p></div></div>
 <dl class="listoffloats">
 <dt><a href="#label-">Text &nbsp; 1</a></dt><dd></dd>
 </dl>

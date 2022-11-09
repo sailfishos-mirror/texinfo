@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:53+0100\n"
+"POT-Creation-Date: 2022-11-09 08:47+0100\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -2142,8 +2142,8 @@ msgstr "đổi tên %s gặp lỗi: %s"
 msgid "%s: error on closing stdout: %s\n"
 msgstr "%s: lỗi đóng tập tin %s: %s\n"
 
-#: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:391
-#: tp/Texinfo/Convert/Converter.pm:446 tp/Texinfo/Convert/DocBook.pm:346
+#: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:392
+#: tp/Texinfo/Convert/Converter.pm:447 tp/Texinfo/Convert/DocBook.pm:346
 #: tp/Texinfo/Convert/HTML.pm:9857 tp/Texinfo/Convert/HTML.pm:9923
 #: tp/Texinfo/Convert/HTML.pm:9960 tp/Texinfo/Convert/HTML.pm:10553
 #: tp/Texinfo/Convert/HTML.pm:10656 tp/Texinfo/Convert/HTML.pm:10770
@@ -2154,8 +2154,8 @@ msgstr "%s: lỗi đóng tập tin %s: %s\n"
 msgid "could not open %s for writing: %s"
 msgstr "không thể mở “%s” để ghi: %s"
 
-#: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:423
-#: tp/Texinfo/Convert/Converter.pm:464 tp/Texinfo/Convert/DocBook.pm:515
+#: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:424
+#: tp/Texinfo/Convert/Converter.pm:465 tp/Texinfo/Convert/DocBook.pm:515
 #: tp/Texinfo/Convert/HTML.pm:9852 tp/Texinfo/Convert/HTML.pm:10593
 #: tp/Texinfo/Convert/HTML.pm:10675 tp/Texinfo/Convert/IXIN.pm:992
 #: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
@@ -2233,23 +2233,23 @@ msgstr "%s: không hiểu biến %s\n"
 msgid "%s: unknown special element information type %s\n"
 msgstr "%s: không hiểu biến %s\n"
 
-#: tp/Texinfo/Convert/Converter.pm:326
+#: tp/Texinfo/Convert/Converter.pm:327
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr "%s: kết xuất không tương thích với split (chia tách)"
 
-#: tp/Texinfo/Convert/Converter.pm:1017 tp/Texinfo/Convert/Text.pm:798
+#: tp/Texinfo/Convert/Converter.pm:1018 tp/Texinfo/Convert/Text.pm:798
 #: tp/Texinfo/Convert/Text.pm:817
 #, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "không thể tạo thư mục “%s”: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1195
+#: tp/Texinfo/Convert/Converter.pm:1196
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin ảnh dạng text %s: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1201
+#: tp/Texinfo/Convert/Converter.pm:1202
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "Không thể đọc tập tin @image “%s”: %s"

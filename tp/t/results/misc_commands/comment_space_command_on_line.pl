@@ -896,7 +896,6 @@ Heading
 float
 
 Text 1.1
-
 ';
 
 
@@ -937,8 +936,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 
 <div class="float" id="label">
 <p>float
-</p><div class="type-number-float"><p><strong class="strong">Text 1.1
-</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">Text 1.1</strong></p></div></div>
 
 </div>
 </div>
@@ -1080,7 +1078,6 @@ Heading
 float
 
 Text 1.1
-
 
 
 Tag Table:

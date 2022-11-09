@@ -858,7 +858,6 @@ Ref to the anchor: *note An anchor::
 In float
 
 1
-
    Ref to float *note 1: float anchor.
 
 * Menu:
@@ -886,9 +885,9 @@ Ref to anchor *note An anchor::
 Tag Table:
 Ref: An anchor27
 Ref: float anchor136
-Node: Top263
-Ref: Top-Footnote-1445
-Ref: Anchor in footnote466
+Node: Top262
+Ref: Top-Footnote-1444
+Ref: Anchor in footnote465
 
 End Tag Table
 
@@ -960,8 +959,7 @@ $result_converted{'html'}->{'placed_things_before_node'} = '<!DOCTYPE html>
 </p>
 <div class="float" id="float-anchor">
 <p>In float
-</p><div class="type-number-float"><p><strong class="strong">1
-</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">1</strong></p></div></div>
 <p>Ref to float
 <a class="ref" href="#float-anchor">1</a>.
 </p>

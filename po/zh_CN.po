@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:53+0100\n"
+"POT-Creation-Date: 2022-11-09 08:47+0100\n"
 "PO-Revision-Date: 2018-01-23 10:13+0800\n"
 "Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -2367,8 +2367,8 @@ msgstr "%s: 已经存在了 dir 文件: %s\n"
 msgid "%s: error on closing stdout: %s\n"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:391
-#: tp/Texinfo/Convert/Converter.pm:446 tp/Texinfo/Convert/DocBook.pm:346
+#: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:392
+#: tp/Texinfo/Convert/Converter.pm:447 tp/Texinfo/Convert/DocBook.pm:346
 #: tp/Texinfo/Convert/HTML.pm:9857 tp/Texinfo/Convert/HTML.pm:9923
 #: tp/Texinfo/Convert/HTML.pm:9960 tp/Texinfo/Convert/HTML.pm:10553
 #: tp/Texinfo/Convert/HTML.pm:10656 tp/Texinfo/Convert/HTML.pm:10770
@@ -2380,8 +2380,8 @@ msgstr "关闭输出文件“%s”时出错"
 msgid "could not open %s for writing: %s"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:423
-#: tp/Texinfo/Convert/Converter.pm:464 tp/Texinfo/Convert/DocBook.pm:515
+#: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:424
+#: tp/Texinfo/Convert/Converter.pm:465 tp/Texinfo/Convert/DocBook.pm:515
 #: tp/Texinfo/Convert/HTML.pm:9852 tp/Texinfo/Convert/HTML.pm:10593
 #: tp/Texinfo/Convert/HTML.pm:10675 tp/Texinfo/Convert/IXIN.pm:992
 #: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
@@ -2463,25 +2463,25 @@ msgstr "未知的动作“%s”"
 msgid "%s: unknown special element information type %s\n"
 msgstr "未知的动作“%s”"
 
-#: tp/Texinfo/Convert/Converter.pm:326
+#: tp/Texinfo/Convert/Converter.pm:327
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1017 tp/Texinfo/Convert/Text.pm:798
+#: tp/Texinfo/Convert/Converter.pm:1018 tp/Texinfo/Convert/Text.pm:798
 #: tp/Texinfo/Convert/Text.pm:817
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create directory `%s': %s"
 msgstr "无法创建目录“%s”：%s"
 
-#: tp/Texinfo/Convert/Converter.pm:1195
+#: tp/Texinfo/Convert/Converter.pm:1196
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/Texinfo/Convert/Converter.pm:1201
+#: tp/Texinfo/Convert/Converter.pm:1202
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image 文件“%s”不可读：%s"

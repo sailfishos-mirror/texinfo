@@ -517,7 +517,6 @@ File: ,  Node: Top,  Next: anch,  Up: (dir)
 In float
 
 truc 1
-
 * Menu:
 
 * anch::
@@ -563,8 +562,7 @@ $result_converted{'html'}->{'equivalent_labels'} = '<!DOCTYPE html>
 </p>
 <div class="float" id="floa">
 <p>In float
-</p><div class="type-number-float"><p><strong class="strong">truc 1
-</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">truc 1</strong></p></div></div>
 
 
 

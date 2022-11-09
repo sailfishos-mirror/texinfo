@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.x\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-08 23:53+0100\n"
+"POT-Creation-Date: 2022-11-09 08:47+0100\n"
 "PO-Revision-Date: 2006-02-18 16:00+0100\n"
 "Last-Translator: Máté LABÁDI <labadimate@freemail.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -2316,8 +2316,8 @@ msgstr "%s: már van dir fájl: %s\n"
 msgid "%s: error on closing stdout: %s\n"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:391
-#: tp/Texinfo/Convert/Converter.pm:446 tp/Texinfo/Convert/DocBook.pm:346
+#: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:392
+#: tp/Texinfo/Convert/Converter.pm:447 tp/Texinfo/Convert/DocBook.pm:346
 #: tp/Texinfo/Convert/HTML.pm:9857 tp/Texinfo/Convert/HTML.pm:9923
 #: tp/Texinfo/Convert/HTML.pm:9960 tp/Texinfo/Convert/HTML.pm:10553
 #: tp/Texinfo/Convert/HTML.pm:10656 tp/Texinfo/Convert/HTML.pm:10770
@@ -2329,8 +2329,8 @@ msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 msgid "could not open %s for writing: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:423
-#: tp/Texinfo/Convert/Converter.pm:464 tp/Texinfo/Convert/DocBook.pm:515
+#: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:424
+#: tp/Texinfo/Convert/Converter.pm:465 tp/Texinfo/Convert/DocBook.pm:515
 #: tp/Texinfo/Convert/HTML.pm:9852 tp/Texinfo/Convert/HTML.pm:10593
 #: tp/Texinfo/Convert/HTML.pm:10675 tp/Texinfo/Convert/IXIN.pm:992
 #: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
@@ -2416,25 +2416,25 @@ msgstr "ismeretlen művelet: „%s“."
 msgid "%s: unknown special element information type %s\n"
 msgstr "ismeretlen művelet: „%s“."
 
-#: tp/Texinfo/Convert/Converter.pm:326
+#: tp/Texinfo/Convert/Converter.pm:327
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr ""
 
-#: tp/Texinfo/Convert/Converter.pm:1017 tp/Texinfo/Convert/Text.pm:798
+#: tp/Texinfo/Convert/Converter.pm:1018 tp/Texinfo/Convert/Text.pm:798
 #: tp/Texinfo/Convert/Text.pm:817
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create directory `%s': %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
-#: tp/Texinfo/Convert/Converter.pm:1195
+#: tp/Texinfo/Convert/Converter.pm:1196
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tp/Texinfo/Convert/Converter.pm:1201
+#: tp/Texinfo/Convert/Converter.pm:1202
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image a(z) „%s“ fájl nem olvasható: %s"

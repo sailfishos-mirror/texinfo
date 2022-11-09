@@ -701,7 +701,6 @@ Ref to the anchor: *note An anchor::
 In float
 
 1
-
    Ref to float *note 1: float anchor.
 
 * Menu:
@@ -719,7 +718,7 @@ In float
 Tag Table:
 Ref: An anchor0
 Ref: float anchor109
-Ref: Anchor in footnote293
+Ref: Anchor in footnote292
 
 End Tag Table
 
@@ -814,8 +813,7 @@ h1.settitle {text-align:center}
 </p>
 <div class="float" id="float-anchor">
 <p>In float
-</p><div class="type-number-float"><p><strong class="strong">1
-</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">1</strong></p></div></div>
 <p>Ref to float
 <a class="ref" href="#float-anchor">1</a>.
 </p>

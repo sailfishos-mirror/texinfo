@@ -128,8 +128,7 @@ $result_floats{'empty_label_no_space_comment'} = {
 
 
 
-$result_converted{'plaintext'}->{'empty_label_no_space_comment'} = 'Type
-';
+$result_converted{'plaintext'}->{'empty_label_no_space_comment'} = 'Type';
 
 
 $result_converted{'html'}->{'empty_label_no_space_comment'} = '<!DOCTYPE html>
@@ -151,8 +150,7 @@ $result_converted{'html'}->{'empty_label_no_space_comment'} = '<!DOCTYPE html>
 
 <body lang="en">
 <div class="float">
-<div class="type-number-float"><p><strong class="strong">Type
-</strong></p></div></div>
+<div class="type-number-float"><p><strong class="strong">Type</strong></p></div></div>
 
 
 </body>

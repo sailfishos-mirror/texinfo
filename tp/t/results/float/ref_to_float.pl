@@ -337,11 +337,9 @@ $result_floats{'ref_to_float'} = {
 $result_converted{'plaintext'}->{'ref_to_float'} = 'Float
 
 Text 1
-
 In foat 2.
 
 1
-
 *note Text 1: Label1.
 
    *note 1: Label2.
@@ -368,12 +366,10 @@ $result_converted{'html'}->{'ref_to_float'} = '<!DOCTYPE html>
 <body lang="en">
 <div class="float" id="Label1">
 <p>Float
-</p><div class="type-number-float"><p><strong class="strong">Text 1
-</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">Text 1</strong></p></div></div>
 <div class="float" id="Label2">
 <p>In foat 2.
-</p><div class="type-number-float"><p><strong class="strong">1
-</strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">1</strong></p></div></div>
 <p><a class="ref" href="#Label1">Text 1</a>
 </p>
 <p><a class="ref" href="#Label2">1</a>

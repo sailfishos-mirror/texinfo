@@ -104,6 +104,7 @@ my %all_converters_defaults
 # For translation of in document string.
 if (0) {
   my $self;
+  # TRANSLATORS: expansion of @error{} as Texinfo code
   $self->gdt('error@arrow{}');
 }
 
@@ -1260,31 +1261,34 @@ sub float_name_caption($$)
     if ($caption) {
       if ($element->{'structure'}
           and defined($element->{'structure'}->{'float_number'})) {
+        # TRANSLATORS: added before caption
         $prepended = $self->gdt('{float_type} {float_number}: ',
             {'float_type' => $type,
              'float_number' => $element->{'structure'}->{'float_number'}});
       } else {
+        # TRANSLATORS: added before caption, no float label
         $prepended = $self->gdt('{float_type}: ',
           {'float_type' => $type});
       }
     } else {
       if ($element->{'structure'}
           and defined($element->{'structure'}->{'float_number'})) {
-        $prepended = $self->gdt("{float_type} {float_number}\n",
+        $prepended = $self->gdt("{float_type} {float_number}",
             {'float_type' => $type,
               'float_number' => $element->{'structure'}->{'float_number'}});
       } else {
-        $prepended = $self->gdt("{float_type}\n",
+        $prepended = $self->gdt("{float_type}",
             {'float_type' => $type});
       }
     }
   } elsif ($element->{'structure'}
            and defined($element->{'structure'}->{'float_number'})) {
     if ($caption) {
+      # TRANSLATORS: added before caption, no float type
       $prepended = $self->gdt('{float_number}: ',
           {'float_number' => $element->{'structure'}->{'float_number'}});
     } else {
-      $prepended = $self->gdt("{float_number}\n",
+      $prepended = $self->gdt("{float_number}",
            {'float_number' => $element->{'structure'}->{'float_number'}});
     }
   }

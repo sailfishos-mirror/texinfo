@@ -6405,7 +6405,6 @@ No type but caption and shortcaption.
 No type but label and no caption nor shortcaption.
 
 2
-
 No label, no type, no caption no shortcaption.
 
 No label, no type, but caption and shortcaption.
@@ -6460,7 +6459,6 @@ Warning 1.1: C A warning in chapter
 A text in float no caption a label a type.
 
 Text 1.3
-
 Unnumbered
 **********
 
@@ -6603,8 +6601,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 <div class="float" id="label-but-no-type-and-no-caption">
 <p>No type but label and no caption nor shortcaption.
 </p>
-<div class="type-number-float"><p><strong class="strong">2
-</strong></p></div></div>
+<div class="type-number-float"><p><strong class="strong">2</strong></p></div></div>
 
 <div class="float">
 <p>No label, no type, no caption no shortcaption.
@@ -6684,8 +6681,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 
 <p>A text in float no caption a label a type.
 </p>
-<div class="type-number-float"><p><strong class="strong">Text 1.3
-</strong></p></div></div>
+<div class="type-number-float"><p><strong class="strong">Text 1.3</strong></p></div></div>
 <hr>
 </div>
 </div>

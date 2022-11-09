@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-09 00:33+0100\n"
+"POT-Creation-Date: 2022-11-09 08:56+0100\n"
 "PO-Revision-Date: 2021-07-07 18:24+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -114,102 +114,91 @@ msgstr "Virheellinen merkkiluokan nimi"
 msgid "{name} of {class}"
 msgstr "Virheellinen merkkiluokan nimi"
 
-#: tp/Texinfo/Convert/Converter.pm:107
+#. TRANSLATORS: expansion of @error{} as Texinfo code
+#: tp/Texinfo/Convert/Converter.pm:108
 msgid "error@arrow{}"
 msgstr "error@arrow{}"
 
-#: tp/Texinfo/Convert/Converter.pm:115
+#: tp/Texinfo/Convert/Converter.pm:116
 msgid "January"
 msgstr "tammikuu"
 
-#: tp/Texinfo/Convert/Converter.pm:116
+#: tp/Texinfo/Convert/Converter.pm:117
 msgid "February"
 msgstr "helmikuu"
 
-#: tp/Texinfo/Convert/Converter.pm:117
+#: tp/Texinfo/Convert/Converter.pm:118
 msgid "March"
 msgstr "maaliskuu"
 
-#: tp/Texinfo/Convert/Converter.pm:118
+#: tp/Texinfo/Convert/Converter.pm:119
 msgid "April"
 msgstr "huhtikuu"
 
-#: tp/Texinfo/Convert/Converter.pm:119
+#: tp/Texinfo/Convert/Converter.pm:120
 msgid "May"
 msgstr "toukokuu"
 
-#: tp/Texinfo/Convert/Converter.pm:120
+#: tp/Texinfo/Convert/Converter.pm:121
 msgid "June"
 msgstr "kesäkuu"
 
-#: tp/Texinfo/Convert/Converter.pm:121
+#: tp/Texinfo/Convert/Converter.pm:122
 msgid "July"
 msgstr "heinäkuu"
 
-#: tp/Texinfo/Convert/Converter.pm:122
+#: tp/Texinfo/Convert/Converter.pm:123
 msgid "August"
 msgstr "elokuu"
 
-#: tp/Texinfo/Convert/Converter.pm:123
+#: tp/Texinfo/Convert/Converter.pm:124
 msgid "September"
 msgstr "syyskuu"
 
-#: tp/Texinfo/Convert/Converter.pm:124
+#: tp/Texinfo/Convert/Converter.pm:125
 msgid "October"
 msgstr "lokakuu"
 
-#: tp/Texinfo/Convert/Converter.pm:125
+#: tp/Texinfo/Convert/Converter.pm:126
 msgid "November"
 msgstr "marraskuu"
 
-#: tp/Texinfo/Convert/Converter.pm:126
+#: tp/Texinfo/Convert/Converter.pm:127
 msgid "December"
 msgstr "joulukuu"
 
-#: tp/Texinfo/Convert/Converter.pm:1223
+#: tp/Texinfo/Convert/Converter.pm:1224 tp/Texinfo/Convert/Converter.pm:1276
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr "{float_type} {float_number}"
 
-#: tp/Texinfo/Convert/Converter.pm:1227
+#: tp/Texinfo/Convert/Converter.pm:1228 tp/Texinfo/Convert/Converter.pm:1280
 #, perl-brace-format
 msgid "{float_type}"
 msgstr "{float_type}"
 
-#: tp/Texinfo/Convert/Converter.pm:1231
+#: tp/Texinfo/Convert/Converter.pm:1232 tp/Texinfo/Convert/Converter.pm:1291
 #, perl-brace-format
 msgid "{float_number}"
 msgstr "{float_number}"
 
-#: tp/Texinfo/Convert/Converter.pm:1263
+#. TRANSLATORS: added before caption
+#: tp/Texinfo/Convert/Converter.pm:1265
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr "{float_type} {float_number}: "
 
-#: tp/Texinfo/Convert/Converter.pm:1267
+#. TRANSLATORS: added before caption, no float label
+#: tp/Texinfo/Convert/Converter.pm:1270
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr "{float_type}: "
 
-#: tp/Texinfo/Convert/Converter.pm:1273
-#, perl-brace-format
-msgid "{float_type} {float_number}\n"
-msgstr "{float_type} {float_number}\n"
-
-#: tp/Texinfo/Convert/Converter.pm:1277
-#, perl-brace-format
-msgid "{float_type}\n"
-msgstr "{float_type}\n"
-
-#: tp/Texinfo/Convert/Converter.pm:1284
+#. TRANSLATORS: added before caption, no float type
+#: tp/Texinfo/Convert/Converter.pm:1288
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr "{float_number}: "
-
-#: tp/Texinfo/Convert/Converter.pm:1287
-#, perl-brace-format
-msgid "{float_number}\n"
-msgstr "{float_number}\n"
 
 #: tp/Texinfo/Convert/DocBook.pm:1082
 #, perl-brace-format
@@ -997,6 +986,18 @@ msgstr "luokka puuttuu: @%s"
 #, fuzzy, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "luokka puuttuu: @%s"
+
+#, perl-brace-format
+#~ msgid "{float_type} {float_number}\n"
+#~ msgstr "{float_type} {float_number}\n"
+
+#, perl-brace-format
+#~ msgid "{float_type}\n"
+#~ msgstr "{float_type}\n"
+
+#, perl-brace-format
+#~ msgid "{float_number}\n"
+#~ msgstr "{float_number}\n"
 
 #, perl-brace-format
 #~ msgid "See Info file @file{{myfile}}, node @samp{{mynode}}"
