@@ -137,6 +137,8 @@ sub definition_category_tree($$)
       or $def_command eq 'defmethod'
       or $def_command eq 'deftypemethod') {
     if ($self) {
+      # TRANSLATORS: association of a method or operation name with a class
+      # in object-oriented programming methods or operations descriptions.
       return $self->gdt('{category} on @code{{class}}', { 'category' => $arg_category,
                                           'class' => $arg_class });
     } else {
@@ -147,6 +149,9 @@ sub definition_category_tree($$)
            or $def_command eq 'defcv'
            or $def_command eq 'deftypecv') {
     if ($self) {
+      # TRANSLATORS: association of a variable or instance variable with
+      # a class in object-oriented programming variables or instance variable
+      # descriptions.
       return $self->gdt('{category} of @code{{class}}', { 'category' => $arg_category,
                                           'class' => $arg_class });
     } else {

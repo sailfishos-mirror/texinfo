@@ -1097,6 +1097,7 @@ sub command_text($$;$)
                      'section_title'
                                 => {'contents' => $section_arg_contents}});
           } else {
+            # TRANSLATORS: numbered section title
             $tree = $self->gdt('{number} {section_title}',
                      {'number' => {'text' => $command->{'structure'}
                                                        ->{'section_number'}},
@@ -2933,6 +2934,7 @@ sub _convert_explained_command($$$$)
          ."${explanation}>".$result."</$html_element>";
   }
   if ($with_explanation) {
+    # TRANSLATORS: abbreviation or acronym explanation
     $result = $self->convert_tree($self->gdt('{explained_string} ({explanation})',
           {'explained_string' => {'type' => '_converted',
                    'text' => $result},
@@ -4705,10 +4707,12 @@ sub _convert_quotation_command($$$$$)
     foreach my $author (@{$command->{'extra'}->{'authors'}}) {
       if ($author->{'args'}->[0]
           and $author->{'args'}->[0]->{'contents'}) {
-        my $centered_author = $self->gdt("\@center --- \@emph{{author}}\n",
+        # TRANSLATORS: quotation author
+        my $centered_author = $self->gdt("\@center --- \@emph{{author}}",
            {'author' => $author->{'args'}->[0]->{'contents'}});
         $centered_author->{'parent'} = $command;
-        $attribution .= $self->convert_tree($centered_author, 'convert quotation author');
+        $attribution .= $self->convert_tree($centered_author,
+                                            'convert quotation author');
       }
     }
   }
@@ -5374,11 +5378,13 @@ sub _convert_printindex_command($$$$)
           my $result_tree;
           if ($index_entry_ref->{'in_code'}) {
             $result_tree
+          # TRANSLATORS: redirect to another index entry
         = $self->gdt('@code{{main_index_entry}}, @emph{See} @code{{seenentry}}',
                                         {'main_index_entry' => $entry_ref_tree,
                                          'seenentry' => $referred_tree});
           } else {
             $result_tree
+                 # TRANSLATORS: redirect to another index entry
                = $self->gdt('{main_index_entry}, @emph{See} {seenentry}',
                                         {'main_index_entry' => $entry_ref_tree,
                                          'seenentry' => $referred_tree});
@@ -5395,6 +5401,7 @@ sub _convert_printindex_command($$$$)
           $entry_class = "$cmdname-index-see-entry";
           $section_class = "$cmdname-index-see-entry-section";
         } else {
+          # TRANSLATORS: refer to another index entry
           my $reference_tree = $self->gdt('@emph{See also} {see_also_entry}',
                                        {'see_also_entry' => $referred_tree});
           if ($formatted_index_entries->{$index_entry_ref} > 1) {
@@ -5640,6 +5647,7 @@ sub _convert_printindex_command($$$$)
   if (scalar(@non_alpha) + scalar(@alpha) > 1) {
     my $summary_header = $self->html_attribute_class('table',
             ["$index_name-letters-header-$cmdname"]).'><tr><th>'
+        # TRANSLATORS: before list of letters and symbols grouping index entries
       . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
       $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
 
@@ -5651,9 +5659,11 @@ sub _convert_printindex_command($$$$)
    .= $self->html_attribute_class('table', ["$index_name-entries-$cmdname"])
     ." border=\"0\">\n" . '<tr><td></td>'
     . $self->html_attribute_class('th', ["entries-header-$cmdname"]).'>'
+      # TRANSLATORS: index entries column header in index formatting
     . $self->convert_tree($self->gdt('Index Entry'))
     . "</th><td>$non_breaking_space</td>"
     . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'> '
+      # TRANSLATORS: section of index entry column header in index formatting 
     . $self->convert_tree($self->gdt('Section')) . "</th></tr>\n"
     . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')
     ."</td></tr>\n";
@@ -5665,6 +5675,7 @@ sub _convert_printindex_command($$$$)
   if (scalar(@non_alpha) + scalar(@alpha) > 1) {
     my $summary_footer = $self->html_attribute_class('table',
                  ["$index_name-letters-footer-$cmdname"]).'><tr><th>'
+        # TRANSLATORS: before list of letters and symbols grouping index entries
       . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
       $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
     $result .= $summary_footer
@@ -9347,6 +9358,7 @@ sub _file_header_information($$;$)
       } else {
         $element_tree = $self->command_text($command, 'tree');
       }
+      # TRANSLATORS: sectioning element title for the page header
       my $title_tree = $self->gdt('{element_text} ({title})',
                    { 'title' => $self->get_info('title_tree'),
                      'element_text' => $element_tree });
@@ -9680,9 +9692,13 @@ EOT
 <table border="1">
   <tr>
 EOT
+   # TRANSLATORS: direction column header in the navigation help about
   $about .= '    <th> ' . $self->convert_tree($self->gdt('Button')) . " </th>\n" .
+   # TRANSLATORS: button label column header in the navigation help about
    '    <th> ' . $self->convert_tree($self->gdt('Name')) . " </th>\n" .
+   # TRANSLATORS: direction description column header in the navigation help about
    '    <th> ' . $self->convert_tree($self->gdt('Go to')) . " </th>\n" .
+   # TRANSLATORS: section reached column header in the navigation help about
    '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n"
  . "  </tr>\n";
 
@@ -9728,8 +9744,10 @@ EOT
 <ul>
 EOT
   my $non_breaking_space = $self->get_info('non_breaking_space');
+  # TRANSLATORS: example name of section for section 1.
   $about .= '  <li> 1. ' . $self->convert_tree($self->gdt('Section One')) . "\n" .
 "    <ul>\n" .
+       # TRANSLATORS: example name of section for section 1.1
 '      <li>1.1 ' . $self->convert_tree($self->gdt('Subsection One-One')) . "\n";
   $about .= <<EOT;
         <ul>
@@ -9737,17 +9755,23 @@ EOT
         </ul>
       </li>
 EOT
+                 # TRANSLATORS: example name of section for section 1.2
   $about .= '      <li>1.2 ' . $self->convert_tree($self->gdt('Subsection One-Two')) . "\n" .
 "        <ul>\n" .
+                 # TRANSLATORS: example name of section for section 1.2.1
 '          <li>1.2.1 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-One')) . "</li>\n" .
+                 # TRANSLATORS: example name of section for section 1.2.2
 '          <li>1.2.2 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Two')) . "</li>\n" .
+                 # TRANSLATORS: example name of section for section 1.2.3
 '          <li>1.2.3 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Three'))
                   . " $non_breaking_space $non_breaking_space\n"
 .
 '            <strong>&lt;== ' . $self->convert_tree($self->gdt('Current Position')) . " </strong></li>\n" .
+                 # TRANSLATORS: example name of section for section 1.2.3
 '          <li>1.2.4 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Four')) . "</li>\n" .
 "        </ul>\n" .
 "      </li>\n" .
+                 # TRANSLATORS: example name of section for section 1.3
 '      <li>1.3 ' . $self->convert_tree($self->gdt('Subsection One-Three')) . "\n";
   $about .= <<EOT;
         <ul>
@@ -9755,6 +9779,7 @@ EOT
         </ul>
       </li>
 EOT
+                 # TRANSLATORS: example name of section for section 1.4
   $about .= '      <li>1.4 ' . $self->convert_tree($self->gdt('Subsection One-Four')) . "</li>\n";
 
   $about .= <<EOT;

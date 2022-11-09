@@ -1,5 +1,13 @@
 2022-11-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/Utils.pm: add
+	comments for translators.
+
+	Update po files.
+
+2022-11-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (float_name_caption): remove useless
 	end of lines in translated strings.  Add comments for translators.
 

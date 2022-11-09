@@ -3477,7 +3477,8 @@ sub _convert($$)
         if ($author->{'args'}->[0]
             and $author->{'args'}->[0]->{'contents'}) {
           $result .= _convert($self,
-                   $self->gdt("\@center --- \@emph{{author}}\n",
+                   # TRANSLATORS: quotation author
+                   $self->gdt("\@center --- \@emph{{author}}",
                       {'author' => $author->{'args'}->[0]->{'contents'}}));
         }
       }

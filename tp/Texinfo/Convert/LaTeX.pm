@@ -4008,6 +4008,7 @@ sub _convert($$)
         foreach my $author (@{$element->{'extra'}->{'authors'}}) {
           if ($author->{'args'}->[0]->{'contents'}) {
             $result .= _convert($self,
+                 # TRANSLATORS: quotation author
                  $self->gdt('@center --- @emph{{author}}',
                     {'author' => $author->{'args'}->[0]->{'contents'}}));
           }
