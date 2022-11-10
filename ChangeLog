@@ -1,5 +1,9 @@
 2022-11-10  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Translation Contexts): edit.
+
+2022-11-10  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Translations Output and Customization):
 	translated strings can also be specified for specific elements
 	headings customization, refer to the node.

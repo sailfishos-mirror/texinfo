@@ -3079,9 +3079,11 @@ texinfo_register_formatting_function('format_translate_string',
 @node Translation Contexts
 @section Translation Contexts
 
-Translation contexts are for translated direction strings (@pxref{Direction
-Strings}) and for special elements headings (@pxref{Common Customization of
-Special Elements}).
+Translation contexts may be set to avoid ambiguities for translated
+strings, in particular when the strings are short (@pxref{Contexts,,,gettext,
+GNU @code{gettext} utilities}).  Translation contexts are set for translated
+direction strings (@pxref{Direction Strings}) and for special elements headings
+(@pxref{Special Elements Information Customization}).
 
 For direction strings, the translation context is based on the direction
 name (@pxref{Directions}), with @samp{direction} prepended and another
@@ -3107,9 +3109,9 @@ direction @code{text} direction string translation context is thus @samp{This
 (current section) direction string}.
 
 For special element headings, the translation context is obtained by
-prepending @samp{section heading} to the special element variety.  For example,
-the @code{footnotes} special element variety heading translation context is
-@samp{footnotes section heading}.
+prepending @samp{section heading} to the special element variety (@pxref{Special
+Elements Varieties}).  For example, the @code{footnotes} special element
+variety heading translation context is @samp{footnotes section heading}.
 
 Here is an example, which could be used with the same
 function registered as @code{format_translate_string} as in the example above:
@@ -3131,6 +3133,11 @@ my %translations = (
 );
 
 @end example
+
+Other translated strings may also be associated with translation contexts.
+The translation template file @file{po_document/texinfo_document.pot}
+in the source directory of Texinfo contains the translated strings appearing in
+all the output formats.
 
 
 @node Directions@comma{} Links@comma{} Labels and Files
