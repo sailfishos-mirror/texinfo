@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-09 16:10+0100\n"
+"POT-Creation-Date: 2022-11-10 21:59+0100\n"
 "PO-Revision-Date: 2018-01-23 10:13+0800\n"
 "Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -2369,9 +2369,9 @@ msgstr "关闭输出文件“%s”时出错"
 
 #: tp/DebugTexinfo/DebugTree.pm:107 tp/Texinfo/Convert/Converter.pm:392
 #: tp/Texinfo/Convert/Converter.pm:447 tp/Texinfo/Convert/DocBook.pm:346
-#: tp/Texinfo/Convert/HTML.pm:9975 tp/Texinfo/Convert/HTML.pm:10041
-#: tp/Texinfo/Convert/HTML.pm:10078 tp/Texinfo/Convert/HTML.pm:10671
-#: tp/Texinfo/Convert/HTML.pm:10774 tp/Texinfo/Convert/HTML.pm:10888
+#: tp/Texinfo/Convert/HTML.pm:9976 tp/Texinfo/Convert/HTML.pm:10042
+#: tp/Texinfo/Convert/HTML.pm:10079 tp/Texinfo/Convert/HTML.pm:10672
+#: tp/Texinfo/Convert/HTML.pm:10775 tp/Texinfo/Convert/HTML.pm:10889
 #: tp/Texinfo/Convert/IXIN.pm:346 tp/Texinfo/Convert/Info.pm:320
 #: tp/Texinfo/Convert/LaTeX.pm:1050 tp/Texinfo/Convert/Text.pm:834
 #: tp/Texinfo/Convert/TexinfoMarkup.pm:310
@@ -2382,8 +2382,8 @@ msgstr "%s: 无法打开 --css-file: %s"
 
 #: tp/DebugTexinfo/DebugTree.pm:119 tp/Texinfo/Convert/Converter.pm:424
 #: tp/Texinfo/Convert/Converter.pm:465 tp/Texinfo/Convert/DocBook.pm:515
-#: tp/Texinfo/Convert/HTML.pm:9970 tp/Texinfo/Convert/HTML.pm:10711
-#: tp/Texinfo/Convert/HTML.pm:10793 tp/Texinfo/Convert/IXIN.pm:992
+#: tp/Texinfo/Convert/HTML.pm:9971 tp/Texinfo/Convert/HTML.pm:10712
+#: tp/Texinfo/Convert/HTML.pm:10794 tp/Texinfo/Convert/IXIN.pm:992
 #: tp/Texinfo/Convert/Info.pm:174 tp/Texinfo/Convert/Info.pm:201
 #: tp/Texinfo/Convert/Info.pm:230 tp/Texinfo/Convert/Info.pm:294
 #: tp/Texinfo/Convert/LaTeX.pm:1119 tp/Texinfo/Convert/TexinfoMarkup.pm:338
@@ -2510,136 +2510,136 @@ msgstr "@image 文件“%s”(对 HTML)不可读：%s"
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7226
+#: tp/Texinfo/Convert/HTML.pm:7227
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open html refs config file %s: %s"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:7254
+#: tp/Texinfo/Convert/HTML.pm:7255
 #, fuzzy
 #| msgid "missing action name"
 msgid "missing type"
 msgstr "遗漏动作名称"
 
-#: tp/Texinfo/Convert/HTML.pm:7258
+#: tp/Texinfo/Convert/HTML.pm:7259
 #, fuzzy, perl-format
 #| msgid "%s: unrecognized option `--%s'\n"
 msgid "unrecognized type: %s"
 msgstr "%s：不能识别的选项“--%s”\n"
 
-#: tp/Texinfo/Convert/HTML.pm:7278
+#: tp/Texinfo/Convert/HTML.pm:7279
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing html refs config file %s: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/Texinfo/Convert/HTML.pm:7302
+#: tp/Texinfo/Convert/HTML.pm:7303
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not find html refs config file %s"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:7785
+#: tp/Texinfo/Convert/HTML.pm:7786
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:7800
+#: tp/Texinfo/Convert/HTML.pm:7801
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "未知的动作“%s”"
 
-#: tp/Texinfo/Convert/HTML.pm:8078
+#: tp/Texinfo/Convert/HTML.pm:8079
 msgid "string not closed in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8080
+#: tp/Texinfo/Convert/HTML.pm:8081
 #, fuzzy
 #| msgid "%s:%d: --css-file ended in comment"
 msgid "--css-include ended in comment"
 msgstr "%s:%d: --css-file 以注释结尾"
 
-#: tp/Texinfo/Convert/HTML.pm:8082
+#: tp/Texinfo/Convert/HTML.pm:8083
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8113
+#: tp/Texinfo/Convert/HTML.pm:8114
 #, perl-format
 msgid "CSS file %s not found"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:8123
+#: tp/Texinfo/Convert/HTML.pm:8124
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not open --include-file %s: %s"
 msgstr "%s: 无法打开 --css-file: %s"
 
-#: tp/Texinfo/Convert/HTML.pm:8139
+#: tp/Texinfo/Convert/HTML.pm:8140
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing CSS file %s: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/Texinfo/Convert/HTML.pm:8323
+#: tp/Texinfo/Convert/HTML.pm:8324
 #, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:9088 tp/Texinfo/Convert/HTML.pm:9095
+#: tp/Texinfo/Convert/HTML.pm:9089 tp/Texinfo/Convert/HTML.pm:9096
 #, fuzzy, perl-format
 #| msgid "no index entries found for `%s'\n"
 msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "找不到含有“%s”的索引\n"
 
-#: tp/Texinfo/Convert/HTML.pm:9520
+#: tp/Texinfo/Convert/HTML.pm:9521
 #, fuzzy, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "在“@%2$s”块中“@%1$s”是没有意义的"
 
-#: tp/Texinfo/Convert/HTML.pm:9952
+#: tp/Texinfo/Convert/HTML.pm:9953
 #, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10035
+#: tp/Texinfo/Convert/HTML.pm:10036
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing frame file %s: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/Texinfo/Convert/HTML.pm:10072
+#: tp/Texinfo/Convert/HTML.pm:10073
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing TOC frame file %s: %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/Texinfo/Convert/HTML.pm:10272
+#: tp/Texinfo/Convert/HTML.pm:10273
 #, perl-format
 msgid "handler %s of stage %s priority %s failed"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10564
+#: tp/Texinfo/Convert/HTML.pm:10565
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tp/Texinfo/Convert/HTML.pm:10807
+#: tp/Texinfo/Convert/HTML.pm:10808
 #, fuzzy, perl-format
 #| msgid "File exists, but is not a directory"
 msgid "%s already exists but is not a directory"
 msgstr "文件存在，但不是目录"
 
-#: tp/Texinfo/Convert/HTML.pm:10826
+#: tp/Texinfo/Convert/HTML.pm:10827
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on copying %s into %s"
 msgstr "关闭输出文件“%s”时出错"
 
-#: tp/Texinfo/Convert/HTML.pm:10896
+#: tp/Texinfo/Convert/HTML.pm:10897
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing redirection node file %s: %s"

@@ -9786,13 +9786,13 @@ EOT
 <table border="1">
   <tr>
 EOT
-   # TRANSLATORS: direction column header in the navigation help about
+   # TRANSLATORS: direction column header in the navigation help
   $about .= '    <th> ' . $self->convert_tree($self->gdt('Button')) . " </th>\n" .
-   # TRANSLATORS: button label column header in the navigation help about
+   # TRANSLATORS: button label column header in the navigation help
    '    <th> ' . $self->convert_tree($self->gdt('Name')) . " </th>\n" .
-   # TRANSLATORS: direction description column header in the navigation help about
+   # TRANSLATORS: direction description column header in the navigation help
    '    <th> ' . $self->convert_tree($self->gdt('Go to')) . " </th>\n" .
-   # TRANSLATORS: section reached column header in the navigation help about
+   # TRANSLATORS: section reached column header in the navigation help
    '    <th> ' . $self->convert_tree($self->gdt('From 1.2.3 go to')) . "</th>\n"
  . "  </tr>\n";
 
@@ -9838,7 +9838,7 @@ EOT
 <ul>
 EOT
   my $non_breaking_space = $self->get_info('non_breaking_space');
-  # TRANSLATORS: example name of section for section 1.
+  # TRANSLATORS: example name of section for section 1
   $about .= '  <li> 1. ' . $self->convert_tree($self->gdt('Section One')) . "\n" .
 "    <ul>\n" .
        # TRANSLATORS: example name of section for section 1.1

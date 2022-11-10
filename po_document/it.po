@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 6.8.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2022-11-09 21:39+0100\n"
+"POT-Creation-Date: 2022-11-10 21:59+0100\n"
 "PO-Revision-Date: 2022-10-30 21:50+0100\n"
 "Last-Translator: Federico Bruni <fede@inventati.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -43,7 +43,7 @@ msgctxt "category of variables for @defvar"
 msgid "Variable"
 msgstr "Variabile"
 
-#. TRANSLATORS: category of users modifiable options for @defopt
+#. TRANSLATORS: category of users-modifiable options for @defopt
 #: tp/Texinfo/Common.pm:613
 msgid "User Option"
 msgstr "Opzione utente"
@@ -100,15 +100,15 @@ msgid " --- The Detailed Node Listing ---"
 msgstr " --- Elenco dettagliato dei nodi ---"
 
 #. TRANSLATORS: association of a method or operation name with a class
-#. in object-oriented programming methods or operations descriptions.
+#. in descriptions of object-oriented programming methods or operations.
 #: tp/Texinfo/Translations.pm:374
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} in {class}"
 
 #. TRANSLATORS: association of a variable or instance variable with
-#. a class in object-oriented programming variables or instance variable
-#. descriptions.
+#. a class in descriptions of object-oriented programming variables or
+#. instance variable.
 #: tp/Texinfo/Translations.pm:378
 #, perl-brace-format
 msgid "{name} of {class}"
@@ -312,7 +312,7 @@ msgid "{abbr_or_acronym} ({explanation})"
 msgstr "{abbr_or_acronym} ({explanation})"
 
 #: tp/Texinfo/Convert/DocBook.pm:1537 tp/Texinfo/Convert/LaTeX.pm:3250
-#: tp/Texinfo/Convert/Plaintext.pm:2553 tp/Texinfo/Convert/HTML.pm:5886
+#: tp/Texinfo/Convert/Plaintext.pm:2553 tp/Texinfo/Convert/HTML.pm:5887
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
@@ -1043,46 +1043,46 @@ msgid "@emph{See also} {see_also_entry}"
 msgstr ""
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
-#: tp/Texinfo/Convert/HTML.pm:5744 tp/Texinfo/Convert/HTML.pm:5772
+#: tp/Texinfo/Convert/HTML.pm:5745 tp/Texinfo/Convert/HTML.pm:5773
 msgid "Jump to"
 msgstr "Salta a"
 
 #. TRANSLATORS: index entries column header in index formatting
-#: tp/Texinfo/Convert/HTML.pm:5756
+#: tp/Texinfo/Convert/HTML.pm:5757
 msgid "Index Entry"
 msgstr "Voce dell'indice"
 
 #. TRANSLATORS: section of index entry column header in index formatting 
-#: tp/Texinfo/Convert/HTML.pm:5760
+#: tp/Texinfo/Convert/HTML.pm:5761
 msgid "Section"
 msgstr "Sezione"
 
-#: tp/Texinfo/Convert/HTML.pm:6592
+#: tp/Texinfo/Convert/HTML.pm:6593
 #, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
 msgstr "{category} su @code{{class}}:@* "
 
-#: tp/Texinfo/Convert/HTML.pm:6596
+#: tp/Texinfo/Convert/HTML.pm:6597
 #, perl-brace-format
 msgid "{category} on @code{{class}}: "
 msgstr "{category} su @code{{class}}: "
 
-#: tp/Texinfo/Convert/HTML.pm:6600
+#: tp/Texinfo/Convert/HTML.pm:6601
 #, perl-brace-format
 msgid "{category} of @code{{class}}: "
 msgstr "{category} di @code{{class}}: "
 
-#: tp/Texinfo/Convert/HTML.pm:6613
+#: tp/Texinfo/Convert/HTML.pm:6614
 #, perl-brace-format
 msgid "{category}:@* "
 msgstr "{category}:@* "
 
-#: tp/Texinfo/Convert/HTML.pm:6615
+#: tp/Texinfo/Convert/HTML.pm:6616
 #, perl-brace-format
 msgid "{category}: "
 msgstr "{category}: "
 
-#: tp/Texinfo/Convert/HTML.pm:9363
+#: tp/Texinfo/Convert/HTML.pm:9364
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
@@ -1091,51 +1091,51 @@ msgstr ""
 "Questo documento è stato generato il @emph{@today{}} con "
 "@uref{{program_homepage}, @emph{{program}}}."
 
-#: tp/Texinfo/Convert/HTML.pm:9368
+#: tp/Texinfo/Convert/HTML.pm:9369
 msgid "This document was generated on @emph{@today{}}."
 msgstr "Questo documento è stato generato il @emph{@today{}}."
 
-#: tp/Texinfo/Convert/HTML.pm:9407
+#: tp/Texinfo/Convert/HTML.pm:9408
 msgid "JavaScript license information"
 msgstr "Informazioni sulla licenza JavaScript"
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tp/Texinfo/Convert/HTML.pm:9455
+#: tp/Texinfo/Convert/HTML.pm:9456
 #, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr "{element_text} ({title})"
 
-#: tp/Texinfo/Convert/HTML.pm:9668
+#: tp/Texinfo/Convert/HTML.pm:9669
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr "Il nodo cercato è {href}."
 
-#: tp/Texinfo/Convert/HTML.pm:9781
+#: tp/Texinfo/Convert/HTML.pm:9782
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr ""
 "  I pulsanti nei pannelli di navigazione hanno il seguente significato:"
 
-#. TRANSLATORS: direction column header in the navigation help about
-#: tp/Texinfo/Convert/HTML.pm:9789
+#. TRANSLATORS: direction column header in the navigation help
+#: tp/Texinfo/Convert/HTML.pm:9790
 msgid "Button"
 msgstr "Pulsante"
 
-#. TRANSLATORS: button label column header in the navigation help about
-#: tp/Texinfo/Convert/HTML.pm:9791
+#. TRANSLATORS: button label column header in the navigation help
+#: tp/Texinfo/Convert/HTML.pm:9792
 msgid "Name"
 msgstr "Nome"
 
-#. TRANSLATORS: direction description column header in the navigation help about
-#: tp/Texinfo/Convert/HTML.pm:9793
+#. TRANSLATORS: direction description column header in the navigation help
+#: tp/Texinfo/Convert/HTML.pm:9794
 msgid "Go to"
 msgstr "Vai a"
 
-#. TRANSLATORS: section reached column header in the navigation help about
-#: tp/Texinfo/Convert/HTML.pm:9795
+#. TRANSLATORS: section reached column header in the navigation help
+#: tp/Texinfo/Convert/HTML.pm:9796
 msgid "From 1.2.3 go to"
 msgstr "Da 1.2.3 vai a"
 
-#: tp/Texinfo/Convert/HTML.pm:9829
+#: tp/Texinfo/Convert/HTML.pm:9830
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1145,56 +1145,56 @@ msgstr ""
 "@strong{ Sottosottosezione Uno-Due-Tre } di un documento che ha la seguente "
 "struttura:"
 
-#. TRANSLATORS: example name of section for section 1.
-#: tp/Texinfo/Convert/HTML.pm:9841
+#. TRANSLATORS: example name of section for section 1
+#: tp/Texinfo/Convert/HTML.pm:9842
 msgid "Section One"
 msgstr "Sezione uno"
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tp/Texinfo/Convert/HTML.pm:9844
+#: tp/Texinfo/Convert/HTML.pm:9845
 msgid "Subsection One-One"
 msgstr "Sottosezione Uno-Uno"
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tp/Texinfo/Convert/HTML.pm:9852
+#: tp/Texinfo/Convert/HTML.pm:9853
 msgid "Subsection One-Two"
 msgstr "Sottosezione Uno-Due"
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tp/Texinfo/Convert/HTML.pm:9855
+#: tp/Texinfo/Convert/HTML.pm:9856
 msgid "Subsubsection One-Two-One"
 msgstr "Sottosottosezione Uno-Due-Uno"
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tp/Texinfo/Convert/HTML.pm:9857
+#: tp/Texinfo/Convert/HTML.pm:9858
 msgid "Subsubsection One-Two-Two"
 msgstr "Sottosottosezione Uno-Due-Due"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:9859
+#: tp/Texinfo/Convert/HTML.pm:9860
 msgid "Subsubsection One-Two-Three"
 msgstr "Sottosottosezione Uno-Due-Tre"
 
-#: tp/Texinfo/Convert/HTML.pm:9862
+#: tp/Texinfo/Convert/HTML.pm:9863
 msgid "Current Position"
 msgstr "Posizione Attuale"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:9864
+#: tp/Texinfo/Convert/HTML.pm:9865
 msgid "Subsubsection One-Two-Four"
 msgstr "Sottosottosezione Uno-Due-Quattro"
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tp/Texinfo/Convert/HTML.pm:9868
+#: tp/Texinfo/Convert/HTML.pm:9869
 msgid "Subsection One-Three"
 msgstr "Sottosezione Uno-Tre"
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tp/Texinfo/Convert/HTML.pm:9876
+#: tp/Texinfo/Convert/HTML.pm:9877
 msgid "Subsection One-Four"
 msgstr "Sottosezione Uno-Quattro"
 
-#: tp/Texinfo/Convert/HTML.pm:10558
+#: tp/Texinfo/Convert/HTML.pm:10559
 msgid "Untitled Document"
 msgstr "Documento senza titolo"
 
@@ -1204,15 +1204,15 @@ msgid "{month} {day}, {year}"
 msgstr "{day} {month} {year}"
 
 #. TRANSLATORS: association of a method or operation name with a class
-#. in object-oriented programming methods or operations descriptions.
+#. in descriptions of object-oriented programming methods or operations.
 #: tp/Texinfo/Convert/Utils.pm:142
 #, perl-brace-format
 msgid "{category} on @code{{class}}"
 msgstr "{category} su @code{{class}}"
 
 #. TRANSLATORS: association of a variable or instance variable with
-#. a class in object-oriented programming variables or instance variable
-#. descriptions.
+#. a class in descriptions of object-oriented programming variables
+#. or instance variable.
 #: tp/Texinfo/Convert/Utils.pm:155
 #, perl-brace-format
 msgid "{category} of @code{{class}}"

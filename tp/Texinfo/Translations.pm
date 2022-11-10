@@ -370,11 +370,11 @@ if (0) {
   # gdt($self, '....')
   # and not like gdt('....')
   # TRANSLATORS: association of a method or operation name with a class
-  # in object-oriented programming methods or operations descriptions.
+  # in descriptions of object-oriented programming methods or operations.
   gdt('{name} on {class}', undef, undef);
   # TRANSLATORS: association of a variable or instance variable with
-  # a class in object-oriented programming variables or instance variable
-  # descriptions.
+  # a class in descriptions of object-oriented programming variables or
+  # instance variable.
   gdt('{name} of {class}', undef, undef);
 }
 
