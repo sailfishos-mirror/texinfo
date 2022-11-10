@@ -2911,10 +2911,12 @@ $@{$foot_num_reference@}++;
 
 Translated strings can be specified in customization functions, for
 @@-commands without arguments (@pxref{Simple Customization for Commands
-Without Arguments}), and for direction strings (@pxref{Direction Strings
-Customization}).  Translated strings can also be inserted in the output
-in user-defined customization functions, by using specific functions
-for internationalization of strings, @code{gdt} or @code{pgdt}.
+Without Arguments}), for direction strings (@pxref{Direction Strings
+Customization}) and for specific elements headings such as footnotes,
+contents or about (@pxref{Special Elements Information Customization}).
+Translated strings can also be inserted in the output in user-defined
+customization functions, by using specific functions for internationalization
+of strings, @code{gdt} or @code{pgdt}.
 
 It is possible to customize the translated strings, in order to
 change the translations of the strings translated in the default case.
