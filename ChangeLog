@@ -1,5 +1,10 @@
 2022-11-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/coverage_macro.texi: add UTF-8 encoded characters near to
+	accented characters obtained with @-commands.
+
+2022-11-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%preamble_commands): fix typo on direntry
 	command name.
 

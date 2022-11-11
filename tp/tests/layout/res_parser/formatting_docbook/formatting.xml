@@ -44,21 +44,21 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 <indexterm role="fn"><primary>``</primary></indexterm>
 <indexterm role="fn"><primary>--foption</primary></indexterm>
 
-<para>@&quot;u &#252; 
-@&quot;{U} &#220; 
-@~n &#241;
-@^a &#226;
-@&#8217;e &#233;
-@=o &#333;
-@&#8216;i &#236;
-@&#8217;{e} &#233;
-@&#8217;{@dotless{i}} &#237; 
-@dotless{i} &#305;
-@dotless{j} &#567;
-@&#8216;{@=E} &#274;&#768; 
+<para>@&quot;u &#252; (ü)
+@&quot;{U} &#220; (Ü) 
+@~n &#241; (ñ)
+@^a &#226; (â)
+@&#8217;e &#233; (é)
+@=o &#333; (ō)
+@&#8216;i &#236; (ì)
+@&#8217;{e} &#233; (é)
+@&#8217;{@dotless{i}} &#237; (í)
+@dotless{i} &#305; (ı)
+@dotless{j} &#567; (ȷ)
+@&#8216;{@=E} &#274;&#768;
 @l{} &#322;
 @,{@&#8217;C} &#262;&#807;
-@,c &#231;
+@,c &#231; (ç)
 @,c@&quot;u &#231;&#252; 
 
 </para>
@@ -200,23 +200,23 @@ but , ,
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
 <literal>@H{a}</literal> a&#779;
 <literal>@H{--a}</literal> &#8211;a&#779;
-<literal>@dotaccent{a}</literal> &#551;
+<literal>@dotaccent{a}</literal> &#551; (ȧ)
 <literal>@dotaccent{--a}</literal> &#8211;a&#775;
-<literal>@ringaccent{a}</literal> &#229;
+<literal>@ringaccent{a}</literal> &#229; (å)
 <literal>@ringaccent{--a}</literal> &#8211;a&#778;
 <literal>@tieaccent{a}</literal> a&#865;
 <literal>@tieaccent{--a}</literal> &#8211;a&#865;
-<literal>@u{a}</literal> &#259;
+<literal>@u{a}</literal> &#259; (ă)
 <literal>@u{--a}</literal> &#8211;a&#774;
 <literal>@ubaraccent{a}</literal> a&#818;
 <literal>@ubaraccent{--a}</literal> &#8211;a&#818;
-<literal>@udotaccent{a}</literal> &#7841;
+<literal>@udotaccent{a}</literal> &#7841; (ạ)
 <literal>@udotaccent{--a}</literal> &#8211;a&#803;
-<literal>@v{a}</literal> &#462;
+<literal>@v{a}</literal> &#462; (ǎ)
 <literal>@v{--a}</literal> &#8211;a&#780;
-<literal>@,{c}</literal> &#231;
+<literal>@,{c}</literal> &#231; (ç)
 <literal>@,{--c}</literal> &#8211;c&#807;
-<literal>@ogonek{a}</literal> &#261;
+<literal>@ogonek{a}</literal> &#261; (ą)
 <literal>@ogonek{--a}</literal> &#8211;a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
@@ -968,21 +968,21 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 <indexterm role="fn"><primary>``</primary></indexterm>
 <indexterm role="fn"><primary>--foption</primary></indexterm>
 
-<para>@&quot;u &#252; 
-@&quot;{U} &#220; 
-@~n &#241;
-@^a &#226;
-@&#8217;e &#233;
-@=o &#333;
-@&#8216;i &#236;
-@&#8217;{e} &#233;
-@&#8217;{@dotless{i}} &#237; 
-@dotless{i} &#305;
-@dotless{j} &#567;
-@&#8216;{@=E} &#274;&#768; 
+<para>@&quot;u &#252; (ü)
+@&quot;{U} &#220; (Ü) 
+@~n &#241; (ñ)
+@^a &#226; (â)
+@&#8217;e &#233; (é)
+@=o &#333; (ō)
+@&#8216;i &#236; (ì)
+@&#8217;{e} &#233; (é)
+@&#8217;{@dotless{i}} &#237; (í)
+@dotless{i} &#305; (ı)
+@dotless{j} &#567; (ȷ)
+@&#8216;{@=E} &#274;&#768;
 @l{} &#322;
 @,{@&#8217;C} &#262;&#807;
-@,c &#231;
+@,c &#231; (ç)
 @,c@&quot;u &#231;&#252; 
 
 </para>
@@ -1124,23 +1124,23 @@ but , ,
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
 <literal>@H{a}</literal> a&#779;
 <literal>@H{--a}</literal> &#8211;a&#779;
-<literal>@dotaccent{a}</literal> &#551;
+<literal>@dotaccent{a}</literal> &#551; (ȧ)
 <literal>@dotaccent{--a}</literal> &#8211;a&#775;
-<literal>@ringaccent{a}</literal> &#229;
+<literal>@ringaccent{a}</literal> &#229; (å)
 <literal>@ringaccent{--a}</literal> &#8211;a&#778;
 <literal>@tieaccent{a}</literal> a&#865;
 <literal>@tieaccent{--a}</literal> &#8211;a&#865;
-<literal>@u{a}</literal> &#259;
+<literal>@u{a}</literal> &#259; (ă)
 <literal>@u{--a}</literal> &#8211;a&#774;
 <literal>@ubaraccent{a}</literal> a&#818;
 <literal>@ubaraccent{--a}</literal> &#8211;a&#818;
-<literal>@udotaccent{a}</literal> &#7841;
+<literal>@udotaccent{a}</literal> &#7841; (ạ)
 <literal>@udotaccent{--a}</literal> &#8211;a&#803;
-<literal>@v{a}</literal> &#462;
+<literal>@v{a}</literal> &#462; (ǎ)
 <literal>@v{--a}</literal> &#8211;a&#780;
-<literal>@,{c}</literal> &#231;
+<literal>@,{c}</literal> &#231; (ç)
 <literal>@,{--c}</literal> &#8211;c&#807;
-<literal>@ogonek{a}</literal> &#261;
+<literal>@ogonek{a}</literal> &#261; (ą)
 <literal>@ogonek{--a}</literal> &#8211;a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
@@ -1879,21 +1879,21 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 <indexterm role="fn"><primary>``</primary></indexterm>
 <indexterm role="fn"><primary>--foption</primary></indexterm>
 
-<para>@&quot;u &#252; 
-@&quot;{U} &#220; 
-@~n &#241;
-@^a &#226;
-@&#8217;e &#233;
-@=o &#333;
-@&#8216;i &#236;
-@&#8217;{e} &#233;
-@&#8217;{@dotless{i}} &#237; 
-@dotless{i} &#305;
-@dotless{j} &#567;
-@&#8216;{@=E} &#274;&#768; 
+<para>@&quot;u &#252; (ü)
+@&quot;{U} &#220; (Ü) 
+@~n &#241; (ñ)
+@^a &#226; (â)
+@&#8217;e &#233; (é)
+@=o &#333; (ō)
+@&#8216;i &#236; (ì)
+@&#8217;{e} &#233; (é)
+@&#8217;{@dotless{i}} &#237; (í)
+@dotless{i} &#305; (ı)
+@dotless{j} &#567; (ȷ)
+@&#8216;{@=E} &#274;&#768;
 @l{} &#322;
 @,{@&#8217;C} &#262;&#807;
-@,c &#231;
+@,c &#231; (ç)
 @,c@&quot;u &#231;&#252; 
 
 </para>
@@ -2035,23 +2035,23 @@ but , ,
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
 <literal>@H{a}</literal> a&#779;
 <literal>@H{--a}</literal> &#8211;a&#779;
-<literal>@dotaccent{a}</literal> &#551;
+<literal>@dotaccent{a}</literal> &#551; (ȧ)
 <literal>@dotaccent{--a}</literal> &#8211;a&#775;
-<literal>@ringaccent{a}</literal> &#229;
+<literal>@ringaccent{a}</literal> &#229; (å)
 <literal>@ringaccent{--a}</literal> &#8211;a&#778;
 <literal>@tieaccent{a}</literal> a&#865;
 <literal>@tieaccent{--a}</literal> &#8211;a&#865;
-<literal>@u{a}</literal> &#259;
+<literal>@u{a}</literal> &#259; (ă)
 <literal>@u{--a}</literal> &#8211;a&#774;
 <literal>@ubaraccent{a}</literal> a&#818;
 <literal>@ubaraccent{--a}</literal> &#8211;a&#818;
-<literal>@udotaccent{a}</literal> &#7841;
+<literal>@udotaccent{a}</literal> &#7841; (ạ)
 <literal>@udotaccent{--a}</literal> &#8211;a&#803;
-<literal>@v{a}</literal> &#462;
+<literal>@v{a}</literal> &#462; (ǎ)
 <literal>@v{--a}</literal> &#8211;a&#780;
-<literal>@,{c}</literal> &#231;
+<literal>@,{c}</literal> &#231; (ç)
 <literal>@,{--c}</literal> &#8211;c&#807;
-<literal>@ogonek{a}</literal> &#261;
+<literal>@ogonek{a}</literal> &#261; (ą)
 <literal>@ogonek{--a}</literal> &#8211;a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
@@ -2786,21 +2786,21 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 
 
 <indexterm role="cp"><primary>&#8211;option</primary></indexterm><indexterm role="cp"><primary>&#8220;</primary></indexterm><indexterm role="fn"><primary>``</primary></indexterm><indexterm role="fn"><primary>--foption</primary></indexterm>
-@&quot;u &#252; 
-@&quot;{U} &#220; 
-@~n &#241;
-@^a &#226;
-@'e &#233;
-@=o &#333;
-@`i &#236;
-@'{e} &#233;
-@'{@dotless{i}} &#237; 
-@dotless{i} &#305;
-@dotless{j} &#567;
-@`{@=E} &#274;&#768; 
+@&quot;u &#252; (ü)
+@&quot;{U} &#220; (Ü) 
+@~n &#241; (ñ)
+@^a &#226; (â)
+@'e &#233; (é)
+@=o &#333; (ō)
+@`i &#236; (ì)
+@'{e} &#233; (é)
+@'{@dotless{i}} &#237; (í)
+@dotless{i} &#305; (ı)
+@dotless{j} &#567; (ȷ)
+@`{@=E} &#274;&#768;
 @l{} &#322;
 @,{@'C} &#262;&#807;
-@,c &#231;
+@,c &#231; (ç)
 @,c@&quot;u &#231;&#252; 
 
 
@@ -2942,23 +2942,23 @@ but , ,
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
 <literal>@H{a}</literal> a&#779;
 <literal>@H{--a}</literal> --a&#779;
-<literal>@dotaccent{a}</literal> &#551;
+<literal>@dotaccent{a}</literal> &#551; (ȧ)
 <literal>@dotaccent{--a}</literal> --a&#775;
-<literal>@ringaccent{a}</literal> &#229;
+<literal>@ringaccent{a}</literal> &#229; (å)
 <literal>@ringaccent{--a}</literal> --a&#778;
 <literal>@tieaccent{a}</literal> a&#865;
 <literal>@tieaccent{--a}</literal> --a&#865;
-<literal>@u{a}</literal> &#259;
+<literal>@u{a}</literal> &#259; (ă)
 <literal>@u{--a}</literal> --a&#774;
 <literal>@ubaraccent{a}</literal> a&#818;
 <literal>@ubaraccent{--a}</literal> --a&#818;
-<literal>@udotaccent{a}</literal> &#7841;
+<literal>@udotaccent{a}</literal> &#7841; (ạ)
 <literal>@udotaccent{--a}</literal> --a&#803;
-<literal>@v{a}</literal> &#462;
+<literal>@v{a}</literal> &#462; (ǎ)
 <literal>@v{--a}</literal> --a&#780;
-<literal>@,{c}</literal> &#231;
+<literal>@,{c}</literal> &#231; (ç)
 <literal>@,{--c}</literal> --c&#807;
-<literal>@ogonek{a}</literal> &#261;
+<literal>@ogonek{a}</literal> &#261; (ą)
 <literal>@ogonek{--a}</literal> --a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>

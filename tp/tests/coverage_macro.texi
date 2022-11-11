@@ -20,21 +20,21 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @findex ``
 @findex --foption
 
-@@"u @"u 
-@@"@{U@} @"{U} 
-@@~n @~n
-@@^a @^a
-@@'e @'e
-@@=o @=o
-@@`i @`i
-@@'@{e@} @'{e}
-@@'@{@@dotless@{i@}@} @'{@dotless{i}} 
-@@dotless@{i@} @dotless{i}
-@@dotless@{j@} @dotless{j}
-@@`@{@@=E@} @`{@=E} 
+@@"u @"u (ü)
+@@"@{U@} @"{U} (Ü) 
+@@~n @~n (ñ)
+@@^a @^a (â)
+@@'e @'e (é)
+@@=o @=o (ō)
+@@`i @`i (ì)
+@@'@{e@} @'{e} (é)
+@@'@{@@dotless@{i@}@} @'{@dotless{i}} (í)
+@@dotless@{i@} @dotless{i} (ı)
+@@dotless@{j@} @dotless{j} (ȷ)
+@@`@{@@=E@} @`{@=E}
 @@l@{@} @l{}
 @@,@{@@'C@} @,{@'C}
-@@,c @,c
+@@,c @,c (ç)
 @@,c@@"u @,c@"u @*
 
 @@U@{0075@} @U{0075}
@@ -175,23 +175,23 @@ but , ,@:
 @code{@@w@{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a@}} @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
 @code{@@H@{a@}} @H{a}
 @code{@@H@{--a@}} @H{--a}
-@code{@@dotaccent@{a@}} @dotaccent{a}
+@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
 @code{@@dotaccent@{--a@}} @dotaccent{--a}
-@code{@@ringaccent@{a@}} @ringaccent{a}
+@code{@@ringaccent@{a@}} @ringaccent{a} (å)
 @code{@@ringaccent@{--a@}} @ringaccent{--a}
 @code{@@tieaccent@{a@}} @tieaccent{a}
 @code{@@tieaccent@{--a@}} @tieaccent{--a}
-@code{@@u@{a@}} @u{a}
+@code{@@u@{a@}} @u{a} (ă)
 @code{@@u@{--a@}} @u{--a}
 @code{@@ubaraccent@{a@}} @ubaraccent{a}
 @code{@@ubaraccent@{--a@}} @ubaraccent{--a}
-@code{@@udotaccent@{a@}} @udotaccent{a}
+@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
 @code{@@udotaccent@{--a@}} @udotaccent{--a}
-@code{@@v@{a@}} @v{a}
+@code{@@v@{a@}} @v{a} (ǎ)
 @code{@@v@{--a@}} @v{--a}
-@code{@@,@{c@}} @,{c}
+@code{@@,@{c@}} @,{c} (ç)
 @code{@@,@{--c@}} @,{--c}
-@code{@@ogonek@{a@}} @ogonek{a}
+@code{@@ogonek@{a@}} @ogonek{a} (ą)
 @code{@@ogonek@{--a@}} @ogonek{--a}
 @code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
