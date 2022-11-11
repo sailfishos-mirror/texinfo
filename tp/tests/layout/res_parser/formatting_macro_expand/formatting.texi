@@ -48,11 +48,33 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@'@{@@dotless@{i@}@} @'{@dotless{i}} (í)
 @@dotless@{i@} @dotless{i} (ı)
 @@dotless@{j@} @dotless{j} (ȷ)
+@code{@@H@{a@}} @H{a}
+@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
+@code{@@ringaccent@{a@}} @ringaccent{a} (å)
+@code{@@tieaccent@{a@}} @tieaccent{a}
+@code{@@u@{a@}} @u{a} (ă)
+@code{@@ubaraccent@{a@}} @ubaraccent{a}
+@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
+@code{@@v@{a@}} @v{a} (ǎ)
+@@,c @,c (ç)
+@code{@@,@{c@}} @,{c} (ç)
+@code{@@ogonek@{a@}} @ogonek{a} (ą)
+
 @@`@{@@=E@} @`{@=E}
 @@l@{@} @l{}
 @@,@{@@'C@} @,{@'C}
-@@,c @,c (ç)
 @@,c@@"u @,c@"u @*
+
+@code{@@H@{--a@}} @H{--a}
+@code{@@dotaccent@{--a@}} @dotaccent{--a}
+@code{@@ringaccent@{--a@}} @ringaccent{--a}
+@code{@@tieaccent@{--a@}} @tieaccent{--a}
+@code{@@u@{--a@}} @u{--a}
+@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
+@code{@@udotaccent@{--a@}} @udotaccent{--a}
+@code{@@v@{--a@}} @v{--a}
+@code{@@,@{--c@}} @,{--c}
+@code{@@ogonek@{--a@}} @ogonek{--a}
 
 @@U@{0075@} @U{0075}
 
@@ -190,26 +212,6 @@ but , ,@:
 @code{@@verb@{:--a:@}} @verb{:--a:}
 @code{@@verb@{:a  < & @@ % " --    b:@}} @verb{:a  < & @ % " --    b:}
 @code{@@w@{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a@}} @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
-@code{@@H@{a@}} @H{a}
-@code{@@H@{--a@}} @H{--a}
-@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
-@code{@@dotaccent@{--a@}} @dotaccent{--a}
-@code{@@ringaccent@{a@}} @ringaccent{a} (å)
-@code{@@ringaccent@{--a@}} @ringaccent{--a}
-@code{@@tieaccent@{a@}} @tieaccent{a}
-@code{@@tieaccent@{--a@}} @tieaccent{--a}
-@code{@@u@{a@}} @u{a} (ă)
-@code{@@u@{--a@}} @u{--a}
-@code{@@ubaraccent@{a@}} @ubaraccent{a}
-@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
-@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
-@code{@@udotaccent@{--a@}} @udotaccent{--a}
-@code{@@v@{a@}} @v{a} (ǎ)
-@code{@@v@{--a@}} @v{--a}
-@code{@@,@{c@}} @,{c} (ç)
-@code{@@,@{--c@}} @,{--c}
-@code{@@ogonek@{a@}} @ogonek{a} (ą)
-@code{@@ogonek@{--a@}} @ogonek{--a}
 @code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
@@ -1254,11 +1256,33 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@'@{@@dotless@{i@}@} @'{@dotless{i}} (í)
 @@dotless@{i@} @dotless{i} (ı)
 @@dotless@{j@} @dotless{j} (ȷ)
+@code{@@H@{a@}} @H{a}
+@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
+@code{@@ringaccent@{a@}} @ringaccent{a} (å)
+@code{@@tieaccent@{a@}} @tieaccent{a}
+@code{@@u@{a@}} @u{a} (ă)
+@code{@@ubaraccent@{a@}} @ubaraccent{a}
+@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
+@code{@@v@{a@}} @v{a} (ǎ)
+@@,c @,c (ç)
+@code{@@,@{c@}} @,{c} (ç)
+@code{@@ogonek@{a@}} @ogonek{a} (ą)
+
 @@`@{@@=E@} @`{@=E}
 @@l@{@} @l{}
 @@,@{@@'C@} @,{@'C}
-@@,c @,c (ç)
 @@,c@@"u @,c@"u @*
+
+@code{@@H@{--a@}} @H{--a}
+@code{@@dotaccent@{--a@}} @dotaccent{--a}
+@code{@@ringaccent@{--a@}} @ringaccent{--a}
+@code{@@tieaccent@{--a@}} @tieaccent{--a}
+@code{@@u@{--a@}} @u{--a}
+@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
+@code{@@udotaccent@{--a@}} @udotaccent{--a}
+@code{@@v@{--a@}} @v{--a}
+@code{@@,@{--c@}} @,{--c}
+@code{@@ogonek@{--a@}} @ogonek{--a}
 
 @@U@{0075@} @U{0075}
 
@@ -1396,26 +1420,6 @@ but , ,@:
 @code{@@verb@{:--a:@}} @verb{:--a:}
 @code{@@verb@{:a  < & @@ % " --    b:@}} @verb{:a  < & @ % " --    b:}
 @code{@@w@{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a@}} @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
-@code{@@H@{a@}} @H{a}
-@code{@@H@{--a@}} @H{--a}
-@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
-@code{@@dotaccent@{--a@}} @dotaccent{--a}
-@code{@@ringaccent@{a@}} @ringaccent{a} (å)
-@code{@@ringaccent@{--a@}} @ringaccent{--a}
-@code{@@tieaccent@{a@}} @tieaccent{a}
-@code{@@tieaccent@{--a@}} @tieaccent{--a}
-@code{@@u@{a@}} @u{a} (ă)
-@code{@@u@{--a@}} @u{--a}
-@code{@@ubaraccent@{a@}} @ubaraccent{a}
-@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
-@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
-@code{@@udotaccent@{--a@}} @udotaccent{--a}
-@code{@@v@{a@}} @v{a} (ǎ)
-@code{@@v@{--a@}} @v{--a}
-@code{@@,@{c@}} @,{c} (ç)
-@code{@@,@{--c@}} @,{--c}
-@code{@@ogonek@{a@}} @ogonek{a} (ą)
-@code{@@ogonek@{--a@}} @ogonek{--a}
 @code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
@@ -2411,11 +2415,33 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@'@{@@dotless@{i@}@} @'{@dotless{i}} (í)
 @@dotless@{i@} @dotless{i} (ı)
 @@dotless@{j@} @dotless{j} (ȷ)
+@code{@@H@{a@}} @H{a}
+@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
+@code{@@ringaccent@{a@}} @ringaccent{a} (å)
+@code{@@tieaccent@{a@}} @tieaccent{a}
+@code{@@u@{a@}} @u{a} (ă)
+@code{@@ubaraccent@{a@}} @ubaraccent{a}
+@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
+@code{@@v@{a@}} @v{a} (ǎ)
+@@,c @,c (ç)
+@code{@@,@{c@}} @,{c} (ç)
+@code{@@ogonek@{a@}} @ogonek{a} (ą)
+
 @@`@{@@=E@} @`{@=E}
 @@l@{@} @l{}
 @@,@{@@'C@} @,{@'C}
-@@,c @,c (ç)
 @@,c@@"u @,c@"u @*
+
+@code{@@H@{--a@}} @H{--a}
+@code{@@dotaccent@{--a@}} @dotaccent{--a}
+@code{@@ringaccent@{--a@}} @ringaccent{--a}
+@code{@@tieaccent@{--a@}} @tieaccent{--a}
+@code{@@u@{--a@}} @u{--a}
+@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
+@code{@@udotaccent@{--a@}} @udotaccent{--a}
+@code{@@v@{--a@}} @v{--a}
+@code{@@,@{--c@}} @,{--c}
+@code{@@ogonek@{--a@}} @ogonek{--a}
 
 @@U@{0075@} @U{0075}
 
@@ -2553,26 +2579,6 @@ but , ,@:
 @code{@@verb@{:--a:@}} @verb{:--a:}
 @code{@@verb@{:a  < & @@ % " --    b:@}} @verb{:a  < & @ % " --    b:}
 @code{@@w@{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a@}} @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
-@code{@@H@{a@}} @H{a}
-@code{@@H@{--a@}} @H{--a}
-@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
-@code{@@dotaccent@{--a@}} @dotaccent{--a}
-@code{@@ringaccent@{a@}} @ringaccent{a} (å)
-@code{@@ringaccent@{--a@}} @ringaccent{--a}
-@code{@@tieaccent@{a@}} @tieaccent{a}
-@code{@@tieaccent@{--a@}} @tieaccent{--a}
-@code{@@u@{a@}} @u{a} (ă)
-@code{@@u@{--a@}} @u{--a}
-@code{@@ubaraccent@{a@}} @ubaraccent{a}
-@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
-@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
-@code{@@udotaccent@{--a@}} @udotaccent{--a}
-@code{@@v@{a@}} @v{a} (ǎ)
-@code{@@v@{--a@}} @v{--a}
-@code{@@,@{c@}} @,{c} (ç)
-@code{@@,@{--c@}} @,{--c}
-@code{@@ogonek@{a@}} @ogonek{a} (ą)
-@code{@@ogonek@{--a@}} @ogonek{--a}
 @code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
@@ -3597,11 +3603,33 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@'@{@@dotless@{i@}@} @'{@dotless{i}} (í)
 @@dotless@{i@} @dotless{i} (ı)
 @@dotless@{j@} @dotless{j} (ȷ)
+@code{@@H@{a@}} @H{a}
+@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
+@code{@@ringaccent@{a@}} @ringaccent{a} (å)
+@code{@@tieaccent@{a@}} @tieaccent{a}
+@code{@@u@{a@}} @u{a} (ă)
+@code{@@ubaraccent@{a@}} @ubaraccent{a}
+@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
+@code{@@v@{a@}} @v{a} (ǎ)
+@@,c @,c (ç)
+@code{@@,@{c@}} @,{c} (ç)
+@code{@@ogonek@{a@}} @ogonek{a} (ą)
+
 @@`@{@@=E@} @`{@=E}
 @@l@{@} @l{}
 @@,@{@@'C@} @,{@'C}
-@@,c @,c (ç)
 @@,c@@"u @,c@"u @*
+
+@code{@@H@{--a@}} @H{--a}
+@code{@@dotaccent@{--a@}} @dotaccent{--a}
+@code{@@ringaccent@{--a@}} @ringaccent{--a}
+@code{@@tieaccent@{--a@}} @tieaccent{--a}
+@code{@@u@{--a@}} @u{--a}
+@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
+@code{@@udotaccent@{--a@}} @udotaccent{--a}
+@code{@@v@{--a@}} @v{--a}
+@code{@@,@{--c@}} @,{--c}
+@code{@@ogonek@{--a@}} @ogonek{--a}
 
 @@U@{0075@} @U{0075}
 
@@ -3739,26 +3767,6 @@ but , ,@:
 @code{@@verb@{:--a:@}} @verb{:--a:}
 @code{@@verb@{:a  < & @@ % " --    b:@}} @verb{:a  < & @ % " --    b:}
 @code{@@w@{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a@}} @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
-@code{@@H@{a@}} @H{a}
-@code{@@H@{--a@}} @H{--a}
-@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
-@code{@@dotaccent@{--a@}} @dotaccent{--a}
-@code{@@ringaccent@{a@}} @ringaccent{a} (å)
-@code{@@ringaccent@{--a@}} @ringaccent{--a}
-@code{@@tieaccent@{a@}} @tieaccent{a}
-@code{@@tieaccent@{--a@}} @tieaccent{--a}
-@code{@@u@{a@}} @u{a} (ă)
-@code{@@u@{--a@}} @u{--a}
-@code{@@ubaraccent@{a@}} @ubaraccent{a}
-@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
-@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
-@code{@@udotaccent@{--a@}} @udotaccent{--a}
-@code{@@v@{a@}} @v{a} (ǎ)
-@code{@@v@{--a@}} @v{--a}
-@code{@@,@{c@}} @,{c} (ç)
-@code{@@,@{--c@}} @,{--c}
-@code{@@ogonek@{a@}} @ogonek{a} (ą)
-@code{@@ogonek@{--a@}} @ogonek{--a}
 @code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
@@ -4749,11 +4757,33 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@'@{@@dotless@{i@}@} @'{@dotless{i}} (í)
 @@dotless@{i@} @dotless{i} (ı)
 @@dotless@{j@} @dotless{j} (ȷ)
+@code{@@H@{a@}} @H{a}
+@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
+@code{@@ringaccent@{a@}} @ringaccent{a} (å)
+@code{@@tieaccent@{a@}} @tieaccent{a}
+@code{@@u@{a@}} @u{a} (ă)
+@code{@@ubaraccent@{a@}} @ubaraccent{a}
+@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
+@code{@@v@{a@}} @v{a} (ǎ)
+@@,c @,c (ç)
+@code{@@,@{c@}} @,{c} (ç)
+@code{@@ogonek@{a@}} @ogonek{a} (ą)
+
 @@`@{@@=E@} @`{@=E}
 @@l@{@} @l{}
 @@,@{@@'C@} @,{@'C}
-@@,c @,c (ç)
 @@,c@@"u @,c@"u @*
+
+@code{@@H@{--a@}} @H{--a}
+@code{@@dotaccent@{--a@}} @dotaccent{--a}
+@code{@@ringaccent@{--a@}} @ringaccent{--a}
+@code{@@tieaccent@{--a@}} @tieaccent{--a}
+@code{@@u@{--a@}} @u{--a}
+@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
+@code{@@udotaccent@{--a@}} @udotaccent{--a}
+@code{@@v@{--a@}} @v{--a}
+@code{@@,@{--c@}} @,{--c}
+@code{@@ogonek@{--a@}} @ogonek{--a}
 
 @@U@{0075@} @U{0075}
 
@@ -4891,26 +4921,6 @@ but , ,@:
 @code{@@verb@{:--a:@}} @verb{:--a:}
 @code{@@verb@{:a  < & @@ % " --    b:@}} @verb{:a  < & @ % " --    b:}
 @code{@@w@{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a@}} @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
-@code{@@H@{a@}} @H{a}
-@code{@@H@{--a@}} @H{--a}
-@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
-@code{@@dotaccent@{--a@}} @dotaccent{--a}
-@code{@@ringaccent@{a@}} @ringaccent{a} (å)
-@code{@@ringaccent@{--a@}} @ringaccent{--a}
-@code{@@tieaccent@{a@}} @tieaccent{a}
-@code{@@tieaccent@{--a@}} @tieaccent{--a}
-@code{@@u@{a@}} @u{a} (ă)
-@code{@@u@{--a@}} @u{--a}
-@code{@@ubaraccent@{a@}} @ubaraccent{a}
-@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
-@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
-@code{@@udotaccent@{--a@}} @udotaccent{--a}
-@code{@@v@{a@}} @v{a} (ǎ)
-@code{@@v@{--a@}} @v{--a}
-@code{@@,@{c@}} @,{c} (ç)
-@code{@@,@{--c@}} @,{--c}
-@code{@@ogonek@{a@}} @ogonek{a} (ą)
-@code{@@ogonek@{--a@}} @ogonek{--a}
 @code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}

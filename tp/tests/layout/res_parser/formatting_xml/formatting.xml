@@ -51,11 +51,33 @@ kbd: @kbd{``simple-double--three---four----''} @*
 @@'@{@@dotless@{i@}@} @'{@dotless{i}} (í)
 @@dotless@{i@} @dotless{i} (ı)
 @@dotless@{j@} @dotless{j} (ȷ)
+@code{@@H@{a@}} @H{a}
+@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
+@code{@@ringaccent@{a@}} @ringaccent{a} (å)
+@code{@@tieaccent@{a@}} @tieaccent{a}
+@code{@@u@{a@}} @u{a} (ă)
+@code{@@ubaraccent@{a@}} @ubaraccent{a}
+@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
+@code{@@v@{a@}} @v{a} (ǎ)
+@@,c @,c (ç)
+@code{@@,@{c@}} @,{c} (ç)
+@code{@@ogonek@{a@}} @ogonek{a} (ą)
+
 @@`@{@@=E@} @`{@=E}
 @@l@{@} @l{}
 @@,@{@@'C@} @,{@'C}
-@@,c @,c (ç)
 @@,c@@&quot;u @,c@&quot;u @*
+
+@code{@@H@{--a@}} @H{--a}
+@code{@@dotaccent@{--a@}} @dotaccent{--a}
+@code{@@ringaccent@{--a@}} @ringaccent{--a}
+@code{@@tieaccent@{--a@}} @tieaccent{--a}
+@code{@@u@{--a@}} @u{--a}
+@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
+@code{@@udotaccent@{--a@}} @udotaccent{--a}
+@code{@@v@{--a@}} @v{--a}
+@code{@@,@{--c@}} @,{--c}
+@code{@@ogonek@{--a@}} @ogonek{--a}
 
 @@U@{0075@} @U{0075}
 
@@ -193,26 +215,6 @@ but , ,@:
 @code{@@verb@{:--a:@}} @verb{:--a:}
 @code{@@verb@{:a  &lt; &amp; @@ % &quot; --    b:@}} @verb{:a  &lt; &amp; @ % &quot; --    b:}
 @code{@@w@{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a@}} @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
-@code{@@H@{a@}} @H{a}
-@code{@@H@{--a@}} @H{--a}
-@code{@@dotaccent@{a@}} @dotaccent{a} (ȧ)
-@code{@@dotaccent@{--a@}} @dotaccent{--a}
-@code{@@ringaccent@{a@}} @ringaccent{a} (å)
-@code{@@ringaccent@{--a@}} @ringaccent{--a}
-@code{@@tieaccent@{a@}} @tieaccent{a}
-@code{@@tieaccent@{--a@}} @tieaccent{--a}
-@code{@@u@{a@}} @u{a} (ă)
-@code{@@u@{--a@}} @u{--a}
-@code{@@ubaraccent@{a@}} @ubaraccent{a}
-@code{@@ubaraccent@{--a@}} @ubaraccent{--a}
-@code{@@udotaccent@{a@}} @udotaccent{a} (ạ)
-@code{@@udotaccent@{--a@}} @udotaccent{--a}
-@code{@@v@{a@}} @v{a} (ǎ)
-@code{@@v@{--a@}} @v{--a}
-@code{@@,@{c@}} @,{c} (ç)
-@code{@@,@{--c@}} @,{--c}
-@code{@@ogonek@{a@}} @ogonek{a} (ą)
-@code{@@ogonek@{--a@}} @ogonek{--a}
 @code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
@@ -1257,11 +1259,33 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
-&arobase;&textlsquo;&lbrace;&arobase;=E&rbrace; <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
+<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
+<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
+<code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
+<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
+<code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
+<code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
+<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
+<code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
+&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
+<code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
+<code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
+</para>
+<para>&arobase;&textlsquo;&lbrace;&arobase;=E&rbrace; <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
 &arobase;l&lbrace;&rbrace; &lslash;
 &arobase;,&lbrace;&arobase;&textrsquo;C&rbrace; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent>
-&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
 &arobase;,c&arobase;&quot;u <accent type="cedil" bracketed="off">c</accent><accent type="uml" bracketed="off">u</accent> &linebreak;
+</para>
+<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
+<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
+<code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
+<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
+<code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
+<code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
+<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
+<code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
+<code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
+<code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
 </para>
 <para>&arobase;U&lbrace;0075&rbrace; <U>0075</U>
 </para>
@@ -1398,26 +1422,6 @@ but , ,&noeos;
 <code>&arobase;verb&lbrace;:--a:&rbrace;</code> <verb delimiter=":">--a</verb>
 <code>&arobase;verb&lbrace;:a  &lt; &amp; &arobase; % &quot; --    b:&rbrace;</code> <verb delimiter=":">a  &lt; &amp; @ % &quot; --    b</verb>
 <code>&arobase;w&lbrace;a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a&rbrace;</code> <w>a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a</w>
-<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
-<code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
-<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
-<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
-<code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
-<code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
-<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
-<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
-<code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
-<code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
-<code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
-<code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
-<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
-<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
-<code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
-<code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
-<code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
-<code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
-<code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
-<code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
 <code>a&arobase;sup&lbrace;h&rbrace;&arobase;sub&lbrace;l&rbrace;</code> a<sup>h</sup><sub>l</sub>
 <code>&arobase;footnote&lbrace;in footnote&rbrace;</code> <footnote><para>in footnote</para></footnote>
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
@@ -2404,11 +2408,33 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
-&arobase;&textlsquo;&lbrace;&arobase;=E&rbrace; <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
+<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
+<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
+<code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
+<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
+<code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
+<code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
+<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
+<code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
+&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
+<code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
+<code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
+</para>
+<para>&arobase;&textlsquo;&lbrace;&arobase;=E&rbrace; <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
 &arobase;l&lbrace;&rbrace; &lslash;
 &arobase;,&lbrace;&arobase;&textrsquo;C&rbrace; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent>
-&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
 &arobase;,c&arobase;&quot;u <accent type="cedil" bracketed="off">c</accent><accent type="uml" bracketed="off">u</accent> &linebreak;
+</para>
+<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
+<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
+<code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
+<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
+<code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
+<code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
+<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
+<code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
+<code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
+<code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
 </para>
 <para>&arobase;U&lbrace;0075&rbrace; <U>0075</U>
 </para>
@@ -2545,26 +2571,6 @@ but , ,&noeos;
 <code>&arobase;verb&lbrace;:--a:&rbrace;</code> <verb delimiter=":">--a</verb>
 <code>&arobase;verb&lbrace;:a  &lt; &amp; &arobase; % &quot; --    b:&rbrace;</code> <verb delimiter=":">a  &lt; &amp; @ % &quot; --    b</verb>
 <code>&arobase;w&lbrace;a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a&rbrace;</code> <w>a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a</w>
-<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
-<code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
-<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
-<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
-<code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
-<code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
-<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
-<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
-<code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
-<code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
-<code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
-<code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
-<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
-<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
-<code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
-<code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
-<code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
-<code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
-<code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
-<code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
 <code>a&arobase;sup&lbrace;h&rbrace;&arobase;sub&lbrace;l&rbrace;</code> a<sup>h</sup><sub>l</sub>
 <code>&arobase;footnote&lbrace;in footnote&rbrace;</code> <footnote><para>in footnote</para></footnote>
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
@@ -3581,11 +3587,33 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;&textrsquo;&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
-&arobase;&textlsquo;&lbrace;&arobase;=E&rbrace; <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
+<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
+<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
+<code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
+<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
+<code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
+<code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
+<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
+<code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
+&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
+<code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
+<code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
+</para>
+<para>&arobase;&textlsquo;&lbrace;&arobase;=E&rbrace; <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
 &arobase;l&lbrace;&rbrace; &lslash;
 &arobase;,&lbrace;&arobase;&textrsquo;C&rbrace; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent>
-&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
 &arobase;,c&arobase;&quot;u <accent type="cedil" bracketed="off">c</accent><accent type="uml" bracketed="off">u</accent> &linebreak;
+</para>
+<para><code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
+<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
+<code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
+<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
+<code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
+<code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
+<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
+<code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
+<code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
+<code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
 </para>
 <para>&arobase;U&lbrace;0075&rbrace; <U>0075</U>
 </para>
@@ -3722,26 +3750,6 @@ but , ,&noeos;
 <code>&arobase;verb&lbrace;:--a:&rbrace;</code> <verb delimiter=":">--a</verb>
 <code>&arobase;verb&lbrace;:a  &lt; &amp; &arobase; % &quot; --    b:&rbrace;</code> <verb delimiter=":">a  &lt; &amp; @ % &quot; --    b</verb>
 <code>&arobase;w&lbrace;a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a&rbrace;</code> <w>a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a</w>
-<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
-<code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">&textndash;a</accent>
-<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
-<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">&textndash;a</accent>
-<code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
-<code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">&textndash;a</accent>
-<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
-<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">&textndash;a</accent>
-<code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
-<code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">&textndash;a</accent>
-<code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
-<code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">&textndash;a</accent>
-<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
-<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">&textndash;a</accent>
-<code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
-<code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">&textndash;a</accent>
-<code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
-<code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
-<code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
-<code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
 <code>a&arobase;sup&lbrace;h&rbrace;&arobase;sub&lbrace;l&rbrace;</code> a<sup>h</sup><sub>l</sub>
 <code>&arobase;footnote&lbrace;in footnote&rbrace;</code> <footnote><para>in footnote</para></footnote>
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
@@ -4723,11 +4731,33 @@ kbd: <kbd>``simple-double--three---four----''</kbd> &linebreak;
 &arobase;'&lbrace;&arobase;dotless&lbrace;i&rbrace;&rbrace; <accent type="acute"><dotless>i</dotless></accent> (í)
 &arobase;dotless&lbrace;i&rbrace; <dotless>i</dotless> (ı)
 &arobase;dotless&lbrace;j&rbrace; <dotless>j</dotless> (ȷ)
+<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
+<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
+<code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
+<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
+<code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
+<code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
+<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
+<code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
+&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
+<code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
+<code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
+
 &arobase;`&lbrace;&arobase;=E&rbrace; <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
 &arobase;l&lbrace;&rbrace; &lslash;
 &arobase;,&lbrace;&arobase;'C&rbrace; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent>
-&arobase;,c <accent type="cedil" bracketed="off">c</accent> (ç)
 &arobase;,c&arobase;&quot;u <accent type="cedil" bracketed="off">c</accent><accent type="uml" bracketed="off">u</accent> &linebreak;
+
+<code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">--a</accent>
+<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">--a</accent>
+<code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">--a</accent>
+<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">--a</accent>
+<code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">--a</accent>
+<code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">--a</accent>
+<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">--a</accent>
+<code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">--a</accent>
+<code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">--c</accent>
+<code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">--a</accent>
 
 &arobase;U&lbrace;0075&rbrace; <U>0075</U>
 
@@ -4864,26 +4894,6 @@ but , ,&noeos;
 <code>&arobase;verb&lbrace;:--a:&rbrace;</code> <verb delimiter=":">--a</verb>
 <code>&arobase;verb&lbrace;:a  &lt; &amp; &arobase; % &quot; --    b:&rbrace;</code> <verb delimiter=":">a  &lt; &amp; @ % &quot; --    b</verb>
 <code>&arobase;w&lbrace;a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a&rbrace;</code> <w>a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a</w>
-<code>&arobase;H&lbrace;a&rbrace;</code> <accent type="doubleacute">a</accent>
-<code>&arobase;H&lbrace;--a&rbrace;</code> <accent type="doubleacute">--a</accent>
-<code>&arobase;dotaccent&lbrace;a&rbrace;</code> <accent type="dotaccent">a</accent> (ȧ)
-<code>&arobase;dotaccent&lbrace;--a&rbrace;</code> <accent type="dotaccent">--a</accent>
-<code>&arobase;ringaccent&lbrace;a&rbrace;</code> <accent type="ring">a</accent> (å)
-<code>&arobase;ringaccent&lbrace;--a&rbrace;</code> <accent type="ring">--a</accent>
-<code>&arobase;tieaccent&lbrace;a&rbrace;</code> <accent type="tieaccent">a</accent>
-<code>&arobase;tieaccent&lbrace;--a&rbrace;</code> <accent type="tieaccent">--a</accent>
-<code>&arobase;u&lbrace;a&rbrace;</code> <accent type="breve">a</accent> (ă)
-<code>&arobase;u&lbrace;--a&rbrace;</code> <accent type="breve">--a</accent>
-<code>&arobase;ubaraccent&lbrace;a&rbrace;</code> <accent type="ubaraccent">a</accent>
-<code>&arobase;ubaraccent&lbrace;--a&rbrace;</code> <accent type="ubaraccent">--a</accent>
-<code>&arobase;udotaccent&lbrace;a&rbrace;</code> <accent type="udotaccent">a</accent> (ạ)
-<code>&arobase;udotaccent&lbrace;--a&rbrace;</code> <accent type="udotaccent">--a</accent>
-<code>&arobase;v&lbrace;a&rbrace;</code> <accent type="caron">a</accent> (ǎ)
-<code>&arobase;v&lbrace;--a&rbrace;</code> <accent type="caron">--a</accent>
-<code>&arobase;,&lbrace;c&rbrace;</code> <accent type="cedil">c</accent> (ç)
-<code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">--c</accent>
-<code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent> (ą)
-<code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">--a</accent>
 <code>a&arobase;sup&lbrace;h&rbrace;&arobase;sub&lbrace;l&rbrace;</code> a<sup>h</sup><sub>l</sub>
 <code>&arobase;footnote&lbrace;in footnote&rbrace;</code> <footnote><para>in footnote</para></footnote>
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>

@@ -68,12 +68,34 @@ kbd: ``simple-double--three---four----''
 @'{@dotless{i}} i' (í)
 @dotless{i} i (ı)
 @dotless{j} j (ȷ)
+@H{a} a''
+@dotaccent{a} a. (ȧ)
+@ringaccent{a} a* (å)
+@tieaccent{a} a[
+@u{a} a( (ă)
+@ubaraccent{a} a_
+@udotaccent{a} .a (ạ)
+@v{a} a< (ǎ)
+@,c c, (ç)
+@,{c} c, (ç)
+@ogonek{a} a; (ą)
+
 @`{@=E} E=`
 @l{} /l
 @,{@'C} C',
-@,c c, (ç)
 @,c@"u c,u" 
 
+
+@H{--a} -a''
+@dotaccent{--a} -a.
+@ringaccent{--a} -a*
+@tieaccent{--a} -a[
+@u{--a} -a(
+@ubaraccent{--a} -a_
+@udotaccent{--a} .-a
+@v{--a} -a<
+@,{--c} -c,
+@ogonek{--a} -a;
 
 @U{0075} 0075
 
@@ -211,26 +233,6 @@ but , ,
 @verb{:--a:} --a
 @verb{:a  < & @ % " --    b:} a  < & @ % " --    b
 @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a} a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
-@H{a} a''
-@H{--a} -a''
-@dotaccent{a} a. (ȧ)
-@dotaccent{--a} -a.
-@ringaccent{a} a* (å)
-@ringaccent{--a} -a*
-@tieaccent{a} a[
-@tieaccent{--a} -a[
-@u{a} a( (ă)
-@u{--a} -a(
-@ubaraccent{a} a_
-@ubaraccent{--a} -a_
-@udotaccent{a} .a (ạ)
-@udotaccent{--a} .-a
-@v{a} a< (ǎ)
-@v{--a} -a<
-@,{c} c, (ç)
-@,{--c} -c,
-@ogonek{a} a; (ą)
-@ogonek{--a} -a;
 a@sup{h}@sub{l} ahl
 @footnote{in footnote} 
 @footnote{in footnote2} 
@@ -907,12 +909,34 @@ kbd: ``simple-double--three---four----''
 @'{@dotless{i}} i' (í)
 @dotless{i} i (ı)
 @dotless{j} j (ȷ)
+@H{a} a''
+@dotaccent{a} a. (ȧ)
+@ringaccent{a} a* (å)
+@tieaccent{a} a[
+@u{a} a( (ă)
+@ubaraccent{a} a_
+@udotaccent{a} .a (ạ)
+@v{a} a< (ǎ)
+@,c c, (ç)
+@,{c} c, (ç)
+@ogonek{a} a; (ą)
+
 @`{@=E} E=`
 @l{} /l
 @,{@'C} C',
-@,c c, (ç)
 @,c@"u c,u" 
 
+
+@H{--a} -a''
+@dotaccent{--a} -a.
+@ringaccent{--a} -a*
+@tieaccent{--a} -a[
+@u{--a} -a(
+@ubaraccent{--a} -a_
+@udotaccent{--a} .-a
+@v{--a} -a<
+@,{--c} -c,
+@ogonek{--a} -a;
 
 @U{0075} 0075
 
@@ -1050,26 +1074,6 @@ but , ,
 @verb{:--a:} --a
 @verb{:a  < & @ % " --    b:} a  < & @ % " --    b
 @w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a} a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
-@H{a} a''
-@H{--a} -a''
-@dotaccent{a} a. (ȧ)
-@dotaccent{--a} -a.
-@ringaccent{a} a* (å)
-@ringaccent{--a} -a*
-@tieaccent{a} a[
-@tieaccent{--a} -a[
-@u{a} a( (ă)
-@u{--a} -a(
-@ubaraccent{a} a_
-@ubaraccent{--a} -a_
-@udotaccent{a} .a (ạ)
-@udotaccent{--a} .-a
-@v{a} a< (ǎ)
-@v{--a} -a<
-@,{c} c, (ç)
-@,{--c} -c,
-@ogonek{a} a; (ą)
-@ogonek{--a} -a;
 a@sup{h}@sub{l} ahl
 @footnote{in footnote} 
 @footnote{in footnote2} 
