@@ -705,3 +705,8 @@ dblatex -o texinfo-dblatex.pdf texinfo.xml
 
 Open a specific info file in Emacs Info reader: C-u C-h i
 
+In tp/tests/, generate Texinfo file for Texinfo TeX coverage
+../texi2any.pl --force --error=100000 -c TEXINFO_OUTPUT_FORMAT=plaintexinfo -D valid layout/formatting.texi > formatting_valid.texi
+
+From doc/
+texi2pdf -I ../tp/tests/layout/ ../tp/tests/formatting_valid.texi
