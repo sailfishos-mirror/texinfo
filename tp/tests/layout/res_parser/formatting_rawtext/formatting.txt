@@ -100,62 +100,69 @@ And ? ?.
 Now ! !@
 but , ,
 
+@ampchar & (&)
+@atchar @ (@)
+@backslashchar \ (\)
+@hashchar # (#)
+@lbracechar { ({)
+@rbracechar } (})
+
 @TeX TeX
 @LaTeX LaTeX
-@bullet *
-@copyright (C)
-@dots ...
+@bullet * (•)
+@copyright (C) (©)
+@dots ... (…)
 @enddots ...
-@equiv ==
+@equiv == (≡)
 @error error-->
-@expansion ==>
-@minus -
-@point -!-
-@print -|
-@result =>
+@expansion ==> (↦)
+@minus - (−)
+@point -!- (★)
+@print -| (⊣)
+@result => (⇒)
 @today a sunny day
 
-@aa aa
-@AA AA
-@ae ae
-@oe oe
-@AE AE
-@OE OE
-@o /o
-@O /O
-@ss ss
-@l /l
-@L /L
-@DH D
-@TH TH
-@dh d
-@th th
+@aa aa (å)
+@AA AA (Å)
+@ae ae (æ)
+@oe oe (œ)
+@AE AE (Æ)
+@OE OE (Œ)
+@o /o (ø)
+@O /O (Ø)
+@ss ss (ß)
+@l /l (ł)
+@L /L (Ł)
+@DH D (Ð)
+@TH TH (Þ)
+@dh d (ð)
+@th th (þ)
 
-@exclamdown !
-@questiondown ?
-@pounds #
-@registeredsymbol (R)
-@ordf a
-@ordm o
-@comma ,
-@quotedblleft "
-@quotedblright "
-@quoteleft `
-@quoteright '
-@quotedblbase ,,
-@quotesinglbase ,
-@guillemetleft <<
-@guillemetright >>
-@guillemotleft <<
-@guillemotright >>
-@guilsinglleft <
-@guilsinglright >
+@exclamdown ! (¡)
+@questiondown ? (¿)
+@pounds # (£)
+@registeredsymbol (R) (®)
+@ordf a (ª)
+@ordm o (º)
+@comma , (,)
+@quotedblleft " (“)
+@quotedblright " (”)
+@quoteleft ` (‘)
+@quoteright ' (’)
+@quotedblbase ,, („)
+@quotesinglbase , (‚)
+@guillemetleft << («)
+@guillemetright >> (»)
+@guillemotleft << («)
+@guillemotright >> (»)
+@guilsinglleft < (‹)
+@guilsinglright > (›)
 
-@textdegree o
-@euro Euro
-@arrow ->
-@leq <=
-@geq >=
+@textdegree o (°)
+@euro Euro (€)
+@arrow -> (→)
+@leq <= (≤)
+@geq >= (≥)
 @tie a b
 
 @acronym{--a,an accronym} -a (an accronym)
@@ -932,62 +939,69 @@ And ? ?.
 Now ! !@
 but , ,
 
+@ampchar & (&)
+@atchar @ (@)
+@backslashchar \ (\)
+@hashchar # (#)
+@lbracechar { ({)
+@rbracechar } (})
+
 @TeX TeX
 @LaTeX LaTeX
-@bullet *
-@copyright (C)
-@dots ...
+@bullet * (•)
+@copyright (C) (©)
+@dots ... (…)
 @enddots ...
-@equiv ==
+@equiv == (≡)
 @error error-->
-@expansion ==>
-@minus -
-@point -!-
-@print -|
-@result =>
+@expansion ==> (↦)
+@minus - (−)
+@point -!- (★)
+@print -| (⊣)
+@result => (⇒)
 @today a sunny day
 
-@aa aa
-@AA AA
-@ae ae
-@oe oe
-@AE AE
-@OE OE
-@o /o
-@O /O
-@ss ss
-@l /l
-@L /L
-@DH D
-@TH TH
-@dh d
-@th th
+@aa aa (å)
+@AA AA (Å)
+@ae ae (æ)
+@oe oe (œ)
+@AE AE (Æ)
+@OE OE (Œ)
+@o /o (ø)
+@O /O (Ø)
+@ss ss (ß)
+@l /l (ł)
+@L /L (Ł)
+@DH D (Ð)
+@TH TH (Þ)
+@dh d (ð)
+@th th (þ)
 
-@exclamdown !
-@questiondown ?
-@pounds #
-@registeredsymbol (R)
-@ordf a
-@ordm o
-@comma ,
-@quotedblleft "
-@quotedblright "
-@quoteleft `
-@quoteright '
-@quotedblbase ,,
-@quotesinglbase ,
-@guillemetleft <<
-@guillemetright >>
-@guillemotleft <<
-@guillemotright >>
-@guilsinglleft <
-@guilsinglright >
+@exclamdown ! (¡)
+@questiondown ? (¿)
+@pounds # (£)
+@registeredsymbol (R) (®)
+@ordf a (ª)
+@ordm o (º)
+@comma , (,)
+@quotedblleft " (“)
+@quotedblright " (”)
+@quoteleft ` (‘)
+@quoteright ' (’)
+@quotedblbase ,, („)
+@quotesinglbase , (‚)
+@guillemetleft << («)
+@guillemetright >> (»)
+@guillemotleft << («)
+@guillemotright >> (»)
+@guilsinglleft < (‹)
+@guilsinglright > (›)
 
-@textdegree o
-@euro Euro
-@arrow ->
-@leq <=
-@geq >=
+@textdegree o (°)
+@euro Euro (€)
+@arrow -> (→)
+@leq <= (≤)
+@geq >= (≥)
 @tie a b
 
 @acronym{--a,an accronym} --a (an accronym)

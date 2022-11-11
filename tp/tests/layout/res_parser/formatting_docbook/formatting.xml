@@ -88,62 +88,69 @@ And ? ?.
 Now ! !@
 but , ,
 </para>
+<para>@ampchar &#38; (&amp;)
+@atchar &#64; (@)
+@backslashchar &#92; (\)
+@hashchar &#35; (#)
+@lbracechar &#123; ({)
+@rbracechar &#125; (})
+</para>
 <para>@TeX &tex;
 @LaTeX &latex;
-@bullet &#8226;
-@copyright &#169;
-@dots &#8230;
+@bullet &#8226; (•)
+@copyright &#169; (©)
+@dots &#8230; (…)
 @enddots ...
-@equiv &#8801;
+@equiv &#8801; (≡)
 @error error&#8594;
-@expansion &#8614;
-@minus &#8722;
-@point &#9733;
-@print &#8867;
-@result &#8658;
+@expansion &#8614; (↦)
+@minus &#8722; (−)
+@point &#9733; (★)
+@print &#8867; (⊣)
+@result &#8658; (⇒)
 @today a sunny day
 </para>
-<para>@aa &#229;
-@AA &#197;
-@ae &#230;
-@oe &#339;
-@AE &#198;
-@OE &#338;
-@o &#248;
-@O &#216;
-@ss &#223;
-@l &#322;
-@L &#321;
-@DH &#208;
-@TH &#222;
-@dh &#240;
-@th &#254;
+<para>@aa &#229; (å)
+@AA &#197; (Å)
+@ae &#230; (æ)
+@oe &#339; (œ)
+@AE &#198; (Æ)
+@OE &#338; (Œ)
+@o &#248; (ø)
+@O &#216; (Ø)
+@ss &#223; (ß)
+@l &#322; (ł)
+@L &#321; (Ł)
+@DH &#208; (Ð)
+@TH &#222; (Þ)
+@dh &#240; (ð)
+@th &#254; (þ)
 </para>
-<para>@exclamdown &#161;
-@questiondown &#191;
-@pounds &#163;
-@registeredsymbol &#174;
-@ordf &#170;
-@ordm &#186;
-@comma &#44;
-@quotedblleft &#8220;
-@quotedblright &#8221;
-@quoteleft &#8216;
-@quoteright &#8217;
-@quotedblbase &#8222;
-@quotesinglbase &#8218;
-@guillemetleft &#171;
-@guillemetright &#187;
-@guillemotleft &#171;
-@guillemotright &#187;
-@guilsinglleft &#8249;
-@guilsinglright &#8250;
+<para>@exclamdown &#161; (¡)
+@questiondown &#191; (¿)
+@pounds &#163; (£)
+@registeredsymbol &#174; (®)
+@ordf &#170; (ª)
+@ordm &#186; (º)
+@comma &#44; (,)
+@quotedblleft &#8220; (“)
+@quotedblright &#8221; (”)
+@quoteleft &#8216; (‘)
+@quoteright &#8217; (’)
+@quotedblbase &#8222; („)
+@quotesinglbase &#8218; (‚)
+@guillemetleft &#171; («)
+@guillemetright &#187; (»)
+@guillemotleft &#171; («)
+@guillemotright &#187; (»)
+@guilsinglleft &#8249; (‹)
+@guilsinglright &#8250; (›)
 </para>
-<para>@textdegree &#176;
-@euro &#8364;
-@arrow &#8594;
-@leq &#8804;
-@geq &#8805;
+<para>@textdegree &#176; (°)
+@euro &#8364; (€)
+@arrow &#8594; (→)
+@leq &#8804; (≤)
+@geq &#8805; (≥)
 @tie a&#160;b
 </para>
 <para><literal>@acronym{--a,an accronym}</literal> <acronym>&#8211;a</acronym> (an accronym)
@@ -1005,62 +1012,69 @@ And ? ?.
 Now ! !@
 but , ,
 </para>
+<para>@ampchar &#38; (&amp;)
+@atchar &#64; (@)
+@backslashchar &#92; (\)
+@hashchar &#35; (#)
+@lbracechar &#123; ({)
+@rbracechar &#125; (})
+</para>
 <para>@TeX &tex;
 @LaTeX &latex;
-@bullet &#8226;
-@copyright &#169;
-@dots &#8230;
+@bullet &#8226; (•)
+@copyright &#169; (©)
+@dots &#8230; (…)
 @enddots ...
-@equiv &#8801;
+@equiv &#8801; (≡)
 @error error&#8594;
-@expansion &#8614;
-@minus &#8722;
-@point &#9733;
-@print &#8867;
-@result &#8658;
+@expansion &#8614; (↦)
+@minus &#8722; (−)
+@point &#9733; (★)
+@print &#8867; (⊣)
+@result &#8658; (⇒)
 @today a sunny day
 </para>
-<para>@aa &#229;
-@AA &#197;
-@ae &#230;
-@oe &#339;
-@AE &#198;
-@OE &#338;
-@o &#248;
-@O &#216;
-@ss &#223;
-@l &#322;
-@L &#321;
-@DH &#208;
-@TH &#222;
-@dh &#240;
-@th &#254;
+<para>@aa &#229; (å)
+@AA &#197; (Å)
+@ae &#230; (æ)
+@oe &#339; (œ)
+@AE &#198; (Æ)
+@OE &#338; (Œ)
+@o &#248; (ø)
+@O &#216; (Ø)
+@ss &#223; (ß)
+@l &#322; (ł)
+@L &#321; (Ł)
+@DH &#208; (Ð)
+@TH &#222; (Þ)
+@dh &#240; (ð)
+@th &#254; (þ)
 </para>
-<para>@exclamdown &#161;
-@questiondown &#191;
-@pounds &#163;
-@registeredsymbol &#174;
-@ordf &#170;
-@ordm &#186;
-@comma &#44;
-@quotedblleft &#8220;
-@quotedblright &#8221;
-@quoteleft &#8216;
-@quoteright &#8217;
-@quotedblbase &#8222;
-@quotesinglbase &#8218;
-@guillemetleft &#171;
-@guillemetright &#187;
-@guillemotleft &#171;
-@guillemotright &#187;
-@guilsinglleft &#8249;
-@guilsinglright &#8250;
+<para>@exclamdown &#161; (¡)
+@questiondown &#191; (¿)
+@pounds &#163; (£)
+@registeredsymbol &#174; (®)
+@ordf &#170; (ª)
+@ordm &#186; (º)
+@comma &#44; (,)
+@quotedblleft &#8220; (“)
+@quotedblright &#8221; (”)
+@quoteleft &#8216; (‘)
+@quoteright &#8217; (’)
+@quotedblbase &#8222; („)
+@quotesinglbase &#8218; (‚)
+@guillemetleft &#171; («)
+@guillemetright &#187; (»)
+@guillemotleft &#171; («)
+@guillemotright &#187; (»)
+@guilsinglleft &#8249; (‹)
+@guilsinglright &#8250; (›)
 </para>
-<para>@textdegree &#176;
-@euro &#8364;
-@arrow &#8594;
-@leq &#8804;
-@geq &#8805;
+<para>@textdegree &#176; (°)
+@euro &#8364; (€)
+@arrow &#8594; (→)
+@leq &#8804; (≤)
+@geq &#8805; (≥)
 @tie a&#160;b
 </para>
 <para><literal>@acronym{--a,an accronym}</literal> <acronym>&#8211;a</acronym> (an accronym)
@@ -1909,62 +1923,69 @@ And ? ?.
 Now ! !@
 but , ,
 </para>
+<para>@ampchar &#38; (&amp;)
+@atchar &#64; (@)
+@backslashchar &#92; (\)
+@hashchar &#35; (#)
+@lbracechar &#123; ({)
+@rbracechar &#125; (})
+</para>
 <para>@TeX &tex;
 @LaTeX &latex;
-@bullet &#8226;
-@copyright &#169;
-@dots &#8230;
+@bullet &#8226; (•)
+@copyright &#169; (©)
+@dots &#8230; (…)
 @enddots ...
-@equiv &#8801;
+@equiv &#8801; (≡)
 @error error&#8594;
-@expansion &#8614;
-@minus &#8722;
-@point &#9733;
-@print &#8867;
-@result &#8658;
+@expansion &#8614; (↦)
+@minus &#8722; (−)
+@point &#9733; (★)
+@print &#8867; (⊣)
+@result &#8658; (⇒)
 @today a sunny day
 </para>
-<para>@aa &#229;
-@AA &#197;
-@ae &#230;
-@oe &#339;
-@AE &#198;
-@OE &#338;
-@o &#248;
-@O &#216;
-@ss &#223;
-@l &#322;
-@L &#321;
-@DH &#208;
-@TH &#222;
-@dh &#240;
-@th &#254;
+<para>@aa &#229; (å)
+@AA &#197; (Å)
+@ae &#230; (æ)
+@oe &#339; (œ)
+@AE &#198; (Æ)
+@OE &#338; (Œ)
+@o &#248; (ø)
+@O &#216; (Ø)
+@ss &#223; (ß)
+@l &#322; (ł)
+@L &#321; (Ł)
+@DH &#208; (Ð)
+@TH &#222; (Þ)
+@dh &#240; (ð)
+@th &#254; (þ)
 </para>
-<para>@exclamdown &#161;
-@questiondown &#191;
-@pounds &#163;
-@registeredsymbol &#174;
-@ordf &#170;
-@ordm &#186;
-@comma &#44;
-@quotedblleft &#8220;
-@quotedblright &#8221;
-@quoteleft &#8216;
-@quoteright &#8217;
-@quotedblbase &#8222;
-@quotesinglbase &#8218;
-@guillemetleft &#171;
-@guillemetright &#187;
-@guillemotleft &#171;
-@guillemotright &#187;
-@guilsinglleft &#8249;
-@guilsinglright &#8250;
+<para>@exclamdown &#161; (¡)
+@questiondown &#191; (¿)
+@pounds &#163; (£)
+@registeredsymbol &#174; (®)
+@ordf &#170; (ª)
+@ordm &#186; (º)
+@comma &#44; (,)
+@quotedblleft &#8220; (“)
+@quotedblright &#8221; (”)
+@quoteleft &#8216; (‘)
+@quoteright &#8217; (’)
+@quotedblbase &#8222; („)
+@quotesinglbase &#8218; (‚)
+@guillemetleft &#171; («)
+@guillemetright &#187; (»)
+@guillemotleft &#171; («)
+@guillemotright &#187; (»)
+@guilsinglleft &#8249; (‹)
+@guilsinglright &#8250; (›)
 </para>
-<para>@textdegree &#176;
-@euro &#8364;
-@arrow &#8594;
-@leq &#8804;
-@geq &#8805;
+<para>@textdegree &#176; (°)
+@euro &#8364; (€)
+@arrow &#8594; (→)
+@leq &#8804; (≤)
+@geq &#8805; (≥)
 @tie a&#160;b
 </para>
 <para><literal>@acronym{--a,an accronym}</literal> <acronym>&#8211;a</acronym> (an accronym)
@@ -2809,62 +2830,69 @@ And ? ?.
 Now ! !@
 but , ,
 
+@ampchar &#38; (&amp;)
+@atchar &#64; (@)
+@backslashchar &#92; (\)
+@hashchar &#35; (#)
+@lbracechar &#123; ({)
+@rbracechar &#125; (})
+
 @TeX &tex;
 @LaTeX &latex;
-@bullet &#8226;
-@copyright &#169;
-@dots &#8230;
+@bullet &#8226; (•)
+@copyright &#169; (©)
+@dots &#8230; (…)
 @enddots ...
-@equiv &#8801;
+@equiv &#8801; (≡)
 @error error&#8594;
-@expansion &#8614;
-@minus &#8722;
-@point &#9733;
-@print &#8867;
-@result &#8658;
+@expansion &#8614; (↦)
+@minus &#8722; (−)
+@point &#9733; (★)
+@print &#8867; (⊣)
+@result &#8658; (⇒)
 @today a sunny day
 
-@aa &#229;
-@AA &#197;
-@ae &#230;
-@oe &#339;
-@AE &#198;
-@OE &#338;
-@o &#248;
-@O &#216;
-@ss &#223;
-@l &#322;
-@L &#321;
-@DH &#208;
-@TH &#222;
-@dh &#240;
-@th &#254;
+@aa &#229; (å)
+@AA &#197; (Å)
+@ae &#230; (æ)
+@oe &#339; (œ)
+@AE &#198; (Æ)
+@OE &#338; (Œ)
+@o &#248; (ø)
+@O &#216; (Ø)
+@ss &#223; (ß)
+@l &#322; (ł)
+@L &#321; (Ł)
+@DH &#208; (Ð)
+@TH &#222; (Þ)
+@dh &#240; (ð)
+@th &#254; (þ)
 
-@exclamdown &#161;
-@questiondown &#191;
-@pounds &#163;
-@registeredsymbol &#174;
-@ordf &#170;
-@ordm &#186;
-@comma &#44;
-@quotedblleft &#8220;
-@quotedblright &#8221;
-@quoteleft &#8216;
-@quoteright &#8217;
-@quotedblbase &#8222;
-@quotesinglbase &#8218;
-@guillemetleft &#171;
-@guillemetright &#187;
-@guillemotleft &#171;
-@guillemotright &#187;
-@guilsinglleft &#8249;
-@guilsinglright &#8250;
+@exclamdown &#161; (¡)
+@questiondown &#191; (¿)
+@pounds &#163; (£)
+@registeredsymbol &#174; (®)
+@ordf &#170; (ª)
+@ordm &#186; (º)
+@comma &#44; (,)
+@quotedblleft &#8220; (“)
+@quotedblright &#8221; (”)
+@quoteleft &#8216; (‘)
+@quoteright &#8217; (’)
+@quotedblbase &#8222; („)
+@quotesinglbase &#8218; (‚)
+@guillemetleft &#171; («)
+@guillemetright &#187; (»)
+@guillemotleft &#171; («)
+@guillemotright &#187; (»)
+@guilsinglleft &#8249; (‹)
+@guilsinglright &#8250; (›)
 
-@textdegree &#176;
-@euro &#8364;
-@arrow &#8594;
-@leq &#8804;
-@geq &#8805;
+@textdegree &#176; (°)
+@euro &#8364; (€)
+@arrow &#8594; (→)
+@leq &#8804; (≤)
+@geq &#8805; (≥)
 @tie a&#160;b
 
 <literal>@acronym{--a,an accronym}</literal> <acronym>--a</acronym> (an accronym)

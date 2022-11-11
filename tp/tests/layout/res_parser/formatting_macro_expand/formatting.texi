@@ -80,62 +80,69 @@ And ? ?@:.
 Now ! !@:@@
 but , ,@:
 
+@@ampchar @ampchar{} (&)
+@@atchar @atchar{} (@@)
+@@backslashchar @backslashchar{} (\\)
+@@hashchar @hashchar{} (#)
+@@lbracechar @lbracechar{} (@{)
+@@rbracechar @rbracechar{} (@})
+
 @@TeX @TeX{}
 @@LaTeX @LaTeX{}
-@@bullet @bullet{}
-@@copyright @copyright{}
-@@dots @dots{}
+@@bullet @bullet{} (•)
+@@copyright @copyright{} (©)
+@@dots @dots{} (…)
 @@enddots @enddots{}
-@@equiv @equiv{}
+@@equiv @equiv{} (≡)
 @@error @error{}
-@@expansion @expansion{}
-@@minus @minus{}
-@@point @point{}
-@@print @print{}
-@@result @result{}
+@@expansion @expansion{} (↦)
+@@minus @minus{} (−)
+@@point @point{} (★)
+@@print @print{} (⊣)
+@@result @result{} (⇒)
 @@today @today{}
 
-@@aa @aa{}
-@@AA @AA{}
-@@ae @ae{}
-@@oe @oe{}
-@@AE @AE{}
-@@OE @OE{}
-@@o @o{}
-@@O @O{}
-@@ss @ss{}
-@@l @l{}
-@@L @L{}
-@@DH @DH{}
-@@TH @TH{}
-@@dh @dh{}
-@@th @th{}
+@@aa @aa{} (å)
+@@AA @AA{} (Å)
+@@ae @ae{} (æ)
+@@oe @oe{} (œ)
+@@AE @AE{} (Æ)
+@@OE @OE{} (Œ)
+@@o @o{} (ø)
+@@O @O{} (Ø)
+@@ss @ss{} (ß)
+@@l @l{} (ł)
+@@L @L{} (Ł)
+@@DH @DH{} (Ð)
+@@TH @TH{} (Þ)
+@@dh @dh{} (ð)
+@@th @th{} (þ)
 
-@@exclamdown @exclamdown{}
-@@questiondown @questiondown{}
-@@pounds @pounds{}
-@@registeredsymbol @registeredsymbol{}
-@@ordf @ordf{}
-@@ordm @ordm{}
-@@comma @comma{}
-@@quotedblleft @quotedblleft{}
-@@quotedblright @quotedblright{}
-@@quoteleft @quoteleft{}
-@@quoteright @quoteright{}
-@@quotedblbase @quotedblbase{}
-@@quotesinglbase @quotesinglbase{}
-@@guillemetleft @guillemetleft{}
-@@guillemetright @guillemetright{}
-@@guillemotleft @guillemotleft{}
-@@guillemotright @guillemotright{}
-@@guilsinglleft @guilsinglleft{}
-@@guilsinglright @guilsinglright{}
+@@exclamdown @exclamdown{} (¡)
+@@questiondown @questiondown{} (¿)
+@@pounds @pounds{} (£)
+@@registeredsymbol @registeredsymbol{} (®)
+@@ordf @ordf{} (ª)
+@@ordm @ordm{} (º)
+@@comma @comma{} (,)
+@@quotedblleft @quotedblleft{} (“)
+@@quotedblright @quotedblright{} (”)
+@@quoteleft @quoteleft{} (‘)
+@@quoteright @quoteright{} (’)
+@@quotedblbase @quotedblbase{} („)
+@@quotesinglbase @quotesinglbase{} (‚)
+@@guillemetleft @guillemetleft{} («)
+@@guillemetright @guillemetright{} (»)
+@@guillemotleft @guillemotleft{} («)
+@@guillemotright @guillemotright{} (»)
+@@guilsinglleft @guilsinglleft{} (‹)
+@@guilsinglright @guilsinglright{} (›)
 
-@@textdegree @textdegree{}
-@@euro @euro{}
-@@arrow @arrow{}
-@@leq @leq{}
-@@geq @geq{}
+@@textdegree @textdegree{} (°)
+@@euro @euro{} (€)
+@@arrow @arrow{} (→)
+@@leq @leq{} (≤)
+@@geq @geq{} (≥)
 @@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
@@ -1279,62 +1286,69 @@ And ? ?@:.
 Now ! !@:@@
 but , ,@:
 
+@@ampchar @ampchar{} (&)
+@@atchar @atchar{} (@@)
+@@backslashchar @backslashchar{} (\)
+@@hashchar @hashchar{} (#)
+@@lbracechar @lbracechar{} (@{)
+@@rbracechar @rbracechar{} (@})
+
 @@TeX @TeX{}
 @@LaTeX @LaTeX{}
-@@bullet @bullet{}
-@@copyright @copyright{}
-@@dots @dots{}
+@@bullet @bullet{} (•)
+@@copyright @copyright{} (©)
+@@dots @dots{} (…)
 @@enddots @enddots{}
-@@equiv @equiv{}
+@@equiv @equiv{} (≡)
 @@error @error{}
-@@expansion @expansion{}
-@@minus @minus{}
-@@point @point{}
-@@print @print{}
-@@result @result{}
+@@expansion @expansion{} (↦)
+@@minus @minus{} (−)
+@@point @point{} (★)
+@@print @print{} (⊣)
+@@result @result{} (⇒)
 @@today @today{}
 
-@@aa @aa{}
-@@AA @AA{}
-@@ae @ae{}
-@@oe @oe{}
-@@AE @AE{}
-@@OE @OE{}
-@@o @o{}
-@@O @O{}
-@@ss @ss{}
-@@l @l{}
-@@L @L{}
-@@DH @DH{}
-@@TH @TH{}
-@@dh @dh{}
-@@th @th{}
+@@aa @aa{} (å)
+@@AA @AA{} (Å)
+@@ae @ae{} (æ)
+@@oe @oe{} (œ)
+@@AE @AE{} (Æ)
+@@OE @OE{} (Œ)
+@@o @o{} (ø)
+@@O @O{} (Ø)
+@@ss @ss{} (ß)
+@@l @l{} (ł)
+@@L @L{} (Ł)
+@@DH @DH{} (Ð)
+@@TH @TH{} (Þ)
+@@dh @dh{} (ð)
+@@th @th{} (þ)
 
-@@exclamdown @exclamdown{}
-@@questiondown @questiondown{}
-@@pounds @pounds{}
-@@registeredsymbol @registeredsymbol{}
-@@ordf @ordf{}
-@@ordm @ordm{}
-@@comma @comma{}
-@@quotedblleft @quotedblleft{}
-@@quotedblright @quotedblright{}
-@@quoteleft @quoteleft{}
-@@quoteright @quoteright{}
-@@quotedblbase @quotedblbase{}
-@@quotesinglbase @quotesinglbase{}
-@@guillemetleft @guillemetleft{}
-@@guillemetright @guillemetright{}
-@@guillemotleft @guillemotleft{}
-@@guillemotright @guillemotright{}
-@@guilsinglleft @guilsinglleft{}
-@@guilsinglright @guilsinglright{}
+@@exclamdown @exclamdown{} (¡)
+@@questiondown @questiondown{} (¿)
+@@pounds @pounds{} (£)
+@@registeredsymbol @registeredsymbol{} (®)
+@@ordf @ordf{} (ª)
+@@ordm @ordm{} (º)
+@@comma @comma{} (,)
+@@quotedblleft @quotedblleft{} (“)
+@@quotedblright @quotedblright{} (”)
+@@quoteleft @quoteleft{} (‘)
+@@quoteright @quoteright{} (’)
+@@quotedblbase @quotedblbase{} („)
+@@quotesinglbase @quotesinglbase{} (‚)
+@@guillemetleft @guillemetleft{} («)
+@@guillemetright @guillemetright{} (»)
+@@guillemotleft @guillemotleft{} («)
+@@guillemotright @guillemotright{} (»)
+@@guilsinglleft @guilsinglleft{} (‹)
+@@guilsinglright @guilsinglright{} (›)
 
-@@textdegree @textdegree{}
-@@euro @euro{}
-@@arrow @arrow{}
-@@leq @leq{}
-@@geq @geq{}
+@@textdegree @textdegree{} (°)
+@@euro @euro{} (€)
+@@arrow @arrow{} (→)
+@@leq @leq{} (≤)
+@@geq @geq{} (≥)
 @@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
@@ -2429,62 +2443,69 @@ And ? ?@:.
 Now ! !@:@@
 but , ,@:
 
+@@ampchar @ampchar{} (&)
+@@atchar @atchar{} (@@)
+@@backslashchar @backslashchar{} (\)
+@@hashchar @hashchar{} (#)
+@@lbracechar @lbracechar{} (@{)
+@@rbracechar @rbracechar{} (@})
+
 @@TeX @TeX{}
 @@LaTeX @LaTeX{}
-@@bullet @bullet{}
-@@copyright @copyright{}
-@@dots @dots{}
+@@bullet @bullet{} (•)
+@@copyright @copyright{} (©)
+@@dots @dots{} (…)
 @@enddots @enddots{}
-@@equiv @equiv{}
+@@equiv @equiv{} (≡)
 @@error @error{}
-@@expansion @expansion{}
-@@minus @minus{}
-@@point @point{}
-@@print @print{}
-@@result @result{}
+@@expansion @expansion{} (↦)
+@@minus @minus{} (−)
+@@point @point{} (★)
+@@print @print{} (⊣)
+@@result @result{} (⇒)
 @@today @today{}
 
-@@aa @aa{}
-@@AA @AA{}
-@@ae @ae{}
-@@oe @oe{}
-@@AE @AE{}
-@@OE @OE{}
-@@o @o{}
-@@O @O{}
-@@ss @ss{}
-@@l @l{}
-@@L @L{}
-@@DH @DH{}
-@@TH @TH{}
-@@dh @dh{}
-@@th @th{}
+@@aa @aa{} (å)
+@@AA @AA{} (Å)
+@@ae @ae{} (æ)
+@@oe @oe{} (œ)
+@@AE @AE{} (Æ)
+@@OE @OE{} (Œ)
+@@o @o{} (ø)
+@@O @O{} (Ø)
+@@ss @ss{} (ß)
+@@l @l{} (ł)
+@@L @L{} (Ł)
+@@DH @DH{} (Ð)
+@@TH @TH{} (Þ)
+@@dh @dh{} (ð)
+@@th @th{} (þ)
 
-@@exclamdown @exclamdown{}
-@@questiondown @questiondown{}
-@@pounds @pounds{}
-@@registeredsymbol @registeredsymbol{}
-@@ordf @ordf{}
-@@ordm @ordm{}
-@@comma @comma{}
-@@quotedblleft @quotedblleft{}
-@@quotedblright @quotedblright{}
-@@quoteleft @quoteleft{}
-@@quoteright @quoteright{}
-@@quotedblbase @quotedblbase{}
-@@quotesinglbase @quotesinglbase{}
-@@guillemetleft @guillemetleft{}
-@@guillemetright @guillemetright{}
-@@guillemotleft @guillemotleft{}
-@@guillemotright @guillemotright{}
-@@guilsinglleft @guilsinglleft{}
-@@guilsinglright @guilsinglright{}
+@@exclamdown @exclamdown{} (¡)
+@@questiondown @questiondown{} (¿)
+@@pounds @pounds{} (£)
+@@registeredsymbol @registeredsymbol{} (®)
+@@ordf @ordf{} (ª)
+@@ordm @ordm{} (º)
+@@comma @comma{} (,)
+@@quotedblleft @quotedblleft{} (“)
+@@quotedblright @quotedblright{} (”)
+@@quoteleft @quoteleft{} (‘)
+@@quoteright @quoteright{} (’)
+@@quotedblbase @quotedblbase{} („)
+@@quotesinglbase @quotesinglbase{} (‚)
+@@guillemetleft @guillemetleft{} («)
+@@guillemetright @guillemetright{} (»)
+@@guillemotleft @guillemotleft{} («)
+@@guillemotright @guillemotright{} (»)
+@@guilsinglleft @guilsinglleft{} (‹)
+@@guilsinglright @guilsinglright{} (›)
 
-@@textdegree @textdegree{}
-@@euro @euro{}
-@@arrow @arrow{}
-@@leq @leq{}
-@@geq @geq{}
+@@textdegree @textdegree{} (°)
+@@euro @euro{} (€)
+@@arrow @arrow{} (→)
+@@leq @leq{} (≤)
+@@geq @geq{} (≥)
 @@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
@@ -3605,62 +3626,69 @@ And ? ?@:.
 Now ! !@:@@
 but , ,@:
 
+@@ampchar @ampchar{} (&)
+@@atchar @atchar{} (@@)
+@@backslashchar @backslashchar{} (\)
+@@hashchar @hashchar{} (#)
+@@lbracechar @lbracechar{} (@{)
+@@rbracechar @rbracechar{} (@})
+
 @@TeX @TeX{}
 @@LaTeX @LaTeX{}
-@@bullet @bullet{}
-@@copyright @copyright{}
-@@dots @dots{}
+@@bullet @bullet{} (•)
+@@copyright @copyright{} (©)
+@@dots @dots{} (…)
 @@enddots @enddots{}
-@@equiv @equiv{}
+@@equiv @equiv{} (≡)
 @@error @error{}
-@@expansion @expansion{}
-@@minus @minus{}
-@@point @point{}
-@@print @print{}
-@@result @result{}
+@@expansion @expansion{} (↦)
+@@minus @minus{} (−)
+@@point @point{} (★)
+@@print @print{} (⊣)
+@@result @result{} (⇒)
 @@today @today{}
 
-@@aa @aa{}
-@@AA @AA{}
-@@ae @ae{}
-@@oe @oe{}
-@@AE @AE{}
-@@OE @OE{}
-@@o @o{}
-@@O @O{}
-@@ss @ss{}
-@@l @l{}
-@@L @L{}
-@@DH @DH{}
-@@TH @TH{}
-@@dh @dh{}
-@@th @th{}
+@@aa @aa{} (å)
+@@AA @AA{} (Å)
+@@ae @ae{} (æ)
+@@oe @oe{} (œ)
+@@AE @AE{} (Æ)
+@@OE @OE{} (Œ)
+@@o @o{} (ø)
+@@O @O{} (Ø)
+@@ss @ss{} (ß)
+@@l @l{} (ł)
+@@L @L{} (Ł)
+@@DH @DH{} (Ð)
+@@TH @TH{} (Þ)
+@@dh @dh{} (ð)
+@@th @th{} (þ)
 
-@@exclamdown @exclamdown{}
-@@questiondown @questiondown{}
-@@pounds @pounds{}
-@@registeredsymbol @registeredsymbol{}
-@@ordf @ordf{}
-@@ordm @ordm{}
-@@comma @comma{}
-@@quotedblleft @quotedblleft{}
-@@quotedblright @quotedblright{}
-@@quoteleft @quoteleft{}
-@@quoteright @quoteright{}
-@@quotedblbase @quotedblbase{}
-@@quotesinglbase @quotesinglbase{}
-@@guillemetleft @guillemetleft{}
-@@guillemetright @guillemetright{}
-@@guillemotleft @guillemotleft{}
-@@guillemotright @guillemotright{}
-@@guilsinglleft @guilsinglleft{}
-@@guilsinglright @guilsinglright{}
+@@exclamdown @exclamdown{} (¡)
+@@questiondown @questiondown{} (¿)
+@@pounds @pounds{} (£)
+@@registeredsymbol @registeredsymbol{} (®)
+@@ordf @ordf{} (ª)
+@@ordm @ordm{} (º)
+@@comma @comma{} (,)
+@@quotedblleft @quotedblleft{} (“)
+@@quotedblright @quotedblright{} (”)
+@@quoteleft @quoteleft{} (‘)
+@@quoteright @quoteright{} (’)
+@@quotedblbase @quotedblbase{} („)
+@@quotesinglbase @quotesinglbase{} (‚)
+@@guillemetleft @guillemetleft{} («)
+@@guillemetright @guillemetright{} (»)
+@@guillemotleft @guillemotleft{} («)
+@@guillemotright @guillemotright{} (»)
+@@guilsinglleft @guilsinglleft{} (‹)
+@@guilsinglright @guilsinglright{} (›)
 
-@@textdegree @textdegree{}
-@@euro @euro{}
-@@arrow @arrow{}
-@@leq @leq{}
-@@geq @geq{}
+@@textdegree @textdegree{} (°)
+@@euro @euro{} (€)
+@@arrow @arrow{} (→)
+@@leq @leq{} (≤)
+@@geq @geq{} (≥)
 @@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
@@ -4750,62 +4778,69 @@ And ? ?@:.
 Now ! !@:@@
 but , ,@:
 
+@@ampchar @ampchar{} (&)
+@@atchar @atchar{} (@@)
+@@backslashchar @backslashchar{} (\)
+@@hashchar @hashchar{} (#)
+@@lbracechar @lbracechar{} (@{)
+@@rbracechar @rbracechar{} (@})
+
 @@TeX @TeX{}
 @@LaTeX @LaTeX{}
-@@bullet @bullet{}
-@@copyright @copyright{}
-@@dots @dots{}
+@@bullet @bullet{} (•)
+@@copyright @copyright{} (©)
+@@dots @dots{} (…)
 @@enddots @enddots{}
-@@equiv @equiv{}
+@@equiv @equiv{} (≡)
 @@error @error{}
-@@expansion @expansion{}
-@@minus @minus{}
-@@point @point{}
-@@print @print{}
-@@result @result{}
+@@expansion @expansion{} (↦)
+@@minus @minus{} (−)
+@@point @point{} (★)
+@@print @print{} (⊣)
+@@result @result{} (⇒)
 @@today @today{}
 
-@@aa @aa{}
-@@AA @AA{}
-@@ae @ae{}
-@@oe @oe{}
-@@AE @AE{}
-@@OE @OE{}
-@@o @o{}
-@@O @O{}
-@@ss @ss{}
-@@l @l{}
-@@L @L{}
-@@DH @DH{}
-@@TH @TH{}
-@@dh @dh{}
-@@th @th{}
+@@aa @aa{} (å)
+@@AA @AA{} (Å)
+@@ae @ae{} (æ)
+@@oe @oe{} (œ)
+@@AE @AE{} (Æ)
+@@OE @OE{} (Œ)
+@@o @o{} (ø)
+@@O @O{} (Ø)
+@@ss @ss{} (ß)
+@@l @l{} (ł)
+@@L @L{} (Ł)
+@@DH @DH{} (Ð)
+@@TH @TH{} (Þ)
+@@dh @dh{} (ð)
+@@th @th{} (þ)
 
-@@exclamdown @exclamdown{}
-@@questiondown @questiondown{}
-@@pounds @pounds{}
-@@registeredsymbol @registeredsymbol{}
-@@ordf @ordf{}
-@@ordm @ordm{}
-@@comma @comma{}
-@@quotedblleft @quotedblleft{}
-@@quotedblright @quotedblright{}
-@@quoteleft @quoteleft{}
-@@quoteright @quoteright{}
-@@quotedblbase @quotedblbase{}
-@@quotesinglbase @quotesinglbase{}
-@@guillemetleft @guillemetleft{}
-@@guillemetright @guillemetright{}
-@@guillemotleft @guillemotleft{}
-@@guillemotright @guillemotright{}
-@@guilsinglleft @guilsinglleft{}
-@@guilsinglright @guilsinglright{}
+@@exclamdown @exclamdown{} (¡)
+@@questiondown @questiondown{} (¿)
+@@pounds @pounds{} (£)
+@@registeredsymbol @registeredsymbol{} (®)
+@@ordf @ordf{} (ª)
+@@ordm @ordm{} (º)
+@@comma @comma{} (,)
+@@quotedblleft @quotedblleft{} (“)
+@@quotedblright @quotedblright{} (”)
+@@quoteleft @quoteleft{} (‘)
+@@quoteright @quoteright{} (’)
+@@quotedblbase @quotedblbase{} („)
+@@quotesinglbase @quotesinglbase{} (‚)
+@@guillemetleft @guillemetleft{} («)
+@@guillemetright @guillemetright{} (»)
+@@guillemotleft @guillemotleft{} («)
+@@guillemotright @guillemotright{} (»)
+@@guilsinglleft @guilsinglleft{} (‹)
+@@guilsinglright @guilsinglright{} (›)
 
-@@textdegree @textdegree{}
-@@euro @euro{}
-@@arrow @arrow{}
-@@leq @leq{}
-@@geq @geq{}
+@@textdegree @textdegree{} (°)
+@@euro @euro{} (€)
+@@arrow @arrow{} (→)
+@@leq @leq{} (≤)
+@@geq @geq{} (≥)
 @@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}

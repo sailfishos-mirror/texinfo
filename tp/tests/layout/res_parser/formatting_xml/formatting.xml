@@ -83,62 +83,69 @@ And ? ?@:.
 Now ! !@:@@
 but , ,@:
 
+@@ampchar @ampchar{} (&amp;)
+@@atchar @atchar{} (@@)
+@@backslashchar @backslashchar{} (\\)
+@@hashchar @hashchar{} (#)
+@@lbracechar @lbracechar{} (@{)
+@@rbracechar @rbracechar{} (@})
+
 @@TeX @TeX{}
 @@LaTeX @LaTeX{}
-@@bullet @bullet{}
-@@copyright @copyright{}
-@@dots @dots{}
+@@bullet @bullet{} (•)
+@@copyright @copyright{} (©)
+@@dots @dots{} (…)
 @@enddots @enddots{}
-@@equiv @equiv{}
+@@equiv @equiv{} (≡)
 @@error @error{}
-@@expansion @expansion{}
-@@minus @minus{}
-@@point @point{}
-@@print @print{}
-@@result @result{}
+@@expansion @expansion{} (↦)
+@@minus @minus{} (−)
+@@point @point{} (★)
+@@print @print{} (⊣)
+@@result @result{} (⇒)
 @@today @today{}
 
-@@aa @aa{}
-@@AA @AA{}
-@@ae @ae{}
-@@oe @oe{}
-@@AE @AE{}
-@@OE @OE{}
-@@o @o{}
-@@O @O{}
-@@ss @ss{}
-@@l @l{}
-@@L @L{}
-@@DH @DH{}
-@@TH @TH{}
-@@dh @dh{}
-@@th @th{}
+@@aa @aa{} (å)
+@@AA @AA{} (Å)
+@@ae @ae{} (æ)
+@@oe @oe{} (œ)
+@@AE @AE{} (Æ)
+@@OE @OE{} (Œ)
+@@o @o{} (ø)
+@@O @O{} (Ø)
+@@ss @ss{} (ß)
+@@l @l{} (ł)
+@@L @L{} (Ł)
+@@DH @DH{} (Ð)
+@@TH @TH{} (Þ)
+@@dh @dh{} (ð)
+@@th @th{} (þ)
 
-@@exclamdown @exclamdown{}
-@@questiondown @questiondown{}
-@@pounds @pounds{}
-@@registeredsymbol @registeredsymbol{}
-@@ordf @ordf{}
-@@ordm @ordm{}
-@@comma @comma{}
-@@quotedblleft @quotedblleft{}
-@@quotedblright @quotedblright{}
-@@quoteleft @quoteleft{}
-@@quoteright @quoteright{}
-@@quotedblbase @quotedblbase{}
-@@quotesinglbase @quotesinglbase{}
-@@guillemetleft @guillemetleft{}
-@@guillemetright @guillemetright{}
-@@guillemotleft @guillemotleft{}
-@@guillemotright @guillemotright{}
-@@guilsinglleft @guilsinglleft{}
-@@guilsinglright @guilsinglright{}
+@@exclamdown @exclamdown{} (¡)
+@@questiondown @questiondown{} (¿)
+@@pounds @pounds{} (£)
+@@registeredsymbol @registeredsymbol{} (®)
+@@ordf @ordf{} (ª)
+@@ordm @ordm{} (º)
+@@comma @comma{} (,)
+@@quotedblleft @quotedblleft{} (“)
+@@quotedblright @quotedblright{} (”)
+@@quoteleft @quoteleft{} (‘)
+@@quoteright @quoteright{} (’)
+@@quotedblbase @quotedblbase{} („)
+@@quotesinglbase @quotesinglbase{} (‚)
+@@guillemetleft @guillemetleft{} («)
+@@guillemetright @guillemetright{} (»)
+@@guillemotleft @guillemotleft{} («)
+@@guillemotright @guillemotright{} (»)
+@@guilsinglleft @guilsinglleft{} (‹)
+@@guilsinglright @guilsinglright{} (›)
 
-@@textdegree @textdegree{}
-@@euro @euro{}
-@@arrow @arrow{}
-@@leq @leq{}
-@@geq @geq{}
+@@textdegree @textdegree{} (°)
+@@euro @euro{} (€)
+@@arrow @arrow{} (→)
+@@leq @leq{} (≤)
+@@geq @geq{} (≥)
 @@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
@@ -1281,62 +1288,69 @@ And ? ?&noeos;.
 Now ! !&noeos;&arobase;
 but , ,&noeos;
 </para>
+<para>&arobase;ampchar &ampchar; (&amp;)
+&arobase;atchar &atchar; (&arobase;)
+&arobase;backslashchar &backslashchar; (\)
+&arobase;hashchar &hashchar; (#)
+&arobase;lbracechar &lbracechar; (&lbrace;)
+&arobase;rbracechar &rbracechar; (&rbrace;)
+</para>
 <para>&arobase;TeX &tex;
 &arobase;LaTeX &latex;
-&arobase;bullet &bullet;
-&arobase;copyright &copyright;
-&arobase;dots &dots;
+&arobase;bullet &bullet; (•)
+&arobase;copyright &copyright; (©)
+&arobase;dots &dots; (…)
 &arobase;enddots &enddots;
-&arobase;equiv &equiv;
+&arobase;equiv &equiv; (≡)
 &arobase;error &errorglyph;
-&arobase;expansion &expansion;
-&arobase;minus &minus;
-&arobase;point &point;
-&arobase;print &printglyph;
-&arobase;result &result;
+&arobase;expansion &expansion; (↦)
+&arobase;minus &minus; (−)
+&arobase;point &point; (★)
+&arobase;print &printglyph; (⊣)
+&arobase;result &result; (⇒)
 &arobase;today <today/>
 </para>
-<para>&arobase;aa &aring;
-&arobase;AA &Aring;
-&arobase;ae &aelig;
-&arobase;oe &oelig;
-&arobase;AE &AElig;
-&arobase;OE &OElig;
-&arobase;o &oslash;
-&arobase;O &Oslash;
-&arobase;ss &szlig;
-&arobase;l &lslash;
-&arobase;L &Lslash;
-&arobase;DH &ETH;
-&arobase;TH &THORN;
-&arobase;dh &eth;
-&arobase;th &thorn;
+<para>&arobase;aa &aring; (å)
+&arobase;AA &Aring; (Å)
+&arobase;ae &aelig; (æ)
+&arobase;oe &oelig; (œ)
+&arobase;AE &AElig; (Æ)
+&arobase;OE &OElig; (Œ)
+&arobase;o &oslash; (ø)
+&arobase;O &Oslash; (Ø)
+&arobase;ss &szlig; (ß)
+&arobase;l &lslash; (ł)
+&arobase;L &Lslash; (Ł)
+&arobase;DH &ETH; (Ð)
+&arobase;TH &THORN; (Þ)
+&arobase;dh &eth; (ð)
+&arobase;th &thorn; (þ)
 </para>
-<para>&arobase;exclamdown &iexcl;
-&arobase;questiondown &iquest;
-&arobase;pounds &pound;
-&arobase;registeredsymbol &registered;
-&arobase;ordf &ordf;
-&arobase;ordm &ordm;
-&arobase;comma &comma;
-&arobase;quotedblleft &ldquo;
-&arobase;quotedblright &rdquo;
-&arobase;quoteleft &lsquo;
-&arobase;quoteright &rsquo;
-&arobase;quotedblbase &bdquo;
-&arobase;quotesinglbase &sbquo;
-&arobase;guillemetleft &laquo;
-&arobase;guillemetright &raquo;
-&arobase;guillemotleft &guillemotleft;
-&arobase;guillemotright &guillemotright;
-&arobase;guilsinglleft &lsaquo;
-&arobase;guilsinglright &rsaquo;
+<para>&arobase;exclamdown &iexcl; (¡)
+&arobase;questiondown &iquest; (¿)
+&arobase;pounds &pound; (£)
+&arobase;registeredsymbol &registered; (®)
+&arobase;ordf &ordf; (ª)
+&arobase;ordm &ordm; (º)
+&arobase;comma &comma; (,)
+&arobase;quotedblleft &ldquo; (“)
+&arobase;quotedblright &rdquo; (”)
+&arobase;quoteleft &lsquo; (‘)
+&arobase;quoteright &rsquo; (’)
+&arobase;quotedblbase &bdquo; („)
+&arobase;quotesinglbase &sbquo; (‚)
+&arobase;guillemetleft &laquo; («)
+&arobase;guillemetright &raquo; (»)
+&arobase;guillemotleft &guillemotleft; («)
+&arobase;guillemotright &guillemotright; (»)
+&arobase;guilsinglleft &lsaquo; (‹)
+&arobase;guilsinglright &rsaquo; (›)
 </para>
-<para>&arobase;textdegree &deg;
-&arobase;euro &euro;
-&arobase;arrow &rarr;
-&arobase;leq &le;
-&arobase;geq &ge;
+<para>&arobase;textdegree &deg; (°)
+&arobase;euro &euro; (€)
+&arobase;arrow &rarr; (→)
+&arobase;leq &le; (≤)
+&arobase;geq &ge; (≥)
 &arobase;tie a&nbsp;b
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
@@ -2421,62 +2435,69 @@ And ? ?&noeos;.
 Now ! !&noeos;&arobase;
 but , ,&noeos;
 </para>
+<para>&arobase;ampchar &ampchar; (&amp;)
+&arobase;atchar &atchar; (&arobase;)
+&arobase;backslashchar &backslashchar; (\)
+&arobase;hashchar &hashchar; (#)
+&arobase;lbracechar &lbracechar; (&lbrace;)
+&arobase;rbracechar &rbracechar; (&rbrace;)
+</para>
 <para>&arobase;TeX &tex;
 &arobase;LaTeX &latex;
-&arobase;bullet &bullet;
-&arobase;copyright &copyright;
-&arobase;dots &dots;
+&arobase;bullet &bullet; (•)
+&arobase;copyright &copyright; (©)
+&arobase;dots &dots; (…)
 &arobase;enddots &enddots;
-&arobase;equiv &equiv;
+&arobase;equiv &equiv; (≡)
 &arobase;error &errorglyph;
-&arobase;expansion &expansion;
-&arobase;minus &minus;
-&arobase;point &point;
-&arobase;print &printglyph;
-&arobase;result &result;
+&arobase;expansion &expansion; (↦)
+&arobase;minus &minus; (−)
+&arobase;point &point; (★)
+&arobase;print &printglyph; (⊣)
+&arobase;result &result; (⇒)
 &arobase;today <today/>
 </para>
-<para>&arobase;aa &aring;
-&arobase;AA &Aring;
-&arobase;ae &aelig;
-&arobase;oe &oelig;
-&arobase;AE &AElig;
-&arobase;OE &OElig;
-&arobase;o &oslash;
-&arobase;O &Oslash;
-&arobase;ss &szlig;
-&arobase;l &lslash;
-&arobase;L &Lslash;
-&arobase;DH &ETH;
-&arobase;TH &THORN;
-&arobase;dh &eth;
-&arobase;th &thorn;
+<para>&arobase;aa &aring; (å)
+&arobase;AA &Aring; (Å)
+&arobase;ae &aelig; (æ)
+&arobase;oe &oelig; (œ)
+&arobase;AE &AElig; (Æ)
+&arobase;OE &OElig; (Œ)
+&arobase;o &oslash; (ø)
+&arobase;O &Oslash; (Ø)
+&arobase;ss &szlig; (ß)
+&arobase;l &lslash; (ł)
+&arobase;L &Lslash; (Ł)
+&arobase;DH &ETH; (Ð)
+&arobase;TH &THORN; (Þ)
+&arobase;dh &eth; (ð)
+&arobase;th &thorn; (þ)
 </para>
-<para>&arobase;exclamdown &iexcl;
-&arobase;questiondown &iquest;
-&arobase;pounds &pound;
-&arobase;registeredsymbol &registered;
-&arobase;ordf &ordf;
-&arobase;ordm &ordm;
-&arobase;comma &comma;
-&arobase;quotedblleft &ldquo;
-&arobase;quotedblright &rdquo;
-&arobase;quoteleft &lsquo;
-&arobase;quoteright &rsquo;
-&arobase;quotedblbase &bdquo;
-&arobase;quotesinglbase &sbquo;
-&arobase;guillemetleft &laquo;
-&arobase;guillemetright &raquo;
-&arobase;guillemotleft &guillemotleft;
-&arobase;guillemotright &guillemotright;
-&arobase;guilsinglleft &lsaquo;
-&arobase;guilsinglright &rsaquo;
+<para>&arobase;exclamdown &iexcl; (¡)
+&arobase;questiondown &iquest; (¿)
+&arobase;pounds &pound; (£)
+&arobase;registeredsymbol &registered; (®)
+&arobase;ordf &ordf; (ª)
+&arobase;ordm &ordm; (º)
+&arobase;comma &comma; (,)
+&arobase;quotedblleft &ldquo; (“)
+&arobase;quotedblright &rdquo; (”)
+&arobase;quoteleft &lsquo; (‘)
+&arobase;quoteright &rsquo; (’)
+&arobase;quotedblbase &bdquo; („)
+&arobase;quotesinglbase &sbquo; (‚)
+&arobase;guillemetleft &laquo; («)
+&arobase;guillemetright &raquo; (»)
+&arobase;guillemotleft &guillemotleft; («)
+&arobase;guillemotright &guillemotright; (»)
+&arobase;guilsinglleft &lsaquo; (‹)
+&arobase;guilsinglright &rsaquo; (›)
 </para>
-<para>&arobase;textdegree &deg;
-&arobase;euro &euro;
-&arobase;arrow &rarr;
-&arobase;leq &le;
-&arobase;geq &ge;
+<para>&arobase;textdegree &deg; (°)
+&arobase;euro &euro; (€)
+&arobase;arrow &rarr; (→)
+&arobase;leq &le; (≤)
+&arobase;geq &ge; (≥)
 &arobase;tie a&nbsp;b
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
@@ -3588,62 +3609,69 @@ And ? ?&noeos;.
 Now ! !&noeos;&arobase;
 but , ,&noeos;
 </para>
+<para>&arobase;ampchar &ampchar; (&amp;)
+&arobase;atchar &atchar; (&arobase;)
+&arobase;backslashchar &backslashchar; (\)
+&arobase;hashchar &hashchar; (#)
+&arobase;lbracechar &lbracechar; (&lbrace;)
+&arobase;rbracechar &rbracechar; (&rbrace;)
+</para>
 <para>&arobase;TeX &tex;
 &arobase;LaTeX &latex;
-&arobase;bullet &bullet;
-&arobase;copyright &copyright;
-&arobase;dots &dots;
+&arobase;bullet &bullet; (•)
+&arobase;copyright &copyright; (©)
+&arobase;dots &dots; (…)
 &arobase;enddots &enddots;
-&arobase;equiv &equiv;
+&arobase;equiv &equiv; (≡)
 &arobase;error &errorglyph;
-&arobase;expansion &expansion;
-&arobase;minus &minus;
-&arobase;point &point;
-&arobase;print &printglyph;
-&arobase;result &result;
+&arobase;expansion &expansion; (↦)
+&arobase;minus &minus; (−)
+&arobase;point &point; (★)
+&arobase;print &printglyph; (⊣)
+&arobase;result &result; (⇒)
 &arobase;today <today/>
 </para>
-<para>&arobase;aa &aring;
-&arobase;AA &Aring;
-&arobase;ae &aelig;
-&arobase;oe &oelig;
-&arobase;AE &AElig;
-&arobase;OE &OElig;
-&arobase;o &oslash;
-&arobase;O &Oslash;
-&arobase;ss &szlig;
-&arobase;l &lslash;
-&arobase;L &Lslash;
-&arobase;DH &ETH;
-&arobase;TH &THORN;
-&arobase;dh &eth;
-&arobase;th &thorn;
+<para>&arobase;aa &aring; (å)
+&arobase;AA &Aring; (Å)
+&arobase;ae &aelig; (æ)
+&arobase;oe &oelig; (œ)
+&arobase;AE &AElig; (Æ)
+&arobase;OE &OElig; (Œ)
+&arobase;o &oslash; (ø)
+&arobase;O &Oslash; (Ø)
+&arobase;ss &szlig; (ß)
+&arobase;l &lslash; (ł)
+&arobase;L &Lslash; (Ł)
+&arobase;DH &ETH; (Ð)
+&arobase;TH &THORN; (Þ)
+&arobase;dh &eth; (ð)
+&arobase;th &thorn; (þ)
 </para>
-<para>&arobase;exclamdown &iexcl;
-&arobase;questiondown &iquest;
-&arobase;pounds &pound;
-&arobase;registeredsymbol &registered;
-&arobase;ordf &ordf;
-&arobase;ordm &ordm;
-&arobase;comma &comma;
-&arobase;quotedblleft &ldquo;
-&arobase;quotedblright &rdquo;
-&arobase;quoteleft &lsquo;
-&arobase;quoteright &rsquo;
-&arobase;quotedblbase &bdquo;
-&arobase;quotesinglbase &sbquo;
-&arobase;guillemetleft &laquo;
-&arobase;guillemetright &raquo;
-&arobase;guillemotleft &guillemotleft;
-&arobase;guillemotright &guillemotright;
-&arobase;guilsinglleft &lsaquo;
-&arobase;guilsinglright &rsaquo;
+<para>&arobase;exclamdown &iexcl; (¡)
+&arobase;questiondown &iquest; (¿)
+&arobase;pounds &pound; (£)
+&arobase;registeredsymbol &registered; (®)
+&arobase;ordf &ordf; (ª)
+&arobase;ordm &ordm; (º)
+&arobase;comma &comma; (,)
+&arobase;quotedblleft &ldquo; (“)
+&arobase;quotedblright &rdquo; (”)
+&arobase;quoteleft &lsquo; (‘)
+&arobase;quoteright &rsquo; (’)
+&arobase;quotedblbase &bdquo; („)
+&arobase;quotesinglbase &sbquo; (‚)
+&arobase;guillemetleft &laquo; («)
+&arobase;guillemetright &raquo; (»)
+&arobase;guillemotleft &guillemotleft; («)
+&arobase;guillemotright &guillemotright; (»)
+&arobase;guilsinglleft &lsaquo; (‹)
+&arobase;guilsinglright &rsaquo; (›)
 </para>
-<para>&arobase;textdegree &deg;
-&arobase;euro &euro;
-&arobase;arrow &rarr;
-&arobase;leq &le;
-&arobase;geq &ge;
+<para>&arobase;textdegree &deg; (°)
+&arobase;euro &euro; (€)
+&arobase;arrow &rarr; (→)
+&arobase;leq &le; (≤)
+&arobase;geq &ge; (≥)
 &arobase;tie a&nbsp;b
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
@@ -4723,62 +4751,69 @@ And ? ?&noeos;.
 Now ! !&noeos;&arobase;
 but , ,&noeos;
 
+&arobase;ampchar &ampchar; (&amp;)
+&arobase;atchar &atchar; (&arobase;)
+&arobase;backslashchar &backslashchar; (\)
+&arobase;hashchar &hashchar; (#)
+&arobase;lbracechar &lbracechar; (&lbrace;)
+&arobase;rbracechar &rbracechar; (&rbrace;)
+
 &arobase;TeX &tex;
 &arobase;LaTeX &latex;
-&arobase;bullet &bullet;
-&arobase;copyright &copyright;
-&arobase;dots &dots;
+&arobase;bullet &bullet; (•)
+&arobase;copyright &copyright; (©)
+&arobase;dots &dots; (…)
 &arobase;enddots &enddots;
-&arobase;equiv &equiv;
+&arobase;equiv &equiv; (≡)
 &arobase;error &errorglyph;
-&arobase;expansion &expansion;
-&arobase;minus &minus;
-&arobase;point &point;
-&arobase;print &printglyph;
-&arobase;result &result;
+&arobase;expansion &expansion; (↦)
+&arobase;minus &minus; (−)
+&arobase;point &point; (★)
+&arobase;print &printglyph; (⊣)
+&arobase;result &result; (⇒)
 &arobase;today <today/>
 
-&arobase;aa &aring;
-&arobase;AA &Aring;
-&arobase;ae &aelig;
-&arobase;oe &oelig;
-&arobase;AE &AElig;
-&arobase;OE &OElig;
-&arobase;o &oslash;
-&arobase;O &Oslash;
-&arobase;ss &szlig;
-&arobase;l &lslash;
-&arobase;L &Lslash;
-&arobase;DH &ETH;
-&arobase;TH &THORN;
-&arobase;dh &eth;
-&arobase;th &thorn;
+&arobase;aa &aring; (å)
+&arobase;AA &Aring; (Å)
+&arobase;ae &aelig; (æ)
+&arobase;oe &oelig; (œ)
+&arobase;AE &AElig; (Æ)
+&arobase;OE &OElig; (Œ)
+&arobase;o &oslash; (ø)
+&arobase;O &Oslash; (Ø)
+&arobase;ss &szlig; (ß)
+&arobase;l &lslash; (ł)
+&arobase;L &Lslash; (Ł)
+&arobase;DH &ETH; (Ð)
+&arobase;TH &THORN; (Þ)
+&arobase;dh &eth; (ð)
+&arobase;th &thorn; (þ)
 
-&arobase;exclamdown &iexcl;
-&arobase;questiondown &iquest;
-&arobase;pounds &pound;
-&arobase;registeredsymbol &registered;
-&arobase;ordf &ordf;
-&arobase;ordm &ordm;
-&arobase;comma &comma;
-&arobase;quotedblleft &ldquo;
-&arobase;quotedblright &rdquo;
-&arobase;quoteleft &lsquo;
-&arobase;quoteright &rsquo;
-&arobase;quotedblbase &bdquo;
-&arobase;quotesinglbase &sbquo;
-&arobase;guillemetleft &laquo;
-&arobase;guillemetright &raquo;
-&arobase;guillemotleft &guillemotleft;
-&arobase;guillemotright &guillemotright;
-&arobase;guilsinglleft &lsaquo;
-&arobase;guilsinglright &rsaquo;
+&arobase;exclamdown &iexcl; (¡)
+&arobase;questiondown &iquest; (¿)
+&arobase;pounds &pound; (£)
+&arobase;registeredsymbol &registered; (®)
+&arobase;ordf &ordf; (ª)
+&arobase;ordm &ordm; (º)
+&arobase;comma &comma; (,)
+&arobase;quotedblleft &ldquo; (“)
+&arobase;quotedblright &rdquo; (”)
+&arobase;quoteleft &lsquo; (‘)
+&arobase;quoteright &rsquo; (’)
+&arobase;quotedblbase &bdquo; („)
+&arobase;quotesinglbase &sbquo; (‚)
+&arobase;guillemetleft &laquo; («)
+&arobase;guillemetright &raquo; (»)
+&arobase;guillemotleft &guillemotleft; («)
+&arobase;guillemotright &guillemotright; (»)
+&arobase;guilsinglleft &lsaquo; (‹)
+&arobase;guilsinglright &rsaquo; (›)
 
-&arobase;textdegree &deg;
-&arobase;euro &euro;
-&arobase;arrow &rarr;
-&arobase;leq &le;
-&arobase;geq &ge;
+&arobase;textdegree &deg; (°)
+&arobase;euro &euro; (€)
+&arobase;arrow &rarr; (→)
+&arobase;leq &le; (≤)
+&arobase;geq &ge; (≥)
 &arobase;tie a&nbsp;b
 
 <code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>--a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
