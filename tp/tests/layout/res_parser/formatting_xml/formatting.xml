@@ -3515,6 +3515,9 @@ in verbatim ''
 </para><insertcopying></insertcopying>
 </titlepage>
 
+<latex endspaces=" ">
+</latex>
+
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>Top section</sectiontitle>
 

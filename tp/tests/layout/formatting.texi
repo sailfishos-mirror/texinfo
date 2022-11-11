@@ -35,6 +35,17 @@ Insercopying in titlepage
 @insertcopying
 @end titlepage
 
+@latex
+\DeclareUnicodeCharacter{2261}{$\equiv$}
+\DeclareUnicodeCharacter{21A6}{$\mapsto$}
+\DeclareUnicodeCharacter{2212}{-}
+\DeclareUnicodeCharacter{2605}{$\star$}
+\DeclareUnicodeCharacter{22A3}{$\dashv$}
+\DeclareUnicodeCharacter{21D2}{$\Rightarrow$}
+\DeclareUnicodeCharacter{2264}{$\leq$}
+\DeclareUnicodeCharacter{2265}{$\geq$}
+@end latex
+
 @node Top
 @top Top section
 

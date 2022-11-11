@@ -3532,6 +3532,9 @@ Insercopying in titlepage
 @insertcopying
 @end titlepage
 
+@latex
+@end latex
+
 @node Top
 @top Top section
 

@@ -1,5 +1,13 @@
 2022-11-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%preamble_commands): fix typo on direntry
+	command name.
+
+	* tp/tests/layout/formatting.texi: add @latex \DeclareUnicodeCharacter
+	for characters not in the default inputenc/fontenc.
+
+2022-11-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/coverage_macro.texi: add UTF-8 encoded characters near to
 	@-commands to be able to check visually the difference in formatting.
 
