@@ -13710,38 +13710,6 @@ macros containing line-oriented commands or text, such as
 @code{@@example} environments, may behave unpredictably in @TeX{}.
 
 @item
-If you have problems using conditionals within a macro, an alternative
-is to use separate macro definitions inside conditional blocks.  For
-example, instead of
-
-@example
-@@macro Mac
-@@iftex
-text for TeX output
-@@end iftex
-@@ifnottex
-text for not TeX output
-@@end ifnottex
-@@end macro
-@end example
-
-@noindent you can do the following instead:
-
-@example
-@@iftex
-@@macro Mac
-text for TeX output
-@@end macro
-@@end iftex
-
-@@ifnottex
-@@macro Mac
-text for not TeX output
-@@end macro
-@@end ifnottex
-@end example
-
-@item
 Texinfo commands in the expansion of a macro in the text of an index 
 entry may end up being typeset as literal text (including an ``@@'' 
 sign), instead of being interpreted with their intended meaning.
@@ -13783,6 +13751,71 @@ off
 This looks equivalent to @code{@@headings off}, but for @TeX{}nical
 reasons, it fails with a mysterious error message (namely,
 @samp{Paragraph ended before @@headings was complete}).
+
+@item
+Expanding macros in a math context may lead to poor spacing in
+@TeX{} output.  For example:
+
+@example
+@@iftex
+@@macro atan
+\\mathop@{\\rm atan@}
+@@end macro
+@@end iftex
+
+@@math@{@@atan@{@}(x)@}
+@end example
+
+The braces following @samp{@@atan} are treated by @TeX{} as a subformula,
+leading to extra space before the opening parenthesis.  You can work
+around this by defining a raw @TeX{} macro instead:
+
+@example
+@@tex
+\gdef\atan#1@{\mathop@{\rm atan@}@}
+@@end tex
+@end example
+
+The @samp{#1} in this definition absorbs the braces, so that the spacing
+is as expected for the @code{\mathop} object.
+
+@item
+If you have problems using conditionals within a macro, an alternative
+is to use separate macro definitions inside conditional blocks.  For
+example, instead of
+
+@example
+@group
+@@macro Mac
+@@iftex
+text for TeX output
+@@end iftex
+@@ifnottex
+text for not TeX output
+@@end ifnottex
+@@end macro
+@end group
+@end example
+
+@noindent you can do the following instead:
+
+@example
+@group
+@@iftex
+@@macro Mac
+text for TeX output
+@@end macro
+@@end iftex
+
+@@ifnottex
+@@macro Mac
+text for not TeX output
+@@end macro
+@@end ifnottex
+@end group
+@end example
+
+
 
 @item
 Macros cannot define macros in the natural way.  To do this, you must

@@ -1,3 +1,8 @@
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Macro Details): Add problem with macro
+	expansion inside of @math.  Report from Vincent Lefèvre.
+
 2022-11-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\unicodechardefs): Use \arrow instead of
