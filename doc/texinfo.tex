@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-11-12.16}
+\def\texinfoversion{2022-11-12.22}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -3691,9 +3691,10 @@ $$%
 
 % @textdegree - the normal degrees sign.
 %
-\def\textdegree{\ifusingtt
-  {\hbox to \fontdimen2\font {\ensuremath{^\circ}\hfil}}%
-  {\ensuremath{^\circ}}}
+\def\textdegree{%
+   \ifmmode ^\circ
+   \else {\tcfont \char 176}%
+   \fi}
 
 % Laurent Siebenmann reports \Orb undefined with:
 %  Textures 1.7.7 (preloaded format=plain 93.10.14)  (68K)  16 APR 2004 02:38
