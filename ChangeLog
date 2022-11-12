@@ -1,5 +1,11 @@
 2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (wwwdoc-build): Split texi2any_internals
+	by chapter.  Report from Patrice.  Suppress Info node name
+	warnings for texi2any_api and texi2any_internals.
+
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.cnf (texi2any_internals): Add split-by-chapter
 	line.  Report from Patrice.
 
