@@ -9927,7 +9927,8 @@ sub output($$)
   if (!$fulltitle and $self->{'global_commands'}->{'titlefont'}
       and $self->{'global_commands'}->{'titlefont'}->[0]->{'args'}
       and defined($self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0])
-      and $self->{'global_commands'}->{'titlefont'}->[0]->{'contents'}
+      and $self->{'global_commands'}->{'titlefont'}->[0]
+                                        ->{'args'}->[0]->{'contents'}
       and @{$self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0]->{'contents'}}) {
     $fulltitle = $self->{'global_commands'}->{'titlefont'}->[0];
   }
