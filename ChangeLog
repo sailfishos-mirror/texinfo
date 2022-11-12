@@ -1,3 +1,11 @@
+2022-11-12  Patrice Dumas  <pertusus@free.fr>
+
+	* util/htmlxref.cnf: add manuals, in particular mono manuals
+	and fix some issues with existing manuals. Report from Tzvetelin
+	Katchov.
+	Rename mairix manual as mairix-el, and smalltalk* manuals as
+	gst*.
+
 2022-11-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/DocBook.pm (_convert): avoid formatting when
