@@ -1024,7 +1024,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                  'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                 }
               },
               'source_info' => {
@@ -5418,10 +5418,10 @@ $result_trees{'at_commands_in_refs_utf8'} = {
               {},
               {}
             ],
-            'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+            'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
           }
         ],
-        'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae',
+        'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae',
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -11618,7 +11618,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                  'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                 }
               },
               'source_info' => {
@@ -15890,7 +15890,7 @@ $result_sectioning{'at_commands_in_refs_utf8'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                    'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                   },
                   'structure' => {}
                 }
@@ -16526,7 +16526,7 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                     'section_number' => 7
                                   }
                                 },
-                                'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                                'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                               },
                               'structure' => {
                                 'node_next' => {
@@ -17001,7 +17001,7 @@ $result_menus{'at_commands_in_refs_utf8'} = {
                             'menu_next' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                                'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                               },
                               'structure' => {
                                 'menu_next' => {

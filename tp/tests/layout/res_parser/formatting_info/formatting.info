@@ -39,7 +39,7 @@ Now !  !@ but , ,
 
    @TeX TeX @LaTeX LaTeX @bullet * (•) @copyright (C) (©) @dots ... (…)
 @enddots ...  @equiv == (≡) @error error-> @expansion ==> (↦) @minus -
-(−) @point -!- (★) @print -| (⊣) @result => (⇒) @today a sunny day
+(−) @point -!- (⋆) @print -| (⊣) @result => (⇒) @today a sunny day
 
    @aa å (å) @AA Å (Å) @ae æ (æ) @oe œ (œ) @AE Æ (Æ) @OE Œ (Œ) @o ø (ø)
 @O Ø (Ø) @ss ß (ß) @l ł (ł) @L Ł (Ł) @DH Ð (Ð) @TH Þ (Þ) @dh ð (ð) @th þ
@@ -760,7 +760,7 @@ Now !  !@ but , ,
 
    @TeX TeX @LaTeX LaTeX @bullet * (•) @copyright (C) (©) @dots ... (…)
 @enddots ...  @equiv == (≡) @error error-> @expansion ==> (↦) @minus -
-(−) @point -!- (★) @print -| (⊣) @result => (⇒) @today a sunny day
+(−) @point -!- (⋆) @print -| (⊣) @result => (⇒) @today a sunny day
 
    @aa å (å) @AA Å (Å) @ae æ (æ) @oe œ (œ) @AE Æ (Æ) @OE Œ (Œ) @o ø (ø)
 @O Ø (Ø) @ss ß (ß) @l ł (ł) @L Ł (Ł) @DH Ð (Ð) @TH Þ (Þ) @dh ð (ð) @th þ
@@ -1438,7 +1438,7 @@ Now !  !@ but , ,
 
    @TeX TeX @LaTeX LaTeX @bullet * (•) @copyright (C) (©) @dots ... (…)
 @enddots ...  @equiv == (≡) @error error-> @expansion ==> (↦) @minus -
-(−) @point -!- (★) @print -| (⊣) @result => (⇒) @today a sunny day
+(−) @point -!- (⋆) @print -| (⊣) @result => (⇒) @today a sunny day
 
    @aa å (å) @AA Å (Å) @ae æ (æ) @oe œ (œ) @AE Æ (Æ) @OE Œ (Œ) @o ø (ø)
 @O Ø (Ø) @ss ß (ß) @l ł (ł) @L Ł (Ł) @DH Ð (Ð) @TH Þ (Þ) @dh ð (ð) @th þ
@@ -2185,7 +2185,7 @@ cross ref name: (file name). '@inforef{}' *note ::
      @error error->
      @expansion ==> (↦)
      @minus - (−)
-     @point -!- (★)
+     @point -!- (⋆)
      @print -| (⊣)
      @result => (⇒)
      @today a sunny day

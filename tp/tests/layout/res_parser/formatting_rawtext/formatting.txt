@@ -140,7 +140,7 @@ but , ,
 @error error-->
 @expansion ==> (↦)
 @minus - (−)
-@point -!- (★)
+@point -!- (⋆)
 @print -| (⊣)
 @result => (⇒)
 @today a sunny day
@@ -981,7 +981,7 @@ but , ,
 @error error-->
 @expansion ==> (↦)
 @minus - (−)
-@point -!- (★)
+@point -!- (⋆)
 @print -| (⊣)
 @result => (⇒)
 @today a sunny day

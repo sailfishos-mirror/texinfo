@@ -13,6 +13,7 @@ See the manual for detailed information.
  . HTML output:
     . format @subentry and index entry with @seealso or @seeentry more in line
       with printed output.
+    . Change @point expansion to U+22C6 in HTML Cross-references.
 
 7.0 (7 November 2022)
 * texi2any

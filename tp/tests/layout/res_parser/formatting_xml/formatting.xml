@@ -122,7 +122,7 @@ but , ,@:
 @@error @error{}
 @@expansion @expansion{} (↦)
 @@minus @minus{} (−)
-@@point @point{} (★)
+@@point @point{} (⋆)
 @@print @print{} (⊣)
 @@result @result{} (⇒)
 @@today @today{}
@@ -1329,7 +1329,7 @@ but , ,&noeos;
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
-&arobase;point &point; (★)
+&arobase;point &point; (⋆)
 &arobase;print &printglyph; (⊣)
 &arobase;result &result; (⇒)
 &arobase;today <today/>
@@ -2478,7 +2478,7 @@ but , ,&noeos;
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
-&arobase;point &point; (★)
+&arobase;point &point; (⋆)
 &arobase;print &printglyph; (⊣)
 &arobase;result &result; (⇒)
 &arobase;today <today/>
@@ -3657,7 +3657,7 @@ but , ,&noeos;
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
-&arobase;point &point; (★)
+&arobase;point &point; (⋆)
 &arobase;print &printglyph; (⊣)
 &arobase;result &result; (⇒)
 &arobase;today <today/>
@@ -4801,7 +4801,7 @@ but , ,&noeos;
 &arobase;error &errorglyph;
 &arobase;expansion &expansion; (↦)
 &arobase;minus &minus; (−)
-&arobase;point &point; (★)
+&arobase;point &point; (⋆)
 &arobase;print &printglyph; (⊣)
 &arobase;result &result; (⇒)
 &arobase;today <today/>

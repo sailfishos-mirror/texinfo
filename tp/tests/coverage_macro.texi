@@ -102,7 +102,7 @@ but , ,@:
 @@error @error{}
 @@expansion @expansion{} (↦)
 @@minus @minus{} (−)
-@@point @point{} (★)
+@@point @point{} (⋆)
 @@print @print{} (⊣)
 @@result @result{} (⇒)
 @@today @today{}

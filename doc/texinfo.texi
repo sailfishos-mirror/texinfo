@@ -18700,7 +18700,7 @@ the final file or other target name, such as space characters to
 @item @code{@@minus}            @tab U+2212
 @item @code{@@ordf}             @tab U+00AA
 @item @code{@@ordm}             @tab U+00BA
-@item @code{@@point}            @tab U+2605
+@item @code{@@point}            @tab U+22C6
 @item @code{@@pounds}           @tab U+00A3
 @item @code{@@print}            @tab U+22A3
 @item @code{@@questiondown}     @tab U+00BF

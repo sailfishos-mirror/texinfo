@@ -544,7 +544,11 @@ our %extra_unicode_map = (
                'arrow'             => '2192',
                'minus'             => '2212', # in mathematical operators
 #               'minus'             => '002D', # in latin1
-               'point'             => '2605',
+               'point'             => '22C6', # another candidate is 2605
+                                              # corresponding to a bigger star
+                                              # (and to \bigstar in LaTeX)
+                                              # but less consistent with TeX
+                                              # \star
                'print'             => '22A3',
                'result'            => '21D2',
                'quotedblleft'      => '201C',

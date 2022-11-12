@@ -127,7 +127,7 @@ but , ,
 @error error&#8594;
 @expansion &#8614; (↦)
 @minus &#8722; (−)
-@point &#9733; (★)
+@point &#8902; (⋆)
 @print &#8867; (⊣)
 @result &#8658; (⇒)
 @today a sunny day
@@ -828,7 +828,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 <!--  @point ->$@star  -->
 <!--  @registeredsymbol ->$^ -->
 <!--  Display math should end with $$. -->
-<informalequation><mathphrase>&tex; &latex; &#9733; &#229; &#174; &#176; 
+<informalequation><mathphrase>&tex; &latex; &#8902; &#229; &#174; &#176; 
 </mathphrase></informalequation>
 <!-- TeX is confused by @t{t} -->
 <!--  Please use @mathaccent for accents in math mode. -->
@@ -1053,7 +1053,7 @@ but , ,
 @error error&#8594;
 @expansion &#8614; (↦)
 @minus &#8722; (−)
-@point &#9733; (★)
+@point &#8902; (⋆)
 @print &#8867; (⊣)
 @result &#8658; (⇒)
 @today a sunny day
@@ -1754,7 +1754,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 <!--  @point ->$@star  -->
 <!--  @registeredsymbol ->$^ -->
 <!--  Display math should end with $$. -->
-<informalequation><mathphrase>&tex; &latex; &#9733; &#229; &#174; &#176; 
+<informalequation><mathphrase>&tex; &latex; &#8902; &#229; &#174; &#176; 
 </mathphrase></informalequation>
 <!-- TeX is confused by @t{t} -->
 <!--  Please use @mathaccent for accents in math mode. -->
@@ -1966,7 +1966,7 @@ but , ,
 @error error&#8594;
 @expansion &#8614; (↦)
 @minus &#8722; (−)
-@point &#9733; (★)
+@point &#8902; (⋆)
 @print &#8867; (⊣)
 @result &#8658; (⇒)
 @today a sunny day
@@ -2667,7 +2667,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 <!--  @point ->$@star  -->
 <!--  @registeredsymbol ->$^ -->
 <!--  Display math should end with $$. -->
-<informalequation><mathphrase>&tex; &latex; &#9733; &#229; &#174; &#176; 
+<informalequation><mathphrase>&tex; &latex; &#8902; &#229; &#174; &#176; 
 </mathphrase></informalequation>
 <!-- TeX is confused by @t{t} -->
 <!--  Please use @mathaccent for accents in math mode. -->
@@ -2875,7 +2875,7 @@ but , ,
 @error error&#8594;
 @expansion &#8614; (↦)
 @minus &#8722; (−)
-@point &#9733; (★)
+@point &#8902; (⋆)
 @print &#8867; (⊣)
 @result &#8658; (⇒)
 @today a sunny day
@@ -3572,7 +3572,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 <!--  @point ->$@star  -->
 <!--  @registeredsymbol ->$^ -->
 <!--  Display math should end with $$. -->
-</screen><informalequation><mathphrase>&tex; &latex; &#9733; &#229; &#174; &#176; 
+</screen><informalequation><mathphrase>&tex; &latex; &#8902; &#229; &#174; &#176; 
 </mathphrase></informalequation><screen>
 <!-- TeX is confused by @t{t} -->
 <!--  Please use @mathaccent for accents in math mode. -->

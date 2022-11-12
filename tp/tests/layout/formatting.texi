@@ -41,7 +41,7 @@ Insercopying in titlepage
 \DeclareUnicodeCharacter{2261}{$\equiv$}
 \DeclareUnicodeCharacter{21A6}{$\mapsto$}
 \DeclareUnicodeCharacter{2212}{-}
-\DeclareUnicodeCharacter{2605}{$\star$}
+\DeclareUnicodeCharacter{22C6}{$\star$}
 \DeclareUnicodeCharacter{22A3}{$\dashv$}
 \DeclareUnicodeCharacter{21D2}{$\Rightarrow$}
 \DeclareUnicodeCharacter{2264}{$\leq$}

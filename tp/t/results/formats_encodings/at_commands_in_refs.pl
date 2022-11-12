@@ -964,7 +964,7 @@ $result_trees{'at_commands_in_refs'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                  'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                 }
               },
               'source_info' => {
@@ -5358,10 +5358,10 @@ $result_trees{'at_commands_in_refs'} = {
               {},
               {}
             ],
-            'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+            'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
           }
         ],
-        'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae',
+        'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae',
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -11558,7 +11558,7 @@ $result_trees{'at_commands_in_refs'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                  'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                 }
               },
               'source_info' => {
@@ -15826,7 +15826,7 @@ $result_sectioning{'at_commands_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                    'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                   },
                   'structure' => {}
                 }
@@ -16462,7 +16462,7 @@ $result_nodes{'at_commands_in_refs'} = {
                                     'section_number' => 7
                                   }
                                 },
-                                'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                                'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                               },
                               'structure' => {
                                 'node_next' => {
@@ -16937,7 +16937,7 @@ $result_menus{'at_commands_in_refs'} = {
                             'menu_next' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
+                                'normalized' => '_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae'
                               },
                               'structure' => {
                                 'menu_next' => {
@@ -17361,7 +17361,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 6 ≥ ≤ →
 *******
 
-7 ª º ★ £ ⊣ ¿ ®
+7 ª º ⋆ £ ⊣ ¿ ®
 ***************
 
 8 ⇒ ° a b a sunny day å
@@ -17438,7 +17438,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
    *note ≥ ≤ →::
 
-   *note ª º ★ £ ⊣ ¿ ®::
+   *note ª º ⋆ £ ⊣ ¿ ®::
 
    *note ⇒ ° a b a sunny day å::
 
@@ -17556,7 +17556,7 @@ Next: <a href="#-_007b-_007d" accesskey="n" rel="next"> { }</a> &nbsp; </p>
 <li><a href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" accesskey="4">LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small></a></li>
 <li><a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="5">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a></li>
 <li><a href="#g_t_2265-_2264-_2192" accesskey="6">&ge; &le; &rarr;</a></li>
-<li><a href="#g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae" accesskey="7">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a></li>
+<li><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="7">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a></li>
 <li><a href="#g_t_21d2-_00b0-a-b-_00e5" accesskey="8">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></li>
 <li><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="9">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></li>
 <li><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></li>
@@ -17627,25 +17627,25 @@ Next: <a href="#g_t_2265-_2264-_2192" accesskey="n" rel="next">&ge; &le; &rarr;<
 <div class="chapter-level-extent" id="g_t_2265-_2264-_2192">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae" accesskey="n" rel="next">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>, Previous: <a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="p" rel="prev">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="n" rel="next">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>, Previous: <a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="p" rel="prev">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="g_t_2265-_2264-_2192-1">6 &ge; &le; &rarr;</h2>
 
 <hr>
 </div>
-<div class="chapter-level-extent" id="g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae">
+<div class="chapter-level-extent" id="g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">
 <div class="nav-panel">
 <p>
 Next: <a href="#g_t_21d2-_00b0-a-b-_00e5" accesskey="n" rel="next">&rArr; &deg; a&nbsp;b a sunny day &aring;</a>, Previous: <a href="#g_t_2265-_2264-_2192" accesskey="p" rel="prev">&ge; &le; &rarr;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae-1">7 &ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</h2>
+<h2 class="chapter" id="g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae-1">7 &ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_21d2-_00b0-a-b-_00e5">
 <div class="nav-panel">
 <p>
-Next: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="n" rel="next">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Previous: <a href="#g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae" accesskey="p" rel="prev">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="n" rel="next">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Previous: <a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="p" rel="prev">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="g_t_21d2-_00b0-a-b-aa">8 &rArr; &deg; a&nbsp;b a sunny day &aring;</h2>
 
@@ -17832,7 +17832,7 @@ Previous: <a href="#gH-3rd" accesskey="p" rel="prev"><sub class="sub">g</sub>H 3
 </p>
 <p><a class="ref" href="#g_t_2265-_2264-_2192">&ge; &le; &rarr;</a>
 </p>
-<p><a class="ref" href="#g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>
+<p><a class="ref" href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>
 </p>
 <p><a class="ref" href="#g_t_21d2-_00b0-a-b-_00e5">&rArr; &deg; a&nbsp;b a sunny day &aring;</a>
 </p>
@@ -17982,7 +17982,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 <chapter spaces=" "><sectiontitle>&ge; &le; &rarr;</sectiontitle>
 
 </chapter>
-<node name="_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae" spaces=" "><nodename>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodename><nodenext automatic="on">&result; &deg; a&nbsp;b <today/> &aring;</nodenext><nodeprev automatic="on">&ge; &le; &rarr;</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" spaces=" "><nodename>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</nodename><nodenext automatic="on">&result; &deg; a&nbsp;b <today/> &aring;</nodenext><nodeprev automatic="on">&ge; &le; &rarr;</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</sectiontitle>
 
 </chapter>
@@ -18077,7 +18077,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 </para>
 <para><ref label="_2265-_2264-_2192"><xrefnodename>&ge; &le; &rarr;</xrefnodename></ref>
 </para>
-<para><ref label="_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae"><xrefnodename>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</xrefnodename></ref>
+<para><ref label="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae"><xrefnodename>&ordf; &ordm; &point; &pound; &printglyph; &iquest; &registered;</xrefnodename></ref>
 </para>
 <para><ref label="_21d2-_00b0-a-b-_00e5"><xrefnodename>&result; &deg; a&nbsp;b <today/> &aring;</xrefnodename></ref>
 </para>
@@ -18149,8 +18149,8 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 <title>&#8805; &#8804; &#8594;</title>
 
 </chapter>
-<chapter label="7" id="_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae">
-<title>&#170; &#186; &#9733; &#163; &#8867; &#191; &#174;</title>
+<chapter label="7" id="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">
+<title>&#170; &#186; &#8902; &#163; &#8867; &#191; &#174;</title>
 
 </chapter>
 <chapter label="8" id="_21d2-_00b0-a-b-_00e5">
@@ -18245,7 +18245,7 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="1" id="
 </para>
 <para><link linkend="_2265-_2264-_2192">&#8805; &#8804; &#8594;</link>
 </para>
-<para><link linkend="_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae">&#170; &#186; &#9733; &#163; &#8867; &#191; &#174;</link>
+<para><link linkend="_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">&#170; &#186; &#8902; &#163; &#8867; &#191; &#174;</link>
 </para>
 <para><link linkend="_21d2-_00b0-a-b-_00e5">&#8658; &#176; a&#160;b a sunny day &#229;</link>
 </para>
@@ -18334,7 +18334,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\label{anchor:_2265-_2264-_2192}%
 
 \\chapter{{\\textordfeminine{} \\textordmasculine{} $\\star{}$ \\textsterling{} $\\dashv{}$ \\textquestiondown{} \\circledR{}}}
-\\label{anchor:_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae}%
+\\label{anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}%
 
 \\chapter{{$\\Rightarrow{}$ \\textdegree{} a~b \\today{} \\aa{}}}
 \\label{anchor:_21d2-_00b0-a-b-_00e5}%
@@ -18408,7 +18408,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 
 \\hyperref[anchor:_2265-_2264-_2192]{\\chaptername~\\ref*{anchor:_2265-_2264-_2192} [$\\geq{}$ $\\leq{}$ $\\rightarrow{}$], page~\\pageref*{anchor:_2265-_2264-_2192}}
 
-\\hyperref[anchor:_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae]{\\chaptername~\\ref*{anchor:_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae} [\\textordfeminine{} \\textordmasculine{} $\\star{}$ \\textsterling{} $\\dashv{}$ \\textquestiondown{} \\circledR{}], page~\\pageref*{anchor:_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae}}
+\\hyperref[anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae]{\\chaptername~\\ref*{anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae} [\\textordfeminine{} \\textordmasculine{} $\\star{}$ \\textsterling{} $\\dashv{}$ \\textquestiondown{} \\circledR{}], page~\\pageref*{anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}}
 
 \\hyperref[anchor:_21d2-_00b0-a-b-_00e5]{\\chaptername~\\ref*{anchor:_21d2-_00b0-a-b-_00e5} [$\\Rightarrow{}$ \\textdegree{} a~b \\today{} \\aa{}], page~\\pageref*{anchor:_21d2-_00b0-a-b-_00e5}}
 
@@ -18491,7 +18491,7 @@ Top
 * LaTeX TeX • , © ... ...::
 * ≡ error→ € ¡ ↦ −::
 * ≥ ≤ →::
-* ª º ★ £ ⊣ ¿ ®::
+* ª º ⋆ £ ⊣ ¿ ®::
 * ⇒ ° a b a sunny day å::
 * Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
 * ä ẽ î â à é ç ē e̊ e̋ ę::
@@ -18545,19 +18545,19 @@ File: ,  Node: ≡ error→ € ¡ ↦ −,  Next: ≥ ≤ →,  Prev: LaTeX Te
 ******************
 
 
-File: ,  Node: ≥ ≤ →,  Next: ª º ★ £ ⊣ ¿ ®,  Prev: ≡ error→ € ¡ ↦ −,  Up: Top
+File: ,  Node: ≥ ≤ →,  Next: ª º ⋆ £ ⊣ ¿ ®,  Prev: ≡ error→ € ¡ ↦ −,  Up: Top
 
 6 ≥ ≤ →
 *******
 
 
-File: ,  Node: ª º ★ £ ⊣ ¿ ®,  Next: ⇒ ° a b a sunny day å,  Prev: ≥ ≤ →,  Up: Top
+File: ,  Node: ª º ⋆ £ ⊣ ¿ ®,  Next: ⇒ ° a b a sunny day å,  Prev: ≥ ≤ →,  Up: Top
 
-7 ª º ★ £ ⊣ ¿ ®
+7 ª º ⋆ £ ⊣ ¿ ®
 ***************
 
 
-File: ,  Node: ⇒ ° a b a sunny day å,  Next: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Prev: ª º ★ £ ⊣ ¿ ®,  Up: Top
+File: ,  Node: ⇒ ° a b a sunny day å,  Next: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Prev: ª º ⋆ £ ⊣ ¿ ®,  Up: Top
 
 8 ⇒ ° a b a sunny day å
 ***********************
@@ -18690,7 +18690,7 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note ≥ ≤ →::
 
-   *note ª º ★ £ ⊣ ¿ ®::
+   *note ª º ⋆ £ ⊣ ¿ ®::
 
    *note ⇒ ° a b a sunny day å::
 
@@ -18742,7 +18742,7 @@ Node: @ { } \\ #1059
 Node: LaTeX TeX • , © ... ...1181
 Node: ≡ error→ € ¡ ↦ −1348
 Node: ≥ ≤ →1511
-Node: ª º ★ £ ⊣ ¿ ®1641
+Node: ª º ⋆ £ ⊣ ¿ ®1641
 Node: ⇒ ° a b a sunny day å1788
 Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1976
 Node: ä ẽ î â à é ç ē e̊ e̋ ę2199
