@@ -1,3 +1,10 @@
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/gendocs.chapter/gendocs_template: New file.
+	* doc/Makefile.am (wwwdoc-build): Use it for texi2any_internals
+	manual, as default template does not handle chapter-split
+	manuals.
+
 2022-11-12  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (HTML Xref 8-bit Character Expansion):
