@@ -1,5 +1,10 @@
 2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* NEWS: correct spelling of "@definfoenclose" in most
+	recent release announcement
+
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Macro Details): Add problem with macro
 	expansion inside of @math.  Report from Vincent Lefèvre.
 

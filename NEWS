@@ -66,7 +66,7 @@ See the manual for detailed information.
      . do not output Top node or text before the first @node or sectioning
        @-command.  NO_TOP_NODE_OUTPUT can be set to false to output Top node
        for now.
-     . replace @definfocenlose defined @-commands by the argument as-is
+     . replace @definfoenclose defined @-commands by the argument as-is
        to be more consistent with printed output
  . HTML/DocBook output:
      . USE_NUMERIC_ENTITY changed to mean to use numeric entities instead
