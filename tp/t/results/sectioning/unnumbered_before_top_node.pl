@@ -298,10 +298,10 @@ $result_converted{'html'}->{'unnumbered_before_top_node'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Title titlefont</title>
+<title>Untitled Document</title>
 
-<meta name="description" content="Title titlefont">
-<meta name="keywords" content="Title titlefont">
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -326,6 +326,16 @@ $result_converted{'html'}->{'unnumbered_before_top_node'} = '<!DOCTYPE html>
 </body>
 </html>
 ';
+
+$result_converted_errors{'html'}->{'unnumbered_before_top_node'} = [
+  {
+    'error_line' => 'warning: must specify a title with a title command or @top
+',
+    'text' => 'must specify a title with a title command or @top',
+    'type' => 'warning'
+  }
+];
+
 
 
 $result_converted{'docbook'}->{'unnumbered_before_top_node'} = '<chapter label="">
