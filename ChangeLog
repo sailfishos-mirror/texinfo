@@ -1,5 +1,10 @@
 2022-11-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (_prepare_conversion, _title_font)
+	(_convert): convert only if contents are defined.
+
+2022-11-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm: avoid formatting when contents
 	is not set, avoiding a crash with empty @titlefont as title.
 
