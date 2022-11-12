@@ -125,9 +125,11 @@ manual2_title = "GNU Texinfo manual"
 #
 manual3 = texi2any_api
 manual3_title = "GNU Texinfo texi2any Output Customization"
+manual3_flags = --common "-c INFO_SPECIAL_CHARS_WARNING=0"
 #
 manual4 = texi2any_internals
 manual4_title = "GNU Texinfo texi2any modules documentation"
+manual4_flags = --split chapter --common "-c INFO_SPECIAL_CHARS_WARNING=0"
 
 # We also make a little HTML document for pod2texi script.
 
@@ -143,8 +145,10 @@ wwwdoc-build:
 	&& ln -s ../tp_api/api_includes . \
 	&& $(gendocs_invoke) -o $(manual1) $(manual1) $(manual1_title) \
 	&& $(gendocs_invoke) -o $(manual2) $(manual2) $(manual2_title) \
-	&& $(gendocs_invoke) -o $(manual3) $(manual3) $(manual3_title) \
-	&& $(gendocs_invoke) -o $(manual4) $(manual4) $(manual4_title) \
+	&& $(gendocs_invoke) $(manual3_flags) \
+	                     -o $(manual3) $(manual3) $(manual3_title) \
+	&& $(gendocs_invoke) $(manual4_flags) \
+	                     -o $(manual4) $(manual4) $(manual4_title) \
 	&& pod2html $(pod2texi_pl) >pod2texi.html \
 	&& echo "Manuals ready for web distribution under: $(doctemp)/"
 #
