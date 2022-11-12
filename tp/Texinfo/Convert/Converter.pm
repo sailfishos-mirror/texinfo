@@ -1326,6 +1326,10 @@ sub table_item_content_tree($$$)
   my $contents = shift;
 
   my $table_item_tree = {'parent' => $element};
+
+  return $table_item_tree
+    if (!defined($contents));
+
   my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
   if ($table_command->{'extra'}
      and $table_command->{'extra'}->{'command_as_argument'}) {
