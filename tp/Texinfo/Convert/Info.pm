@@ -543,6 +543,7 @@ sub format_image($$)
       {'code' => 1,
        Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     if (defined($element->{'args'}->[4])
+        and $element->{'args'}->[4]->{'contents'}
         and @{$element->{'args'}->[4]->{'contents'}}) {
       my $extension = Texinfo::Convert::Text::convert_to_text(
         {'contents' => $element->{'args'}->[4]->{'contents'}},
