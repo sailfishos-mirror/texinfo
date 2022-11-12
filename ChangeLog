@@ -1,5 +1,10 @@
 2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Generating HTML): Correct name of
+	texi2any_api manual.  (Already done on master branch.)
+
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.cnf (texi2any_internals): Remove node line
 	to prefer split-by-chapter.
 

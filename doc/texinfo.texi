@@ -18056,7 +18056,7 @@ blocks using the first argument to specify the language of the code
 
 The draft documentation of @command{texi2any} HTML output
 adaptation using customization files is in a separate
-manual.  @xref{,,,customization_api,GNU Texinfo @command{texi2any} Output Customization}.
+manual.  @xref{,,,texi2any_api,GNU Texinfo @command{texi2any} Output Customization}.
 
 @menu
 * HTML Translation::       Details of the HTML output.
