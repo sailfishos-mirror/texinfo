@@ -1,3 +1,10 @@
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/gendocs.chapter/gendocs_template: New file.
+	* doc/Makefile.am (wwwdoc-build): Use it for texi2any_internals
+	manual, as default template does not handle chapter-split
+	manuals.
+
 2022-11-30  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/refcard/txirefcard.tex: 7.0.1.

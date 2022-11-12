@@ -111,12 +111,18 @@ mathjax_root = https://www.gnu.org/software/texinfo/manual
 gendocs_mathjax = -c HTML_MATH=mathjax \
                   -c MATHJAX_SCRIPT=$(mathjax_root)/tex-svg.js \
                   -c MATHJAX_SOURCE=$(mathjax_root)/mathjax-instructions.html
-#
-gendocs_invoke = env $(gendocs_envvars) $(gendocs) --email $(gendocs_email) \
-  --html '$(gendocs_mathjax) -c TOP_NODE_UP_URL=$(gendocs_dir_url)'
+
+gendocs_options = --email $(gendocs_email) --html '$(gendocs_mathjax) \
+                  -c TOP_NODE_UP_URL=$(gendocs_dir_url)'
 # A nice side effect of using --html is to eliminate the fancy css default;
 # otherwise, we could use gendocs_template_min.
 #
+gendocs_invoke = env $(gendocs_envvars) $(gendocs) $(gendocs_options)
+gendocs_invoke_chap = env $(gendocs_envvars) \
+            GENDOCS_TEMPLATE_DIR=$(abs_top_srcdir)/doc/gendocs.chapter \
+            $(gendocs) $(gendocs_options)
+
+
 manual1 = info-stnd
 manual1_title = "GNU standalone info manual"
 #
@@ -147,7 +153,7 @@ wwwdoc-build:
 	&& $(gendocs_invoke) -o $(manual2) $(manual2) $(manual2_title) \
 	&& $(gendocs_invoke) $(manual3_flags) \
 	                     -o $(manual3) $(manual3) $(manual3_title) \
-	&& $(gendocs_invoke) $(manual4_flags) \
+	&& $(gendocs_invoke_chap) $(manual4_flags) \
 	                     -o $(manual4) $(manual4) $(manual4_title) \
 	&& pod2html $(pod2texi_pl) >pod2texi.html \
 	&& echo "Manuals ready for web distribution under: $(doctemp)/"
