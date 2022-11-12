@@ -1,5 +1,13 @@
 2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (\defmacro): Use \begingroup and
+	\endgroup around code reading macro arguments, instead
+	of \bgroup and \egroup, as the former do not form a
+	"subformula" when used in math mode, which affects the
+	spacing.  Suggestion from Vincent Lefèvre.
+
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/gendocs.chapter/gendocs_template: New file.
 	* doc/Makefile.am (wwwdoc-build): Use it for texi2any_internals
 	manual, as default template does not handle chapter-split

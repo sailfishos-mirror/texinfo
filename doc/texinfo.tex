@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-11-12.10}
+\def\texinfoversion{2022-11-12.16}
 %
 % Copyright 1985, 1986, 1988, 1990-2022 Free Software Foundation, Inc.
 %
@@ -8430,21 +8430,21 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   \ifcase\paramno
   % 0
     \expandafter\xdef\csname\the\macname\endcsname{%
-      \bgroup
+      \begingroup
         \noexpand\spaceisspace
         \noexpand\endlineisspace
         \noexpand\expandafter % skip any whitespace after the macro name.
         \expandafter\noexpand\csname\the\macname @@@\endcsname}%
     \expandafter\xdef\csname\the\macname @@@\endcsname{%
-      \egroup
+      \endgroup
       \noexpand\scanmacro{\macrobody}}%
   \or % 1
     \expandafter\xdef\csname\the\macname\endcsname{%
-       \bgroup
+       \begingroup
        \noexpand\braceorline
        \expandafter\noexpand\csname\the\macname @@@\endcsname}%
     \expandafter\xdef\csname\the\macname @@@\endcsname##1{%
-      \egroup
+      \endgroup
       \noexpand\scanmacro{\macrobody}%
       }%
   \else % at most 9
@@ -8455,7 +8455,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       % @MACNAME@@@ removes braces surrounding the argument list.
       % @MACNAME@@@@ scans the macro body with arguments substituted.
       \expandafter\xdef\csname\the\macname\endcsname{%
-        \bgroup
+        \begingroup
         \noexpand\expandafter  % This \expandafter skip any spaces after the
         \noexpand\macroargctxt % macro before we change the catcode of space.
         \noexpand\expandafter
@@ -8469,7 +8469,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
       \expandafter\xdef
       \expandafter\expandafter
         \csname\the\macname @@@@\endcsname\paramlist{%
-          \egroup\noexpand\scanmacro{\macrobody}}%
+          \endgroup\noexpand\scanmacro{\macrobody}}%
     \else % 10 or more:
       \expandafter\xdef\csname\the\macname\endcsname{%
         \noexpand\getargvals@{\the\macname}{\argl}%
