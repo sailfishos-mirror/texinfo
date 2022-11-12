@@ -1,3 +1,11 @@
+2022-11-12  Patrice Dumas  <pertusus@free.fr>
+
+	* util/htmlxref.cnf: add manuals, in particular mono manuals
+	and fix some issues with existing manuals. Report from Tzvetelin
+	Katchov.
+	Rename mairix manual as mairix-el, and smalltalk* manuals as
+	gst*.
+
 2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (\defmacro): Use \begingroup and
