@@ -349,9 +349,6 @@ until it's time to do pretests again.
 
 after next release:
 check TODO file and do pending tasks
-discuss on mailing list changing the git branch structure to allow quick
-  bug fix releases for severe bugs (e.g. glibc 2.34 incompatibility, info crash
-  in Brazillian Portuguese locale)
 delete these lines from README-hacking
 
 
