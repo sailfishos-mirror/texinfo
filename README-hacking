@@ -268,32 +268,29 @@ Check that TEXINFO_DTD_VERSION has been updated to the next version in
   See comments in configure.ac, and run (at the top level) make dtd-check.
 Check "dist-xz" is in the option list in configure.ac (often removed
 for speed when testing).
-update version in configure.ac, notice in ChangeLog.
 check up to date copyright years in files relevant to --version calls
-(tp/texi2any.pl, info/info.c, install-info/install-info.c)
-version number in texi2dvi, texi2pdf, txirefcard.tex.
-check that texindex version is updated properly
+(tp/texi2any.pl, info/info.c, install-info/install-info.c, texindex/ti.twjr)
+
+Update version number:
+  update version in configure.ac
+  version number in texi2dvi, texi2pdf, txirefcard.tex.
   (cd texindex ; rm texindex.awk ; make)
-(cd tp && ./maintain/change_perl_modules_version.sh auto)
-  -- this updates all the version numbers in the Perl modules
+  (cd tp && ./maintain/change_perl_modules_version.sh auto)
+    -- this updates all the version numbers in the Perl modules
+  version number in txirefcard.tex (offical releases only) 
+
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
 
 - Official releases only:
 version and date in NEWS.
-version number in txirefcard.tex.
 (cd tp && maintain/regenerate_documentlanguages-loc.pl)
   -- regenerates tp/Texinfo/Documentlanguages.pm (requires Text::CSV)
 
+notice in ChangeLog.
 one last "git diff" to check release commit looks good
 make distcheck
 (export MALLOC_CHECK_=2; make distcheck)  # repeat until clean
 git commit and push
-
-after uploading distribution,
-pretest announcement -> bug-texinfo / beebe / platform-testers to try.
-bcc coordinator@translationproject.org.
-
-
 
 - To do the actual upload:
 pkg=texinfo
@@ -302,9 +299,16 @@ ver=7.0
 then do one of:
 gnupload --to alpha.gnu.org:$pkg $pkg-$ver.tar.xz                #pretest
 gnupload --to ftp.gnu.org:$pkg   $pkg-$ver.tar.{gz,xz} *.diff.xz #official
-   Use --user option if not using default key
-   texinfo.tex and texi2dvi should already be up to date, but check.  Use
-gnupload --replace --to ftp.gnu.org:texinfo texi2dvi
+gnupload --replace --to ftp.gnu.org:texinfo texi2dvi             #official
+gnupload --replace --to ftp.gnu.org:texinfo texi2pdf             #official
+   (Use --user option if not using default key)
+
+pretest announcement -> bug-texinfo / beebe / platform-testers to try.
+  bcc coordinator@translationproject.org.
+
+For official releases: send announcement to info-gnu,
+  cc bug-texinfo and bcc coordinator@translationproject.org.
+news item at savannah.
 
 #  Official releases only: tag source tree
 git tag texinfo-6.6
@@ -338,11 +342,6 @@ cvs -qn update, followed by cvs add.  When done, run cvs commit.
 # If root@tug.org doesn't reply, can try webmaster@tug.org,
 # or (last resort) board@tug.org.
 
-
-#  For official releases:
-send announcement to info-gnu,
-  cc bug-texinfo and bcc coordinator@translationproject.org.
-news item at savannah.
 
 #  ... post-release, or when development resumes:
 configure.ac, util/texi2dvi: add "dev" to versions for clarity,
