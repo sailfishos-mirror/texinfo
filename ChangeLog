@@ -1,5 +1,11 @@
 2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\textdegree, \unicodechardefs): Supply definition
+	that looks better in a tt font.  Also work inside math.  Report from
+	Werner.
+
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* NEWS: correct spelling of "@definfoenclose" in most
 	recent release announcement
 
