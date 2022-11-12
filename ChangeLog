@@ -1,5 +1,10 @@
 2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.cnf (texi2any_internals): Remove node line
+	to prefer split-by-chapter.
+
+2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.cnf (texi2any_internals): Add split-by-chapter
 	line.  Report from Patrice.
 

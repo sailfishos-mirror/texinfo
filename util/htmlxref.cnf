@@ -690,7 +690,6 @@ texinfo		node	${TEXINFO}/texinfo/html_node/
  texi2any_api	node	${TEXINFO}/texi2any_api/html_node/
  #
  texi2any_internals	mono	${TEXINFO}/texi2any_internals/texi2any_internals.html
- texi2any_internals	node	${TEXINFO}/texi2any_internals/html_node/
  texi2any_internals	chapter	${TEXINFO}/texi2any_internals/html_chapter/
 
 thales		node	${GS}/thales/manual/
