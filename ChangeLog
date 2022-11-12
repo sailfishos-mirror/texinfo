@@ -1,5 +1,11 @@
 2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Bump version for bug-fix release
+
+	* configure.ac, NEWS, util/texi2dvi, util/texi2pdf: 7.0.1.
+
+2022-11-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	7.0
 
 	* configure.ac, NEWS, util/texi2dvi, util/texi2pdf: version
