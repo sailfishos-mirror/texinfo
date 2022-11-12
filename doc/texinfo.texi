@@ -18746,7 +18746,7 @@ For example, combining this rule and the previous section:
 
 @example
 @@node @@b@{A@} @@TeX@{@} @@u@{B@} @@point@{@}@@enddots@{@}
-@result{} A-TeX-B_0306-_2605_002e_002e_002e
+@result{} A-TeX-B_0306-_22C6_002e_002e_002e
 @end example
 
 Notice: 1)@tie{}@code{@@enddots} expands to three periods which in
