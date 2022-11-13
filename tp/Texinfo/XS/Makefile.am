@@ -158,13 +158,13 @@ BUILT_SOURCES=parsetexi/element_types.c \
 
 # Need to be distributed
 EXTRA_DIST+=$(p)/element_types.txt $(p)/element_types.awk \
-	   $(p)/command_data.txt $(p)/command_data.awk
+	   $(p)/command_data.awk
 
 $(srcdir)/$(p)/element_types.c $(srcdir)/$(p)/element_types.h: $(p)/element_types.txt $(p)/element_types.awk
 	$(GAWK) -v srcdir=$(srcdir)/$(p) -f $(srcdir)/$(p)/element_types.awk \
 	     $(srcdir)/$(p)/element_types.txt
 
-$(srcdir)/$(p)/command_data.c $(srcdir)/$(p)/command_ids.h: $(p)/command_data.txt $(p)/command_data.awk
+$(srcdir)/$(p)/command_data.c $(srcdir)/$(p)/command_ids.h: ../command_data.txt $(p)/command_data.awk
 	$(GAWK) -v srcdir=$(srcdir)/$(p) -f $(srcdir)/$(p)/command_data.awk \
-	     $(srcdir)/$(p)/command_data.txt
+	     $(srcdir)/../command_data.txt
 

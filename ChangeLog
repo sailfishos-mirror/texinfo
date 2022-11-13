@@ -1,5 +1,12 @@
 2022-11-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (EXTRA_DIST), tp/Texinfo/XS/Makefile.am,
+	tp/Texinfo/command_data.txt: move command_data.txt from
+	tp/Texinfo/XS/ to tp/Texinfo/ since it is now used both in perl
+	modules and in the XS parser.
+
+2022-11-13  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (test_files): add t/init/*.pm files.
 
 2022-11-13  Patrice Dumas  <pertusus@free.fr>

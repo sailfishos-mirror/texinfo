@@ -300,7 +300,8 @@ EXTRA_DIST = \
   $(test_files) \
   $(tp_tests) \
   $(maintenance_files) \
-  maintain/lib
+  maintain/lib \
+  Texinfo/command_data.txt
 
 # template.pod is the basis for the .pm documentation, and the script
 # invoked here updates them; to be run when template.pod changes.
@@ -323,9 +324,9 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	    -e 's|[@]USE_EXTERNAL_UNIDECODE[@]|$(USE_EXTERNAL_UNIDECODE)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
-Texinfo/Commands.pm: Texinfo/XS/parsetexi/command_data.txt
+Texinfo/Commands.pm: Texinfo/command_data.txt
 	$(MKDIR_P) Texinfo
-	$(srcdir)/maintain/regenerate_commands_perl_info.pl < $(srcdir)/Texinfo/XS/parsetexi/command_data.txt
+	$(srcdir)/maintain/regenerate_commands_perl_info.pl < $(srcdir)/Texinfo/command_data.txt
 
 libsrcdir = $(srcdir)/maintain/lib
 
