@@ -169,10 +169,12 @@ test_files = \
  t/init/misc_file_collision.init \
  t/init/only_toc_out.init \
  t/init/redefine_need.init \
+ t/init/special_element_customization.pm \
  t/init/t2h_singular.init \
  t/init/test_directions.init \
  t/init/test_renamed_nodes.init \
  t/init/translate_txiinternalvalue_macro.init \
+ t/init/translated_strings_customization.pm \
  t/init/undef_node_file_name.init \
  t/test_utils.pl \
  t/input_files/all_spaces.texi \

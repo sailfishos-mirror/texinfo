@@ -1,5 +1,9 @@
 2022-11-13  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Makefile.am (test_files): add t/init/*.pm files.
+
+2022-11-13  Patrice Dumas  <pertusus@free.fr>
+
 	* util/texi2dvi (--expand): add --iftex and --no-ifinfo to
 	makeinfo call.  Use -c TEXINFO_OUTPUT_FORMAT=plaintexinfo
 	instead of --macro-expand=- to avoid the conversion to Info
