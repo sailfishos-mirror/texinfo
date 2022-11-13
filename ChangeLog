@@ -1,5 +1,9 @@
 2022-11-12  Werner Lemberg  <wl@gnu.org>
 
+	* doc/texinfo.tex (\unicodechardefs): Add missing % after }.
+
+2022-11-12  Werner Lemberg  <wl@gnu.org>
+
 	* doc/texinfo.tex (\textdegree): Define using \tcfont to
 	enable copying the right character from a PDF reader.
 
