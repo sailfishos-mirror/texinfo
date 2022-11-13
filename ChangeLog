@@ -1,3 +1,9 @@
+2022-11-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* util/texi2dvi (--expand): Remove lengthy block of code
+	using sed to comment out @tex blocks.  Suggestion from Patrice.
+	* NEWS, TODO, README-hacking: update
+
 2022-11-12  Werner Lemberg  <wl@gnu.org>
 
 	* doc/texinfo.tex (\unicodechardefs): Add missing % after }.

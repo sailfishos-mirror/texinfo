@@ -61,7 +61,7 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - LaTeX: customization and internationalization.
 
 * TeX:
-  - turn off @set txicodevaristt after next release
+  - should we turn off @set txicodevaristt?
   - Index above @item allows page break.
   - Table of contents is misaligned if there are 10 or more [sub]sections.
   - @float captions should be typeset in a smaller font?
@@ -101,10 +101,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     from the misformatted --entry (and no entries from foo.info).
   - support info dir entries for other than the current info file name;
     see comments in menu_item_equal.
-
-* texi2dvi
-  - replace sed substitutions in comment_iftex by a call of makeinfo:
-     makeinfo -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --iftex --no-ifinfo
 
 * Distribution:
   - generate txi-??.tex from .po's to make translators' jobs easier.

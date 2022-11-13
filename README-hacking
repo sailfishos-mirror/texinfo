@@ -347,8 +347,3 @@ cvs -qn update, followed by cvs add.  When done, run cvs commit.
 configure.ac, util/texi2dvi: add "dev" to versions for clarity,
 until it's time to do pretests again.
 
-after next release:
-check TODO file and do pending tasks
-delete these lines from README-hacking
-
-

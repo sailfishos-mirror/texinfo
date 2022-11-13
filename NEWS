@@ -15,6 +15,11 @@ See the manual for detailed information.
       with printed output.
     . Change @point expansion to U+22C6 in HTML Cross-references.
 
+* texi2dvi
+ . macro expansion with texi2any requires at least version 5.0 (only
+   happens with --expand option or with very old texinfo.tex)
+
+
 7.0 (7 November 2022)
 * texi2any
  . LaTeX added as an output format, selected with --latex
