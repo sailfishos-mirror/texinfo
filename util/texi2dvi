@@ -1200,10 +1200,9 @@ to tex itself simply not working."
     # (running missing) and then we end up with things like '"-I"',
     # and "-I" (including the quotes) is not an option name.  This
     # happens with gettext 0.14.5, at least.
-    cat "$command_line_filename" \
-      | eval $makeinfo --footnote-style=end -I "$in_dir" $run_mi_includes \
-        -o /dev/null --macro-expand=- \
-        >"$in_src"
+    eval $makeinfo -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --iftex --no-ifinfo \
+          --footnote-style=end -I "$in_dir" $run_mi_includes \
+            "$command_line_filename" >"$in_src"
     # Continue only if everything succeeded.
     if test $? -ne 0 \
        || test ! -r "$in_src"; then

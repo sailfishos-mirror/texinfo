@@ -14553,9 +14553,7 @@ The option @option{-E} (equivalently, @option{-e} and
 @option{--expand}) does Texinfo macro expansion using
 @command{texi2any} instead of the @TeX{} implementation (@pxref{Macro
 Details}).  Each implementation has its own limitations and
-advantages.  If this option is used, no line in the source file
-may begin with the string @code{@@c@tie{}_texi2dvi} or the
-string @code{@@c@tie{}(_texi2dvi)}.
+advantages.
 
 @command{texi2dvi} takes the @option{--build=@var{mode}} option to 
 specify where the @TeX{} compilation takes place, and, as a
