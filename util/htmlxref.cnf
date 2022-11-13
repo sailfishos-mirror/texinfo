@@ -543,6 +543,8 @@ libmatheval	mono	${GS}/libmatheval/manual/libmatheval.html
 LIBMICROHTTPD = ${GS}/libmicrohttpd
 libmicrohttpd		mono	${LIBMICROHTTPD}/manual/libmicrohttpd.html
 libmicrohttpd		node	${LIBMICROHTTPD}/manual/html_node/
+ # The manual name is based on the Texinfo file name in the code,
+ # not on the file name for the tutorial which is too generic.
  microhttpd-tutorial	mono	${LIBMICROHTTPD}/tutorial.html
 
 libtasn1	mono	${GS}/libtasn1/manual/libtasn1.html
