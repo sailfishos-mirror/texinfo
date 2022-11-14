@@ -1485,7 +1485,7 @@ sub special_element_info($$;$) {
     my $translated_special_element_info
       = $self->{'translated_special_element_info'}->{$type}->[1];
     if (not defined($special_element_variety)) {
-      return keys(%{$translated_special_element_info});
+      return sort(keys(%{$translated_special_element_info}));
     }
 
     if (not exists($self->{'special_element_info'}->{$type}
@@ -1503,7 +1503,7 @@ sub special_element_info($$;$) {
     }
   }
   if (not defined($special_element_variety)) {
-    return keys(%{$self->{'special_element_info'}->{$type}});
+    return sort(keys(%{$self->{'special_element_info'}->{$type}}));
   }
   return $self->{'special_element_info'}->{$type}->{$special_element_variety};
 }
@@ -3883,7 +3883,11 @@ sub _default_format_element_header($$$$)
 
   my $result = '';
    
-  print STDERR "FORMAT elt header $tree_unit (@{$tree_unit->{'contents'}}) ".
+  print STDERR "FORMAT elt header "
+     # uncomment to get perl object names
+     #."$tree_unit (@{$tree_unit->{'contents'}}) ".
+     . "(".join('|', map{Texinfo::Common::debug_print_element_short($_)}
+             @{$tree_unit->{'contents'}}) . ") ".
      Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit) ."\n"
         if ($self->get_conf('DEBUG'));
 
@@ -3989,7 +3993,9 @@ sub _convert_heading_command($$$$$)
 
   my $element_id = $self->command_id($element);
 
-  print STDERR "CONVERT elt heading $element "
+  print STDERR "CONVERT elt heading "
+        # uncomment next line for the perl object name
+        #."$element "
         .Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
@@ -7545,8 +7551,10 @@ sub converter_initialize($)
   my $customized_direction_strings
       = Texinfo::Config::GNUT_get_direction_string_info();
   foreach my $string_type (keys(%default_converted_directions_strings)) {
+    $self->{'directions_strings'}->{$string_type} = {};
     foreach my $direction
             (keys(%{$default_converted_directions_strings{$string_type}})) {
+      $self->{'directions_strings'}->{$string_type}->{$direction} = {};
       my $string_contexts;
       if ($customized_direction_strings->{$string_type}
           and $customized_direction_strings->{$string_type}->{$direction}) {
@@ -7583,6 +7591,8 @@ sub converter_initialize($)
       } else {
         if ($default_translated_directions_strings{$string_type}->{$direction}
                                                               ->{'converted'}) {
+          $self->{'translated_direction_strings'}->{$string_type}
+                  ->{$direction} = {'converted' => {}};
           foreach my $context ('normal', 'string') {
             $self->{'translated_direction_strings'}->{$string_type}
                      ->{$direction}->{'converted'}->{$context}
@@ -7838,9 +7848,9 @@ sub converter_initialize($)
   foreach my $type (keys(%default_translated_special_element_info)) {
     $self->{'special_element_info'}->{$type} = {};
     $self->{'special_element_info'}->{$type.'_tree'} = {};
-    $self->{'translated_special_element_info'}->{$type.'_tree'} = [$type];
+    $self->{'translated_special_element_info'}->{$type.'_tree'} = [$type, {}];
     foreach my $special_element_variety
-                      (keys(%{$default_translated_special_element_info{$type}})) {
+                 (keys(%{$default_translated_special_element_info{$type}})) {
       if (exists($customized_special_element_info->{$type})
           and exists($customized_special_element_info
                           ->{$type}->{$special_element_variety})) {
@@ -8306,7 +8316,8 @@ sub _set_root_commands_targets_node_files($$)
             if (defined($self->get_conf('EXTENSION'))
                 and $self->get_conf('EXTENSION') ne '');
   if ($self->{'labels'}) {
-    foreach my $label_element (values(%{$self->{'labels'}})) {
+    foreach my $label (sort(keys(%{$self->{'labels'}}))) {
+      my $label_element = $self->{'labels'}->{$label};
       my ($node_filename, $target)
         = $self->_normalized_label_id_file($label_element->{'extra'});
       $node_filename .= $extension;
@@ -8329,7 +8340,10 @@ sub _set_root_commands_targets_node_files($$)
         }
       }
       if ($self->get_conf('DEBUG')) {
-        print STDERR "Label($label_element) \@$label_element->{'cmdname'} $target, $node_filename\n";
+        print STDERR 'Label'
+         # uncomment to get the perl object names
+         #."($label_element)"
+          ." \@$label_element->{'cmdname'} $target, $node_filename\n";
       }
       $self->{'targets'}->{$label_element} = {'target' => $target,
                                            'node_filename' => $node_filename};
@@ -8559,7 +8573,9 @@ sub _html_set_pages_files($$$$$$$$)
     $self->{'file_counters'}->{$tree_unit_filename} = 0
        if (!exists($self->{'file_counters'}->{$tree_unit_filename}));
     $self->{'file_counters'}->{$tree_unit_filename}++;
-    print STDERR "Page $tree_unit "
+    print STDERR 'Page '
+      # uncomment for perl object name
+      #."$tree_unit "
       .Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit)
       .": $tree_unit_filename($self->{'file_counters'}->{$tree_unit_filename})\n"
              if ($self->get_conf('DEBUG'));
@@ -8575,8 +8591,10 @@ sub _html_set_pages_files($$$$$$$$)
         $self->{'file_counters'}->{$filename} = 0
            if (!exists($self->{'file_counters'}->{$filename}));
         $self->{'file_counters'}->{$filename}++;
-        print STDERR "Special page $special_element: "
-            ."$filename($self->{'file_counters'}->{$filename})\n"
+        print STDERR 'Special page'
+           # uncomment for perl object name
+           #." $special_element"
+           .": $filename($self->{'file_counters'}->{$filename})\n"
                  if ($self->get_conf('DEBUG'));
       }
       $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
@@ -8619,7 +8637,7 @@ sub _prepare_conversion_tree_units($$$$)
   # places, set it once for all here
   my @contents_elements_options
                   = grep {Texinfo::Common::valid_customization_option($_)}
-                               keys(%contents_command_special_element_variety);
+                        sort(keys(%contents_command_special_element_variety));
   $self->set_global_document_commands('last', \@contents_elements_options);
 
   # configuration used to determine if a special element is to be done
@@ -8757,7 +8775,10 @@ sub _prepare_special_elements($$$$)
     if ($self->get_conf('DEBUG')) {
       my $fileout = $filename;
       $fileout = 'UNDEF' if (!defined($fileout));
-      print STDERR "Add special $element $special_element_variety: target $target,\n".
+      print STDERR 'Add special'
+        # uncomment for the perl object name
+        #." $element"
+        ." $special_element_variety: target $target,\n".
         "    filename $fileout\n";
     }
     $self->{'targets'}->{$element} = {'target' => $target,
@@ -8860,7 +8881,10 @@ sub _prepare_contents_elements($)
         if ($self->get_conf('DEBUG')) {
           my $str_filename = $filename;
           $str_filename = 'UNDEF' if (not defined($str_filename));
-          print STDERR "Add content $contents_element $special_element_variety: target $target,\n".
+          print STDERR 'Add content'
+            # uncomment to get the perl obect name
+            #." $contents_element"
+            ." $special_element_variety: target $target,\n".
              "    filename $str_filename\n";
         }
         $self->{'targets'}->{$contents_element}
@@ -8930,8 +8954,10 @@ sub _prepare_tree_units_global_targets($$)
     foreach my $global_direction (@global_directions) {
       if (defined($self->global_direction_element($global_direction))) {
         my $global_element = $self->global_direction_element($global_direction);
-        print STDERR "$global_direction($global_element): ".
-          Texinfo::Structuring::root_or_external_element_cmd_texi($global_element)."\n";
+        print STDERR "$global_direction"
+            # uncomment to get the perl object name
+            # ."($global_element)"
+     .': '. Texinfo::Structuring::root_or_external_element_cmd_texi($global_element)."\n";
       }
     }
   }
@@ -9017,7 +9043,10 @@ sub _prepare_footnotes($)
       $self->{'targets'}->{$footnote} = { 'target' => $footid };
       $self->{'special_targets'}->{'footnote_location'}->{$footnote}
          = { 'target' => $docid };
-      print STDERR "Enter footnote $footnote: target $footid, nr $footnote_nr\n"
+      print STDERR 'Enter footnote'
+        # uncomment for the perl object name
+        #." $footnote"
+        .": target $footid, nr $footnote_nr\n"
        .Texinfo::Convert::Texinfo::convert_to_texinfo($footnote)."\n"
         if ($self->get_conf('DEBUG'));
     }
@@ -10949,7 +10978,10 @@ sub _convert($$;$)
 
   if ($debug) {
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
-    print STDERR "ELEMENT($explanation):$element (".join('|',@{$self->{'document_context'}->[-1]->{'formatting_context'}})."), ->";
+    my @contexts_names = map {defined($_->{'context_name'})
+                                 ? $_->{'context_name'}: 'UNDEF'}
+         @{$self->{'document_context'}->[-1]->{'formatting_context'}};
+    print STDERR "ELEMENT($explanation) (".join('|',@contexts_names)."), ->";
     print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
     print STDERR " type: $element->{'type'}" if ($element->{'type'});
     my $text = $element->{'text'};
@@ -10957,6 +10989,8 @@ sub _convert($$;$)
       $text =~ s/\n/\\n/;
       print STDERR " text: $text";
     }
+    # uncomment to show perl objects
+    #print STDERR " $element (".join('|',@{$self->{'document_context'}->[-1]->{'formatting_context'}}).")";
     print STDERR "\n";
   }
 

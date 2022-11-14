@@ -1301,8 +1301,10 @@ sub elements_directions($$$)
   }
   if ($customization_information->get_conf('DEBUG')) {
     foreach my $tree_unit (@$tree_units) {
-      print STDERR "Directions($tree_unit): "
-         . print_element_directions($tree_unit)."\n";
+      print STDERR 'Directions'
+       # uncomment to show the perl object name
+       #  . "($tree_unit)"
+         . ': '.print_element_directions($tree_unit)."\n";
     }
   }
 }

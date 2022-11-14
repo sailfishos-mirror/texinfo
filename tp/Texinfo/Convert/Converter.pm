@@ -998,7 +998,9 @@ sub _set_tree_units_files($$$$$$)
     $self->{'file_counters'}->{$tree_unit_filename} = 0
        if (!exists($self->{'file_counters'}->{$tree_unit_filename}));
     $self->{'file_counters'}->{$tree_unit_filename}++;
-    print STDERR "Page $tree_unit "
+    print STDERR 'Page '
+     # uncomment for perl object name
+     #."$tree_unit "
      .Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit)
      .": $tree_unit_filename($self->{'file_counters'}->{$tree_unit_filename})\n"
               if ($self->get_conf('DEBUG'));

@@ -386,7 +386,7 @@ sub complete_indices($)
 {
   my $self = shift;
 
-  foreach my $index_name (keys(%{$self->{'index_names'}})) {
+  foreach my $index_name (sort(keys(%{$self->{'index_names'}}))) {
     next if (not defined($self->{'index_names'}->{$index_name}->{'index_entries'}));
     foreach my $entry (@{$self->{'index_names'}->{$index_name}->{'index_entries'}}) {
       $entry->{'in_code'} = $self->{'index_names'}->{$index_name}->{'in_code'};
