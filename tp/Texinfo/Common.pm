@@ -95,7 +95,7 @@ sub __p($$) {
 #
 # Return the string but do nothing else, used to mark strings to be translated
 # in the Gettext framework.
-# Can be used in other modules, inparticular if the modules already overwrite
+# Can be used in other modules, in particular if the modules already overwrite
 # gdt from Texinfo::Translations.
 sub gdt($)
 {
@@ -135,8 +135,11 @@ my %default_parser_common_customization = (
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
-  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1,
+  # next three related to file names encoding
+  'DOC_ENCODING_FOR_INPUT_FILE_NAME' => 1, # use document encoding for input file
+                                           # names encoding if set
   'COMMAND_LINE_ENCODING' => undef, # encoding of command line strings
+                                    # used to decode file names for error message
   'INPUT_FILE_NAME_ENCODING' => undef, # used for input file encoding
 );
 
@@ -226,7 +229,8 @@ if (0) {
     warn 'BUG: Unique settable not global: '.join(',',$lcu->get_unique)."\n";
   }
   if (scalar($lcu->get_complement)) {
-    print STDERR "global_uniq commands not settable: ".join(',', $lcu->get_complement)."\n";
+    print STDERR "REMARK: global_uniq commands not settable: "
+                              .join(',', $lcu->get_complement)."\n";
   }
 
   my @global_multi_settable = keys(%document_settable_multiple_at_commands);
@@ -236,7 +240,8 @@ if (0) {
     warn 'BUG: Multi settable not global: '.join(',',$lcm->get_unique)."\n";
   }
   if (scalar($lcm->get_complement)) {
-    print STDERR "global commands not settable: ".join(',', $lcm->get_complement)."\n";
+    print STDERR "REMARK: global commands not settable: "
+                                    .join(',', $lcm->get_complement)."\n";
   }
 }
 
@@ -260,9 +265,8 @@ our %default_converter_command_line_options = (
   'SUBDIR'               => undef,   # --output    If split or ending by /.
                                      # Setting can be format dependent
   'ENABLE_ENCODING'      => undef,   # --disable-encoding/--enable-encoding.
-                                     # The documentation only mentions Info and
-                                     # plain text, but the option is used
-                                     # in many formats, with differing defaults.
+                                     # The option is used in most formats, with
+                                     # differing defaults.
                                      # The default expected by the converters
                                      # is to be unset, although for Info and
                                      # plain text, default is set.  If set,
@@ -272,8 +276,7 @@ our %default_converter_command_line_options = (
 
 # used in main program, defaults documented in manual
 my %default_main_program_command_line_options = (
-  # only in main program
-  'MACRO_EXPAND'         => undef,   # --macro-expand
+  'MACRO_EXPAND'         => undef,   # --macro-expand.  Only for main program
   # used in HTML only, called from main program
   'INTERNAL_LINKS'       => undef,   # --internal-links
   'ERROR_LIMIT'          => 100,     # --error-limit
@@ -281,7 +284,7 @@ my %default_main_program_command_line_options = (
   'NO_WARN'              => undef,   # --no-warn
   'SILENT'               => undef,   # --silent.    Not used.  For completeness
 
-  # following also used in converters
+  # following also set in converters
   'FORMAT_MENU'          => 'menu',  # --headers.  Modified by the format.
 );
 
@@ -508,6 +511,16 @@ sub add_valid_customization_option($)
 }
 
 
+# Output formats
+
+our %texinfo_output_formats;
+foreach my $output_format_command ('info', 'plaintext',
+       grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
+            keys(%Texinfo::Commands::block_commands)) {
+  $texinfo_output_formats{$output_format_command} = $output_format_command;
+}
+
+
 # Tree transformations
 
 my %valid_tree_transformations;
@@ -549,16 +562,6 @@ our %nobrace_symbol_text;
            '&', '&',
            '\\', '\\',  # should only appear in math
 );
-
-
-# brace command that is not replaced with text.
-my %non_formatted_brace_commands;
-foreach my $non_formatted_brace_command ('anchor', 'shortcaption',
-    'caption', 'hyphenation', 'errormsg') {
-  $non_formatted_brace_commands{$non_formatted_brace_command} = 1;
-}
-
-# some classification to help converters
 
 our %def_map = (
     # basic commands.
@@ -616,13 +619,6 @@ foreach my $def_command(keys %def_map) {
     $def_aliases{$def_command.'x'} = $real_command.'x';
   }
   $def_no_var_arg_commands{$def_command} = 1 if ($def_command =~ /^deftype/);
-}
-
-our %texinfo_output_formats;
-foreach my $output_format_command ('info', 'plaintext',
-       grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
-            keys(%Texinfo::Commands::block_commands)) {
-  $texinfo_output_formats{$output_format_command} = $output_format_command;
 }
 
 our %small_block_associated_command;
@@ -692,7 +688,6 @@ our %level_to_structuring_command;
   }
 }
 
-
 # %all_commands includes user-settable commands only.
 # The internal commands are not in %all_commands.
 # used in util/txicmdlist
@@ -704,6 +699,15 @@ foreach my $command (
   keys(%Texinfo::Commands::nobrace_commands),
  ) {
   $all_commands{$command} = 1;
+}
+
+
+# used only in this file in a function,
+# brace commands that are not replaced with text.
+my %non_formatted_brace_commands;
+foreach my $non_formatted_brace_command ('anchor', 'shortcaption',
+    'caption', 'hyphenation', 'errormsg') {
+  $non_formatted_brace_commands{$non_formatted_brace_command} = 1;
 }
 
 
