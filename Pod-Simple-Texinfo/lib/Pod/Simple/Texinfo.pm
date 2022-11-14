@@ -747,7 +747,7 @@ sub _texinfo_handle_element_start($$$)
     _begin_context($self->{'texinfo_accumulated'}, $tagname);
   } elsif ($tag_commands{$tagname}) {
     _output($fh, $self->{'texinfo_accumulated'}, "\@$tag_commands{$tagname}\{");
-    if ($Texinfo::Common::brace_code_commands{$tag_commands{$tagname}}) {
+    if ($Texinfo::Commands::brace_code_commands{$tag_commands{$tagname}}) {
       if (@{$self->{'texinfo_stack'}} and ref($self->{'texinfo_stack'}->[-1]) eq ''
           and defined($self->{'texinfo_raw_format_commands'}->{$self->{'texinfo_stack'}->[-1]})) {
         cluck "in $self->{'texinfo_stack'}->[-1]: $tagname $tag_commands{$tagname}";
@@ -932,7 +932,7 @@ sub _texinfo_handle_element_end($$$)
     }
   } elsif ($tag_commands{$tagname}) {
     _output($fh, $self->{'texinfo_accumulated'}, "}");
-    if ($Texinfo::Common::brace_code_commands{$tag_commands{$tagname}}) {
+    if ($Texinfo::Commands::brace_code_commands{$tag_commands{$tagname}}) {
       pop @{$self->{'texinfo_stack'}};
     }
   } elsif ($environment_commands{$tagname}) {

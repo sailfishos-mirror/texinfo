@@ -1,5 +1,11 @@
 2022-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_texinfo_handle_element_start, _texinfo_handle_element_end): use
+	Texinfo::Commands::brace_code_commands.
+
+2022-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm: do not reset simple_text_commands and
 	plain_text_commands to full_text_commands.
 
