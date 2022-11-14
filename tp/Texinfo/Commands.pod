@@ -212,7 +212,7 @@ X<C<%inline_conditional_commands>>
 X<C<%inline_format_commands>>
 
 Inline conditional commands, like C<@inlineifclear>, and inline format
-commands like C<inlineraw> and C<inlinefmt>.
+commands like C<@inlineraw> and C<@inlinefmt>.
 
 =item %letter_no_arg_commands
 X<C<%letter_no_arg_commands>>
