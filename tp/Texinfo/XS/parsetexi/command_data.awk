@@ -142,7 +142,34 @@ END {
         }
 
         if (commands[c] != "") {
-            flags = "CF_" commands[c]
+            split(commands[c], flags_array, ",")
+            flags_str = ""
+            for (flag_idx in flags_array) {
+              if (flag_idx == 1) {
+                # first flag is always kept, corresponds to the category
+                flags_str = flags_array[flag_idx]
+              } else {
+                # filter out flags not relevant for the XS parser.  Use
+                # an array and not a regexp because word boundary matching
+                # does not seems to be portable and we want to be sure to
+                # match correctly even if an ignored flag is a substring of
+                # another flag
+                if (flags_array[flag_idx] != "letter_no_arg" \
+                    && flags_array[flag_idx] != "inline_format" \
+                    && flags_array[flag_idx] != "inline_conditional" \
+                    && flags_array[flag_idx] != "in_index" \
+                    && flags_array[flag_idx] != "brace_code" \
+                    && flags_array[flag_idx] != "explained" \
+                    && flags_array[flag_idx] != "formatted_line" \
+                    && flags_array[flag_idx] != "formatted_nobrace" \
+                    && flags_array[flag_idx] != "formattable_line" \
+                    && flags_array[flag_idx] != "non_formatted_block") {
+                  old_str = flags_str
+                  flags_str = old_str "," flags_array[flag_idx]
+                }
+              }
+            }
+            flags = "CF_" flags_str
             gsub (/,/, " | CF_", flags)
         } else {
             flags = "0"
@@ -166,7 +193,7 @@ END {
               if (commands[c] != "") {
                 where = match(commands[c], /block/)
                 if (where == 0) {
-                  where = match(commands[c], /^nobrace$/)
+                  where = match(command_data, /^NOBRACE_/)
                 }
               }
               if (where != 0 || command_data == "BRACE_noarg") {

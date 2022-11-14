@@ -193,9 +193,9 @@ $VERSION = '7.0';
 
 
 # commands that are of use for formatting.
-my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
-my %formatted_nobrace_commands = %Texinfo::Common::formatted_nobrace_commands;
-my %formattable_line_commands = %Texinfo::Common::formattable_line_commands;
+my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
+my %formatted_nobrace_commands = %Texinfo::Commands::formatted_nobrace_commands;
+my %formattable_line_commands = %Texinfo::Commands::formattable_line_commands;
 
 my %paper_geometry_commands = (
   'afourpaper' => 'papername=a4paper',
@@ -230,14 +230,13 @@ my %preformatted_code_commands = %Texinfo::Commands::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Commands::default_index_commands;
 my %heading_spec_commands = %Texinfo::Commands::heading_spec_commands;
 my %letter_no_arg_commands = %Texinfo::Commands::letter_no_arg_commands;
+my %explained_commands = %Texinfo::Commands::explained_commands;
+my %inline_format_commands = %Texinfo::Commands::inline_format_commands;
+my %brace_code_commands       = %Texinfo::Commands::brace_code_commands;
+my %non_formatted_brace_command = %Texinfo::Commands::non_formatted_brace_command;
+my %preamble_commands = %Texinfo::Common::preamble_commands;
 
 my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
-my %explained_commands = %Texinfo::Common::explained_commands;
-my %inline_format_commands = %Texinfo::Common::inline_format_commands;
-my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
-my %unformatted_brace_command = %Texinfo::Common::unformatted_brace_command;
-
-my %preamble_commands = %Texinfo::Common::preamble_commands;
 
 foreach my $kept_command (keys(%informative_commands),
    keys(%default_index_commands),
@@ -737,7 +736,7 @@ my %description_command_new_commands = ();
 
 foreach my $command (keys(%{$LaTeX_style_brace_commands{'cmd_text'}})) {
   # avoids hyphenation @-command
-  next if ($unformatted_brace_command{$command});
+  next if ($non_formatted_brace_command{$command});
   my $description_format = $LaTeX_style_brace_commands{'cmd_text'}->{$command};
 
   if ($quotes_map{$command}) {

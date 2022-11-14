@@ -71,7 +71,7 @@ sub converter_initialize($)
   my $self = shift;
   
   %{$self->{'formatted_line_commands'}}
-    = %Texinfo::Common::formatted_line_commands;
+    = %Texinfo::Commands::formatted_line_commands;
   if ($self->get_conf('TEXTCONTENT_COMMENT')) {
     $self->{'formatted_line_commands'}->{'c'} = 1;
     $self->{'formatted_line_commands'}->{'comment'} = 1;
@@ -108,7 +108,7 @@ sub _convert($$)
                  or ($ignored_block_commands{$element->{'cmdname'}}
                      and !(defined($self->{'expanded_formats_hash'})
                            and $self->{'expanded_formats_hash'}->{$element->{'cmdname'}}))
-                 or ($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
+                 or ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
                      and (!$element->{'extra'}->{'format'}
                           or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
                  or ($element->{'cmdname'} eq 'menu' and $self->get_conf('FORMAT_MENU') eq 'nomenu')
@@ -147,7 +147,7 @@ sub _convert($$)
            or !$Texinfo::Commands::blockitem_commands{$element->{'cmdname'}})) {
     my $args;
     if ($element->{'cmdname'}
-        and $Texinfo::Common::inline_format_commands{$element->{'cmdname'}}) {
+        and $Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {
       my @args = @{$element->{'args'}};
       shift @args;
       $args = \@args;

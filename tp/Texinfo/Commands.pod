@@ -133,6 +133,12 @@ also classified by type of command, some type of commands implying a
 number of arguments, and the number of arguments may not be set if it
 corresponds to the default (0 for block commands, 1 for other commands).
 
+=item %brace_code_commands
+X<C<%brace_code_commands>>
+
+Brace commands that have their argument in code style, like
+C<@code>.
+
 =item %brace_commands
 X<C<%brace_commands>>
 
@@ -151,6 +157,39 @@ X<C<%default_index_commands>>
 Index entry commands corresponding to default indices. For example
 C<@cindex>.
 
+=item %explained_commands
+X<C<%explained_commands>>
+
+@-commands whose second argument explain first argument and further
+@-command call without first argument, as C<@abbr> and C<@acronym>.
+
+=item %formattable_line_commands
+X<C<%formattable_line_commands>>
+
+Line commands which may be formatted as text, but that require constructing
+some replacement text, for example C<@printindex>, C<@need> or
+C<@verbatiminclude>.  C<@contents> and C<@shortcontents> are not in this hash,
+since they are in a corresponding situation only when the tables of contents
+are formatted where the commands are.
+
+=item %formatted_nobrace_commands
+X<C<%formatted_nobrace_commands>>
+
+Commands not taking brace formatted as text or with text in the main
+document body, corresponding to symbol commands such as C<@@> or C<@:> and
+commands such as C<@item>.  @-commands appearing only in headers are not
+in this hash, but in in C<%in_heading_spec_commands>.
+
+=item %formatted_line_commands
+X<C<%formatted_line_commands>>
+
+Line commands which arguments may be formatted as text, such as
+C<@center>, C<@author>, C<@item>, C<@node>, C<@chapter> and other.
+Index commands may be formatted as text too, but they may be added
+with C<@def*index>, therefore they are not in that hash.  Also,
+in general, they are not formatted as text where they appear, only
+when an index is printed.
+
 =item %heading_spec_commands
 X<C<%heading_spec_commands>>
 
@@ -159,8 +198,21 @@ X<C<%heading_spec_commands>>
 =item %in_heading_spec_commands
 X<C<%in_heading_spec_commands>>
 
-Special @-commands appearing in custom headings, such as C<@thischapter>
-or C<@thistitle>.
+Special @-commands appearing in custom headings, such as C<@thischapter>,
+C<@thistitle> or C<@|>.
+
+=item %in_index_commands
+
+@-commands only valid in index entries, such as C<@sortas> or C<@subentry>.
+
+=item %inline_conditional_commands
+
+=item %inline_format_commands
+X<C<%inline_conditional_commands>>
+X<C<%inline_format_commands>>
+
+Inline conditional commands, like C<@inlineifclear>, and inline format
+commands like C<inlineraw> and C<inlinefmt>.
 
 =item %letter_no_arg_commands
 X<C<%letter_no_arg_commands>>
@@ -194,6 +246,11 @@ include C<@indent>, C<@tab> or C<@thissection>.
 
 Note that C<@item> is in C<%nobrace_commands> for its role in C<@multitable>,
 C<@itemize> and C<@enumerate>.
+
+=item %non_formatted_block_commands
+X<C<%non_formatted_block_commands>>
+
+Block commands not formatted as text, such as C<@ignore> or C<@macro>.
 
 =item %preformatted_commands
 

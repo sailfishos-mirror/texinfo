@@ -1,3 +1,12 @@
+2022-11-14  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Commands.pod, tp/Texinfo/Common.pm,
+	tp/Texinfo/XS/parsetexi/command_data.awk, tp/Texinfo/command_data.txt:
+	move command classification out of Texinfo::Common to
+	command_data.txt.  Filter out flags not relevant for the XS parser
+	when generating command_data.c.
+	Update callers.
+
 2022-11-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.am (EXTRA_DIST), tp/Texinfo/XS/Makefile.am,

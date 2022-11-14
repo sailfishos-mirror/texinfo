@@ -147,7 +147,7 @@ foreach my $accent_letter ('o','O','l','L') {
 
 my %accent_commands = %Texinfo::Commands::accent_commands;
 my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
-my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
+my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
 # 'page' is a formatted_line_commands and therefore is replaced by an empty line.
 
 my %converted_formattable_line_commands;
@@ -400,11 +400,11 @@ sub _convert($;$)
                  or ($Texinfo::Commands::brace_commands{$element->{'cmdname'}}
                      and $Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline'
                      and $element->{'cmdname'} ne 'inlinefmtifelse'
-                     and (($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
+                     and (($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
                            and (!$element->{'extra'}->{'format'}
                                 or !$options->{'expanded_formats_hash'}
                                 or !$options->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
-                         or (!$Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
+                         or (!$Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
                              and !defined($element->{'extra'}->{'expand_index'}))))
              # here ignore most of the line commands
                  or ($element->{'args'} and $element->{'args'}->[0]
@@ -499,7 +499,7 @@ sub _convert($;$)
       } else {
         return $url;
       }
-    } elsif ($Texinfo::Common::explained_commands{$element->{'cmdname'}}
+    } elsif ($Texinfo::Commands::explained_commands{$element->{'cmdname'}}
              and $element->{'args'} and $element->{'args'}->[1]) {
       my $explanation = _convert($element->{'args'}->[1], $options);
       if ($explanation ne '') {
@@ -530,7 +530,7 @@ sub _convert($;$)
       my $result;
       my $in_code;
       $options->{'sc'}++ if ($element->{'cmdname'} eq 'sc');
-      if ($Texinfo::Common::brace_code_commands{$element->{'cmdname'}}
+      if ($Texinfo::Commands::brace_code_commands{$element->{'cmdname'}}
                or $Texinfo::Commands::math_commands{$element->{'cmdname'}}) {
         $in_code = 1;
       }

@@ -287,12 +287,12 @@ my %variadic_commands         = %Texinfo::Commands::variadic_commands;
 my %default_index_commands    = %Texinfo::Commands::default_index_commands;
 my %global_multiple_commands  = %Texinfo::Commands::global_commands;
 my %global_unique_commands    = %Texinfo::Commands::global_unique_commands;
+my %in_index_commands         = %Texinfo::Commands::in_index_commands;
+my %explained_commands        = %Texinfo::Commands::explained_commands;
+my %inline_format_commands    = %Texinfo::Commands::inline_format_commands;
 
 my %def_map                   = %Texinfo::Common::def_map;
 my %def_aliases               = %Texinfo::Common::def_aliases;
-my %in_index_commands         = %Texinfo::Common::in_index_commands;
-my %explained_commands        = %Texinfo::Common::explained_commands;
-my %inline_format_commands    = %Texinfo::Common::inline_format_commands;
 my %all_commands              = %Texinfo::Common::all_commands;
 
 

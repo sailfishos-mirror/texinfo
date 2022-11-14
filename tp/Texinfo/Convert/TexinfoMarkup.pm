@@ -199,7 +199,7 @@ foreach my $ref_cmd ('pxref', 'xref', 'ref') {
        'xrefprintedname'];
 }
 
-foreach my $explained_command (keys(%Texinfo::Common::explained_commands)) {
+foreach my $explained_command (keys(%Texinfo::Commands::explained_commands)) {
   $commands_args_elements{$explained_command} = ["${explained_command}word",
                                                  "${explained_command}desc"];
 }
@@ -982,7 +982,7 @@ sub _convert($$;$)
     } elsif ($element->{'args'}
              and exists($brace_commands{$element->{'cmdname'}})) {
 
-      if ($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
+      if ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
           and $element->{'extra'} and $element->{'extra'}->{'format'}
           and $self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}) {
         if ($element->{'cmdname'} eq 'inlineraw') {

@@ -140,7 +140,7 @@ our %default_args_code_style = (
   'float' => [1],
 );
 
-foreach my $code_style_command (keys(%Texinfo::Common::brace_code_commands)) {
+foreach my $code_style_command (keys(%Texinfo::Commands::brace_code_commands)) {
   $default_args_code_style{$code_style_command} = [1];
 }
 foreach my $ref_cmd ('pxref', 'xref', 'ref') {

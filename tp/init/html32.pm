@@ -36,7 +36,7 @@ use strict;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-use Texinfo::Common;
+use Texinfo::Commands;
 
 use Texinfo::Convert::Text;
 
@@ -201,7 +201,7 @@ sub html32_convert_explained_command($$$$)
   return $result;
 }
 
-foreach my $explained_command (keys(%Texinfo::Common::explained_commands)) {
+foreach my $explained_command (keys(%Texinfo::Commands::explained_commands)) {
   texinfo_register_command_formatting($explained_command,
                               \&html32_convert_explained_command);
 }

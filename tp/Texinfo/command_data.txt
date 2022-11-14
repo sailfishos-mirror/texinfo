@@ -19,7 +19,11 @@
 # builtin_command_data and the perl Parser commands classification
 # hashes.
 
-# Some documentation of the flags (second column) is in commands.h.
+# The flags (second column) should be documented (with _commands
+# postpended) in Texinfo/Commands.pod.
+# Some documentation of the flags is in commands.h, but only for
+# flags used in the XS parser, not for the flags not used in the
+# XS parser and filtered out.
 
 ##############################################################
 # Internal commands
@@ -38,32 +42,32 @@ txiinternalvalue        internal,brace                  INTERNAL_brace
 
 # no brace commands - single letter commands
 
-*                       nobrace                         NOBRACE_symbol
+*                       nobrace,formatted_nobrace       NOBRACE_symbol
 # space
-\x20                    nobrace                         NOBRACE_symbol
-\t                      nobrace                         NOBRACE_symbol
-\n                      nobrace                         NOBRACE_symbol
--                       nobrace                         NOBRACE_symbol
+\x20                    nobrace,formatted_nobrace       NOBRACE_symbol
+\t                      nobrace,formatted_nobrace       NOBRACE_symbol
+\n                      nobrace,formatted_nobrace       NOBRACE_symbol
+-                       nobrace,formatted_nobrace       NOBRACE_symbol
 |                       nobrace,in_heading_spec         NOBRACE_symbol
-/                       nobrace                         NOBRACE_symbol
-:                       nobrace                         NOBRACE_symbol
-!                       nobrace                         NOBRACE_symbol
-?                       nobrace                         NOBRACE_symbol
-.                       nobrace                         NOBRACE_symbol
-@                       nobrace                         NOBRACE_symbol
-&                       nobrace                         NOBRACE_symbol
-}                       nobrace                         NOBRACE_symbol
-{                       nobrace                         NOBRACE_symbol
-\\                      nobrace                         NOBRACE_symbol
+/                       nobrace,formatted_nobrace       NOBRACE_symbol
+:                       nobrace,formatted_nobrace       NOBRACE_symbol
+!                       nobrace,formatted_nobrace       NOBRACE_symbol
+?                       nobrace,formatted_nobrace       NOBRACE_symbol
+.                       nobrace,formatted_nobrace       NOBRACE_symbol
+@                       nobrace,formatted_nobrace       NOBRACE_symbol
+&                       nobrace,formatted_nobrace       NOBRACE_symbol
+}                       nobrace,formatted_nobrace       NOBRACE_symbol
+{                       nobrace,formatted_nobrace       NOBRACE_symbol
+\\                      nobrace,formatted_nobrace       NOBRACE_symbol
 
 # no brace commands - miscellaneous commands
 
 # formatting
 noindent                nobrace                         NOBRACE_skipspace
 indent                  nobrace                         NOBRACE_skipspace
-headitem                nobrace,close_paragraph         NOBRACE_skipspace
-item                    nobrace,close_paragraph         NOBRACE_skipspace
-tab                     nobrace,close_paragraph         NOBRACE_skipspace
+headitem                nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
+item                    nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
+tab                     nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
 # only valid in heading or footing
 thischapter             nobrace,in_heading_spec         NOBRACE_other
 thischaptername         nobrace,in_heading_spec         NOBRACE_other
@@ -108,29 +112,29 @@ refill                  nobrace,deprecated              NOBRACE_other
 # is not used anywhere in the code, it is here as documentation only.
 
 # Root commands
-node                    line,root,contain_simple_text              LINE_line     4
-top                     line,root,sectioning_heading,global_unique   LINE_line
-chapter                 line,root,sectioning_heading               LINE_line
-unnumbered              line,root,sectioning_heading               LINE_line
-chapheading             line,sectioning_heading,close_paragraph    LINE_line
-appendix                line,root,sectioning_heading               LINE_line
-section                 line,root,sectioning_heading               LINE_line
-unnumberedsec           line,root,sectioning_heading               LINE_line
-heading                 line,sectioning_heading,close_paragraph    LINE_line
-appendixsec             line,root,sectioning_heading               LINE_line
-subsection              line,root,sectioning_heading               LINE_line
-unnumberedsubsec        line,root,sectioning_heading               LINE_line
-subheading              line,sectioning_heading,close_paragraph    LINE_line
-appendixsubsec          line,root,sectioning_heading               LINE_line
-subsubsection           line,root,sectioning_heading               LINE_line
-unnumberedsubsubsec     line,root,sectioning_heading               LINE_line
-subsubheading           line,sectioning_heading,close_paragraph    LINE_line
-appendixsubsubsec       line,root,sectioning_heading               LINE_line
+node                    line,formatted_line,root,contain_simple_text              LINE_line     4
+top                     line,formatted_line,root,sectioning_heading,global_unique   LINE_line
+chapter                 line,formatted_line,root,sectioning_heading               LINE_line
+unnumbered              line,formatted_line,root,sectioning_heading               LINE_line
+chapheading             line,formatted_line,sectioning_heading,close_paragraph    LINE_line
+appendix                line,formatted_line,root,sectioning_heading               LINE_line
+section                 line,formatted_line,root,sectioning_heading               LINE_line
+unnumberedsec           line,formatted_line,root,sectioning_heading               LINE_line
+heading                 line,formatted_line,sectioning_heading,close_paragraph    LINE_line
+appendixsec             line,formatted_line,root,sectioning_heading               LINE_line
+subsection              line,formatted_line,root,sectioning_heading               LINE_line
+unnumberedsubsec        line,formatted_line,root,sectioning_heading               LINE_line
+subheading              line,formatted_line,sectioning_heading,close_paragraph    LINE_line
+appendixsubsec          line,formatted_line,root,sectioning_heading               LINE_line
+subsubsection           line,formatted_line,root,sectioning_heading               LINE_line
+unnumberedsubsubsec     line,formatted_line,root,sectioning_heading               LINE_line
+subsubheading           line,formatted_line,sectioning_heading,close_paragraph    LINE_line
+appendixsubsubsec       line,formatted_line,root,sectioning_heading               LINE_line
 
-part                    line,root,sectioning_heading,global        LINE_line
-appendixsection         line,root,sectioning_heading               LINE_line
-majorheading            line,sectioning_heading,close_paragraph    LINE_line
-centerchap              line,root,sectioning_heading,deprecated    LINE_line
+part                    line,formatted_line,root,sectioning_heading,global        LINE_line
+appendixsection         line,formatted_line,root,sectioning_heading               LINE_line
+majorheading            line,formatted_line,sectioning_heading,close_paragraph    LINE_line
+centerchap              line,formatted_line,root,sectioning_heading,deprecated    LINE_line
 
 # end of document, end of block
 bye                     line                            LINE_skipline
@@ -153,16 +157,16 @@ alias                   line,contain_plain_text         LINE_specific  2
 columnfractions         line,contain_plain_text         LINE_specific
 
 # file names, only plain text in argument
-setfilename             line,close_paragraph,global_unique,contain_plain_text   LINE_text
-verbatiminclude         line,close_paragraph,contain_plain_text                 LINE_text
-include                 line,contain_plain_text                                 LINE_text
+setfilename             line,close_paragraph,global_unique,contain_plain_text       LINE_text
+verbatiminclude         line,formattable_line,close_paragraph,contain_plain_text    LINE_text
+include                 line,contain_plain_text                                     LINE_text
 
 raisesections           line                             LINE_skipline
 lowersections           line                             LINE_skipline
 contents                line,close_paragraph,global      LINE_skipline
 shortcontents           line,close_paragraph,global      LINE_skipline
 summarycontents         line,close_paragraph,global      LINE_skipline
-insertcopying           line,close_paragraph,global      LINE_skipline
+insertcopying           line,formattable_line,close_paragraph,global      LINE_skipline
 
 # more relevant in preamble
 documentencoding        line,global,contain_plain_text   LINE_text
@@ -243,30 +247,30 @@ evenfootingmarks        line,global_unique,contain_plain_text       LINE_specifi
 oddfootingmarks         line,global_unique,contain_plain_text       LINE_specific  1
 
 # formatting
-center                  line,close_paragraph            LINE_line
-printindex              line,close_paragraph,global,contain_plain_text     LINE_specific  1
-listoffloats            line,close_paragraph,global,contain_simple_text    LINE_line
-exdent                  line,close_paragraph            LINE_line
+center                  line,formatted_line,close_paragraph                LINE_line
+printindex              line,formattable_line,close_paragraph,global,contain_plain_text     LINE_specific  1
+listoffloats            line,formattable_line,close_paragraph,global,contain_simple_text    LINE_line
+exdent                  line,formatted_line,close_paragraph            LINE_line
 # or nobrace skipspace, depending on the context
-item_LINE               line,close_paragraph,contain_simple_text    LINE_line
-itemx                   line,close_paragraph,contain_simple_text    LINE_line
+item_LINE               line,formatted_line,close_paragraph,contain_simple_text    LINE_line
+itemx                   line,formatted_line,close_paragraph,contain_simple_text    LINE_line
 # in index entries
-subentry                line,contain_simple_text                    LINE_line
+subentry                line,in_index,contain_simple_text           LINE_line
 # not valid for info (should be in @iftex)
-vskip                   line                            LINE_lineraw
+vskip                   line,formattable_line                       LINE_lineraw
 # one numerical/real arg
-need                    line,close_paragraph,contain_plain_text   LINE_specific  1
+need                    line,formattable_line,close_paragraph,contain_plain_text   LINE_specific  1
 
 # especially in titlepage
 #  shorttitle
 shorttitlepage          line,global_unique,contain_simple_text     LINE_line
 settitle                line,global_unique,contain_simple_text     LINE_line
-author                  line,global,contain_simple_text            LINE_line
-subtitle                line,global,contain_simple_text            LINE_line
-title                   line,global_unique,contain_simple_text     LINE_line
+author                  line,formatted_line,global,contain_simple_text            LINE_line
+subtitle                line,formatted_line,global,contain_simple_text            LINE_line
+title                   line,formatted_line,global_unique,contain_simple_text     LINE_line
 # numerical arg
-sp                      line,close_paragraph,contain_plain_text   LINE_specific  1
-page                    line,close_paragraph            LINE_skipline
+sp                      line,formattable_line,close_paragraph,contain_plain_text    LINE_specific  1
+page                    line,formatted_line,close_paragraph        LINE_skipline
 
 
 ##########################################################
@@ -378,16 +382,16 @@ sub                     brace                           BRACE_style_other
 sup                     brace                           BRACE_style_other
 
 # code style commands
-code                    brace                           BRACE_style_code
-command                 brace                           BRACE_style_code
-env                     brace                           BRACE_style_code
-file                    brace                           BRACE_style_code
-indicateurl             brace                           BRACE_style_code
-kbd                     brace                           BRACE_style_code
-key                     brace,contain_plain_text        BRACE_style_code
-option                  brace                           BRACE_style_code
-samp                    brace                           BRACE_style_code
-t                       brace                           BRACE_style_code
+code                    brace,brace_code                      BRACE_style_code
+command                 brace,brace_code                      BRACE_style_code
+env                     brace,brace_code                      BRACE_style_code
+file                    brace,brace_code                      BRACE_style_code
+indicateurl             brace,brace_code                      BRACE_style_code
+kbd                     brace,brace_code                      BRACE_style_code
+key                     brace,brace_code,contain_plain_text   BRACE_style_code
+option                  brace,brace_code                      BRACE_style_code
+samp                    brace,brace_code                      BRACE_style_code
+t                       brace,brace_code                      BRACE_style_code
 
 # No code style commands
 r                       brace                           BRACE_style_no_code
@@ -411,13 +415,13 @@ U                       brace                           BRACE_arguments     1
 hyphenation             brace,global,contain_plain_text BRACE_arguments     1
 anchor                  brace,contain_simple_text       BRACE_arguments     1
 errormsg                brace,contain_simple_text       BRACE_arguments     1
-sortas                  brace,contain_plain_text        BRACE_arguments     1
-seeentry                brace,contain_simple_text       BRACE_arguments     1
-seealso                 brace,contain_simple_text       BRACE_arguments     1
+sortas                  brace,in_index,contain_plain_text        BRACE_arguments     1
+seeentry                brace,in_index,contain_simple_text       BRACE_arguments     1
+seealso                 brace,in_index,contain_simple_text       BRACE_arguments     1
 
 # explained commands
-abbr                    brace,contain_simple_text       BRACE_arguments     2
-acronym                 brace,contain_simple_text       BRACE_arguments     2
+abbr                    brace,explained,contain_simple_text      BRACE_arguments     2
+acronym                 brace,explained,contain_simple_text      BRACE_arguments     2
 
 email                   brace,contain_simple_text       BRACE_arguments     2
 
@@ -432,19 +436,19 @@ image                   brace,contain_simple_text       BRACE_arguments     5
 
 # leading space is ignored in inline brace commands, not trailing space
 # inline format command
-inlineraw               brace                           BRACE_inline        2
-inlinefmt               brace                           BRACE_inline        2
-inlinefmtifelse         brace                           BRACE_inline        3
+inlineraw               brace,inline_format             BRACE_inline        2
+inlinefmt               brace,inline_format             BRACE_inline        2
+inlinefmtifelse         brace,inline_format             BRACE_inline        3
 
 # inline conditional commands
-inlineifclear           brace                           BRACE_inline        2
-inlineifset             brace                           BRACE_inline        2
+inlineifclear           brace,inline_conditional        BRACE_inline        2
+inlineifset             brace,inline_conditional        BRACE_inline        2
 
 # verb is treated especially, it should not matter much in which category it is.
 # value also is treated especially.
 # Leading and trailing spaces kept in main text.
 value                   brace                           BRACE_special
-verb                    brace                           BRACE_special
+verb                    brace,brace_code                BRACE_special
 w                       brace,contain_simple_text       BRACE_special
 
 # other brace commands, leading and trailing spaces kept in main text
@@ -547,9 +551,9 @@ latex                   block                             BLOCK_format_raw
 
 # raw commands
 verbatim                block,close_paragraph             BLOCK_raw
-ignore                  block                             BLOCK_raw
-macro                   block                             BLOCK_raw
-rmacro                  block                             BLOCK_raw
+ignore                  block,non_formatted_block         BLOCK_raw
+macro                   block,non_formatted_block         BLOCK_raw
+rmacro                  block,non_formatted_block         BLOCK_raw
 
 table                   block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_line       1
 ftable                  block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_line       1

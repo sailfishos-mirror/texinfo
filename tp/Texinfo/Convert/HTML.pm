@@ -112,12 +112,12 @@ my %math_commands = %Texinfo::Commands::math_commands;
 my %preformatted_code_commands = %Texinfo::Commands::preformatted_code_commands;
 my %letter_no_arg_commands = %Texinfo::Commands::letter_no_arg_commands;
 
-my %formatted_line_commands = %Texinfo::Common::formatted_line_commands;
-my %formatted_nobrace_commands = %Texinfo::Common::formatted_nobrace_commands;
-my %formattable_line_commands = %Texinfo::Common::formattable_line_commands;
-my %explained_commands = %Texinfo::Common::explained_commands;
-my %inline_format_commands = %Texinfo::Common::inline_format_commands;
-my %brace_code_commands       = %Texinfo::Common::brace_code_commands;
+my %formatted_line_commands = %Texinfo::Commands::formatted_line_commands;
+my %formatted_nobrace_commands = %Texinfo::Commands::formatted_nobrace_commands;
+my %formattable_line_commands = %Texinfo::Commands::formattable_line_commands;
+my %explained_commands = %Texinfo::Commands::explained_commands;
+my %inline_format_commands = %Texinfo::Commands::inline_format_commands;
+my %brace_code_commands       = %Texinfo::Commands::brace_code_commands;
 my %default_index_commands = %Texinfo::Commands::default_index_commands;
 my %small_block_associated_command = %Texinfo::Common::small_block_associated_command;
 

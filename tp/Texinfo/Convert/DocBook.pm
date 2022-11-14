@@ -1391,7 +1391,7 @@ sub _convert($$;$)
 
       } elsif ($Texinfo::Commands::brace_commands{$element->{'cmdname'}} eq 'inline') {
         my $expand = 0;
-        if ($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}) {
+        if ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {
           if ($element->{'cmdname'} eq 'inlinefmtifelse'
               or ($element->{'extra'} and $element->{'extra'}->{'format'}
                   and $self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}})) {

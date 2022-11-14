@@ -543,47 +543,15 @@ our %nobrace_symbol_text;
            '\\', '\\',  # should only appear in math
 );
 
-# only valid in index entries
-our %in_index_commands;
-foreach my $in_index_command ('sortas', 'seeentry', 'seealso', 'subentry') {
-  $in_index_commands{$in_index_command} = 1;
-}
-
-# also style_code brace commands
-our %brace_code_commands;
-foreach my $command ('code', 'command', 'env', 'file', 'indicateurl', 'kbd',
-   'key', 'option', 'samp', 't') {
-  $brace_code_commands{$command} = 1;
-}
-
-# brace style command that are not style code commands
-$brace_code_commands{'verb'} = 1;
-
-our %explained_commands;
-foreach my $explained_command ('abbr', 'acronym') {
-  $explained_commands{$explained_command} = 1;
-}
-
-our %inline_format_commands;
-foreach my $inline_format_command ('inlineraw', 'inlinefmt',
-        'inlinefmtifelse') {
-  $inline_format_commands{$inline_format_command} = 1;
-}
-
-our %inline_conditional_commands;
-foreach my $inline_conditional_command ('inlineifclear', 'inlineifset') {
-  $inline_conditional_commands{$inline_conditional_command} = 1;
-}
-
-
-# some classification to help converters
 
 # brace command that is not replaced with text.
-my %unformatted_brace_commands;
-foreach my $unformatted_brace_command ('anchor', 'shortcaption',
+my %non_formatted_brace_commands;
+foreach my $non_formatted_brace_command ('anchor', 'shortcaption',
     'caption', 'hyphenation', 'errormsg') {
-  $unformatted_brace_commands{$unformatted_brace_command} = 1;
+  $non_formatted_brace_commands{$non_formatted_brace_command} = 1;
 }
+
+# some classification to help converters
 
 our %def_map = (
     # basic commands.
@@ -648,11 +616,6 @@ foreach my $output_format_command ('info', 'plaintext',
        grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'}
             keys(%Texinfo::Commands::block_commands)) {
   $texinfo_output_formats{$output_format_command} = $output_format_command;
-}
-
-my %unformatted_block_commands;
-foreach my $unformatted_block_command ('ignore', 'macro', 'rmacro') {
-  $unformatted_block_commands{$unformatted_block_command} = 1;
 }
 
 our %small_block_associated_command;
@@ -723,35 +686,6 @@ our %level_to_structuring_command;
 }
 
 
-# line commands which arguments may be formatted as text.
-# index commands may be too, but index command may be added with
-# @def*index so they are not added here.
-our %formatted_line_commands;
-foreach my $formatted_line_command ('center', 'page',
-   'author', 'subtitle', 'title', 'exdent', 'item', 'itemx',
-   'node', keys(%Texinfo::Commands::sectioning_heading_commands)) {
-  $formatted_line_commands{$formatted_line_command} = 1;
-}
-
-our %formatted_nobrace_commands;
-foreach my $formatted_command ('headitem', 'item', 'tab',
-                               keys(%nobrace_symbol_text)) {
-  $formatted_nobrace_commands{$formatted_command} = 1;
-}
-
-# line commands which may be formatted as text, but that
-# require constructing some replacement text.
-# Depending on the case, @contents, @shortcontents and
-# @summarycontents may be formattable_line_commands too, but
-# they are global commands and are, in general, processed as such in
-# converters, so they are not put in formattable_line_commands.
-our %formattable_line_commands;
-foreach my $formattable_line_command ('insertcopying',
-  'printindex', 'listoffloats', 'need', 'sp', 'verbatiminclude',
-  'vskip') {
-  $formattable_line_commands{$formattable_line_command} = 1;
-}
-
 # %all_commands includes user-settable commands only.
 # The internal commands are not in %all_commands.
 # used in util/txicmdlist
@@ -772,15 +706,18 @@ foreach my $preamble_command ('direntry', 'hyphenation', 'errormsg',
        (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'
               or $Texinfo::Commands::block_commands{$_} eq 'region'}
                                       keys(%Texinfo::Commands::block_commands)),
-       keys(%inline_format_commands), keys(%inline_conditional_commands),
-       keys(%unformatted_block_commands), keys(%Texinfo::Commands::line_commands),
+       keys(%Texinfo::Commands::inline_format_commands),
+       keys(%Texinfo::Commands::inline_conditional_commands),
+       keys(%Texinfo::Commands::non_formatted_block_commands),
+       keys(%Texinfo::Commands::line_commands),
        keys(%Texinfo::Commands::nobrace_commands)) {
   $preamble_commands{$preamble_command} = 1;
 }
 
 foreach my $formattable_or_formatted_misc_command (
-   keys(%formattable_line_commands), keys(%formatted_line_commands),
-        keys(%formatted_nobrace_commands),
+   keys(%Texinfo::Commands::formattable_line_commands),
+        keys(%Texinfo::Commands::formatted_line_commands),
+        keys(%Texinfo::Commands::formatted_nobrace_commands),
         keys(%Texinfo::Commands::default_index_commands),
         keys(%Texinfo::Commands::in_heading_spec_commands),
         keys(%Texinfo::Commands::def_commands)) {
@@ -1485,20 +1422,20 @@ sub is_content_empty($;$)
         }
       }
       if (exists($Texinfo::Commands::line_commands{$content->{'cmdname'}})) {
-        if ($formatted_line_commands{$content->{'cmdname'}}
-            or $formattable_line_commands{$content->{'cmdname'}}) {
+        if ($Texinfo::Commands::formatted_line_commands{$content->{'cmdname'}}
+            or $Texinfo::Commands::formattable_line_commands{$content->{'cmdname'}}) {
           return 0;
         } else {
           next;
         }
       } elsif (exists($Texinfo::Commands::nobrace_commands{$content->{'cmdname'}})) {
-        if ($formatted_nobrace_commands{$content->{'cmdname'}}) {
+        if ($Texinfo::Commands::formatted_nobrace_commands{$content->{'cmdname'}}) {
           return 0;
         } else {
           next;
         }
-      } elsif ($unformatted_brace_commands{$content->{'cmdname'}}
-               or $unformatted_block_commands{$content->{'cmdname'}}) {
+      } elsif ($non_formatted_brace_commands{$content->{'cmdname'}}
+               or $Texinfo::Commands::non_formatted_block_commands{$content->{'cmdname'}}) {
         next;
       } else {
         return 0;
@@ -2566,12 +2503,6 @@ X<C<%all_commands>>
 
 All the @-commands.
 
-=item %brace_code_commands
-X<C<%brace_code_commands>>
-
-Brace commands that have their argument in code style, like
-C<@code>.
-
 =item %def_aliases
 
 =item %def_no_var_arg_commands
@@ -2586,21 +2517,6 @@ a true value if the I<argument> on the definition command line can contain
 non-metasyntactic variables.  For instance, it is true for C<deftypevr>
 but false for C<defun>, since C<@defun> I<argument> is supposed to contain
 metasyntactic variables only.
-
-=item %explained_commands
-X<C<%explained_commands>>
-
-@-commands whose second argument explain first argument and further
-@-command call without first argument, as C<@abbr> and C<@acronym>.
-
-=item %inline_conditional_commands
-
-=item %inline_format_commands
-X<C<%inline_conditional_commands>>
-X<C<%inline_format_commands>>
-
-Inline conditional commands, like C<@inlineifclear>, and inline format
-commands like C<inlineraw> and C<inlinefmt>.
 
 =item %nobrace_symbol_text
 X<C<%nobrace_symbol_text>>
