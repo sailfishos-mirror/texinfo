@@ -468,6 +468,8 @@ my %simple_text_with_refs_commands = (%sectioning_heading_commands,
 # commands that accept full text, but no block or top-level commands
 my %full_text_commands;
 foreach my $brace_command (keys (%brace_commands)) {
+  next if (exists($simple_text_commands{$brace_command})
+           or exists($plain_text_commands{$brace_command}));
   if ($brace_commands{$brace_command} eq 'style_code'
       or $brace_commands{$brace_command} eq 'style_other'
       or $brace_commands{$brace_command} eq 'style_no_code') {
@@ -540,6 +542,52 @@ foreach my $index (keys(%index_names)) {
     $default_no_paragraph_commands{$prefix.'index'} = 1;
     $default_valid_nestings{$prefix.'index'} = \%in_simple_text_commands;
   }
+}
+
+if (0) {
+  # check that all the commands either are in %default_valid_nestings,
+  # do not have arguments at all, have special parsing of their arguments
+  # or accept any command
+  my %all_commands_nesting_check = %Texinfo::Common::all_commands;
+  foreach my $command (keys(%default_valid_nestings)) {
+    if (not exists($all_commands_nesting_check{$command})) {
+      die "In \%default_valid_nestings: Not a command $command\n";
+    }
+    delete $all_commands_nesting_check{$command};
+  }
+  # no argument
+  foreach my $command (keys(%Texinfo::Commands::nobrace_commands)) {
+    delete $all_commands_nesting_check{$command};
+  }
+  foreach my $command (keys(%Texinfo::Commands::block_commands)) {
+    # remove block commands without argument, they should have
+    # an error message for any content
+    delete $all_commands_nesting_check{$command}
+      if (not $commands_args_number{$command}
+          and not $variadic_commands{$command});
+  }
+  foreach my $brace_command(keys(%brace_commands)) {
+    delete $all_commands_nesting_check{$brace_command}
+           # no argument
+       if ($brace_commands{$brace_command} eq 'noarg'
+           # @inline* can contain anything in their second argument
+           or $inline_format_commands{$brace_command}
+           or $Texinfo::Commands::inline_conditional_commands{$brace_command});
+  }
+  foreach my $command (keys(%line_commands)) {
+    delete $all_commands_nesting_check{$command}
+       # special formatting, commands on line are not parsed as usual
+       if ($line_commands{$command} eq 'skipline'
+           or $line_commands{$command} eq 'special'
+           or $line_commands{$command} eq 'lineraw');
+  }
+  # U, value and verb have special checks of argument.
+  # caption and footnotes can contain any command.
+  foreach my $command ('U', 'value', 'verb', 'caption', 'footnote') {
+    delete $all_commands_nesting_check{$command};
+  }
+
+  print STDERR "".join('|', sort(keys(%all_commands_nesting_check)))."\n";
 }
 
 foreach my $other_forbidden_index_name ('info','ps','pdf','htm',
