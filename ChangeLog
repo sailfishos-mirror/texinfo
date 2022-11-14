@@ -1,5 +1,10 @@
 2022-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Texinfo.pm (root_heading_command_to_texinfo):
+	show node name as it appeared in the document.
+
+2022-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (special_element_info)
 	(_set_root_commands_targets_node_files)
 	(_prepare_conversion_tree_units), tp/Texinfo/Translations.pm

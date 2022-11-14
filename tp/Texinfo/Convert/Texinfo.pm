@@ -80,10 +80,9 @@ sub root_heading_command_to_texinfo($)
   my $element = shift;
   my $tree;
   if ($element->{'cmdname'}) {
-    if ($element->{'cmdname'} eq 'node') {
-      $tree = $element->{'extra'}->{'node_content'};
-    } elsif ($sectioning_heading_commands{$element->{'cmdname'}}
-             and $element->{'args'}->[0]->{'contents'}) {
+    if (($element->{'cmdname'} eq 'node'
+         or $sectioning_heading_commands{$element->{'cmdname'}})
+        and $element->{'args'}->[0]->{'contents'}) {
       $tree = $element->{'args'}->[0]->{'contents'};
     }
   } else {
