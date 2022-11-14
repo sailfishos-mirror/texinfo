@@ -252,6 +252,11 @@ X<C<%non_formatted_block_commands>>
 
 Block commands not formatted as text, such as C<@ignore> or C<@macro>.
 
+=item %preamble_commands
+X<C<%preamble_commands>>
+
+@-commands that do not stop the preamble.
+
 =item %preformatted_commands
 
 =item %preformatted_code_commands

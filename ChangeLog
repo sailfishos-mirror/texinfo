@@ -1,5 +1,13 @@
 2022-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Commands.pod, tp/Texinfo/Common.pm
+	(_add_preamble_before_content),
+	tp/Texinfo/XS/parsetexi/command_data.awk, tp/Texinfo/command_data.txt:
+	add preamble flag in command_data.txt instead of determining the hash
+	in Texinfo::Common.
+
+2022-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_texinfo_handle_element_start, _texinfo_handle_element_end): use
 	Texinfo::Commands::brace_code_commands.

@@ -42,7 +42,7 @@ txiinternalvalue        internal,brace                  INTERNAL_brace
 
 # no brace commands - single letter commands
 
-*                       nobrace,formatted_nobrace       NOBRACE_symbol
+*                       nobrace,preamble,formatted_nobrace   NOBRACE_symbol
 # space
 \x20                    nobrace,formatted_nobrace       NOBRACE_symbol
 \t                      nobrace,formatted_nobrace       NOBRACE_symbol
@@ -63,8 +63,8 @@ txiinternalvalue        internal,brace                  INTERNAL_brace
 # no brace commands - miscellaneous commands
 
 # formatting
-noindent                nobrace                         NOBRACE_skipspace
-indent                  nobrace                         NOBRACE_skipspace
+noindent                nobrace,preamble                NOBRACE_skipspace
+indent                  nobrace,preamble                NOBRACE_skipspace
 headitem                nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
 item                    nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
 tab                     nobrace,formatted_nobrace,close_paragraph         NOBRACE_skipspace
@@ -79,7 +79,7 @@ thisfile                nobrace,in_heading_spec         NOBRACE_other
 thispage                nobrace,in_heading_spec         NOBRACE_other
 thistitle               nobrace,in_heading_spec         NOBRACE_other
 # obsolete @-commands.
-refill                  nobrace,deprecated              NOBRACE_other
+refill                  nobrace,preamble,deprecated     NOBRACE_other
 
 
 ##########################################################
@@ -137,114 +137,114 @@ majorheading            line,formatted_line,sectioning_heading,close_paragraph  
 centerchap              line,formatted_line,root,sectioning_heading,deprecated    LINE_line
 
 # end of document, end of block
-bye                     line                            LINE_skipline
-end                     line,contain_plain_text         LINE_text
+bye                     line,preamble                       LINE_skipline
+end                     line,preamble,contain_plain_text    LINE_text
 
 # comments
-c                       line                            LINE_lineraw
-comment                 line                            LINE_lineraw
+c                       line,preamble                   LINE_lineraw
+comment                 line,preamble                   LINE_lineraw
 
 # set, clear, special argument
-set                     line                            LINE_special
-clear                   line                            LINE_special
-unmacro                 line                            LINE_special
+set                     line,preamble                   LINE_special
+clear                   line,preamble                   LINE_special
+unmacro                 line,preamble                   LINE_special
 
 # special
-definfoenclose          line,contain_plain_text,deprecated  LINE_specific  3
-alias                   line,contain_plain_text         LINE_specific  2
+definfoenclose          line,preamble,contain_plain_text,deprecated    LINE_specific  3
+alias                   line,preamble,contain_plain_text               LINE_specific  2
 
 # number of arguments is not known in advance.
-columnfractions         line,contain_plain_text         LINE_specific
+columnfractions         line,preamble,contain_plain_text         LINE_specific
 
 # file names, only plain text in argument
-setfilename             line,close_paragraph,global_unique,contain_plain_text       LINE_text
-verbatiminclude         line,formattable_line,close_paragraph,contain_plain_text    LINE_text
-include                 line,contain_plain_text                                     LINE_text
+setfilename             line,close_paragraph,global_unique,preamble,contain_plain_text   LINE_text
+verbatiminclude         line,formattable_line,close_paragraph,contain_plain_text         LINE_text
+include                 line,preamble,contain_plain_text                                 LINE_text
 
-raisesections           line                             LINE_skipline
-lowersections           line                             LINE_skipline
-contents                line,close_paragraph,global      LINE_skipline
-shortcontents           line,close_paragraph,global      LINE_skipline
-summarycontents         line,close_paragraph,global      LINE_skipline
+raisesections           line,preamble                    LINE_skipline
+lowersections           line,preamble                    LINE_skipline
+contents                line,close_paragraph,global,preamble    LINE_skipline
+shortcontents           line,close_paragraph,global,preamble    LINE_skipline
+summarycontents         line,close_paragraph,global,preamble    LINE_skipline
 insertcopying           line,formattable_line,close_paragraph,global      LINE_skipline
 
 # more relevant in preamble
-documentencoding        line,global,contain_plain_text   LINE_text
-novalidate              line,global_unique               LINE_skipline
+documentencoding        line,global,preamble,contain_plain_text   LINE_text
+novalidate              line,global_unique,preamble               LINE_skipline
 # Position with regard with direntry is significant
-dircategory             line,close_paragraph,contain_simple_text   LINE_line
+dircategory             line,close_paragraph,preamble,contain_simple_text   LINE_line
 # arg like 200mm,150mm or 11.5in
-pagesizes               line,global_unique,contain_plain_text      LINE_line
-finalout                line                            LINE_skipline
+pagesizes               line,global_unique,preamble,contain_plain_text      LINE_line
+finalout                line,preamble                            LINE_skipline
 # arg none asis
 # or a number and forbids anything else on the line
-paragraphindent         line,global,contain_plain_text  LINE_specific  1
+paragraphindent         line,global,preamble,contain_plain_text  LINE_specific  1
 # arg none insert
-firstparagraphindent    line,global,contain_plain_text  LINE_specific  1
+firstparagraphindent    line,global,preamble,contain_plain_text  LINE_specific  1
 # arg on off
-frenchspacing           line,global,contain_plain_text  LINE_specific  1
+frenchspacing           line,global,preamble,contain_plain_text  LINE_specific  1
 # arg on off
-codequoteundirected     line,global,contain_plain_text  LINE_specific  1
+codequoteundirected     line,global,preamble,contain_plain_text  LINE_specific  1
 # arg on off
-codequotebacktick       line,global,contain_plain_text  LINE_specific  1
+codequotebacktick       line,global,preamble,contain_plain_text  LINE_specific  1
 # arg on off
-xrefautomaticsectiontitle line,global,contain_plain_text    LINE_specific  1
+xrefautomaticsectiontitle line,global,preamble,contain_plain_text    LINE_specific  1
 # arg on off
-deftypefnnewline        line,global,contain_plain_text  LINE_specific  1
+deftypefnnewline        line,global,preamble,contain_plain_text  LINE_specific  1
 # arg 10 11
-fonttextsize            line,global_unique,contain_plain_text    LINE_specific  1
+fonttextsize            line,global_unique,preamble,contain_plain_text    LINE_specific  1
 # arg false or true
-allowcodebreaks         line,global,contain_plain_text  LINE_specific  1
+allowcodebreaks         line,global,preamble,contain_plain_text  LINE_specific  1
 # arg asis or a number
-exampleindent           line,global,contain_plain_text  LINE_specific  1
+exampleindent           line,global,preamble,contain_plain_text  LINE_specific  1
 # args end and separate, nothing else on the line
-footnotestyle           line,global_unique,contain_plain_text    LINE_specific  1
+footnotestyle           line,global_unique,preamble,contain_plain_text    LINE_specific  1
 # arg after|before|none
-urefbreakstyle          line,global,contain_plain_text  LINE_specific  1
-smallbook               line,global_unique              LINE_skipline
-afourpaper              line,global_unique              LINE_skipline
-afivepaper              line,global_unique              LINE_skipline
-afourlatex              line,global_unique              LINE_skipline
-afourwide               line,global_unique              LINE_skipline
-bsixpaper               line,global_unique              LINE_skipline
+urefbreakstyle          line,global,preamble,contain_plain_text  LINE_specific  1
+smallbook               line,global_unique,preamble     LINE_skipline
+afivepaper              line,global_unique,preamble     LINE_skipline
+afourpaper              line,global_unique,preamble     LINE_skipline
+afourlatex              line,global_unique,preamble     LINE_skipline
+afourwide               line,global_unique,preamble     LINE_skipline
+bsixpaper               line,global_unique,preamble     LINE_skipline
 # arg off on single double singleafter doubleafter
 # interacts with setchapternewpage
-headings                line,global,contain_plain_text  LINE_specific  1
+headings                line,global,preamble,contain_plain_text  LINE_specific  1
 # arg off on odd
-setchapternewpage       line,global_unique,contain_plain_text    LINE_specific  1
+setchapternewpage       line,global_unique,preamble,contain_plain_text    LINE_specific  1
 # arg on off
-microtype               line,global,contain_plain_text  LINE_specific  1
+microtype               line,global,preamble,contain_plain_text  LINE_specific  1
 
-everyheading            line,global,heading_spec,contain_simple_text      LINE_line
-everyfooting            line,global,heading_spec,contain_simple_text      LINE_line
-evenheading             line,global,heading_spec,contain_simple_text      LINE_line
-evenfooting             line,global,heading_spec,contain_simple_text      LINE_line
-oddheading              line,global,heading_spec,contain_simple_text      LINE_line
-oddfooting              line,global,heading_spec,contain_simple_text      LINE_line
+everyheading            line,global,heading_spec,preamble,contain_simple_text      LINE_line
+everyfooting            line,global,heading_spec,preamble,contain_simple_text      LINE_line
+evenheading             line,global,heading_spec,preamble,contain_simple_text      LINE_line
+evenfooting             line,global,heading_spec,preamble,contain_simple_text      LINE_line
+oddheading              line,global,heading_spec,preamble,contain_simple_text      LINE_line
+oddfooting              line,global,heading_spec,preamble,contain_simple_text      LINE_line
 
 # args are index identifiers
-syncodeindex            line,contain_plain_text         LINE_specific  2
-synindex                line,contain_plain_text         LINE_specific  2
+syncodeindex            line,preamble,contain_plain_text         LINE_specific  2
+synindex                line,preamble,contain_plain_text         LINE_specific  2
 # one identifier arg
-defindex                line,contain_plain_text         LINE_specific  1
+defindex                line,preamble,contain_plain_text         LINE_specific  1
 # one identifier arg
-defcodeindex            line,contain_plain_text         LINE_specific  1
+defcodeindex            line,preamble,contain_plain_text         LINE_specific  1
 
 # language code arg
-documentlanguage        line,global,contain_plain_text,contain_plain_text  LINE_text
+documentlanguage        line,global,preamble,contain_plain_text  LINE_text
 
 # arg should be an @-command
-clickstyle              line,global                      LINE_special
+clickstyle              line,global,preamble            LINE_special
 # arg code example distinct
-kbdinputstyle           line,global,contain_plain_text  LINE_specific  1
+kbdinputstyle           line,global,preamble,contain_plain_text  LINE_specific  1
 
 # arg top bottom
-everyheadingmarks       line,global_unique,contain_plain_text       LINE_specific  1
-everyfootingmarks       line,global_unique,contain_plain_text       LINE_specific  1
-evenheadingmarks        line,global_unique,contain_plain_text       LINE_specific  1
-oddheadingmarks         line,global_unique,contain_plain_text       LINE_specific  1
-evenfootingmarks        line,global_unique,contain_plain_text       LINE_specific  1
-oddfootingmarks         line,global_unique,contain_plain_text       LINE_specific  1
+everyheadingmarks       line,global_unique,preamble,contain_plain_text   LINE_specific  1
+everyfootingmarks       line,global_unique,preamble,contain_plain_text   LINE_specific  1
+evenheadingmarks        line,global_unique,preamble,contain_plain_text   LINE_specific  1
+oddheadingmarks         line,global_unique,preamble,contain_plain_text   LINE_specific  1
+evenfootingmarks        line,global_unique,preamble,contain_plain_text   LINE_specific  1
+oddfootingmarks         line,global_unique,preamble,contain_plain_text   LINE_specific  1
 
 # formatting
 center                  line,formatted_line,close_paragraph                LINE_line
@@ -261,10 +261,10 @@ vskip                   line,formattable_line                       LINE_lineraw
 # one numerical/real arg
 need                    line,formattable_line,close_paragraph,contain_plain_text   LINE_specific  1
 
+shorttitlepage          line,global_unique,preamble,contain_simple_text     LINE_line
+settitle                line,global_unique,preamble,contain_simple_text     LINE_line
 # especially in titlepage
-#  shorttitle
-shorttitlepage          line,global_unique,contain_simple_text     LINE_line
-settitle                line,global_unique,contain_simple_text     LINE_line
+# can appear in preamble only within @titlepage
 author                  line,formatted_line,global,contain_simple_text            LINE_line
 subtitle                line,formatted_line,global,contain_simple_text            LINE_line
 title                   line,formatted_line,global_unique,contain_simple_text     LINE_line
@@ -411,13 +411,13 @@ math                    brace,math,contain_simple_text  BRACE_context
 # ie not ref, footnote, titlefont, anchor, verb or even plain text,
 # without even indicatric @-commands.
 # Parsers have specific checks for U content.
-U                       brace                           BRACE_arguments     1
-hyphenation             brace,global,contain_plain_text BRACE_arguments     1
-anchor                  brace,contain_simple_text       BRACE_arguments     1
-errormsg                brace,contain_simple_text       BRACE_arguments     1
-sortas                  brace,in_index,contain_plain_text        BRACE_arguments     1
-seeentry                brace,in_index,contain_simple_text       BRACE_arguments     1
-seealso                 brace,in_index,contain_simple_text       BRACE_arguments     1
+U                       brace                                      BRACE_arguments     1
+hyphenation             brace,global,preamble,contain_plain_text   BRACE_arguments     1
+anchor                  brace,contain_simple_text                  BRACE_arguments     1
+errormsg                brace,preamble,contain_simple_text         BRACE_arguments     1
+sortas                  brace,in_index,contain_plain_text          BRACE_arguments     1
+seeentry                brace,in_index,contain_simple_text         BRACE_arguments     1
+seealso                 brace,in_index,contain_simple_text         BRACE_arguments     1
 
 # explained commands
 abbr                    brace,explained,contain_simple_text      BRACE_arguments     2
@@ -436,13 +436,13 @@ image                   brace,contain_simple_text       BRACE_arguments     5
 
 # leading space is ignored in inline brace commands, not trailing space
 # inline format command
-inlineraw               brace,inline_format             BRACE_inline        2
-inlinefmt               brace,inline_format             BRACE_inline        2
-inlinefmtifelse         brace,inline_format             BRACE_inline        3
+inlineraw               brace,preamble,inline_format    BRACE_inline        2
+inlinefmt               brace,preamble,inline_format    BRACE_inline        2
+inlinefmtifelse         brace,preamble,inline_format    BRACE_inline        3
 
 # inline conditional commands
-inlineifclear           brace,inline_conditional        BRACE_inline        2
-inlineifset             brace,inline_conditional        BRACE_inline        2
+inlineifclear           brace,preamble,inline_conditional   BRACE_inline        2
+inlineifset             brace,preamble,inline_conditional   BRACE_inline        2
 
 # verb is treated especially, it should not matter much in which category it is.
 # value also is treated especially.
@@ -513,9 +513,9 @@ deftypemethodx          line,def,def_alias,close_paragraph     LINE_line
 multitable              block,close_paragraph,blockitem,contain_simple_text   BLOCK_multitable
 
 # menu commands in which menu entry and menu comments appear
-menu                    block,close_paragraph           BLOCK_menu
-detailmenu              block,close_paragraph,global    BLOCK_menu
-direntry                block,close_paragraph           BLOCK_menu
+menu                    block,close_paragraph             BLOCK_menu
+detailmenu              block,close_paragraph,global      BLOCK_menu
+direntry                block,close_paragraph,preamble    BLOCK_menu
 
 # align commands
 raggedright             block,close_paragraph
@@ -528,9 +528,9 @@ cartouche               block,close_paragraph
 group                   block,close_paragraph
 
 # region commands
-titlepage               block,close_paragraph,global_unique       BLOCK_region
-copying                 block,close_paragraph,global_unique       BLOCK_region
-documentdescription     block,close_paragraph,global_unique       BLOCK_region
+titlepage               block,close_paragraph,global_unique,preamble     BLOCK_region
+copying                 block,close_paragraph,global_unique,preamble     BLOCK_region
+documentdescription     block,close_paragraph,global_unique,preamble     BLOCK_region
 
 # preformatted commands
 example           block,close_paragraph,preformatted,preformatted_code,variadic,contain_simple_text   BLOCK_preformatted
@@ -543,17 +543,17 @@ format            block,close_paragraph,preformatted      BLOCK_preformatted
 smallformat       block,close_paragraph,preformatted      BLOCK_preformatted
 
 # format raw commands
-html                    block                             BLOCK_format_raw
-tex                     block                             BLOCK_format_raw
-xml                     block                             BLOCK_format_raw
-docbook                 block                             BLOCK_format_raw
-latex                   block                             BLOCK_format_raw
+html                    block,preamble                    BLOCK_format_raw
+tex                     block,preamble                    BLOCK_format_raw
+xml                     block,preamble                    BLOCK_format_raw
+docbook                 block,preamble                    BLOCK_format_raw
+latex                   block,preamble                    BLOCK_format_raw
 
 # raw commands
-verbatim                block,close_paragraph             BLOCK_raw
-ignore                  block,non_formatted_block         BLOCK_raw
-macro                   block,non_formatted_block         BLOCK_raw
-rmacro                  block,non_formatted_block         BLOCK_raw
+verbatim                block,close_paragraph                 BLOCK_raw
+ignore                  block,preamble,non_formatted_block    BLOCK_raw
+macro                   block,preamble,non_formatted_block    BLOCK_raw
+rmacro                  block,preamble,non_formatted_block    BLOCK_raw
 
 table                   block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_line       1
 ftable                  block,close_paragraph,blockitem,contain_simple_text   BLOCK_item_line       1

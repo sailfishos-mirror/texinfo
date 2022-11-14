@@ -221,8 +221,12 @@ if (0) {
   my @global_unique_settable = keys(%document_settable_unique_at_commands);
   my @global_unique_commands = keys(%Texinfo::Commands::global_unique_commands);
   my $lcu = List::Compare->new(\@global_unique_settable, \@global_unique_commands);
+  # only in the first list
   if (scalar($lcu->get_unique)) {
     warn 'BUG: Unique settable not global: '.join(',',$lcu->get_unique)."\n";
+  }
+  if (scalar($lcu->get_complement)) {
+    print STDERR "global_uniq commands not settable: ".join(',', $lcu->get_complement)."\n";
   }
 
   my @global_multi_settable = keys(%document_settable_multiple_at_commands);
@@ -230,6 +234,9 @@ if (0) {
   my $lcm = List::Compare->new(\@global_multi_settable, \@global_multi_commands);
   if (scalar($lcm->get_unique)) {
     warn 'BUG: Multi settable not global: '.join(',',$lcm->get_unique)."\n";
+  }
+  if (scalar($lcm->get_complement)) {
+    print STDERR "global commands not settable: ".join(',', $lcm->get_complement)."\n";
   }
 }
 
@@ -700,31 +707,6 @@ foreach my $command (
 }
 
 
-our %preamble_commands;
-foreach my $preamble_command ('direntry', 'hyphenation', 'errormsg',
-       'inlineraw', '*', keys(%document_settable_at_commands),
-       (grep {$Texinfo::Commands::block_commands{$_} eq 'format_raw'
-              or $Texinfo::Commands::block_commands{$_} eq 'region'}
-                                      keys(%Texinfo::Commands::block_commands)),
-       keys(%Texinfo::Commands::inline_format_commands),
-       keys(%Texinfo::Commands::inline_conditional_commands),
-       keys(%Texinfo::Commands::non_formatted_block_commands),
-       keys(%Texinfo::Commands::line_commands),
-       keys(%Texinfo::Commands::nobrace_commands)) {
-  $preamble_commands{$preamble_command} = 1;
-}
-
-foreach my $formattable_or_formatted_misc_command (
-   keys(%Texinfo::Commands::formattable_line_commands),
-        keys(%Texinfo::Commands::formatted_line_commands),
-        keys(%Texinfo::Commands::formatted_nobrace_commands),
-        keys(%Texinfo::Commands::default_index_commands),
-        keys(%Texinfo::Commands::in_heading_spec_commands),
-        keys(%Texinfo::Commands::def_commands)) {
-  delete $preamble_commands{$formattable_or_formatted_misc_command};
-}
-
-
 # functions for main program.  Should not be called in user-defined code.
 # FIXME locate_init_file() is also called in HTML Converter for htmlxref files.
 
@@ -917,7 +899,8 @@ sub _add_preamble_before_content($)
         push @first_types, shift @{$before_node_section->{'contents'}};
       } elsif (($next_content->{'type'} and $next_content->{'type'} eq 'paragraph')
                or ($next_content->{'cmdname'} and
-                   not $preamble_commands{$next_content->{'cmdname'}})) {
+                   not $Texinfo::Commands::preamble_commands{
+                                              $next_content->{'cmdname'}})) {
         last;
       } else {
         my $content = shift @{$before_node_section->{'contents'}};

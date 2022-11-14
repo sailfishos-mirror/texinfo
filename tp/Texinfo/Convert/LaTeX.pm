@@ -234,7 +234,6 @@ my %explained_commands = %Texinfo::Commands::explained_commands;
 my %inline_format_commands = %Texinfo::Commands::inline_format_commands;
 my %brace_code_commands       = %Texinfo::Commands::brace_code_commands;
 my %non_formatted_brace_command = %Texinfo::Commands::non_formatted_brace_command;
-my %preamble_commands = %Texinfo::Common::preamble_commands;
 
 my %nobrace_symbol_text = %Texinfo::Common::nobrace_symbol_text;
 
