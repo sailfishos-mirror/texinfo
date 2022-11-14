@@ -185,23 +185,17 @@ END {
         if (args_nr[c] != "") {
             args_nr_data = args_nr[c]
         } else {
-            # backward compatibility, remove when updated
-            where_digit = match(data[c], /^[0-9]$/)
-            if (where_digit != 0) {
-              args_nr_data = data[c]
+            where = 0
+            if (commands[c] != "") {
+              where = match(commands[c], /block/)
+              if (where == 0) {
+                where = match(command_data, /^NOBRACE_/)
+              }
+            }
+            if (where != 0 || command_data == "BRACE_noarg") {
+              args_nr_data = "0"
             } else {
-              where = 0
-              if (commands[c] != "") {
-                where = match(commands[c], /block/)
-                if (where == 0) {
-                  where = match(command_data, /^NOBRACE_/)
-                }
-              }
-              if (where != 0 || command_data == "BRACE_noarg") {
-                args_nr_data = "0"
-              } else {
-                args_nr_data = "1"
-              }
+              args_nr_data = "1"
             }
         }
         print "\"" c2 "\", " flags ", " command_data ", " args_nr_data "," > CD

@@ -1,5 +1,10 @@
 2022-11-14  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/command_data.awk: remove code for
+	compatibility with old format.
+
+2022-11-14  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Commands.pod, tp/Texinfo/Common.pm
 	(_add_preamble_before_content),
 	tp/Texinfo/XS/parsetexi/command_data.awk, tp/Texinfo/command_data.txt:
