@@ -54,6 +54,7 @@ new_element (enum element_type type)
   e->parent = 0;
 
   e->extra_info = new_associated_info();
+  e->info_info = new_associated_info();
 
   return e;
 }
@@ -170,6 +171,7 @@ destroy_element (ELEMENT *e)
   free (e->args.list);
 
   destroy_associated_info (e->extra_info);
+  destroy_associated_info (e->info_info);
 
   free (e);
 }

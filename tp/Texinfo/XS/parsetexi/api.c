@@ -578,6 +578,7 @@ element_to_perl_hash (ELEMENT *e)
     }
 
   store_additional_info (e, e->extra_info, "extra");
+  store_additional_info (e, e->info_info, "info");
 
   if (e->source_info.line_nr)
     {

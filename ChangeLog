@@ -1,5 +1,19 @@
 2022-11-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/ParserNonXS.pm (_process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
+	tp/Texinfo/XS/parsetexi/extra.c (add_info_string_dup),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line),
+	tp/Texinfo/XS/parsetexi/tree.c (new_element, destroy_element):
+	add an info hash to the tree elements, for information that can not
+	be retrieved from the tree.  As a first information moved from
+	extra to info, put the @value flag name for @value with unset flag.
+
+2022-11-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/api.c (store_additional_info)
 	(element_to_perl_hash), tp/Texinfo/XS/parsetexi/end_line.c
 	(end_line_starting_block), tp/Texinfo/XS/parsetexi/extra.c

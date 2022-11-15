@@ -205,7 +205,7 @@ $result_trees{'manual_simple_utf8_with_error'} = {
         },
         {
           'cmdname' => 'value',
-          'extra' => {
+          'info' => {
             'flag' => "non_conn\x{f9}e"
           }
         },

@@ -4532,7 +4532,7 @@ sub _process_remaining_on_line($$$$)
             # caller should expand something along
             # gdt('@{No value for `{value}\'@}', {'value' => $value});
             push @{$current->{'contents'}}, { 'cmdname' => $command,
-                                              'extra' => {'flag' => $value},
+                                              'info' => {'flag' => $value},
                                               'parent' => $current };
             $self->_line_warn(
                sprintf(__("undefined flag: %s"), $value), $source_info);
@@ -6963,9 +6963,17 @@ The user macro name the @-command is expanded from.
 
 =back
 
+=item info
+
+A hash reference holding any other information that cannot be
+obtained otherwise from the tree.
+See L</Information available in the C<info> key>.
+
 =item extra
 
-A hash reference holding any other information.
+A hash reference holding information that could also be obtained
+from the tree, but is directly associated to the element to simplify
+downstream code.
 See L</Information available in the C<extra> key>.
 
 =back
@@ -7330,6 +7338,18 @@ and C<@itemx>, in a I<table_term>.
 
 =back
 
+=head2 Information available in the C<info> key
+
+=over
+
+=item flag
+
+C<@value> tree element argument string is in I<flag>.  Only for a C<@value>
+command that is not expanded because there is no corresponding value set, as
+only those are present in the tree.
+
+=back
+
 =head2 Information available in the C<extra> key
 X<Texinfo tree element extra key>
 
@@ -7608,12 +7628,6 @@ The node preceding the command is in I<associated_node>.
 The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<sections_level>.
-
-=item C<@value>
-
-The value argument string is in I<flag>.  Only for a C<@value> command
-that is not expanded because there is no corresponding value set, as
-only those are present in the tree.
 
 =item C<@verb>
 

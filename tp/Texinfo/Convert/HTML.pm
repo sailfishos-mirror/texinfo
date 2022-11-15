@@ -2913,7 +2913,7 @@ sub _convert_value_command($$$$)
   my $args = shift;
 
   return $self->convert_tree($self->gdt('@{No value for `{value}\'@}',
-                                  {'value' => $command->{'extra'}->{'flag'}}));
+                                  {'value' => $command->{'info'}->{'flag'}}));
 }
 
 $default_commands_conversion{'value'} = \&_convert_value_command;

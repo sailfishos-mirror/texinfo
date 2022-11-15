@@ -103,7 +103,7 @@ $result_trees{'bad_syntax'} = {
         },
         {
           'cmdname' => 'value',
-          'extra' => {
+          'info' => {
             'flag' => 'unknown'
           }
         },

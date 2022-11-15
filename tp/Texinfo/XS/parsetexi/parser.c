@@ -1695,7 +1695,7 @@ value_valid:
                       abort_empty_line (&current, NULL);
                       value_elt = new_element (ET_NONE);
                       value_elt->cmd = CM_value;
-                      add_extra_string_dup (value_elt, "flag", flag);
+                      add_info_string_dup (value_elt, "flag", flag);
 
                       add_to_element_contents (current, value_elt);
 

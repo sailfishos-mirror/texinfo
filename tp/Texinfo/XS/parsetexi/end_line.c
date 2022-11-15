@@ -1028,9 +1028,10 @@ end_line_starting_block (ELEMENT *current)
               memcpy (new, e, sizeof (ELEMENT));
               new->type = ET_bracketed_multitable_prototype;
               new->parent = 0;
-              /* TODO the extra_info information in e is not copied over,
-                 at least leading/trailing spaces (something else?). */
+              /* TODO the extra_info/info_info information in e is not copied
+                 over, at least leading/trailing spaces (something else?). */
               new->extra_info = new_associated_info();
+              new->info_info = new_associated_info();
               add_to_contents_as_array (prototypes, new);
             }
           else if (e->text.end > 0)

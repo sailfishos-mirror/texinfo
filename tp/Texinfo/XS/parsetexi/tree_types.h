@@ -74,6 +74,7 @@ typedef struct ELEMENT {
     SOURCE_INFO source_info;
 
     ASSOCIATED_INFO *extra_info;
+    ASSOCIATED_INFO *info_info;
 
     /********* Used when building Perl tree only ********************/
     void *hv;

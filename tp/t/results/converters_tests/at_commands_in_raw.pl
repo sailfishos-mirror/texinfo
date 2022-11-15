@@ -424,7 +424,7 @@ $result_trees{'at_commands_in_raw'} = {
         },
         {
           'cmdname' => 'value',
-          'extra' => {
+          'info' => {
             'flag' => 'flag'
           }
         },
