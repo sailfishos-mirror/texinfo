@@ -391,7 +391,11 @@ AC_SUBST([enable_xs])
 AM_CONDITIONAL([DISABLE_XS], [test "z$enable_xs" = zno])
 
 # Texinfo JS Interface
-npm_path="${srcdir}/js/node_modules/.bin${PATH_SEPARATOR}$PATH"
+# We need an absolute path to the npm programs because they are run
+# from inside the js/ subdirectory.
+npm_path="${srcdir}/js/node_modules/.bin"
+npm_path="`cd $npm_path && pwd`"
+npm_path="${npm_path}${PATH_SEPARATOR}${PATH}"
 
 AC_PATH_PROG([ESLINT], [eslint], [], [$npm_path])
 AM_CONDITIONAL([HAVE_ESLINT], [test "x$ac_cv_path_ESLINT" != "x"])

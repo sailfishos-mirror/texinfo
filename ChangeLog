@@ -1,5 +1,10 @@
 2022-11-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* configure.ac: Use absolute path for checking for
+	npm commands so that rules in js/Makefile.am work.
+
+2022-11-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* js/yarn.lock, js/server.js: Remove files.
 
 2022-11-14  Patrice Dumas  <pertusus@free.fr>
