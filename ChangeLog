@@ -1,3 +1,18 @@
+2022-11-15  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/XS/parsetexi/api.c (store_additional_info)
+	(element_to_perl_hash), tp/Texinfo/XS/parsetexi/end_line.c
+	(end_line_starting_block), tp/Texinfo/XS/parsetexi/extra.c
+	(add_associated_info_key, lookup_extra),
+	tp/Texinfo/XS/parsetexi/tree.c (new_associated_info, new_element)
+	(destroy_associated_info, destroy_element),
+	tp/Texinfo/XS/parsetexi/tree_types.h (ASSOCIATED_INFO): instead of
+	putting the extra array, the number and space directly in the
+	element, use a specific structure, ASSOCIATED_INFO to hold those
+	three fields.  Replace add_extra_key by add_associated_info_key
+	to associate information.  Add initialization, destruction,
+	lookup based on the previous code associated to extra.
+
 2022-11-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* configure.ac: Use absolute path for checking for

@@ -22,6 +22,17 @@
 
 //int element_counter;
 
+ASSOCIATED_INFO *
+new_associated_info (void)
+{
+  ASSOCIATED_INFO *info = malloc (sizeof (ASSOCIATED_INFO));
+
+  info->info_number = 0;
+  info->info_space = 0;
+  info->info = 0;
+  return info;
+}
+
 ELEMENT *
 new_element (enum element_type type)
 {
@@ -41,35 +52,31 @@ new_element (enum element_type type)
   e->contents.space = 0;
   e->contents.number = 0;
   e->parent = 0;
-  e->extra = 0;
+
+  e->extra_info = new_associated_info();
 
   return e;
 }
 
 void
-destroy_element (ELEMENT *e)
+destroy_associated_info (ASSOCIATED_INFO *a)
 {
   int i;
-  free (e->text.text);
 
-  /* Note the pointers in these lists are not themselves freed. */
-  free (e->contents.list);
-  free (e->args.list);
-
-  for (i = 0; i < e->extra_number; i++)
+  for (i = 0; i < a->info_number; i++)
     {
-      switch (e->extra[i].type)
+      switch (a->info[i].type)
         {
         case extra_string:
         case extra_index_entry:
-          free (e->extra[i].value);
+          free (a->info[i].value);
           break;
         case extra_element_oot:
-          destroy_element_and_children (e->extra[i].value);
+          destroy_element_and_children (a->info[i].value);
           break;
         case extra_contents:
-          if (e->extra[i].value)
-            destroy_element ((ELEMENT *) e->extra[i].value);
+          if (a->info[i].value)
+            destroy_element ((ELEMENT *) a->info[i].value);
           break;
         case extra_contents_oot:
           {
@@ -77,7 +84,7 @@ destroy_element (ELEMENT *e)
             /* Free each element in the array, but not any children
                of each element. */
             int j;
-            ELEMENT *array = e->extra[i].value;
+            ELEMENT *array = a->info[i].value;
             for (j = 0 ; j < array->contents.number; j++)
               {
                 if (array->contents.list[j])
@@ -92,7 +99,7 @@ destroy_element (ELEMENT *e)
         case extra_contents_array:
           {
             int j;
-            ELEMENT *array = e->extra[i].value;
+            ELEMENT *array = a->info[i].value;
             for (j = 0 ; j < array->contents.number; j++)
               {
                 if (array->contents.list[j])
@@ -103,7 +110,7 @@ destroy_element (ELEMENT *e)
           }
         case extra_node_spec:
             {
-              NODE_SPEC_EXTRA *nse = (NODE_SPEC_EXTRA *) e->extra[i].value;
+              NODE_SPEC_EXTRA *nse = (NODE_SPEC_EXTRA *) a->info[i].value;
 
               if (nse->manual_content)
                 destroy_element (nse->manual_content);
@@ -114,7 +121,7 @@ destroy_element (ELEMENT *e)
             }
         case extra_node_spec_array:
             {
-              NODE_SPEC_EXTRA **array = (NODE_SPEC_EXTRA **) e->extra[i].value;
+              NODE_SPEC_EXTRA **array = (NODE_SPEC_EXTRA **) a->info[i].value;
               NODE_SPEC_EXTRA **nse;
 
               for (nse = array; (*nse); nse++)
@@ -130,24 +137,39 @@ destroy_element (ELEMENT *e)
             }
         case extra_float_type:
           {
-            EXTRA_FLOAT_TYPE *eft = (EXTRA_FLOAT_TYPE *) e->extra[i].value;
+            EXTRA_FLOAT_TYPE *eft = (EXTRA_FLOAT_TYPE *) a->info[i].value;
             free (eft->normalized);
 
             free (eft);
             break;
           }
         case extra_misc_args:
-          destroy_element_and_children (e->extra[i].value);
+          destroy_element_and_children (a->info[i].value);
           break;
         case extra_def_info:
-          free (e->extra[i].value);
+          free (a->info[i].value);
           break;
 
         default:
           break;
         }
     }
-  free (e->extra);
+  free (a->info);
+
+  free (a);
+}
+
+void
+destroy_element (ELEMENT *e)
+{
+  int i;
+  free (e->text.text);
+
+  /* Note the pointers in these lists are not themselves freed. */
+  free (e->contents.list);
+  free (e->args.list);
+
+  destroy_associated_info (e->extra_info);
 
   free (e);
 }

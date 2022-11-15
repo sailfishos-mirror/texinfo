@@ -319,101 +319,29 @@ newSVpv_utf8 (char *str, STRLEN len)
   return sv;
 }
 
-/* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
-   to already exist. */
 static void
-element_to_perl_hash (ELEMENT *e)
+store_additional_info (ELEMENT *e, ASSOCIATED_INFO* a, char *key)
 {
-  SV *sv;
-
   dTHX;
 
-  /* e->hv may already exist if there was an extra value elsewhere
-     referring to e. */
-  if (!e->hv)
-    {
-      e->hv = newHV ();
-    }
-
-  if (e->parent)
-    {
-      if (!e->parent->hv)
-        e->parent->hv = newHV ();
-      sv = newRV_inc ((SV *) e->parent->hv);
-      hv_store (e->hv, "parent", strlen ("parent"), sv, 0);
-    }
-
-  if (e->type)
-    {
-      sv = newSVpv (element_type_names[e->type], 0);
-      hv_store (e->hv, "type", strlen ("type"), sv, 0);
-    }
-
-  if (e->cmd)
-    {
-      sv = newSVpv (command_name(e->cmd), 0);
-      hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, 0);
-
-      /* Note we could optimize the call to newSVpv here and
-         elsewhere by passing an appropriate second argument. */
-    }
-
-  if (e->contents.number > 0)
-    {
-      AV *av;
-      int i;
-
-      av = newAV ();
-      sv = newRV_inc ((SV *) av);
-      hv_store (e->hv, "contents", strlen ("contents"), sv, 0);
-      for (i = 0; i < e->contents.number; i++)
-        {
-          element_to_perl_hash (e->contents.list[i]);
-          sv = newRV_inc ((SV *) e->contents.list[i]->hv);
-          av_push (av, sv);
-        }
-    }
-
-  if (e->args.number > 0)
-    {
-      AV *av;
-      int i;
-
-      av = newAV ();
-      sv = newRV_inc ((SV *) av);
-      hv_store (e->hv, "args", strlen ("args"), sv, 0);
-      for (i = 0; i < e->args.number; i++)
-        {
-          element_to_perl_hash (e->args.list[i]);
-          sv = newRV_inc ((SV *) e->args.list[i]->hv);
-          av_push (av, sv);
-        }
-    }
-
-  if (e->text.space > 0)
-    {
-      sv = newSVpv_utf8 (e->text.text, e->text.end);
-      hv_store (e->hv, "text", strlen ("text"), sv, 0);
-    }
-
-  if (e->extra_number > 0)
+  if (a->info_number > 0)
     {
       HV *extra;
       int i;
       int all_deleted = 1;
       extra = newHV ();
 
-      for (i = 0; i < e->extra_number; i++)
+      for (i = 0; i < a->info_number; i++)
         {
 #define STORE(sv) hv_store (extra, key, strlen (key), sv, 0)
-          char *key = e->extra[i].key;
-          ELEMENT *f = e->extra[i].value;
+          char *key = a->info[i].key;
+          ELEMENT *f = a->info[i].value;
 
-          if (e->extra[i].type == extra_deleted)
+          if (a->info[i].type == extra_deleted)
             continue;
           all_deleted = 0;
 
-          switch (e->extra[i].type)
+          switch (a->info[i].type)
             {
             case extra_element:
               /* For references to other parts of the tree, create the hash so 
@@ -567,9 +495,89 @@ element_to_perl_hash (ELEMENT *e)
 #undef STORE
 
       if (!all_deleted)
-        hv_store (e->hv, "extra", strlen ("extra"),
+        hv_store (e->hv, key, strlen (key),
                   newRV_inc((SV *)extra), 0);
     }
+}
+
+/* Set E->hv and 'hv' on E's descendants.  e->parent->hv is assumed
+   to already exist. */
+static void
+element_to_perl_hash (ELEMENT *e)
+{
+  SV *sv;
+
+  dTHX;
+
+  /* e->hv may already exist if there was an extra value elsewhere
+     referring to e. */
+  if (!e->hv)
+    {
+      e->hv = newHV ();
+    }
+
+  if (e->parent)
+    {
+      if (!e->parent->hv)
+        e->parent->hv = newHV ();
+      sv = newRV_inc ((SV *) e->parent->hv);
+      hv_store (e->hv, "parent", strlen ("parent"), sv, 0);
+    }
+
+  if (e->type)
+    {
+      sv = newSVpv (element_type_names[e->type], 0);
+      hv_store (e->hv, "type", strlen ("type"), sv, 0);
+    }
+
+  if (e->cmd)
+    {
+      sv = newSVpv (command_name(e->cmd), 0);
+      hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, 0);
+
+      /* Note we could optimize the call to newSVpv here and
+         elsewhere by passing an appropriate second argument. */
+    }
+
+  if (e->contents.number > 0)
+    {
+      AV *av;
+      int i;
+
+      av = newAV ();
+      sv = newRV_inc ((SV *) av);
+      hv_store (e->hv, "contents", strlen ("contents"), sv, 0);
+      for (i = 0; i < e->contents.number; i++)
+        {
+          element_to_perl_hash (e->contents.list[i]);
+          sv = newRV_inc ((SV *) e->contents.list[i]->hv);
+          av_push (av, sv);
+        }
+    }
+
+  if (e->args.number > 0)
+    {
+      AV *av;
+      int i;
+
+      av = newAV ();
+      sv = newRV_inc ((SV *) av);
+      hv_store (e->hv, "args", strlen ("args"), sv, 0);
+      for (i = 0; i < e->args.number; i++)
+        {
+          element_to_perl_hash (e->args.list[i]);
+          sv = newRV_inc ((SV *) e->args.list[i]->hv);
+          av_push (av, sv);
+        }
+    }
+
+  if (e->text.space > 0)
+    {
+      sv = newSVpv_utf8 (e->text.text, e->text.end);
+      hv_store (e->hv, "text", strlen ("text"), sv, 0);
+    }
+
+  store_additional_info (e, e->extra_info, "extra");
 
   if (e->source_info.line_nr)
     {

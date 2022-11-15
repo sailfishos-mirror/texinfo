@@ -58,6 +58,12 @@ typedef struct SOURCE_INFO {
     char *macro;
 } SOURCE_INFO;
 
+typedef struct ASSOCIATED_INFO {
+    KEY_PAIR *info;
+    size_t info_number;
+    size_t info_space;
+} ASSOCIATED_INFO;
+
 typedef struct ELEMENT {
     enum command_id cmd;
     TEXT text;
@@ -67,9 +73,7 @@ typedef struct ELEMENT {
     struct ELEMENT *parent;
     SOURCE_INFO source_info;
 
-    KEY_PAIR *extra;
-    size_t extra_number;
-    size_t extra_space;
+    ASSOCIATED_INFO *extra_info;
 
     /********* Used when building Perl tree only ********************/
     void *hv;

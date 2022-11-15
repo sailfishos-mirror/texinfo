@@ -3103,6 +3103,8 @@ sub _end_line($$$)
       my @prototype_row;
       foreach my $content (@{$current->{'contents'}}) {
         if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
+          # TODO the 'extra' information in $content is not copied over,
+          # at least leading/trailing spaces (something else?).
           my $bracketed_prototype
             = { 'type' => 'bracketed_multitable_prototype' };
           $bracketed_prototype->{'contents'} = $content->{'contents'}
