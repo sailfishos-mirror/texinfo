@@ -9763,17 +9763,17 @@
 	* info/search.c (find_node_in_binding): Include '\r' in list of 
 	terminating characters.
 
-2013-12-25  Eli Zaretskii  <eliz@gnu.org>
+2014-12-25  Eli Zaretskii  <eliz@gnu.org>
 
 	* info/man.c (get_manpage_from_formatter) <!PIPE_USE_FORK>: 
 	Check for end of array without using removed variable.
 
-2013-12-25  Eli Zaretskii  <eliz@gnu.org>
+2014-12-25  Eli Zaretskii  <eliz@gnu.org>
 
 	* info/pcterm.c (gettextinfo): Pass expected arguments to 
 	info_error.
 
-2013-12-25  Eli Zaretskii  <eliz@gnu.org>
+2014-12-25  Eli Zaretskii  <eliz@gnu.org>
 
 	* info/terminal.c (terminal_initialize_terminal) 
 	<terminal_initialize_terminal_hook>: Call initialize_byte_map.
