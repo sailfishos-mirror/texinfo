@@ -69,7 +69,7 @@ $result_trees{'comment_first_on_enumerate_line'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -78,8 +78,10 @@ $result_trees{'comment_first_on_enumerate_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -89,7 +91,9 @@ $result_trees{'comment_first_on_enumerate_line'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => '1',
+            'enumerate_specification' => '1'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

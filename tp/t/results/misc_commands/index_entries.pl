@@ -17,7 +17,7 @@ $result_trees{'index_entries'} = {
                   'text' => 'cindex entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -36,7 +36,9 @@ $result_trees{'index_entries'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -59,7 +61,7 @@ $result_trees{'index_entries'} = {
                   'text' => 'truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -70,7 +72,9 @@ $result_trees{'index_entries'} = {
           'extra' => {
             'misc_args' => [
               'truc'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -92,7 +96,7 @@ $result_trees{'index_entries'} = {
                   'text' => 'index truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -111,7 +115,9 @@ $result_trees{'index_entries'} = {
               'index_ignore_chars' => {},
               'index_name' => 'truc',
               'index_type_command' => 'trucindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

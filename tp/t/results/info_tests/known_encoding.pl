@@ -22,7 +22,7 @@ $result_trees{'known_encoding'} = {
                   'text' => 'latin1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -33,8 +33,10 @@ $result_trees{'known_encoding'} = {
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'input_perl_encoding' => 'iso-8859-1',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'latin1'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -58,7 +60,7 @@ $result_trees{'known_encoding'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -85,7 +87,9 @@ $result_trees{'known_encoding'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -117,14 +121,16 @@ $result_nodes{'known_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'known_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'known_encoding'} = [

@@ -17,7 +17,7 @@ $result_trees{'enumerate_above_ten'} = {
                   'text' => '14'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -60,7 +60,7 @@ $result_trees{'enumerate_above_ten'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -69,8 +69,10 @@ $result_trees{'enumerate_above_ten'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -80,7 +82,9 @@ $result_trees{'enumerate_above_ten'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => '14',
+            'enumerate_specification' => '14'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -12,7 +12,7 @@ $result_trees{'nested_formats'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -24,7 +24,7 @@ $result_trees{'nested_formats'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -60,7 +60,7 @@ $result_trees{'nested_formats'} = {
                           'text' => 'example'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -69,8 +69,10 @@ $result_trees{'nested_formats'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -93,7 +95,7 @@ $result_trees{'nested_formats'} = {
                       'text' => 'format'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -102,8 +104,10 @@ $result_trees{'nested_formats'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -126,7 +130,7 @@ $result_trees{'nested_formats'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -138,7 +142,7 @@ $result_trees{'nested_formats'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -174,7 +178,7 @@ $result_trees{'nested_formats'} = {
                           'text' => 'format'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -183,8 +187,10 @@ $result_trees{'nested_formats'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'format'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -207,7 +213,7 @@ $result_trees{'nested_formats'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -216,8 +222,10 @@ $result_trees{'nested_formats'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

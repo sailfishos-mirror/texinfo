@@ -17,7 +17,7 @@ $result_trees{'def_existing_index'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -25,7 +25,7 @@ $result_trees{'def_existing_index'} = {
             }
           ],
           'cmdname' => 'defcodeindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

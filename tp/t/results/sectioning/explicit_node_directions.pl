@@ -19,7 +19,7 @@ $result_trees{'explicit_node_directions'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -40,7 +40,7 @@ $result_trees{'explicit_node_directions'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -155,7 +155,7 @@ $result_trees{'explicit_node_directions'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -164,8 +164,10 @@ $result_trees{'explicit_node_directions'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -198,7 +200,9 @@ $result_trees{'explicit_node_directions'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -231,7 +235,7 @@ $result_trees{'explicit_node_directions'} = [
                 'text' => 'third node'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'type' => 'line_arg'
@@ -250,7 +254,7 @@ $result_trees{'explicit_node_directions'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -309,7 +313,9 @@ $result_trees{'explicit_node_directions'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'second-node',
+          'normalized' => 'second-node'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -353,7 +359,7 @@ $result_trees{'explicit_node_directions'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -386,7 +392,9 @@ $result_trees{'explicit_node_directions'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'third-node',
+          'normalized' => 'third-node'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -455,6 +463,7 @@ $result_nodes{'explicit_node_directions'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -469,6 +478,7 @@ $result_nodes{'explicit_node_directions'} = {
                 'extra' => {
                   'normalized' => 'second-node'
                 },
+                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'node_next' => {
@@ -476,6 +486,7 @@ $result_nodes{'explicit_node_directions'} = {
                     'extra' => {
                       'normalized' => 'third-node'
                     },
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {
                         'extra' => {
@@ -565,6 +576,7 @@ $result_menus{'explicit_node_directions'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -579,6 +591,7 @@ $result_menus{'explicit_node_directions'} = {
                 'extra' => {
                   'normalized' => 'second-node'
                 },
+                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_next' => {
@@ -586,6 +599,7 @@ $result_menus{'explicit_node_directions'} = {
                     'extra' => {
                       'normalized' => 'third-node'
                     },
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {
                         'extra' => {
@@ -686,6 +700,7 @@ $result_elements{'explicit_node_directions'} = [
         'extra' => {
           'normalized' => 'Top'
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -693,6 +708,7 @@ $result_elements{'explicit_node_directions'} = [
             'extra' => {
               'normalized' => 'second-node'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -708,6 +724,7 @@ $result_elements{'explicit_node_directions'} = [
                           'extra' => {
                             'normalized' => 'third-node'
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'menu_prev' => {},

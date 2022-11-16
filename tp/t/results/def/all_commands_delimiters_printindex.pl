@@ -18,7 +18,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -426,7 +426,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -435,8 +435,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -445,7 +447,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -815,7 +817,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defvr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -824,8 +826,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -834,7 +838,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1052,7 +1056,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1061,8 +1065,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1071,7 +1077,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1550,7 +1556,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1559,8 +1565,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1569,7 +1577,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1707,7 +1715,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1716,8 +1724,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1726,7 +1736,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2017,7 +2027,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2026,8 +2036,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2036,7 +2048,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2384,7 +2396,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypevr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2393,8 +2405,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2403,7 +2417,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2763,7 +2777,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2772,8 +2786,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2782,7 +2798,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -3130,7 +3146,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defcv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -3139,8 +3155,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defcv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -3149,7 +3167,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -3534,7 +3552,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -3543,8 +3561,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -3553,7 +3573,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -3899,7 +3919,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -3908,8 +3928,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -3918,7 +3940,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -4293,7 +4315,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -4302,8 +4324,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -4312,7 +4336,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -4480,7 +4504,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -4489,8 +4513,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -4499,7 +4525,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -4687,7 +4713,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -4696,8 +4722,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -4706,7 +4734,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -4894,7 +4922,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -4903,8 +4931,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -4913,7 +4943,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5081,7 +5111,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5090,8 +5120,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5100,7 +5132,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5268,7 +5300,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5277,8 +5309,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5287,7 +5321,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5475,7 +5509,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5484,8 +5518,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5494,7 +5530,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5682,7 +5718,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5691,8 +5727,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5701,7 +5739,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5869,7 +5907,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5878,8 +5916,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5888,7 +5928,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6056,7 +6096,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6065,8 +6105,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6075,7 +6117,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6263,7 +6305,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6272,8 +6314,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6282,7 +6326,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6470,7 +6514,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6479,8 +6523,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6489,7 +6535,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6657,7 +6703,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6666,8 +6712,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6676,7 +6724,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6844,7 +6892,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6853,8 +6901,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6863,7 +6913,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7064,7 +7114,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7073,8 +7123,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7083,7 +7135,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7218,7 +7270,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defun'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7227,8 +7279,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7237,7 +7291,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7414,7 +7468,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7423,8 +7477,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7433,7 +7489,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7610,7 +7666,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7619,8 +7675,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7629,7 +7687,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7806,7 +7864,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defvr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7815,8 +7873,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7825,7 +7885,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8002,7 +8062,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defvr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8011,8 +8071,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8021,7 +8083,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8227,7 +8289,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8236,8 +8298,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8246,7 +8310,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8452,7 +8516,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8461,8 +8525,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8471,7 +8537,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8677,7 +8743,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypevr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8686,8 +8752,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8696,7 +8764,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8902,7 +8970,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypevr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8911,8 +8979,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8921,7 +8991,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9098,7 +9168,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9107,8 +9177,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9117,7 +9189,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9294,7 +9366,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9303,8 +9375,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9313,7 +9387,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9519,7 +9593,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defcv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9528,8 +9602,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defcv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9538,7 +9614,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9743,7 +9819,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9752,8 +9828,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9762,7 +9840,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10005,7 +10083,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -10014,8 +10092,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -10024,7 +10104,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10267,7 +10347,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -10276,8 +10356,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -10286,7 +10368,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10500,7 +10582,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -10509,8 +10591,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -10519,7 +10603,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10733,7 +10817,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'defop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -10742,8 +10826,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -10752,7 +10838,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10995,7 +11081,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -11004,8 +11090,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -11014,7 +11102,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11257,7 +11345,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -11266,8 +11354,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -11276,7 +11366,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11523,7 +11613,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -11532,8 +11622,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -11542,7 +11634,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11789,7 +11881,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -11798,8 +11890,10 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -11808,7 +11902,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11830,7 +11924,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                   'text' => 'Functions'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -11838,7 +11932,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
             }
           ],
           'cmdname' => 'heading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11855,7 +11949,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -11866,7 +11960,9 @@ $result_trees{'all_commands_delimiters_printindex'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11888,7 +11984,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                   'text' => 'Types'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -11896,7 +11992,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
             }
           ],
           'cmdname' => 'heading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11913,7 +12009,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                   'text' => 'tp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -11924,7 +12020,9 @@ $result_trees{'all_commands_delimiters_printindex'} = {
           'extra' => {
             'misc_args' => [
               'tp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11946,7 +12044,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                   'text' => 'Variables'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -11954,7 +12052,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
             }
           ],
           'cmdname' => 'heading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11971,7 +12069,7 @@ $result_trees{'all_commands_delimiters_printindex'} = {
                   'text' => 'vr'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -11982,7 +12080,9 @@ $result_trees{'all_commands_delimiters_printindex'} = {
           'extra' => {
             'misc_args' => [
               'vr'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -12005,7 +12105,9 @@ $result_trees{'all_commands_delimiters_printindex'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -12668,7 +12770,8 @@ $result_nodes{'all_commands_delimiters_printindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'all_commands_delimiters_printindex'} = {
@@ -12676,7 +12779,8 @@ $result_menus{'all_commands_delimiters_printindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'all_commands_delimiters_printindex'} = [];

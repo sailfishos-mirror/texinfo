@@ -12,7 +12,7 @@ $result_trees{'raw'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -38,7 +38,7 @@ $result_trees{'raw'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -47,8 +47,10 @@ $result_trees{'raw'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -77,7 +79,7 @@ $result_trees{'raw'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -103,7 +105,7 @@ $result_trees{'raw'} = {
                           'text' => 'xml'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -112,8 +114,10 @@ $result_trees{'raw'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'xml'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',

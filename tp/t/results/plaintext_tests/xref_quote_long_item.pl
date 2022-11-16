@@ -23,7 +23,7 @@ $result_trees{'xref_quote_long_item'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -72,7 +72,7 @@ $result_trees{'xref_quote_long_item'} = {
                               }
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -80,7 +80,7 @@ $result_trees{'xref_quote_long_item'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -147,7 +147,7 @@ $result_trees{'xref_quote_long_item'} = {
                                   'text' => 'Texinfo::Convert::Utils::expand_verbatiminclude'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_before_argument' => '
 '
                               },
@@ -159,7 +159,7 @@ $result_trees{'xref_quote_long_item'} = {
                                   'text' => 'tp_api'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'type' => 'brace_command_arg'
@@ -209,7 +209,7 @@ $result_trees{'xref_quote_long_item'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -218,8 +218,10 @@ $result_trees{'xref_quote_long_item'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -229,7 +231,9 @@ $result_trees{'xref_quote_long_item'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

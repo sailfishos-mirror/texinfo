@@ -162,7 +162,7 @@ $result_trees{'paragraph_command'} = {
                   'text' => 'foo,\\,//'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -175,7 +175,9 @@ $result_trees{'paragraph_command'} = {
               'foo',
               '\\',
               '//'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

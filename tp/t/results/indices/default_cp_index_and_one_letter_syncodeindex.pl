@@ -24,7 +24,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -46,7 +46,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
                   'text' => 'cp fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -58,7 +58,9 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
             'misc_args' => [
               'cp',
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -80,7 +82,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
                   'text' => '--cindex'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -100,7 +102,9 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -118,7 +122,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
                   'text' => '--cpindex'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -138,7 +142,9 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cpindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -161,7 +167,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -172,7 +178,9 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -195,7 +203,9 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -239,7 +249,8 @@ $result_nodes{'default_cp_index_and_one_letter_syncodeindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'default_cp_index_and_one_letter_syncodeindex'} = {
@@ -247,7 +258,8 @@ $result_menus{'default_cp_index_and_one_letter_syncodeindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'default_cp_index_and_one_letter_syncodeindex'} = [];

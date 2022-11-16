@@ -18,7 +18,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
               'text' => 'direntry direcategory after first node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -77,7 +79,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
                   'text' => 'Cat'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -85,7 +87,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
             }
           ],
           'cmdname' => 'dircategory',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -97,7 +99,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -181,7 +183,7 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
                       'text' => 'direntry'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -190,8 +192,10 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -207,7 +211,8 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -251,9 +256,11 @@ $result_sectioning{'direntry_dircategory_after_first_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -271,17 +278,20 @@ $result_nodes{'direntry_dircategory_after_first_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'direntry_dircategory_after_first_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'direntry_dircategory_after_first_node'} = [

@@ -39,7 +39,9 @@ $result_trees{'empty_comment'} = {
                   ],
                   'cmdname' => 'columnfractions',
                   'extra' => {
-                    'missing_argument' => 1,
+                    'missing_argument' => 1
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -67,8 +69,10 @@ $result_trees{'empty_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -78,7 +82,9 @@ $result_trees{'empty_comment'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 0,
+            'max_columns' => 0
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

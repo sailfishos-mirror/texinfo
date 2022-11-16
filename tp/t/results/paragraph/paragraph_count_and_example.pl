@@ -12,7 +12,7 @@ $result_trees{'paragraph_count_and_example'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -38,7 +38,7 @@ $result_trees{'paragraph_count_and_example'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -47,8 +47,10 @@ $result_trees{'paragraph_count_and_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

@@ -182,7 +182,7 @@ delete_type:
     {
       STRLEN len;
       HV *owning_elt = 0;
-      HV *command_extra = 0;
+      HV *command_info = 0;
       HV *test_extra = 0;
       char *ptr;
 
@@ -191,25 +191,25 @@ delete_type:
       if (av_len(contents_array) + 1 == 0)
         hv_delete (current, "contents", strlen ("contents"), G_DISCARD);
 
-      /* add spaces to associated element extra "spaces_before_argument" */
+      /* add spaces to associated element info "spaces_before_argument" */
       svp = hv_fetch (spaces_elt, "extra", strlen ("extra"), 0);
       test_extra = (HV *) SvRV (*svp);
       svp = hv_fetch (test_extra, "spaces_associated_command",
                       strlen ("spaces_associated_command"), 0);
       owning_elt = (HV *) SvRV (*svp);
 
-      svp = hv_fetch (owning_elt, "extra", strlen ("extra"), 0);
+      svp = hv_fetch (owning_elt, "info", strlen ("info"), 0);
       if (svp)
-        command_extra = (HV *) SvRV (*svp);
+        command_info = (HV *) SvRV (*svp);
       else
         {
-          command_extra = newHV ();
-          hv_store (owning_elt, "extra", strlen ("extra"),
-                    newRV_inc((SV *)command_extra), 0);
+          command_info = newHV ();
+          hv_store (owning_elt, "info", strlen ("info"),
+                    newRV_inc((SV *)command_info), 0);
         }
 
       ptr = SvPV(existing_text_sv, len);
-      hv_store (command_extra,
+      hv_store (command_info,
                 "spaces_before_argument",
                 strlen ("spaces_before_argument"),
                 newSVpv(ptr, len),

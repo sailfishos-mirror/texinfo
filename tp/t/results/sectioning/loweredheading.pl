@@ -30,7 +30,7 @@ $result_trees{'loweredheading'} = {
               'text' => 'Foo'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -47,7 +47,7 @@ $result_trees{'loweredheading'} = {
                   'text' => 'Bar'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -56,7 +56,9 @@ $result_trees{'loweredheading'} = {
           ],
           'cmdname' => 'heading',
           'extra' => {
-            'sections_level' => -1,
+            'sections_level' => -1
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -67,7 +69,9 @@ $result_trees{'loweredheading'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1,
+        'sections_level' => -1
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -111,6 +115,7 @@ $result_sectioning{'loweredheading'} = {
         'extra' => {
           'sections_level' => -1
         },
+        'info' => {},
         'structure' => {
           'section_level' => 3,
           'section_number' => 1,

@@ -51,7 +51,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -71,7 +71,9 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -83,7 +85,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -113,7 +115,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'text' => 'node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -135,7 +137,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                   'text' => '-'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -157,7 +159,9 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               },
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -175,7 +179,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                   'text' => '--'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -197,7 +201,9 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               },
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -215,7 +221,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                   'text' => 'A'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -237,7 +243,9 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               },
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -277,7 +285,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                   'text' => '--'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -301,7 +309,9 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
               'index_type_command' => 'findex',
               'sortas' => '--'
             },
-            'sortas' => '--',
+            'sortas' => '--'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -324,7 +334,7 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -335,7 +345,9 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -358,7 +370,9 @@ $result_trees{'ignored_sort_char_empty_entries'} = {
             'normalized' => 'node'
           }
         ],
-        'normalized' => 'node',
+        'normalized' => 'node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -424,6 +438,7 @@ $result_sectioning{'ignored_sort_char_empty_entries'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -448,6 +463,7 @@ $result_nodes{'ignored_sort_char_empty_entries'} = {
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -455,6 +471,7 @@ $result_nodes{'ignored_sort_char_empty_entries'} = {
         'isindex' => 1,
         'normalized' => 'node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -468,6 +485,7 @@ $result_menus{'ignored_sort_char_empty_entries'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

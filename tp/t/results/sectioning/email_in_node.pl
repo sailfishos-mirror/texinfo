@@ -22,7 +22,7 @@ $result_trees{'email_in_node'} = {
                       'text' => 'a'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -47,7 +47,7 @@ $result_trees{'email_in_node'} = {
                       'text' => 'c'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -58,7 +58,7 @@ $result_trees{'email_in_node'} = {
                       'text' => 'd'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -77,7 +77,7 @@ $result_trees{'email_in_node'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -88,7 +88,7 @@ $result_trees{'email_in_node'} = {
                       'text' => 'e'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -102,7 +102,7 @@ $result_trees{'email_in_node'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -130,7 +130,9 @@ $result_trees{'email_in_node'} = {
             'normalized' => 'a-c-'
           }
         ],
-        'normalized' => 'a-c-',
+        'normalized' => 'a-c-'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -163,14 +165,16 @@ $result_nodes{'email_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'a-c-'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'email_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'a-c-'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'email_in_node'} = [];

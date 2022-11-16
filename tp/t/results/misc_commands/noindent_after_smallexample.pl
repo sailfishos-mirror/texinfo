@@ -21,7 +21,7 @@ $result_trees{'noindent_after_smallexample'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -51,7 +51,7 @@ $result_trees{'noindent_after_smallexample'} = {
                       'text' => 'smallexample'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -60,8 +60,10 @@ $result_trees{'noindent_after_smallexample'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'smallexample'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

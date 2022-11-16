@@ -17,7 +17,7 @@ $result_trees{'print_merged_index'} = {
                   'text' => 'fn cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -29,7 +29,9 @@ $result_trees{'print_merged_index'} = {
             'misc_args' => [
               'fn',
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -49,7 +51,7 @@ $result_trees{'print_merged_index'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -73,7 +75,9 @@ $result_trees{'print_merged_index'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -96,7 +100,9 @@ $result_trees{'print_merged_index'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -123,7 +129,8 @@ $result_nodes{'print_merged_index'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'print_merged_index'} = {
@@ -131,7 +138,8 @@ $result_menus{'print_merged_index'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'print_merged_index'} = [

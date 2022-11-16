@@ -84,7 +84,7 @@ $result_trees{'test_errormsg'} = {
                       'text' => 'with surrounding spaces'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '   ',
                     'spaces_before_argument' => '  '
                   },

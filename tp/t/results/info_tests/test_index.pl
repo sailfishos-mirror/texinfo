@@ -18,7 +18,7 @@ $result_trees{'test_index'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'test_index'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'test_index'} = {
               'text' => 'Element top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -147,7 +149,7 @@ $result_trees{'test_index'} = {
                       'text' => 'in Top'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -167,7 +169,9 @@ $result_trees{'test_index'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -185,7 +189,7 @@ $result_trees{'test_index'} = {
                       'cmdname' => '@'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -205,7 +209,9 @@ $result_trees{'test_index'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -233,7 +239,7 @@ $result_trees{'test_index'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -253,7 +259,9 @@ $result_trees{'test_index'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -271,7 +279,7 @@ $result_trees{'test_index'} = {
                       'text' => '"'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -291,7 +299,9 @@ $result_trees{'test_index'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -503,7 +513,9 @@ $result_trees{'test_index'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn'
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -531,7 +543,7 @@ $result_trees{'test_index'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -540,8 +552,10 @@ $result_trees{'test_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -550,7 +564,7 @@ $result_trees{'test_index'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -578,7 +592,7 @@ $result_trees{'test_index'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -599,7 +613,7 @@ $result_trees{'test_index'} = {
                               'text' => 'a fun'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -619,7 +633,9 @@ $result_trees{'test_index'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -665,7 +681,7 @@ $result_trees{'test_index'} = {
                               'text' => 'second fun'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -685,7 +701,9 @@ $result_trees{'test_index'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -702,7 +720,7 @@ $result_trees{'test_index'} = {
                               'text' => 'itemx fun'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -722,7 +740,9 @@ $result_trees{'test_index'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -755,7 +775,7 @@ $result_trees{'test_index'} = {
                       'text' => 'ftable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -764,8 +784,10 @@ $result_trees{'test_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ftable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -775,7 +797,9 @@ $result_trees{'test_index'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -792,7 +816,7 @@ $result_trees{'test_index'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -907,7 +931,7 @@ $result_trees{'test_index'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -916,8 +940,10 @@ $result_trees{'test_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -938,7 +964,8 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -955,7 +982,7 @@ $result_trees{'test_index'} = {
               'text' => 'name'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -975,7 +1002,9 @@ $result_trees{'test_index'} = {
             'normalized' => 'name'
           }
         ],
-        'normalized' => 'name',
+        'normalized' => 'name'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -992,7 +1021,7 @@ $result_trees{'test_index'} = {
               'text' => 'A chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1014,7 +1043,7 @@ $result_trees{'test_index'} = {
                   'text' => 'index entry looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1034,7 +1063,9 @@ $result_trees{'test_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1052,7 +1083,7 @@ $result_trees{'test_index'} = {
                   'text' => 'function index entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1072,7 +1103,9 @@ $result_trees{'test_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1101,7 +1134,7 @@ $result_trees{'test_index'} = {
                       'text' => 'other function'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1121,7 +1154,9 @@ $result_trees{'test_index'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'fn',
                   'index_type_command' => 'findex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1221,7 +1256,7 @@ $result_trees{'test_index'} = {
                   'text' => 'after lines.'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1241,7 +1276,9 @@ $result_trees{'test_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2314,7 +2351,7 @@ $result_trees{'test_index'} = {
                   'text' => 'after more than 100 lines'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2334,7 +2371,9 @@ $result_trees{'test_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2350,7 +2389,8 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2367,7 +2407,7 @@ $result_trees{'test_index'} = {
               'text' => 'name1 looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2388,7 +2428,9 @@ $result_trees{'test_index'} = {
             'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
           }
         ],
-        'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
+        'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2405,7 +2447,7 @@ $result_trees{'test_index'} = {
               'text' => 'Index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2427,7 +2469,7 @@ $result_trees{'test_index'} = {
                   'text' => 'index entry in appendix before para'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2447,7 +2489,9 @@ $result_trees{'test_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2488,7 +2532,7 @@ $result_trees{'test_index'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2499,7 +2543,9 @@ $result_trees{'test_index'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2521,7 +2567,7 @@ $result_trees{'test_index'} = {
                   'text' => 'index entry between indices'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2541,7 +2587,9 @@ $result_trees{'test_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2573,7 +2621,7 @@ $result_trees{'test_index'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2584,7 +2632,9 @@ $result_trees{'test_index'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2599,7 +2649,8 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2616,7 +2667,7 @@ $result_trees{'test_index'} = {
               'text' => 'appendixsec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2631,7 +2682,7 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2648,7 +2699,7 @@ $result_trees{'test_index'} = {
               'text' => 'appendixsubsec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2663,7 +2714,7 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2680,7 +2731,7 @@ $result_trees{'test_index'} = {
               'text' => 'appendixsubsubsec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2702,7 +2753,7 @@ $result_trees{'test_index'} = {
                   'text' => 'chapheading'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2710,7 +2761,7 @@ $result_trees{'test_index'} = {
             }
           ],
           'cmdname' => 'chapheading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2725,7 +2776,7 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2742,7 +2793,7 @@ $result_trees{'test_index'} = {
               'text' => 'centerchap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2757,7 +2808,7 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2774,7 +2825,7 @@ $result_trees{'test_index'} = {
               'text' => 'chapter end'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2796,7 +2847,7 @@ $result_trees{'test_index'} = {
                   'text' => 'index in chapter end'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2816,7 +2867,9 @@ $result_trees{'test_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2843,7 +2896,7 @@ $result_trees{'test_index'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -3423,9 +3476,11 @@ $result_sectioning{'test_index'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -3436,9 +3491,11 @@ $result_sectioning{'test_index'} = {
                   'extra' => {
                     'normalized' => 'name'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -3456,24 +3513,26 @@ $result_sectioning{'test_index'} = {
                     'isindex' => 1,
                     'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'appendixsec',
-                    'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'appendixsubsec',
-                          'extra' => {},
+                          'info' => {},
                           'structure' => {
                             'section_childs' => [
                               {
                                 'cmdname' => 'appendixsubsubsec',
-                                'extra' => {},
+                                'info' => {},
                                 'structure' => {
                                   'section_level' => 4,
                                   'section_number' => 'A.1.1.1',
@@ -3503,7 +3562,7 @@ $result_sectioning{'test_index'} = {
             },
             {
               'cmdname' => 'centerchap',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -3514,7 +3573,7 @@ $result_sectioning{'test_index'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 'B',
@@ -3559,6 +3618,7 @@ $result_nodes{'test_index'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -3568,6 +3628,7 @@ $result_nodes{'test_index'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -3575,12 +3636,14 @@ $result_nodes{'test_index'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'name'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -3588,6 +3651,7 @@ $result_nodes{'test_index'} = {
             'associated_section' => {
               'cmdname' => 'appendix',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 'A'
               }
@@ -3595,6 +3659,7 @@ $result_nodes{'test_index'} = {
             'isindex' => 1,
             'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -3618,12 +3683,14 @@ $result_menus{'test_index'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'name'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
@@ -3631,6 +3698,7 @@ $result_menus{'test_index'} = {
             'isindex' => 1,
             'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

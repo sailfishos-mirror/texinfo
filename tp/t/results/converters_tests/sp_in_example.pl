@@ -12,7 +12,7 @@ $result_trees{'sp_in_example'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -35,7 +35,7 @@ $result_trees{'sp_in_example'} = {
                           'text' => '1'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -46,7 +46,9 @@ $result_trees{'sp_in_example'} = {
                   'extra' => {
                     'misc_args' => [
                       '1'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -82,7 +84,7 @@ $result_trees{'sp_in_example'} = {
                           'text' => '1'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -93,7 +95,9 @@ $result_trees{'sp_in_example'} = {
                   'extra' => {
                     'misc_args' => [
                       '1'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -115,7 +119,7 @@ $result_trees{'sp_in_example'} = {
                           'text' => '2'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -126,7 +130,9 @@ $result_trees{'sp_in_example'} = {
                   'extra' => {
                     'misc_args' => [
                       '2'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -156,7 +162,7 @@ $result_trees{'sp_in_example'} = {
                           'text' => '2'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -167,7 +173,9 @@ $result_trees{'sp_in_example'} = {
                   'extra' => {
                     'misc_args' => [
                       '2'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -197,7 +205,7 @@ $result_trees{'sp_in_example'} = {
                           'text' => '1'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -208,7 +216,9 @@ $result_trees{'sp_in_example'} = {
                   'extra' => {
                     'misc_args' => [
                       '1'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -228,7 +238,7 @@ $result_trees{'sp_in_example'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -237,8 +247,10 @@ $result_trees{'sp_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

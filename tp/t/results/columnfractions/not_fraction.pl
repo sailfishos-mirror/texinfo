@@ -21,7 +21,7 @@ $result_trees{'not_fraction'} = {
                           'text' => 'aaa'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -29,7 +29,7 @@ $result_trees{'not_fraction'} = {
                     }
                   ],
                   'cmdname' => 'columnfractions',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -57,8 +57,10 @@ $result_trees{'not_fraction'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -68,7 +70,9 @@ $result_trees{'not_fraction'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 0,
+            'max_columns' => 0
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

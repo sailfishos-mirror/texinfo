@@ -192,7 +192,7 @@ $result_trees{'code_in_def'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -201,8 +201,10 @@ $result_trees{'code_in_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -211,7 +213,7 @@ $result_trees{'code_in_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

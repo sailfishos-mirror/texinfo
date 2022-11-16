@@ -24,7 +24,7 @@ $result_trees{'subentries'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'subentries'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -56,7 +58,7 @@ $result_trees{'subentries'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -86,7 +88,7 @@ $result_trees{'subentries'} = {
               'text' => 'chapter index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -107,7 +109,9 @@ $result_trees{'subentries'} = {
             'normalized' => 'chapter-index'
           }
         ],
-        'normalized' => 'chapter-index',
+        'normalized' => 'chapter-index'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -124,7 +128,7 @@ $result_trees{'subentries'} = {
               'text' => 'Index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -146,7 +150,7 @@ $result_trees{'subentries'} = {
                   'text' => 'a---a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -166,7 +170,9 @@ $result_trees{'subentries'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -184,7 +190,7 @@ $result_trees{'subentries'} = {
                   'text' => 'b---b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -204,7 +210,6 @@ $result_trees{'subentries'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -213,7 +218,7 @@ $result_trees{'subentries'} = {
                       'text' => 'c---c'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -222,7 +227,9 @@ $result_trees{'subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'level' => 1
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -231,6 +238,9 @@ $result_trees{'subentries'} = {
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -248,7 +258,7 @@ $result_trees{'subentries'} = {
                   'text' => 'd---dd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -268,7 +278,6 @@ $result_trees{'subentries'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -277,7 +286,7 @@ $result_trees{'subentries'} = {
                       'text' => 'e---ee'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -286,7 +295,6 @@ $result_trees{'subentries'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'spaces_before_argument' => ' ',
                 'subentry' => {
                   'args' => [
                     {
@@ -295,7 +303,7 @@ $result_trees{'subentries'} = {
                           'text' => 'f---ff'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -304,7 +312,9 @@ $result_trees{'subentries'} = {
                   ],
                   'cmdname' => 'subentry',
                   'extra' => {
-                    'level' => 2,
+                    'level' => 2
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -314,12 +324,18 @@ $result_trees{'subentries'} = {
                   }
                 }
               },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 9,
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -338,7 +354,7 @@ $result_trees{'subentries'} = {
                   'text' => 'g---gg'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -358,7 +374,6 @@ $result_trees{'subentries'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -367,7 +382,7 @@ $result_trees{'subentries'} = {
                       'text' => 'h---hh jjj'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -376,7 +391,6 @@ $result_trees{'subentries'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'spaces_before_argument' => ' ',
                 'subentry' => {
                   'args' => [
                     {
@@ -385,7 +399,7 @@ $result_trees{'subentries'} = {
                           'text' => 'k---kk'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'line_arg'
@@ -394,7 +408,6 @@ $result_trees{'subentries'} = {
                   'cmdname' => 'subentry',
                   'extra' => {
                     'level' => 2,
-                    'spaces_before_argument' => ' ',
                     'subentry' => {
                       'args' => [
                         {
@@ -403,7 +416,7 @@ $result_trees{'subentries'} = {
                               'text' => 'l---ll'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -412,7 +425,9 @@ $result_trees{'subentries'} = {
                       ],
                       'cmdname' => 'subentry',
                       'extra' => {
-                        'level' => 3,
+                        'level' => 3
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -422,6 +437,9 @@ $result_trees{'subentries'} = {
                       }
                     }
                   },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 10,
@@ -429,12 +447,18 @@ $result_trees{'subentries'} = {
                   }
                 }
               },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 10,
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -459,7 +483,7 @@ $result_trees{'subentries'} = {
                   'text' => 'f---aa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -479,7 +503,9 @@ $result_trees{'subentries'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -497,7 +523,7 @@ $result_trees{'subentries'} = {
                   'text' => 'f---bb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -517,7 +543,6 @@ $result_trees{'subentries'} = {
               'index_name' => 'fn',
               'index_type_command' => 'findex'
             },
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -526,7 +551,7 @@ $result_trees{'subentries'} = {
                       'text' => 'f---cc'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -535,7 +560,9 @@ $result_trees{'subentries'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'level' => 1
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -544,6 +571,9 @@ $result_trees{'subentries'} = {
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -561,7 +591,7 @@ $result_trees{'subentries'} = {
                   'text' => 'f---ddd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -581,7 +611,6 @@ $result_trees{'subentries'} = {
               'index_name' => 'fn',
               'index_type_command' => 'findex'
             },
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -590,7 +619,7 @@ $result_trees{'subentries'} = {
                       'text' => 'f---eee'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -599,7 +628,6 @@ $result_trees{'subentries'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'spaces_before_argument' => ' ',
                 'subentry' => {
                   'args' => [
                     {
@@ -608,7 +636,7 @@ $result_trees{'subentries'} = {
                           'text' => 'ffff'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -617,7 +645,9 @@ $result_trees{'subentries'} = {
                   ],
                   'cmdname' => 'subentry',
                   'extra' => {
-                    'level' => 2,
+                    'level' => 2
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -627,12 +657,18 @@ $result_trees{'subentries'} = {
                   }
                 }
               },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 14,
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -651,7 +687,7 @@ $result_trees{'subentries'} = {
                   'text' => 'f---ggg'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -671,7 +707,6 @@ $result_trees{'subentries'} = {
               'index_name' => 'fn',
               'index_type_command' => 'findex'
             },
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -680,7 +715,7 @@ $result_trees{'subentries'} = {
                       'text' => 'f---hhh fjjj'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -689,7 +724,6 @@ $result_trees{'subentries'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'spaces_before_argument' => ' ',
                 'subentry' => {
                   'args' => [
                     {
@@ -698,7 +732,7 @@ $result_trees{'subentries'} = {
                           'text' => 'f---kkk'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'line_arg'
@@ -707,7 +741,6 @@ $result_trees{'subentries'} = {
                   'cmdname' => 'subentry',
                   'extra' => {
                     'level' => 2,
-                    'spaces_before_argument' => ' ',
                     'subentry' => {
                       'args' => [
                         {
@@ -716,7 +749,7 @@ $result_trees{'subentries'} = {
                               'text' => 'f---lll'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -725,7 +758,9 @@ $result_trees{'subentries'} = {
                       ],
                       'cmdname' => 'subentry',
                       'extra' => {
-                        'level' => 3,
+                        'level' => 3
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -735,6 +770,9 @@ $result_trees{'subentries'} = {
                       }
                     }
                   },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 15,
@@ -742,12 +780,18 @@ $result_trees{'subentries'} = {
                   }
                 }
               },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
               'source_info' => {
                 'file_name' => '',
                 'line_nr' => 15,
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -772,7 +816,7 @@ $result_trees{'subentries'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -783,7 +827,9 @@ $result_trees{'subentries'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -800,7 +846,7 @@ $result_trees{'subentries'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -811,7 +857,9 @@ $result_trees{'subentries'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -821,7 +869,8 @@ $result_trees{'subentries'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -922,6 +971,7 @@ $result_sectioning{'subentries'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -936,9 +986,11 @@ $result_sectioning{'subentries'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter-index'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -971,6 +1023,7 @@ $result_nodes{'subentries'} = {
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -978,6 +1031,7 @@ $result_nodes{'subentries'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -985,6 +1039,7 @@ $result_nodes{'subentries'} = {
         'isindex' => 1,
         'normalized' => 'chapter-index'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1000,6 +1055,7 @@ $result_menus{'subentries'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

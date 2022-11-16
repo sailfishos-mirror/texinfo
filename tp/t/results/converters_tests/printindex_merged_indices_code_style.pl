@@ -24,7 +24,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -61,7 +63,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +78,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +96,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -114,7 +117,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -131,7 +136,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -153,7 +158,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'cp fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -165,7 +170,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             'misc_args' => [
               'cp',
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -187,7 +194,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'vr fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -199,7 +206,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             'misc_args' => [
               'vr',
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -221,7 +230,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'c``b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -241,7 +250,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -264,7 +275,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'v``j'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -284,7 +295,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'vindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -307,7 +320,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'f``g'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -327,7 +340,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -350,7 +365,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'cdi'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -361,7 +376,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'extra' => {
             'misc_args' => [
               'cdi'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -383,7 +400,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'cdi fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -395,7 +412,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             'misc_args' => [
               'cdi',
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -417,7 +436,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'cdi``h'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -437,7 +456,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cdi',
               'index_type_command' => 'cdiindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -460,7 +481,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'ddi'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -471,7 +492,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'extra' => {
             'misc_args' => [
               'ddi'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -493,7 +516,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'ddi cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -505,7 +528,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
             'misc_args' => [
               'ddi',
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -527,7 +552,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'ddi``g'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -547,7 +572,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_ignore_chars' => {},
               'index_name' => 'ddi',
               'index_type_command' => 'ddiindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -570,7 +597,7 @@ $result_trees{'printindex_merged_indices_code_style'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -581,7 +608,9 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -591,7 +620,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -690,9 +720,11 @@ $result_sectioning{'printindex_merged_indices_code_style'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -704,9 +736,11 @@ $result_sectioning{'printindex_merged_indices_code_style'} = {
                     'isindex' => 1,
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -735,10 +769,12 @@ $result_nodes{'printindex_merged_indices_code_style'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -746,6 +782,7 @@ $result_nodes{'printindex_merged_indices_code_style'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -753,6 +790,7 @@ $result_nodes{'printindex_merged_indices_code_style'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -768,6 +806,7 @@ $result_menus{'printindex_merged_indices_code_style'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

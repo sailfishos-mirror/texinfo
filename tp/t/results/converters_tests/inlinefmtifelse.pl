@@ -224,7 +224,7 @@ $result_trees{'inlinefmtifelse'} = {
                       'text' => 'docbook'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -239,7 +239,7 @@ $result_trees{'inlinefmtifelse'} = {
                       'text' => 'else docbook spaces '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -278,7 +278,7 @@ $result_trees{'inlinefmtifelse'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -293,7 +293,7 @@ $result_trees{'inlinefmtifelse'} = {
                       'text' => 'else tex spaces '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

@@ -141,7 +141,7 @@ $result_trees{'def_in_style_command'} = {
                       'text' => 'defun'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -150,8 +150,10 @@ $result_trees{'def_in_style_command'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -160,7 +162,7 @@ $result_trees{'def_in_style_command'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

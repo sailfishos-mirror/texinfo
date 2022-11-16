@@ -88,7 +88,7 @@ $result_trees{'image_inline_or_not'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -108,7 +108,9 @@ $result_trees{'image_inline_or_not'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -125,7 +127,7 @@ $result_trees{'image_inline_or_not'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -210,7 +212,7 @@ $result_trees{'image_inline_or_not'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -296,7 +298,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -305,8 +307,10 @@ $result_trees{'image_inline_or_not'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -352,7 +356,7 @@ $result_trees{'image_inline_or_not'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -394,7 +398,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -403,8 +407,10 @@ $result_trees{'image_inline_or_not'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -413,7 +419,7 @@ $result_trees{'image_inline_or_not'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -441,7 +447,7 @@ $result_trees{'image_inline_or_not'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -480,7 +486,7 @@ $result_trees{'image_inline_or_not'} = {
                               }
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -488,7 +494,7 @@ $result_trees{'image_inline_or_not'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -614,7 +620,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -623,8 +629,10 @@ $result_trees{'image_inline_or_not'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -634,7 +642,9 @@ $result_trees{'image_inline_or_not'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -651,7 +661,7 @@ $result_trees{'image_inline_or_not'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -906,7 +916,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -915,8 +925,10 @@ $result_trees{'image_inline_or_not'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -937,7 +949,8 @@ $result_trees{'image_inline_or_not'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -972,7 +985,7 @@ $result_trees{'image_inline_or_not'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -992,7 +1005,9 @@ $result_trees{'image_inline_or_not'} = {
             'normalized' => 'node_005fimage'
           }
         ],
-        'normalized' => 'node_005fimage',
+        'normalized' => 'node_005fimage'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1027,7 +1042,7 @@ $result_trees{'image_inline_or_not'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1085,7 +1100,7 @@ $result_trees{'image_inline_or_not'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },
@@ -1160,7 +1175,7 @@ $result_trees{'image_inline_or_not'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },
@@ -1198,7 +1213,7 @@ $result_trees{'image_inline_or_not'} = {
                   'text' => 'g'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1322,7 +1337,7 @@ $result_trees{'image_inline_or_not'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1331,8 +1346,10 @@ $result_trees{'image_inline_or_not'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1348,13 +1365,15 @@ $result_trees{'image_inline_or_not'} = {
               {}
             ],
             'normalized' => 'g',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'F'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -1363,7 +1382,8 @@ $result_trees{'image_inline_or_not'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1514,9 +1534,11 @@ $result_sectioning{'image_inline_or_not'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1527,9 +1549,11 @@ $result_sectioning{'image_inline_or_not'} = {
                   'extra' => {
                     'normalized' => 'node_005fimage'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1558,6 +1582,7 @@ $result_nodes{'image_inline_or_not'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1567,6 +1592,7 @@ $result_nodes{'image_inline_or_not'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1574,12 +1600,14 @@ $result_nodes{'image_inline_or_not'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'node_005fimage'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1597,12 +1625,14 @@ $result_menus{'image_inline_or_not'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node_005fimage'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'extra' => {
@@ -1641,6 +1671,7 @@ $result_floats{'image_inline_or_not'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1655,6 +1686,7 @@ $result_floats{'image_inline_or_not'} = {
           'normalized' => 'F'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

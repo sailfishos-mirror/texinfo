@@ -218,7 +218,9 @@ $result_trees{'defx_after_paragraph_end'} = {
                   'index_type_command' => 'deffn'
                 },
                 'not_after_command' => 1,
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -241,8 +243,10 @@ $result_trees{'defx_after_paragraph_end'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -251,7 +255,7 @@ $result_trees{'defx_after_paragraph_end'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

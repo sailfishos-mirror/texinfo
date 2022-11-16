@@ -86,7 +86,7 @@ $result_trees{'kbdinputstyle'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -95,8 +95,10 @@ $result_trees{'kbdinputstyle'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -145,7 +147,7 @@ $result_trees{'kbdinputstyle'} = {
                   'text' => 'code'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -156,7 +158,9 @@ $result_trees{'kbdinputstyle'} = {
           'extra' => {
             'misc_args' => [
               'code'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -361,7 +365,7 @@ $result_trees{'kbdinputstyle'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -555,7 +559,7 @@ $result_trees{'kbdinputstyle'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -564,8 +568,10 @@ $result_trees{'kbdinputstyle'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -610,7 +616,7 @@ $result_trees{'kbdinputstyle'} = {
                   'text' => 'example'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -621,7 +627,9 @@ $result_trees{'kbdinputstyle'} = {
           'extra' => {
             'misc_args' => [
               'example'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -826,7 +834,7 @@ $result_trees{'kbdinputstyle'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1011,7 +1019,7 @@ $result_trees{'kbdinputstyle'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1020,8 +1028,10 @@ $result_trees{'kbdinputstyle'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1066,7 +1076,7 @@ $result_trees{'kbdinputstyle'} = {
                   'text' => 'distinct'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1077,7 +1087,9 @@ $result_trees{'kbdinputstyle'} = {
           'extra' => {
             'misc_args' => [
               'distinct'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1273,7 +1285,7 @@ $result_trees{'kbdinputstyle'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1458,7 +1470,7 @@ $result_trees{'kbdinputstyle'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1467,8 +1479,10 @@ $result_trees{'kbdinputstyle'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

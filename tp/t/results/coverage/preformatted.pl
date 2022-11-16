@@ -17,7 +17,7 @@ $result_trees{'preformatted'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -52,7 +52,7 @@ $result_trees{'preformatted'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -61,8 +61,10 @@ $result_trees{'preformatted'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -85,7 +87,7 @@ $result_trees{'preformatted'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -108,7 +110,7 @@ $result_trees{'preformatted'} = {
                       'type' => 'command_as_argument'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -129,7 +131,7 @@ $result_trees{'preformatted'} = {
                                   'text' => 'item in table in format'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -148,7 +150,9 @@ $result_trees{'preformatted'} = {
                               'index_ignore_chars' => {},
                               'index_name' => 'vr',
                               'index_type_command' => 'vtable'
-                            },
+                            }
+                          },
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -190,7 +194,7 @@ $result_trees{'preformatted'} = {
                           'text' => 'vtable'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -199,8 +203,10 @@ $result_trees{'preformatted'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'vtable'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -210,7 +216,9 @@ $result_trees{'preformatted'} = {
                 }
               ],
               'extra' => {
-                'command_as_argument' => {},
+                'command_as_argument' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -227,7 +235,7 @@ $result_trees{'preformatted'} = {
                       'text' => 'format'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -236,8 +244,10 @@ $result_trees{'preformatted'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

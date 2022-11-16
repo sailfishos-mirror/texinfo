@@ -80,7 +80,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                       'text' => 'aaa'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ''
                   },
                   'type' => 'brace_command_arg'
@@ -91,7 +91,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                       'text' => 'fff'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => '  '
                   },
                   'type' => 'brace_command_arg'
@@ -129,7 +129,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' 
 '
               },
@@ -171,7 +171,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '  '
               },
               'source_info' => {

@@ -24,7 +24,7 @@ $result_trees{'cindex_in_caption'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -46,7 +46,7 @@ $result_trees{'cindex_in_caption'} = {
                   'text' => 'fl'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -55,13 +55,15 @@ $result_trees{'cindex_in_caption'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'fl'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -90,7 +92,7 @@ $result_trees{'cindex_in_caption'} = {
                   'text' => 'label'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -127,7 +129,7 @@ $result_trees{'cindex_in_caption'} = {
                                   'text' => 'index entry'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -147,7 +149,9 @@ $result_trees{'cindex_in_caption'} = {
                               'index_ignore_chars' => {},
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex'
-                            },
+                            }
+                          },
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -186,7 +190,7 @@ $result_trees{'cindex_in_caption'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -195,8 +199,10 @@ $result_trees{'cindex_in_caption'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -211,13 +217,15 @@ $result_trees{'cindex_in_caption'} = {
               {}
             ],
             'normalized' => 'label',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'fl'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -238,7 +246,7 @@ $result_trees{'cindex_in_caption'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -249,7 +257,9 @@ $result_trees{'cindex_in_caption'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -277,7 +287,9 @@ $result_trees{'cindex_in_caption'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -331,7 +343,8 @@ $result_nodes{'cindex_in_caption'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'cindex_in_caption'} = {
@@ -339,7 +352,8 @@ $result_menus{'cindex_in_caption'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'cindex_in_caption'} = [];
@@ -366,6 +380,7 @@ $result_floats{'cindex_in_caption'} = {
           'normalized' => 'fl'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

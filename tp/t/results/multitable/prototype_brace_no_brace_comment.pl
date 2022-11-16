@@ -56,7 +56,7 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -65,8 +65,10 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -88,7 +90,9 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                 'text' => 'bb',
                 'type' => 'row_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -21,7 +21,7 @@ $result_trees{'unknown_synindex'} = {
             }
           ],
           'cmdname' => 'synindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

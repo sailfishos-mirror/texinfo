@@ -18,7 +18,7 @@ $result_trees{'menu_in_example'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -35,7 +35,7 @@ $result_trees{'menu_in_example'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -47,7 +47,7 @@ $result_trees{'menu_in_example'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -94,7 +94,7 @@ $result_trees{'menu_in_example'} = {
                         {
                           'args' => [
                             {
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -120,7 +120,7 @@ $result_trees{'menu_in_example'} = {
                                       'text' => 'cartouche'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -129,8 +129,10 @@ $result_trees{'menu_in_example'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'cartouche'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -179,7 +181,7 @@ $result_trees{'menu_in_example'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -205,7 +207,7 @@ $result_trees{'menu_in_example'} = {
                                   'text' => 'cartouche'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -214,8 +216,10 @@ $result_trees{'menu_in_example'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'cartouche'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -392,7 +396,7 @@ $result_trees{'menu_in_example'} = {
                           'text' => 'menu'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -401,8 +405,10 @@ $result_trees{'menu_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -425,7 +431,7 @@ $result_trees{'menu_in_example'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -434,8 +440,10 @@ $result_trees{'menu_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -463,7 +471,9 @@ $result_trees{'menu_in_example'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -521,14 +531,16 @@ $result_nodes{'menu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'menu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'menu_in_example'} = [

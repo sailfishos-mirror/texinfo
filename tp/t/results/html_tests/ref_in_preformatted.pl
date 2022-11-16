@@ -18,7 +18,7 @@ $result_trees{'ref_in_preformatted'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -35,7 +35,7 @@ $result_trees{'ref_in_preformatted'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -101,7 +101,7 @@ $result_trees{'ref_in_preformatted'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -110,8 +110,10 @@ $result_trees{'ref_in_preformatted'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -134,7 +136,7 @@ $result_trees{'ref_in_preformatted'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -173,7 +175,7 @@ $result_trees{'ref_in_preformatted'} = {
                               'text' => 'nnn the node name'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -193,7 +195,9 @@ $result_trees{'ref_in_preformatted'} = {
                             'normalized' => 'nnn-the-node-name'
                           }
                         ],
-                        'normalized' => 'nnn-the-node-name',
+                        'normalized' => 'nnn-the-node-name'
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -231,7 +235,7 @@ $result_trees{'ref_in_preformatted'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -240,8 +244,10 @@ $result_trees{'ref_in_preformatted'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -274,7 +280,9 @@ $result_trees{'ref_in_preformatted'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -330,12 +338,14 @@ $result_nodes{'ref_in_preformatted'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'nnn-the-node-name'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -353,12 +363,14 @@ $result_menus{'ref_in_preformatted'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'nnn-the-node-name'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

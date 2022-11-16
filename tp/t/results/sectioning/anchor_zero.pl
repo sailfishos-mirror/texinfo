@@ -18,7 +18,7 @@ $result_trees{'anchor_zero'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -119,7 +119,9 @@ $result_trees{'anchor_zero'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -155,14 +157,16 @@ $result_nodes{'anchor_zero'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'anchor_zero'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'anchor_zero'} = [];

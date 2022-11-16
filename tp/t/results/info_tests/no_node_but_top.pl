@@ -18,7 +18,7 @@ $result_trees{'no_node_but_top'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -26,7 +26,7 @@ $result_trees{'no_node_but_top'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -52,7 +52,7 @@ $result_sectioning{'no_node_but_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}

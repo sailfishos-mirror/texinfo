@@ -19,7 +19,7 @@ $result_trees{'loop_nodes'} = {
                       'text' => 'loop_nodes.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -28,8 +28,10 @@ $result_trees{'loop_nodes'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'loop_nodes.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -56,7 +58,7 @@ $result_trees{'loop_nodes'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +78,9 @@ $result_trees{'loop_nodes'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +97,7 @@ $result_trees{'loop_nodes'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -110,7 +114,7 @@ $result_trees{'loop_nodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -176,7 +180,7 @@ $result_trees{'loop_nodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -185,8 +189,10 @@ $result_trees{'loop_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -207,7 +213,8 @@ $result_trees{'loop_nodes'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -238,7 +245,7 @@ $result_trees{'loop_nodes'} = {
               'text' => 'node down'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -255,7 +262,7 @@ $result_trees{'loop_nodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -321,7 +328,7 @@ $result_trees{'loop_nodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -330,8 +337,10 @@ $result_trees{'loop_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -372,7 +381,9 @@ $result_trees{'loop_nodes'} = {
             'normalized' => 'node-down'
           }
         ],
-        'normalized' => 'node-up',
+        'normalized' => 'node-up'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -403,7 +414,7 @@ $result_trees{'loop_nodes'} = {
               'text' => 'node up'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -420,7 +431,7 @@ $result_trees{'loop_nodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -486,7 +497,7 @@ $result_trees{'loop_nodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -495,8 +506,10 @@ $result_trees{'loop_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -537,7 +550,9 @@ $result_trees{'loop_nodes'} = {
             'normalized' => 'node-up'
           }
         ],
-        'normalized' => 'node-middle',
+        'normalized' => 'node-middle'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -554,7 +569,7 @@ $result_trees{'loop_nodes'} = {
               'text' => 'node down'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -574,7 +589,9 @@ $result_trees{'loop_nodes'} = {
             'normalized' => 'node-down'
           }
         ],
-        'normalized' => 'node-down',
+        'normalized' => 'node-down'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -653,9 +670,11 @@ $result_sectioning{'loop_nodes'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -673,6 +692,7 @@ $result_nodes{'loop_nodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -682,6 +702,7 @@ $result_nodes{'loop_nodes'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -693,6 +714,7 @@ $result_nodes{'loop_nodes'} = {
         ],
         'normalized' => 'node-up'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -704,12 +726,14 @@ $result_nodes{'loop_nodes'} = {
             ],
             'normalized' => 'node-middle'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'node-down'
               },
+              'info' => {},
               'structure' => {
                 'node_up' => {}
               }
@@ -735,24 +759,28 @@ $result_menus{'loop_nodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node-up'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'node-middle'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'node-down'
               },
+              'info' => {},
               'structure' => {
                 'menu_up' => {},
                 'menu_up_hash' => {

@@ -18,7 +18,7 @@ $result_trees{'double_node_anchor_float'} = {
               'text' => 'node1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -45,7 +45,9 @@ $result_trees{'double_node_anchor_float'} = {
             'normalized' => 'node1'
           }
         ],
-        'normalized' => 'node1',
+        'normalized' => 'node1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -62,7 +64,7 @@ $result_trees{'double_node_anchor_float'} = {
               'text' => 'node1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -148,7 +150,9 @@ $result_trees{'double_node_anchor_float'} = {
             ],
             'normalized' => 'node1'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -165,7 +169,7 @@ $result_trees{'double_node_anchor_float'} = {
               'text' => 'anchor1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -195,7 +199,7 @@ $result_trees{'double_node_anchor_float'} = {
                   'text' => 'node1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -213,7 +217,7 @@ $result_trees{'double_node_anchor_float'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -222,8 +226,10 @@ $result_trees{'double_node_anchor_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -233,13 +239,15 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -268,7 +276,7 @@ $result_trees{'double_node_anchor_float'} = {
                   'text' => 'anchor1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -286,7 +294,7 @@ $result_trees{'double_node_anchor_float'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -295,8 +303,10 @@ $result_trees{'double_node_anchor_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -306,13 +316,15 @@ $result_trees{'double_node_anchor_float'} = {
             }
           ],
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -341,7 +353,7 @@ $result_trees{'double_node_anchor_float'} = {
                   'text' => 'float1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -359,7 +371,7 @@ $result_trees{'double_node_anchor_float'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -368,8 +380,10 @@ $result_trees{'double_node_anchor_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -383,13 +397,15 @@ $result_trees{'double_node_anchor_float'} = {
               {}
             ],
             'normalized' => 'float1',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -411,7 +427,9 @@ $result_trees{'double_node_anchor_float'} = {
             ],
             'normalized' => 'anchor1'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -428,7 +446,7 @@ $result_trees{'double_node_anchor_float'} = {
               'text' => 'float1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -444,7 +462,9 @@ $result_trees{'double_node_anchor_float'} = {
             ],
             'normalized' => 'float1'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -507,14 +527,16 @@ $result_nodes{'double_node_anchor_float'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node1'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'double_node_anchor_float'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node1'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'double_node_anchor_float'} = [
@@ -642,7 +664,8 @@ $result_floats{'double_node_anchor_float'} = {
           ],
           'normalized' => 'Text'
         }
-      }
+      },
+      'info' => {}
     },
     {
       'cmdname' => 'float',
@@ -655,7 +678,8 @@ $result_floats{'double_node_anchor_float'} = {
           ],
           'normalized' => 'Text'
         }
-      }
+      },
+      'info' => {}
     },
     {
       'cmdname' => 'float',
@@ -670,6 +694,7 @@ $result_floats{'double_node_anchor_float'} = {
           'normalized' => 'Text'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

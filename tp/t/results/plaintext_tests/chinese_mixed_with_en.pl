@@ -29,7 +29,7 @@ $result_trees{'chinese_mixed_with_en'} = {
                       'text' => 'utf-8'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -40,8 +40,10 @@ $result_trees{'chinese_mixed_with_en'} = {
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'input_perl_encoding' => 'utf-8-strict',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'utf-8'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'chinese_mixed_with_en.texi',
@@ -62,7 +64,7 @@ $result_trees{'chinese_mixed_with_en'} = {
                       'text' => 'chinese_mixed_with_en.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -71,8 +73,10 @@ $result_trees{'chinese_mixed_with_en'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'chinese_mixed_with_en.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'chinese_mixed_with_en.texi',
@@ -88,7 +92,7 @@ $result_trees{'chinese_mixed_with_en'} = {
                       'text' => 'chinese mixed with english'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -96,7 +100,7 @@ $result_trees{'chinese_mixed_with_en'} = {
                 }
               ],
               'cmdname' => 'settitle',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -124,7 +128,7 @@ $result_trees{'chinese_mixed_with_en'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -304,7 +308,9 @@ $result_trees{'chinese_mixed_with_en'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -400,14 +406,16 @@ $result_nodes{'chinese_mixed_with_en'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'chinese_mixed_with_en'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'chinese_mixed_with_en'} = [];

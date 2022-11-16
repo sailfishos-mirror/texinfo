@@ -733,9 +733,10 @@ sub _convert($$;$)
                or $element->{'parent'}->{'cmdname'} eq 'enumerate')) {
         $result .= "<listitem>";
         if ($element->{'parent'}->{'cmdname'} eq 'itemize'
-            and $element->{'parent'}->{'extra'}
-            and !($element->{'parent'}->{'extra'}->{'command_as_argument'}
-                  and $element->{'parent'}->{'extra'}->{'command_as_argument'}->{'cmdname'} eq 'bullet')
+            and !($element->{'parent'}->{'extra'}
+                  and $element->{'parent'}->{'extra'}->{'command_as_argument'}
+                  and $element->{'parent'}->{'extra'}->{'command_as_argument'}
+                                                      ->{'cmdname'} eq 'bullet')
             and $element->{'parent'}->{'args'}
             and $element->{'parent'}->{'args'}->[0]) {
           $self->{'pending_prepend'}
@@ -1523,21 +1524,21 @@ sub _convert($$;$)
               }
             }
           }
-          if ($element->{'args'} and $element->{'args'}->[0]
-              and $element->{'args'}->[0]->{'contents'}
-              and @{$element->{'args'}->[0]->{'contents'}}) {
-            my $quotation_arg_text
-              = Texinfo::Convert::Text::convert_to_text(
-                 $element->{'args'}->[0],
-                 {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
-            if ($docbook_special_quotations{lc($quotation_arg_text)}) {
-              $format_element = lc($quotation_arg_text);
-            } else {
-              $self->{'pending_prepend'}
-                = $self->_convert($self->gdt('@b{{quotation_arg}:} ',
-                              {'quotation_arg' =>
-                    $element->{'args'}->[0]->{'contents'}}));
-            }
+        }
+        if ($element->{'args'} and $element->{'args'}->[0]
+            and $element->{'args'}->[0]->{'contents'}
+            and @{$element->{'args'}->[0]->{'contents'}}) {
+          my $quotation_arg_text
+            = Texinfo::Convert::Text::convert_to_text(
+               $element->{'args'}->[0],
+               {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
+          if ($docbook_special_quotations{lc($quotation_arg_text)}) {
+            $format_element = lc($quotation_arg_text);
+          } else {
+            $self->{'pending_prepend'}
+              = $self->_convert($self->gdt('@b{{quotation_arg}:} ',
+                            {'quotation_arg' =>
+                  $element->{'args'}->[0]->{'contents'}}));
           }
         }
         $format_element = 'blockquote' if (!defined($format_element));

@@ -19,7 +19,7 @@ $result_trees{'east_asian_in_w'} = {
                       'text' => 'utf-8'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,8 +30,10 @@ $result_trees{'east_asian_in_w'} = {
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'input_perl_encoding' => 'utf-8-strict',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'utf-8'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'east_asian_in_w.texi',

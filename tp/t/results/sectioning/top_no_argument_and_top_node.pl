@@ -18,7 +18,7 @@ $result_trees{'top_no_argument_and_top_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'top_no_argument_and_top_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -50,7 +52,7 @@ $result_trees{'top_no_argument_and_top_node'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -88,7 +90,8 @@ $result_sectioning{'top_no_argument_and_top_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
         'structure' => {
@@ -111,14 +114,16 @@ $result_nodes{'top_no_argument_and_top_node'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'top_no_argument_and_top_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'top_no_argument_and_top_node'} = [];

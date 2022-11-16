@@ -24,7 +24,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'text' => 'node before'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -94,7 +94,9 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
             'normalized' => 'node-before'
           }
         ],
-        'normalized' => 'node-before',
+        'normalized' => 'node-before'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -111,7 +113,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -131,7 +133,9 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -148,7 +152,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'text' => 'top sectionning'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -206,7 +210,8 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -223,7 +228,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'text' => 'after'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -293,7 +298,9 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
             'normalized' => 'after'
           }
         ],
-        'normalized' => 'after',
+        'normalized' => 'after'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -310,7 +317,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -330,7 +337,9 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -347,7 +356,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -412,7 +421,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                   'text' => 'on'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -423,7 +432,9 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
           'extra' => {
             'misc_args' => [
               'on'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -574,7 +585,7 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                   'text' => 'off'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -585,7 +596,9 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
           'extra' => {
             'misc_args' => [
               'off'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -724,7 +737,8 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -839,9 +853,11 @@ $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -852,9 +868,11 @@ $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -883,10 +901,12 @@ $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -894,12 +914,14 @@ $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -915,6 +937,7 @@ $result_menus{'anchor_links_xref_xrefautomaticsectiontitle'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

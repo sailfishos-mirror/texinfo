@@ -21,7 +21,7 @@ $result_trees{'empty_line_in_email'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' 
 '
                   },

@@ -19,7 +19,7 @@ $result_trees{'index_below'} = [
                 'text' => 'top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -34,7 +34,8 @@ $result_trees{'index_below'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -59,7 +60,7 @@ $result_trees{'index_below'} = [
                 'text' => 'chap'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -74,7 +75,8 @@ $result_trees{'index_below'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -99,7 +101,7 @@ $result_trees{'index_below'} = [
                 'text' => 'sec'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -121,7 +123,7 @@ $result_trees{'index_below'} = [
                     'text' => 'entry'
                   }
                 ],
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -140,7 +142,9 @@ $result_trees{'index_below'} = [
                 'index_ignore_chars' => {},
                 'index_name' => 'cp',
                 'index_type_command' => 'cindex'
-              },
+              }
+            },
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'source_info' => {
@@ -158,7 +162,7 @@ $result_trees{'index_below'} = [
                     'text' => 'cp'
                   }
                 ],
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -169,7 +173,9 @@ $result_trees{'index_below'} = [
             'extra' => {
               'misc_args' => [
                 'cp'
-              ],
+              ]
+            },
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'source_info' => {
@@ -179,7 +185,8 @@ $result_trees{'index_below'} = [
             }
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -230,6 +237,7 @@ $result_sectioning{'index_below'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -242,12 +250,14 @@ $result_sectioning{'index_below'} = {
                     'unit_command' => {
                       'cmdname' => 'chapter',
                       'extra' => {},
+                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_childs' => [
                           {
                             'cmdname' => 'section',
                             'extra' => {},
+                            'info' => {},
                             'structure' => {
                               'associated_unit' => {
                                 'extra' => {
@@ -353,6 +363,7 @@ $result_elements{'index_below'} = [
       'unit_command' => {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -365,6 +376,7 @@ $result_elements{'index_below'} = [
             'unit_command' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_number' => 1
@@ -380,6 +392,7 @@ $result_elements{'index_below'} = [
                   'unit_command' => {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => '1.1'

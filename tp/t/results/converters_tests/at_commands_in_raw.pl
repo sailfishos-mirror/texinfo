@@ -18,7 +18,7 @@ $result_trees{'at_commands_in_raw'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'at_commands_in_raw'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'at_commands_in_raw'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -91,7 +93,7 @@ $result_trees{'at_commands_in_raw'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -100,8 +102,10 @@ $result_trees{'at_commands_in_raw'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -126,7 +130,8 @@ $result_trees{'at_commands_in_raw'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -143,7 +148,7 @@ $result_trees{'at_commands_in_raw'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -164,7 +169,9 @@ $result_trees{'at_commands_in_raw'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -181,7 +188,7 @@ $result_trees{'at_commands_in_raw'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -198,7 +205,7 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -279,7 +286,7 @@ $result_trees{'at_commands_in_raw'} = {
                       'text' => 'html'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -288,8 +295,10 @@ $result_trees{'at_commands_in_raw'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -362,7 +371,7 @@ $result_trees{'at_commands_in_raw'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -382,7 +391,7 @@ $result_trees{'at_commands_in_raw'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -391,8 +400,10 @@ $result_trees{'at_commands_in_raw'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -555,7 +566,7 @@ $result_trees{'at_commands_in_raw'} = {
                       'text' => 'fentry2'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -575,7 +586,9 @@ $result_trees{'at_commands_in_raw'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'fn',
                   'index_type_command' => 'findex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -615,7 +628,7 @@ $result_trees{'at_commands_in_raw'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -626,7 +639,9 @@ $result_trees{'at_commands_in_raw'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -643,7 +658,7 @@ $result_trees{'at_commands_in_raw'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -654,7 +669,9 @@ $result_trees{'at_commands_in_raw'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -676,7 +693,7 @@ $result_trees{'at_commands_in_raw'} = {
                   'text' => 'Figs'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -685,13 +702,15 @@ $result_trees{'at_commands_in_raw'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Figs'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -793,7 +812,8 @@ $result_trees{'at_commands_in_raw'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -916,9 +936,11 @@ $result_sectioning{'at_commands_in_raw'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -930,9 +952,11 @@ $result_sectioning{'at_commands_in_raw'} = {
                     'isindex' => 1,
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -961,10 +985,12 @@ $result_nodes{'at_commands_in_raw'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -972,6 +998,7 @@ $result_nodes{'at_commands_in_raw'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -979,6 +1006,7 @@ $result_nodes{'at_commands_in_raw'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -994,6 +1022,7 @@ $result_menus{'at_commands_in_raw'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

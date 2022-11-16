@@ -23,7 +23,7 @@ $result_trees{'section_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -44,7 +44,7 @@ $result_trees{'section_in_table'} = {
                               'text' => 'Before'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -52,7 +52,7 @@ $result_trees{'section_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -79,7 +79,9 @@ $result_trees{'section_in_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -99,7 +101,7 @@ $result_trees{'section_in_table'} = {
               'text' => 'Subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -132,7 +134,7 @@ $result_trees{'section_in_table'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -170,7 +172,7 @@ $result_sectioning{'section_in_table'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

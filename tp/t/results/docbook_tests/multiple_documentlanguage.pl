@@ -17,7 +17,7 @@ $result_trees{'multiple_documentlanguage'} = {
                   'text' => 'ja'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -26,8 +26,10 @@ $result_trees{'multiple_documentlanguage'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'ja'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -51,7 +53,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -71,7 +73,9 @@ $result_trees{'multiple_documentlanguage'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -88,7 +92,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -103,7 +107,8 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -120,7 +125,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -140,7 +145,9 @@ $result_trees{'multiple_documentlanguage'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -157,7 +164,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'Chap no new language'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -179,7 +186,7 @@ $result_trees{'multiple_documentlanguage'} = {
                   'text' => 'fr'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -188,8 +195,10 @@ $result_trees{'multiple_documentlanguage'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'fr'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -198,7 +207,8 @@ $result_trees{'multiple_documentlanguage'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -215,7 +225,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'chapter fr'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -235,7 +245,9 @@ $result_trees{'multiple_documentlanguage'} = {
             'normalized' => 'chapter-fr'
           }
         ],
-        'normalized' => 'chapter-fr',
+        'normalized' => 'chapter-fr'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -252,7 +264,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'chapter fr'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -274,7 +286,7 @@ $result_trees{'multiple_documentlanguage'} = {
                   'text' => 'pt'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -283,8 +295,10 @@ $result_trees{'multiple_documentlanguage'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'pt'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -293,7 +307,8 @@ $result_trees{'multiple_documentlanguage'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -310,7 +325,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'subnode pt'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -330,7 +345,9 @@ $result_trees{'multiple_documentlanguage'} = {
             'normalized' => 'subnode-pt'
           }
         ],
-        'normalized' => 'subnode-pt',
+        'normalized' => 'subnode-pt'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -347,7 +364,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'section pt'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -369,7 +386,7 @@ $result_trees{'multiple_documentlanguage'} = {
                   'text' => 'fr'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -378,8 +395,10 @@ $result_trees{'multiple_documentlanguage'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'fr'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -388,7 +407,8 @@ $result_trees{'multiple_documentlanguage'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -405,7 +425,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'subnode fr'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -425,7 +445,9 @@ $result_trees{'multiple_documentlanguage'} = {
             'normalized' => 'subnode-fr'
           }
         ],
-        'normalized' => 'subnode-fr',
+        'normalized' => 'subnode-fr'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -442,7 +464,7 @@ $result_trees{'multiple_documentlanguage'} = {
               'text' => 'section fr'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -457,7 +479,8 @@ $result_trees{'multiple_documentlanguage'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -532,9 +555,11 @@ $result_sectioning{'multiple_documentlanguage'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -545,9 +570,11 @@ $result_sectioning{'multiple_documentlanguage'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -564,9 +591,11 @@ $result_sectioning{'multiple_documentlanguage'} = {
                   'extra' => {
                     'normalized' => 'chapter-fr'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -577,9 +606,11 @@ $result_sectioning{'multiple_documentlanguage'} = {
                         'extra' => {
                           'normalized' => 'subnode-pt'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.1',
@@ -594,9 +625,11 @@ $result_sectioning{'multiple_documentlanguage'} = {
                         'extra' => {
                           'normalized' => 'subnode-fr'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.2',
@@ -640,10 +673,12 @@ $result_nodes{'multiple_documentlanguage'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -651,12 +686,14 @@ $result_nodes{'multiple_documentlanguage'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -664,12 +701,14 @@ $result_nodes{'multiple_documentlanguage'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'chapter-fr'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -691,6 +730,7 @@ $result_menus{'multiple_documentlanguage'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

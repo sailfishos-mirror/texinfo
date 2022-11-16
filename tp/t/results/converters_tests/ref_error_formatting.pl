@@ -1126,7 +1126,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1137,7 +1137,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1386,7 +1386,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1397,7 +1397,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1926,7 +1926,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1937,7 +1937,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2150,7 +2150,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2161,7 +2161,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2304,7 +2304,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2434,7 +2434,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2557,7 +2557,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2568,7 +2568,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2703,7 +2703,7 @@ $result_trees{'ref_error_formatting'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

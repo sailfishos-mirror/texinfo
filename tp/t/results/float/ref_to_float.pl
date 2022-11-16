@@ -29,7 +29,7 @@ $result_trees{'ref_to_float'} = {
                   'text' => 'Label1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -56,7 +56,7 @@ $result_trees{'ref_to_float'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -65,8 +65,10 @@ $result_trees{'ref_to_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -80,13 +82,15 @@ $result_trees{'ref_to_float'} = {
               {}
             ],
             'normalized' => 'Label1',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -110,7 +114,7 @@ $result_trees{'ref_to_float'} = {
                   'text' => 'Label2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -137,7 +141,7 @@ $result_trees{'ref_to_float'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -146,8 +150,10 @@ $result_trees{'ref_to_float'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -161,10 +167,12 @@ $result_trees{'ref_to_float'} = {
               {}
             ],
             'normalized' => 'Label2',
-            'spaces_before_argument' => ' ',
             'type' => {
               'normalized' => ''
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -306,6 +314,7 @@ $result_floats{'ref_to_float'} = {
           'normalized' => ''
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -325,6 +334,7 @@ $result_floats{'ref_to_float'} = {
           'normalized' => 'Text'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

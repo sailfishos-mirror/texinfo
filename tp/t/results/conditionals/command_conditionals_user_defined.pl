@@ -31,7 +31,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -40,8 +40,10 @@ $result_trees{'command_conditionals_user_defined'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -73,7 +75,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                   'text' => 'auth'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -84,7 +86,9 @@ $result_trees{'command_conditionals_user_defined'} = {
           'extra' => {
             'misc_args' => [
               'auth'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -106,7 +110,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                   'text' => 'infoencl, :,:'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -119,7 +123,9 @@ $result_trees{'command_conditionals_user_defined'} = {
               'infoencl',
               ':',
               ':'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -141,7 +147,7 @@ $result_trees{'command_conditionals_user_defined'} = {
                   'text' => 'strongalias = strong'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -153,7 +159,9 @@ $result_trees{'command_conditionals_user_defined'} = {
             'misc_args' => [
               'strongalias',
               'strong'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

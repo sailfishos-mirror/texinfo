@@ -25,7 +25,7 @@ $result_trees{'part_before_chapter'} = [
                 'text' => 'part'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -40,7 +40,8 @@ $result_trees{'part_before_chapter'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -57,7 +58,7 @@ $result_trees{'part_before_chapter'} = [
                 'text' => 'chapter'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -66,7 +67,9 @@ $result_trees{'part_before_chapter'} = [
         ],
         'cmdname' => 'chapter',
         'extra' => {
-          'associated_part' => {},
+          'associated_part' => {}
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -109,6 +112,7 @@ $result_sectioning{'part_before_chapter'} = {
             'extra' => {
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -127,6 +131,7 @@ $result_sectioning{'part_before_chapter'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_childs' => [
@@ -163,11 +168,13 @@ $result_elements{'part_before_chapter'} = [
           'associated_part' => {
             'cmdname' => 'part',
             'extra' => {},
+            'info' => {},
             'structure' => {
               'associated_unit' => {}
             }
           }
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_number' => 1

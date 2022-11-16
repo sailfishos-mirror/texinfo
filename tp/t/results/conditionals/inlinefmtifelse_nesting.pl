@@ -45,7 +45,7 @@ $result_trees{'inlinefmtifelse_nesting'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

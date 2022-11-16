@@ -14,7 +14,7 @@ $result_trees{'paragraphindent_and_preamble'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -54,7 +54,7 @@ $result_trees{'paragraphindent_and_preamble'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -63,8 +63,10 @@ $result_trees{'paragraphindent_and_preamble'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -92,7 +94,7 @@ $result_trees{'paragraphindent_and_preamble'} = {
                       'text' => '1'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -103,7 +105,9 @@ $result_trees{'paragraphindent_and_preamble'} = {
               'extra' => {
                 'misc_args' => [
                   '1'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -145,7 +149,7 @@ $result_trees{'paragraphindent_and_preamble'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -165,7 +169,9 @@ $result_trees{'paragraphindent_and_preamble'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -188,7 +194,7 @@ $result_trees{'paragraphindent_and_preamble'} = {
               'text' => 'paragraphindent in preamble effect in preamble'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -231,7 +237,8 @@ $result_trees{'paragraphindent_and_preamble'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -300,9 +307,11 @@ $result_sectioning{'paragraphindent_and_preamble'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -320,17 +329,20 @@ $result_nodes{'paragraphindent_and_preamble'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'paragraphindent_and_preamble'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'paragraphindent_and_preamble'} = [];

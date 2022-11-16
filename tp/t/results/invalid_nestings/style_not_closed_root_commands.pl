@@ -18,7 +18,7 @@ $result_trees{'style_not_closed_root_commands'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'style_not_closed_root_commands'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'style_not_closed_root_commands'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -72,7 +74,7 @@ $result_trees{'style_not_closed_root_commands'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -138,7 +140,7 @@ $result_trees{'style_not_closed_root_commands'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -147,8 +149,10 @@ $result_trees{'style_not_closed_root_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -198,7 +202,8 @@ $result_trees{'style_not_closed_root_commands'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -215,7 +220,7 @@ $result_trees{'style_not_closed_root_commands'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -235,7 +240,9 @@ $result_trees{'style_not_closed_root_commands'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -252,7 +259,7 @@ $result_trees{'style_not_closed_root_commands'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -296,7 +303,8 @@ $result_trees{'style_not_closed_root_commands'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -368,9 +376,11 @@ $result_sectioning{'style_not_closed_root_commands'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -381,9 +391,11 @@ $result_sectioning{'style_not_closed_root_commands'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -412,6 +424,7 @@ $result_nodes{'style_not_closed_root_commands'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -421,6 +434,7 @@ $result_nodes{'style_not_closed_root_commands'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -428,12 +442,14 @@ $result_nodes{'style_not_closed_root_commands'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -451,12 +467,14 @@ $result_menus{'style_not_closed_root_commands'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

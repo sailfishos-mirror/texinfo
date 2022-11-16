@@ -27,7 +27,7 @@ $result_trees{'inlineifsetifclear'} = {
                       'text' => 'iclear first '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -176,7 +176,7 @@ $result_trees{'inlineifsetifclear'} = {
                       'text' => 'ifset second '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

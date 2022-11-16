@@ -39,7 +39,7 @@ $result_trees{'contents_at_end_document'} = {
                       'text' => 'contents_at_end_document.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'contents_at_end_document'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'contents_at_end_document.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'contents_at_end_document.texi',
@@ -76,7 +78,7 @@ $result_trees{'contents_at_end_document'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -96,7 +98,9 @@ $result_trees{'contents_at_end_document'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -113,7 +117,7 @@ $result_trees{'contents_at_end_document'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -128,7 +132,8 @@ $result_trees{'contents_at_end_document'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -145,7 +150,7 @@ $result_trees{'contents_at_end_document'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -180,7 +185,7 @@ $result_trees{'contents_at_end_document'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -240,14 +245,16 @@ $result_sectioning{'contents_at_end_document'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -276,17 +283,20 @@ $result_nodes{'contents_at_end_document'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'contents_at_end_document'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'contents_at_end_document'} = [];

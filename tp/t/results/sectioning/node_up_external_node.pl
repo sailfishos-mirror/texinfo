@@ -25,7 +25,7 @@ $result_trees{'node_up_external_node'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -42,7 +42,7 @@ $result_trees{'node_up_external_node'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -108,7 +108,7 @@ $result_trees{'node_up_external_node'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -117,8 +117,10 @@ $result_trees{'node_up_external_node'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -151,7 +153,9 @@ $result_trees{'node_up_external_node'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -190,7 +194,7 @@ $result_trees{'node_up_external_node'} = [
                 'text' => ')'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'type' => 'line_arg'
@@ -207,7 +211,7 @@ $result_trees{'node_up_external_node'} = [
                 'text' => ')'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => ' ',
               'spaces_before_argument' => ' '
             },
@@ -225,7 +229,7 @@ $result_trees{'node_up_external_node'} = [
                 'text' => ')'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 ',
               'spaces_before_argument' => ' '
@@ -261,7 +265,9 @@ $result_trees{'node_up_external_node'} = [
               ]
             }
           ],
-          'normalized' => 'first',
+          'normalized' => 'first'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -314,6 +320,7 @@ $result_nodes{'node_up_external_node'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -328,6 +335,7 @@ $result_nodes{'node_up_external_node'} = {
                 'extra' => {
                   'normalized' => 'first'
                 },
+                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'node_next' => {
@@ -428,6 +436,7 @@ $result_menus{'node_up_external_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -442,6 +451,7 @@ $result_menus{'node_up_external_node'} = {
                 'extra' => {
                   'normalized' => 'first'
                 },
+                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_up' => {},
@@ -536,6 +546,7 @@ $result_elements{'node_up_external_node'} = [
         'extra' => {
           'normalized' => 'Top'
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -543,6 +554,7 @@ $result_elements{'node_up_external_node'} = [
             'extra' => {
               'normalized' => 'first'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {

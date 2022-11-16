@@ -18,7 +18,7 @@ $result_trees{'index_entry_at_end_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'index_entry_at_end_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'index_entry_at_end_node'} = {
               'text' => 'Element'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -77,7 +79,7 @@ $result_trees{'index_entry_at_end_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -192,7 +194,7 @@ $result_trees{'index_entry_at_end_node'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -201,8 +203,10 @@ $result_trees{'index_entry_at_end_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -223,7 +227,8 @@ $result_trees{'index_entry_at_end_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -240,7 +245,7 @@ $result_trees{'index_entry_at_end_node'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -260,7 +265,9 @@ $result_trees{'index_entry_at_end_node'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -277,7 +284,7 @@ $result_trees{'index_entry_at_end_node'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -309,7 +316,7 @@ $result_trees{'index_entry_at_end_node'} = {
                   'text' => 'index entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -329,7 +336,9 @@ $result_trees{'index_entry_at_end_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -345,7 +354,8 @@ $result_trees{'index_entry_at_end_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -362,7 +372,7 @@ $result_trees{'index_entry_at_end_node'} = {
               'text' => 'indices'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -383,7 +393,9 @@ $result_trees{'index_entry_at_end_node'} = {
             'normalized' => 'indices'
           }
         ],
-        'normalized' => 'indices',
+        'normalized' => 'indices'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -400,7 +412,7 @@ $result_trees{'index_entry_at_end_node'} = {
               'text' => 'indices'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -422,7 +434,7 @@ $result_trees{'index_entry_at_end_node'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -433,7 +445,9 @@ $result_trees{'index_entry_at_end_node'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -443,7 +457,8 @@ $result_trees{'index_entry_at_end_node'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -522,9 +537,11 @@ $result_sectioning{'index_entry_at_end_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -535,9 +552,11 @@ $result_sectioning{'index_entry_at_end_node'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -555,9 +574,11 @@ $result_sectioning{'index_entry_at_end_node'} = {
                     'isindex' => 1,
                     'normalized' => 'indices'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 'A',
@@ -591,6 +612,7 @@ $result_nodes{'index_entry_at_end_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -600,6 +622,7 @@ $result_nodes{'index_entry_at_end_node'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -607,12 +630,14 @@ $result_nodes{'index_entry_at_end_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -620,6 +645,7 @@ $result_nodes{'index_entry_at_end_node'} = {
             'associated_section' => {
               'cmdname' => 'appendix',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 'A'
               }
@@ -627,6 +653,7 @@ $result_nodes{'index_entry_at_end_node'} = {
             'isindex' => 1,
             'normalized' => 'indices'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -650,12 +677,14 @@ $result_menus{'index_entry_at_end_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
@@ -663,6 +692,7 @@ $result_menus{'index_entry_at_end_node'} = {
             'isindex' => 1,
             'normalized' => 'indices'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

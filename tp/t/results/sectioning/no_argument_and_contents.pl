@@ -45,7 +45,7 @@ $result_trees{'no_argument_and_contents'} = {
               'text' => 'for example'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -60,7 +60,8 @@ $result_trees{'no_argument_and_contents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -87,7 +88,7 @@ $result_trees{'no_argument_and_contents'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -102,7 +103,7 @@ $result_trees{'no_argument_and_contents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -139,11 +140,12 @@ $result_sectioning{'no_argument_and_contents'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,

@@ -34,7 +34,7 @@ $result_trees{'ftable_vtable'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -62,7 +62,7 @@ $result_trees{'ftable_vtable'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -83,7 +83,7 @@ $result_trees{'ftable_vtable'} = {
                               'text' => 'function1'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -103,7 +103,9 @@ $result_trees{'ftable_vtable'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -120,7 +122,7 @@ $result_trees{'ftable_vtable'} = {
                               'text' => 'function2x'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -140,7 +142,9 @@ $result_trees{'ftable_vtable'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -181,7 +185,7 @@ $result_trees{'ftable_vtable'} = {
                               'text' => 'fun3'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -201,7 +205,9 @@ $result_trees{'ftable_vtable'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -224,7 +230,7 @@ $result_trees{'ftable_vtable'} = {
                       'text' => 'ftable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -233,8 +239,10 @@ $result_trees{'ftable_vtable'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ftable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -244,7 +252,9 @@ $result_trees{'ftable_vtable'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -272,7 +282,7 @@ $result_trees{'ftable_vtable'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -306,7 +316,7 @@ $result_trees{'ftable_vtable'} = {
                               }
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -326,7 +336,9 @@ $result_trees{'ftable_vtable'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -343,7 +355,7 @@ $result_trees{'ftable_vtable'} = {
                               'text' => 'varx2'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -363,7 +375,9 @@ $result_trees{'ftable_vtable'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -404,7 +418,7 @@ $result_trees{'ftable_vtable'} = {
                               'text' => 'var3'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -424,7 +438,9 @@ $result_trees{'ftable_vtable'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -447,7 +463,7 @@ $result_trees{'ftable_vtable'} = {
                       'text' => 'vtable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -456,8 +472,10 @@ $result_trees{'ftable_vtable'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -467,7 +485,9 @@ $result_trees{'ftable_vtable'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -489,7 +509,7 @@ $result_trees{'ftable_vtable'} = {
                   'text' => 'function1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -509,7 +529,9 @@ $result_trees{'ftable_vtable'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -532,7 +554,7 @@ $result_trees{'ftable_vtable'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -543,7 +565,9 @@ $result_trees{'ftable_vtable'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -565,7 +589,7 @@ $result_trees{'ftable_vtable'} = {
                   'text' => 'vr'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -576,7 +600,9 @@ $result_trees{'ftable_vtable'} = {
           'extra' => {
             'misc_args' => [
               'vr'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -604,7 +630,9 @@ $result_trees{'ftable_vtable'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -696,7 +724,8 @@ $result_nodes{'ftable_vtable'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'ftable_vtable'} = {
@@ -704,7 +733,8 @@ $result_menus{'ftable_vtable'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'ftable_vtable'} = [];

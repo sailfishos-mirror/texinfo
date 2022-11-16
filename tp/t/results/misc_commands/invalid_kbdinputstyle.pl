@@ -22,7 +22,7 @@ $result_trees{'invalid_kbdinputstyle'} = {
                       'text' => 'wrong arg on line following kbdinputstyle'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,7 +30,7 @@ $result_trees{'invalid_kbdinputstyle'} = {
                 }
               ],
               'cmdname' => 'kbdinputstyle',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

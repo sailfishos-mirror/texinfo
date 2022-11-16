@@ -23,7 +23,7 @@ $result_trees{'section_in_nested_block_commands'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -44,7 +44,7 @@ $result_trees{'section_in_nested_block_commands'} = {
                               'text' => 'item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -52,7 +52,7 @@ $result_trees{'section_in_nested_block_commands'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -83,7 +83,7 @@ $result_trees{'section_in_nested_block_commands'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -126,7 +126,9 @@ $result_trees{'section_in_nested_block_commands'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -146,7 +148,7 @@ $result_trees{'section_in_nested_block_commands'} = {
               'text' => 'a section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -154,7 +156,7 @@ $result_trees{'section_in_nested_block_commands'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -195,7 +197,7 @@ $result_sectioning{'section_in_nested_block_commands'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

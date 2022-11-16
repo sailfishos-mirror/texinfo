@@ -19,7 +19,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -40,7 +40,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -155,7 +155,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -164,8 +164,10 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -198,7 +200,9 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -223,7 +227,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 'text' => 'third node'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'type' => 'line_arg'
@@ -242,7 +246,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -301,7 +305,9 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'second-node',
+          'normalized' => 'second-node'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -337,7 +343,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -370,7 +376,9 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'third-node',
+          'normalized' => 'third-node'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -387,7 +395,7 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
                 'text' => 'chapter'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -395,7 +403,8 @@ $result_trees{'nodes_after_top_before_chapter_sections'} = [
           }
         ],
         'cmdname' => 'chapter',
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -466,6 +475,7 @@ $result_sectioning{'nodes_after_top_before_chapter_sections'} = {
             'extra' => {
               'normalized' => 'third-node'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -483,6 +493,7 @@ $result_sectioning{'nodes_after_top_before_chapter_sections'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 1,
@@ -511,12 +522,14 @@ $result_nodes{'nodes_after_top_before_chapter_sections'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'section_number' => 1
@@ -537,6 +550,7 @@ $result_nodes{'nodes_after_top_before_chapter_sections'} = {
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'node_next' => {
@@ -545,6 +559,7 @@ $result_nodes{'nodes_after_top_before_chapter_sections'} = {
             'associated_section' => {},
             'normalized' => 'third-node'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'node_prev' => {},
@@ -576,12 +591,14 @@ $result_menus{'nodes_after_top_before_chapter_sections'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'section_number' => 1
@@ -602,6 +619,7 @@ $result_menus{'nodes_after_top_before_chapter_sections'} = {
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_next' => {
@@ -609,6 +627,7 @@ $result_menus{'nodes_after_top_before_chapter_sections'} = {
           'extra' => {
             'normalized' => 'third-node'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_prev' => {},
@@ -648,6 +667,7 @@ $result_elements{'nodes_after_top_before_chapter_sections'} = [
       'unit_command' => {
         'cmdname' => 'chapter',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_number' => 1

@@ -16,7 +16,7 @@ $result_trees{'empty'} = {
                 {
                   'args' => [
                     {
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' 
 '
                       },
@@ -52,8 +52,10 @@ $result_trees{'empty'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -63,7 +65,9 @@ $result_trees{'empty'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 0,
+            'max_columns' => 0
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

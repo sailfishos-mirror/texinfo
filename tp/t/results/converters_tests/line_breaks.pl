@@ -12,7 +12,7 @@ $result_trees{'line_breaks'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' 
 '
               },
@@ -44,7 +44,7 @@ $result_trees{'line_breaks'} = {
                       'text' => 'documentdescription'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -53,8 +53,10 @@ $result_trees{'line_breaks'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'documentdescription'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -88,7 +90,7 @@ $result_trees{'line_breaks'} = {
                   'text' => ' new version'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -96,7 +98,8 @@ $result_trees{'line_breaks'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -119,7 +122,7 @@ $result_trees{'line_breaks'} = {
                   'text' => ' Language---Revisited'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -127,7 +130,8 @@ $result_trees{'line_breaks'} = {
             }
           ],
           'cmdname' => 'title',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -155,7 +159,7 @@ $result_trees{'line_breaks'} = {
                   'text' => ' line break'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -163,7 +167,7 @@ $result_trees{'line_breaks'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -191,7 +195,7 @@ $result_trees{'line_breaks'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -218,7 +222,7 @@ $result_trees{'line_breaks'} = {
                               'text' => ' after'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -226,7 +230,7 @@ $result_trees{'line_breaks'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -249,7 +253,7 @@ $result_trees{'line_breaks'} = {
                               'text' => ' afterx'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -257,7 +261,7 @@ $result_trees{'line_breaks'} = {
                         }
                       ],
                       'cmdname' => 'itemx',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -294,7 +298,7 @@ $result_trees{'line_breaks'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -303,8 +307,10 @@ $result_trees{'line_breaks'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -314,7 +320,9 @@ $result_trees{'line_breaks'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -342,7 +350,7 @@ $result_trees{'line_breaks'} = {
                   'text' => ' uotation'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -368,7 +376,7 @@ $result_trees{'line_breaks'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -377,8 +385,10 @@ $result_trees{'line_breaks'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -387,7 +397,7 @@ $result_trees{'line_breaks'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -18,7 +18,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -72,7 +74,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -138,7 +140,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -147,8 +149,10 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -169,7 +173,8 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -186,7 +191,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -206,7 +211,9 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -223,7 +230,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -245,7 +252,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
                   'text' => 'on'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -256,7 +263,9 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
           'extra' => {
             'misc_args' => [
               'on'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -319,7 +328,7 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
                   'text' => 'off'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -330,7 +339,9 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
           'extra' => {
             'misc_args' => [
               'off'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -381,7 +392,8 @@ $result_trees{'test_xrefautomaticsectiontitle'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -450,9 +462,11 @@ $result_sectioning{'test_xrefautomaticsectiontitle'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -463,9 +477,11 @@ $result_sectioning{'test_xrefautomaticsectiontitle'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -494,6 +510,7 @@ $result_nodes{'test_xrefautomaticsectiontitle'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -503,6 +520,7 @@ $result_nodes{'test_xrefautomaticsectiontitle'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -510,12 +528,14 @@ $result_nodes{'test_xrefautomaticsectiontitle'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -533,12 +553,14 @@ $result_menus{'test_xrefautomaticsectiontitle'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

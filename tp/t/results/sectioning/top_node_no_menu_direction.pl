@@ -18,7 +18,7 @@ $result_trees{'top_node_no_menu_direction'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -35,7 +35,7 @@ $result_trees{'top_node_no_menu_direction'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -150,7 +150,7 @@ $result_trees{'top_node_no_menu_direction'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -159,8 +159,10 @@ $result_trees{'top_node_no_menu_direction'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -193,7 +195,9 @@ $result_trees{'top_node_no_menu_direction'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -229,7 +233,7 @@ $result_trees{'top_node_no_menu_direction'} = {
               'text' => 'TOP'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -262,7 +266,9 @@ $result_trees{'top_node_no_menu_direction'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'second-node',
+        'normalized' => 'second-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -312,12 +318,14 @@ $result_nodes{'top_node_no_menu_direction'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -335,12 +343,14 @@ $result_menus{'top_node_no_menu_direction'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {},
         'menu_up' => {},

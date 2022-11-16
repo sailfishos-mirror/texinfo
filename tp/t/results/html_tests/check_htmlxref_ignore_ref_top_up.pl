@@ -39,7 +39,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -50,7 +50,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'text' => 'first'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -67,7 +67,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -104,7 +104,9 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
             ]
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -121,7 +123,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -153,7 +155,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => 'b'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -164,7 +166,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => 'c'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -175,7 +177,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => 'no_existing_no_manual.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -215,7 +217,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => 'b'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -226,7 +228,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => 'c'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -237,7 +239,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => 'no_existing_no_manual.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -272,7 +274,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -441,7 +443,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -450,8 +452,10 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -472,7 +476,8 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -503,7 +508,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -536,7 +541,9 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
             ]
           }
         ],
-        'normalized' => 'first',
+        'normalized' => 'first'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -567,7 +574,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -587,7 +594,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'text' => 'node in dir'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -622,7 +629,9 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
             'normalized' => 'node-in-dir'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -639,7 +648,7 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -647,7 +656,8 @@ $result_trees{'check_htmlxref_ignore_ref_top_up'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -728,9 +738,11 @@ $result_sectioning{'check_htmlxref_ignore_ref_top_up'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -741,9 +753,11 @@ $result_sectioning{'check_htmlxref_ignore_ref_top_up'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -772,6 +786,7 @@ $result_nodes{'check_htmlxref_ignore_ref_top_up'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -781,12 +796,14 @@ $result_nodes{'check_htmlxref_ignore_ref_top_up'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'first'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'extra' => {
@@ -827,12 +844,14 @@ $result_menus{'check_htmlxref_ignore_ref_top_up'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'first'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'extra' => {

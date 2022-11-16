@@ -2408,7 +2408,7 @@ sub debug_hash
 use Data::Dumper;
 
 my @kept_keys = ('contents', 'cmdname', 'type', 'text', 'args',
-  'extra', 'def_role', 'spaces_before_argument',
+  'extra', 'info', 'def_role', 'spaces_before_argument',
   'spaces_after_argument', 'comment_at_end', 'index_entry'
 );
 my %kept_keys;

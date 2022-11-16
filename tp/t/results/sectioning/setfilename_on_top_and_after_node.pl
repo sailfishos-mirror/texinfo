@@ -24,7 +24,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -68,7 +70,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
                       'text' => 'very badly placed setfilename'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -77,8 +79,10 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'very badly placed setfilename'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -105,7 +109,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
                   'text' => 'a bit too late'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -114,8 +118,10 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'a bit too late'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -124,7 +130,8 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -161,9 +168,11 @@ $result_sectioning{'setfilename_on_top_and_after_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -181,17 +190,20 @@ $result_nodes{'setfilename_on_top_and_after_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'setfilename_on_top_and_after_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'setfilename_on_top_and_after_node'} = [

@@ -21,7 +21,7 @@ $result_trees{'section_on_index_entry_line'} = {
             }
           ],
           'cmdname' => 'cindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -41,7 +41,7 @@ $result_trees{'section_on_index_entry_line'} = {
               'text' => 'b'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -65,7 +65,7 @@ $result_trees{'section_on_index_entry_line'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -95,7 +95,7 @@ $result_sectioning{'section_on_index_entry_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

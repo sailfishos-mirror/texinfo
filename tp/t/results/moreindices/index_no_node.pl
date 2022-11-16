@@ -39,7 +39,7 @@ $result_trees{'index_no_node'} = {
                       'text' => 'index_no_node'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'index_no_node'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'index_no_node'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'index_no_node.texi',
@@ -73,7 +75,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -92,7 +94,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -119,7 +123,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -130,7 +134,9 @@ $result_trees{'index_no_node'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -160,7 +166,7 @@ $result_trees{'index_no_node'} = {
               'text' => 'unnumbered'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -177,7 +183,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'bidule'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -185,7 +191,7 @@ $result_trees{'index_no_node'} = {
             }
           ],
           'cmdname' => 'printindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -207,7 +213,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'unnumbered'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -226,7 +232,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -250,7 +258,7 @@ $result_trees{'index_no_node'} = {
                       'text' => 'unnumbered after text'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -269,7 +277,9 @@ $result_trees{'index_no_node'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -295,7 +305,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -306,7 +316,9 @@ $result_trees{'index_no_node'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -321,7 +333,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -338,7 +351,7 @@ $result_trees{'index_no_node'} = {
               'text' => 'top section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -360,7 +373,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'top section'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -379,7 +392,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -397,7 +412,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'top section'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -416,7 +431,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -434,7 +451,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'top section'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -453,7 +470,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -471,7 +490,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'top section'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -490,7 +509,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -508,7 +529,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'top section'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -527,7 +548,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -545,7 +568,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'top section'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -564,7 +587,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -596,7 +621,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -607,7 +632,9 @@ $result_trees{'index_no_node'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -629,7 +656,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'top section1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -648,7 +675,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -669,7 +698,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -686,7 +716,7 @@ $result_trees{'index_no_node'} = {
               'text' => 'second'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -708,7 +738,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -719,7 +749,9 @@ $result_trees{'index_no_node'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -736,7 +768,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'second'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -755,7 +787,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -779,7 +813,7 @@ $result_trees{'index_no_node'} = {
                       'text' => 'second'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -798,7 +832,9 @@ $result_trees{'index_no_node'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -824,7 +860,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -835,7 +871,9 @@ $result_trees{'index_no_node'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -845,7 +883,8 @@ $result_trees{'index_no_node'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -862,7 +901,7 @@ $result_trees{'index_no_node'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -879,7 +918,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'chapter'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -898,7 +937,9 @@ $result_trees{'index_no_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -921,7 +962,7 @@ $result_trees{'index_no_node'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -932,7 +973,9 @@ $result_trees{'index_no_node'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -955,7 +998,7 @@ $result_trees{'index_no_node'} = {
                       'text' => 'Chapter2'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -974,7 +1017,9 @@ $result_trees{'index_no_node'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -993,7 +1038,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1010,7 +1056,7 @@ $result_trees{'index_no_node'} = {
               'text' => 'Chapter 2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1039,7 +1085,8 @@ $result_trees{'index_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1201,6 +1248,7 @@ $result_sectioning{'index_no_node'} = {
       {
         'cmdname' => 'unnumbered',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_up' => {}
@@ -1209,11 +1257,13 @@ $result_sectioning{'index_no_node'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_up' => {}
@@ -1229,6 +1279,7 @@ $result_sectioning{'index_no_node'} = {
       {
         'cmdname' => 'chapter',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -1241,6 +1292,7 @@ $result_sectioning{'index_no_node'} = {
       {
         'cmdname' => 'chapter',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 2,

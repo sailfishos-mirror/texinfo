@@ -38,7 +38,7 @@ $result_trees{'value_in_invalid_documentencoding'} = {
                   'text' => 'bad'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -47,8 +47,10 @@ $result_trees{'value_in_invalid_documentencoding'} = {
           ],
           'cmdname' => 'documentencoding',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'bad'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

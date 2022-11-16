@@ -19,7 +19,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'combined_fonts.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -28,8 +28,10 @@ $result_trees{'combined_fonts'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'combined_fonts.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -56,7 +58,7 @@ $result_trees{'combined_fonts'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +78,9 @@ $result_trees{'combined_fonts'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +97,7 @@ $result_trees{'combined_fonts'} = {
               'text' => 'top section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -108,7 +112,8 @@ $result_trees{'combined_fonts'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -125,7 +130,7 @@ $result_trees{'combined_fonts'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -145,7 +150,9 @@ $result_trees{'combined_fonts'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -162,7 +169,7 @@ $result_trees{'combined_fonts'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1065,7 +1072,7 @@ $result_trees{'combined_fonts'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1131,7 +1138,7 @@ $result_trees{'combined_fonts'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1140,8 +1147,10 @@ $result_trees{'combined_fonts'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1157,7 +1166,8 @@ $result_trees{'combined_fonts'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1261,9 +1271,11 @@ $result_sectioning{'combined_fonts'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1274,9 +1286,11 @@ $result_sectioning{'combined_fonts'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1305,10 +1319,12 @@ $result_nodes{'combined_fonts'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1316,12 +1332,14 @@ $result_nodes{'combined_fonts'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1337,6 +1355,7 @@ $result_menus{'combined_fonts'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

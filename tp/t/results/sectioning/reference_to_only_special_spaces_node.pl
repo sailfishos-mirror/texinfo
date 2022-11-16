@@ -34,7 +34,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -54,7 +54,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -71,7 +73,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -86,7 +88,8 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -103,7 +106,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'text' => "\x{2000}\x{2001}\x{2002}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -123,7 +126,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             'normalized' => '_2002_2003_2002'
           }
         ],
-        'normalized' => '_2002_2003_2002',
+        'normalized' => '_2002_2003_2002'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -140,7 +145,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               'text' => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -164,7 +169,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       'text' => "\x{2000}\x{2001}\x{2002}"
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -175,7 +180,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       'text' => "\x{2000}\x{2001}\x{2002}"
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -210,7 +215,8 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -242,7 +248,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -258,7 +264,9 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
             ],
             'normalized' => '_2002_2003_2002'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -290,7 +298,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -352,7 +360,7 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -392,7 +400,8 @@ $result_trees{'reference_to_only_special_spaces_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -470,9 +479,11 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -483,9 +494,11 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
                   'extra' => {
                     'normalized' => '_2002_2003_2002'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -499,9 +512,11 @@ $result_sectioning{'reference_to_only_special_spaces_node'} = {
               'extra' => {
                 'associated_node' => {
                   'cmdname' => 'node',
-                  'extra' => {}
+                  'extra' => {},
+                  'info' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -535,10 +550,12 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -546,12 +563,14 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => '_2002_2003_2002'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -559,11 +578,13 @@ $result_nodes{'reference_to_only_special_spaces_node'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             }
-          }
+          },
+          'info' => {}
         },
         'node_prev' => {},
         'node_up' => {}
@@ -579,6 +600,7 @@ $result_menus{'reference_to_only_special_spaces_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

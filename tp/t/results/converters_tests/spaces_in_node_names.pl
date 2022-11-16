@@ -18,7 +18,7 @@ $result_trees{'spaces_in_node_names'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -35,7 +35,7 @@ $result_trees{'spaces_in_node_names'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -234,7 +234,7 @@ $result_trees{'spaces_in_node_names'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -243,8 +243,10 @@ $result_trees{'spaces_in_node_names'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -277,7 +279,9 @@ $result_trees{'spaces_in_node_names'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -300,7 +304,7 @@ $result_trees{'spaces_in_node_names'} = {
               'cmdname' => ' '
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -331,7 +335,9 @@ $result_trees{'spaces_in_node_names'} = {
             'normalized' => 'a-'
           }
         ],
-        'normalized' => 'a-',
+        'normalized' => 'a-'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -370,7 +376,7 @@ $result_trees{'spaces_in_node_names'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -399,7 +405,9 @@ $result_trees{'spaces_in_node_names'} = {
             'normalized' => 'b-'
           }
         ],
-        'normalized' => 'b-',
+        'normalized' => 'b-'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -434,7 +442,7 @@ $result_trees{'spaces_in_node_names'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -631,7 +639,9 @@ $result_trees{'spaces_in_node_names'} = {
             'normalized' => 'c-'
           }
         ],
-        'normalized' => 'c-',
+        'normalized' => 'c-'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -727,24 +737,28 @@ $result_nodes{'spaces_in_node_names'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'a-'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'b-'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'c-'
               },
+              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -774,24 +788,28 @@ $result_menus{'spaces_in_node_names'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'a-'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'b-'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'c-'
               },
+              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

@@ -52,7 +52,7 @@ $result_trees{'inlineraw_with_empty_line'} = {
                       'text' => ' '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -119,7 +119,7 @@ $result_trees{'inlineraw_with_empty_line'} = {
                       'text' => '</i>'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

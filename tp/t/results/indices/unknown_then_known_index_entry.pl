@@ -23,7 +23,7 @@ $result_trees{'unknown_then_known_index_entry'} = {
                       'text' => 'some'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -34,7 +34,9 @@ $result_trees{'unknown_then_known_index_entry'} = {
               'extra' => {
                 'misc_args' => [
                   'some'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -51,7 +53,7 @@ $result_trees{'unknown_then_known_index_entry'} = {
                       'text' => 'someindex entry.'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -70,7 +72,9 @@ $result_trees{'unknown_then_known_index_entry'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'some',
                   'index_type_command' => 'someindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

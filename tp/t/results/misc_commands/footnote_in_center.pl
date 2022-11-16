@@ -41,7 +41,7 @@ $result_trees{'footnote_in_center'} = {
                         {
                           'args' => [
                             {
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -64,7 +64,7 @@ $result_trees{'footnote_in_center'} = {
                                       'type' => 'command_as_argument'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -85,7 +85,7 @@ $result_trees{'footnote_in_center'} = {
                                                   'text' => 'item'
                                                 }
                                               ],
-                                              'extra' => {
+                                              'info' => {
                                                 'spaces_after_argument' => '
 '
                                               },
@@ -93,7 +93,7 @@ $result_trees{'footnote_in_center'} = {
                                             }
                                           ],
                                           'cmdname' => 'item',
-                                          'extra' => {
+                                          'info' => {
                                             'spaces_before_argument' => ' '
                                           },
                                           'source_info' => {
@@ -130,7 +130,7 @@ $result_trees{'footnote_in_center'} = {
                                           'text' => 'table'
                                         }
                                       ],
-                                      'extra' => {
+                                      'info' => {
                                         'spaces_after_argument' => ' 
 '
                                       },
@@ -139,8 +139,10 @@ $result_trees{'footnote_in_center'} = {
                                   ],
                                   'cmdname' => 'end',
                                   'extra' => {
-                                    'spaces_before_argument' => ' ',
                                     'text_arg' => 'table'
+                                  },
+                                  'info' => {
+                                    'spaces_before_argument' => ' '
                                   },
                                   'source_info' => {
                                     'file_name' => '',
@@ -150,7 +152,9 @@ $result_trees{'footnote_in_center'} = {
                                 }
                               ],
                               'extra' => {
-                                'command_as_argument' => {},
+                                'command_as_argument' => {}
+                              },
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -167,7 +171,7 @@ $result_trees{'footnote_in_center'} = {
                                       'text' => 'example'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -176,8 +180,10 @@ $result_trees{'footnote_in_center'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'example'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -207,7 +213,7 @@ $result_trees{'footnote_in_center'} = {
                   'text' => ' and text after the footnote.'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -215,7 +221,7 @@ $result_trees{'footnote_in_center'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

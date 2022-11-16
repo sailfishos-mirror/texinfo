@@ -54,7 +54,7 @@ $result_trees{'value_node_directions'} = {
               'text' => 'bar'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -71,7 +71,7 @@ $result_trees{'value_node_directions'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -88,7 +88,7 @@ $result_trees{'value_node_directions'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -125,7 +125,9 @@ $result_trees{'value_node_directions'} = {
             ]
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -142,7 +144,7 @@ $result_trees{'value_node_directions'} = {
               'text' => 'Var bar'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -166,7 +168,8 @@ $result_trees{'value_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -191,7 +194,7 @@ $result_trees{'value_node_directions'} = {
               'text' => 'BarFoo'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -202,7 +205,7 @@ $result_trees{'value_node_directions'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -219,7 +222,7 @@ $result_trees{'value_node_directions'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -257,7 +260,9 @@ $result_trees{'value_node_directions'} = {
             ]
           }
         ],
-        'normalized' => 'bar',
+        'normalized' => 'bar'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -274,7 +279,7 @@ $result_trees{'value_node_directions'} = {
               'text' => 'BarFoo'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -289,7 +294,8 @@ $result_trees{'value_node_directions'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -309,7 +315,7 @@ $result_trees{'value_node_directions'} = {
           'type' => 'line_arg'
         },
         {
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -320,7 +326,7 @@ $result_trees{'value_node_directions'} = {
               'text' => 'bar'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -337,7 +343,7 @@ $result_trees{'value_node_directions'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -370,7 +376,9 @@ $result_trees{'value_node_directions'} = {
             ]
           }
         ],
-        'normalized' => 'BarFoo',
+        'normalized' => 'BarFoo'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -387,7 +395,7 @@ $result_trees{'value_node_directions'} = {
               'text' => 'bar'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -395,7 +403,8 @@ $result_trees{'value_node_directions'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -459,9 +468,11 @@ $result_sectioning{'value_node_directions'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -472,9 +483,11 @@ $result_sectioning{'value_node_directions'} = {
                   'extra' => {
                     'normalized' => 'bar'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -491,9 +504,11 @@ $result_sectioning{'value_node_directions'} = {
                   'extra' => {
                     'normalized' => 'BarFoo'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -527,10 +542,12 @@ $result_nodes{'value_node_directions'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -538,12 +555,14 @@ $result_nodes{'value_node_directions'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'bar'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -551,12 +570,14 @@ $result_nodes{'value_node_directions'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'BarFoo'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {
@@ -610,6 +631,7 @@ $result_menus{'value_node_directions'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

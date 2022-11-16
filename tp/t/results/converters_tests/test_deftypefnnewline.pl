@@ -17,7 +17,7 @@ $result_trees{'test_deftypefnnewline'} = {
                   'text' => 'test_deftypefnnewline.info'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -26,8 +26,10 @@ $result_trees{'test_deftypefnnewline'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'test_deftypefnnewline.info'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -48,7 +50,7 @@ $result_trees{'test_deftypefnnewline'} = {
                   'text' => 'on'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -59,7 +61,9 @@ $result_trees{'test_deftypefnnewline'} = {
           'extra' => {
             'misc_args' => [
               'on'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -84,7 +88,7 @@ $result_trees{'test_deftypefnnewline'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -104,7 +108,9 @@ $result_trees{'test_deftypefnnewline'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -121,7 +127,7 @@ $result_trees{'test_deftypefnnewline'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -136,7 +142,8 @@ $result_trees{'test_deftypefnnewline'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -153,7 +160,7 @@ $result_trees{'test_deftypefnnewline'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -173,7 +180,9 @@ $result_trees{'test_deftypefnnewline'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -190,7 +199,7 @@ $result_trees{'test_deftypefnnewline'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -327,7 +336,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypefun'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -336,8 +345,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -346,7 +357,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -465,7 +476,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -474,8 +485,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -484,7 +497,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -638,7 +651,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -647,8 +660,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -657,7 +672,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -798,7 +813,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -807,8 +822,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -817,7 +834,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -958,7 +975,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -967,8 +984,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -977,7 +996,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1131,7 +1150,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1140,8 +1159,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1150,7 +1171,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1255,7 +1276,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1264,8 +1285,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1274,7 +1297,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1296,7 +1319,7 @@ $result_trees{'test_deftypefnnewline'} = {
                   'text' => 'off'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1307,7 +1330,9 @@ $result_trees{'test_deftypefnnewline'} = {
           'extra' => {
             'misc_args' => [
               'off'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1444,7 +1469,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypefun'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1453,8 +1478,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1463,7 +1490,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1582,7 +1609,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1591,8 +1618,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1601,7 +1630,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1755,7 +1784,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1764,8 +1793,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1774,7 +1805,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1915,7 +1946,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1924,8 +1955,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1934,7 +1967,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2075,7 +2108,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2084,8 +2117,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2094,7 +2129,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2248,7 +2283,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2257,8 +2292,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2267,7 +2304,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2372,7 +2409,7 @@ $result_trees{'test_deftypefnnewline'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2381,8 +2418,10 @@ $result_trees{'test_deftypefnnewline'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2391,7 +2430,7 @@ $result_trees{'test_deftypefnnewline'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2401,7 +2440,8 @@ $result_trees{'test_deftypefnnewline'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2671,9 +2711,11 @@ $result_sectioning{'test_deftypefnnewline'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -2684,9 +2726,11 @@ $result_sectioning{'test_deftypefnnewline'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -2715,10 +2759,12 @@ $result_nodes{'test_deftypefnnewline'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -2726,12 +2772,14 @@ $result_nodes{'test_deftypefnnewline'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -2747,6 +2795,7 @@ $result_menus{'test_deftypefnnewline'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

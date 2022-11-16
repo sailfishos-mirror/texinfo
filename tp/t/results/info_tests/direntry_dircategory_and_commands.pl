@@ -38,7 +38,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                   'text' => '?\'\''
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -46,7 +46,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
             }
           ],
           'cmdname' => 'dircategory',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -58,7 +58,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -163,7 +163,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                       'text' => 'direntry'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -172,8 +172,10 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -201,7 +203,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                   'text' => 'cat2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -209,7 +211,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
             }
           ],
           'cmdname' => 'dircategory',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -221,7 +223,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -315,7 +317,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
                       'text' => 'direntry'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -324,8 +326,10 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -361,7 +365,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -381,7 +385,9 @@ $result_trees{'direntry_dircategory_and_commands'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -398,7 +404,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
               'text' => 'Test dircategory and direntry'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -422,7 +428,8 @@ $result_trees{'direntry_dircategory_and_commands'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -488,9 +495,11 @@ $result_sectioning{'direntry_dircategory_and_commands'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -508,17 +517,20 @@ $result_nodes{'direntry_dircategory_and_commands'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'direntry_dircategory_and_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'direntry_dircategory_and_commands'} = [];

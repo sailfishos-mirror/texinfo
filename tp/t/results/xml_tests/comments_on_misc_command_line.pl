@@ -33,7 +33,9 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => '  '
               },
               'type' => 'line_arg'
@@ -41,8 +43,10 @@ $result_trees{'comments_on_misc_command_line'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'spaces_before_argument' => '  ',
             'text_arg' => 'comments_on_misc_command_line.info'
+          },
+          'info' => {
+            'spaces_before_argument' => '  '
           },
           'source_info' => {
             'file_name' => '',
@@ -74,7 +78,9 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => '  '
               },
               'type' => 'line_arg'
@@ -86,7 +92,9 @@ $result_trees{'comments_on_misc_command_line'} = {
               'phoo',
               ';',
               ':'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -119,7 +127,9 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -129,7 +139,9 @@ $result_trees{'comments_on_misc_command_line'} = {
           'extra' => {
             'misc_args' => [
               'none'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -187,14 +199,16 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'pagesizes',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -236,14 +250,16 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'everyheading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

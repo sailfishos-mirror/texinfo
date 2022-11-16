@@ -41,7 +41,7 @@ $result_trees{'test_image'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -50,8 +50,10 @@ $result_trees{'test_image'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -78,7 +80,7 @@ $result_trees{'test_image'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -150,7 +152,7 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -306,7 +308,7 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -325,7 +327,7 @@ $result_trees{'test_image'} = {
                           'text' => '1cm'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -430,7 +432,7 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '  ',
                         'spaces_before_argument' => ' '
                       },
@@ -519,7 +521,7 @@ $result_trees{'test_image'} = {
                       'text' => 'copying'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -528,8 +530,10 @@ $result_trees{'test_image'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -560,7 +564,7 @@ $result_trees{'test_image'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -631,7 +635,7 @@ $result_trees{'test_image'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'brace_command_arg'
@@ -784,7 +788,7 @@ $result_trees{'test_image'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -803,7 +807,7 @@ $result_trees{'test_image'} = {
                       'text' => '1cm'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -908,7 +912,7 @@ $result_trees{'test_image'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '  ',
                     'spaces_before_argument' => ' '
                   },
@@ -1026,7 +1030,7 @@ $result_trees{'test_image'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1094,7 +1098,7 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -1245,7 +1249,7 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -1264,7 +1268,7 @@ $result_trees{'test_image'} = {
                           'text' => '1cm'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -1369,7 +1373,7 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '  ',
                         'spaces_before_argument' => ' '
                       },
@@ -1458,7 +1462,7 @@ $result_trees{'test_image'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1467,8 +1471,10 @@ $result_trees{'test_image'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1504,7 +1510,7 @@ $result_trees{'test_image'} = {
                   'text' => 'Image with commands'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -1571,7 +1577,7 @@ $result_trees{'test_image'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1724,7 +1730,7 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -1743,7 +1749,7 @@ $result_trees{'test_image'} = {
                           'text' => '1cm'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -1848,7 +1854,7 @@ $result_trees{'test_image'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '  ',
                         'spaces_before_argument' => ' '
                       },
@@ -1995,7 +2001,7 @@ $result_trees{'test_image'} = {
                               }
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => ' '
                           },
                           'type' => 'brace_command_arg'
@@ -2148,7 +2154,7 @@ $result_trees{'test_image'} = {
                                   }
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => ' '
                               },
                               'type' => 'brace_command_arg'
@@ -2167,7 +2173,7 @@ $result_trees{'test_image'} = {
                                   'text' => '1cm'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'type' => 'brace_command_arg'
@@ -2272,7 +2278,7 @@ $result_trees{'test_image'} = {
                                   }
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '  ',
                                 'spaces_before_argument' => ' '
                               },
@@ -2378,7 +2384,7 @@ $result_trees{'test_image'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2387,8 +2393,10 @@ $result_trees{'test_image'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2403,13 +2411,15 @@ $result_trees{'test_image'} = {
               {}
             ],
             'normalized' => 'Image-with-commands',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Image'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -2430,7 +2440,7 @@ $result_trees{'test_image'} = {
                   'text' => 'Image'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2439,13 +2449,15 @@ $result_trees{'test_image'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Image'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -2471,7 +2483,9 @@ $result_trees{'test_image'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2561,14 +2575,16 @@ $result_nodes{'test_image'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'test_image'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'test_image'} = [
@@ -2821,6 +2837,7 @@ $result_floats{'test_image'} = {
           'normalized' => 'Image'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

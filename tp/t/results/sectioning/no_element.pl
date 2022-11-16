@@ -17,7 +17,7 @@ $result_trees{'no_element'} = {
                   'text' => 'no_element test'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -25,7 +25,8 @@ $result_trees{'no_element'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -42,7 +43,7 @@ $result_trees{'no_element'} = {
                   'text' => 'ISO-8859-1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -53,8 +54,10 @@ $result_trees{'no_element'} = {
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'input_perl_encoding' => 'iso-8859-1',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'ISO-8859-1'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -324,7 +327,7 @@ $result_trees{'no_element'} = {
                   'text' => 'float anchor'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -351,7 +354,7 @@ $result_trees{'no_element'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -360,8 +363,10 @@ $result_trees{'no_element'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -375,10 +380,12 @@ $result_trees{'no_element'} = {
               {}
             ],
             'normalized' => 'float-anchor',
-            'spaces_before_argument' => ' ',
             'type' => {
               'normalized' => ''
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -439,7 +446,7 @@ $result_trees{'no_element'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -505,7 +512,7 @@ $result_trees{'no_element'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -514,8 +521,10 @@ $result_trees{'no_element'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -543,7 +552,7 @@ $result_trees{'no_element'} = {
                   'text' => 'index entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -562,7 +571,9 @@ $result_trees{'no_element'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -674,6 +685,7 @@ $result_floats{'no_element'} = {
           'normalized' => ''
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

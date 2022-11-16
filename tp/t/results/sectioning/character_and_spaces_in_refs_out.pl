@@ -19,7 +19,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -39,7 +39,9 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -56,7 +58,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'text' => 'Test refs'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -73,7 +75,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -188,7 +190,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -197,8 +199,10 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -219,7 +223,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -244,7 +249,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'text' => 'node to avoid DocBook or LaTeX ignored'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -264,7 +269,9 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
             }
           ],
-          'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored',
+          'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -281,7 +288,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'text' => 'first chapter'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -303,7 +310,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                     'text' => 'Testing distant nodes'
                   }
                 ],
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -311,7 +318,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               }
             ],
             'cmdname' => 'subheading',
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'source_info' => {
@@ -335,7 +342,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => 'a  node'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => ' ',
                       'spaces_before_argument' => ' '
                     },
@@ -353,7 +360,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => 'manual'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_before_argument' => ' '
                     },
                     'type' => 'brace_command_arg'
@@ -428,7 +435,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => 'top'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => ' ',
                       'spaces_before_argument' => ' '
                     },
@@ -446,7 +453,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => 'manual'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_before_argument' => ' '
                     },
                     'type' => 'brace_command_arg'
@@ -533,7 +540,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => '../manual/doc'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_before_argument' => ' '
                     },
                     'type' => 'brace_command_arg'
@@ -573,7 +580,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                     'text' => 'Testing local nodes'
                   }
                 ],
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -581,7 +588,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               }
             ],
             'cmdname' => 'subheading',
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'source_info' => {
@@ -626,7 +633,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                             'text' => '/;<=>?[\\]^_`|~'
                           }
                         ],
-                        'extra' => {
+                        'info' => {
                           'spaces_before_argument' => ' '
                         },
                         'type' => 'line_arg'
@@ -637,7 +644,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                             'text' => 'other nodes'
                           }
                         ],
-                        'extra' => {
+                        'info' => {
                           'spaces_before_argument' => ' '
                         },
                         'type' => 'line_arg'
@@ -648,7 +655,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                             'text' => 'other nodes'
                           }
                         ],
-                        'extra' => {
+                        'info' => {
                           'spaces_after_argument' => '
 ',
                           'spaces_before_argument' => ' '
@@ -694,7 +701,9 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                           'normalized' => 'other-nodes'
                         }
                       ],
-                      'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e',
+                      'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
+                    },
+                    'info' => {
                       'spaces_before_argument' => ' '
                     },
                     'source_info' => {
@@ -765,7 +774,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                             'text' => 'other nodes'
                           }
                         ],
-                        'extra' => {
+                        'info' => {
                           'spaces_after_argument' => '
 ',
                           'spaces_before_argument' => ' '
@@ -811,7 +820,9 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                           'normalized' => 'other-nodes'
                         }
                       ],
-                      'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
+                      'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
+                    },
+                    'info' => {
                       'spaces_before_argument' => ' '
                     },
                     'source_info' => {
@@ -845,7 +856,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => 'Top'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_before_argument' => ' '
                     },
                     'type' => 'brace_command_arg'
@@ -879,7 +890,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => 'local   node'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_before_argument' => '  '
                     },
                     'type' => 'brace_command_arg'
@@ -914,7 +925,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                             'text' => 'other nodes'
                           }
                         ],
-                        'extra' => {
+                        'info' => {
                           'spaces_after_argument' => '
 '
                         },
@@ -954,7 +965,9 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                           'normalized' => 'other-nodes'
                         }
                       ],
-                      'normalized' => 'local-node',
+                      'normalized' => 'local-node'
+                    },
+                    'info' => {
                       'spaces_before_argument' => '  '
                     },
                     'source_info' => {
@@ -989,7 +1002,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1022,7 +1036,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'text' => '!_"#$%&\'()*+-.'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'type' => 'line_arg'
@@ -1033,7 +1047,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'type' => 'line_arg'
@@ -1044,7 +1058,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 ',
               'spaces_before_argument' => ' '
@@ -1083,7 +1097,9 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'other-nodes',
+          'normalized' => 'other-nodes'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1100,7 +1116,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 'text' => 'Chapter with nodes'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1117,7 +1133,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -1281,7 +1297,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -1290,8 +1306,10 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -1312,7 +1330,8 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1513,6 +1532,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -1527,6 +1547,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                           'extra' => {
                             'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -1543,6 +1564,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                                 'extra' => {
                                   'normalized' => 'other-nodes'
                                 },
+                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {}
                                 }
@@ -1559,6 +1581,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                                       'extra' => {
                                         'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
                                       },
+                                      'info' => {},
                                       'structure' => {
                                         'associated_unit' => {}
                                       }
@@ -1575,6 +1598,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                                             'extra' => {
                                               'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
                                             },
+                                            'info' => {},
                                             'structure' => {
                                               'associated_unit' => {}
                                             }
@@ -1591,6 +1615,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
                                                   'extra' => {
                                                     'normalized' => 'local-node'
                                                   },
+                                                  'info' => {},
                                                   'structure' => {
                                                     'associated_unit' => {}
                                                   }
@@ -1675,6 +1700,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_childs' => [
@@ -1683,6 +1709,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
               'extra' => {
                 'associated_node' => {}
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_level' => 1,
@@ -1697,6 +1724,7 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
               'extra' => {
                 'associated_node' => {}
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_level' => 1,
@@ -1800,6 +1828,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -1815,6 +1844,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                       'associated_section' => {
                         'cmdname' => 'chapter',
                         'extra' => {},
+                        'info' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'section_number' => 1
@@ -1822,6 +1852,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                       },
                       'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
                     },
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'node_next' => {
@@ -1830,6 +1861,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                           'associated_section' => {
                             'cmdname' => 'chapter',
                             'extra' => {},
+                            'info' => {},
                             'structure' => {
                               'associated_unit' => {
                                 'extra' => {
@@ -1846,6 +1878,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                                           'extra' => {
                                             'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
                                           },
+                                          'info' => {},
                                           'structure' => {
                                             'associated_unit' => {},
                                             'node_next' => {
@@ -1853,6 +1886,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                                               'extra' => {
                                                 'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
                                               },
+                                              'info' => {},
                                               'structure' => {
                                                 'associated_unit' => {
                                                   'extra' => {
@@ -1869,6 +1903,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                                                             'extra' => {
                                                               'normalized' => 'local-node'
                                                             },
+                                                            'info' => {},
                                                             'structure' => {
                                                               'associated_unit' => {},
                                                               'node_prev' => {},
@@ -1953,6 +1988,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                           ],
                           'normalized' => 'other-nodes'
                         },
+                        'info' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'menu_child' => {},
@@ -2004,6 +2040,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {},
@@ -2100,6 +2137,7 @@ $result_menus{'character_and_spaces_in_refs_out'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -2114,6 +2152,7 @@ $result_menus{'character_and_spaces_in_refs_out'} = {
                 'extra' => {
                   'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
                 },
+                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_next' => {
@@ -2121,6 +2160,7 @@ $result_menus{'character_and_spaces_in_refs_out'} = {
                     'extra' => {
                       'normalized' => 'other-nodes'
                     },
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {
                         'extra' => {
@@ -2137,6 +2177,7 @@ $result_menus{'character_and_spaces_in_refs_out'} = {
                                   'extra' => {
                                     'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
                                   },
+                                  'info' => {},
                                   'structure' => {
                                     'associated_unit' => {},
                                     'menu_next' => {
@@ -2144,6 +2185,7 @@ $result_menus{'character_and_spaces_in_refs_out'} = {
                                       'extra' => {
                                         'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
                                       },
+                                      'info' => {},
                                       'structure' => {
                                         'associated_unit' => {
                                           'extra' => {
@@ -2160,6 +2202,7 @@ $result_menus{'character_and_spaces_in_refs_out'} = {
                                                     'extra' => {
                                                       'normalized' => 'local-node'
                                                     },
+                                                    'info' => {},
                                                     'structure' => {
                                                       'associated_unit' => {},
                                                       'menu_prev' => {},
@@ -2381,6 +2424,7 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
         'extra' => {
           'normalized' => 'Top'
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -2388,6 +2432,7 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
             'extra' => {
               'normalized' => 'node-to-avoid-DocBook-or-LaTeX-ignored'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -2404,6 +2449,7 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
                           'extra' => {
                             'normalized' => 'other-nodes'
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'menu_child' => {
@@ -2411,6 +2457,7 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
                               'extra' => {
                                 'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
                               },
+                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {
                                   'extra' => {
@@ -2427,6 +2474,7 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
                                             'extra' => {
                                               'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
                                             },
+                                            'info' => {},
                                             'structure' => {
                                               'associated_unit' => {},
                                               'menu_next' => {
@@ -2434,6 +2482,7 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
                                                 'extra' => {
                                                   'normalized' => 'local-node'
                                                 },
+                                                'info' => {},
                                                 'structure' => {
                                                   'associated_unit' => {
                                                     'extra' => {

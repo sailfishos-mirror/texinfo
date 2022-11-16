@@ -24,7 +24,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -61,7 +63,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +78,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +96,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -113,7 +116,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -130,7 +135,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -147,7 +152,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -216,7 +221,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -225,8 +230,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -252,7 +259,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -276,7 +283,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'text' => 'index inter in enumerate between lines'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -296,7 +303,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -348,7 +357,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -357,8 +366,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -384,7 +395,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -408,7 +419,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'text' => 'index inter in enumerate after line'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -428,7 +439,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -475,7 +488,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -484,8 +497,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -511,7 +526,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -530,7 +545,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'text' => 'index inter in enumerate before line'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -550,7 +565,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -602,7 +619,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -611,8 +628,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -638,7 +657,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -663,7 +682,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                               'text' => 'cindex'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -683,7 +702,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'cp',
                           'index_type_command' => 'cindex'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -733,7 +754,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -742,8 +763,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -769,7 +792,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -788,7 +811,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'text' => 'first idx'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -808,7 +831,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -842,7 +867,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'text' => 'sedond idx'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -862,7 +887,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -880,7 +907,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'text' => 'another'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -900,7 +927,9 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -947,7 +976,7 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -956,8 +985,10 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -981,7 +1012,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1111,9 +1143,11 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1124,9 +1158,11 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1155,10 +1191,12 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1166,12 +1204,14 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1187,6 +1227,7 @@ $result_menus{'inter_item_commands_in_enumerate'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

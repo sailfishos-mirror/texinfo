@@ -12,7 +12,7 @@ $result_trees{'mathjax_with_texinfo'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -114,7 +114,7 @@ $result_trees{'mathjax_with_texinfo'} = {
                       'text' => 'displaymath'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -123,8 +123,10 @@ $result_trees{'mathjax_with_texinfo'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'displaymath'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

@@ -104,7 +104,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => 'a-b c-d'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -152,7 +152,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                       'text' => '1234'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },

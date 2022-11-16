@@ -646,15 +646,15 @@ abort_empty_line (ELEMENT **current_inout, char *additional_spaces)
                || last_child->type == ET_internal_spaces_before_argument)
         {
           /* Remove element from main tree. It will still be referenced in
-             the 'extra' hash as 'spaces_before_argument'. */
+             the 'info' hash as 'spaces_before_argument'. */
           ELEMENT *owning_element;
           KEY_PAIR *k;
           ELEMENT *e = pop_element_from_contents (current);
 
           k = lookup_extra (last_child, "spaces_associated_command");
           owning_element = (ELEMENT *) k->value;
-          add_extra_string_dup (owning_element, "spaces_before_argument",
-                                e->text.text);
+          add_info_string_dup (owning_element, "spaces_before_argument",
+                               e->text.text);
           destroy_element (e);
         }
     }
@@ -680,8 +680,8 @@ isolate_last_space_internal (ELEMENT *current)
   /* If text all whitespace */
   if (text[strspn (text, whitespace_chars)] == '\0')
     {
-      add_extra_string_dup (current, "spaces_after_argument",
-                            last_elt->text.text);
+      add_info_string_dup (current, "spaces_after_argument",
+                           last_elt->text.text);
       destroy_element (pop_element_from_contents (current));
     }
   else
@@ -704,8 +704,8 @@ isolate_last_space_internal (ELEMENT *current)
       text[text_len - trailing_spaces] = '\0';
       last_elt->text.end -= trailing_spaces;
 
-      add_extra_string_dup (current, "spaces_after_argument",
-                            t.text);
+      add_info_string_dup (current, "spaces_after_argument",
+                           t.text);
     }
 }
 
@@ -2068,7 +2068,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
               && last_contents_child(current)->type
                  == ET_internal_spaces_before_argument)
             {
-              /* Remove this element and update 'extra' values. */
+              /* Remove this element and update 'info' values. */
               abort_empty_line (&current, 0);
             }
 

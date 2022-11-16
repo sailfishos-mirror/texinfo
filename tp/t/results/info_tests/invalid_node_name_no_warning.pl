@@ -25,7 +25,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -42,7 +42,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -291,7 +291,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -300,8 +300,10 @@ $result_trees{'invalid_node_name_no_warning'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -334,7 +336,9 @@ $result_trees{'invalid_node_name_no_warning'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -366,7 +370,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -393,7 +397,9 @@ $result_trees{'invalid_node_name_no_warning'} = {
             'normalized' => 'nodename_002e-a'
           }
         ],
-        'normalized' => 'nodename_002e-a',
+        'normalized' => 'nodename_002e-a'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -426,7 +432,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
               'text' => 'comma'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -457,7 +463,9 @@ $result_trees{'invalid_node_name_no_warning'} = {
             'normalized' => 'node_002ccomma'
           }
         ],
-        'normalized' => 'node_002ccomma',
+        'normalized' => 'node_002ccomma'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -489,7 +497,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -551,7 +559,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -608,7 +616,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
                       'text' => 'machin'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -698,7 +706,9 @@ $result_trees{'invalid_node_name_no_warning'} = {
             'normalized' => 'bidule_003a'
           }
         ],
-        'normalized' => 'bidule_003a',
+        'normalized' => 'bidule_003a'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -785,24 +795,28 @@ $result_nodes{'invalid_node_name_no_warning'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'nodename_002e-a'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'node_002ccomma'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'bidule_003a'
               },
+              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -832,24 +846,28 @@ $result_menus{'invalid_node_name_no_warning'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'nodename_002e-a'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'node_002ccomma'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'bidule_003a'
               },
+              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

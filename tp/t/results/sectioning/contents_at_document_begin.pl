@@ -39,7 +39,7 @@ $result_trees{'contents_at_document_begin'} = {
                       'text' => 'contents_at_document_begin.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'contents_at_document_begin'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'contents_at_document_begin.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'contents_at_document_begin.texi',
@@ -96,7 +98,7 @@ $result_trees{'contents_at_document_begin'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -116,7 +118,9 @@ $result_trees{'contents_at_document_begin'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -133,7 +137,7 @@ $result_trees{'contents_at_document_begin'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -148,7 +152,8 @@ $result_trees{'contents_at_document_begin'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -165,7 +170,7 @@ $result_trees{'contents_at_document_begin'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -180,7 +185,7 @@ $result_trees{'contents_at_document_begin'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -240,14 +245,16 @@ $result_sectioning{'contents_at_document_begin'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -276,17 +283,20 @@ $result_nodes{'contents_at_document_begin'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'contents_at_document_begin'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'contents_at_document_begin'} = [];

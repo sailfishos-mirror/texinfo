@@ -94,7 +94,7 @@ $result_trees{'uref_with_commands_characters'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

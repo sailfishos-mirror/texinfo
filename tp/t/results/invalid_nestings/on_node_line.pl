@@ -30,7 +30,7 @@ $result_trees{'on_node_line'} = {
                       'text' => 'b'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -41,7 +41,7 @@ $result_trees{'on_node_line'} = {
                       'text' => 'c'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -52,7 +52,7 @@ $result_trees{'on_node_line'} = {
                       'text' => 'filename'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -181,7 +181,7 @@ $result_trees{'on_node_line'} = {
                       'text' => 'exdent'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -189,7 +189,7 @@ $result_trees{'on_node_line'} = {
                 }
               ],
               'cmdname' => 'exdent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -199,7 +199,7 @@ $result_trees{'on_node_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -230,7 +230,9 @@ $result_trees{'on_node_line'} = {
             'normalized' => '-'
           }
         ],
-        'normalized' => 'a',
+        'normalized' => 'a'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -265,6 +267,7 @@ $result_nodes{'on_node_line'} = {
   'extra' => {
     'normalized' => 'a'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'extra' => {
@@ -293,6 +296,7 @@ $result_menus{'on_node_line'} = {
   'extra' => {
     'normalized' => 'a'
   },
+  'info' => {},
   'structure' => {}
 };
 

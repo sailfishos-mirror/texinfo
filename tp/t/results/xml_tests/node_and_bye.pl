@@ -19,7 +19,7 @@ $result_trees{'node_and_bye'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -46,7 +46,9 @@ $result_trees{'node_and_bye'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -86,6 +88,7 @@ $result_nodes{'node_and_bye'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'structure' => {
@@ -104,6 +107,7 @@ $result_menus{'node_and_bye'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'structure' => {

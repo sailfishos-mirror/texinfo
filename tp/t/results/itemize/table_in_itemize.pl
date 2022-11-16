@@ -23,7 +23,7 @@ $result_trees{'table_in_itemize'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -80,7 +80,7 @@ $result_trees{'table_in_itemize'} = {
                           'type' => 'command_as_argument'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -101,7 +101,7 @@ $result_trees{'table_in_itemize'} = {
                                       'text' => 'table one'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -109,7 +109,7 @@ $result_trees{'table_in_itemize'} = {
                                 }
                               ],
                               'cmdname' => 'item',
-                              'extra' => {
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -164,7 +164,7 @@ $result_trees{'table_in_itemize'} = {
                                       'text' => 'table two'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -172,7 +172,7 @@ $result_trees{'table_in_itemize'} = {
                                 }
                               ],
                               'cmdname' => 'item',
-                              'extra' => {
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -223,7 +223,7 @@ $result_trees{'table_in_itemize'} = {
                               'text' => 'table'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -232,8 +232,10 @@ $result_trees{'table_in_itemize'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'table'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -243,7 +245,9 @@ $result_trees{'table_in_itemize'} = {
                     }
                   ],
                   'extra' => {
-                    'command_as_argument' => {},
+                    'command_as_argument' => {}
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -301,8 +305,10 @@ $result_trees{'table_in_itemize'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -312,7 +318,9 @@ $result_trees{'table_in_itemize'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

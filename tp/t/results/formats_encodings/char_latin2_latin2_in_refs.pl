@@ -34,7 +34,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                       'text' => 'char_latin2_latin2_in_refs.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'char_latin2_latin2_in_refs.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'char_latin2_latin2_in_refs.texi',
@@ -65,7 +67,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                       'text' => 'ISO-8859-2'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -76,8 +78,10 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'extra' => {
                 'input_encoding_name' => 'iso-8859-2',
                 'input_perl_encoding' => 'iso-8859-2',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ISO-8859-2'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'char_latin2_latin2_in_refs.texi',
@@ -104,7 +108,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -125,7 +129,9 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -142,7 +148,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -179,7 +185,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                           'text' => "\x{104} \x{105} \x{2db} \x{118} \x{119}"
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -199,7 +205,9 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                         'normalized' => '_0104-_0105-_02db-_0118-_0119'
                       }
                     ],
-                    'normalized' => '_0104-_0105-_02db-_0118-_0119',
+                    'normalized' => '_0104-_0105-_02db-_0118-_0119'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -241,7 +249,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -252,7 +260,9 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -285,7 +295,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -351,7 +361,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -360,8 +370,10 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'char_latin2_latin2_in_refs.texi',
@@ -382,7 +394,8 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -400,7 +413,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'text' => "\x{104} \x{105} \x{2db} \x{118} \x{119}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -422,7 +435,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                   'text' => "\x{104} \x{105} \x{2db} \x{118} \x{119}"
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -442,7 +455,9 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -458,7 +473,8 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -547,9 +563,11 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
               'isindex' => 1,
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -560,9 +578,11 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
                   'extra' => {
                     'normalized' => '_0104-_0105-_02db-_0118-_0119'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -591,6 +611,7 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
@@ -601,6 +622,7 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -608,12 +630,14 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -632,12 +656,14 @@ $result_menus{'char_latin2_latin2_in_refs'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

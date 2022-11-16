@@ -33,7 +33,7 @@ $result_trees{'paragraph_in_cells'} = {
                   'type' => 'bracketed'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -212,8 +212,10 @@ $result_trees{'paragraph_in_cells'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -237,7 +239,9 @@ $result_trees{'paragraph_in_cells'} = {
                 ],
                 'type' => 'bracketed_multitable_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

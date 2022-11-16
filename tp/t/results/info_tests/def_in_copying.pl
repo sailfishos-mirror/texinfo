@@ -46,7 +46,7 @@ $result_trees{'def_in_copying'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -55,8 +55,10 @@ $result_trees{'def_in_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -91,7 +93,7 @@ $result_trees{'def_in_copying'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -112,7 +114,9 @@ $result_trees{'def_in_copying'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -129,7 +133,7 @@ $result_trees{'def_in_copying'} = {
               'text' => 'Test for definition commands'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -146,7 +150,7 @@ $result_trees{'def_in_copying'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -317,7 +321,9 @@ $result_trees{'def_in_copying'} = {
                       'index_name' => 'fn',
                       'index_type_command' => 'deffn'
                     },
-                    'original_def_cmdname' => 'deffnx',
+                    'original_def_cmdname' => 'deffnx'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -349,7 +355,7 @@ $result_trees{'def_in_copying'} = {
                           'text' => 'deffn'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -358,8 +364,10 @@ $result_trees{'def_in_copying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'deffn'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -368,7 +376,7 @@ $result_trees{'def_in_copying'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -385,7 +393,7 @@ $result_trees{'def_in_copying'} = {
                       'text' => 'copying'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -394,8 +402,10 @@ $result_trees{'def_in_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -577,7 +587,9 @@ $result_trees{'def_in_copying'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn'
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -609,7 +621,7 @@ $result_trees{'def_in_copying'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -618,8 +630,10 @@ $result_trees{'def_in_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -628,7 +642,7 @@ $result_trees{'def_in_copying'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -650,7 +664,7 @@ $result_trees{'def_in_copying'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -661,7 +675,9 @@ $result_trees{'def_in_copying'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -671,7 +687,8 @@ $result_trees{'def_in_copying'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -761,9 +778,11 @@ $result_sectioning{'def_in_copying'} = {
             'extra' => {
               'isindex' => 1,
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -781,11 +800,13 @@ $result_nodes{'def_in_copying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'def_in_copying'} = {
@@ -793,7 +814,8 @@ $result_menus{'def_in_copying'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'def_in_copying'} = [];

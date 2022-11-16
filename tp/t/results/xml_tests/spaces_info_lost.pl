@@ -17,7 +17,7 @@ $result_trees{'spaces_info_lost'} = {
                   'text' => 'text on display line'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' 
 '
               },
@@ -43,7 +43,7 @@ $result_trees{'spaces_info_lost'} = {
                       'text' => 'display'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -52,8 +52,10 @@ $result_trees{'spaces_info_lost'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => '  ',
                 'text_arg' => 'display'
+              },
+              'info' => {
+                'spaces_before_argument' => '  '
               },
               'source_info' => {
                 'file_name' => '',
@@ -62,7 +64,7 @@ $result_trees{'spaces_info_lost'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '  '
           },
           'source_info' => {
@@ -79,7 +81,7 @@ $result_trees{'spaces_info_lost'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '  
 '
               },
@@ -101,7 +103,7 @@ $result_trees{'spaces_info_lost'} = {
                       'text' => 'verbatim'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -110,8 +112,10 @@ $result_trees{'spaces_info_lost'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => '  ',
                 'text_arg' => 'verbatim'
+              },
+              'info' => {
+                'spaces_before_argument' => '  '
               },
               'source_info' => {
                 'file_name' => '',

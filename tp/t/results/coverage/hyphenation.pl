@@ -22,7 +22,7 @@ $result_trees{'hyphenation'} = {
                   'text' => 'some-where'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'brace_command_arg'

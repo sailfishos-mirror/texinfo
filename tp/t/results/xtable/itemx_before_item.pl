@@ -23,7 +23,7 @@ $result_trees{'itemx_before_item'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -44,7 +44,7 @@ $result_trees{'itemx_before_item'} = {
                               'text' => 'in itemx'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -52,7 +52,7 @@ $result_trees{'itemx_before_item'} = {
                         }
                       ],
                       'cmdname' => 'itemx',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -75,7 +75,7 @@ $result_trees{'itemx_before_item'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -84,8 +84,10 @@ $result_trees{'itemx_before_item'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -95,7 +97,9 @@ $result_trees{'itemx_before_item'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

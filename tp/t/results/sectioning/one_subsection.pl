@@ -24,7 +24,7 @@ $result_trees{'one_subsection'} = {
               'text' => 'The subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -32,7 +32,7 @@ $result_trees{'one_subsection'} = {
         }
       ],
       'cmdname' => 'subsection',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -58,7 +58,7 @@ $result_sectioning{'one_subsection'} = {
     'section_childs' => [
       {
         'cmdname' => 'subsection',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 3,
           'section_number' => 1,

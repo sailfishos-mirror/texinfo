@@ -68,7 +68,7 @@ $result_trees{'anchor_before_top'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -88,7 +88,9 @@ $result_trees{'anchor_before_top'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -105,7 +107,7 @@ $result_trees{'anchor_before_top'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -120,7 +122,8 @@ $result_trees{'anchor_before_top'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -137,7 +140,7 @@ $result_trees{'anchor_before_top'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -157,7 +160,9 @@ $result_trees{'anchor_before_top'} = {
             'normalized' => 'Chapter'
           }
         ],
-        'normalized' => 'Chapter',
+        'normalized' => 'Chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -174,7 +179,7 @@ $result_trees{'anchor_before_top'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -225,7 +230,8 @@ $result_trees{'anchor_before_top'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -279,9 +285,11 @@ $result_sectioning{'anchor_before_top'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -292,9 +300,11 @@ $result_sectioning{'anchor_before_top'} = {
                   'extra' => {
                     'normalized' => 'Chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -323,10 +333,12 @@ $result_nodes{'anchor_before_top'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -334,12 +346,14 @@ $result_nodes{'anchor_before_top'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -355,6 +369,7 @@ $result_menus{'anchor_before_top'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

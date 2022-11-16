@@ -14,7 +14,7 @@ $result_trees{'inline_missing_first_arg'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

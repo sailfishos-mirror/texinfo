@@ -26,7 +26,7 @@ $result_trees{'command_in_heading_footing'} = {
                   'cmdname' => 'thischapternum'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -34,7 +34,7 @@ $result_trees{'command_in_heading_footing'} = {
             }
           ],
           'cmdname' => 'everyheading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

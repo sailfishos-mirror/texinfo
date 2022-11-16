@@ -60,7 +60,7 @@ $result_trees{'value_in_node'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -77,7 +77,7 @@ $result_trees{'value_in_node'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -94,7 +94,7 @@ $result_trees{'value_in_node'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -130,7 +130,9 @@ $result_trees{'value_in_node'} = {
             ]
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -147,7 +149,7 @@ $result_trees{'value_in_node'} = {
               'text' => 'Expansion in Node Names'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -164,7 +166,7 @@ $result_trees{'value_in_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -235,7 +237,7 @@ $result_trees{'value_in_node'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -244,8 +246,10 @@ $result_trees{'value_in_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -266,7 +270,8 @@ $result_trees{'value_in_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -294,7 +299,7 @@ $result_trees{'value_in_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -305,7 +310,7 @@ $result_trees{'value_in_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -339,7 +344,9 @@ $result_trees{'value_in_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Node-1',
+        'normalized' => 'Node-1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -356,7 +363,7 @@ $result_trees{'value_in_node'} = {
               'text' => 'Chapter 1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -399,7 +406,7 @@ $result_trees{'value_in_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -465,7 +472,7 @@ $result_trees{'value_in_node'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -474,8 +481,10 @@ $result_trees{'value_in_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -496,7 +505,8 @@ $result_trees{'value_in_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -516,7 +526,7 @@ $result_trees{'value_in_node'} = {
           'type' => 'line_arg'
         },
         {
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -527,7 +537,7 @@ $result_trees{'value_in_node'} = {
               'text' => 'Node 1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -538,7 +548,7 @@ $result_trees{'value_in_node'} = {
               'text' => 'Node 1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -615,7 +625,9 @@ $result_trees{'value_in_node'} = {
             'normalized' => 'Node-1'
           }
         ],
-        'normalized' => 'Section-1_002e1',
+        'normalized' => 'Section-1_002e1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -699,9 +711,11 @@ $result_sectioning{'value_in_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -712,9 +726,11 @@ $result_sectioning{'value_in_node'} = {
                   'extra' => {
                     'normalized' => 'Node-1'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -743,6 +759,7 @@ $result_nodes{'value_in_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -752,6 +769,7 @@ $result_nodes{'value_in_node'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -759,6 +777,7 @@ $result_nodes{'value_in_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -770,12 +789,14 @@ $result_nodes{'value_in_node'} = {
         ],
         'normalized' => 'Node-1'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Section-1_002e1'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -824,18 +845,21 @@ $result_menus{'value_in_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Node-1'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Section-1_002e1'
           },
+          'info' => {},
           'structure' => {
             'menu_up' => {},
             'menu_up_hash' => {

@@ -21,7 +21,7 @@ $result_trees{'good'} = {
                           'text' => '0.4 .6 5.'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -34,7 +34,9 @@ $result_trees{'good'} = {
                       '0.4',
                       '.6',
                       '5.'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -62,8 +64,10 @@ $result_trees{'good'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -74,7 +78,9 @@ $result_trees{'good'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 3,
+            'max_columns' => 3
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

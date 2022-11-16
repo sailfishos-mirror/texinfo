@@ -34,7 +34,7 @@ $result_trees{'defcondx_Ubar'} = {
                       'text' => 'defxcond.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'defcondx_Ubar'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defxcond.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
@@ -189,7 +191,7 @@ $result_trees{'defcondx_Ubar'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -198,8 +200,10 @@ $result_trees{'defcondx_Ubar'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'defxcond.texi',
@@ -208,7 +212,7 @@ $result_trees{'defcondx_Ubar'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

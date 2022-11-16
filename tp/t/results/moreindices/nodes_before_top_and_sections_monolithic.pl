@@ -39,7 +39,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                       'text' => 'more_before_top_section'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'more_before_top_section'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -89,13 +91,13 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
         },
         {
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -112,7 +114,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -129,7 +131,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'first before top'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -149,7 +151,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -181,7 +185,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -192,7 +196,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -218,7 +224,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -229,7 +235,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -250,7 +258,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -316,7 +324,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -325,8 +333,10 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -372,7 +382,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             ]
           }
         ],
-        'normalized' => 'first-before-top',
+        'normalized' => 'first-before-top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -403,7 +415,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'first before top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -425,7 +437,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'node in menu before top'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -445,7 +457,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -472,7 +486,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -483,7 +497,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -514,7 +530,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'printindex node in menu before top'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -534,7 +550,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -576,7 +594,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             'normalized' => 'first-before-top'
           }
         ],
-        'normalized' => 'node-in-menu-before-top',
+        'normalized' => 'node-in-menu-before-top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -596,7 +616,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'type' => 'line_arg'
         },
         {
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -607,7 +627,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'first before top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -624,7 +644,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'entry a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -644,7 +664,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -671,7 +693,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -682,7 +704,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -704,7 +728,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -715,7 +739,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -751,7 +777,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -762,7 +788,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -797,7 +825,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             'normalized' => 'first-before-top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -814,7 +844,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'top section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -831,7 +861,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'top section'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -851,7 +881,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -883,7 +915,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1047,7 +1079,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1056,8 +1088,10 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1078,7 +1112,8 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1114,7 +1149,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -1138,7 +1173,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                       'text' => '! entry in node'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1158,7 +1193,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1176,7 +1213,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                       'text' => 'fun in node'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1196,7 +1233,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'fn',
                   'index_type_command' => 'findex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1214,7 +1253,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                       'text' => 'entry in node'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1234,7 +1273,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1260,7 +1301,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1271,7 +1312,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1288,7 +1331,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1354,7 +1397,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1363,8 +1406,10 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1411,7 +1456,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'first',
+        'normalized' => 'first'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1442,7 +1489,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'first'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1454,7 +1501,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1569,7 +1616,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1578,8 +1625,10 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'nodes_before_top_and_sections.texi',
@@ -1607,7 +1656,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1618,7 +1667,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1654,7 +1705,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             'normalized' => 'first'
           }
         ],
-        'normalized' => 'second',
+        'normalized' => 'second'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1674,7 +1727,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'type' => 'line_arg'
         },
         {
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -1685,7 +1738,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'a node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -1696,7 +1749,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'second'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -1719,7 +1772,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'something'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1739,7 +1792,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1757,7 +1812,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'somewhere'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1777,7 +1832,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1795,7 +1852,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'another'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1815,7 +1872,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1856,7 +1915,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             'normalized' => 'second'
           }
         ],
-        'normalized' => 'another',
+        'normalized' => 'another'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1881,13 +1942,13 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'another'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
         },
         {
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -1898,7 +1959,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'second'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1915,7 +1976,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'entry after printindex'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1935,7 +1996,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1958,7 +2021,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1969,7 +2032,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1991,7 +2056,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'a function'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2011,7 +2076,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2029,7 +2096,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'a concept a node'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2049,7 +2116,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2072,7 +2141,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2083,7 +2152,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2124,7 +2195,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             'normalized' => 'second'
           }
         ],
-        'normalized' => 'a-node',
+        'normalized' => 'a-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2160,7 +2233,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2194,7 +2267,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2211,7 +2286,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'A chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2233,7 +2308,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2244,7 +2319,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2259,7 +2336,8 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2287,7 +2365,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -2298,7 +2376,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2320,7 +2398,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
                   'text' => 'node in chapter'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2340,7 +2418,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2381,7 +2461,9 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'node-in-chapter',
+        'normalized' => 'node-in-chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2673,9 +2755,11 @@ $result_sectioning{'nodes_before_top_and_sections_monolithic'} = {
               'isindex' => 1,
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -2687,9 +2771,11 @@ $result_sectioning{'nodes_before_top_and_sections_monolithic'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -2718,6 +2804,7 @@ $result_nodes{'nodes_before_top_and_sections_monolithic'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
@@ -2728,6 +2815,7 @@ $result_nodes{'nodes_before_top_and_sections_monolithic'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2740,6 +2828,7 @@ $result_nodes{'nodes_before_top_and_sections_monolithic'} = {
         ],
         'normalized' => 'first'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2752,6 +2841,7 @@ $result_nodes{'nodes_before_top_and_sections_monolithic'} = {
             ],
             'normalized' => 'second'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -2759,12 +2849,14 @@ $result_nodes{'nodes_before_top_and_sections_monolithic'} = {
                 'isindex' => 1,
                 'normalized' => 'a-node'
               },
+              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'another'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -2791,6 +2883,7 @@ $result_nodes{'nodes_before_top_and_sections_monolithic'} = {
         ],
         'normalized' => 'first-before-top'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2798,6 +2891,7 @@ $result_nodes{'nodes_before_top_and_sections_monolithic'} = {
             'isindex' => 1,
             'normalized' => 'node-in-menu-before-top'
           },
+          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -2831,6 +2925,7 @@ $result_menus{'nodes_before_top_and_sections_monolithic'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2838,6 +2933,7 @@ $result_menus{'nodes_before_top_and_sections_monolithic'} = {
         'isindex' => 1,
         'normalized' => 'first'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2845,6 +2941,7 @@ $result_menus{'nodes_before_top_and_sections_monolithic'} = {
             'isindex' => 1,
             'normalized' => 'second'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -2852,12 +2949,14 @@ $result_menus{'nodes_before_top_and_sections_monolithic'} = {
                 'isindex' => 1,
                 'normalized' => 'a-node'
               },
+              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'another'
                   },
+                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},
@@ -2884,12 +2983,14 @@ $result_menus{'nodes_before_top_and_sections_monolithic'} = {
             'isindex' => 1,
             'normalized' => 'chapter'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'node-in-chapter'
               },
+              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

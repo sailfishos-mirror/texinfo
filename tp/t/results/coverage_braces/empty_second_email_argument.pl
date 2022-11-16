@@ -25,13 +25,13 @@ $result_trees{'empty_second_email_argument'} = {
                       'text' => 'b.c'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

@@ -17,7 +17,7 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
                   'text' => 'separate'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,7 +28,9 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
           'extra' => {
             'misc_args' => [
               'separate'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -53,7 +55,7 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -73,7 +75,9 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -90,7 +94,7 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -140,7 +144,8 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -157,7 +162,7 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -177,7 +182,9 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -194,7 +201,7 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -209,7 +216,8 @@ $result_trees{'footnotestyle_separate_html_text_no_monolithic'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -259,9 +267,11 @@ $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -272,9 +282,11 @@ $result_sectioning{'footnotestyle_separate_html_text_no_monolithic'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -303,10 +315,12 @@ $result_nodes{'footnotestyle_separate_html_text_no_monolithic'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -314,12 +328,14 @@ $result_nodes{'footnotestyle_separate_html_text_no_monolithic'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -335,6 +351,7 @@ $result_menus{'footnotestyle_separate_html_text_no_monolithic'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

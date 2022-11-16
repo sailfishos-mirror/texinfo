@@ -128,9 +128,9 @@ sub convert_to_texinfo($;$)
         and ($element->{'type'} eq 'bracketed'
              or $element->{'type'} eq 'bracketed_def_content')) {
       $result .= '{';
-      if ($element->{'extra'}
-          and $element->{'extra'}->{'spaces_before_argument'}) {
-         $result .= $element->{'extra'}->{'spaces_before_argument'};
+      if ($element->{'info'}
+          and $element->{'info'}->{'spaces_before_argument'}) {
+         $result .= $element->{'info'}->{'spaces_before_argument'};
       }
     }
     if (defined($element->{'contents'})) {
@@ -138,8 +138,8 @@ sub convert_to_texinfo($;$)
         $result .= convert_to_texinfo($child, $expand_replaced);
       }
     }
-    if ($element->{'extra'} and $element->{'extra'}->{'spaces_after_argument'}) {
-      $result .= $element->{'extra'}->{'spaces_after_argument'};
+    if ($element->{'info'} and $element->{'info'}->{'spaces_after_argument'}) {
+      $result .= $element->{'info'}->{'spaces_after_argument'};
     }
     if ($element->{'extra'} and $element->{'extra'}->{'comment_at_end'}) {
       $result .= convert_to_texinfo($element->{'extra'}->{'comment_at_end'},
@@ -172,25 +172,25 @@ sub _expand_cmd_args_to_texi($;$) {
          and ($def_commands{$cmdname}
               or $block_commands{$cmdname} eq 'multitable')
          and $cmd->{'args'}) {
-     $result .= $cmd->{'extra'}->{'spaces_before_argument'}
-       if $cmd->{'extra'} and $cmd->{'extra'}->{'spaces_before_argument'};
+     $result .= $cmd->{'info'}->{'spaces_before_argument'}
+       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
      foreach my $arg (@{$cmd->{'args'}}) {
         $result .= convert_to_texinfo($arg, $expand_replaced);
     }
   # arg_line set for line_commands with type special
   } elsif (($cmd->{'extra'} or $cmdname eq 'macro' or $cmdname eq 'rmacro')
            and defined($cmd->{'extra'}->{'arg_line'})) {
-    $result .= $cmd->{'extra'}->{'spaces_before_argument'}
-      if $cmd->{'extra'} and $cmd->{'extra'}->{'spaces_before_argument'};
+    $result .= $cmd->{'info'}->{'spaces_before_argument'}
+      if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
     $result .= $cmd->{'extra'}->{'arg_line'};
   } elsif (($block_commands{$cmdname} or $cmdname eq 'node')
             and defined($cmd->{'args'})) {
-    $result .= $cmd->{'extra'}->{'spaces_before_argument'}
-      if $cmd->{'extra'} and $cmd->{'extra'}->{'spaces_before_argument'};
+    $result .= $cmd->{'info'}->{'spaces_before_argument'}
+      if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
     foreach my $arg (@{$cmd->{'args'}}) {
       next if $arg->{'type'} and $ignored_types{$arg->{'type'}};
-      if ($arg->{'extra'} and $arg->{'extra'}->{'spaces_before_argument'}) {
-        $result .= $arg->{'extra'}->{'spaces_before_argument'};
+      if ($arg->{'info'} and $arg->{'info'}->{'spaces_before_argument'}) {
+        $result .= $arg->{'info'}->{'spaces_before_argument'};
       }
       $result .= convert_to_texinfo($arg);
       $result .= ',';
@@ -205,9 +205,9 @@ sub _expand_cmd_args_to_texi($;$) {
     if ($cmdname eq 'verb') {
       $result .= $cmd->{'extra'}->{'delimiter'};
     }
-    if ($cmd->{'extra'}
-        and $cmd->{'extra'}->{'spaces_before_argument'}) {
-      $result .= $cmd->{'extra'}->{'spaces_before_argument'};
+    if ($cmd->{'info'}
+        and $cmd->{'info'}->{'spaces_before_argument'}) {
+      $result .= $cmd->{'info'}->{'spaces_before_argument'};
     }
     my $arg_nr = 0;
     foreach my $arg (@{$cmd->{'args'}}) {
@@ -216,8 +216,8 @@ sub _expand_cmd_args_to_texi($;$) {
         $result .= ',' if ($arg_nr);
         $arg_nr++;
       }
-      if ($arg->{'extra'} and $arg->{'extra'}->{'spaces_before_argument'}) {
-        $result .= $arg->{'extra'}->{'spaces_before_argument'};
+      if ($arg->{'info'} and $arg->{'info'}->{'spaces_before_argument'}) {
+        $result .= $arg->{'info'}->{'spaces_before_argument'};
       }
       $result .= convert_to_texinfo($arg);
     }
@@ -226,8 +226,8 @@ sub _expand_cmd_args_to_texi($;$) {
     }
     $result .= '}' if ($braces);
   } else {
-    $result .= $cmd->{'extra'}->{'spaces_before_argument'}
-      if $cmd->{'extra'} and $cmd->{'extra'}->{'spaces_before_argument'};
+    $result .= $cmd->{'info'}->{'spaces_before_argument'}
+      if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
   }
   $result .= '{'.$cmd->{'info'}->{'flag'}.'}' if ($cmdname eq 'value');
   return $result;

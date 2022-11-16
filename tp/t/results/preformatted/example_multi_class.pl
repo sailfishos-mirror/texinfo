@@ -17,7 +17,7 @@ $result_trees{'example_multi_class'} = {
                   'text' => 'C++'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'block_line_arg'
@@ -28,7 +28,7 @@ $result_trees{'example_multi_class'} = {
                   'text' => 'gothic'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'type' => 'block_line_arg'
@@ -39,7 +39,7 @@ $result_trees{'example_multi_class'} = {
                   'text' => 'purple'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'type' => 'block_line_arg'
@@ -50,7 +50,7 @@ $result_trees{'example_multi_class'} = {
                   'text' => 'embed'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -174,7 +174,7 @@ $result_trees{'example_multi_class'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -183,8 +183,10 @@ $result_trees{'example_multi_class'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -193,7 +195,7 @@ $result_trees{'example_multi_class'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

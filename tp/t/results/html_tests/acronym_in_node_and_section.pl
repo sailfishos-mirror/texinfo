@@ -18,7 +18,7 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'acronym_in_node_and_section'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -70,7 +72,8 @@ $result_trees{'acronym_in_node_and_section'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -87,7 +90,7 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -107,7 +110,9 @@ $result_trees{'acronym_in_node_and_section'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -124,7 +129,7 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -139,7 +144,8 @@ $result_trees{'acronym_in_node_and_section'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -156,7 +162,7 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'sec define'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -176,7 +182,9 @@ $result_trees{'acronym_in_node_and_section'} = {
             'normalized' => 'sec-define'
           }
         ],
-        'normalized' => 'sec-define',
+        'normalized' => 'sec-define'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -193,7 +201,7 @@ $result_trees{'acronym_in_node_and_section'} = {
               'text' => 'define'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -225,7 +233,7 @@ $result_trees{'acronym_in_node_and_section'} = {
                       'text' => 'Good Hypo Jolly'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -251,7 +259,8 @@ $result_trees{'acronym_in_node_and_section'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -286,7 +295,7 @@ $result_trees{'acronym_in_node_and_section'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -308,7 +317,9 @@ $result_trees{'acronym_in_node_and_section'} = {
             'normalized' => 'sec-here-is-GHJ'
           }
         ],
-        'normalized' => 'sec-here-is-GHJ',
+        'normalized' => 'sec-here-is-GHJ'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -343,7 +354,7 @@ $result_trees{'acronym_in_node_and_section'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -388,7 +399,8 @@ $result_trees{'acronym_in_node_and_section'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -457,9 +469,11 @@ $result_sectioning{'acronym_in_node_and_section'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -470,9 +484,11 @@ $result_sectioning{'acronym_in_node_and_section'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -483,9 +499,11 @@ $result_sectioning{'acronym_in_node_and_section'} = {
                         'extra' => {
                           'normalized' => 'sec-define'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -500,9 +518,11 @@ $result_sectioning{'acronym_in_node_and_section'} = {
                         'extra' => {
                           'normalized' => 'sec-here-is-GHJ'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.2',
@@ -541,10 +561,12 @@ $result_nodes{'acronym_in_node_and_section'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -552,12 +574,14 @@ $result_nodes{'acronym_in_node_and_section'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -573,6 +597,7 @@ $result_menus{'acronym_in_node_and_section'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

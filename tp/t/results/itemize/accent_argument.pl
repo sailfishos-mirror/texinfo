@@ -25,7 +25,7 @@ $result_trees{'accent_argument'} = {
                   'text' => 'e'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -68,7 +68,7 @@ $result_trees{'accent_argument'} = {
                       'text' => 'itemize'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -77,8 +77,10 @@ $result_trees{'accent_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -87,7 +89,7 @@ $result_trees{'accent_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -124,7 +126,7 @@ $result_trees{'accent_argument'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -167,7 +169,7 @@ $result_trees{'accent_argument'} = {
                       'text' => 'itemize'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -176,8 +178,10 @@ $result_trees{'accent_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -186,7 +190,7 @@ $result_trees{'accent_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

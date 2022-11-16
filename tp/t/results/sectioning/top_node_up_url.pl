@@ -19,7 +19,7 @@ $result_trees{'top_node_up_url'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -39,7 +39,9 @@ $result_trees{'top_node_up_url'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -56,7 +58,7 @@ $result_trees{'top_node_up_url'} = [
                 'text' => 'internal top node up'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -73,7 +75,7 @@ $result_trees{'top_node_up_url'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -139,7 +141,7 @@ $result_trees{'top_node_up_url'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -148,8 +150,10 @@ $result_trees{'top_node_up_url'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -170,7 +174,8 @@ $result_trees{'top_node_up_url'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -195,7 +200,7 @@ $result_trees{'top_node_up_url'} = [
                 'text' => 'first'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -215,7 +220,9 @@ $result_trees{'top_node_up_url'} = [
               'normalized' => 'first'
             }
           ],
-          'normalized' => 'first',
+          'normalized' => 'first'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -269,6 +276,7 @@ $result_sectioning{'top_node_up_url'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -283,6 +291,7 @@ $result_sectioning{'top_node_up_url'} = {
                           'extra' => {
                             'normalized' => 'first'
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -312,6 +321,7 @@ $result_sectioning{'top_node_up_url'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_level' => 0,
@@ -344,6 +354,7 @@ $result_nodes{'top_node_up_url'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -358,6 +369,7 @@ $result_nodes{'top_node_up_url'} = {
                     'extra' => {
                       'normalized' => 'first'
                     },
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'node_prev' => {},
@@ -395,6 +407,7 @@ $result_nodes{'top_node_up_url'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {},
@@ -425,6 +438,7 @@ $result_menus{'top_node_up_url'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -439,6 +453,7 @@ $result_menus{'top_node_up_url'} = {
                 'extra' => {
                   'normalized' => 'first'
                 },
+                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'menu_up' => {},
@@ -502,6 +517,7 @@ $result_elements{'top_node_up_url'} = [
         'extra' => {
           'normalized' => 'Top'
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
@@ -509,6 +525,7 @@ $result_elements{'top_node_up_url'} = [
             'extra' => {
               'normalized' => 'first'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {

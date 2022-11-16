@@ -35,7 +35,7 @@ $result_trees{'multiline_image_and_align'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -43,7 +43,7 @@ $result_trees{'multiline_image_and_align'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -86,7 +86,7 @@ $result_trees{'multiline_image_and_align'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' 
 '
               },
@@ -94,7 +94,7 @@ $result_trees{'multiline_image_and_align'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -137,7 +137,7 @@ $result_trees{'multiline_image_and_align'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -145,7 +145,7 @@ $result_trees{'multiline_image_and_align'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -191,7 +191,7 @@ $result_trees{'multiline_image_and_align'} = {
                   'text' => ' iiiii'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -199,7 +199,7 @@ $result_trees{'multiline_image_and_align'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -216,7 +216,7 @@ $result_trees{'multiline_image_and_align'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -368,7 +368,7 @@ $result_trees{'multiline_image_and_align'} = {
                       'text' => 'flushright'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -377,8 +377,10 @@ $result_trees{'multiline_image_and_align'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

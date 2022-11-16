@@ -24,7 +24,7 @@ $result_trees{'w_lines_count'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -45,7 +45,9 @@ $result_trees{'w_lines_count'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -57,7 +59,7 @@ $result_trees{'w_lines_count'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -130,7 +132,7 @@ $result_trees{'w_lines_count'} = {
                   'text' => 'compilation-next-error'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -150,7 +152,9 @@ $result_trees{'w_lines_count'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -231,7 +235,9 @@ $result_trees{'w_lines_count'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -289,7 +295,8 @@ $result_sectioning{'w_lines_count'} = {
             'extra' => {
               'isindex' => 1,
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
         'structure' => {
@@ -313,7 +320,8 @@ $result_nodes{'w_lines_count'} = {
     },
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'w_lines_count'} = {
@@ -321,7 +329,8 @@ $result_menus{'w_lines_count'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'w_lines_count'} = [];

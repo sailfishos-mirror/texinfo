@@ -22,7 +22,7 @@ $result_trees{'raw_in_style'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -48,7 +48,7 @@ $result_trees{'raw_in_style'} = {
                                   'text' => 'html'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -57,8 +57,10 @@ $result_trees{'raw_in_style'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'html'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',

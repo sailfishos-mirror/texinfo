@@ -39,7 +39,7 @@ $result_trees{'navigation_section_vertical'} = {
                       'text' => 'navigation.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'navigation_section_vertical'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'navigation.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
@@ -76,7 +78,7 @@ $result_trees{'navigation_section_vertical'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -96,7 +98,9 @@ $result_trees{'navigation_section_vertical'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -113,7 +117,7 @@ $result_trees{'navigation_section_vertical'} = {
               'text' => 'File used for navigation testing'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -130,7 +134,7 @@ $result_trees{'navigation_section_vertical'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -196,7 +200,7 @@ $result_trees{'navigation_section_vertical'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -205,8 +209,10 @@ $result_trees{'navigation_section_vertical'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
@@ -227,7 +233,8 @@ $result_trees{'navigation_section_vertical'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -244,7 +251,7 @@ $result_trees{'navigation_section_vertical'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -264,7 +271,9 @@ $result_trees{'navigation_section_vertical'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -281,7 +290,7 @@ $result_trees{'navigation_section_vertical'} = {
               'text' => 'First chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -298,7 +307,7 @@ $result_trees{'navigation_section_vertical'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -364,7 +373,7 @@ $result_trees{'navigation_section_vertical'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -373,8 +382,10 @@ $result_trees{'navigation_section_vertical'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
@@ -395,7 +406,8 @@ $result_trees{'navigation_section_vertical'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -412,7 +424,7 @@ $result_trees{'navigation_section_vertical'} = {
               'text' => 'section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -432,7 +444,9 @@ $result_trees{'navigation_section_vertical'} = {
             'normalized' => 'section'
           }
         ],
-        'normalized' => 'section',
+        'normalized' => 'section'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -449,7 +463,7 @@ $result_trees{'navigation_section_vertical'} = {
               'text' => 'Section in chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -652,7 +666,7 @@ $result_trees{'navigation_section_vertical'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -718,7 +732,7 @@ $result_trees{'navigation_section_vertical'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -727,8 +741,10 @@ $result_trees{'navigation_section_vertical'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'navigation.texi',
@@ -749,7 +765,8 @@ $result_trees{'navigation_section_vertical'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -766,7 +783,7 @@ $result_trees{'navigation_section_vertical'} = {
               'text' => 'subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -786,7 +803,9 @@ $result_trees{'navigation_section_vertical'} = {
             'normalized' => 'subsection'
           }
         ],
-        'normalized' => 'subsection',
+        'normalized' => 'subsection'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -803,7 +822,7 @@ $result_trees{'navigation_section_vertical'} = {
               'text' => 'Sub section in section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -838,7 +857,8 @@ $result_trees{'navigation_section_vertical'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -996,9 +1016,11 @@ $result_sectioning{'navigation_section_vertical'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1009,9 +1031,11 @@ $result_sectioning{'navigation_section_vertical'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -1022,9 +1046,11 @@ $result_sectioning{'navigation_section_vertical'} = {
                         'extra' => {
                           'normalized' => 'section'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
@@ -1035,9 +1061,11 @@ $result_sectioning{'navigation_section_vertical'} = {
                               'extra' => {
                                 'normalized' => 'subsection'
                               },
+                              'info' => {},
                               'structure' => {}
                             }
                           },
+                          'info' => {},
                           'structure' => {
                             'section_level' => 3,
                             'section_number' => '1.1.1',
@@ -1080,6 +1108,7 @@ $result_nodes{'navigation_section_vertical'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1089,6 +1118,7 @@ $result_nodes{'navigation_section_vertical'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1096,6 +1126,7 @@ $result_nodes{'navigation_section_vertical'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1107,6 +1138,7 @@ $result_nodes{'navigation_section_vertical'} = {
         ],
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1114,6 +1146,7 @@ $result_nodes{'navigation_section_vertical'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => '1.1'
               }
@@ -1125,6 +1158,7 @@ $result_nodes{'navigation_section_vertical'} = {
             ],
             'normalized' => 'section'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -1132,12 +1166,14 @@ $result_nodes{'navigation_section_vertical'} = {
                 'associated_section' => {
                   'cmdname' => 'subsection',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {
                     'section_number' => '1.1.1'
                   }
                 },
                 'normalized' => 'subsection'
               },
+              'info' => {},
               'structure' => {
                 'node_up' => {}
               }
@@ -1163,24 +1199,28 @@ $result_menus{'navigation_section_vertical'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'section'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'subsection'
               },
+              'info' => {},
               'structure' => {
                 'menu_up' => {},
                 'menu_up_hash' => {

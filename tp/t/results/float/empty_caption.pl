@@ -29,7 +29,7 @@ $result_trees{'empty_caption'} = {
                   'text' => 'b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -77,7 +77,7 @@ $result_trees{'empty_caption'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -86,8 +86,10 @@ $result_trees{'empty_caption'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -102,13 +104,15 @@ $result_trees{'empty_caption'} = {
               {}
             ],
             'normalized' => 'b',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'a'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -132,7 +136,7 @@ $result_trees{'empty_caption'} = {
                   'text' => 'c'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -180,7 +184,7 @@ $result_trees{'empty_caption'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -189,8 +193,10 @@ $result_trees{'empty_caption'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -205,10 +211,12 @@ $result_trees{'empty_caption'} = {
             ],
             'normalized' => 'c',
             'shortcaption' => {},
-            'spaces_before_argument' => ' ',
             'type' => {
               'normalized' => ''
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -224,7 +232,7 @@ $result_trees{'empty_caption'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -292,7 +300,7 @@ $result_trees{'empty_caption'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -301,8 +309,10 @@ $result_trees{'empty_caption'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -388,6 +398,7 @@ $result_floats{'empty_caption'} = {
           'normalized' => ''
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -433,6 +444,7 @@ $result_floats{'empty_caption'} = {
           'normalized' => 'a'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

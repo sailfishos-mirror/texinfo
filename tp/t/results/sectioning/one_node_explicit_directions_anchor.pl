@@ -38,7 +38,7 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -161,7 +161,9 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
             ]
           }
         ],
-        'normalized' => 'one-node',
+        'normalized' => 'one-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -201,6 +203,7 @@ $result_nodes{'one_node_explicit_directions_anchor'} = {
   'extra' => {
     'normalized' => 'one-node'
   },
+  'info' => {},
   'structure' => {
     'node_up' => {
       'extra' => {
@@ -219,6 +222,7 @@ $result_menus{'one_node_explicit_directions_anchor'} = {
   'extra' => {
     'normalized' => 'one-node'
   },
+  'info' => {},
   'structure' => {}
 };
 

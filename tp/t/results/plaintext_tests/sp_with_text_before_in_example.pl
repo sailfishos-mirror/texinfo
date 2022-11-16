@@ -17,7 +17,7 @@ $result_trees{'sp_with_text_before_in_example'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -39,7 +39,7 @@ $result_trees{'sp_with_text_before_in_example'} = {
                           'text' => '4'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -50,7 +50,9 @@ $result_trees{'sp_with_text_before_in_example'} = {
                   'extra' => {
                     'misc_args' => [
                       '4'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -74,7 +76,7 @@ $result_trees{'sp_with_text_before_in_example'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -83,8 +85,10 @@ $result_trees{'sp_with_text_before_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

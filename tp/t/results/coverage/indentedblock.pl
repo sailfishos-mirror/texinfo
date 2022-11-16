@@ -12,7 +12,7 @@ $result_trees{'indentedblock'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -56,7 +56,7 @@ $result_trees{'indentedblock'} = {
                       'text' => 'indentedblock'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -65,8 +65,10 @@ $result_trees{'indentedblock'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'indentedblock'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

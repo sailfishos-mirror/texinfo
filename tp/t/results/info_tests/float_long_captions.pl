@@ -18,7 +18,7 @@ $result_trees{'float_long_captions'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -48,7 +48,7 @@ $result_trees{'float_long_captions'} = {
                   'text' => 'text1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -96,7 +96,7 @@ $result_trees{'float_long_captions'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -105,8 +105,10 @@ $result_trees{'float_long_captions'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -121,13 +123,15 @@ $result_trees{'float_long_captions'} = {
               {}
             ],
             'normalized' => 'text1',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -156,7 +160,7 @@ $result_trees{'float_long_captions'} = {
                   'text' => 'text2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -204,7 +208,7 @@ $result_trees{'float_long_captions'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -213,8 +217,10 @@ $result_trees{'float_long_captions'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -229,13 +235,15 @@ $result_trees{'float_long_captions'} = {
               {}
             ],
             'normalized' => 'text2',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -256,7 +264,7 @@ $result_trees{'float_long_captions'} = {
                   'text' => 'Text'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -265,13 +273,15 @@ $result_trees{'float_long_captions'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -292,7 +302,9 @@ $result_trees{'float_long_captions'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -343,14 +355,16 @@ $result_nodes{'float_long_captions'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'float_long_captions'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'float_long_captions'} = [];
@@ -377,6 +391,7 @@ $result_floats{'float_long_captions'} = {
           'normalized' => 'Text'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -400,6 +415,7 @@ $result_floats{'float_long_captions'} = {
           'normalized' => 'Text'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 2
       }

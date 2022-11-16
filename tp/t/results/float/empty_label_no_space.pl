@@ -24,7 +24,7 @@ $result_trees{'empty_label_no_space'} = {
               'type' => 'block_line_arg'
             },
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -41,7 +41,7 @@ $result_trees{'empty_label_no_space'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -50,8 +50,10 @@ $result_trees{'empty_label_no_space'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -61,13 +63,15 @@ $result_trees{'empty_label_no_space'} = {
             }
           ],
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Type'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -107,7 +111,8 @@ $result_floats{'empty_label_no_space'} = {
           ],
           'normalized' => 'Type'
         }
-      }
+      },
+      'info' => {}
     }
   ]
 };

@@ -18,7 +18,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'part before'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -47,7 +47,8 @@ $result_trees{'non_empty_part'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -64,7 +65,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -84,7 +85,9 @@ $result_trees{'non_empty_part'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -101,7 +104,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -118,7 +121,7 @@ $result_trees{'non_empty_part'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -233,7 +236,7 @@ $result_trees{'non_empty_part'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -242,8 +245,10 @@ $result_trees{'non_empty_part'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -265,7 +270,9 @@ $result_trees{'non_empty_part'} = {
         }
       ],
       'extra' => {
-        'associated_part' => {},
+        'associated_part' => {}
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -282,7 +289,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'part I'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -311,7 +318,8 @@ $result_trees{'non_empty_part'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -328,7 +336,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'chap in Top node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -344,7 +352,9 @@ $result_trees{'non_empty_part'} = {
         }
       ],
       'extra' => {
-        'associated_part' => {},
+        'associated_part' => {}
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -361,7 +371,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'Part II'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -390,7 +400,8 @@ $result_trees{'non_empty_part'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -407,7 +418,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'part chapter node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -427,7 +438,9 @@ $result_trees{'non_empty_part'} = {
             'normalized' => 'part-chapter-node'
           }
         ],
-        'normalized' => 'part-chapter-node',
+        'normalized' => 'part-chapter-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -444,7 +457,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'part III'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -473,7 +486,8 @@ $result_trees{'non_empty_part'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -490,7 +504,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'chapter with part node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -506,7 +520,9 @@ $result_trees{'non_empty_part'} = {
         }
       ],
       'extra' => {
-        'associated_part' => {},
+        'associated_part' => {}
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -523,7 +539,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'Part IV'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -552,7 +568,8 @@ $result_trees{'non_empty_part'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -569,7 +586,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'Part V'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -598,7 +615,8 @@ $result_trees{'non_empty_part'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -615,7 +633,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'with part no node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -631,7 +649,9 @@ $result_trees{'non_empty_part'} = {
         }
       ],
       'extra' => {
-        'associated_part' => {},
+        'associated_part' => {}
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -648,7 +668,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'Part VI'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -677,7 +697,8 @@ $result_trees{'non_empty_part'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -694,7 +715,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'node between part and chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -721,7 +742,9 @@ $result_trees{'non_empty_part'} = {
             'normalized' => 'node-between-part-and-chapter'
           }
         ],
-        'normalized' => 'node-between-part-and-chapter',
+        'normalized' => 'node-between-part-and-chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -738,7 +761,7 @@ $result_trees{'non_empty_part'} = {
               'text' => 'chapter after part node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -754,7 +777,9 @@ $result_trees{'non_empty_part'} = {
         }
       ],
       'extra' => {
-        'associated_part' => {},
+        'associated_part' => {}
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -902,10 +927,12 @@ $result_sectioning{'non_empty_part'} = {
                 'extra' => {
                   'normalized' => 'Top'
                 },
+                'info' => {},
                 'structure' => {}
               },
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'section_level' => 0,
               'section_prev' => {},
@@ -914,6 +941,7 @@ $result_sectioning{'non_empty_part'} = {
           },
           'part_following_node' => {}
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -928,6 +956,7 @@ $result_sectioning{'non_empty_part'} = {
             'extra' => {
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 1,
@@ -937,6 +966,7 @@ $result_sectioning{'non_empty_part'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -954,9 +984,11 @@ $result_sectioning{'non_empty_part'} = {
             'extra' => {
               'normalized' => 'part-chapter-node'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_prev' => {},
@@ -972,6 +1004,7 @@ $result_sectioning{'non_empty_part'} = {
               'associated_node' => {},
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 2,
@@ -981,6 +1014,7 @@ $result_sectioning{'non_empty_part'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -993,6 +1027,7 @@ $result_sectioning{'non_empty_part'} = {
       {
         'cmdname' => 'part',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_prev' => {},
@@ -1007,6 +1042,7 @@ $result_sectioning{'non_empty_part'} = {
             'extra' => {
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 3,
@@ -1016,6 +1052,7 @@ $result_sectioning{'non_empty_part'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -1036,10 +1073,12 @@ $result_sectioning{'non_empty_part'} = {
                 'extra' => {
                   'normalized' => 'node-between-part-and-chapter'
                 },
+                'info' => {},
                 'structure' => {}
               },
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 4,
@@ -1050,6 +1089,7 @@ $result_sectioning{'non_empty_part'} = {
           },
           'part_following_node' => {}
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -1113,9 +1153,11 @@ $result_nodes{'non_empty_part'} = {
         'associated_part' => {
           'cmdname' => 'part',
           'extra' => {},
+          'info' => {},
           'structure' => {}
         }
       },
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1126,6 +1168,7 @@ $result_nodes{'non_empty_part'} = {
     'node_preceding_part' => {},
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1136,9 +1179,11 @@ $result_nodes{'non_empty_part'} = {
             'associated_part' => {
               'cmdname' => 'part',
               'extra' => {},
+              'info' => {},
               'structure' => {}
             }
           },
+          'info' => {},
           'structure' => {
             'section_number' => 2
           }
@@ -1146,10 +1191,12 @@ $result_nodes{'non_empty_part'} = {
         'node_preceding_part' => {
           'cmdname' => 'part',
           'extra' => {},
+          'info' => {},
           'structure' => {}
         },
         'normalized' => 'part-chapter-node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1168,12 +1215,14 @@ $result_menus{'non_empty_part'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'part-chapter-node'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

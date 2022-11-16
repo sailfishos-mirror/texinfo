@@ -12,7 +12,7 @@ $result_trees{'exdent_and_commands'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -46,7 +46,7 @@ $result_trees{'exdent_and_commands'} = {
                 }
               ],
               'cmdname' => 'exdent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -84,7 +84,7 @@ $result_trees{'exdent_and_commands'} = {
                       'text' => ' and following'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -92,7 +92,7 @@ $result_trees{'exdent_and_commands'} = {
                 }
               ],
               'cmdname' => 'exdent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -118,7 +118,7 @@ $result_trees{'exdent_and_commands'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -127,8 +127,10 @@ $result_trees{'exdent_and_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -151,7 +153,7 @@ $result_trees{'exdent_and_commands'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -185,7 +187,7 @@ $result_trees{'exdent_and_commands'} = {
                 }
               ],
               'cmdname' => 'exdent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -223,7 +225,7 @@ $result_trees{'exdent_and_commands'} = {
                       'text' => ' and following'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -231,7 +233,7 @@ $result_trees{'exdent_and_commands'} = {
                 }
               ],
               'cmdname' => 'exdent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -257,7 +259,7 @@ $result_trees{'exdent_and_commands'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -266,8 +268,10 @@ $result_trees{'exdent_and_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

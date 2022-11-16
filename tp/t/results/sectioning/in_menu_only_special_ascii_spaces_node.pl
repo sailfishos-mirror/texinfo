@@ -24,7 +24,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               "text" => "Top"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -43,7 +43,9 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
             "normalized" => "Top"
           }
         ],
-        "normalized" => "Top",
+        "normalized" => "Top"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -60,7 +62,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               "text" => "top"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -75,7 +77,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
         {
           "args" => [
             {
-              "extra" => {
+              "info" => {
                 "spaces_after_argument" => "\n"
               },
               "type" => "block_line_arg"
@@ -165,7 +167,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
                       "text" => "menu"
                     }
                   ],
-                  "extra" => {
+                  "info" => {
                     "spaces_after_argument" => "\n"
                   },
                   "type" => "line_arg"
@@ -173,8 +175,10 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               ],
               "cmdname" => "end",
               "extra" => {
-                "spaces_before_argument" => " ",
                 "text_arg" => "menu"
+              },
+              "info" => {
+                "spaces_before_argument" => " "
               },
               "source_info" => {
                 "file_name" => "in_menu_only_special_ascii_spaces_node.texi",
@@ -194,7 +198,8 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           "type" => "empty_line"
         }
       ],
-      "extra" => {
+      "extra" => {},
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -206,7 +211,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
     {
       "args" => [
         {
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => " \r\n"
           },
           "type" => "line_arg"
@@ -232,7 +237,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               "text" => "CARRIAGE RETURN|\r|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -245,7 +250,8 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           "type" => "empty_line"
         }
       ],
-      "extra" => {
+      "extra" => {},
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -257,7 +263,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
     {
       "args" => [
         {
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => " \t\f\n"
           },
           "type" => "line_arg"
@@ -283,7 +289,7 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
               "text" => "CHARACTER TABULATION|\t| FORM FEED|\f|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -296,7 +302,8 @@ $result_trees{'in_menu_only_special_ascii_spaces_node'} = {
           "type" => "empty_line"
         }
       ],
-      "extra" => {
+      "extra" => {},
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -355,9 +362,11 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -369,6 +378,7 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node'} = {
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -385,6 +395,7 @@ $result_sectioning{'in_menu_only_special_ascii_spaces_node'} = {
                   'extra' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -418,6 +429,7 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -427,6 +439,7 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -434,6 +447,7 @@ $result_nodes{'in_menu_only_special_ascii_spaces_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -452,6 +466,7 @@ $result_menus{'in_menu_only_special_ascii_spaces_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

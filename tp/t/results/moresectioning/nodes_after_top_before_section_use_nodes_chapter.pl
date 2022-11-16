@@ -39,7 +39,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
                       'text' => 'nodes_after_top_before_section.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'nodes_after_top_before_section.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'nodes_after_top_before_section.texi',
@@ -81,7 +83,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -102,7 +104,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -217,7 +219,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -226,8 +228,10 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'nodes_after_top_before_section.texi',
@@ -260,7 +264,9 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -285,7 +291,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
               'text' => 'third node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -304,7 +310,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -363,7 +369,9 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'second-node',
+        'normalized' => 'second-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -399,7 +407,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -432,7 +440,9 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'third-node',
+        'normalized' => 'third-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -449,7 +459,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
               'text' => 'subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -469,7 +479,8 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -557,9 +568,11 @@ $result_sectioning{'nodes_after_top_before_section_use_nodes_chapter'} = {
             'extra' => {
               'normalized' => 'third-node'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 3,
           'section_number' => 1,
@@ -582,12 +595,14 @@ $result_nodes{'nodes_after_top_before_section_use_nodes_chapter'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -595,12 +610,14 @@ $result_nodes{'nodes_after_top_before_section_use_nodes_chapter'} = {
             'associated_section' => {
               'cmdname' => 'subsection',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 1
               }
             },
             'normalized' => 'third-node'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -624,18 +641,21 @@ $result_menus{'nodes_after_top_before_section_use_nodes_chapter'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'third-node'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

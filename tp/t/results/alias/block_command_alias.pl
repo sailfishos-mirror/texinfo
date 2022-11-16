@@ -17,7 +17,7 @@ $result_trees{'block_command_alias'} = {
                   'text' => 'lang=lisp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -29,7 +29,9 @@ $result_trees{'block_command_alias'} = {
             'misc_args' => [
               'lang',
               'lisp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -46,7 +48,7 @@ $result_trees{'block_command_alias'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -69,7 +71,7 @@ $result_trees{'block_command_alias'} = {
                           'text' => 'lang'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -78,8 +80,10 @@ $result_trees{'block_command_alias'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'lang'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',

@@ -63,7 +63,7 @@ $result_trees{'listoffloats_with_commands'} = {
                   'text' => 'me'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -72,7 +72,6 @@ $result_trees{'listoffloats_with_commands'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {},
@@ -83,6 +82,9 @@ $result_trees{'listoffloats_with_commands'} = {
               ],
               'normalized' => 'th@\'eor@`eme'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

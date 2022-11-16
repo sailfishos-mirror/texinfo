@@ -24,7 +24,7 @@ $result_trees{'explicit_sort_key'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'explicit_sort_key'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -56,7 +58,7 @@ $result_trees{'explicit_sort_key'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -86,7 +88,7 @@ $result_trees{'explicit_sort_key'} = {
               'text' => 'node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -108,7 +110,7 @@ $result_trees{'explicit_sort_key'} = {
                   'text' => 'SK'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -119,7 +121,9 @@ $result_trees{'explicit_sort_key'} = {
           'extra' => {
             'misc_args' => [
               'SK'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -163,7 +167,7 @@ $result_trees{'explicit_sort_key'} = {
                   'text' => 'bbbbbbb (first)'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -185,7 +189,9 @@ $result_trees{'explicit_sort_key'} = {
               'index_type_command' => 'SKindex',
               'sortas' => 'A'
             },
-            'sortas' => 'A',
+            'sortas' => 'A'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -225,7 +231,7 @@ $result_trees{'explicit_sort_key'} = {
                   'text' => 'aaaaaaa (second)'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -247,7 +253,9 @@ $result_trees{'explicit_sort_key'} = {
               'index_type_command' => 'SKindex',
               'sortas' => 'B'
             },
-            'sortas' => 'B',
+            'sortas' => 'B'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -287,7 +295,7 @@ $result_trees{'explicit_sort_key'} = {
                   'text' => 'zero sort key'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -309,7 +317,9 @@ $result_trees{'explicit_sort_key'} = {
               'index_type_command' => 'SKindex',
               'sortas' => '0'
             },
-            'sortas' => '0',
+            'sortas' => '0'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -360,7 +370,7 @@ $result_trees{'explicit_sort_key'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -380,7 +390,9 @@ $result_trees{'explicit_sort_key'} = {
               'index_ignore_chars' => {},
               'index_name' => 'SK',
               'index_type_command' => 'SKindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -567,7 +579,7 @@ $result_trees{'explicit_sort_key'} = {
                   'text' => 'SK'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -578,7 +590,9 @@ $result_trees{'explicit_sort_key'} = {
           'extra' => {
             'misc_args' => [
               'SK'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -601,7 +615,9 @@ $result_trees{'explicit_sort_key'} = {
             'normalized' => 'node'
           }
         ],
-        'normalized' => 'node',
+        'normalized' => 'node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -677,6 +693,7 @@ $result_sectioning{'explicit_sort_key'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -701,6 +718,7 @@ $result_nodes{'explicit_sort_key'} = {
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -708,6 +726,7 @@ $result_nodes{'explicit_sort_key'} = {
         'isindex' => 1,
         'normalized' => 'node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -721,6 +740,7 @@ $result_menus{'explicit_sort_key'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

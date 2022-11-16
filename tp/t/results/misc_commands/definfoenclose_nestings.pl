@@ -17,7 +17,7 @@ $result_trees{'definfoenclose_nestings'} = {
                   'text' => 'phoo,//,\\'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -30,7 +30,9 @@ $result_trees{'definfoenclose_nestings'} = {
               'phoo',
               '//',
               '\\'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -185,7 +187,7 @@ $result_trees{'definfoenclose_nestings'} = {
                   'text' => 'in center in phoo'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -193,7 +195,7 @@ $result_trees{'definfoenclose_nestings'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

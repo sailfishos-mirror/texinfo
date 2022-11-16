@@ -33,7 +33,7 @@ $result_trees{'bad_tab_nesting'} = {
                   'type' => 'bracketed'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -128,7 +128,7 @@ $result_trees{'bad_tab_nesting'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -137,8 +137,10 @@ $result_trees{'bad_tab_nesting'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -162,7 +164,9 @@ $result_trees{'bad_tab_nesting'} = {
                 ],
                 'type' => 'bracketed_multitable_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

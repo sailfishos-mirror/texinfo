@@ -45,7 +45,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -65,7 +65,9 @@ $result_trees{'customize_translations'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -82,7 +84,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -97,7 +99,8 @@ $result_trees{'customize_translations'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -114,7 +117,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -134,7 +137,9 @@ $result_trees{'customize_translations'} = {
             'normalized' => 'Chapter'
           }
         ],
-        'normalized' => 'Chapter',
+        'normalized' => 'Chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -151,7 +156,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -200,7 +205,7 @@ $result_trees{'customize_translations'} = {
                   'text' => 'fr'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -209,8 +214,10 @@ $result_trees{'customize_translations'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'fr'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -219,7 +226,8 @@ $result_trees{'customize_translations'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -236,7 +244,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'Chapter fr'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -256,7 +264,9 @@ $result_trees{'customize_translations'} = {
             'normalized' => 'Chapter-fr'
           }
         ],
-        'normalized' => 'Chapter-fr',
+        'normalized' => 'Chapter-fr'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -273,7 +283,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'chap fr'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -315,7 +325,8 @@ $result_trees{'customize_translations'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -332,7 +343,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'section fr'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -352,7 +363,9 @@ $result_trees{'customize_translations'} = {
             'normalized' => 'section-fr'
           }
         ],
-        'normalized' => 'section-fr',
+        'normalized' => 'section-fr'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -369,7 +382,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'sec fr'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -391,7 +404,7 @@ $result_trees{'customize_translations'} = {
                   'text' => 'de'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -400,8 +413,10 @@ $result_trees{'customize_translations'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'de'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -410,7 +425,8 @@ $result_trees{'customize_translations'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -427,7 +443,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'Chapter de'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -447,7 +463,9 @@ $result_trees{'customize_translations'} = {
             'normalized' => 'Chapter-de'
           }
         ],
-        'normalized' => 'Chapter-de',
+        'normalized' => 'Chapter-de'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -464,7 +482,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'chap de'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -506,7 +524,8 @@ $result_trees{'customize_translations'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -523,7 +542,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'Last chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -543,7 +562,9 @@ $result_trees{'customize_translations'} = {
             'normalized' => 'Last-chapter'
           }
         ],
-        'normalized' => 'Last-chapter',
+        'normalized' => 'Last-chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -560,7 +581,7 @@ $result_trees{'customize_translations'} = {
               'text' => 'Last Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -575,7 +596,8 @@ $result_trees{'customize_translations'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -671,9 +693,11 @@ $result_sectioning{'customize_translations'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -684,9 +708,11 @@ $result_sectioning{'customize_translations'} = {
                   'extra' => {
                     'normalized' => 'Chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -703,9 +729,11 @@ $result_sectioning{'customize_translations'} = {
                   'extra' => {
                     'normalized' => 'Chapter-fr'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -716,9 +744,11 @@ $result_sectioning{'customize_translations'} = {
                         'extra' => {
                           'normalized' => 'section-fr'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.1',
@@ -742,9 +772,11 @@ $result_sectioning{'customize_translations'} = {
                   'extra' => {
                     'normalized' => 'Chapter-de'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -762,9 +794,11 @@ $result_sectioning{'customize_translations'} = {
                   'extra' => {
                     'normalized' => 'Last-chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 4,
@@ -807,10 +841,12 @@ $result_nodes{'customize_translations'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -818,12 +854,14 @@ $result_nodes{'customize_translations'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapter'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -831,12 +869,14 @@ $result_nodes{'customize_translations'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Chapter-fr'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -844,12 +884,14 @@ $result_nodes{'customize_translations'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
                 },
                 'normalized' => 'Chapter-de'
               },
+              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
@@ -857,12 +899,14 @@ $result_nodes{'customize_translations'} = {
                     'associated_section' => {
                       'cmdname' => 'chapter',
                       'extra' => {},
+                      'info' => {},
                       'structure' => {
                         'section_number' => 4
                       }
                     },
                     'normalized' => 'Last-chapter'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -896,6 +940,7 @@ $result_menus{'customize_translations'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

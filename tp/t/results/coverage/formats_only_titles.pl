@@ -18,7 +18,7 @@ $result_trees{'formats_only_titles'} = {
                   'type' => 'command_as_argument_inserted'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -49,7 +49,7 @@ $result_trees{'formats_only_titles'} = {
                       'text' => 'itemize'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -58,8 +58,10 @@ $result_trees{'formats_only_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -85,7 +87,7 @@ $result_trees{'formats_only_titles'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -116,7 +118,7 @@ $result_trees{'formats_only_titles'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -125,8 +127,10 @@ $result_trees{'formats_only_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -163,7 +167,7 @@ $result_trees{'formats_only_titles'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -194,7 +198,7 @@ $result_trees{'formats_only_titles'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -203,8 +207,10 @@ $result_trees{'formats_only_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -214,7 +220,9 @@ $result_trees{'formats_only_titles'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -242,7 +250,7 @@ $result_trees{'formats_only_titles'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -273,7 +281,7 @@ $result_trees{'formats_only_titles'} = {
                       'text' => 'vtable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -282,8 +290,10 @@ $result_trees{'formats_only_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -293,7 +303,9 @@ $result_trees{'formats_only_titles'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -319,7 +331,7 @@ $result_trees{'formats_only_titles'} = {
                           'text' => '0.5 0.5'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -331,7 +343,9 @@ $result_trees{'formats_only_titles'} = {
                     'misc_args' => [
                       '0.5',
                       '0.5'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -368,7 +382,7 @@ $result_trees{'formats_only_titles'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -377,8 +391,10 @@ $result_trees{'formats_only_titles'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -389,7 +405,9 @@ $result_trees{'formats_only_titles'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 2,
+            'max_columns' => 2
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

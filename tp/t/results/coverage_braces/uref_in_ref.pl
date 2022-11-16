@@ -62,7 +62,7 @@ $result_trees{'uref_in_ref'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -99,7 +99,7 @@ $result_trees{'uref_in_ref'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -136,7 +136,7 @@ $result_trees{'uref_in_ref'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -173,7 +173,7 @@ $result_trees{'uref_in_ref'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

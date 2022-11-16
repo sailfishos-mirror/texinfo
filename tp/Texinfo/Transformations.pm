@@ -132,7 +132,7 @@ sub fill_gaps_in_sectioning($)
               'text' => "\n",
               'parent' => $new_section->{'args'}->[0]
              }];
-          $new_section->{'args'}->[0]->{'extra'}
+          $new_section->{'args'}->[0]->{'info'}
             = {'spaces_before_argument' => ' '};
           $new_section->{'args'}->[0]->{'contents'}->[0]->{'args'}
              = [{'type' => 'brace_command_arg',
@@ -256,10 +256,10 @@ sub _new_node($$$$)
     $node = {'cmdname' => 'node',
              'args' => [
                {'type' => 'line_arg',
-                'extra' =>
+                'info' =>
                     {'spaces_after_argument' => $spaces_after_argument}}
              ],
-             'extra' => {'spaces_before_argument' => ' '}};
+             'info' => {'spaces_before_argument' => ' '}};
     my $node_line_arg = $node->{'args'}->[0];
     $node_line_arg->{'parent'} = $node;
     $node_line_arg->{'extra'}->{'comment_at_end'} = $comment_at_end

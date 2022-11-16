@@ -17,7 +17,7 @@ $result_trees{'space_in_anchor'} = {
                   'text' => 'anchor  name'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '   ',
                 'spaces_before_argument' => '   '
               },

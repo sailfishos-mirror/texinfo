@@ -456,10 +456,10 @@ sub _protect_in_spaces_attribute_text($)
 sub _leading_spaces_arg($)
 {
   my $element = shift;
-  if ($element->{'extra'} and $element->{'extra'}->{'spaces_before_argument'}
-      and $element->{'extra'}->{'spaces_before_argument'} ne '') {
+  if ($element->{'info'} and $element->{'info'}->{'spaces_before_argument'}
+      and $element->{'info'}->{'spaces_before_argument'} ne '') {
     return ['spaces', _protect_in_spaces_attribute_text(
-                            $element->{'extra'}->{'spaces_before_argument'})];
+                            $element->{'info'}->{'spaces_before_argument'})];
   } else {
     return ();
   }
@@ -474,10 +474,10 @@ sub _end_line_spaces
 
   my $end_spaces = '';
   if ($element->{'args'}->[-1]
-      and $element->{'args'}->[-1]->{'extra'}
-      and $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
+      and $element->{'args'}->[-1]->{'info'}
+      and $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'}) {
     # spaces and form feeds only, protection is needed for form feeds
-    my $spaces = $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
+    my $spaces = $element->{'args'}->[-1]->{'info'}->{'spaces_after_argument'};
     chomp $spaces;
     $end_spaces = $self->txi_markup_protect_text($spaces);
   }
@@ -504,9 +504,9 @@ sub _trailing_spaces_arg($)
 {
   my $element = shift;
   
-  if ($element->{'extra'} and
-      $element->{'extra'}->{'spaces_after_argument'}) {
-    my $spaces = $element->{'extra'}->{'spaces_after_argument'};
+  if ($element->{'info'} and
+      $element->{'info'}->{'spaces_after_argument'}) {
+    my $spaces = $element->{'info'}->{'spaces_after_argument'};
     chomp($spaces);
     if ($spaces ne '') {
       return ['trailingspaces', _protect_in_spaces_attribute_text($spaces)];
@@ -1062,10 +1062,11 @@ sub _convert($$;$)
           pop @{$self->{'document_context'}->[-1]->{'monospace'}}
             if (defined($in_monospace_not_normal));
 
-          if ($element->{'args'}->[$arg_index]->{'extra'}
-              and $element->{'args'}->[$arg_index]->{'extra'}->{'spaces_after_argument'}) {
+          if ($element->{'args'}->[$arg_index]->{'info'}
+              and $element->{'args'}->[$arg_index]
+                                      ->{'info'}->{'spaces_after_argument'}) {
             $arg .= $element->{'args'}->[$arg_index]
-                   ->{'extra'}->{'spaces_after_argument'};
+                   ->{'info'}->{'spaces_after_argument'};
           }
 
           if (!defined($main_cmdname) or $arg ne '' or scalar(@$attribute) > 0) {
@@ -1435,10 +1436,10 @@ sub _convert($$;$)
     if ($element->{'type'} eq 'def_line') {
       if ($element->{'cmdname'}) {
         my $leading_spaces_attribute_spec = [];
-        if ($element->{'extra'}
-            and $element->{'extra'}->{'spaces_before_argument'}
-            and $element->{'extra'}->{'spaces_before_argument'} ne '') {
-          my $leading_spaces = $element->{'extra'}->{'spaces_before_argument'};
+        if ($element->{'info'}
+            and $element->{'info'}->{'spaces_before_argument'}
+            and $element->{'info'}->{'spaces_before_argument'} ne '') {
+          my $leading_spaces = $element->{'info'}->{'spaces_before_argument'};
           # may happen without any argument, remove as a \n is added below
           $leading_spaces =~ s/\n//;
           $leading_spaces_attribute_spec = [['spaces',

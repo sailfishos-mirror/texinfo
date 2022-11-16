@@ -19,7 +19,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
                       'text' => 'nodes_before_after_top_xref.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -28,8 +28,10 @@ $result_trees{'nodes_before_after_top_xref'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'nodes_before_after_top_xref.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -56,7 +58,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
               'text' => 'node before'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -97,7 +99,9 @@ $result_trees{'nodes_before_after_top_xref'} = {
             'normalized' => 'node-before'
           }
         ],
-        'normalized' => 'node-before',
+        'normalized' => 'node-before'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -114,7 +118,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -134,7 +138,9 @@ $result_trees{'nodes_before_after_top_xref'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -151,7 +157,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
               'text' => 'top sectionning'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -180,7 +186,8 @@ $result_trees{'nodes_before_after_top_xref'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -197,7 +204,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
               'text' => 'after'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -238,7 +245,9 @@ $result_trees{'nodes_before_after_top_xref'} = {
             'normalized' => 'after'
           }
         ],
-        'normalized' => 'after',
+        'normalized' => 'after'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -255,7 +264,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -275,7 +284,9 @@ $result_trees{'nodes_before_after_top_xref'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -292,7 +303,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -328,7 +339,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
                   'text' => 'on'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -339,7 +350,9 @@ $result_trees{'nodes_before_after_top_xref'} = {
           'extra' => {
             'misc_args' => [
               'on'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -428,7 +441,7 @@ $result_trees{'nodes_before_after_top_xref'} = {
                   'text' => 'off'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -439,7 +452,9 @@ $result_trees{'nodes_before_after_top_xref'} = {
           'extra' => {
             'misc_args' => [
               'off'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -521,7 +536,8 @@ $result_trees{'nodes_before_after_top_xref'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -617,9 +633,11 @@ $result_sectioning{'nodes_before_after_top_xref'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -630,9 +648,11 @@ $result_sectioning{'nodes_before_after_top_xref'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -661,10 +681,12 @@ $result_nodes{'nodes_before_after_top_xref'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -672,12 +694,14 @@ $result_nodes{'nodes_before_after_top_xref'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -693,6 +717,7 @@ $result_menus{'nodes_before_after_top_xref'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

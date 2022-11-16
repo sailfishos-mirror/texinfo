@@ -17,7 +17,7 @@ $result_trees{'space_in_image'} = {
                   'text' => 'a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' ',
                 'spaces_before_argument' => ' '
               },
@@ -37,7 +37,7 @@ $result_trees{'space_in_image'} = {
                   'text' => 'cc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'type' => 'brace_command_arg'
@@ -48,7 +48,7 @@ $result_trees{'space_in_image'} = {
                   'text' => 'dd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'brace_command_arg'
@@ -59,7 +59,7 @@ $result_trees{'space_in_image'} = {
                   'text' => '.e'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'brace_command_arg'
@@ -88,7 +88,7 @@ $result_trees{'space_in_image'} = {
                       'text' => 'f'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },

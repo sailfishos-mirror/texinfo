@@ -24,7 +24,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'text' => 'before'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -39,7 +39,8 @@ $result_trees{'section_before_after_top_node_last_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -56,7 +57,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +77,9 @@ $result_trees{'section_before_after_top_node_last_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +96,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'text' => 'top section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -108,7 +111,8 @@ $result_trees{'section_before_after_top_node_last_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -125,7 +129,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -154,7 +158,8 @@ $result_trees{'section_before_after_top_node_last_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -171,7 +176,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'text' => 'node after'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -191,7 +196,9 @@ $result_trees{'section_before_after_top_node_last_node'} = {
             'normalized' => 'node-after'
           }
         ],
-        'normalized' => 'node-after',
+        'normalized' => 'node-after'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -240,6 +247,7 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
       {
         'cmdname' => 'unnumbered',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_up' => {}
@@ -253,9 +261,11 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_prev' => {},
@@ -266,6 +276,7 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
       {
         'cmdname' => 'chapter',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -294,16 +305,19 @@ $result_nodes{'section_before_after_top_node_last_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node-after'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -317,6 +331,7 @@ $result_menus{'section_before_after_top_node_last_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

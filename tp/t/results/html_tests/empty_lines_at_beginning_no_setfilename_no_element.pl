@@ -41,7 +41,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
                   'text' => 'centered'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -49,7 +49,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

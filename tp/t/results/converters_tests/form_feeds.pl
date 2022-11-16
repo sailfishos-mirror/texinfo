@@ -18,7 +18,7 @@ $result_trees{'form_feeds'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -45,7 +45,9 @@ $result_trees{'form_feeds'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -62,7 +64,7 @@ $result_trees{'form_feeds'} = {
               'text' => 'firstnode'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -282,7 +284,7 @@ $result_trees{'form_feeds'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' 
 '
               },
@@ -308,7 +310,7 @@ $result_trees{'form_feeds'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -317,8 +319,10 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -346,7 +350,7 @@ $result_trees{'form_feeds'} = {
                   'text' => 'around center'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' 
 '
               },
@@ -354,7 +358,7 @@ $result_trees{'form_feeds'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '  '
           },
           'source_info' => {
@@ -371,7 +375,7 @@ $result_trees{'form_feeds'} = {
                   'text' => 'in center'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -379,7 +383,7 @@ $result_trees{'form_feeds'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -439,7 +443,9 @@ $result_trees{'form_feeds'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
+                        'def_role' => 'category'
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' ',
                         'spaces_before_argument' => ' '
                       },
@@ -464,7 +470,9 @@ $result_trees{'form_feeds'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'name',
+                        'def_role' => 'name'
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' ',
                         'spaces_before_argument' => ' '
                       },
@@ -489,7 +497,9 @@ $result_trees{'form_feeds'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' ',
                         'spaces_before_argument' => ' '
                       },
@@ -514,7 +524,9 @@ $result_trees{'form_feeds'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' ',
                         'spaces_before_argument' => '  '
                       },
@@ -539,7 +551,9 @@ $result_trees{'form_feeds'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' ',
                         'spaces_before_argument' => '  '
                       },
@@ -615,7 +629,7 @@ $result_trees{'form_feeds'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -624,8 +638,10 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -634,7 +650,7 @@ $result_trees{'form_feeds'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -651,7 +667,7 @@ $result_trees{'form_feeds'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -707,7 +723,9 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'caption',
               'extra' => {
-                'float' => {},
+                'float' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -767,7 +785,9 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'shortcaption',
               'extra' => {
-                'float' => {},
+                'float' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -797,7 +817,7 @@ $result_trees{'form_feeds'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -806,8 +826,10 @@ $result_trees{'form_feeds'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -847,7 +869,9 @@ $result_trees{'form_feeds'} = {
             'normalized' => 'first-node'
           }
         ],
-        'normalized' => 'first-node',
+        'normalized' => 'first-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -953,12 +977,14 @@ $result_nodes{'form_feeds'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'first-node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -972,6 +998,7 @@ $result_menus{'form_feeds'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 
@@ -987,13 +1014,15 @@ $result_floats{'form_feeds'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          }
+          },
+          'info' => {}
         },
         'shortcaption' => {
           'cmdname' => 'shortcaption',
           'extra' => {
             'float' => {}
-          }
+          },
+          'info' => {}
         },
         'type' => {
           'normalized' => ''

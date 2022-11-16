@@ -17,7 +17,7 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
                   'text' => '1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,7 +28,9 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
           'extra' => {
             'misc_args' => [
               '1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -50,7 +52,7 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
                   'text' => '2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -61,7 +63,9 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
           'extra' => {
             'misc_args' => [
               '2'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

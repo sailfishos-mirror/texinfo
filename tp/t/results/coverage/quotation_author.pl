@@ -12,7 +12,7 @@ $result_trees{'quotation_author'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -34,7 +34,7 @@ $result_trees{'quotation_author'} = {
                       'text' => 'First Author'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,7 +43,9 @@ $result_trees{'quotation_author'} = {
               ],
               'cmdname' => 'author',
               'extra' => {
-                'quotation' => {},
+                'quotation' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -87,7 +89,7 @@ $result_trees{'quotation_author'} = {
                           'text' => 'cond author'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -96,7 +98,9 @@ $result_trees{'quotation_author'} = {
                   ],
                   'cmdname' => 'author',
                   'extra' => {
-                    'quotation' => {},
+                    'quotation' => {}
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -125,7 +129,7 @@ $result_trees{'quotation_author'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -134,8 +138,10 @@ $result_trees{'quotation_author'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

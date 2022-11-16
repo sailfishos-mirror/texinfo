@@ -165,10 +165,9 @@ add_extra_integer (ELEMENT *e, char *key, long value)
 }
 
 KEY_PAIR *
-lookup_extra (ELEMENT *e, char *key)
+lookup_associated_info (ASSOCIATED_INFO *a, char *key)
 {
   int i;
-  ASSOCIATED_INFO *a = e->extra_info;
   for (i = 0; i < a->info_number; i++)
     {
       if (!strcmp (a->info[i].key, key))
@@ -176,3 +175,16 @@ lookup_extra (ELEMENT *e, char *key)
     }
   return 0;
 }
+
+KEY_PAIR *
+lookup_extra (ELEMENT *e, char *key)
+{
+  return lookup_associated_info (e->extra_info, key);
+}
+
+KEY_PAIR *
+lookup_info (ELEMENT *e, char *key)
+{
+  return lookup_associated_info (e->info_info, key);
+}
+

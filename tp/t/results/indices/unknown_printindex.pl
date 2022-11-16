@@ -21,7 +21,7 @@ $result_trees{'unknown_printindex'} = {
             }
           ],
           'cmdname' => 'printindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

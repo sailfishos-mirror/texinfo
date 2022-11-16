@@ -18,7 +18,7 @@ $result_trees{'rec_nodes'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,7 @@ $result_trees{'rec_nodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -159,7 +159,7 @@ $result_trees{'rec_nodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -168,8 +168,10 @@ $result_trees{'rec_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -202,7 +204,9 @@ $result_trees{'rec_nodes'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -238,7 +242,7 @@ $result_trees{'rec_nodes'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -255,7 +259,7 @@ $result_trees{'rec_nodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -370,7 +374,7 @@ $result_trees{'rec_nodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -379,8 +383,10 @@ $result_trees{'rec_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -426,7 +432,9 @@ $result_trees{'rec_nodes'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'second-node',
+        'normalized' => 'second-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -457,7 +465,7 @@ $result_trees{'rec_nodes'} = {
               'text' => 'second node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -474,7 +482,7 @@ $result_trees{'rec_nodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' 
 '
               },
@@ -540,7 +548,7 @@ $result_trees{'rec_nodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -549,8 +557,10 @@ $result_trees{'rec_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -591,7 +601,9 @@ $result_trees{'rec_nodes'} = {
             'normalized' => 'second-node'
           }
         ],
-        'normalized' => 'other-node',
+        'normalized' => 'other-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -622,7 +634,7 @@ $result_trees{'rec_nodes'} = {
               'text' => 'node following second'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -634,7 +646,7 @@ $result_trees{'rec_nodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -700,7 +712,7 @@ $result_trees{'rec_nodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -709,8 +721,10 @@ $result_trees{'rec_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -765,7 +779,9 @@ $result_trees{'rec_nodes'} = {
             'normalized' => 'node-following-second'
           }
         ],
-        'normalized' => 'node-up-node-following-second',
+        'normalized' => 'node-up-node-following-second'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -796,7 +812,7 @@ $result_trees{'rec_nodes'} = {
               'text' => 'node up node following second'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -822,7 +838,7 @@ $result_trees{'rec_nodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -888,7 +904,7 @@ $result_trees{'rec_nodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -897,8 +913,10 @@ $result_trees{'rec_nodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -934,7 +952,9 @@ $result_trees{'rec_nodes'} = {
             'normalized' => 'node-up-node-following-second'
           }
         ],
-        'normalized' => 'node-following-second',
+        'normalized' => 'node-following-second'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1044,6 +1064,7 @@ $result_nodes{'rec_nodes'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1055,6 +1076,7 @@ $result_nodes{'rec_nodes'} = {
         ],
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1066,6 +1088,7 @@ $result_nodes{'rec_nodes'} = {
             ],
             'normalized' => 'other-node'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {},
             'node_up' => {}
@@ -1089,18 +1112,21 @@ $result_menus{'rec_nodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'other-node'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {},
             'menu_next' => {},
@@ -1116,12 +1142,14 @@ $result_menus{'rec_nodes'} = {
           'extra' => {
             'normalized' => 'node-following-second'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'node-up-node-following-second'
               },
+              'info' => {},
               'structure' => {
                 'menu_child' => {},
                 'menu_up' => {},

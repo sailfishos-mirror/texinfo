@@ -14,7 +14,7 @@ $result_trees{'anchor_in_copying'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -70,7 +70,7 @@ $result_trees{'anchor_in_copying'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -79,8 +79,10 @@ $result_trees{'anchor_in_copying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -114,7 +116,7 @@ $result_trees{'anchor_in_copying'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -134,7 +136,9 @@ $result_trees{'anchor_in_copying'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -151,7 +155,7 @@ $result_trees{'anchor_in_copying'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -166,7 +170,8 @@ $result_trees{'anchor_in_copying'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -183,7 +188,7 @@ $result_trees{'anchor_in_copying'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -203,7 +208,9 @@ $result_trees{'anchor_in_copying'} = {
             'normalized' => 'Chapter'
           }
         ],
-        'normalized' => 'Chapter',
+        'normalized' => 'Chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -220,7 +227,7 @@ $result_trees{'anchor_in_copying'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -271,7 +278,8 @@ $result_trees{'anchor_in_copying'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -327,9 +335,11 @@ $result_sectioning{'anchor_in_copying'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -340,9 +350,11 @@ $result_sectioning{'anchor_in_copying'} = {
                   'extra' => {
                     'normalized' => 'Chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -371,10 +383,12 @@ $result_nodes{'anchor_in_copying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -382,12 +396,14 @@ $result_nodes{'anchor_in_copying'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -403,6 +419,7 @@ $result_menus{'anchor_in_copying'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

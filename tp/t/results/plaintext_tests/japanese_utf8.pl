@@ -29,7 +29,7 @@ $result_trees{'japanese_utf8'} = {
                       'text' => 'UTF-8'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -40,8 +40,10 @@ $result_trees{'japanese_utf8'} = {
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'input_perl_encoding' => 'utf-8-strict',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'UTF-8'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
@@ -62,7 +64,7 @@ $result_trees{'japanese_utf8'} = {
                       'text' => 'japanese_utf8.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -71,8 +73,10 @@ $result_trees{'japanese_utf8'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'japanese_utf8.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
@@ -88,7 +92,7 @@ $result_trees{'japanese_utf8'} = {
                       'text' => 'GNU LilyPond -- Manuel d\'initiation japanese'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -96,7 +100,7 @@ $result_trees{'japanese_utf8'} = {
                 }
               ],
               'cmdname' => 'settitle',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -118,7 +122,7 @@ $result_trees{'japanese_utf8'} = {
                       'text' => 'ja'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -127,8 +131,10 @@ $result_trees{'japanese_utf8'} = {
               ],
               'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ja'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
@@ -155,7 +161,7 @@ $result_trees{'japanese_utf8'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -175,7 +181,9 @@ $result_trees{'japanese_utf8'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -192,7 +200,7 @@ $result_trees{'japanese_utf8'} = {
               'text' => "GNU LilyPond --- \x{5b66}\x{7fd2}\x{30de}\x{30cb}\x{30e5}\x{30a2}\x{30eb}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -209,7 +217,7 @@ $result_trees{'japanese_utf8'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -327,7 +335,7 @@ $result_trees{'japanese_utf8'} = {
                       'text' => 'copying'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -336,8 +344,10 @@ $result_trees{'japanese_utf8'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
@@ -379,7 +389,7 @@ $result_trees{'japanese_utf8'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -494,7 +504,7 @@ $result_trees{'japanese_utf8'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -503,8 +513,10 @@ $result_trees{'japanese_utf8'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_utf8.texi',
@@ -525,7 +537,8 @@ $result_trees{'japanese_utf8'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -542,7 +555,7 @@ $result_trees{'japanese_utf8'} = {
               'text' => 'Preface'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -562,7 +575,9 @@ $result_trees{'japanese_utf8'} = {
             'normalized' => 'Preface'
           }
         ],
-        'normalized' => 'Preface',
+        'normalized' => 'Preface'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -579,7 +594,7 @@ $result_trees{'japanese_utf8'} = {
               'text' => 'Preface'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -613,7 +628,8 @@ $result_trees{'japanese_utf8'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -630,7 +646,7 @@ $result_trees{'japanese_utf8'} = {
               'text' => 'Introduction'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -650,7 +666,9 @@ $result_trees{'japanese_utf8'} = {
             'normalized' => 'Introduction'
           }
         ],
-        'normalized' => 'Introduction',
+        'normalized' => 'Introduction'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -667,7 +685,7 @@ $result_trees{'japanese_utf8'} = {
               'text' => 'Introduction'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -696,7 +714,8 @@ $result_trees{'japanese_utf8'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -809,9 +828,11 @@ $result_sectioning{'japanese_utf8'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -822,9 +843,11 @@ $result_sectioning{'japanese_utf8'} = {
                   'extra' => {
                     'normalized' => 'Preface'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -841,9 +864,11 @@ $result_sectioning{'japanese_utf8'} = {
                   'extra' => {
                     'normalized' => 'Introduction'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -877,6 +902,7 @@ $result_nodes{'japanese_utf8'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -886,6 +912,7 @@ $result_nodes{'japanese_utf8'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -893,12 +920,14 @@ $result_nodes{'japanese_utf8'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Preface'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -906,12 +935,14 @@ $result_nodes{'japanese_utf8'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Introduction'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -935,18 +966,21 @@ $result_menus{'japanese_utf8'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Preface'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Introduction'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

@@ -19,7 +19,7 @@ $result_trees{'syncodeindex_to_plain'} = {
                       'text' => 'ky cp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -31,7 +31,9 @@ $result_trees{'syncodeindex_to_plain'} = {
                 'misc_args' => [
                   'ky',
                   'cp'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -59,7 +61,7 @@ $result_trees{'syncodeindex_to_plain'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -81,7 +83,7 @@ $result_trees{'syncodeindex_to_plain'} = {
                   'text' => '--k1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -101,7 +103,9 @@ $result_trees{'syncodeindex_to_plain'} = {
               'index_ignore_chars' => {},
               'index_name' => 'ky',
               'index_type_command' => 'kindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -119,7 +123,7 @@ $result_trees{'syncodeindex_to_plain'} = {
                   'text' => '--v'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -139,7 +143,9 @@ $result_trees{'syncodeindex_to_plain'} = {
               'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'vindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -157,7 +163,7 @@ $result_trees{'syncodeindex_to_plain'} = {
                   'text' => '--c'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -177,7 +183,9 @@ $result_trees{'syncodeindex_to_plain'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -209,7 +217,7 @@ $result_trees{'syncodeindex_to_plain'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -220,7 +228,9 @@ $result_trees{'syncodeindex_to_plain'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -251,7 +261,7 @@ $result_trees{'syncodeindex_to_plain'} = {
                   'text' => 'vr'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -262,7 +272,9 @@ $result_trees{'syncodeindex_to_plain'} = {
           'extra' => {
             'misc_args' => [
               'vr'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -285,7 +297,9 @@ $result_trees{'syncodeindex_to_plain'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -341,7 +355,8 @@ $result_nodes{'syncodeindex_to_plain'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'syncodeindex_to_plain'} = {
@@ -349,7 +364,8 @@ $result_menus{'syncodeindex_to_plain'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'syncodeindex_to_plain'} = [];

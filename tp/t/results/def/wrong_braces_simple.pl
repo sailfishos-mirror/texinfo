@@ -124,7 +124,7 @@ $result_trees{'wrong_braces_simple'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -133,8 +133,10 @@ $result_trees{'wrong_braces_simple'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -143,7 +145,7 @@ $result_trees{'wrong_braces_simple'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -285,7 +287,7 @@ $result_trees{'wrong_braces_simple'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -294,8 +296,10 @@ $result_trees{'wrong_braces_simple'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -304,7 +308,7 @@ $result_trees{'wrong_braces_simple'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -392,7 +396,9 @@ $result_trees{'wrong_braces_simple'} = {
                     },
                     {
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_before_argument' => '
 '
                       },
@@ -445,7 +451,7 @@ $result_trees{'wrong_braces_simple'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -454,8 +460,10 @@ $result_trees{'wrong_braces_simple'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -464,7 +472,7 @@ $result_trees{'wrong_braces_simple'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -557,7 +565,9 @@ $result_trees{'wrong_braces_simple'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_after_argument' => '
 ',
                         'spaces_before_argument' => ' '
@@ -611,7 +621,7 @@ $result_trees{'wrong_braces_simple'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -620,8 +630,10 @@ $result_trees{'wrong_braces_simple'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -630,7 +642,7 @@ $result_trees{'wrong_braces_simple'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -847,7 +859,9 @@ $result_trees{'wrong_braces_simple'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn'
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -966,7 +980,9 @@ $result_trees{'wrong_braces_simple'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn'
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1047,7 +1063,9 @@ $result_trees{'wrong_braces_simple'} = {
                     },
                     {
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_before_argument' => '
 '
                       },
@@ -1084,7 +1102,9 @@ $result_trees{'wrong_braces_simple'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn'
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1170,7 +1190,9 @@ $result_trees{'wrong_braces_simple'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_after_argument' => '
 ',
                         'spaces_before_argument' => ' '
@@ -1208,7 +1230,9 @@ $result_trees{'wrong_braces_simple'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn'
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1226,7 +1250,7 @@ $result_trees{'wrong_braces_simple'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1235,8 +1259,10 @@ $result_trees{'wrong_braces_simple'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1245,7 +1271,7 @@ $result_trees{'wrong_braces_simple'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

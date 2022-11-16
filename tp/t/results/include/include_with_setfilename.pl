@@ -31,7 +31,7 @@ $result_trees{'include_with_setfilename'} = {
                   'text' => 'main_file.info'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -40,8 +40,10 @@ $result_trees{'include_with_setfilename'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'main_file.info'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

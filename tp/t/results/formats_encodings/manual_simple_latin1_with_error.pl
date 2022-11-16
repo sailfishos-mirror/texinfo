@@ -34,7 +34,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
                       'text' => 'iso-8859-1'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -45,8 +45,10 @@ $result_trees{'manual_simple_latin1_with_error'} = {
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'input_perl_encoding' => 'iso-8859-1',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'iso-8859-1'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'manual_simple_latin1_with_error.texi',
@@ -73,7 +75,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -93,7 +95,9 @@ $result_trees{'manual_simple_latin1_with_error'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -110,7 +114,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
               'text' => "Test\x{e9}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -125,7 +129,8 @@ $result_trees{'manual_simple_latin1_with_error'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -142,7 +147,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
               'text' => "\x{e9}sseul\x{e9}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -169,7 +174,9 @@ $result_trees{'manual_simple_latin1_with_error'} = {
             'normalized' => '_00e9sseul_00e9'
           }
         ],
-        'normalized' => '_00e9sseul_00e9',
+        'normalized' => '_00e9sseul_00e9'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -186,7 +193,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
               'text' => "Chapitr\x{e9}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -206,7 +213,9 @@ $result_trees{'manual_simple_latin1_with_error'} = {
             'normalized' => 'Chapitr_00e9'
           }
         ],
-        'normalized' => 'Chapitr_00e9',
+        'normalized' => 'Chapitr_00e9'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -223,7 +232,7 @@ $result_trees{'manual_simple_latin1_with_error'} = {
               'text' => "Chapitr\x{e9}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -248,7 +257,8 @@ $result_trees{'manual_simple_latin1_with_error'} = {
 '
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -305,9 +315,11 @@ $result_sectioning{'manual_simple_latin1_with_error'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -318,9 +330,11 @@ $result_sectioning{'manual_simple_latin1_with_error'} = {
                   'extra' => {
                     'normalized' => 'Chapitr_00e9'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -349,10 +363,12 @@ $result_nodes{'manual_simple_latin1_with_error'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -360,12 +376,14 @@ $result_nodes{'manual_simple_latin1_with_error'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapitr_00e9'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -381,6 +399,7 @@ $result_menus{'manual_simple_latin1_with_error'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

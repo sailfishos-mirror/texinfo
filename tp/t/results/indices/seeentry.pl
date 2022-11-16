@@ -24,7 +24,7 @@ $result_trees{'seeentry'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'seeentry'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -56,7 +58,7 @@ $result_trees{'seeentry'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -86,7 +88,7 @@ $result_trees{'seeentry'} = {
               'text' => 'chapter index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -107,7 +109,9 @@ $result_trees{'seeentry'} = {
             'normalized' => 'chapter-index'
           }
         ],
-        'normalized' => 'chapter-index',
+        'normalized' => 'chapter-index'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -124,7 +128,7 @@ $result_trees{'seeentry'} = {
               'text' => 'Index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -168,7 +172,7 @@ $result_trees{'seeentry'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -189,7 +193,9 @@ $result_trees{'seeentry'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seeentry' => {},
+            'seeentry' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -229,7 +235,7 @@ $result_trees{'seeentry'} = {
                   'text' => 'ddd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -250,7 +256,9 @@ $result_trees{'seeentry'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seealso' => {},
+            'seealso' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -295,7 +303,7 @@ $result_trees{'seeentry'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -316,7 +324,9 @@ $result_trees{'seeentry'} = {
               'index_name' => 'fn',
               'index_type_command' => 'findex'
             },
-            'seeentry' => {},
+            'seeentry' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -356,7 +366,7 @@ $result_trees{'seeentry'} = {
                   'text' => 'f---ddd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -377,7 +387,9 @@ $result_trees{'seeentry'} = {
               'index_name' => 'fn',
               'index_type_command' => 'findex'
             },
-            'seealso' => {},
+            'seealso' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -400,7 +412,7 @@ $result_trees{'seeentry'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -411,7 +423,9 @@ $result_trees{'seeentry'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -428,7 +442,7 @@ $result_trees{'seeentry'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -439,7 +453,9 @@ $result_trees{'seeentry'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -449,7 +465,8 @@ $result_trees{'seeentry'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -522,6 +539,7 @@ $result_sectioning{'seeentry'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -536,9 +554,11 @@ $result_sectioning{'seeentry'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter-index'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -571,6 +591,7 @@ $result_nodes{'seeentry'} = {
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -578,6 +599,7 @@ $result_nodes{'seeentry'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -585,6 +607,7 @@ $result_nodes{'seeentry'} = {
         'isindex' => 1,
         'normalized' => 'chapter-index'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -600,6 +623,7 @@ $result_menus{'seeentry'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

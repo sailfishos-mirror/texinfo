@@ -12,7 +12,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -185,7 +185,9 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                             }
                           ],
                           'extra' => {
-                            'def_role' => 'name',
+                            'def_role' => 'name'
+                          },
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -247,7 +249,9 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                       'index_name' => 'fn',
                       'index_type_command' => 'deffn'
                     },
-                    'original_def_cmdname' => 'deffnx',
+                    'original_def_cmdname' => 'deffnx'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -269,7 +273,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                                   'text' => 'between deffnx'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -288,7 +292,9 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                               'index_ignore_chars' => {},
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex'
-                            },
+                            }
+                          },
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -410,7 +416,9 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                       'index_name' => 'fn',
                       'index_type_command' => 'deffn'
                     },
-                    'original_def_cmdname' => 'deffnx',
+                    'original_def_cmdname' => 'deffnx'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -432,7 +440,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                                   'text' => 'cindex in deff item'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -451,7 +459,9 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                               'index_ignore_chars' => {},
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex'
-                            },
+                            }
+                          },
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -484,7 +494,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           'text' => 'deffn'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -493,8 +503,10 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'deffn'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -503,7 +515,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -520,7 +532,7 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -529,8 +541,10 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

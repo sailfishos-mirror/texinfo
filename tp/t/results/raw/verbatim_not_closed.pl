@@ -12,7 +12,7 @@ $result_trees{'verbatim_not_closed'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },

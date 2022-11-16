@@ -41,7 +41,7 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -72,7 +72,9 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -100,6 +102,7 @@ $result_nodes{'node_up_direction_for_top_with_manual'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_up' => {
       'extra' => {
@@ -119,6 +122,7 @@ $result_menus{'node_up_direction_for_top_with_manual'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

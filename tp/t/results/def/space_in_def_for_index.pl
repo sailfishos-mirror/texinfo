@@ -18,7 +18,7 @@ $result_trees{'space_in_def_for_index'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -46,7 +46,9 @@ $result_trees{'space_in_def_for_index'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'category',
+                        'def_role' => 'category'
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' ',
                         'spaces_before_argument' => ' '
                       },
@@ -71,7 +73,9 @@ $result_trees{'space_in_def_for_index'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'name',
+                        'def_role' => 'name'
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' ',
                         'spaces_before_argument' => ' '
                       },
@@ -96,7 +100,9 @@ $result_trees{'space_in_def_for_index'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' ',
                         'spaces_before_argument' => ' '
                       },
@@ -254,7 +260,9 @@ $result_trees{'space_in_def_for_index'} = {
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn'
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -272,7 +280,7 @@ $result_trees{'space_in_def_for_index'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -281,8 +289,10 @@ $result_trees{'space_in_def_for_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -291,7 +301,7 @@ $result_trees{'space_in_def_for_index'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -313,7 +323,7 @@ $result_trees{'space_in_def_for_index'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -324,7 +334,9 @@ $result_trees{'space_in_def_for_index'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -347,7 +359,9 @@ $result_trees{'space_in_def_for_index'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -395,7 +409,8 @@ $result_nodes{'space_in_def_for_index'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'space_in_def_for_index'} = {
@@ -403,7 +418,8 @@ $result_menus{'space_in_def_for_index'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'space_in_def_for_index'} = [];

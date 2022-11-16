@@ -32,7 +32,9 @@ $result_trees{'command_not_closed_in_documentencoding'} = {
           ],
           'cmdname' => 'documentencoding',
           'extra' => {
-            'missing_argument' => 1,
+            'missing_argument' => 1
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

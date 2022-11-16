@@ -18,7 +18,7 @@ $result_trees{'inforef_too_much_args'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -50,7 +50,7 @@ $result_trees{'inforef_too_much_args'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -61,7 +61,7 @@ $result_trees{'inforef_too_much_args'} = {
                       'text' => 'file name, spurious arg'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -101,7 +101,9 @@ $result_trees{'inforef_too_much_args'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -131,14 +133,16 @@ $result_nodes{'inforef_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'chapter'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'inforef_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'chapter'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'inforef_too_much_args'} = [

@@ -21,7 +21,7 @@ $result_trees{'empty_headitem'} = {
                           'text' => '.1 .1 .1'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -34,7 +34,9 @@ $result_trees{'empty_headitem'} = {
                       '.1',
                       '.1',
                       '.1'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -255,7 +257,7 @@ $result_trees{'empty_headitem'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -264,8 +266,10 @@ $result_trees{'empty_headitem'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -276,7 +280,9 @@ $result_trees{'empty_headitem'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 3,
+            'max_columns' => 3
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

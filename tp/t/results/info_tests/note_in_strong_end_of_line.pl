@@ -18,7 +18,7 @@ $result_trees{'note_in_strong_end_of_line'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -114,7 +114,9 @@ $result_trees{'note_in_strong_end_of_line'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -149,14 +151,16 @@ $result_nodes{'note_in_strong_end_of_line'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'note_in_strong_end_of_line'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'note_in_strong_end_of_line'} = [];

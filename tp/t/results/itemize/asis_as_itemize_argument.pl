@@ -23,7 +23,7 @@ $result_trees{'asis_as_itemize_argument'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -66,7 +66,7 @@ $result_trees{'asis_as_itemize_argument'} = {
                       'text' => 'itemize'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -75,8 +75,10 @@ $result_trees{'asis_as_itemize_argument'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -86,7 +88,9 @@ $result_trees{'asis_as_itemize_argument'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

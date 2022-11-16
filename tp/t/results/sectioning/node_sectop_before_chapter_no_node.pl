@@ -19,7 +19,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
                       'text' => 'node_sectop_before_chapter_no_node.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -28,8 +28,10 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'node_sectop_before_chapter_no_node.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -56,7 +58,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +78,9 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +97,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
               'text' => 'top section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -108,7 +112,8 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -125,7 +130,7 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -133,7 +138,8 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -175,14 +181,17 @@ $result_sectioning{'node_sectop_before_chapter_no_node'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -211,17 +220,20 @@ $result_nodes{'node_sectop_before_chapter_no_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'node_sectop_before_chapter_no_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'node_sectop_before_chapter_no_node'} = [];

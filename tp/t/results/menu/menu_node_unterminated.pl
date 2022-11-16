@@ -18,7 +18,7 @@ $result_trees{'menu_node_unterminated'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -35,7 +35,7 @@ $result_trees{'menu_node_unterminated'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -105,7 +105,7 @@ $result_trees{'menu_node_unterminated'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -114,8 +114,10 @@ $result_trees{'menu_node_unterminated'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -143,7 +145,9 @@ $result_trees{'menu_node_unterminated'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -183,14 +187,16 @@ $result_nodes{'menu_node_unterminated'} = {
       }
     ],
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'menu_node_unterminated'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'menu_node_unterminated'} = [

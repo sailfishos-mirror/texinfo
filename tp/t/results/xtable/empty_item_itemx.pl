@@ -23,7 +23,7 @@ $result_trees{'empty_item_itemx'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -68,7 +68,7 @@ $result_trees{'empty_item_itemx'} = {
                               'text' => 'first item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -87,7 +87,9 @@ $result_trees{'empty_item_itemx'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -99,7 +101,7 @@ $result_trees{'empty_item_itemx'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -124,7 +126,7 @@ $result_trees{'empty_item_itemx'} = {
                               'text' => 'after an empty itemx, before an empty item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -143,7 +145,9 @@ $result_trees{'empty_item_itemx'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -165,7 +169,7 @@ $result_trees{'empty_item_itemx'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => ' 
 '
                           },
@@ -200,7 +204,7 @@ $result_trees{'empty_item_itemx'} = {
                               'text' => 'in item before end table'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -219,7 +223,9 @@ $result_trees{'empty_item_itemx'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -242,7 +248,7 @@ $result_trees{'empty_item_itemx'} = {
                       'text' => 'vtable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -251,8 +257,10 @@ $result_trees{'empty_item_itemx'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -262,7 +270,9 @@ $result_trees{'empty_item_itemx'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

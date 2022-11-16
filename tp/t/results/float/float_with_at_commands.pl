@@ -92,7 +92,7 @@ $result_trees{'float_with_at_commands'} = {
                   'text' => 'e'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -243,7 +243,7 @@ $result_trees{'float_with_at_commands'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -252,8 +252,10 @@ $result_trees{'float_with_at_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -272,7 +274,6 @@ $result_trees{'float_with_at_commands'} = {
               {}
             ],
             'normalized' => 'premi_00e8re-entr_00e9e',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {},
@@ -281,6 +282,9 @@ $result_trees{'float_with_at_commands'} = {
               ],
               'normalized' => 'entr@\'ee'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -327,7 +331,7 @@ $result_trees{'float_with_at_commands'} = {
                   'text' => 'e'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -336,7 +340,6 @@ $result_trees{'float_with_at_commands'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {},
@@ -345,6 +348,9 @@ $result_trees{'float_with_at_commands'} = {
               ],
               'normalized' => 'entr@\'ee'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -423,6 +429,7 @@ $result_floats{'float_with_at_commands'} = {
           'normalized' => 'entr@\'ee'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

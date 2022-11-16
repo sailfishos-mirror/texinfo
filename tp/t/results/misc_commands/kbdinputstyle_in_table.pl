@@ -111,7 +111,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -120,8 +120,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -170,7 +172,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'text' => 'code'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -181,7 +183,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
           'extra' => {
             'misc_args' => [
               'code'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -212,7 +216,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -233,7 +237,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'text' => 'i--tem out of example'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -241,7 +245,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -264,7 +268,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -273,8 +277,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -285,7 +291,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'command_as_argument_kbd_code' => 1,
+            'command_as_argument_kbd_code' => 1
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -321,7 +329,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -342,7 +350,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'text' => 'braced i--tem out of example'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -350,7 +358,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -373,7 +381,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -382,8 +390,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -394,7 +404,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'command_as_argument_kbd_code' => 1,
+            'command_as_argument_kbd_code' => 1
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -420,7 +432,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -446,7 +458,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'command_as_argument'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -467,7 +479,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                   'text' => 'i--tem in example'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -475,7 +487,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             }
                           ],
                           'cmdname' => 'item',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -498,7 +510,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'text' => 'table'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -507,8 +519,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -519,7 +533,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'extra' => {
                 'command_as_argument' => {},
-                'command_as_argument_kbd_code' => 1,
+                'command_as_argument_kbd_code' => 1
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -550,7 +566,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'command_as_argument'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -571,7 +587,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                   'text' => 'braced i--tem in example'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -579,7 +595,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             }
                           ],
                           'cmdname' => 'item',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -602,7 +618,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'text' => 'table'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -611,8 +627,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -623,7 +641,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'extra' => {
                 'command_as_argument' => {},
-                'command_as_argument_kbd_code' => 1,
+                'command_as_argument_kbd_code' => 1
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -640,7 +660,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -649,8 +669,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -695,7 +717,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'text' => 'example'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -706,7 +728,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
           'extra' => {
             'misc_args' => [
               'example'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -737,7 +761,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -758,7 +782,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'text' => 'i--tem out of example'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -766,7 +790,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -789,7 +813,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -798,8 +822,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -810,7 +836,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'command_as_argument_kbd_code' => 1,
+            'command_as_argument_kbd_code' => 1
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -846,7 +874,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -867,7 +895,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'text' => 'braced i--tem out of example'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -875,7 +903,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -898,7 +926,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -907,8 +935,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -919,7 +949,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
-            'command_as_argument_kbd_code' => 1,
+            'command_as_argument_kbd_code' => 1
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -945,7 +977,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -968,7 +1000,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'command_as_argument'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -989,7 +1021,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                   'text' => 'i--tem in example'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -997,7 +1029,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             }
                           ],
                           'cmdname' => 'item',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -1020,7 +1052,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'text' => 'table'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -1029,8 +1061,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -1040,7 +1074,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 }
               ],
               'extra' => {
-                'command_as_argument' => {},
+                'command_as_argument' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1068,7 +1104,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'command_as_argument'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1089,7 +1125,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                   'text' => 'braced i--tem in example'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -1097,7 +1133,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             }
                           ],
                           'cmdname' => 'item',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -1120,7 +1156,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'text' => 'table'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -1129,8 +1165,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -1140,7 +1178,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 }
               ],
               'extra' => {
-                'command_as_argument' => {},
+                'command_as_argument' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1157,7 +1197,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1166,8 +1206,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1212,7 +1254,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'text' => 'distinct'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1223,7 +1265,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
           'extra' => {
             'misc_args' => [
               'distinct'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1251,7 +1295,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1272,7 +1316,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'text' => 'i--tem out of example'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -1280,7 +1324,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -1303,7 +1347,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1312,8 +1356,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1323,7 +1369,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1356,7 +1404,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1377,7 +1425,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                               'text' => 'braced i--tem out of example'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -1385,7 +1433,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -1408,7 +1456,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1417,8 +1465,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1428,7 +1478,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1454,7 +1506,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1477,7 +1529,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'command_as_argument'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1498,7 +1550,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                   'text' => 'i--tem in example'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -1506,7 +1558,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             }
                           ],
                           'cmdname' => 'item',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -1529,7 +1581,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'text' => 'table'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -1538,8 +1590,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -1549,7 +1603,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 }
               ],
               'extra' => {
-                'command_as_argument' => {},
+                'command_as_argument' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1577,7 +1633,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'type' => 'command_as_argument'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1598,7 +1654,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                                   'text' => 'braced i--tem in example'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -1606,7 +1662,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                             }
                           ],
                           'cmdname' => 'item',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -1629,7 +1685,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                           'text' => 'table'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -1638,8 +1694,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -1649,7 +1707,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 }
               ],
               'extra' => {
-                'command_as_argument' => {},
+                'command_as_argument' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -1666,7 +1726,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1675,8 +1735,10 @@ $result_trees{'kbdinputstyle_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

@@ -22,7 +22,7 @@ $result_trees{'spurious_arg_on_line'} = {
                   'text' => 'argt'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -48,7 +48,7 @@ $result_trees{'spurious_arg_on_line'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -57,8 +57,10 @@ $result_trees{'spurious_arg_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -67,7 +69,7 @@ $result_trees{'spurious_arg_on_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -89,7 +91,7 @@ $result_trees{'spurious_arg_on_line'} = {
                   'text' => 'argverbatim'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -111,7 +113,7 @@ $result_trees{'spurious_arg_on_line'} = {
                       'text' => 'verbatim'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -120,8 +122,10 @@ $result_trees{'spurious_arg_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'verbatim'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -130,7 +134,7 @@ $result_trees{'spurious_arg_on_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -152,7 +156,7 @@ $result_trees{'spurious_arg_on_line'} = {
                   'text' => 'argh'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -172,7 +176,7 @@ $result_trees{'spurious_arg_on_line'} = {
                       'text' => 'html'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -181,8 +185,10 @@ $result_trees{'spurious_arg_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -191,7 +197,7 @@ $result_trees{'spurious_arg_on_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

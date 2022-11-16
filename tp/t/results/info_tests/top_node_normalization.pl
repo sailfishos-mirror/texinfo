@@ -18,7 +18,7 @@ $result_trees{'top_node_normalization'} = {
               'text' => 'ToP'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -106,7 +106,7 @@ $result_trees{'top_node_normalization'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -172,7 +172,7 @@ $result_trees{'top_node_normalization'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -181,8 +181,10 @@ $result_trees{'top_node_normalization'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -210,7 +212,9 @@ $result_trees{'top_node_normalization'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -257,6 +261,7 @@ $result_nodes{'top_node_normalization'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {},
     'node_next' => {},
@@ -272,6 +277,7 @@ $result_menus{'top_node_normalization'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {},
     'menu_up' => {},

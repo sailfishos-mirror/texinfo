@@ -12,7 +12,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -33,7 +33,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                               'text' => '0.5 0.5'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -45,7 +45,9 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                         'misc_args' => [
                           '0.5',
                           '0.5'
-                        ],
+                        ]
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -140,7 +142,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                             {
                               'args' => [
                                 {
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -162,7 +164,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                           'text' => 'verbatim'
                                         }
                                       ],
-                                      'extra' => {
+                                      'info' => {
                                         'spaces_after_argument' => '
 '
                                       },
@@ -171,8 +173,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                   ],
                                   'cmdname' => 'end',
                                   'extra' => {
-                                    'spaces_before_argument' => ' ',
                                     'text_arg' => 'verbatim'
+                                  },
+                                  'info' => {
+                                    'spaces_before_argument' => ' '
                                   },
                                   'source_info' => {
                                     'file_name' => '',
@@ -218,7 +222,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                                       'text' => 'inc_file.texi'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -228,8 +232,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                               'cmdname' => 'verbatiminclude',
                               'extra' => {
                                 'input_perl_encoding' => 'utf-8',
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'inc_file.texi'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -264,7 +270,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                           'text' => 'multitable'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -273,8 +279,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'multitable'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -285,7 +293,9 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
               ],
               'extra' => {
                 'columnfractions' => {},
-                'max_columns' => 2,
+                'max_columns' => 2
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -302,7 +312,7 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -311,8 +321,10 @@ $result_trees{'verbatim_in_multitable_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

@@ -35,7 +35,7 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
                   'type' => 'bracketed'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -52,7 +52,7 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -61,8 +61,10 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -86,7 +88,9 @@ $result_trees{'multitable_bracketed_no_inter_space_prototype'} = {
                 ],
                 'type' => 'bracketed_multitable_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

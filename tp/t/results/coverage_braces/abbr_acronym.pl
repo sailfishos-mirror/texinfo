@@ -234,7 +234,7 @@ $result_trees{'abbr_acronym'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },

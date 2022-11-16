@@ -24,7 +24,7 @@ $result_trees{'informative_commands_in_top_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'informative_commands_in_top_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -61,7 +63,7 @@ $result_trees{'informative_commands_in_top_node'} = {
               'text' => 'top sectionning'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -83,7 +85,7 @@ $result_trees{'informative_commands_in_top_node'} = {
                   'text' => '5'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -94,7 +96,9 @@ $result_trees{'informative_commands_in_top_node'} = {
           'extra' => {
             'misc_args' => [
               '5'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -161,7 +165,7 @@ $result_trees{'informative_commands_in_top_node'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -169,7 +173,7 @@ $result_trees{'informative_commands_in_top_node'} = {
             }
           ],
           'cmdname' => 'evenfooting',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -186,7 +190,7 @@ $result_trees{'informative_commands_in_top_node'} = {
                   'text' => '2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -197,7 +201,9 @@ $result_trees{'informative_commands_in_top_node'} = {
           'extra' => {
             'misc_args' => [
               '2'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -212,7 +218,8 @@ $result_trees{'informative_commands_in_top_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -229,7 +236,7 @@ $result_trees{'informative_commands_in_top_node'} = {
               'text' => 'next node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -249,7 +256,9 @@ $result_trees{'informative_commands_in_top_node'} = {
             'normalized' => 'next-node'
           }
         ],
-        'normalized' => 'next-node',
+        'normalized' => 'next-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -266,7 +275,7 @@ $result_trees{'informative_commands_in_top_node'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -290,7 +299,8 @@ $result_trees{'informative_commands_in_top_node'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -344,9 +354,11 @@ $result_sectioning{'informative_commands_in_top_node'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -357,9 +369,11 @@ $result_sectioning{'informative_commands_in_top_node'} = {
                   'extra' => {
                     'normalized' => 'next-node'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -388,10 +402,12 @@ $result_nodes{'informative_commands_in_top_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -399,12 +415,14 @@ $result_nodes{'informative_commands_in_top_node'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'next-node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -420,6 +438,7 @@ $result_menus{'informative_commands_in_top_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

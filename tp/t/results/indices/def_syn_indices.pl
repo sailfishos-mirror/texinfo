@@ -19,7 +19,7 @@ $result_trees{'def_syn_indices'} = {
                       'text' => 'cp fn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -31,7 +31,9 @@ $result_trees{'def_syn_indices'} = {
                 'misc_args' => [
                   'cp',
                   'fn'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -59,7 +61,7 @@ $result_trees{'def_syn_indices'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -79,7 +81,9 @@ $result_trees{'def_syn_indices'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -96,7 +100,7 @@ $result_trees{'def_syn_indices'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -111,7 +115,8 @@ $result_trees{'def_syn_indices'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -128,7 +133,7 @@ $result_trees{'def_syn_indices'} = {
               'text' => 'Chapter index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -149,7 +154,9 @@ $result_trees{'def_syn_indices'} = {
             'normalized' => 'Chapter-index'
           }
         ],
-        'normalized' => 'Chapter-index',
+        'normalized' => 'Chapter-index'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -166,7 +173,7 @@ $result_trees{'def_syn_indices'} = {
               'text' => 'Index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -194,7 +201,7 @@ $result_trees{'def_syn_indices'} = {
                       'text' => 'truc'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -205,7 +212,9 @@ $result_trees{'def_syn_indices'} = {
               'extra' => {
                 'misc_args' => [
                   'truc'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -234,7 +243,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'index truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -254,7 +263,9 @@ $result_trees{'def_syn_indices'} = {
               'index_ignore_chars' => {},
               'index_name' => 'truc',
               'index_type_command' => 'trucindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -277,7 +288,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'codeidx'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -288,7 +299,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'codeidx'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -385,7 +398,7 @@ $result_trees{'def_syn_indices'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -405,7 +418,9 @@ $result_trees{'def_syn_indices'} = {
               'index_ignore_chars' => {},
               'index_name' => 'codeidx',
               'index_type_command' => 'codeidxindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -428,7 +443,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'cindex entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -448,7 +463,9 @@ $result_trees{'def_syn_indices'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -471,7 +488,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'ky pg'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -483,7 +500,9 @@ $result_trees{'def_syn_indices'} = {
             'misc_args' => [
               'ky',
               'pg'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -505,7 +524,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'truc kindex'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -525,7 +544,9 @@ $result_trees{'def_syn_indices'} = {
               'index_ignore_chars' => {},
               'index_name' => 'ky',
               'index_type_command' => 'kindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -543,7 +564,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'pindex codeidx'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -563,7 +584,9 @@ $result_trees{'def_syn_indices'} = {
               'index_ignore_chars' => {},
               'index_name' => 'pg',
               'index_type_command' => 'pindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -586,7 +609,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'truc cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -598,7 +621,9 @@ $result_trees{'def_syn_indices'} = {
             'misc_args' => [
               'truc',
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -620,7 +645,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'abc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -631,7 +656,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'abc'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -648,7 +675,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'defg'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -659,7 +686,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'defg'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -681,7 +710,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'abc defg'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -693,7 +722,9 @@ $result_trees{'def_syn_indices'} = {
             'misc_args' => [
               'abc',
               'defg'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -710,7 +741,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'defg ky'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -722,7 +753,9 @@ $result_trees{'def_syn_indices'} = {
             'misc_args' => [
               'defg',
               'ky'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -744,7 +777,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'defg index entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -764,7 +797,9 @@ $result_trees{'def_syn_indices'} = {
               'index_ignore_chars' => {},
               'index_name' => 'defg',
               'index_type_command' => 'defgindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -787,7 +822,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'abc index entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -807,7 +842,9 @@ $result_trees{'def_syn_indices'} = {
               'index_ignore_chars' => {},
               'index_name' => 'abc',
               'index_type_command' => 'abcindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -839,7 +876,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'pg'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -850,7 +887,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'pg'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -881,7 +920,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'ky'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -892,7 +931,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'ky'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -923,7 +964,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -934,7 +975,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'truc'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -965,7 +1008,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -976,7 +1019,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'truc'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1007,7 +1052,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1018,7 +1063,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1049,7 +1096,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1060,7 +1107,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1091,7 +1140,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'defg'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1102,7 +1151,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'defg'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1133,7 +1184,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'abc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1144,7 +1195,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'abc'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1175,7 +1228,7 @@ $result_trees{'def_syn_indices'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1186,7 +1239,9 @@ $result_trees{'def_syn_indices'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1196,7 +1251,8 @@ $result_trees{'def_syn_indices'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1358,9 +1414,11 @@ $result_sectioning{'def_syn_indices'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1372,9 +1430,11 @@ $result_sectioning{'def_syn_indices'} = {
                     'isindex' => 1,
                     'normalized' => 'Chapter-index'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1403,10 +1463,12 @@ $result_nodes{'def_syn_indices'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1414,6 +1476,7 @@ $result_nodes{'def_syn_indices'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1421,6 +1484,7 @@ $result_nodes{'def_syn_indices'} = {
         'isindex' => 1,
         'normalized' => 'Chapter-index'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1436,6 +1500,7 @@ $result_menus{'def_syn_indices'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

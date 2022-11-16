@@ -19,7 +19,7 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                       'text' => 'on'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,7 +30,9 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
               'extra' => {
                 'misc_args' => [
                   'on'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -52,7 +54,7 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                       'text' => 'odd'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -63,7 +65,9 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
               'extra' => {
                 'misc_args' => [
                   'odd'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -85,7 +89,7 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
                       'text' => 'off'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -96,7 +100,9 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
               'extra' => {
                 'misc_args' => [
                   'off'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

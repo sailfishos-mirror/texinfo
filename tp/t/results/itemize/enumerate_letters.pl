@@ -17,7 +17,7 @@ $result_trees{'enumerate_letters'} = {
                   'text' => 'c'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -5390,7 +5390,7 @@ $result_trees{'enumerate_letters'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5399,8 +5399,10 @@ $result_trees{'enumerate_letters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5410,7 +5412,9 @@ $result_trees{'enumerate_letters'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => 'c',
+            'enumerate_specification' => 'c'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

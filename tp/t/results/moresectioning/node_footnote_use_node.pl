@@ -39,7 +39,7 @@ $result_trees{'node_footnote_use_node'} = {
                       'text' => 'node_footnote.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'node_footnote_use_node'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'node_footnote.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
@@ -76,7 +78,7 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -93,7 +95,7 @@ $result_trees{'node_footnote_use_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -351,7 +353,7 @@ $result_trees{'node_footnote_use_node'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -360,8 +362,10 @@ $result_trees{'node_footnote_use_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
@@ -394,7 +398,9 @@ $result_trees{'node_footnote_use_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -426,7 +432,7 @@ $result_trees{'node_footnote_use_node'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -536,7 +542,9 @@ $result_trees{'node_footnote_use_node'} = {
             'normalized' => '_00e1'
           }
         ],
-        'normalized' => '_00e1',
+        'normalized' => '_00e1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -568,7 +576,7 @@ $result_trees{'node_footnote_use_node'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -678,7 +686,9 @@ $result_trees{'node_footnote_use_node'} = {
             'normalized' => '_00e2'
           }
         ],
-        'normalized' => '_00e2',
+        'normalized' => '_00e2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -695,7 +705,7 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -715,7 +725,9 @@ $result_trees{'node_footnote_use_node'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -732,7 +744,7 @@ $result_trees{'node_footnote_use_node'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -749,7 +761,7 @@ $result_trees{'node_footnote_use_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -830,7 +842,7 @@ $result_trees{'node_footnote_use_node'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -839,8 +851,10 @@ $result_trees{'node_footnote_use_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'node_footnote.texi',
@@ -861,7 +875,8 @@ $result_trees{'node_footnote_use_node'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -893,7 +908,7 @@ $result_trees{'node_footnote_use_node'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1003,7 +1018,9 @@ $result_trees{'node_footnote_use_node'} = {
             'normalized' => '_00e0'
           }
         ],
-        'normalized' => '_00e0',
+        'normalized' => '_00e0'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1122,9 +1139,11 @@ $result_sectioning{'node_footnote_use_node'} = {
             'extra' => {
               'normalized' => 'chapter'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -1147,18 +1166,21 @@ $result_nodes{'node_footnote_use_node'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_00e1'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => '_00e2'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -1166,6 +1188,7 @@ $result_nodes{'node_footnote_use_node'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {
                     'section_number' => 1
                   }
@@ -1177,12 +1200,14 @@ $result_nodes{'node_footnote_use_node'} = {
                 ],
                 'normalized' => 'chapter'
               },
+              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e0'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -1220,30 +1245,35 @@ $result_menus{'node_footnote_use_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_00e1'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => '_00e2'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'chapter'
               },
+              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e0'
                   },
+                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},

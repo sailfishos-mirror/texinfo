@@ -48,7 +48,9 @@ $result_trees{'good_comment'} = {
                       '0.4',
                       '.6',
                       '5.'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -76,8 +78,10 @@ $result_trees{'good_comment'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -88,7 +92,9 @@ $result_trees{'good_comment'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 3,
+            'max_columns' => 3
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

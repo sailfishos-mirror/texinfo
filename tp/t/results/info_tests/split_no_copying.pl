@@ -26,7 +26,7 @@ $result_trees{'split_no_copying'} = {
                   'text' => 'split-nocopying.info'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -35,8 +35,10 @@ $result_trees{'split_no_copying'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'split-nocopying.info'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -60,7 +62,7 @@ $result_trees{'split_no_copying'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -80,7 +82,9 @@ $result_trees{'split_no_copying'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -97,7 +101,7 @@ $result_trees{'split_no_copying'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -128,7 +132,7 @@ $result_trees{'split_no_copying'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -194,7 +198,7 @@ $result_trees{'split_no_copying'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -203,8 +207,10 @@ $result_trees{'split_no_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -225,7 +231,8 @@ $result_trees{'split_no_copying'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -242,7 +249,7 @@ $result_trees{'split_no_copying'} = {
               'text' => 'Ch1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -262,7 +269,9 @@ $result_trees{'split_no_copying'} = {
             'normalized' => 'Ch1'
           }
         ],
-        'normalized' => 'Ch1',
+        'normalized' => 'Ch1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -279,7 +288,7 @@ $result_trees{'split_no_copying'} = {
               'text' => 'Ch1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -308,7 +317,8 @@ $result_trees{'split_no_copying'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -385,9 +395,11 @@ $result_sectioning{'split_no_copying'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -398,9 +410,11 @@ $result_sectioning{'split_no_copying'} = {
                   'extra' => {
                     'normalized' => 'Ch1'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -429,6 +443,7 @@ $result_nodes{'split_no_copying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -438,6 +453,7 @@ $result_nodes{'split_no_copying'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -445,12 +461,14 @@ $result_nodes{'split_no_copying'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Ch1'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -468,12 +486,14 @@ $result_menus{'split_no_copying'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Ch1'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

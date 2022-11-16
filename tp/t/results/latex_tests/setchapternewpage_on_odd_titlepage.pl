@@ -19,7 +19,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
                       'text' => 'on'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,7 +30,9 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
               'extra' => {
                 'misc_args' => [
                   'on'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -52,7 +54,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
                       'text' => 'odd'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -63,7 +65,9 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
               'extra' => {
                 'misc_args' => [
                   'odd'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -80,7 +84,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -106,7 +110,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
                           'text' => 'titlepage'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -115,8 +119,10 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',

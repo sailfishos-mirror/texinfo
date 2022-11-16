@@ -239,7 +239,9 @@ $result_trees{'at_commands_in_node'} = {
             'normalized' => 'A-SC-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
           }
         ],
-        'normalized' => 'A-SC-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1',
+        'normalized' => 'A-SC-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -289,14 +291,16 @@ $result_nodes{'at_commands_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'A-SC-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'at_commands_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'A-SC-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'at_commands_in_node'} = [];

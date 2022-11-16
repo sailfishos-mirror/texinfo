@@ -18,7 +18,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                           'text' => '0.4 0.6'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -56,7 +56,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                     'misc_args' => [
                       '0.4',
                       '0.6'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -260,7 +262,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                       'text' => 'index entry within multitable'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -280,7 +282,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                   'index_ignore_chars' => {},
                                   'index_name' => 'cp',
                                   'index_type_command' => 'cindex'
-                                },
+                                }
+                              },
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -383,7 +387,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -392,8 +396,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -404,7 +410,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 2,
+            'max_columns' => 2
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -442,7 +450,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                   'type' => 'bracketed'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -558,7 +566,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                       'text' => 'index entry'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -578,7 +586,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                   'index_ignore_chars' => {},
                                   'index_name' => 'cp',
                                   'index_type_command' => 'cindex'
-                                },
+                                }
+                              },
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -733,7 +743,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -742,8 +752,10 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -767,7 +779,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                 ],
                 'type' => 'bracketed_multitable_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -789,7 +803,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -800,7 +814,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -890,7 +906,9 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -987,7 +1005,8 @@ $result_nodes{'multitable_anchor_and_index_entry'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'multitable_anchor_and_index_entry'} = {
@@ -995,7 +1014,8 @@ $result_menus{'multitable_anchor_and_index_entry'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'multitable_anchor_and_index_entry'} = [];

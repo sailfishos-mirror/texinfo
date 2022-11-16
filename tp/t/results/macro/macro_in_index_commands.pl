@@ -31,7 +31,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -40,8 +40,10 @@ $result_trees{'macro_in_index_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -82,7 +84,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -91,8 +93,10 @@ $result_trees{'macro_in_index_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -133,7 +137,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -142,8 +146,10 @@ $result_trees{'macro_in_index_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -175,7 +181,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'cp fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -187,7 +193,9 @@ $result_trees{'macro_in_index_commands'} = {
             'misc_args' => [
               'cp',
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -204,7 +212,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'cp fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -216,7 +224,9 @@ $result_trees{'macro_in_index_commands'} = {
             'misc_args' => [
               'cp',
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -252,7 +262,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -261,8 +271,10 @@ $result_trees{'macro_in_index_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -300,7 +312,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'text' => 'truc'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -311,7 +323,9 @@ $result_trees{'macro_in_index_commands'} = {
               'extra' => {
                 'misc_args' => [
                   'truc'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -354,7 +368,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -363,8 +377,10 @@ $result_trees{'macro_in_index_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -410,7 +426,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -419,8 +435,10 @@ $result_trees{'macro_in_index_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -452,7 +470,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'codeidx'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -463,7 +481,9 @@ $result_trees{'macro_in_index_commands'} = {
           'extra' => {
             'misc_args' => [
               'codeidx'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -499,7 +519,7 @@ $result_trees{'macro_in_index_commands'} = {
                       'text' => 'macro'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -508,8 +528,10 @@ $result_trees{'macro_in_index_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'macro'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -544,7 +566,7 @@ $result_trees{'macro_in_index_commands'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -566,7 +588,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'index truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -586,7 +608,9 @@ $result_trees{'macro_in_index_commands'} = {
               'index_ignore_chars' => {},
               'index_name' => 'truc',
               'index_type_command' => 'trucindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -684,7 +708,7 @@ $result_trees{'macro_in_index_commands'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -704,7 +728,9 @@ $result_trees{'macro_in_index_commands'} = {
               'index_ignore_chars' => {},
               'index_name' => 'codeidx',
               'index_type_command' => 'codeidxindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -727,7 +753,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'truc kindex'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -747,7 +773,9 @@ $result_trees{'macro_in_index_commands'} = {
               'index_ignore_chars' => {},
               'index_name' => 'ky',
               'index_type_command' => 'kindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -765,7 +793,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'pindex codeidx'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -785,7 +813,9 @@ $result_trees{'macro_in_index_commands'} = {
               'index_ignore_chars' => {},
               'index_name' => 'pg',
               'index_type_command' => 'pindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -817,7 +847,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -828,7 +858,9 @@ $result_trees{'macro_in_index_commands'} = {
           'extra' => {
             'misc_args' => [
               'truc'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -859,7 +891,7 @@ $result_trees{'macro_in_index_commands'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -870,7 +902,9 @@ $result_trees{'macro_in_index_commands'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -898,7 +932,9 @@ $result_trees{'macro_in_index_commands'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1007,7 +1043,8 @@ $result_nodes{'macro_in_index_commands'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'macro_in_index_commands'} = {
@@ -1015,7 +1052,8 @@ $result_menus{'macro_in_index_commands'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'macro_in_index_commands'} = [

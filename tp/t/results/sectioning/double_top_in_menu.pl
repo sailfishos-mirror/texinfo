@@ -26,7 +26,7 @@ $result_trees{'double_top_in_menu'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -53,7 +53,7 @@ $result_trees{'double_top_in_menu'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -168,7 +168,7 @@ $result_trees{'double_top_in_menu'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -177,8 +177,10 @@ $result_trees{'double_top_in_menu'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -217,7 +219,9 @@ $result_trees{'double_top_in_menu'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -253,7 +257,7 @@ $result_trees{'double_top_in_menu'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -293,7 +297,9 @@ $result_trees{'double_top_in_menu'} = {
             ],
             'normalized' => 'Top'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -347,6 +353,7 @@ $result_nodes{'double_top_in_menu'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {},
     'node_next' => {}
@@ -360,6 +367,7 @@ $result_menus{'double_top_in_menu'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {},
     'menu_next' => {},

@@ -182,7 +182,9 @@ $result_trees{'empty_def_arguments'} = {
                 'def_parsed_hash' => {
                   'category' => {}
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -201,7 +203,9 @@ $result_trees{'empty_def_arguments'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' 
 '
               },
@@ -240,7 +244,9 @@ $result_trees{'empty_def_arguments'} = {
                 'def_parsed_hash' => {
                   'category' => {}
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -302,7 +308,9 @@ $result_trees{'empty_def_arguments'} = {
                   'category' => {},
                   'name' => {}
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -383,7 +391,9 @@ $result_trees{'empty_def_arguments'} = {
                     },
                     {
                       'extra' => {
-                        'def_role' => 'name',
+                        'def_role' => 'name'
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -537,7 +547,7 @@ $result_trees{'empty_def_arguments'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -546,8 +556,10 @@ $result_trees{'empty_def_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -556,7 +568,7 @@ $result_trees{'empty_def_arguments'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -18,7 +18,7 @@ $result_trees{'no_empty_line_between_headings'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -35,7 +35,7 @@ $result_trees{'no_empty_line_between_headings'} = {
                   'text' => 'Subheading'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -43,7 +43,8 @@ $result_trees{'no_empty_line_between_headings'} = {
             }
           ],
           'cmdname' => 'subheading',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -53,7 +54,8 @@ $result_trees{'no_empty_line_between_headings'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -70,7 +72,7 @@ $result_trees{'no_empty_line_between_headings'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -78,7 +80,8 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -95,7 +98,7 @@ $result_trees{'no_empty_line_between_headings'} = {
               'text' => 'Section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -103,7 +106,8 @@ $result_trees{'no_empty_line_between_headings'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -139,16 +143,19 @@ $result_sectioning{'no_empty_line_between_headings'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',

@@ -17,7 +17,7 @@ $result_trees{'recursive_synindex'} = {
                   'text' => 'aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,7 +28,9 @@ $result_trees{'recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'aaa'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -45,7 +47,7 @@ $result_trees{'recursive_synindex'} = {
                   'text' => 'bbb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -56,7 +58,9 @@ $result_trees{'recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'bbb'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -73,7 +77,7 @@ $result_trees{'recursive_synindex'} = {
                   'text' => 'aaa bbb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -85,7 +89,9 @@ $result_trees{'recursive_synindex'} = {
             'misc_args' => [
               'aaa',
               'bbb'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -106,7 +112,7 @@ $result_trees{'recursive_synindex'} = {
             }
           ],
           'cmdname' => 'synindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

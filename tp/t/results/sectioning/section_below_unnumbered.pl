@@ -55,7 +55,7 @@ $result_trees{'section_below_unnumbered'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -75,7 +75,9 @@ $result_trees{'section_below_unnumbered'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -92,7 +94,7 @@ $result_trees{'section_below_unnumbered'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -123,7 +125,7 @@ $result_trees{'section_below_unnumbered'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -189,7 +191,7 @@ $result_trees{'section_below_unnumbered'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -198,8 +200,10 @@ $result_trees{'section_below_unnumbered'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -225,7 +229,8 @@ $result_trees{'section_below_unnumbered'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -242,7 +247,7 @@ $result_trees{'section_below_unnumbered'} = {
               'text' => 'Unn'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -262,7 +267,9 @@ $result_trees{'section_below_unnumbered'} = {
             'normalized' => 'Unn'
           }
         ],
-        'normalized' => 'Unn',
+        'normalized' => 'Unn'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -279,7 +286,7 @@ $result_trees{'section_below_unnumbered'} = {
               'text' => 'Unn'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -296,7 +303,7 @@ $result_trees{'section_below_unnumbered'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -362,7 +369,7 @@ $result_trees{'section_below_unnumbered'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -371,8 +378,10 @@ $result_trees{'section_below_unnumbered'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -393,7 +402,8 @@ $result_trees{'section_below_unnumbered'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -410,7 +420,7 @@ $result_trees{'section_below_unnumbered'} = {
               'text' => 'Sec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -430,7 +440,9 @@ $result_trees{'section_below_unnumbered'} = {
             'normalized' => 'Sec'
           }
         ],
-        'normalized' => 'Sec',
+        'normalized' => 'Sec'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -447,7 +459,7 @@ $result_trees{'section_below_unnumbered'} = {
               'text' => 'Sec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -476,7 +488,8 @@ $result_trees{'section_below_unnumbered'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -570,9 +583,11 @@ $result_sectioning{'section_below_unnumbered'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -583,9 +598,11 @@ $result_sectioning{'section_below_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'Unn'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -596,9 +613,11 @@ $result_sectioning{'section_below_unnumbered'} = {
                         'extra' => {
                           'normalized' => 'Sec'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_up' => {}
@@ -632,6 +651,7 @@ $result_nodes{'section_below_unnumbered'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -641,6 +661,7 @@ $result_nodes{'section_below_unnumbered'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -648,6 +669,7 @@ $result_nodes{'section_below_unnumbered'} = {
         'associated_section' => {
           'cmdname' => 'unnumbered',
           'extra' => {},
+          'info' => {},
           'structure' => {}
         },
         'menus' => [
@@ -657,6 +679,7 @@ $result_nodes{'section_below_unnumbered'} = {
         ],
         'normalized' => 'Unn'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -664,10 +687,12 @@ $result_nodes{'section_below_unnumbered'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
+              'info' => {},
               'structure' => {}
             },
             'normalized' => 'Sec'
           },
+          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -689,18 +714,21 @@ $result_menus{'section_below_unnumbered'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Unn'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Sec'
           },
+          'info' => {},
           'structure' => {
             'menu_up' => {},
             'menu_up_hash' => {

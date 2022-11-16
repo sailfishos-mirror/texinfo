@@ -13,7 +13,7 @@ $result_trees{'unnumbered_no_argument'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },

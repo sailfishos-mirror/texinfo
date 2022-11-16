@@ -245,7 +245,7 @@ $result_trees{'also_not_line'} = {
                   'text' => 'special'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -253,7 +253,7 @@ $result_trees{'also_not_line'} = {
             }
           ],
           'cmdname' => 'subheading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -316,7 +316,7 @@ $result_trees{'also_not_line'} = {
                   'text' => 'line after exdent'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -324,7 +324,7 @@ $result_trees{'also_not_line'} = {
             }
           ],
           'cmdname' => 'exdent',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

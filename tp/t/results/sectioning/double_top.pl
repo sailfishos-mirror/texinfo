@@ -26,7 +26,7 @@ $result_trees{'double_top'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -60,7 +60,9 @@ $result_trees{'double_top'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -96,7 +98,7 @@ $result_trees{'double_top'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -160,7 +162,9 @@ $result_trees{'double_top'} = {
             ],
             'normalized' => 'Top'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -197,6 +201,7 @@ $result_nodes{'double_top'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {}
   }
@@ -208,6 +213,7 @@ $result_menus{'double_top'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

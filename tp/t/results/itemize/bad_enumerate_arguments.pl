@@ -17,7 +17,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'text' => 'a b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -34,7 +34,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'bad_enumerate_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -54,7 +56,9 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => '1',
+            'enumerate_specification' => '1'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -76,7 +80,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'text' => '!'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -93,7 +97,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -102,8 +106,10 @@ $result_trees{'bad_enumerate_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -113,7 +119,9 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => '1',
+            'enumerate_specification' => '1'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -150,7 +158,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -167,7 +175,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -176,8 +184,10 @@ $result_trees{'bad_enumerate_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -187,7 +197,9 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => '1',
+            'enumerate_specification' => '1'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -212,7 +224,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'cmdname' => '@'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -229,7 +241,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -238,8 +250,10 @@ $result_trees{'bad_enumerate_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -249,7 +263,9 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => 'a',
+            'enumerate_specification' => 'a'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -271,7 +287,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                   'text' => 'a0'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -288,7 +304,7 @@ $result_trees{'bad_enumerate_arguments'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -297,8 +313,10 @@ $result_trees{'bad_enumerate_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -308,7 +326,9 @@ $result_trees{'bad_enumerate_arguments'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => '1',
+            'enumerate_specification' => '1'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

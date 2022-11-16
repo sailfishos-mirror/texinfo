@@ -17,7 +17,7 @@ $result_trees{'uref_accented_letter_ascii'} = {
                   'text' => 'US-ASCII'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,8 +28,10 @@ $result_trees{'uref_accented_letter_ascii'} = {
           'extra' => {
             'input_encoding_name' => 'us-ascii',
             'input_perl_encoding' => 'ascii',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'US-ASCII'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

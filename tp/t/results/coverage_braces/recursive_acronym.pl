@@ -45,7 +45,7 @@ $result_trees{'recursive_acronym'} = {
                       'text' => '\'s Not Unix'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

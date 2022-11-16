@@ -22,7 +22,7 @@ $result_trees{'encoding_us_ascii'} = {
                   'text' => 'US-ASCII'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -33,8 +33,10 @@ $result_trees{'encoding_us_ascii'} = {
           'extra' => {
             'input_encoding_name' => 'us-ascii',
             'input_perl_encoding' => 'ascii',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'US-ASCII'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -58,7 +60,7 @@ $result_trees{'encoding_us_ascii'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -85,7 +87,9 @@ $result_trees{'encoding_us_ascii'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -117,14 +121,16 @@ $result_nodes{'encoding_us_ascii'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'encoding_us_ascii'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'encoding_us_ascii'} = [];

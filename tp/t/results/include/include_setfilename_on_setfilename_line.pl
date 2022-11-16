@@ -31,7 +31,7 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                                   'text' => 'are you joking!'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -40,8 +40,10 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                           ],
                           'cmdname' => 'include',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'are you joking!'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -55,8 +57,10 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
                   ],
                   'cmdname' => 'setfilename',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'other file '
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -70,8 +74,10 @@ $result_trees{'include_setfilename_on_setfilename_line'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'file '
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

@@ -17,7 +17,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => 'a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },
@@ -51,7 +51,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => 'a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' 
 '
               },
@@ -93,7 +93,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => 'b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },
@@ -135,7 +135,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => 'b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' 
 '
               },
@@ -177,7 +177,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => ' b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },
@@ -219,7 +219,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
                   'text' => ' b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' 
 '
               },

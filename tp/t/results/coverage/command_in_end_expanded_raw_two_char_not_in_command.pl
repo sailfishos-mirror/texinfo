@@ -12,7 +12,7 @@ $result_trees{'command_in_end_expanded_raw_two_char_not_in_command'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -53,7 +53,7 @@ $result_trees{'command_in_end_expanded_raw_two_char_not_in_command'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -62,8 +62,10 @@ $result_trees{'command_in_end_expanded_raw_two_char_not_in_command'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'te'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',

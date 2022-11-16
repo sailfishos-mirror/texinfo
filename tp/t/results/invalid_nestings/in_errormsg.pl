@@ -133,7 +133,7 @@ $result_trees{'in_errormsg'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },
@@ -161,7 +161,7 @@ $result_trees{'in_errormsg'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -182,7 +182,7 @@ $result_trees{'in_errormsg'} = {
                               'text' => 'item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -190,7 +190,7 @@ $result_trees{'in_errormsg'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -213,7 +213,7 @@ $result_trees{'in_errormsg'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -222,8 +222,10 @@ $result_trees{'in_errormsg'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -233,7 +235,9 @@ $result_trees{'in_errormsg'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

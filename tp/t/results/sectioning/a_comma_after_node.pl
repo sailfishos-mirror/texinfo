@@ -26,7 +26,7 @@ $result_trees{'a_comma_after_node'} = {
               'text' => 'Requirements'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -37,7 +37,7 @@ $result_trees{'a_comma_after_node'} = {
               'text' => 'Nodes and Menus'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -86,7 +86,9 @@ $result_trees{'a_comma_after_node'} = {
             'normalized' => 'Nodes-and-Menus'
           }
         ],
-        'normalized' => 'Commands',
+        'normalized' => 'Commands'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -117,14 +119,16 @@ $result_nodes{'a_comma_after_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Commands'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'a_comma_after_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Commands'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'a_comma_after_node'} = [

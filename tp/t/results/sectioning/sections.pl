@@ -18,7 +18,7 @@ $result_trees{'sections'} = {
               'text' => 'a chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -26,7 +26,7 @@ $result_trees{'sections'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -52,7 +52,7 @@ $result_sectioning{'sections'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,

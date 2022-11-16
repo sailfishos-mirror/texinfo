@@ -22,7 +22,7 @@ $result_trees{'bad_line'} = {
                   'text' => 'garbage-on-line =cmd garbage'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -30,7 +30,7 @@ $result_trees{'bad_line'} = {
             }
           ],
           'cmdname' => 'alias',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -70,7 +70,7 @@ $result_trees{'bad_line'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -78,7 +78,7 @@ $result_trees{'bad_line'} = {
             }
           ],
           'cmdname' => 'alias',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

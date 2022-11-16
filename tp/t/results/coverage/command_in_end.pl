@@ -12,7 +12,7 @@ $result_trees{'command_in_end'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -50,7 +50,7 @@ $result_trees{'command_in_end'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -59,7 +59,9 @@ $result_trees{'command_in_end'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'missing_argument' => 1,
+                    'missing_argument' => 1
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -79,7 +81,7 @@ $result_trees{'command_in_end'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -120,7 +122,7 @@ $result_trees{'command_in_end'} = {
                               }
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -129,8 +131,10 @@ $result_trees{'command_in_end'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'q'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -149,7 +153,7 @@ $result_trees{'command_in_end'} = {
                 {
                   'args' => [
                     {
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -190,7 +194,7 @@ $result_trees{'command_in_end'} = {
                                   }
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -199,8 +203,10 @@ $result_trees{'command_in_end'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'qu'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -219,7 +225,7 @@ $result_trees{'command_in_end'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -263,7 +269,7 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'n'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -272,8 +278,10 @@ $result_trees{'command_in_end'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'quotn'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -292,7 +300,7 @@ $result_trees{'command_in_end'} = {
                         {
                           'args' => [
                             {
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -334,7 +342,7 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'uotation'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -343,8 +351,10 @@ $result_trees{'command_in_end'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'quotation'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -367,7 +377,7 @@ $result_trees{'command_in_end'} = {
                         {
                           'args' => [
                             {
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -409,7 +419,7 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'otation'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -418,8 +428,10 @@ $result_trees{'command_in_end'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'quotation'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -442,7 +454,7 @@ $result_trees{'command_in_end'} = {
                         {
                           'args' => [
                             {
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -484,7 +496,7 @@ $result_trees{'command_in_end'} = {
                                       'text' => 'ation'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -493,8 +505,10 @@ $result_trees{'command_in_end'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'quotation'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -517,7 +531,7 @@ $result_trees{'command_in_end'} = {
                         {
                           'args' => [
                             {
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },

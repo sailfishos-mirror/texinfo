@@ -66,7 +66,7 @@ $result_trees{'nested_args'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -98,7 +98,7 @@ $result_trees{'nested_args'} = {
                       'text' => 'ction'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -124,7 +124,7 @@ $result_trees{'nested_args'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' 
 '
                   },

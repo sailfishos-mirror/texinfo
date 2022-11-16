@@ -45,7 +45,7 @@ $result_trees{'commands_in_abbr'} = {
                       'text' => ' -- b'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -73,7 +73,7 @@ $result_trees{'commands_in_abbr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -118,7 +118,7 @@ $result_trees{'commands_in_abbr'} = {
                           'text' => ' -- b'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -146,7 +146,7 @@ $result_trees{'commands_in_abbr'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -155,8 +155,10 @@ $result_trees{'commands_in_abbr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

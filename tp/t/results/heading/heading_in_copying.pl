@@ -12,7 +12,7 @@ $result_trees{'heading_in_copying'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -58,7 +58,7 @@ $result_trees{'heading_in_copying'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -66,7 +66,7 @@ $result_trees{'heading_in_copying'} = {
                 }
               ],
               'cmdname' => 'heading',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -83,7 +83,7 @@ $result_trees{'heading_in_copying'} = {
                       'text' => 'cindex copying'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -103,7 +103,9 @@ $result_trees{'heading_in_copying'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -150,7 +152,7 @@ $result_trees{'heading_in_copying'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -158,7 +160,7 @@ $result_trees{'heading_in_copying'} = {
                 }
               ],
               'cmdname' => 'subheading',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -175,7 +177,7 @@ $result_trees{'heading_in_copying'} = {
                       'text' => 'copying'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -184,8 +186,10 @@ $result_trees{'heading_in_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -216,7 +220,7 @@ $result_trees{'heading_in_copying'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -258,7 +262,9 @@ $result_trees{'heading_in_copying'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -299,14 +305,16 @@ $result_nodes{'heading_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'heading_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'heading_in_copying'} = [];

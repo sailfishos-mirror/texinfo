@@ -51,7 +51,7 @@ $result_trees{'transparent_sort_chars'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -71,7 +71,9 @@ $result_trees{'transparent_sort_chars'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -83,7 +85,7 @@ $result_trees{'transparent_sort_chars'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -113,7 +115,7 @@ $result_trees{'transparent_sort_chars'} = {
               'text' => 'node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -171,7 +173,7 @@ $result_trees{'transparent_sort_chars'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -193,7 +195,9 @@ $result_trees{'transparent_sort_chars'} = {
               },
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -211,7 +215,7 @@ $result_trees{'transparent_sort_chars'} = {
                   'text' => 'Source file format'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -233,7 +237,9 @@ $result_trees{'transparent_sort_chars'} = {
               },
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -251,7 +257,7 @@ $result_trees{'transparent_sort_chars'} = {
                   'text' => 'Semantic markup'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -273,7 +279,9 @@ $result_trees{'transparent_sort_chars'} = {
               },
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -296,7 +304,7 @@ $result_trees{'transparent_sort_chars'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -307,7 +315,9 @@ $result_trees{'transparent_sort_chars'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -330,7 +340,9 @@ $result_trees{'transparent_sort_chars'} = {
             'normalized' => 'node'
           }
         ],
-        'normalized' => 'node',
+        'normalized' => 'node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -391,6 +403,7 @@ $result_sectioning{'transparent_sort_chars'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -415,6 +428,7 @@ $result_nodes{'transparent_sort_chars'} = {
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -422,6 +436,7 @@ $result_nodes{'transparent_sort_chars'} = {
         'isindex' => 1,
         'normalized' => 'node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -435,6 +450,7 @@ $result_menus{'transparent_sort_chars'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

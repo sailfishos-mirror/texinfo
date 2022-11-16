@@ -16,7 +16,7 @@ $result_trees{'example_in_cartouche'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -56,7 +56,7 @@ $result_trees{'example_in_cartouche'} = {
                       'text' => 'cartouche'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -65,8 +65,10 @@ $result_trees{'example_in_cartouche'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -89,7 +91,7 @@ $result_trees{'example_in_cartouche'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -101,7 +103,7 @@ $result_trees{'example_in_cartouche'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -131,7 +133,7 @@ $result_trees{'example_in_cartouche'} = {
                           'text' => 'example'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -140,8 +142,10 @@ $result_trees{'example_in_cartouche'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -164,7 +168,7 @@ $result_trees{'example_in_cartouche'} = {
                       'text' => 'cartouche'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -173,8 +177,10 @@ $result_trees{'example_in_cartouche'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

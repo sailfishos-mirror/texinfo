@@ -36,7 +36,7 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -97,7 +97,7 @@ $result_trees{'inlinefmt_with_empty_line'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

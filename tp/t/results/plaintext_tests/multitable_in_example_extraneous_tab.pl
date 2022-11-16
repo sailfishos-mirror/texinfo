@@ -12,7 +12,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -29,7 +29,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                       'text' => 'a'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -140,7 +140,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                           'text' => 'multitable'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -149,8 +149,10 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'multitable'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -166,7 +168,9 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                     'text' => 'a',
                     'type' => 'row_prototype'
                   }
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -183,7 +187,7 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -192,8 +196,10 @@ $result_trees{'multitable_in_example_extraneous_tab'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

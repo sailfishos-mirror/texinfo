@@ -17,7 +17,7 @@ $result_trees{'simple'} = {
                   'text' => 'myalias = code'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -29,7 +29,9 @@ $result_trees{'simple'} = {
             'misc_args' => [
               'myalias',
               'code'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -67,7 +69,9 @@ $result_trees{'simple'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -78,7 +82,9 @@ $result_trees{'simple'} = {
             'misc_args' => [
               'o-theralias',
               'verb'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

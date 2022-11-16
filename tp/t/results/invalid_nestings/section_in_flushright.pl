@@ -12,7 +12,7 @@ $result_trees{'section_in_flushright'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -58,7 +58,7 @@ $result_trees{'section_in_flushright'} = {
               'text' => 'a section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -66,7 +66,7 @@ $result_trees{'section_in_flushright'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -99,7 +99,7 @@ $result_sectioning{'section_in_flushright'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

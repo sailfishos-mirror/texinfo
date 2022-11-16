@@ -37,7 +37,7 @@ $result_trees{'lone_braces_in_inlineraw'} = {
                       'type' => 'bracketed'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

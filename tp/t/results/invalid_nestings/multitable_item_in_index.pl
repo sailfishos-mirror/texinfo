@@ -33,7 +33,7 @@ $result_trees{'multitable_item_in_index'} = {
                   'type' => 'bracketed'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -56,7 +56,7 @@ $result_trees{'multitable_item_in_index'} = {
                           'text' => 'on item line'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -75,7 +75,9 @@ $result_trees{'multitable_item_in_index'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'vr',
                       'index_type_command' => 'vindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -96,7 +98,7 @@ $result_trees{'multitable_item_in_index'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -105,8 +107,10 @@ $result_trees{'multitable_item_in_index'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -130,7 +134,9 @@ $result_trees{'multitable_item_in_index'} = {
                 ],
                 'type' => 'bracketed_multitable_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

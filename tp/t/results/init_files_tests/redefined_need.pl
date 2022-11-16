@@ -17,7 +17,7 @@ $result_trees{'redefined_need'} = {
                   'text' => '0.1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,7 +28,9 @@ $result_trees{'redefined_need'} = {
           'extra' => {
             'misc_args' => [
               '0.1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

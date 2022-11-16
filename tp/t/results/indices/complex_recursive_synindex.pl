@@ -18,7 +18,7 @@ $result_trees{'complex_recursive_synindex'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -40,7 +40,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -51,7 +51,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'aaa'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -68,7 +70,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'bbb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -79,7 +81,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'bbb'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -96,7 +100,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'ccc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -107,7 +111,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'ccc'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -124,7 +130,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'ddd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -135,7 +141,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'ddd'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -152,7 +160,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'eee'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -163,7 +171,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'eee'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -185,7 +195,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'aaa bbb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -197,7 +207,9 @@ $result_trees{'complex_recursive_synindex'} = {
             'misc_args' => [
               'aaa',
               'bbb'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -214,7 +226,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'bbb aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -222,7 +234,7 @@ $result_trees{'complex_recursive_synindex'} = {
             }
           ],
           'cmdname' => 'synindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -244,7 +256,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'ccc aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -256,7 +268,9 @@ $result_trees{'complex_recursive_synindex'} = {
             'misc_args' => [
               'ccc',
               'aaa'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -273,7 +287,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'ddd bbb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -285,7 +299,9 @@ $result_trees{'complex_recursive_synindex'} = {
             'misc_args' => [
               'ddd',
               'bbb'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -302,7 +318,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'e before synindex'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -322,7 +338,9 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'eee',
               'index_type_command' => 'eeeindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -345,7 +363,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'eee ddd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -357,7 +375,9 @@ $result_trees{'complex_recursive_synindex'} = {
             'misc_args' => [
               'eee',
               'ddd'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -374,7 +394,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'bbb eee'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -382,7 +402,7 @@ $result_trees{'complex_recursive_synindex'} = {
             }
           ],
           'cmdname' => 'synindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -404,7 +424,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'c index'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -424,7 +444,9 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'ccc',
               'index_type_command' => 'cccindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -442,7 +464,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'b entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -462,7 +484,9 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'bbb',
               'index_type_command' => 'bbbindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -480,7 +504,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'a entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -500,7 +524,9 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'aaa',
               'index_type_command' => 'aaaindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -518,7 +544,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'd index'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -538,7 +564,9 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'ddd',
               'index_type_command' => 'dddindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -556,7 +584,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'e index'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -576,7 +604,9 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'eee',
               'index_type_command' => 'eeeindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -608,7 +638,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'bbb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -619,7 +649,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'bbb'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -650,7 +682,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -661,7 +693,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'aaa'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -692,7 +726,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'ccc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -703,7 +737,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'ccc'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -734,7 +770,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'ddd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -745,7 +781,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'ddd'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -776,7 +814,7 @@ $result_trees{'complex_recursive_synindex'} = {
                   'text' => 'eee'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -787,7 +825,9 @@ $result_trees{'complex_recursive_synindex'} = {
           'extra' => {
             'misc_args' => [
               'eee'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -810,7 +850,9 @@ $result_trees{'complex_recursive_synindex'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -912,7 +954,8 @@ $result_nodes{'complex_recursive_synindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'complex_recursive_synindex'} = {
@@ -920,7 +963,8 @@ $result_menus{'complex_recursive_synindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'complex_recursive_synindex'} = [

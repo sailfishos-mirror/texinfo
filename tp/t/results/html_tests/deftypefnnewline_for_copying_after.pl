@@ -12,7 +12,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -144,7 +144,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                           'text' => 'deftypefun'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -153,8 +153,10 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'deftypefun'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -163,7 +165,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -180,7 +182,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                       'text' => 'copying'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -189,8 +191,10 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -238,7 +242,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                   'text' => 'on'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -249,7 +253,9 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
           'extra' => {
             'misc_args' => [
               'on'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -294,7 +300,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -314,7 +320,9 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -331,7 +339,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -468,7 +476,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
                       'text' => 'deftypefun'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -477,8 +485,10 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefun'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -487,7 +497,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -502,7 +512,8 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -575,9 +586,11 @@ $result_sectioning{'deftypefnnewline_for_copying_after'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -595,17 +608,20 @@ $result_nodes{'deftypefnnewline_for_copying_after'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'deftypefnnewline_for_copying_after'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'deftypefnnewline_for_copying_after'} = [];

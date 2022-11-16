@@ -24,7 +24,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -39,7 +39,8 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -56,7 +57,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -71,7 +72,7 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -88,7 +89,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -103,7 +104,7 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -120,7 +121,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -135,7 +136,7 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -152,7 +153,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'subsubsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -167,7 +168,7 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -184,7 +185,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'part'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -199,7 +200,8 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -216,7 +218,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'chapter in part'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -232,7 +234,9 @@ $result_trees{'shortcontents'} = {
         }
       ],
       'extra' => {
-        'associated_part' => {},
+        'associated_part' => {}
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -249,7 +253,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'second chapter in part'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -264,7 +268,7 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -281,7 +285,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'unnumbered'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -296,7 +300,7 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -313,7 +317,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'appendix'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -328,7 +332,7 @@ $result_trees{'shortcontents'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -345,7 +349,7 @@ $result_trees{'shortcontents'} = {
               'text' => 'appendixsec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -375,7 +379,7 @@ $result_trees{'shortcontents'} = {
           }
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -456,26 +460,27 @@ $result_sectioning{'shortcontents'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {},
+                          'info' => {},
                           'structure' => {
                             'section_childs' => [
                               {
                                 'cmdname' => 'subsubsection',
-                                'extra' => {},
+                                'info' => {},
                                 'structure' => {
                                   'section_level' => 4,
                                   'section_number' => '1.1.1.1',
@@ -515,6 +520,7 @@ $result_sectioning{'shortcontents'} = {
             'extra' => {
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 2,
@@ -524,12 +530,13 @@ $result_sectioning{'shortcontents'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {},
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -541,7 +548,7 @@ $result_sectioning{'shortcontents'} = {
             },
             {
               'cmdname' => 'unnumbered',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -558,12 +565,12 @@ $result_sectioning{'shortcontents'} = {
       },
       {
         'cmdname' => 'appendix',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'appendixsec',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => 'A.1',

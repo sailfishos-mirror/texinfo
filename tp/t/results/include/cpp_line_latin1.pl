@@ -34,7 +34,7 @@ $result_trees{'cpp_line_latin1'} = {
                       'text' => 'ISO-8859-1'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -45,8 +45,10 @@ $result_trees{'cpp_line_latin1'} = {
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'input_perl_encoding' => 'iso-8859-1',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ISO-8859-1'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'cpp_line_latin1.texi',
@@ -73,7 +75,7 @@ $result_trees{'cpp_line_latin1'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -93,7 +95,9 @@ $result_trees{'cpp_line_latin1'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -105,7 +109,7 @@ $result_trees{'cpp_line_latin1'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -211,7 +215,8 @@ $result_sectioning{'cpp_line_latin1'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
         'structure' => {
@@ -234,14 +239,16 @@ $result_nodes{'cpp_line_latin1'} = {
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'cpp_line_latin1'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'cpp_line_latin1'} = [

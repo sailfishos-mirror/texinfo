@@ -18,7 +18,7 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                   'type' => 'command_as_argument_inserted'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -51,7 +51,7 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                           'text' => 'itemx'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -59,7 +59,7 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                     }
                   ],
                   'cmdname' => 'itemx',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -99,7 +99,7 @@ $result_trees{'headitem_itemx_in_itemize'} = {
                       'text' => 'itemize'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -108,8 +108,10 @@ $result_trees{'headitem_itemx_in_itemize'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

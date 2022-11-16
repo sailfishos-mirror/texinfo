@@ -17,7 +17,7 @@ $result_trees{'caption_in_example'} = {
                   'text' => 'float'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -34,7 +34,7 @@ $result_trees{'caption_in_example'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -109,7 +109,7 @@ $result_trees{'caption_in_example'} = {
                           'text' => 'example'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -118,8 +118,10 @@ $result_trees{'caption_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'example'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -142,7 +144,7 @@ $result_trees{'caption_in_example'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -151,8 +153,10 @@ $result_trees{'caption_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -163,13 +167,15 @@ $result_trees{'caption_in_example'} = {
           ],
           'extra' => {
             'caption' => {},
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'float'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -241,7 +247,8 @@ $result_floats{'caption_in_example'} = {
           ],
           'normalized' => 'float'
         }
-      }
+      },
+      'info' => {}
     }
   ]
 };

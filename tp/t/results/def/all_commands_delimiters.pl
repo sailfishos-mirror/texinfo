@@ -407,7 +407,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -416,8 +416,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -426,7 +428,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -795,7 +797,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defvr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -804,8 +806,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -814,7 +818,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1031,7 +1035,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1040,8 +1044,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1050,7 +1056,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1528,7 +1534,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1537,8 +1543,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1547,7 +1555,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1684,7 +1692,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1693,8 +1701,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1703,7 +1713,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1993,7 +2003,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2002,8 +2012,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2012,7 +2024,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2359,7 +2371,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypevr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2368,8 +2380,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2378,7 +2392,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2737,7 +2751,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2746,8 +2760,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -2756,7 +2772,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -3103,7 +3119,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defcv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -3112,8 +3128,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defcv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -3122,7 +3140,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -3506,7 +3524,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -3515,8 +3533,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -3525,7 +3545,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -3870,7 +3890,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -3879,8 +3899,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -3889,7 +3911,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -4263,7 +4285,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -4272,8 +4294,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -4282,7 +4306,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -4449,7 +4473,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -4458,8 +4482,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -4468,7 +4494,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -4655,7 +4681,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -4664,8 +4690,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -4674,7 +4702,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -4861,7 +4889,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -4870,8 +4898,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -4880,7 +4910,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5047,7 +5077,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5056,8 +5086,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5066,7 +5098,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5233,7 +5265,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5242,8 +5274,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5252,7 +5286,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5439,7 +5473,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5448,8 +5482,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5458,7 +5494,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5645,7 +5681,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5654,8 +5690,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5664,7 +5702,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -5831,7 +5869,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -5840,8 +5878,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -5850,7 +5890,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6017,7 +6057,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6026,8 +6066,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6036,7 +6078,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6223,7 +6265,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6232,8 +6274,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6242,7 +6286,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6429,7 +6473,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6438,8 +6482,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6448,7 +6494,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6615,7 +6661,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6624,8 +6670,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6634,7 +6682,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -6801,7 +6849,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -6810,8 +6858,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -6820,7 +6870,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7020,7 +7070,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7029,8 +7079,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7039,7 +7091,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7173,7 +7225,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defun'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7182,8 +7234,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7192,7 +7246,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7368,7 +7422,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7377,8 +7431,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7387,7 +7443,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7563,7 +7619,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7572,8 +7628,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7582,7 +7640,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7758,7 +7816,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defvr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7767,8 +7825,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7777,7 +7837,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -7953,7 +8013,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defvr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -7962,8 +8022,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -7972,7 +8034,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8177,7 +8239,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8186,8 +8248,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8196,7 +8260,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8401,7 +8465,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8410,8 +8474,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8420,7 +8486,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8625,7 +8691,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypevr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8634,8 +8700,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8644,7 +8712,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -8849,7 +8917,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypevr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -8858,8 +8926,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -8868,7 +8938,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9044,7 +9114,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9053,8 +9123,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9063,7 +9135,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9239,7 +9311,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9248,8 +9320,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9258,7 +9332,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9463,7 +9537,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defcv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9472,8 +9546,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defcv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9482,7 +9558,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9686,7 +9762,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9695,8 +9771,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9705,7 +9783,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -9947,7 +10025,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -9956,8 +10034,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -9966,7 +10046,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10208,7 +10288,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -10217,8 +10297,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -10227,7 +10309,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10440,7 +10522,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -10449,8 +10531,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -10459,7 +10543,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10672,7 +10756,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'defop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -10681,8 +10765,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -10691,7 +10777,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -10933,7 +11019,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -10942,8 +11028,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -10952,7 +11040,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11194,7 +11282,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -11203,8 +11291,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -11213,7 +11303,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11459,7 +11549,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -11468,8 +11558,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -11478,7 +11570,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -11724,7 +11816,7 @@ $result_trees{'all_commands_delimiters'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -11733,8 +11825,10 @@ $result_trees{'all_commands_delimiters'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -11743,7 +11837,7 @@ $result_trees{'all_commands_delimiters'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

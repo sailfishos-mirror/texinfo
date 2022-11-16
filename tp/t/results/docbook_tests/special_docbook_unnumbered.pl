@@ -18,7 +18,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'special_docbook_unnumbered'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -86,7 +88,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -299,7 +301,7 @@ $result_trees{'special_docbook_unnumbered'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -308,8 +310,10 @@ $result_trees{'special_docbook_unnumbered'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -330,7 +334,8 @@ $result_trees{'special_docbook_unnumbered'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -347,7 +352,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'Dedication'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -367,7 +372,9 @@ $result_trees{'special_docbook_unnumbered'} = {
             'normalized' => 'Dedication'
           }
         ],
-        'normalized' => 'Dedication',
+        'normalized' => 'Dedication'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -384,7 +391,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'a dedication'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -413,7 +420,8 @@ $result_trees{'special_docbook_unnumbered'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -430,7 +438,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'preface'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -450,7 +458,9 @@ $result_trees{'special_docbook_unnumbered'} = {
             'normalized' => 'preface'
           }
         ],
-        'normalized' => 'preface',
+        'normalized' => 'preface'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -467,7 +477,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'The Preface'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -496,7 +506,8 @@ $result_trees{'special_docbook_unnumbered'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -513,7 +524,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'colophon'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -533,7 +544,9 @@ $result_trees{'special_docbook_unnumbered'} = {
             'normalized' => 'colophon'
           }
         ],
-        'normalized' => 'colophon',
+        'normalized' => 'colophon'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -550,7 +563,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'A colophon'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -579,7 +592,8 @@ $result_trees{'special_docbook_unnumbered'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -596,7 +610,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'acknowledgements'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -616,7 +630,9 @@ $result_trees{'special_docbook_unnumbered'} = {
             'normalized' => 'acknowledgements'
           }
         ],
-        'normalized' => 'acknowledgements',
+        'normalized' => 'acknowledgements'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -633,7 +649,7 @@ $result_trees{'special_docbook_unnumbered'} = {
               'text' => 'A chapter Acnkowledgements'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -657,7 +673,8 @@ $result_trees{'special_docbook_unnumbered'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -764,9 +781,11 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -777,9 +796,11 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'Dedication'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_up' => {},
@@ -795,9 +816,11 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'preface'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -814,9 +837,11 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'colophon'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -833,9 +858,11 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'acknowledgements'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -877,6 +904,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -886,6 +914,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -893,10 +922,12 @@ $result_nodes{'special_docbook_unnumbered'} = {
         'associated_section' => {
           'cmdname' => 'unnumbered',
           'extra' => {},
+          'info' => {},
           'structure' => {}
         },
         'normalized' => 'Dedication'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -904,10 +935,12 @@ $result_nodes{'special_docbook_unnumbered'} = {
             'associated_section' => {
               'cmdname' => 'unnumbered',
               'extra' => {},
+              'info' => {},
               'structure' => {}
             },
             'normalized' => 'preface'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -915,10 +948,12 @@ $result_nodes{'special_docbook_unnumbered'} = {
                 'associated_section' => {
                   'cmdname' => 'unnumbered',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {}
                 },
                 'normalized' => 'colophon'
               },
+              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
@@ -926,12 +961,14 @@ $result_nodes{'special_docbook_unnumbered'} = {
                     'associated_section' => {
                       'cmdname' => 'chapter',
                       'extra' => {},
+                      'info' => {},
                       'structure' => {
                         'section_number' => 1
                       }
                     },
                     'normalized' => 'acknowledgements'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {}
@@ -967,30 +1004,35 @@ $result_menus{'special_docbook_unnumbered'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Dedication'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'preface'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'colophon'
               },
+              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'acknowledgements'
                   },
+                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},

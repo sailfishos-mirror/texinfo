@@ -19,7 +19,7 @@ $result_trees{'part_before_section'} = [
                 'text' => 'part'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -34,7 +34,8 @@ $result_trees{'part_before_section'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -51,7 +52,7 @@ $result_trees{'part_before_section'} = [
                 'text' => 'section'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => ' 
 '
             },
@@ -60,7 +61,9 @@ $result_trees{'part_before_section'} = [
         ],
         'cmdname' => 'section',
         'extra' => {
-          'associated_part' => {},
+          'associated_part' => {}
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -103,6 +106,7 @@ $result_sectioning{'part_before_section'} = {
             'extra' => {
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -121,6 +125,7 @@ $result_sectioning{'part_before_section'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_childs' => [
@@ -167,11 +172,13 @@ $result_elements{'part_before_section'} = [
           'associated_part' => {
             'cmdname' => 'part',
             'extra' => {},
+            'info' => {},
             'structure' => {
               'associated_unit' => {}
             }
           }
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_number' => 1

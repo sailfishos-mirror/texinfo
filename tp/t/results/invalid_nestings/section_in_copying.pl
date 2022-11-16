@@ -12,7 +12,7 @@ $result_trees{'section_in_copying'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -58,7 +58,7 @@ $result_trees{'section_in_copying'} = {
               'text' => 'section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -66,7 +66,7 @@ $result_trees{'section_in_copying'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -96,7 +96,7 @@ $result_sectioning{'section_in_copying'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

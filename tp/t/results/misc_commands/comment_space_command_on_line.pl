@@ -42,7 +42,8 @@ $result_trees{'comment_space_command_on_line'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -83,7 +84,9 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                 ]
               }
-            },
+            }
+          },
+          'info' => {
             'spaces_after_argument' => '  '
           },
           'type' => 'line_arg'
@@ -102,7 +105,9 @@ $result_trees{'comment_space_command_on_line'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -138,7 +143,9 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                 ]
               }
-            },
+            }
+          },
+          'info' => {
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -152,7 +159,8 @@ $result_trees{'comment_space_command_on_line'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -185,7 +193,9 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                 ]
               }
-            },
+            }
+          },
+          'info' => {
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -205,7 +215,9 @@ $result_trees{'comment_space_command_on_line'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -241,7 +253,9 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                 ]
               }
-            },
+            }
+          },
+          'info' => {
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -278,7 +292,9 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -288,7 +304,9 @@ $result_trees{'comment_space_command_on_line'} = {
           'extra' => {
             'misc_args' => [
               'on'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -335,7 +353,9 @@ $result_trees{'comment_space_command_on_line'} = {
           'extra' => {
             'misc_args' => [
               'off'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -376,7 +396,9 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -395,7 +417,9 @@ $result_trees{'comment_space_command_on_line'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -437,14 +461,17 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => '    '
               },
               'type' => 'line_arg'
             }
           ],
           'cmdname' => 'heading',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -482,7 +509,9 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -492,7 +521,9 @@ $result_trees{'comment_space_command_on_line'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -522,7 +553,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'text' => 'label'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -565,7 +596,9 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -573,8 +606,10 @@ $result_trees{'comment_space_command_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -589,13 +624,15 @@ $result_trees{'comment_space_command_on_line'} = {
               {}
             ],
             'normalized' => 'label',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -642,7 +679,6 @@ $result_trees{'comment_space_command_on_line'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {},
@@ -650,6 +686,9 @@ $result_trees{'comment_space_command_on_line'} = {
               ],
               'normalized' => 'Text @ '
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -663,7 +702,8 @@ $result_trees{'comment_space_command_on_line'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -758,9 +798,11 @@ $result_sectioning{'comment_space_command_on_line'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -772,9 +814,11 @@ $result_sectioning{'comment_space_command_on_line'} = {
                     'isindex' => 1,
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -803,10 +847,12 @@ $result_nodes{'comment_space_command_on_line'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -814,6 +860,7 @@ $result_nodes{'comment_space_command_on_line'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -821,6 +868,7 @@ $result_nodes{'comment_space_command_on_line'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -836,6 +884,7 @@ $result_menus{'comment_space_command_on_line'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 
@@ -850,6 +899,7 @@ $result_floats{'comment_space_command_on_line'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -864,6 +914,7 @@ $result_floats{'comment_space_command_on_line'} = {
           'normalized' => 'Text'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

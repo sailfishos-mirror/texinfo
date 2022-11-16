@@ -21,7 +21,7 @@ $result_trees{'node_empty_direction'} = {
           'type' => 'line_arg'
         },
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -41,7 +41,9 @@ $result_trees{'node_empty_direction'} = {
           },
           undef
         ],
-        'normalized' => 'name',
+        'normalized' => 'name'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -65,14 +67,16 @@ $result_nodes{'node_empty_direction'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'name'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'node_empty_direction'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'name'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'node_empty_direction'} = [];

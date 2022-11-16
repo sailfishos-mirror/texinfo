@@ -33,7 +33,7 @@ $result_trees{'section_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },
@@ -57,7 +57,7 @@ $result_trees{'section_in_footnote'} = {
               'text' => 'a section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -65,7 +65,7 @@ $result_trees{'section_in_footnote'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -95,7 +95,7 @@ $result_sectioning{'section_in_footnote'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

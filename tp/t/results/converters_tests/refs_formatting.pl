@@ -18,7 +18,7 @@ $result_trees{'refs_formatting'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'refs_formatting'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'refs_formatting'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -861,7 +863,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -872,7 +874,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1121,7 +1123,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1132,7 +1134,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2151,7 +2153,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2162,7 +2164,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2447,7 +2449,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2458,7 +2460,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2640,7 +2642,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2651,7 +2653,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2786,7 +2788,7 @@ $result_trees{'refs_formatting'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2887,7 +2889,8 @@ $result_trees{'refs_formatting'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -3040,9 +3043,11 @@ $result_sectioning{'refs_formatting'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'chapter'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -3061,19 +3066,22 @@ $result_nodes{'refs_formatting'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
+      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'chapter'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'refs_formatting'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'chapter'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'refs_formatting'} = [

@@ -49,7 +49,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -69,7 +69,9 @@ $result_trees{'raiselowersections'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -81,7 +83,7 @@ $result_trees{'raiselowersections'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -93,7 +95,7 @@ $result_trees{'raiselowersections'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -208,7 +210,7 @@ $result_trees{'raiselowersections'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -217,8 +219,10 @@ $result_trees{'raiselowersections'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -254,7 +258,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -274,7 +278,9 @@ $result_trees{'raiselowersections'} = {
             'normalized' => 'Chapter'
           }
         ],
-        'normalized' => 'Chapter',
+        'normalized' => 'Chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -291,7 +297,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -308,7 +314,7 @@ $result_trees{'raiselowersections'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -374,7 +380,7 @@ $result_trees{'raiselowersections'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -383,8 +389,10 @@ $result_trees{'raiselowersections'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -480,7 +488,8 @@ $result_trees{'raiselowersections'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -497,7 +506,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Chapter in included file'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -517,7 +526,9 @@ $result_trees{'raiselowersections'} = {
             'normalized' => 'Chapter-in-included-file'
           }
         ],
-        'normalized' => 'Chapter-in-included-file',
+        'normalized' => 'Chapter-in-included-file'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -534,7 +545,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Chapter in included file'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -551,7 +562,7 @@ $result_trees{'raiselowersections'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -617,7 +628,7 @@ $result_trees{'raiselowersections'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -626,8 +637,10 @@ $result_trees{'raiselowersections'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'section_file.texi',
@@ -649,7 +662,9 @@ $result_trees{'raiselowersections'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1,
+        'sections_level' => -1
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -666,7 +681,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -686,7 +701,9 @@ $result_trees{'raiselowersections'} = {
             'normalized' => 'Section'
           }
         ],
-        'normalized' => 'Section',
+        'normalized' => 'Section'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -703,7 +720,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -720,7 +737,7 @@ $result_trees{'raiselowersections'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -786,7 +803,7 @@ $result_trees{'raiselowersections'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -795,8 +812,10 @@ $result_trees{'raiselowersections'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'section_file.texi',
@@ -818,7 +837,9 @@ $result_trees{'raiselowersections'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1,
+        'sections_level' => -1
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -835,7 +856,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -855,7 +876,9 @@ $result_trees{'raiselowersections'} = {
             'normalized' => 'Subsection'
           }
         ],
-        'normalized' => 'Subsection',
+        'normalized' => 'Subsection'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -872,7 +895,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -929,7 +952,9 @@ $result_trees{'raiselowersections'} = {
         }
       ],
       'extra' => {
-        'sections_level' => -1,
+        'sections_level' => -1
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -946,7 +971,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Second chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -966,7 +991,9 @@ $result_trees{'raiselowersections'} = {
             'normalized' => 'Second-chapter'
           }
         ],
-        'normalized' => 'Second-chapter',
+        'normalized' => 'Second-chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -983,7 +1010,7 @@ $result_trees{'raiselowersections'} = {
               'text' => 'Second chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1027,7 +1054,8 @@ $result_trees{'raiselowersections'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1174,6 +1202,7 @@ $result_sectioning{'raiselowersections'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -1187,9 +1216,11 @@ $result_sectioning{'raiselowersections'} = {
                   'extra' => {
                     'normalized' => 'Chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -1200,10 +1231,12 @@ $result_sectioning{'raiselowersections'} = {
                         'extra' => {
                           'normalized' => 'Chapter-in-included-file'
                         },
+                        'info' => {},
                         'structure' => {}
                       },
                       'sections_level' => -1
                     },
+                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
@@ -1214,10 +1247,12 @@ $result_sectioning{'raiselowersections'} = {
                               'extra' => {
                                 'normalized' => 'Section'
                               },
+                              'info' => {},
                               'structure' => {}
                             },
                             'sections_level' => -1
                           },
+                          'info' => {},
                           'structure' => {
                             'section_childs' => [
                               {
@@ -1228,10 +1263,12 @@ $result_sectioning{'raiselowersections'} = {
                                     'extra' => {
                                       'normalized' => 'Subsection'
                                     },
+                                    'info' => {},
                                     'structure' => {}
                                   },
                                   'sections_level' => -1
                                 },
+                                'info' => {},
                                 'structure' => {
                                   'section_level' => 4,
                                   'section_number' => '1.1.1.1',
@@ -1266,9 +1303,11 @@ $result_sectioning{'raiselowersections'} = {
                   'extra' => {
                     'normalized' => 'Second-chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1314,6 +1353,7 @@ $result_nodes{'raiselowersections'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1321,6 +1361,7 @@ $result_nodes{'raiselowersections'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1332,6 +1373,7 @@ $result_nodes{'raiselowersections'} = {
         ],
         'normalized' => 'Chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1341,6 +1383,7 @@ $result_nodes{'raiselowersections'} = {
               'extra' => {
                 'sections_level' => -1
               },
+              'info' => {},
               'structure' => {
                 'section_number' => '1.1'
               }
@@ -1352,6 +1395,7 @@ $result_nodes{'raiselowersections'} = {
             ],
             'normalized' => 'Chapter-in-included-file'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -1361,6 +1405,7 @@ $result_nodes{'raiselowersections'} = {
                   'extra' => {
                     'sections_level' => -1
                   },
+                  'info' => {},
                   'structure' => {
                     'section_number' => '1.1.1'
                   }
@@ -1372,6 +1417,7 @@ $result_nodes{'raiselowersections'} = {
                 ],
                 'normalized' => 'Section'
               },
+              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
@@ -1381,12 +1427,14 @@ $result_nodes{'raiselowersections'} = {
                       'extra' => {
                         'sections_level' => -1
                       },
+                      'info' => {},
                       'structure' => {
                         'section_number' => '1.1.1.1'
                       }
                     },
                     'normalized' => 'Subsection'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_up' => {}
                   }
@@ -1403,12 +1451,14 @@ $result_nodes{'raiselowersections'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Second-chapter'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -1435,30 +1485,35 @@ $result_menus{'raiselowersections'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Chapter-in-included-file'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'Section'
               },
+              'info' => {},
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'Subsection'
                   },
+                  'info' => {},
                   'structure' => {
                     'menu_up' => {},
                     'menu_up_hash' => {
@@ -1483,6 +1538,7 @@ $result_menus{'raiselowersections'} = {
           'extra' => {
             'normalized' => 'Second-chapter'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

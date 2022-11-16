@@ -46,7 +46,7 @@ $result_trees{'inlineraw'} = {
                       'text' => ' '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -104,7 +104,7 @@ $result_trees{'inlineraw'} = {
                       'text' => '</i>'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

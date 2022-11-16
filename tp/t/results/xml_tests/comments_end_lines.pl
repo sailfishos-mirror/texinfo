@@ -18,7 +18,7 @@ $result_trees{'comments_end_lines'} = {
                   'type' => 'command_as_argument_inserted'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -77,7 +77,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => '  '
                   },
                   'type' => 'line_arg'
@@ -85,8 +87,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -112,7 +116,7 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -145,7 +149,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -153,8 +159,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -191,7 +199,7 @@ $result_trees{'comments_end_lines'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -212,7 +220,7 @@ $result_trees{'comments_end_lines'} = {
                               'text' => 'it'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -220,7 +228,7 @@ $result_trees{'comments_end_lines'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -259,7 +267,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -267,8 +277,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -278,7 +290,9 @@ $result_trees{'comments_end_lines'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -295,7 +309,7 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -337,7 +351,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -345,8 +361,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -369,7 +387,7 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -411,7 +429,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -419,8 +439,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'group'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -443,7 +465,7 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -485,7 +507,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -493,8 +517,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -526,7 +552,7 @@ $result_trees{'comments_end_lines'} = {
                           'text' => '0.4 0.6'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -538,7 +564,9 @@ $result_trees{'comments_end_lines'} = {
                     'misc_args' => [
                       '0.4',
                       '0.6'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -641,7 +669,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -649,8 +679,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -661,7 +693,9 @@ $result_trees{'comments_end_lines'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 2,
+            'max_columns' => 2
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -691,7 +725,7 @@ $result_trees{'comments_end_lines'} = {
                   'text' => 'g'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -733,7 +767,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => '  '
                   },
                   'type' => 'line_arg'
@@ -741,8 +777,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -756,13 +794,15 @@ $result_trees{'comments_end_lines'} = {
               {}
             ],
             'normalized' => 'g',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'f'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -778,7 +818,7 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -820,7 +860,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -828,8 +870,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -852,7 +896,7 @@ $result_trees{'comments_end_lines'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -894,7 +938,9 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -902,8 +948,10 @@ $result_trees{'comments_end_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'raggedright'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1010,6 +1058,7 @@ $result_floats{'comments_end_lines'} = {
           'normalized' => 'f'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

@@ -19,7 +19,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                       'text' => 'separate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,7 +30,9 @@ $result_trees{'index_entry_in_footnote_separate'} = {
               'extra' => {
                 'misc_args' => [
                   'separate'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -53,7 +55,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -70,7 +72,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -136,7 +138,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -145,8 +147,10 @@ $result_trees{'index_entry_in_footnote_separate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -189,7 +193,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                                   'text' => 'index entry in footnote'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -209,7 +213,9 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                               'index_ignore_chars' => {},
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex'
-                            },
+                            }
+                          },
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -263,7 +269,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                               'text' => 'counting entry'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -283,7 +289,9 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'cp',
                           'index_type_command' => 'cindex'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -329,7 +337,9 @@ $result_trees{'index_entry_in_footnote_separate'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -346,7 +356,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
               'text' => 'First'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -368,7 +378,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -379,7 +389,9 @@ $result_trees{'index_entry_in_footnote_separate'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -402,7 +414,9 @@ $result_trees{'index_entry_in_footnote_separate'} = {
             'normalized' => 'First'
           }
         ],
-        'normalized' => 'First',
+        'normalized' => 'First'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -470,6 +484,7 @@ $result_nodes{'index_entry_in_footnote_separate'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -477,6 +492,7 @@ $result_nodes{'index_entry_in_footnote_separate'} = {
         'isindex' => 1,
         'normalized' => 'First'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -494,6 +510,7 @@ $result_menus{'index_entry_in_footnote_separate'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -501,6 +518,7 @@ $result_menus{'index_entry_in_footnote_separate'} = {
         'isindex' => 1,
         'normalized' => 'First'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

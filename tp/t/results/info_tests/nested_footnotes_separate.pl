@@ -17,7 +17,7 @@ $result_trees{'nested_footnotes_separate'} = {
                   'text' => 'separate'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,7 +28,9 @@ $result_trees{'nested_footnotes_separate'} = {
           'extra' => {
             'misc_args' => [
               'separate'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -48,7 +50,7 @@ $result_trees{'nested_footnotes_separate'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -151,7 +153,9 @@ $result_trees{'nested_footnotes_separate'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -184,14 +188,16 @@ $result_nodes{'nested_footnotes_separate'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'nested_footnotes_separate'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'nested_footnotes_separate'} = [];

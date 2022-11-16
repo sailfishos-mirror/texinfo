@@ -52,7 +52,9 @@ $result_trees{'empty_nodes_with_commands'} = {
       'extra' => {
         'nodes_manuals' => [
           undef
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -82,7 +84,9 @@ $result_trees{'empty_nodes_with_commands'} = {
             ],
             'normalized' => '-'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -99,7 +103,7 @@ $result_trees{'empty_nodes_with_commands'} = {
               'cmdname' => ':'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -115,7 +119,9 @@ $result_trees{'empty_nodes_with_commands'} = {
             ],
             'normalized' => ''
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -147,7 +153,7 @@ $result_trees{'empty_nodes_with_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -163,7 +169,9 @@ $result_trees{'empty_nodes_with_commands'} = {
             ],
             'normalized' => '-'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {

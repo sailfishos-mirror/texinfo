@@ -27,7 +27,7 @@ $result_trees{'empty_center_with_arg'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -35,7 +35,7 @@ $result_trees{'empty_center_with_arg'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

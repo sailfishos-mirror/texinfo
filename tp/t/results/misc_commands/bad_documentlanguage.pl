@@ -27,7 +27,7 @@ $result_trees{'bad_documentlanguage'} = {
                       'text' => 'en'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -36,8 +36,10 @@ $result_trees{'bad_documentlanguage'} = {
               ],
               'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_before_argument' => '  ',
                 'text_arg' => 'en'
+              },
+              'info' => {
+                'spaces_before_argument' => '  '
               },
               'source_info' => {
                 'file_name' => '',
@@ -68,7 +70,7 @@ $result_trees{'bad_documentlanguage'} = {
                           'text' => 'en'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '  
 '
                       },
@@ -77,8 +79,10 @@ $result_trees{'bad_documentlanguage'} = {
                   ],
                   'cmdname' => 'documentlanguage',
                   'extra' => {
-                    'spaces_before_argument' => '  ',
                     'text_arg' => 'en'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => '  '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -92,8 +96,10 @@ $result_trees{'bad_documentlanguage'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => '  ',
             'text_arg' => 'en '
+          },
+          'info' => {
+            'spaces_before_argument' => '  '
           },
           'source_info' => {
             'file_name' => '',
@@ -114,7 +120,7 @@ $result_trees{'bad_documentlanguage'} = {
                   'text' => 'en  after documentlanguage'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -123,8 +129,10 @@ $result_trees{'bad_documentlanguage'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => '  ',
             'text_arg' => 'en  after documentlanguage'
+          },
+          'info' => {
+            'spaces_before_argument' => '  '
           },
           'source_info' => {
             'file_name' => '',

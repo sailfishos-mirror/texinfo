@@ -12,7 +12,7 @@ $result_trees{'menu_no_closed_in_description'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },

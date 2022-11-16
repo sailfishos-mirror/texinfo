@@ -17,7 +17,7 @@ $result_trees{'flushleft_flushright'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -65,7 +65,7 @@ $result_trees{'flushleft_flushright'} = {
                       'text' => 'flushleft'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -74,8 +74,10 @@ $result_trees{'flushleft_flushright'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'flushleft'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -98,7 +100,7 @@ $result_trees{'flushleft_flushright'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -146,7 +148,7 @@ $result_trees{'flushleft_flushright'} = {
                       'text' => 'flushright'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -155,8 +157,10 @@ $result_trees{'flushleft_flushright'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'flushright'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

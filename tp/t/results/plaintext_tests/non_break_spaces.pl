@@ -19,7 +19,7 @@ $result_trees{'non_break_spaces'} = {
                       'text' => 'utf-8'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,8 +30,10 @@ $result_trees{'non_break_spaces'} = {
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'input_perl_encoding' => 'utf-8-strict',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'utf-8'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'non_break_spaces.texi',
@@ -58,7 +60,7 @@ $result_trees{'non_break_spaces'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -98,7 +100,9 @@ $result_trees{'non_break_spaces'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -132,14 +136,16 @@ $result_nodes{'non_break_spaces'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'non_break_spaces'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'non_break_spaces'} = [];

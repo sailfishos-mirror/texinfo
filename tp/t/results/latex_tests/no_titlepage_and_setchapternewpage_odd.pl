@@ -19,7 +19,7 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
                       'text' => 'odd'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,7 +30,9 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
               'extra' => {
                 'misc_args' => [
                   'odd'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

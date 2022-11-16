@@ -36,7 +36,7 @@ $result_trees{'wrong_command'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => ' 
 '
                       },
@@ -44,7 +44,7 @@ $result_trees{'wrong_command'} = {
                     }
                   ],
                   'cmdname' => 'columnfractions',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -72,8 +72,10 @@ $result_trees{'wrong_command'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -83,7 +85,9 @@ $result_trees{'wrong_command'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 0,
+            'max_columns' => 0
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -37,7 +37,7 @@ $result_trees{'empty_images'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'type' => 'brace_command_arg'
@@ -64,7 +64,7 @@ $result_trees{'empty_images'} = {
                   'text' => 'cc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'brace_command_arg'

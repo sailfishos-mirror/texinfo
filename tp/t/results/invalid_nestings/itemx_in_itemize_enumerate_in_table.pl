@@ -23,7 +23,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -44,7 +44,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                               'text' => 'item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -52,7 +52,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -89,7 +89,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                               'type' => 'command_as_argument_inserted'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -108,7 +108,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                       'text' => 'in nested itemize itemx'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -116,7 +116,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                 }
                               ],
                               'cmdname' => 'itemx',
-                              'extra' => {
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -136,7 +136,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                   'text' => 'itemize'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -145,8 +145,10 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'itemize'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -172,7 +174,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -191,7 +193,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                       'text' => 'in nested enumerate itemx'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -199,7 +201,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                 }
                               ],
                               'cmdname' => 'itemx',
-                              'extra' => {
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -219,7 +221,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                                   'text' => 'enumerate'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -228,8 +230,10 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'enumerate'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -266,7 +270,7 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -275,8 +279,10 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -286,7 +292,9 @@ $result_trees{'itemx_in_itemize_enumerate_in_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -17,7 +17,7 @@ $result_trees{'empty_copying_not_ended'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },

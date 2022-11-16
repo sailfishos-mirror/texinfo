@@ -24,7 +24,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -56,7 +58,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -86,7 +88,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'text' => 'chapter index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -107,7 +109,9 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
             'normalized' => 'chapter-index'
           }
         ],
-        'normalized' => 'chapter-index',
+        'normalized' => 'chapter-index'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -124,7 +128,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'text' => 'Index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -224,7 +228,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -248,7 +252,9 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
             },
             'seealso' => {},
             'seeentry' => {},
-            'sortas' => 'A---S',
+            'sortas' => 'A---S'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -294,7 +300,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'text' => 'second'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -316,7 +322,9 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'index_type_command' => 'cindex',
               'sortas' => 'BB'
             },
-            'sortas' => 'BB',
+            'sortas' => 'BB'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -362,7 +370,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'text' => 'secret'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -383,7 +391,9 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seeentry' => {},
+            'seeentry' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -406,7 +416,7 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -417,7 +427,9 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -427,7 +439,8 @@ $result_trees{'multiple_index_text_sortas_seeentry_seealso'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -491,6 +504,7 @@ $result_sectioning{'multiple_index_text_sortas_seeentry_seealso'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -505,9 +519,11 @@ $result_sectioning{'multiple_index_text_sortas_seeentry_seealso'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter-index'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -540,6 +556,7 @@ $result_nodes{'multiple_index_text_sortas_seeentry_seealso'} = {
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -547,6 +564,7 @@ $result_nodes{'multiple_index_text_sortas_seeentry_seealso'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -554,6 +572,7 @@ $result_nodes{'multiple_index_text_sortas_seeentry_seealso'} = {
         'isindex' => 1,
         'normalized' => 'chapter-index'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -569,6 +588,7 @@ $result_menus{'multiple_index_text_sortas_seeentry_seealso'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

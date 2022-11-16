@@ -68,7 +68,9 @@ $result_trees{'raw_and_comments'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => '  '
                   },
                   'type' => 'line_arg'
@@ -76,8 +78,10 @@ $result_trees{'raw_and_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -86,7 +90,7 @@ $result_trees{'raw_and_comments'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '  '
           },
           'source_info' => {
@@ -165,7 +169,9 @@ $result_trees{'raw_and_comments'} = {
 '
                             ]
                           }
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_after_argument' => '  '
                       },
                       'type' => 'line_arg'
@@ -173,8 +179,10 @@ $result_trees{'raw_and_comments'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'xml'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -183,7 +191,7 @@ $result_trees{'raw_and_comments'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

@@ -152,7 +152,7 @@ $result_trees{'invalid_U'} = {
                       'text' => '0023'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -198,7 +198,7 @@ $result_trees{'invalid_U'} = {
                       'text' => 'wxyz'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },

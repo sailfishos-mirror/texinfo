@@ -37,7 +37,7 @@ $result_trees{'titlefont_in_center'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -45,7 +45,7 @@ $result_trees{'titlefont_in_center'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -17,7 +17,7 @@ $result_trees{'paragraph_indent_asis'} = {
                   'text' => 'asis'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,7 +28,9 @@ $result_trees{'paragraph_indent_asis'} = {
           'extra' => {
             'misc_args' => [
               'asis'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -67,7 +69,7 @@ $result_trees{'paragraph_indent_asis'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -97,7 +99,7 @@ $result_trees{'paragraph_indent_asis'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -106,8 +108,10 @@ $result_trees{'paragraph_indent_asis'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

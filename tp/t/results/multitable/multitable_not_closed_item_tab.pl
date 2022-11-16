@@ -33,7 +33,7 @@ $result_trees{'multitable_not_closed_item_tab'} = {
                   'type' => 'bracketed'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -122,7 +122,9 @@ $result_trees{'multitable_not_closed_item_tab'} = {
                 ],
                 'type' => 'bracketed_multitable_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

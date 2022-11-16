@@ -34,7 +34,7 @@ $result_trees{'encoding_index_utf8'} = {
                       'text' => 'encoding_index_utf8.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'encoding_index_utf8'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'encoding_index_utf8.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'encoding_index_utf8.texi',
@@ -60,7 +62,7 @@ $result_trees{'encoding_index_utf8'} = {
                       'text' => 'utf-8'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -71,8 +73,10 @@ $result_trees{'encoding_index_utf8'} = {
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'input_perl_encoding' => 'utf-8-strict',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'utf-8'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'encoding_index_utf8.texi',
@@ -99,7 +103,7 @@ $result_trees{'encoding_index_utf8'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -120,7 +124,9 @@ $result_trees{'encoding_index_utf8'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -137,7 +143,7 @@ $result_trees{'encoding_index_utf8'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -159,7 +165,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => "\x{e9} \x{e9}"
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -179,7 +185,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -269,7 +277,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -289,7 +297,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -397,7 +407,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -417,7 +427,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -435,7 +447,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -455,7 +467,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -473,7 +487,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -493,7 +507,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -511,7 +527,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'c'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -531,7 +547,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -549,7 +567,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'd'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -569,7 +587,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -587,7 +607,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'e'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -607,7 +627,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -625,7 +647,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'f'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -645,7 +667,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -663,7 +687,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'g'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -683,7 +707,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -701,7 +727,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'h'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -721,7 +747,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -739,7 +767,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'i'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -759,7 +787,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -777,7 +807,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'j'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -797,7 +827,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -815,7 +847,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'k'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -835,7 +867,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -853,7 +887,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'l'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -873,7 +907,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -891,7 +927,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'm'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -911,7 +947,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -929,7 +967,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'n'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -949,7 +987,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -967,7 +1007,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'o'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -987,7 +1027,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1005,7 +1047,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'p'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1025,7 +1067,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1043,7 +1087,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'q'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1063,7 +1107,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1081,7 +1127,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'r'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1101,7 +1147,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1119,7 +1167,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 's'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1139,7 +1187,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1157,7 +1207,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 't'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1177,7 +1227,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1195,7 +1247,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'u'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1215,7 +1267,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1233,7 +1287,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'v'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1253,7 +1307,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1271,7 +1327,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'w'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1291,7 +1347,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1309,7 +1367,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'x'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1329,7 +1387,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1347,7 +1407,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'y'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1367,7 +1427,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1385,7 +1447,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'z'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1405,7 +1467,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1423,7 +1487,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'A'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1443,7 +1507,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1461,7 +1527,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'B'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1481,7 +1547,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1509,7 +1577,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1529,7 +1597,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1557,7 +1627,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1577,7 +1647,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1634,7 +1706,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => ' (dotless)'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1654,7 +1726,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1741,7 +1815,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => ' (dotless)'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1761,7 +1835,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1789,7 +1865,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1809,7 +1885,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1837,7 +1915,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1857,7 +1935,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1885,7 +1965,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1905,7 +1985,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1933,7 +2015,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1953,7 +2035,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1981,7 +2065,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2001,7 +2085,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2029,7 +2115,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2049,7 +2135,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2077,7 +2165,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2097,7 +2185,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2115,7 +2205,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '0'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2135,7 +2225,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2153,7 +2245,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '9'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2173,7 +2265,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2201,7 +2295,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2221,7 +2315,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2249,7 +2345,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2269,7 +2365,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2297,7 +2395,7 @@ $result_trees{'encoding_index_utf8'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2317,7 +2415,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2335,7 +2435,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '``'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2355,7 +2455,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2373,7 +2475,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '`'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2393,7 +2495,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2411,7 +2515,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '\''
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2431,7 +2535,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2449,7 +2555,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '\'\''
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2469,7 +2575,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2487,7 +2595,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '"'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2507,7 +2615,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2525,7 +2635,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'cmdname' => '@'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2545,7 +2655,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2563,7 +2675,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '--'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2583,7 +2695,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2601,7 +2715,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => '---'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2621,7 +2735,9 @@ $result_trees{'encoding_index_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2644,7 +2760,7 @@ $result_trees{'encoding_index_utf8'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2655,7 +2771,9 @@ $result_trees{'encoding_index_utf8'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2665,7 +2783,8 @@ $result_trees{'encoding_index_utf8'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2996,9 +3115,11 @@ $result_sectioning{'encoding_index_utf8'} = {
             'extra' => {
               'isindex' => 1,
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -3016,11 +3137,13 @@ $result_nodes{'encoding_index_utf8'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'encoding_index_utf8'} = {
@@ -3028,7 +3151,8 @@ $result_menus{'encoding_index_utf8'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'encoding_index_utf8'} = [];

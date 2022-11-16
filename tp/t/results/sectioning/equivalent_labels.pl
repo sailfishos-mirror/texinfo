@@ -18,7 +18,7 @@ $result_trees{'equivalent_labels'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -101,7 +101,7 @@ $result_trees{'equivalent_labels'} = {
                   'text' => 'floa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -128,7 +128,7 @@ $result_trees{'equivalent_labels'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -137,8 +137,10 @@ $result_trees{'equivalent_labels'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -152,13 +154,15 @@ $result_trees{'equivalent_labels'} = {
               {}
             ],
             'normalized' => 'floa',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'truc'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -174,7 +178,7 @@ $result_trees{'equivalent_labels'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -304,7 +308,7 @@ $result_trees{'equivalent_labels'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -313,8 +317,10 @@ $result_trees{'equivalent_labels'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -342,7 +348,9 @@ $result_trees{'equivalent_labels'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -399,6 +407,7 @@ $result_nodes{'equivalent_labels'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'anchor',
@@ -420,6 +429,7 @@ $result_menus{'equivalent_labels'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'anchor',
@@ -440,6 +450,7 @@ $result_menus{'equivalent_labels'} = {
               'normalized' => 'truc'
             }
           },
+          'info' => {},
           'structure' => {
             'float_number' => 1,
             'menu_prev' => {},
@@ -498,6 +509,7 @@ $result_floats{'equivalent_labels'} = {
           'normalized' => 'truc'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

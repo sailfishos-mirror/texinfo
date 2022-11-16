@@ -85,7 +85,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => 'aaa bb cc'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -146,7 +146,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => 'mali'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -309,7 +309,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                   'text' => '4'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -320,7 +320,9 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
           'extra' => {
             'misc_args' => [
               '4'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -373,7 +375,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                       'text' => 'index'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -392,7 +394,9 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

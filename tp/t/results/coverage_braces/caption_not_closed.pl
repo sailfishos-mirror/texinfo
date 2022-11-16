@@ -17,7 +17,7 @@ $result_trees{'caption_not_closed'} = {
                   'text' => 'Text'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -101,7 +101,7 @@ $result_trees{'caption_not_closed'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -110,8 +110,10 @@ $result_trees{'caption_not_closed'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -122,13 +124,15 @@ $result_trees{'caption_not_closed'} = {
           ],
           'extra' => {
             'caption' => {},
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Text'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -211,7 +215,8 @@ $result_floats{'caption_not_closed'} = {
           ],
           'normalized' => 'Text'
         }
-      }
+      },
+      'info' => {}
     }
   ]
 };

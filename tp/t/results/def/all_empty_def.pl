@@ -37,7 +37,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -46,8 +46,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -56,7 +58,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -99,7 +101,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'defvr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -108,8 +110,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -118,7 +122,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -161,7 +165,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'deftypefn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -170,8 +174,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypefn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -180,7 +186,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -223,7 +229,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -232,8 +238,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -242,7 +250,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -285,7 +293,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'deftypevr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -294,8 +302,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypevr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -304,7 +314,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -347,7 +357,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'defcv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -356,8 +366,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defcv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -366,7 +378,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -409,7 +421,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'deftypecv'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -418,8 +430,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypecv'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -428,7 +442,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -471,7 +485,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'defop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -480,8 +494,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -490,7 +506,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -533,7 +549,7 @@ $result_trees{'all_empty_def'} = {
                       'text' => 'deftp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -542,8 +558,10 @@ $result_trees{'all_empty_def'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftp'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -552,7 +570,7 @@ $result_trees{'all_empty_def'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },

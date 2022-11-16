@@ -17,7 +17,7 @@ $result_trees{'settitle_and_empty_top'} = {
                   'text' => 'Title'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -25,7 +25,7 @@ $result_trees{'settitle_and_empty_top'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -45,7 +45,7 @@ $result_trees{'settitle_and_empty_top'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },

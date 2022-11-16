@@ -21,7 +21,7 @@ $result_trees{'invalid'} = {
                           'text' => '2x.2 2.23x'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -29,7 +29,7 @@ $result_trees{'invalid'} = {
                     }
                   ],
                   'cmdname' => 'columnfractions',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -57,8 +57,10 @@ $result_trees{'invalid'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -68,7 +70,9 @@ $result_trees{'invalid'} = {
             }
           ],
           'extra' => {
-            'max_columns' => 0,
+            'max_columns' => 0
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

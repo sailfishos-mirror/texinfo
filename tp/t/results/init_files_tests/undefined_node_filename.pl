@@ -18,7 +18,7 @@ $result_trees{'undefined_node_filename'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -45,7 +45,9 @@ $result_trees{'undefined_node_filename'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -62,7 +64,7 @@ $result_trees{'undefined_node_filename'} = {
               'text' => 'Other'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -82,7 +84,9 @@ $result_trees{'undefined_node_filename'} = {
             'normalized' => 'Other'
           }
         ],
-        'normalized' => 'Other',
+        'normalized' => 'Other'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -113,12 +117,14 @@ $result_nodes{'undefined_node_filename'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Other'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -132,6 +138,7 @@ $result_menus{'undefined_node_filename'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

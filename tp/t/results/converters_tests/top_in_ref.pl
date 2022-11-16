@@ -18,7 +18,7 @@ $result_trees{'top_in_ref'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -45,7 +45,9 @@ $result_trees{'top_in_ref'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -62,7 +64,7 @@ $result_trees{'top_in_ref'} = {
               'text' => 'refs node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -868,7 +870,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -879,7 +881,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1128,7 +1130,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1139,7 +1141,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2158,7 +2160,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2169,7 +2171,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2454,7 +2456,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2465,7 +2467,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2647,7 +2649,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2658,7 +2660,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2793,7 +2795,7 @@ $result_trees{'top_in_ref'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -2906,7 +2908,9 @@ $result_trees{'top_in_ref'} = {
             'normalized' => 'refs-node'
           }
         ],
-        'normalized' => 'refs-node',
+        'normalized' => 'refs-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -3056,12 +3060,14 @@ $result_nodes{'top_in_ref'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'refs-node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -3075,6 +3081,7 @@ $result_menus{'top_in_ref'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

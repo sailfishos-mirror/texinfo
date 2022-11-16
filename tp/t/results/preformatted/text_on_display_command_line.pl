@@ -17,7 +17,7 @@ $result_trees{'text_on_display_command_line'} = {
                   'text' => 'text on line'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -34,7 +34,7 @@ $result_trees{'text_on_display_command_line'} = {
                       'text' => 'display'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'text_on_display_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'display'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -53,7 +55,7 @@ $result_trees{'text_on_display_command_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -75,7 +77,7 @@ $result_trees{'text_on_display_command_line'} = {
                   'text' => 'text on line followed by text'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -101,7 +103,7 @@ $result_trees{'text_on_display_command_line'} = {
                       'text' => 'display'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -110,8 +112,10 @@ $result_trees{'text_on_display_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'display'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -120,7 +124,7 @@ $result_trees{'text_on_display_command_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -137,7 +141,7 @@ $result_trees{'text_on_display_command_line'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -163,7 +167,7 @@ $result_trees{'text_on_display_command_line'} = {
                       'text' => 'display text after end'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -172,8 +176,10 @@ $result_trees{'text_on_display_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'display text after end'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -196,7 +202,7 @@ $result_trees{'text_on_display_command_line'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -208,7 +214,7 @@ $result_trees{'text_on_display_command_line'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -225,7 +231,7 @@ $result_trees{'text_on_display_command_line'} = {
                           'text' => 'display text after end display nested in display'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -234,8 +240,10 @@ $result_trees{'text_on_display_command_line'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'display text after end display nested in display'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -258,7 +266,7 @@ $result_trees{'text_on_display_command_line'} = {
                       'text' => 'display'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -267,8 +275,10 @@ $result_trees{'text_on_display_command_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'display'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

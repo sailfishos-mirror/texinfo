@@ -108,7 +108,7 @@ $result_trees{'on_section_line'} = {
                       'text' => 'exdent'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -116,7 +116,7 @@ $result_trees{'on_section_line'} = {
                 }
               ],
               'cmdname' => 'exdent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -130,7 +130,7 @@ $result_trees{'on_section_line'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -157,7 +157,7 @@ $result_sectioning{'on_section_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

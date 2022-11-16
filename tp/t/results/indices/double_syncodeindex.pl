@@ -19,7 +19,7 @@ $result_trees{'double_syncodeindex'} = {
                       'text' => 'cp fn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -31,7 +31,9 @@ $result_trees{'double_syncodeindex'} = {
                 'misc_args' => [
                   'cp',
                   'fn'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -48,7 +50,7 @@ $result_trees{'double_syncodeindex'} = {
                       'text' => 'cp fn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -60,7 +62,9 @@ $result_trees{'double_syncodeindex'} = {
                 'misc_args' => [
                   'cp',
                   'fn'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -88,7 +92,7 @@ $result_trees{'double_syncodeindex'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -110,7 +114,7 @@ $result_trees{'double_syncodeindex'} = {
                   'text' => 'cindex entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -130,7 +134,9 @@ $result_trees{'double_syncodeindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -148,7 +154,7 @@ $result_trees{'double_syncodeindex'} = {
                   'text' => 'findex entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -168,7 +174,9 @@ $result_trees{'double_syncodeindex'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -191,7 +199,7 @@ $result_trees{'double_syncodeindex'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -202,7 +210,9 @@ $result_trees{'double_syncodeindex'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -219,7 +229,7 @@ $result_trees{'double_syncodeindex'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -230,7 +240,9 @@ $result_trees{'double_syncodeindex'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -253,7 +265,9 @@ $result_trees{'double_syncodeindex'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -299,7 +313,8 @@ $result_nodes{'double_syncodeindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'double_syncodeindex'} = {
@@ -307,7 +322,8 @@ $result_menus{'double_syncodeindex'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'double_syncodeindex'} = [

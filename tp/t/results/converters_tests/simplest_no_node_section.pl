@@ -39,7 +39,7 @@ $result_trees{'simplest_no_node_section'} = {
                       'text' => 'simplest_no_node_section.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'simplest_no_node_section'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'simplest_no_node_section.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'simplest_no_node_section.texi',

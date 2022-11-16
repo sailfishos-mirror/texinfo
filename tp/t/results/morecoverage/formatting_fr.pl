@@ -34,7 +34,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'formatting.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'formatting.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -123,7 +125,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => ' test'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -131,7 +133,7 @@ $result_trees{'formatting_fr'} = {
                 }
               ],
               'cmdname' => 'dircategory',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -143,7 +145,7 @@ $result_trees{'formatting_fr'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -413,7 +415,7 @@ $result_trees{'formatting_fr'} = {
                           'text' => 'direntry'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -422,8 +424,10 @@ $result_trees{'formatting_fr'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'direntry'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
@@ -452,7 +456,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -473,7 +477,9 @@ $result_trees{'formatting_fr'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -490,7 +496,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'Top section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -507,7 +513,7 @@ $result_trees{'formatting_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -659,7 +665,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -668,8 +674,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -697,7 +705,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'coverage_macro.texi'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -706,8 +714,10 @@ $result_trees{'formatting_fr'} = {
           ],
           'cmdname' => 'include',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'coverage_macro.texi'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => 'formatting.texi',
@@ -723,7 +733,7 @@ $result_trees{'formatting_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -753,7 +763,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'copying'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -762,8 +772,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -786,7 +798,7 @@ $result_trees{'formatting_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -803,7 +815,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'title --a'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -811,7 +823,8 @@ $result_trees{'formatting_fr'} = {
                 }
               ],
               'cmdname' => 'title',
-              'extra' => {
+              'extra' => {},
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -828,7 +841,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'formatting subtitle --a'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -836,7 +849,7 @@ $result_trees{'formatting_fr'} = {
                 }
               ],
               'cmdname' => 'subtitle',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -853,7 +866,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'subtitle 2 --a'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -861,7 +874,7 @@ $result_trees{'formatting_fr'} = {
                 }
               ],
               'cmdname' => 'subtitle',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -917,7 +930,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'a'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -926,8 +939,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'author',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'titlepage' => {}
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -943,7 +958,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'author2 --a'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -952,8 +967,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'author',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'titlepage' => {}
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -1011,7 +1028,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'titlepage'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1020,8 +1037,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'titlepage'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -1100,7 +1119,7 @@ $result_trees{'formatting_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1126,7 +1145,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1135,8 +1154,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -1164,7 +1185,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 't--ruc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1184,7 +1205,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1202,7 +1225,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'T--ruc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1222,7 +1245,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1240,7 +1265,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => '.'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1260,7 +1285,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1278,7 +1305,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => '?'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1298,7 +1325,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1316,7 +1345,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1336,7 +1365,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1354,7 +1385,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 't--ruc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1374,7 +1405,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1392,7 +1425,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'T--ruc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1412,7 +1445,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1430,7 +1465,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => '.'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1450,7 +1485,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1468,7 +1505,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => '?'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1488,7 +1525,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1506,7 +1545,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1526,7 +1565,9 @@ $result_trees{'formatting_fr'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1563,7 +1604,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1574,7 +1615,9 @@ $result_trees{'formatting_fr'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1605,7 +1648,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1616,7 +1659,9 @@ $result_trees{'formatting_fr'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1647,7 +1692,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'vr'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1658,7 +1703,9 @@ $result_trees{'formatting_fr'} = {
           'extra' => {
             'misc_args' => [
               'vr'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1689,7 +1736,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'ky'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1700,7 +1747,9 @@ $result_trees{'formatting_fr'} = {
           'extra' => {
             'misc_args' => [
               'ky'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1731,7 +1780,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'pg'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1742,7 +1791,9 @@ $result_trees{'formatting_fr'} = {
           'extra' => {
             'misc_args' => [
               'pg'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1773,7 +1824,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'tp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1784,7 +1835,9 @@ $result_trees{'formatting_fr'} = {
           'extra' => {
             'misc_args' => [
               'tp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1809,7 +1862,8 @@ $result_trees{'formatting_fr'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1826,7 +1880,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1846,7 +1900,9 @@ $result_trees{'formatting_fr'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1863,7 +1919,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1917,7 +1973,7 @@ $result_trees{'formatting_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1929,7 +1985,7 @@ $result_trees{'formatting_fr'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -2063,7 +2119,7 @@ $result_trees{'formatting_fr'} = {
                           'text' => 'menu'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -2072,8 +2128,10 @@ $result_trees{'formatting_fr'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
@@ -2096,7 +2154,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'format'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2105,8 +2163,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'format'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -2127,7 +2187,8 @@ $result_trees{'formatting_fr'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2160,7 +2221,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'ion'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2184,7 +2245,9 @@ $result_trees{'formatting_fr'} = {
             'normalized' => 's_002d_002dect_002cion'
           }
         ],
-        'normalized' => 's_002d_002dect_002cion',
+        'normalized' => 's_002d_002dect_002cion'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2201,7 +2264,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'A section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2218,7 +2281,7 @@ $result_trees{'formatting_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2294,7 +2357,7 @@ $result_trees{'formatting_fr'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2428,7 +2491,7 @@ $result_trees{'formatting_fr'} = {
                           'text' => 'detailmenu'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -2437,8 +2500,10 @@ $result_trees{'formatting_fr'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'detailmenu'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'formatting.texi',
@@ -2461,7 +2526,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2470,8 +2535,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -2492,7 +2559,8 @@ $result_trees{'formatting_fr'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2509,7 +2577,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2529,7 +2597,9 @@ $result_trees{'formatting_fr'} = {
             'normalized' => 'subsection'
           }
         ],
-        'normalized' => 'subsection',
+        'normalized' => 'subsection'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2546,7 +2616,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'subsection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2563,7 +2633,7 @@ $result_trees{'formatting_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2678,7 +2748,7 @@ $result_trees{'formatting_fr'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -2687,8 +2757,10 @@ $result_trees{'formatting_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'formatting.texi',
@@ -2743,7 +2815,8 @@ $result_trees{'formatting_fr'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2760,7 +2833,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'subsubsection ``simple-double--'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2780,7 +2853,9 @@ $result_trees{'formatting_fr'} = {
             'normalized' => 'subsubsection-_0060_0060simple_002ddouble_002d_002d'
           }
         ],
-        'normalized' => 'subsubsection-_0060_0060simple_002ddouble_002d_002d',
+        'normalized' => 'subsubsection-_0060_0060simple_002ddouble_002d_002d'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2797,7 +2872,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'subsubsection ``simple-double--'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2812,7 +2887,8 @@ $result_trees{'formatting_fr'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2829,7 +2905,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'subsubsection three---four----\'\''
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2849,7 +2925,9 @@ $result_trees{'formatting_fr'} = {
             'normalized' => 'subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027'
           }
         ],
-        'normalized' => 'subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027',
+        'normalized' => 'subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2866,7 +2944,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'three---four----\'\''
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2881,7 +2959,8 @@ $result_trees{'formatting_fr'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2898,7 +2977,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'chapter2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2919,7 +2998,9 @@ $result_trees{'formatting_fr'} = {
             'normalized' => 'chapter2'
           }
         ],
-        'normalized' => 'chapter2',
+        'normalized' => 'chapter2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2936,7 +3017,7 @@ $result_trees{'formatting_fr'} = {
               'text' => 'chapter 2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2958,7 +3039,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2969,7 +3050,9 @@ $result_trees{'formatting_fr'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2986,7 +3069,7 @@ $result_trees{'formatting_fr'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2997,7 +3080,9 @@ $result_trees{'formatting_fr'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -3042,7 +3127,8 @@ $result_trees{'formatting_fr'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -3384,9 +3470,11 @@ $result_sectioning{'formatting_fr'} = {
               'isindex' => 1,
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -3397,9 +3485,11 @@ $result_sectioning{'formatting_fr'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -3410,9 +3500,11 @@ $result_sectioning{'formatting_fr'} = {
                         'extra' => {
                           'normalized' => 's_002d_002dect_002cion'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_childs' => [
                         {
@@ -3423,9 +3515,11 @@ $result_sectioning{'formatting_fr'} = {
                               'extra' => {
                                 'normalized' => 'subsection'
                               },
+                              'info' => {},
                               'structure' => {}
                             }
                           },
+                          'info' => {},
                           'structure' => {
                             'section_childs' => [
                               {
@@ -3436,9 +3530,11 @@ $result_sectioning{'formatting_fr'} = {
                                     'extra' => {
                                       'normalized' => 'subsubsection-_0060_0060simple_002ddouble_002d_002d'
                                     },
+                                    'info' => {},
                                     'structure' => {}
                                   }
                                 },
+                                'info' => {},
                                 'structure' => {
                                   'section_level' => 4,
                                   'section_number' => '1.1.1.1',
@@ -3453,9 +3549,11 @@ $result_sectioning{'formatting_fr'} = {
                                     'extra' => {
                                       'normalized' => 'subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027'
                                     },
+                                    'info' => {},
                                     'structure' => {}
                                   }
                                 },
+                                'info' => {},
                                 'structure' => {
                                   'section_level' => 4,
                                   'section_number' => '1.1.1.2',
@@ -3492,9 +3590,11 @@ $result_sectioning{'formatting_fr'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter2'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -3532,6 +3632,7 @@ $result_nodes{'formatting_fr'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
@@ -3542,6 +3643,7 @@ $result_nodes{'formatting_fr'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -3549,12 +3651,14 @@ $result_nodes{'formatting_fr'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -3562,11 +3666,13 @@ $result_nodes{'formatting_fr'} = {
             'associated_section' => {
               'cmdname' => 'centerchap',
               'extra' => {},
+              'info' => {},
               'structure' => {}
             },
             'isindex' => 1,
             'normalized' => 'chapter2'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -3591,12 +3697,14 @@ $result_menus{'formatting_fr'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
@@ -3604,6 +3712,7 @@ $result_menus{'formatting_fr'} = {
             'isindex' => 1,
             'normalized' => 'chapter2'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

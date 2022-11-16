@@ -39,7 +39,7 @@ $result_trees{'punctuation_sc_accents_disable_encoding'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -59,7 +59,9 @@ $result_trees{'punctuation_sc_accents_disable_encoding'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -76,7 +78,7 @@ $result_trees{'punctuation_sc_accents_disable_encoding'} = {
               'text' => 'top section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -91,7 +93,8 @@ $result_trees{'punctuation_sc_accents_disable_encoding'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -108,7 +111,7 @@ $result_trees{'punctuation_sc_accents_disable_encoding'} = {
               'text' => 'node chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -128,7 +131,9 @@ $result_trees{'punctuation_sc_accents_disable_encoding'} = {
             'normalized' => 'node-chap'
           }
         ],
-        'normalized' => 'node-chap',
+        'normalized' => 'node-chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -145,7 +150,7 @@ $result_trees{'punctuation_sc_accents_disable_encoding'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1119,7 +1124,8 @@ $result_trees{'punctuation_sc_accents_disable_encoding'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1196,9 +1202,11 @@ $result_sectioning{'punctuation_sc_accents_disable_encoding'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1209,9 +1217,11 @@ $result_sectioning{'punctuation_sc_accents_disable_encoding'} = {
                   'extra' => {
                     'normalized' => 'node-chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1240,10 +1250,12 @@ $result_nodes{'punctuation_sc_accents_disable_encoding'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1251,12 +1263,14 @@ $result_nodes{'punctuation_sc_accents_disable_encoding'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'node-chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1272,6 +1286,7 @@ $result_menus{'punctuation_sc_accents_disable_encoding'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

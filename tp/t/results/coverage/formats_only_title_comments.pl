@@ -18,7 +18,7 @@ $result_trees{'formats_only_title_comments'} = {
                   'type' => 'command_as_argument_inserted'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -65,7 +65,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'text' => 'itemize'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -74,8 +74,10 @@ $result_trees{'formats_only_title_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -162,7 +164,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -171,8 +173,10 @@ $result_trees{'formats_only_title_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -182,7 +186,9 @@ $result_trees{'formats_only_title_comments'} = {
             }
           ],
           'extra' => {
-            'enumerate_specification' => '1',
+            'enumerate_specification' => '1'
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -210,7 +216,7 @@ $result_trees{'formats_only_title_comments'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -257,7 +263,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -266,8 +272,10 @@ $result_trees{'formats_only_title_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -277,7 +285,9 @@ $result_trees{'formats_only_title_comments'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -321,7 +331,9 @@ $result_trees{'formats_only_title_comments'} = {
 '
                     ]
                   }
-                },
+                }
+              },
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'block_line_arg'
@@ -351,7 +363,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'text' => 'vtable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -360,8 +372,10 @@ $result_trees{'formats_only_title_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -371,7 +385,9 @@ $result_trees{'formats_only_title_comments'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -397,7 +413,7 @@ $result_trees{'formats_only_title_comments'} = {
                           'text' => '0.5 0.5'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -409,7 +425,9 @@ $result_trees{'formats_only_title_comments'} = {
                     'misc_args' => [
                       '0.5',
                       '0.5'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -462,7 +480,7 @@ $result_trees{'formats_only_title_comments'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -471,8 +489,10 @@ $result_trees{'formats_only_title_comments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -483,7 +503,9 @@ $result_trees{'formats_only_title_comments'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 2,
+            'max_columns' => 2
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

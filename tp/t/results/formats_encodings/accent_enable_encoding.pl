@@ -24,7 +24,7 @@ $result_trees{'accent_enable_encoding'} = {
               'text' => 'Top node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'accent_enable_encoding'} = {
             'normalized' => 'Top-node'
           }
         ],
-        'normalized' => 'Top-node',
+        'normalized' => 'Top-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -61,7 +63,7 @@ $result_trees{'accent_enable_encoding'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2084,7 +2086,8 @@ $result_trees{'accent_enable_encoding'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2268,9 +2271,11 @@ $result_sectioning{'accent_enable_encoding'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top-node'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -2288,17 +2293,20 @@ $result_nodes{'accent_enable_encoding'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top-node'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'accent_enable_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top-node'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'accent_enable_encoding'} = [];

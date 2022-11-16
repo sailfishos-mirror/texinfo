@@ -27,7 +27,7 @@ $result_trees{'definfoenclose'} = {
                       'text' => 'phoo,//,\\'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -40,7 +40,9 @@ $result_trees{'definfoenclose'} = {
                   'phoo',
                   '//',
                   '\\'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -107,7 +109,7 @@ $result_trees{'definfoenclose'} = {
                       'text' => 'phi,:,:'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -120,7 +122,9 @@ $result_trees{'definfoenclose'} = {
                   'phi',
                   ':',
                   ':'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -214,7 +218,7 @@ $result_trees{'definfoenclose'} = {
                   'text' => 'strong,(strong:,:)'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -227,7 +231,9 @@ $result_trees{'definfoenclose'} = {
               'strong',
               '(strong:',
               ':)'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -25,7 +25,7 @@ $result_trees{'between_node_and_section'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -45,7 +45,9 @@ $result_trees{'between_node_and_section'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -62,7 +64,7 @@ $result_trees{'between_node_and_section'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -77,7 +79,8 @@ $result_trees{'between_node_and_section'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -94,7 +97,7 @@ $result_trees{'between_node_and_section'} = {
               'text' => 'sec1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -114,7 +117,9 @@ $result_trees{'between_node_and_section'} = {
             'normalized' => 'sec1'
           }
         ],
-        'normalized' => 'sec1',
+        'normalized' => 'sec1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -131,7 +136,7 @@ $result_trees{'between_node_and_section'} = {
               'text' => 'sec1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -146,7 +151,8 @@ $result_trees{'between_node_and_section'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -163,7 +169,7 @@ $result_trees{'between_node_and_section'} = {
               'text' => 'sec2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -214,7 +220,9 @@ $result_trees{'between_node_and_section'} = {
             'normalized' => 'sec2'
           }
         ],
-        'normalized' => 'sec2',
+        'normalized' => 'sec2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -231,7 +239,7 @@ $result_trees{'between_node_and_section'} = {
               'text' => 'sec2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -239,7 +247,8 @@ $result_trees{'between_node_and_section'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -293,9 +302,11 @@ $result_sectioning{'between_node_and_section'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'chap'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -306,9 +317,11 @@ $result_sectioning{'between_node_and_section'} = {
                   'extra' => {
                     'normalized' => 'sec1'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => '1.1',
@@ -323,9 +336,11 @@ $result_sectioning{'between_node_and_section'} = {
                   'extra' => {
                     'normalized' => 'sec2'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => '1.2',
@@ -354,19 +369,22 @@ $result_nodes{'between_node_and_section'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
+      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'chap'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'between_node_and_section'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'chap'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'between_node_and_section'} = [];

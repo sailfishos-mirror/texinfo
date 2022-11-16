@@ -42,8 +42,10 @@ $result_trees{'setfilename'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'file_comment'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -59,7 +61,7 @@ $result_trees{'setfilename'} = {
                       'text' => 'file_and_spaces'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '   
 '
                   },
@@ -68,8 +70,10 @@ $result_trees{'setfilename'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'file_and_spaces'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -101,7 +105,9 @@ $result_trees{'setfilename'} = {
 '
                         ]
                       }
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -109,8 +115,10 @@ $result_trees{'setfilename'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'file_space_comment'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -151,7 +159,7 @@ $result_trees{'setfilename'} = {
                       'cmdname' => ' '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -160,7 +168,9 @@ $result_trees{'setfilename'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'missing_argument' => 1,
+                'missing_argument' => 1
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

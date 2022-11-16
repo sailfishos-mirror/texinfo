@@ -25,7 +25,7 @@ $result_trees{'part_chapter_appendix'} = {
               'text' => 'Part 1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -40,7 +40,8 @@ $result_trees{'part_chapter_appendix'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -57,7 +58,7 @@ $result_trees{'part_chapter_appendix'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -73,7 +74,9 @@ $result_trees{'part_chapter_appendix'} = {
         }
       ],
       'extra' => {
-        'associated_part' => {},
+        'associated_part' => {}
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -90,7 +93,7 @@ $result_trees{'part_chapter_appendix'} = {
               'text' => 'Appendix'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -98,7 +101,7 @@ $result_trees{'part_chapter_appendix'} = {
         }
       ],
       'cmdname' => 'appendix',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -143,6 +146,7 @@ $result_sectioning{'part_chapter_appendix'} = {
             'extra' => {
               'associated_part' => {}
             },
+            'info' => {},
             'structure' => {
               'section_level' => 1,
               'section_number' => 1,
@@ -150,6 +154,7 @@ $result_sectioning{'part_chapter_appendix'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {}
@@ -160,7 +165,7 @@ $result_sectioning{'part_chapter_appendix'} = {
       },
       {
         'cmdname' => 'appendix',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 'A',

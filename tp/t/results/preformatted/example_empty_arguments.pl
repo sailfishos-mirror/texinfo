@@ -30,7 +30,7 @@ $result_trees{'example_empty_arguments'} = {
               'type' => 'block_line_arg'
             },
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -56,7 +56,7 @@ $result_trees{'example_empty_arguments'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -65,8 +65,10 @@ $result_trees{'example_empty_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -75,7 +77,7 @@ $result_trees{'example_empty_arguments'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -95,7 +97,7 @@ $result_trees{'example_empty_arguments'} = {
               'type' => 'block_line_arg'
             },
             {
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'type' => 'block_line_arg'
@@ -104,7 +106,7 @@ $result_trees{'example_empty_arguments'} = {
               'type' => 'block_line_arg'
             },
             {
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '  '
               },
               'type' => 'block_line_arg'
@@ -116,7 +118,7 @@ $result_trees{'example_empty_arguments'} = {
               'type' => 'block_line_arg'
             },
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' 
 '
               },
@@ -142,7 +144,7 @@ $result_trees{'example_empty_arguments'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -151,8 +153,10 @@ $result_trees{'example_empty_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -161,7 +165,7 @@ $result_trees{'example_empty_arguments'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -201,7 +205,7 @@ $result_trees{'example_empty_arguments'} = {
               'type' => 'block_line_arg'
             },
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -227,7 +231,7 @@ $result_trees{'example_empty_arguments'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -236,8 +240,10 @@ $result_trees{'example_empty_arguments'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -246,7 +252,7 @@ $result_trees{'example_empty_arguments'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -14,7 +14,7 @@ $result_trees{'float_copying'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -44,7 +44,7 @@ $result_trees{'float_copying'} = {
                           'text' => 'public domain'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 ',
                         'spaces_before_argument' => ' '
@@ -144,7 +144,7 @@ $result_trees{'float_copying'} = {
                                                   'text' => 'indexed caption copying footnote'
                                                 }
                                               ],
-                                              'extra' => {
+                                              'info' => {
                                                 'spaces_after_argument' => '
 '
                                               },
@@ -164,7 +164,9 @@ $result_trees{'float_copying'} = {
                                               'index_ignore_chars' => {},
                                               'index_name' => 'cp',
                                               'index_type_command' => 'cindex'
-                                            },
+                                            }
+                                          },
+                                          'info' => {
                                             'spaces_before_argument' => ' '
                                           },
                                           'source_info' => {
@@ -182,7 +184,7 @@ $result_trees{'float_copying'} = {
                                                   'text' => 'public domain function'
                                                 }
                                               ],
-                                              'extra' => {
+                                              'info' => {
                                                 'spaces_after_argument' => '
 '
                                               },
@@ -202,7 +204,9 @@ $result_trees{'float_copying'} = {
                                               'index_ignore_chars' => {},
                                               'index_name' => 'fn',
                                               'index_type_command' => 'findex'
-                                            },
+                                            }
+                                          },
+                                          'info' => {
                                             'spaces_before_argument' => ' '
                                           },
                                           'source_info' => {
@@ -243,7 +247,7 @@ $result_trees{'float_copying'} = {
                                                           'text' => 'Copying and floats'
                                                         }
                                                       ],
-                                                      'extra' => {
+                                                      'info' => {
                                                         'spaces_after_argument' => '
 '
                                                       },
@@ -264,7 +268,9 @@ $result_trees{'float_copying'} = {
                                                         'normalized' => 'Copying-and-floats'
                                                       }
                                                     ],
-                                                    'normalized' => 'Copying-and-floats',
+                                                    'normalized' => 'Copying-and-floats'
+                                                  },
+                                                  'info' => {
                                                     'spaces_before_argument' => ' '
                                                   },
                                                   'source_info' => {
@@ -303,7 +309,7 @@ $result_trees{'float_copying'} = {
                                     }
                                   ],
                                   'cmdname' => 'footnote',
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_before_argument' => '
 '
                                   },
@@ -365,7 +371,7 @@ $result_trees{'float_copying'} = {
                                       'text' => 'indexed caption'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -385,7 +391,9 @@ $result_trees{'float_copying'} = {
                                   'index_ignore_chars' => {},
                                   'index_name' => 'cp',
                                   'index_type_command' => 'cindex'
-                                },
+                                }
+                              },
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -403,7 +411,7 @@ $result_trees{'float_copying'} = {
                                       'text' => 'indexed caption function'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -423,7 +431,9 @@ $result_trees{'float_copying'} = {
                                   'index_ignore_chars' => {},
                                   'index_name' => 'fn',
                                   'index_type_command' => 'findex'
-                                },
+                                }
+                              },
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -460,7 +470,7 @@ $result_trees{'float_copying'} = {
                               'text' => 'float'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -469,8 +479,10 @@ $result_trees{'float_copying'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'float'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -485,13 +497,15 @@ $result_trees{'float_copying'} = {
                       {}
                     ],
                     'normalized' => 'public-domain',
-                    'spaces_before_argument' => ' ',
                     'type' => {
                       'content' => [
                         {}
                       ],
                       'normalized' => 'Copyright notice'
                     }
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -507,7 +521,7 @@ $result_trees{'float_copying'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -516,8 +530,10 @@ $result_trees{'float_copying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -551,7 +567,7 @@ $result_trees{'float_copying'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -571,7 +587,9 @@ $result_trees{'float_copying'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -588,7 +606,7 @@ $result_trees{'float_copying'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -625,7 +643,7 @@ $result_trees{'float_copying'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -691,7 +709,7 @@ $result_trees{'float_copying'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -700,8 +718,10 @@ $result_trees{'float_copying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -722,7 +742,8 @@ $result_trees{'float_copying'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -740,7 +761,7 @@ $result_trees{'float_copying'} = {
               'text' => 'Copying and floats'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -797,7 +818,7 @@ $result_trees{'float_copying'} = {
                   'text' => 'Copyright notice'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -806,13 +827,15 @@ $result_trees{'float_copying'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Copyright notice'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -833,7 +856,7 @@ $result_trees{'float_copying'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -844,7 +867,9 @@ $result_trees{'float_copying'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -861,7 +886,7 @@ $result_trees{'float_copying'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -872,7 +897,9 @@ $result_trees{'float_copying'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -882,7 +909,8 @@ $result_trees{'float_copying'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1000,9 +1028,11 @@ $result_sectioning{'float_copying'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1014,9 +1044,11 @@ $result_sectioning{'float_copying'} = {
                     'isindex' => 1,
                     'normalized' => 'Copying-and-floats'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 'A',
@@ -1045,6 +1077,7 @@ $result_nodes{'float_copying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1054,6 +1087,7 @@ $result_nodes{'float_copying'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1061,6 +1095,7 @@ $result_nodes{'float_copying'} = {
         'associated_section' => {
           'cmdname' => 'appendix',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 'A'
           }
@@ -1068,6 +1103,7 @@ $result_nodes{'float_copying'} = {
         'isindex' => 1,
         'normalized' => 'Copying-and-floats'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1085,6 +1121,7 @@ $result_menus{'float_copying'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1092,6 +1129,7 @@ $result_menus{'float_copying'} = {
         'isindex' => 1,
         'normalized' => 'Copying-and-floats'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {
@@ -1127,6 +1165,7 @@ $result_floats{'float_copying'} = {
           'normalized' => 'Copyright notice'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

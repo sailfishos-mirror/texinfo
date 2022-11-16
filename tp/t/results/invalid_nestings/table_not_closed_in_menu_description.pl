@@ -12,7 +12,7 @@ $result_trees{'table_not_closed_in_menu_description'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -69,7 +69,7 @@ $result_trees{'table_not_closed_in_menu_description'} = {
                               'type' => 'command_as_argument'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -90,7 +90,7 @@ $result_trees{'table_not_closed_in_menu_description'} = {
                                           'text' => 'item'
                                         }
                                       ],
-                                      'extra' => {
+                                      'info' => {
                                         'spaces_after_argument' => '
 '
                                       },
@@ -98,7 +98,7 @@ $result_trees{'table_not_closed_in_menu_description'} = {
                                     }
                                   ],
                                   'cmdname' => 'item',
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_before_argument' => ' '
                                   },
                                   'source_info' => {
@@ -129,7 +129,9 @@ $result_trees{'table_not_closed_in_menu_description'} = {
                         }
                       ],
                       'extra' => {
-                        'command_as_argument' => {},
+                        'command_as_argument' => {}
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -165,7 +167,7 @@ $result_trees{'table_not_closed_in_menu_description'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -174,8 +176,10 @@ $result_trees{'table_not_closed_in_menu_description'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

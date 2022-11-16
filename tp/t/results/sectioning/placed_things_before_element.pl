@@ -261,7 +261,7 @@ $result_trees{'placed_things_before_element'} = {
                   'text' => 'float anchor'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -288,7 +288,7 @@ $result_trees{'placed_things_before_element'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -297,8 +297,10 @@ $result_trees{'placed_things_before_element'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -312,10 +314,12 @@ $result_trees{'placed_things_before_element'} = {
               {}
             ],
             'normalized' => 'float-anchor',
-            'spaces_before_argument' => ' ',
             'type' => {
               'normalized' => ''
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -376,7 +380,7 @@ $result_trees{'placed_things_before_element'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -442,7 +446,7 @@ $result_trees{'placed_things_before_element'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -451,8 +455,10 @@ $result_trees{'placed_things_before_element'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -480,7 +486,7 @@ $result_trees{'placed_things_before_element'} = {
                   'text' => 'index entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -499,7 +505,9 @@ $result_trees{'placed_things_before_element'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -525,7 +533,7 @@ $result_trees{'placed_things_before_element'} = {
               'text' => 'section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -625,7 +633,7 @@ $result_trees{'placed_things_before_element'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -730,7 +738,7 @@ $result_sectioning{'placed_things_before_element'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -766,6 +774,7 @@ $result_floats{'placed_things_before_element'} = {
           'normalized' => ''
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

@@ -18,7 +18,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -70,7 +72,8 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -99,7 +102,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'text' => ' After punct'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -128,7 +131,9 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
             'normalized' => 'chap-f-nl-Something_003f-After-punct'
           }
         ],
-        'normalized' => 'chap-f-nl-Something_003f-After-punct',
+        'normalized' => 'chap-f-nl-Something_003f-After-punct'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -145,7 +150,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -241,7 +246,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                   'text' => ' b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -261,7 +266,9 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -284,7 +291,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -295,7 +302,9 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -310,7 +319,8 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -327,7 +337,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'text' => 'new n'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -347,7 +357,9 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
             'normalized' => 'new-n'
           }
         ],
-        'normalized' => 'new-n',
+        'normalized' => 'new-n'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -364,7 +376,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               'text' => 'Ochap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -514,7 +526,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                       'text' => 'gg'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -553,7 +565,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -836,7 +848,7 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -845,8 +857,10 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -862,7 +876,8 @@ $result_trees{'end_of_line_command_in_node_lines'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1009,9 +1024,11 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1023,9 +1040,11 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
                     'isindex' => 1,
                     'normalized' => 'chap-f-nl-Something_003f-After-punct'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1042,9 +1061,11 @@ $result_sectioning{'end_of_line_command_in_node_lines'} = {
                   'extra' => {
                     'normalized' => 'new-n'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1078,10 +1099,12 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1089,6 +1112,7 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1096,6 +1120,7 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
         'isindex' => 1,
         'normalized' => 'chap-f-nl-Something_003f-After-punct'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1103,6 +1128,7 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -1114,6 +1140,7 @@ $result_nodes{'end_of_line_command_in_node_lines'} = {
             ],
             'normalized' => 'new-n'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {},
             'node_prev' => {},
@@ -1137,6 +1164,7 @@ $result_menus{'end_of_line_command_in_node_lines'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

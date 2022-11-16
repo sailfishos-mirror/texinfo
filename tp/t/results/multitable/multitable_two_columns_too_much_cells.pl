@@ -21,7 +21,7 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
                           'text' => '0.4 0.6'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -33,7 +33,9 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
                     'misc_args' => [
                       '0.4',
                       '0.6'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -261,7 +263,7 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -270,8 +272,10 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -282,7 +286,9 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 2,
+            'max_columns' => 2
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

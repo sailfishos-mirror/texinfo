@@ -12,7 +12,7 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -50,7 +50,7 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -59,7 +59,9 @@ $result_trees{'command_in_end_expanded_raw_in_command'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'missing_argument' => 1,
+                    'missing_argument' => 1
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {

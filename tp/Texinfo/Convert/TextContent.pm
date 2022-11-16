@@ -158,9 +158,9 @@ sub _convert($$)
       $result .= _convert($self, $arg);
       if ($arg->{'type'}
           and $arg->{'type'} eq 'block_line_arg'
-          and $arg->{'extra'} and $arg->{'extra'}->{'spaces_after_argument'}
+          and $arg->{'info'} and $arg->{'info'}->{'spaces_after_argument'}
           and $result =~ /\S/) {
-        $result .= $arg->{'extra'}->{'spaces_after_argument'};
+        $result .= $arg->{'info'}->{'spaces_after_argument'};
       }
     }
   }

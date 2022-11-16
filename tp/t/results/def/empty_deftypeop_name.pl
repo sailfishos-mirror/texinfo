@@ -158,7 +158,7 @@ $result_trees{'empty_deftypeop_name'} = {
                       'text' => 'deftypeop'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -167,8 +167,10 @@ $result_trees{'empty_deftypeop_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deftypeop'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -177,7 +179,7 @@ $result_trees{'empty_deftypeop_name'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

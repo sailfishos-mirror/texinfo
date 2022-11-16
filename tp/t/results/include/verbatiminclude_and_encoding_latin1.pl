@@ -17,7 +17,7 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
                   'text' => 'iso-8859-1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,8 +28,10 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'input_perl_encoding' => 'iso-8859-1',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'iso-8859-1'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -50,7 +52,7 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
                   'text' => 'verbatim_encoded_latin1.texi'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -60,8 +62,10 @@ $result_trees{'verbatiminclude_and_encoding_latin1'} = {
           'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_perl_encoding' => 'iso-8859-1',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'verbatim_encoded_latin1.texi'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

@@ -39,7 +39,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -59,7 +59,9 @@ $result_trees{'topic_guide'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -76,7 +78,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'A example quide topic collection'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -111,7 +113,7 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -226,7 +228,7 @@ $result_trees{'topic_guide'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -235,8 +237,10 @@ $result_trees{'topic_guide'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
@@ -257,7 +261,8 @@ $result_trees{'topic_guide'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -274,7 +279,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'guide1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -294,7 +299,9 @@ $result_trees{'topic_guide'} = {
             'normalized' => 'guide1'
           }
         ],
-        'normalized' => 'guide1',
+        'normalized' => 'guide1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -311,7 +318,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'guide 1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -342,7 +349,7 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -506,7 +513,7 @@ $result_trees{'topic_guide'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -515,8 +522,10 @@ $result_trees{'topic_guide'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
@@ -537,7 +546,8 @@ $result_trees{'topic_guide'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -562,7 +572,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'topic2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -594,7 +604,7 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -679,7 +689,7 @@ $result_trees{'topic_guide'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -688,8 +698,10 @@ $result_trees{'topic_guide'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
@@ -728,7 +740,9 @@ $result_trees{'topic_guide'} = {
             'normalized' => 'topic2'
           }
         ],
-        'normalized' => 'topic1',
+        'normalized' => 'topic1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -753,7 +767,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'topic3'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -764,7 +778,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'topic1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -796,7 +810,7 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -881,7 +895,7 @@ $result_trees{'topic_guide'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -890,8 +904,10 @@ $result_trees{'topic_guide'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
@@ -936,7 +952,9 @@ $result_trees{'topic_guide'} = {
             'normalized' => 'topic1'
           }
         ],
-        'normalized' => 'topic2',
+        'normalized' => 'topic2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -961,7 +979,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'topic5'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -972,7 +990,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'topic2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -1004,7 +1022,7 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1040,7 +1058,7 @@ $result_trees{'topic_guide'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1049,8 +1067,10 @@ $result_trees{'topic_guide'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
@@ -1095,7 +1115,9 @@ $result_trees{'topic_guide'} = {
             'normalized' => 'topic2'
           }
         ],
-        'normalized' => 'topic3',
+        'normalized' => 'topic3'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1112,7 +1134,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'topic4'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1143,7 +1165,7 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1228,7 +1250,7 @@ $result_trees{'topic_guide'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1237,8 +1259,10 @@ $result_trees{'topic_guide'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
@@ -1271,7 +1295,9 @@ $result_trees{'topic_guide'} = {
             'normalized' => 'topic4'
           }
         ],
-        'normalized' => 'topic4',
+        'normalized' => 'topic4'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1291,7 +1317,7 @@ $result_trees{'topic_guide'} = {
           'type' => 'line_arg'
         },
         {
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -1302,7 +1328,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'topic3'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -1334,7 +1360,7 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1468,7 +1494,7 @@ $result_trees{'topic_guide'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1477,8 +1503,10 @@ $result_trees{'topic_guide'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
@@ -1518,7 +1546,9 @@ $result_trees{'topic_guide'} = {
             'normalized' => 'topic3'
           }
         ],
-        'normalized' => 'topic5',
+        'normalized' => 'topic5'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1535,7 +1565,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'guide2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1555,7 +1585,9 @@ $result_trees{'topic_guide'} = {
             'normalized' => 'guide2'
           }
         ],
-        'normalized' => 'guide2',
+        'normalized' => 'guide2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1572,7 +1604,7 @@ $result_trees{'topic_guide'} = {
               'text' => 'guide 2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1603,7 +1635,7 @@ $result_trees{'topic_guide'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1718,7 +1750,7 @@ $result_trees{'topic_guide'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1727,8 +1759,10 @@ $result_trees{'topic_guide'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'topic_guide.texi',
@@ -1749,7 +1783,8 @@ $result_trees{'topic_guide'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1980,9 +2015,11 @@ $result_sectioning{'topic_guide'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1993,9 +2030,11 @@ $result_sectioning{'topic_guide'} = {
                   'extra' => {
                     'normalized' => 'guide1'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -2012,9 +2051,11 @@ $result_sectioning{'topic_guide'} = {
                   'extra' => {
                     'normalized' => 'guide2'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -2048,6 +2089,7 @@ $result_nodes{'topic_guide'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -2057,6 +2099,7 @@ $result_nodes{'topic_guide'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2064,6 +2107,7 @@ $result_nodes{'topic_guide'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -2075,6 +2119,7 @@ $result_nodes{'topic_guide'} = {
         ],
         'normalized' => 'guide1'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -2086,6 +2131,7 @@ $result_nodes{'topic_guide'} = {
             ],
             'normalized' => 'topic1'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {},
             'node_next' => {
@@ -2098,6 +2144,7 @@ $result_nodes{'topic_guide'} = {
                 ],
                 'normalized' => 'topic2'
               },
+              'info' => {},
               'structure' => {
                 'menu_child' => {},
                 'node_next' => {
@@ -2110,6 +2157,7 @@ $result_nodes{'topic_guide'} = {
                     ],
                     'normalized' => 'topic3'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_next' => {
                       'cmdname' => 'node',
@@ -2121,6 +2169,7 @@ $result_nodes{'topic_guide'} = {
                         ],
                         'normalized' => 'topic5'
                       },
+                      'info' => {},
                       'structure' => {
                         'menu_child' => {},
                         'node_prev' => {}
@@ -2140,6 +2189,7 @@ $result_nodes{'topic_guide'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
@@ -2151,6 +2201,7 @@ $result_nodes{'topic_guide'} = {
             ],
             'normalized' => 'guide2'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {},
             'node_prev' => {},
@@ -2182,18 +2233,21 @@ $result_menus{'topic_guide'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'guide1'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'topic1'
           },
+          'info' => {},
           'structure' => {
             'menu_child' => {},
             'menu_next' => {
@@ -2201,6 +2255,7 @@ $result_menus{'topic_guide'} = {
               'extra' => {
                 'normalized' => 'topic2'
               },
+              'info' => {},
               'structure' => {
                 'menu_child' => {},
                 'menu_next' => {
@@ -2208,6 +2263,7 @@ $result_menus{'topic_guide'} = {
                   'extra' => {
                     'normalized' => 'topic5'
                   },
+                  'info' => {},
                   'structure' => {
                     'menu_child' => {},
                     'menu_next' => {
@@ -2215,12 +2271,14 @@ $result_menus{'topic_guide'} = {
                       'extra' => {
                         'normalized' => 'topic4'
                       },
+                      'info' => {},
                       'structure' => {
                         'menu_child' => {
                           'cmdname' => 'node',
                           'extra' => {
                             'normalized' => 'guide2'
                           },
+                          'info' => {},
                           'structure' => {
                             'menu_child' => {},
                             'menu_prev' => {},

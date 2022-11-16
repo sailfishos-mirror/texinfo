@@ -32,7 +32,7 @@ $result_trees{'inline'} = {
                       'text' => '<blink>html</blink> ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -69,7 +69,7 @@ $result_trees{'inline'} = {
                       'text' => 'plaintext ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -106,7 +106,7 @@ $result_trees{'inline'} = {
                       'text' => '<para>xml</para> ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -143,7 +143,7 @@ $result_trees{'inline'} = {
                       'text' => '<emphasis>docbook</emphasis> ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -283,7 +283,7 @@ $result_trees{'inline'} = {
                       'text' => ' ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -335,7 +335,7 @@ $result_trees{'inline'} = {
                       'text' => 'raw <blink>html</blink> ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -372,7 +372,7 @@ $result_trees{'inline'} = {
                       'text' => 'raw plaintext ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -409,7 +409,7 @@ $result_trees{'inline'} = {
                       'text' => 'raw <para>xml</para> ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -446,7 +446,7 @@ $result_trees{'inline'} = {
                       'text' => 'raw <emphasis>docbook</emphasis> ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -571,7 +571,7 @@ $result_trees{'inline'} = {
                       'text' => '$ ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

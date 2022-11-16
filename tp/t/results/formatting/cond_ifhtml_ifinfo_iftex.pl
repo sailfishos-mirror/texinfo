@@ -34,7 +34,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                       'text' => 'cond.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'cond.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'cond.texi',
@@ -71,7 +73,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -88,7 +90,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -114,7 +116,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                       'text' => 'html'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -123,8 +125,10 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'html'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'cond.texi',
@@ -195,7 +199,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -221,7 +225,7 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -230,8 +234,10 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'tex'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'cond.texi',
@@ -283,7 +289,9 @@ $result_trees{'cond_ifhtml_ifinfo_iftex'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -357,14 +365,16 @@ $result_nodes{'cond_ifhtml_ifinfo_iftex'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'cond_ifhtml_ifinfo_iftex'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'cond_ifhtml_ifinfo_iftex'} = [];

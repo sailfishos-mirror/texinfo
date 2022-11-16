@@ -39,7 +39,7 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -59,7 +59,9 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -76,7 +78,7 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -105,7 +107,8 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -122,7 +125,7 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
               'text' => 'the chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -157,7 +160,7 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -211,14 +214,16 @@ $result_sectioning{'text_before_top_and_summarycontents_after_title'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -247,17 +252,20 @@ $result_nodes{'text_before_top_and_summarycontents_after_title'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'text_before_top_and_summarycontents_after_title'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'text_before_top_and_summarycontents_after_title'} = [];

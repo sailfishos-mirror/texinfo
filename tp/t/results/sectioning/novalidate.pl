@@ -53,7 +53,7 @@ $result_trees{'novalidate'} = {
               'text' => 'unknown node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -71,7 +71,7 @@ $result_trees{'novalidate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -137,7 +137,7 @@ $result_trees{'novalidate'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -146,8 +146,10 @@ $result_trees{'novalidate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -221,7 +223,9 @@ $result_trees{'novalidate'} = {
             'normalized' => 'unknown-node'
           }
         ],
-        'normalized' => 'first',
+        'normalized' => 'first'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -271,6 +275,7 @@ $result_nodes{'novalidate'} = {
     ],
     'normalized' => 'first'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'extra' => {
@@ -285,6 +290,7 @@ $result_menus{'novalidate'} = {
   'extra' => {
     'normalized' => 'first'
   },
+  'info' => {},
   'structure' => {}
 };
 

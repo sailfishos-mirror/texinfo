@@ -34,7 +34,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
                       'text' => 'ISO-8859-1'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -45,8 +45,10 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'input_perl_encoding' => 'iso-8859-1',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ISO-8859-1'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'punctuation_small_case_accents_latin1.texi',
@@ -73,7 +75,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -93,7 +95,9 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -110,7 +114,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'text' => 'top section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -125,7 +129,8 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -142,7 +147,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'text' => 'node chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -162,7 +167,9 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
             'normalized' => 'node-chap'
           }
         ],
-        'normalized' => 'node-chap',
+        'normalized' => 'node-chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -179,7 +186,7 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1153,7 +1160,8 @@ $result_trees{'test_accents_sc_enable_encoding_latin1'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1233,9 +1241,11 @@ $result_sectioning{'test_accents_sc_enable_encoding_latin1'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1246,9 +1256,11 @@ $result_sectioning{'test_accents_sc_enable_encoding_latin1'} = {
                   'extra' => {
                     'normalized' => 'node-chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1277,10 +1289,12 @@ $result_nodes{'test_accents_sc_enable_encoding_latin1'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1288,12 +1302,14 @@ $result_nodes{'test_accents_sc_enable_encoding_latin1'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'node-chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1309,6 +1325,7 @@ $result_menus{'test_accents_sc_enable_encoding_latin1'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

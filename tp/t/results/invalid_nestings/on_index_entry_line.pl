@@ -104,7 +104,7 @@ $result_trees{'on_index_entry_line'} = {
                           'text' => 'exdent'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -112,7 +112,7 @@ $result_trees{'on_index_entry_line'} = {
                     }
                   ],
                   'cmdname' => 'exdent',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -137,7 +137,9 @@ $result_trees{'on_index_entry_line'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

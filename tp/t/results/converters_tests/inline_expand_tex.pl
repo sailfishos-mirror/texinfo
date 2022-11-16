@@ -162,7 +162,7 @@ $result_trees{'inline_expand_tex'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -401,7 +401,7 @@ $result_trees{'inline_expand_tex'} = {
                       'text' => '$ ``'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

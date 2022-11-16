@@ -73,7 +73,7 @@ $result_trees{'protect_spaces_on_line'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -132,7 +132,7 @@ $result_trees{'protect_spaces_on_line'} = {
                       'text' => '  afterw'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -140,7 +140,7 @@ $result_trees{'protect_spaces_on_line'} = {
                 }
               ],
               'cmdname' => 'exdent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -157,7 +157,7 @@ $result_trees{'protect_spaces_on_line'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -166,8 +166,10 @@ $result_trees{'protect_spaces_on_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

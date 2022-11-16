@@ -19,7 +19,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'text' => 'vr fn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -31,7 +31,9 @@ $result_trees{'same_index_entry_merged_indices'} = {
                 'misc_args' => [
                   'vr',
                   'fn'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -59,7 +61,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -80,7 +82,9 @@ $result_trees{'same_index_entry_merged_indices'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -92,7 +96,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -239,7 +243,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -248,8 +252,10 @@ $result_trees{'same_index_entry_merged_indices'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -258,7 +264,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -368,7 +374,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
                       'text' => 'defvar'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -377,8 +383,10 @@ $result_trees{'same_index_entry_merged_indices'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvar'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -387,7 +395,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -409,7 +417,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -420,7 +428,9 @@ $result_trees{'same_index_entry_merged_indices'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -497,7 +507,8 @@ $result_sectioning{'same_index_entry_merged_indices'} = {
             'extra' => {
               'isindex' => 1,
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
         'structure' => {
@@ -521,7 +532,8 @@ $result_nodes{'same_index_entry_merged_indices'} = {
     },
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'same_index_entry_merged_indices'} = {
@@ -529,7 +541,8 @@ $result_menus{'same_index_entry_merged_indices'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'same_index_entry_merged_indices'} = [];

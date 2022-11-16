@@ -26,7 +26,7 @@ $result_trees{'node_on_index_entry_line'} = {
             }
           ],
           'cmdname' => 'cindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -63,7 +63,7 @@ $result_trees{'node_on_index_entry_line'} = {
               'text' => 'b'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -83,7 +83,7 @@ $result_trees{'node_on_index_entry_line'} = {
               'text' => 'c'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -103,7 +103,7 @@ $result_trees{'node_on_index_entry_line'} = {
               'text' => 'd'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -167,7 +167,9 @@ $result_trees{'node_on_index_entry_line'} = {
             'normalized' => 'd'
           }
         ],
-        'normalized' => 'a',
+        'normalized' => 'a'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -205,6 +207,7 @@ $result_nodes{'node_on_index_entry_line'} = {
   'extra' => {
     'normalized' => 'a'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'extra' => {
@@ -244,6 +247,7 @@ $result_menus{'node_on_index_entry_line'} = {
   'extra' => {
     'normalized' => 'a'
   },
+  'info' => {},
   'structure' => {}
 };
 

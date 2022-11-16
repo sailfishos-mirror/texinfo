@@ -24,7 +24,9 @@ $result_trees{'simple'} = {
           'extra' => {
             'misc_args' => [
               'idx'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

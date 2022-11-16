@@ -46,7 +46,7 @@ $result_trees{'invalid_documentencoding'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -55,8 +55,10 @@ $result_trees{'invalid_documentencoding'} = {
           ],
           'cmdname' => 'documentencoding',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'us-ascii'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -95,7 +97,7 @@ $result_trees{'invalid_documentencoding'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -104,8 +106,10 @@ $result_trees{'invalid_documentencoding'} = {
           ],
           'cmdname' => 'documentencoding',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'latin1'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -121,7 +125,7 @@ $result_trees{'invalid_documentencoding'} = {
                   'text' => 'YS-ASCII'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -130,8 +134,10 @@ $result_trees{'invalid_documentencoding'} = {
           ],
           'cmdname' => 'documentencoding',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'YS-ASCII'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -155,7 +161,7 @@ $result_trees{'invalid_documentencoding'} = {
                       'text' => 'bad encoding name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -164,8 +170,10 @@ $result_trees{'invalid_documentencoding'} = {
               ],
               'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'bad encoding name'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -181,7 +189,7 @@ $result_trees{'invalid_documentencoding'} = {
                       'text' => '1'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -190,8 +198,10 @@ $result_trees{'invalid_documentencoding'} = {
               ],
               'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => '1'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -207,7 +217,7 @@ $result_trees{'invalid_documentencoding'} = {
                       'text' => '%'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -216,8 +226,10 @@ $result_trees{'invalid_documentencoding'} = {
               ],
               'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => '%'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -233,7 +245,7 @@ $result_trees{'invalid_documentencoding'} = {
                       'cmdname' => '@'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -242,8 +254,10 @@ $result_trees{'invalid_documentencoding'} = {
               ],
               'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => '@'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -272,7 +286,7 @@ $result_trees{'invalid_documentencoding'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -281,8 +295,10 @@ $result_trees{'invalid_documentencoding'} = {
               ],
               'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'AAA'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -316,7 +332,7 @@ $result_trees{'invalid_documentencoding'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -325,8 +341,10 @@ $result_trees{'invalid_documentencoding'} = {
               ],
               'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'BBB'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

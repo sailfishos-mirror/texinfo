@@ -16,7 +16,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -39,7 +39,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                       'type' => 'command_as_argument'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -60,7 +60,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                   'text' => 'a--b'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -68,7 +68,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                             }
                           ],
                           'cmdname' => 'item',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -89,7 +89,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                           'text' => 'index entry between item and itemx'
                                         }
                                       ],
-                                      'extra' => {
+                                      'info' => {
                                         'spaces_after_argument' => '
 '
                                       },
@@ -108,7 +108,9 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                       'index_ignore_chars' => {},
                                       'index_name' => 'cp',
                                       'index_type_command' => 'cindex'
-                                    },
+                                    }
+                                  },
+                                  'info' => {
                                     'spaces_before_argument' => ' '
                                   },
                                   'source_info' => {
@@ -164,7 +166,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                   'text' => 'b'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -172,7 +174,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                             }
                           ],
                           'cmdname' => 'itemx',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -204,7 +206,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                   'text' => 'c'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -212,7 +214,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                             }
                           ],
                           'cmdname' => 'itemx',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -253,7 +255,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                   'text' => 'd'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -261,7 +263,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                             }
                           ],
                           'cmdname' => 'item',
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -284,7 +286,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                           'text' => 'table'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -293,8 +295,10 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'table'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -304,7 +308,9 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                 }
               ],
               'extra' => {
-                'command_as_argument' => {},
+                'command_as_argument' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -321,7 +327,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -330,8 +336,10 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

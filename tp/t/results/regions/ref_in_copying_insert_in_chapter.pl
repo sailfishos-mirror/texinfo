@@ -14,7 +14,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -46,7 +46,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                                   'text' => 'GFDL'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -66,7 +66,9 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                                 'normalized' => 'GFDL'
                               }
                             ],
-                            'normalized' => 'GFDL',
+                            'normalized' => 'GFDL'
+                          },
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -103,7 +105,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -112,8 +114,10 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -147,7 +151,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -167,7 +171,9 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -184,7 +190,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -199,7 +205,8 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -216,7 +223,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               'text' => 'Intro'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -236,7 +243,9 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
             'normalized' => 'Intro'
           }
         ],
-        'normalized' => 'Intro',
+        'normalized' => 'Intro'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -253,7 +262,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               'text' => 'Introduction'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -290,7 +299,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -356,7 +365,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -365,8 +374,10 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -387,7 +398,8 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -405,7 +417,7 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
               'text' => 'GFDL'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -420,7 +432,8 @@ $result_trees{'ref_in_copying_insert_in_chapter'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -491,9 +504,11 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -504,9 +519,11 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
                   'extra' => {
                     'normalized' => 'Intro'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -517,9 +534,11 @@ $result_sectioning{'ref_in_copying_insert_in_chapter'} = {
                         'extra' => {
                           'normalized' => 'GFDL'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -555,10 +574,12 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -566,6 +587,7 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -577,6 +599,7 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
         ],
         'normalized' => 'Intro'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -584,12 +607,14 @@ $result_nodes{'ref_in_copying_insert_in_chapter'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => '1.1'
               }
             },
             'normalized' => 'GFDL'
           },
+          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -609,6 +634,7 @@ $result_menus{'ref_in_copying_insert_in_chapter'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

@@ -29,7 +29,7 @@ $result_trees{'simple'} = {
                   'text' => 'Label'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -96,8 +96,10 @@ $result_trees{'simple'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -112,13 +114,15 @@ $result_trees{'simple'} = {
               {}
             ],
             'normalized' => 'Label',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Type'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -174,6 +178,7 @@ $result_floats{'simple'} = {
           'normalized' => 'Type'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

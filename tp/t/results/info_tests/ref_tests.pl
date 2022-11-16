@@ -25,7 +25,7 @@ $result_trees{'ref_tests'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -219,7 +219,7 @@ $result_trees{'ref_tests'} = {
                       'text' => 'name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -271,7 +271,7 @@ $result_trees{'ref_tests'} = {
                       'text' => 'name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -327,7 +327,7 @@ $result_trees{'ref_tests'} = {
                               'text' => 'name'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'type' => 'brace_command_arg'
@@ -390,7 +390,7 @@ $result_trees{'ref_tests'} = {
                       'text' => 'name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -438,7 +438,9 @@ $result_trees{'ref_tests'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -501,14 +503,16 @@ $result_nodes{'ref_tests'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'ref_tests'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'ref_tests'} = [];

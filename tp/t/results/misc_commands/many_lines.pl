@@ -28,7 +28,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'pagesizes arg'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -36,7 +36,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'pagesizes',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -92,7 +92,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on line following headings'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -100,7 +100,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'headings',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -120,7 +120,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on line following oddfooting'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -128,7 +128,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'oddfooting',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -148,7 +148,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on line following everyheading'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -156,7 +156,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'everyheading',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -176,7 +176,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on line following everyfooting'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -184,7 +184,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'everyfooting',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -204,7 +204,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on line following evenheading'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -212,7 +212,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'evenheading',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -232,7 +232,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on line following evenfooting'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -240,7 +240,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'evenfooting',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -260,7 +260,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on line following'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -268,7 +268,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'oddheading',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -291,7 +291,7 @@ $result_trees{'many_lines'} = {
                   'text' => '0.1 on line following'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -299,7 +299,7 @@ $result_trees{'many_lines'} = {
             }
           ],
           'cmdname' => 'need',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -324,7 +324,7 @@ $result_trees{'many_lines'} = {
                   'text' => '0.1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -335,7 +335,9 @@ $result_trees{'many_lines'} = {
           'extra' => {
             'misc_args' => [
               '0.1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -357,7 +359,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on line following setchapternewpage'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -365,7 +367,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'setchapternewpage',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -411,7 +413,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'code something'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -419,7 +421,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'kbdinputstyle',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -493,7 +495,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'asis'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -504,7 +506,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'asis'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -524,7 +528,7 @@ $result_trees{'many_lines'} = {
                       'text' => '0'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -535,7 +539,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   '0'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -555,7 +561,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'none'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -566,7 +572,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'none'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -586,7 +594,7 @@ $result_trees{'many_lines'} = {
                       'text' => '4'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -597,7 +605,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   '4'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -617,7 +627,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'none'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -628,7 +638,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'none'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -648,7 +660,7 @@ $result_trees{'many_lines'} = {
                       'text' => '6 on line following exampleindent'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -656,7 +668,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'exampleindent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -676,7 +688,7 @@ $result_trees{'many_lines'} = {
                       'text' => '6'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -687,7 +699,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   '6'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -707,7 +721,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'end'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -718,7 +732,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'end'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -738,7 +754,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'separate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -749,7 +765,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'separate'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -769,7 +787,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'US-ascii encoding name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -778,8 +796,10 @@ $result_trees{'many_lines'} = {
               ],
               'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'US-ascii encoding name'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -795,7 +815,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'ISO-8859-1'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -806,8 +826,10 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'input_perl_encoding' => 'iso-8859-1',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ISO-8859-1'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -826,7 +848,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'on'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -837,7 +859,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'on'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -857,7 +881,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'off'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -868,7 +892,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'off'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -888,7 +914,7 @@ $result_trees{'many_lines'} = {
                       'text' => '10'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -899,7 +925,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   '10'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -919,7 +947,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'bottom on line following everyheadingmarks'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -927,7 +955,7 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'everyheadingmarks',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -944,7 +972,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'false'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -955,7 +983,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'false'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -972,7 +1002,7 @@ $result_trees{'many_lines'} = {
                       'text' => 'true'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -983,7 +1013,9 @@ $result_trees{'many_lines'} = {
               'extra' => {
                 'misc_args' => [
                   'true'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

@@ -49,7 +49,7 @@ $result_trees{'float_in_style_command'} = {
                   'text' => 'B'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -106,7 +106,7 @@ $result_trees{'float_in_style_command'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -115,8 +115,10 @@ $result_trees{'float_in_style_command'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -131,13 +133,15 @@ $result_trees{'float_in_style_command'} = {
               {}
             ],
             'normalized' => 'B',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'A'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -222,6 +226,7 @@ $result_floats{'float_in_style_command'} = {
           'normalized' => 'A'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

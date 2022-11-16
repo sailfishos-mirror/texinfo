@@ -16,7 +16,7 @@ $result_trees{'raw_block_on_line'} = {
                 {
                   'args' => [
                     {
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -40,7 +40,7 @@ $result_trees{'raw_block_on_line'} = {
             }
           ],
           'cmdname' => 'cindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

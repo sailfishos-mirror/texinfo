@@ -112,7 +112,7 @@ $result_trees{'punctuation_abbr_acronym'} = {
                       'text' => 'expL'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -144,7 +144,7 @@ $result_trees{'punctuation_abbr_acronym'} = {
                       'text' => 'explA'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -176,7 +176,7 @@ $result_trees{'punctuation_abbr_acronym'} = {
                       'text' => 'expl'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -209,7 +209,7 @@ $result_trees{'punctuation_abbr_acronym'} = {
                       'text' => 'expla'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

@@ -43,7 +43,7 @@ $result_trees{'unclosed_verb_on_misc_line'} = {
             }
           ],
           'cmdname' => 'setfilename',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

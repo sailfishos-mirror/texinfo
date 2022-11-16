@@ -19,7 +19,7 @@ $result_trees{'two_unnumbered_no_argument'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -39,7 +39,7 @@ $result_trees{'two_unnumbered_no_argument'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },

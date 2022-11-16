@@ -42,7 +42,7 @@ $result_trees{'space_in_setfilename'} = {
                   'cmdname' => ' '
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -51,7 +51,9 @@ $result_trees{'space_in_setfilename'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'missing_argument' => 1,
+            'missing_argument' => 1
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -76,7 +78,7 @@ $result_trees{'space_in_setfilename'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -96,7 +98,9 @@ $result_trees{'space_in_setfilename'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -124,14 +128,16 @@ $result_nodes{'space_in_setfilename'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'space_in_setfilename'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'space_in_setfilename'} = [

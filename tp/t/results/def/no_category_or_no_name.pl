@@ -51,7 +51,7 @@ $result_trees{'no_category_or_no_name'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -60,8 +60,10 @@ $result_trees{'no_category_or_no_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -70,7 +72,7 @@ $result_trees{'no_category_or_no_name'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '
 '
           },
@@ -156,7 +158,7 @@ $result_trees{'no_category_or_no_name'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -165,8 +167,10 @@ $result_trees{'no_category_or_no_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -175,7 +179,7 @@ $result_trees{'no_category_or_no_name'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -311,7 +315,9 @@ $result_trees{'no_category_or_no_name'} = {
                 'def_parsed_hash' => {
                   'category' => {}
                 },
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -330,7 +336,9 @@ $result_trees{'no_category_or_no_name'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' 
 '
               },
@@ -363,7 +371,7 @@ $result_trees{'no_category_or_no_name'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -372,8 +380,10 @@ $result_trees{'no_category_or_no_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -382,7 +392,7 @@ $result_trees{'no_category_or_no_name'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

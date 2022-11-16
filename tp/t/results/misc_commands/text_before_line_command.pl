@@ -22,7 +22,7 @@ $result_trees{'text_before_line_command'} = {
                       'text' => 'the title'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,7 +30,7 @@ $result_trees{'text_before_line_command'} = {
                 }
               ],
               'cmdname' => 'title',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -66,7 +66,7 @@ $result_trees{'text_before_line_command'} = {
               'text' => 'LD Version Scripts'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -96,7 +96,9 @@ $result_trees{'text_before_line_command'} = {
             'normalized' => 'LD-Version-Scripts'
           }
         ],
-        'normalized' => 'LD-Version-Scripts',
+        'normalized' => 'LD-Version-Scripts'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -113,7 +115,7 @@ $result_trees{'text_before_line_command'} = {
               'text' => 'LD Version Scripts'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -158,7 +160,7 @@ $result_trees{'text_before_line_command'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -180,7 +182,7 @@ $result_trees{'text_before_line_command'} = {
                           'text' => 'quotation author'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -189,7 +191,9 @@ $result_trees{'text_before_line_command'} = {
                   ],
                   'cmdname' => 'author',
                   'extra' => {
-                    'quotation' => {},
+                    'quotation' => {}
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -213,7 +217,7 @@ $result_trees{'text_before_line_command'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -222,8 +226,10 @@ $result_trees{'text_before_line_command'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -244,7 +250,8 @@ $result_trees{'text_before_line_command'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -295,9 +302,11 @@ $result_sectioning{'text_before_line_command'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'LD-Version-Scripts'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -316,19 +325,22 @@ $result_nodes{'text_before_line_command'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
+      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'LD-Version-Scripts'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'text_before_line_command'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'LD-Version-Scripts'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'text_before_line_command'} = [

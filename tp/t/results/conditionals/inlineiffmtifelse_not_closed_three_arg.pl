@@ -31,7 +31,7 @@ $result_trees{'inlineiffmtifelse_not_closed_three_arg'} = {
 '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

@@ -278,7 +278,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'text' => 'float anchor'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 ',
                     'spaces_before_argument' => ' '
@@ -305,7 +305,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                           'text' => 'float'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -314,8 +314,10 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'float'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
@@ -329,10 +331,12 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   {}
                 ],
                 'normalized' => 'float-anchor',
-                'spaces_before_argument' => ' ',
                 'type' => {
                   'normalized' => ''
                 }
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
@@ -406,7 +410,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'text' => 'ta'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 ',
                     'spaces_before_argument' => ' '
@@ -468,7 +472,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                           'text' => 'float'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -477,8 +481,10 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'float'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
@@ -493,13 +499,15 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   {}
                 ],
                 'normalized' => 'ta',
-                'spaces_before_argument' => ' ',
                 'type' => {
                   'content' => [
                     {}
                   ],
                   'normalized' => 'Text'
                 }
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
@@ -535,7 +543,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -601,7 +609,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                           'text' => 'menu'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -610,8 +618,10 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'menu'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'things_before_setfilename_no_element.texi',
@@ -639,7 +649,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'text' => 'index entry'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -658,7 +668,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -681,7 +693,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'text' => 'cp'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -692,7 +704,9 @@ $result_trees{'things_before_setfilename_no_element'} = {
               'extra' => {
                 'misc_args' => [
                   'cp'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -714,7 +728,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'text' => 'Text'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -723,13 +737,15 @@ $result_trees{'things_before_setfilename_no_element'} = {
               ],
               'cmdname' => 'listoffloats',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'type' => {
                   'content' => [
                     {}
                   ],
                   'normalized' => 'Text'
                 }
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
@@ -755,7 +771,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                       'text' => 'things_before_setfilename_no_element.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -764,8 +780,10 @@ $result_trees{'things_before_setfilename_no_element'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'things_before_setfilename_no_element.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'things_before_setfilename_no_element.texi',
@@ -1024,6 +1042,7 @@ $result_floats{'things_before_setfilename_no_element'} = {
           'normalized' => ''
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -1049,6 +1068,7 @@ $result_floats{'things_before_setfilename_no_element'} = {
           'normalized' => 'Text'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

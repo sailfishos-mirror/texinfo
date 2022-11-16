@@ -41,7 +41,7 @@ $result_trees{'complex'} = [
                 'text' => ')'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -72,7 +72,9 @@ $result_trees{'complex'} = [
               ]
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -84,7 +86,7 @@ $result_trees{'complex'} = [
       {
         'args' => [
           {
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -96,7 +98,7 @@ $result_trees{'complex'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -407,7 +409,7 @@ $result_trees{'complex'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -416,8 +418,10 @@ $result_trees{'complex'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -480,7 +484,7 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -513,7 +517,9 @@ $result_trees{'complex'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'First-node',
+          'normalized' => 'First-node'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -530,7 +536,7 @@ $result_trees{'complex'} = [
                 'text' => 'first node chapter'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -556,7 +562,7 @@ $result_trees{'complex'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -735,7 +741,7 @@ $result_trees{'complex'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -744,8 +750,10 @@ $result_trees{'complex'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -766,7 +774,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -791,7 +800,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -811,7 +820,9 @@ $result_trees{'complex'} = [
               'normalized' => 'unnumbered'
             }
           ],
-          'normalized' => 'unnumbered',
+          'normalized' => 'unnumbered'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -828,7 +839,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered section'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -845,7 +856,7 @@ $result_trees{'complex'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -1058,7 +1069,7 @@ $result_trees{'complex'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -1067,8 +1078,10 @@ $result_trees{'complex'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -1089,7 +1102,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1114,7 +1128,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered sub'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1134,7 +1148,9 @@ $result_trees{'complex'} = [
               'normalized' => 'unnumbered-sub'
             }
           ],
-          'normalized' => 'unnumbered-sub',
+          'normalized' => 'unnumbered-sub'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1151,7 +1167,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered subsection'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1166,7 +1182,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1191,7 +1208,7 @@ $result_trees{'complex'} = [
                 'text' => 'numbered sub'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1211,7 +1228,9 @@ $result_trees{'complex'} = [
               'normalized' => 'numbered-sub'
             }
           ],
-          'normalized' => 'numbered-sub',
+          'normalized' => 'numbered-sub'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1228,7 +1247,7 @@ $result_trees{'complex'} = [
                 'text' => 'numbered subsection'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1243,7 +1262,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1268,7 +1288,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered sub2'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1288,7 +1308,9 @@ $result_trees{'complex'} = [
               'normalized' => 'unnumbered-sub2'
             }
           ],
-          'normalized' => 'unnumbered-sub2',
+          'normalized' => 'unnumbered-sub2'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1305,7 +1327,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered subsection2'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1320,7 +1342,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1345,7 +1368,7 @@ $result_trees{'complex'} = [
                 'text' => 'numbered sub2'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1365,7 +1388,9 @@ $result_trees{'complex'} = [
               'normalized' => 'numbered-sub2'
             }
           ],
-          'normalized' => 'numbered-sub2',
+          'normalized' => 'numbered-sub2'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1382,7 +1407,7 @@ $result_trees{'complex'} = [
                 'text' => 'numbered subsection2'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1397,7 +1422,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1422,7 +1448,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered2'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1442,7 +1468,9 @@ $result_trees{'complex'} = [
               'normalized' => 'unnumbered2'
             }
           ],
-          'normalized' => 'unnumbered2',
+          'normalized' => 'unnumbered2'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1459,7 +1487,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered section2'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1476,7 +1504,7 @@ $result_trees{'complex'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -1542,7 +1570,7 @@ $result_trees{'complex'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -1551,8 +1579,10 @@ $result_trees{'complex'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -1573,7 +1603,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1598,7 +1629,7 @@ $result_trees{'complex'} = [
                 'text' => 'numbered sub3'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1618,7 +1649,9 @@ $result_trees{'complex'} = [
               'normalized' => 'numbered-sub3'
             }
           ],
-          'normalized' => 'numbered-sub3',
+          'normalized' => 'numbered-sub3'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1635,7 +1668,7 @@ $result_trees{'complex'} = [
                 'text' => 'numbered subsection3'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1655,7 +1688,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1680,7 +1714,7 @@ $result_trees{'complex'} = [
                 'text' => 'numbered'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1700,7 +1734,9 @@ $result_trees{'complex'} = [
               'normalized' => 'numbered'
             }
           ],
-          'normalized' => 'numbered',
+          'normalized' => 'numbered'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1717,7 +1753,7 @@ $result_trees{'complex'} = [
                 'text' => 'numbered section'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1732,7 +1768,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => '  '
         },
         'source_info' => {
@@ -1763,7 +1800,7 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1812,7 +1849,9 @@ $result_trees{'complex'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'between-node',
+          'normalized' => 'between-node'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1856,7 +1895,7 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1910,7 +1949,9 @@ $result_trees{'complex'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Second-node',
+          'normalized' => 'Second-node'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1927,7 +1968,7 @@ $result_trees{'complex'} = [
                 'text' => 'second node chapter'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -1956,7 +1997,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1981,7 +2023,7 @@ $result_trees{'complex'} = [
                 'text' => 'Third node unnumbered'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -2001,7 +2043,9 @@ $result_trees{'complex'} = [
               'normalized' => 'Third-node-unnumbered'
             }
           ],
-          'normalized' => 'Third-node-unnumbered',
+          'normalized' => 'Third-node-unnumbered'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -2018,7 +2062,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered chapter'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -2047,7 +2091,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -2080,7 +2125,7 @@ $result_trees{'complex'} = [
                 'text' => 'Third node unnumbered'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => '  '
             },
             'type' => 'line_arg'
@@ -2091,7 +2136,7 @@ $result_trees{'complex'} = [
                 'text' => 'Last node no description'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_before_argument' => ' '
             },
             'type' => 'line_arg'
@@ -2102,7 +2147,7 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 ',
               'spaces_before_argument' => ' '
@@ -2141,7 +2186,9 @@ $result_trees{'complex'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'continuity',
+          'normalized' => 'continuity'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -2158,7 +2205,7 @@ $result_trees{'complex'} = [
                 'text' => 'unnumbered continuity'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -2191,7 +2238,8 @@ $result_trees{'complex'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -2227,7 +2275,7 @@ $result_trees{'complex'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -2282,7 +2330,9 @@ $result_trees{'complex'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Last-node-no-description',
+          'normalized' => 'Last-node-no-description'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -2564,6 +2614,7 @@ $result_sectioning{'complex'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -2581,11 +2632,13 @@ $result_sectioning{'complex'} = {
                               'extra' => {
                                 'normalized' => 'First-node'
                               },
+                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {}
                               }
                             }
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_childs' => [
@@ -2597,6 +2650,7 @@ $result_sectioning{'complex'} = {
                                     'extra' => {
                                       'normalized' => 'unnumbered'
                                     },
+                                    'info' => {},
                                     'structure' => {
                                       'associated_unit' => {
                                         'extra' => {
@@ -2616,11 +2670,13 @@ $result_sectioning{'complex'} = {
                                                       'extra' => {
                                                         'normalized' => 'Second-node'
                                                       },
+                                                      'info' => {},
                                                       'structure' => {
                                                         'associated_unit' => {}
                                                       }
                                                     }
                                                   },
+                                                  'info' => {},
                                                   'structure' => {
                                                     'associated_unit' => {},
                                                     'section_level' => 1,
@@ -2644,11 +2700,13 @@ $result_sectioning{'complex'} = {
                                                             'extra' => {
                                                               'normalized' => 'numbered'
                                                             },
+                                                            'info' => {},
                                                             'structure' => {
                                                               'associated_unit' => {}
                                                             }
                                                           }
                                                         },
+                                                        'info' => {},
                                                         'structure' => {
                                                           'associated_unit' => {},
                                                           'section_level' => 2,
@@ -2661,6 +2719,7 @@ $result_sectioning{'complex'} = {
                                                                 'extra' => {
                                                                   'normalized' => 'unnumbered2'
                                                                 },
+                                                                'info' => {},
                                                                 'structure' => {
                                                                   'associated_unit' => {
                                                                     'extra' => {
@@ -2678,11 +2737,13 @@ $result_sectioning{'complex'} = {
                                                                                   'extra' => {
                                                                                     'normalized' => 'numbered-sub2'
                                                                                   },
+                                                                                  'info' => {},
                                                                                   'structure' => {
                                                                                     'associated_unit' => {}
                                                                                   }
                                                                                 }
                                                                               },
+                                                                              'info' => {},
                                                                               'structure' => {
                                                                                 'associated_unit' => {},
                                                                                 'section_level' => 3,
@@ -2694,6 +2755,7 @@ $result_sectioning{'complex'} = {
                                                                                       'extra' => {
                                                                                         'normalized' => 'unnumbered-sub2'
                                                                                       },
+                                                                                      'info' => {},
                                                                                       'structure' => {
                                                                                         'associated_unit' => {
                                                                                           'extra' => {
@@ -2711,11 +2773,13 @@ $result_sectioning{'complex'} = {
                                                                                                         'extra' => {
                                                                                                           'normalized' => 'numbered-sub'
                                                                                                         },
+                                                                                                        'info' => {},
                                                                                                         'structure' => {
                                                                                                           'associated_unit' => {}
                                                                                                         }
                                                                                                       }
                                                                                                     },
+                                                                                                    'info' => {},
                                                                                                     'structure' => {
                                                                                                       'associated_unit' => {},
                                                                                                       'section_level' => 3,
@@ -2727,6 +2791,7 @@ $result_sectioning{'complex'} = {
                                                                                                             'extra' => {
                                                                                                               'normalized' => 'unnumbered-sub'
                                                                                                             },
+                                                                                                            'info' => {},
                                                                                                             'structure' => {
                                                                                                               'associated_unit' => {
                                                                                                                 'extra' => {
@@ -2754,6 +2819,7 @@ $result_sectioning{'complex'} = {
                                                                                                             }
                                                                                                           }
                                                                                                         },
+                                                                                                        'info' => {},
                                                                                                         'structure' => {
                                                                                                           'associated_unit' => {},
                                                                                                           'section_level' => 3,
@@ -2806,6 +2872,7 @@ $result_sectioning{'complex'} = {
                                                                                       }
                                                                                     }
                                                                                   },
+                                                                                  'info' => {},
                                                                                   'structure' => {
                                                                                     'associated_unit' => {},
                                                                                     'section_level' => 3,
@@ -2848,11 +2915,13 @@ $result_sectioning{'complex'} = {
                                                                                   'extra' => {
                                                                                     'normalized' => 'numbered-sub3'
                                                                                   },
+                                                                                  'info' => {},
                                                                                   'structure' => {
                                                                                     'associated_unit' => {}
                                                                                   }
                                                                                 }
                                                                               },
+                                                                              'info' => {},
                                                                               'structure' => {
                                                                                 'associated_unit' => {},
                                                                                 'section_level' => 3,
@@ -2895,6 +2964,7 @@ $result_sectioning{'complex'} = {
                                                                 }
                                                               }
                                                             },
+                                                            'info' => {},
                                                             'structure' => {
                                                               'associated_unit' => {},
                                                               'section_childs' => [
@@ -2938,11 +3008,13 @@ $result_sectioning{'complex'} = {
                                                             'extra' => {
                                                               'normalized' => 'Third-node-unnumbered'
                                                             },
+                                                            'info' => {},
                                                             'structure' => {
                                                               'associated_unit' => {}
                                                             }
                                                           }
                                                         },
+                                                        'info' => {},
                                                         'structure' => {
                                                           'associated_unit' => {},
                                                           'section_level' => 1,
@@ -2967,11 +3039,13 @@ $result_sectioning{'complex'} = {
                                                                   'extra' => {
                                                                     'normalized' => 'continuity'
                                                                   },
+                                                                  'info' => {},
                                                                   'structure' => {
                                                                     'associated_unit' => {}
                                                                   }
                                                                 }
                                                               },
+                                                              'info' => {},
                                                               'structure' => {
                                                                 'associated_unit' => {},
                                                                 'section_level' => 1,
@@ -3046,6 +3120,7 @@ $result_sectioning{'complex'} = {
                                     }
                                   }
                                 },
+                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {},
                                   'section_childs' => [
@@ -3359,6 +3434,7 @@ $result_nodes{'complex'} = {
                   'unit_command' => {
                     'cmdname' => 'chapter',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => 1
@@ -3374,6 +3450,7 @@ $result_nodes{'complex'} = {
                         'unit_command' => {
                           'cmdname' => 'chapter',
                           'extra' => {},
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_number' => 2
@@ -3387,6 +3464,7 @@ $result_nodes{'complex'} = {
                               'unit_command' => {
                                 'cmdname' => 'section',
                                 'extra' => {},
+                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {},
                                   'section_number' => '1.1'
@@ -3400,6 +3478,7 @@ $result_nodes{'complex'} = {
                                     'unit_command' => {
                                       'cmdname' => 'subsection',
                                       'extra' => {},
+                                      'info' => {},
                                       'structure' => {
                                         'associated_unit' => {}
                                       }
@@ -3412,6 +3491,7 @@ $result_nodes{'complex'} = {
                                           'unit_command' => {
                                             'cmdname' => 'unnumberedsec',
                                             'extra' => {},
+                                            'info' => {},
                                             'structure' => {
                                               'associated_unit' => {}
                                             }
@@ -3424,6 +3504,7 @@ $result_nodes{'complex'} = {
                                                 'unit_command' => {
                                                   'cmdname' => 'subsection',
                                                   'extra' => {},
+                                                  'info' => {},
                                                   'structure' => {
                                                     'associated_unit' => {}
                                                   }
@@ -3436,6 +3517,7 @@ $result_nodes{'complex'} = {
                                                       'unit_command' => {
                                                         'cmdname' => 'unnumberedsubsec',
                                                         'extra' => {},
+                                                        'info' => {},
                                                         'structure' => {
                                                           'associated_unit' => {}
                                                         }
@@ -3448,6 +3530,7 @@ $result_nodes{'complex'} = {
                                                             'unit_command' => {
                                                               'cmdname' => 'subsection',
                                                               'extra' => {},
+                                                              'info' => {},
                                                               'structure' => {
                                                                 'associated_unit' => {}
                                                               }
@@ -3460,6 +3543,7 @@ $result_nodes{'complex'} = {
                                                                   'unit_command' => {
                                                                     'cmdname' => 'unnumberedsubsec',
                                                                     'extra' => {},
+                                                                    'info' => {},
                                                                     'structure' => {
                                                                       'associated_unit' => {}
                                                                     }
@@ -3472,6 +3556,7 @@ $result_nodes{'complex'} = {
                                                                         'unit_command' => {
                                                                           'cmdname' => 'unnumberedsec',
                                                                           'extra' => {},
+                                                                          'info' => {},
                                                                           'structure' => {
                                                                             'associated_unit' => {}
                                                                           }
@@ -3617,6 +3702,7 @@ $result_nodes{'complex'} = {
                               'unit_command' => {
                                 'cmdname' => 'unnumbered',
                                 'extra' => {},
+                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {}
                                 }
@@ -3631,6 +3717,7 @@ $result_nodes{'complex'} = {
                                     'unit_command' => {
                                       'cmdname' => 'unnumbered',
                                       'extra' => {},
+                                      'info' => {},
                                       'structure' => {
                                         'associated_unit' => {}
                                       }
@@ -3725,6 +3812,7 @@ $result_nodes{'complex'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {
@@ -3738,6 +3826,7 @@ $result_nodes{'complex'} = {
         ],
         'normalized' => 'First-node'
       },
+      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_child' => {
@@ -3751,6 +3840,7 @@ $result_nodes{'complex'} = {
             ],
             'normalized' => 'unnumbered'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_child' => {
@@ -3759,6 +3849,7 @@ $result_nodes{'complex'} = {
                 'associated_section' => {},
                 'normalized' => 'unnumbered-sub'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'node_next' => {
@@ -3767,6 +3858,7 @@ $result_nodes{'complex'} = {
                     'associated_section' => {},
                     'normalized' => 'numbered-sub'
                   },
+                  'info' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'node_next' => {
@@ -3775,6 +3867,7 @@ $result_nodes{'complex'} = {
                         'associated_section' => {},
                         'normalized' => 'unnumbered-sub2'
                       },
+                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'node_next' => {
@@ -3783,6 +3876,7 @@ $result_nodes{'complex'} = {
                             'associated_section' => {},
                             'normalized' => 'numbered-sub2'
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'node_prev' => {},
@@ -3811,6 +3905,7 @@ $result_nodes{'complex'} = {
                 ],
                 'normalized' => 'unnumbered2'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'menu_child' => {
@@ -3819,6 +3914,7 @@ $result_nodes{'complex'} = {
                     'associated_section' => {},
                     'normalized' => 'numbered-sub3'
                   },
+                  'info' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'node_up' => {}
@@ -3830,6 +3926,7 @@ $result_nodes{'complex'} = {
                     'associated_section' => {},
                     'normalized' => 'numbered'
                   },
+                  'info' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'node_prev' => {},
@@ -4063,6 +4160,7 @@ $result_menus{'complex'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
@@ -4081,6 +4179,7 @@ $result_menus{'complex'} = {
               'unit_command' => {
                 'cmdname' => 'chapter',
                 'extra' => {},
+                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'section_number' => 1
@@ -4096,6 +4195,7 @@ $result_menus{'complex'} = {
                     'unit_command' => {
                       'cmdname' => 'chapter',
                       'extra' => {},
+                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_number' => 2
@@ -4109,6 +4209,7 @@ $result_menus{'complex'} = {
                           'unit_command' => {
                             'cmdname' => 'section',
                             'extra' => {},
+                            'info' => {},
                             'structure' => {
                               'associated_unit' => {},
                               'section_number' => '1.1'
@@ -4122,6 +4223,7 @@ $result_menus{'complex'} = {
                                 'unit_command' => {
                                   'cmdname' => 'subsection',
                                   'extra' => {},
+                                  'info' => {},
                                   'structure' => {
                                     'associated_unit' => {}
                                   }
@@ -4134,6 +4236,7 @@ $result_menus{'complex'} = {
                                       'unit_command' => {
                                         'cmdname' => 'unnumberedsec',
                                         'extra' => {},
+                                        'info' => {},
                                         'structure' => {
                                           'associated_unit' => {}
                                         }
@@ -4146,6 +4249,7 @@ $result_menus{'complex'} = {
                                             'unit_command' => {
                                               'cmdname' => 'subsection',
                                               'extra' => {},
+                                              'info' => {},
                                               'structure' => {
                                                 'associated_unit' => {}
                                               }
@@ -4158,6 +4262,7 @@ $result_menus{'complex'} = {
                                                   'unit_command' => {
                                                     'cmdname' => 'unnumberedsubsec',
                                                     'extra' => {},
+                                                    'info' => {},
                                                     'structure' => {
                                                       'associated_unit' => {}
                                                     }
@@ -4170,6 +4275,7 @@ $result_menus{'complex'} = {
                                                         'unit_command' => {
                                                           'cmdname' => 'subsection',
                                                           'extra' => {},
+                                                          'info' => {},
                                                           'structure' => {
                                                             'associated_unit' => {}
                                                           }
@@ -4182,6 +4288,7 @@ $result_menus{'complex'} = {
                                                               'unit_command' => {
                                                                 'cmdname' => 'unnumberedsubsec',
                                                                 'extra' => {},
+                                                                'info' => {},
                                                                 'structure' => {
                                                                   'associated_unit' => {}
                                                                 }
@@ -4194,6 +4301,7 @@ $result_menus{'complex'} = {
                                                                     'unit_command' => {
                                                                       'cmdname' => 'unnumberedsec',
                                                                       'extra' => {},
+                                                                      'info' => {},
                                                                       'structure' => {
                                                                         'associated_unit' => {}
                                                                       }
@@ -4339,6 +4447,7 @@ $result_menus{'complex'} = {
                           'unit_command' => {
                             'cmdname' => 'unnumbered',
                             'extra' => {},
+                            'info' => {},
                             'structure' => {
                               'associated_unit' => {}
                             }
@@ -4353,6 +4462,7 @@ $result_menus{'complex'} = {
                                 'unit_command' => {
                                   'cmdname' => 'unnumbered',
                                   'extra' => {},
+                                  'info' => {},
                                   'structure' => {
                                     'associated_unit' => {}
                                   }
@@ -4443,6 +4553,7 @@ $result_menus{'complex'} = {
       'extra' => {
         'normalized' => 'First-node'
       },
+      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_child' => {
@@ -4450,6 +4561,7 @@ $result_menus{'complex'} = {
           'extra' => {
             'normalized' => 'unnumbered'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_child' => {
@@ -4457,6 +4569,7 @@ $result_menus{'complex'} = {
               'extra' => {
                 'normalized' => 'unnumbered-sub'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'menu_next' => {
@@ -4464,6 +4577,7 @@ $result_menus{'complex'} = {
                   'extra' => {
                     'normalized' => 'numbered-sub'
                   },
+                  'info' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'menu_next' => {
@@ -4471,6 +4585,7 @@ $result_menus{'complex'} = {
                       'extra' => {
                         'normalized' => 'unnumbered-sub2'
                       },
+                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'menu_next' => {
@@ -4478,6 +4593,7 @@ $result_menus{'complex'} = {
                           'extra' => {
                             'normalized' => 'numbered-sub2'
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'menu_prev' => {},
@@ -4512,6 +4628,7 @@ $result_menus{'complex'} = {
               'extra' => {
                 'normalized' => 'unnumbered2'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'menu_child' => {
@@ -4519,6 +4636,7 @@ $result_menus{'complex'} = {
                   'extra' => {
                     'normalized' => 'numbered-sub3'
                   },
+                  'info' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'menu_up' => {},
@@ -4532,6 +4650,7 @@ $result_menus{'complex'} = {
                   'extra' => {
                     'normalized' => 'numbered'
                   },
+                  'info' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'menu_prev' => {},
@@ -4559,6 +4678,7 @@ $result_menus{'complex'} = {
           'extra' => {
             'normalized' => 'between-node'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_next' => {
@@ -4566,6 +4686,7 @@ $result_menus{'complex'} = {
               'extra' => {
                 'normalized' => 'Second-node'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'menu_next' => {
@@ -4573,6 +4694,7 @@ $result_menus{'complex'} = {
                   'extra' => {
                     'normalized' => 'Third-node-unnumbered'
                   },
+                  'info' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'menu_next' => {
@@ -4580,6 +4702,7 @@ $result_menus{'complex'} = {
                       'extra' => {
                         'normalized' => 'continuity'
                       },
+                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'menu_next' => {
@@ -4587,6 +4710,7 @@ $result_menus{'complex'} = {
                           'extra' => {
                             'normalized' => 'Last-node-no-description'
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'menu_prev' => {},
@@ -4861,6 +4985,7 @@ $result_elements{'complex'} = [
             'unit_command' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_number' => 1
@@ -4876,6 +5001,7 @@ $result_elements{'complex'} = [
                   'unit_command' => {
                     'cmdname' => 'chapter',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => 2
@@ -4889,6 +5015,7 @@ $result_elements{'complex'} = [
                         'unit_command' => {
                           'cmdname' => 'section',
                           'extra' => {},
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_number' => '1.1'
@@ -4902,6 +5029,7 @@ $result_elements{'complex'} = [
                               'unit_command' => {
                                 'cmdname' => 'subsection',
                                 'extra' => {},
+                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {}
                                 }
@@ -4914,6 +5042,7 @@ $result_elements{'complex'} = [
                                     'unit_command' => {
                                       'cmdname' => 'unnumberedsec',
                                       'extra' => {},
+                                      'info' => {},
                                       'structure' => {
                                         'associated_unit' => {}
                                       }
@@ -4926,6 +5055,7 @@ $result_elements{'complex'} = [
                                           'unit_command' => {
                                             'cmdname' => 'subsection',
                                             'extra' => {},
+                                            'info' => {},
                                             'structure' => {
                                               'associated_unit' => {}
                                             }
@@ -4938,6 +5068,7 @@ $result_elements{'complex'} = [
                                                 'unit_command' => {
                                                   'cmdname' => 'unnumberedsubsec',
                                                   'extra' => {},
+                                                  'info' => {},
                                                   'structure' => {
                                                     'associated_unit' => {}
                                                   }
@@ -4950,6 +5081,7 @@ $result_elements{'complex'} = [
                                                       'unit_command' => {
                                                         'cmdname' => 'subsection',
                                                         'extra' => {},
+                                                        'info' => {},
                                                         'structure' => {
                                                           'associated_unit' => {}
                                                         }
@@ -4962,6 +5094,7 @@ $result_elements{'complex'} = [
                                                             'unit_command' => {
                                                               'cmdname' => 'unnumberedsubsec',
                                                               'extra' => {},
+                                                              'info' => {},
                                                               'structure' => {
                                                                 'associated_unit' => {}
                                                               }
@@ -4974,6 +5107,7 @@ $result_elements{'complex'} = [
                                                                   'unit_command' => {
                                                                     'cmdname' => 'unnumberedsec',
                                                                     'extra' => {},
+                                                                    'info' => {},
                                                                     'structure' => {
                                                                       'associated_unit' => {}
                                                                     }
@@ -5103,6 +5237,7 @@ $result_elements{'complex'} = [
                         'unit_command' => {
                           'cmdname' => 'unnumbered',
                           'extra' => {},
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {}
                           }
@@ -5117,6 +5252,7 @@ $result_elements{'complex'} = [
                               'unit_command' => {
                                 'cmdname' => 'unnumbered',
                                 'extra' => {},
+                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {}
                                 }

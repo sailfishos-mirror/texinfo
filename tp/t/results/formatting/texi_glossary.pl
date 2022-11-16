@@ -39,7 +39,7 @@ $result_trees{'texi_glossary'} = {
                       'text' => 'glossary'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'texi_glossary'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'glossary'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
@@ -84,7 +86,7 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -93,8 +95,10 @@ $result_trees{'texi_glossary'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
@@ -150,7 +154,7 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -159,8 +163,10 @@ $result_trees{'texi_glossary'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
@@ -274,7 +280,7 @@ $result_trees{'texi_glossary'} = {
                                   'text' => 'macro'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -283,8 +289,10 @@ $result_trees{'texi_glossary'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'macro'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => 'glossary.texi',
@@ -306,7 +314,7 @@ $result_trees{'texi_glossary'} = {
                               'text' => 'macro'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -315,8 +323,10 @@ $result_trees{'texi_glossary'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => 'glossary.texi',
@@ -348,7 +358,7 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -357,8 +367,10 @@ $result_trees{'texi_glossary'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
@@ -396,7 +408,7 @@ $result_trees{'texi_glossary'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -416,7 +428,9 @@ $result_trees{'texi_glossary'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -433,7 +447,7 @@ $result_trees{'texi_glossary'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -450,7 +464,7 @@ $result_trees{'texi_glossary'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' 
 '
               },
@@ -516,7 +530,7 @@ $result_trees{'texi_glossary'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -525,8 +539,10 @@ $result_trees{'texi_glossary'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'glossary.texi',
@@ -649,7 +665,7 @@ $result_trees{'texi_glossary'} = {
                               'text' => 'macro'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -658,8 +674,10 @@ $result_trees{'texi_glossary'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => 'glossary.texi',
@@ -681,7 +699,7 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -690,8 +708,10 @@ $result_trees{'texi_glossary'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
@@ -758,7 +778,7 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -767,8 +787,10 @@ $result_trees{'texi_glossary'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
@@ -913,7 +935,7 @@ $result_trees{'texi_glossary'} = {
                               'text' => 'macro'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -922,8 +944,10 @@ $result_trees{'texi_glossary'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'macro'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => 'glossary.texi',
@@ -945,7 +969,7 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -954,8 +978,10 @@ $result_trees{'texi_glossary'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
@@ -1022,7 +1048,7 @@ $result_trees{'texi_glossary'} = {
                           'text' => 'macro'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -1031,8 +1057,10 @@ $result_trees{'texi_glossary'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'macro'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'glossary.texi',
@@ -1064,7 +1092,8 @@ $result_trees{'texi_glossary'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1081,7 +1110,7 @@ $result_trees{'texi_glossary'} = {
               'text' => 'glossary'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1101,7 +1130,9 @@ $result_trees{'texi_glossary'} = {
             'normalized' => 'glossary'
           }
         ],
-        'normalized' => 'glossary',
+        'normalized' => 'glossary'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1118,7 +1149,7 @@ $result_trees{'texi_glossary'} = {
               'text' => 'glossary'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1165,7 +1196,8 @@ $result_trees{'texi_glossary'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1307,9 +1339,11 @@ $result_sectioning{'texi_glossary'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1320,9 +1354,11 @@ $result_sectioning{'texi_glossary'} = {
                   'extra' => {
                     'normalized' => 'glossary'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1351,6 +1387,7 @@ $result_nodes{'texi_glossary'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1360,6 +1397,7 @@ $result_nodes{'texi_glossary'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1367,12 +1405,14 @@ $result_nodes{'texi_glossary'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'glossary'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1390,12 +1430,14 @@ $result_menus{'texi_glossary'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'glossary'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

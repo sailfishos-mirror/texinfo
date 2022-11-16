@@ -25,7 +25,7 @@ $result_trees{'chapter_before_part'} = [
                 'text' => 'chapter'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -40,7 +40,8 @@ $result_trees{'chapter_before_part'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -65,7 +66,7 @@ $result_trees{'chapter_before_part'} = [
                 'text' => 'part'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -73,7 +74,8 @@ $result_trees{'chapter_before_part'} = [
           }
         ],
         'cmdname' => 'part',
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -111,6 +113,7 @@ $result_sectioning{'chapter_before_part'} = {
       {
         'cmdname' => 'chapter',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -123,6 +126,7 @@ $result_sectioning{'chapter_before_part'} = {
                     'unit_command' => {
                       'cmdname' => 'part',
                       'extra' => {},
+                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_level' => 0,
@@ -188,6 +192,7 @@ $result_elements{'chapter_before_part'} = [
       'unit_command' => {
         'cmdname' => 'chapter',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_number' => 1
@@ -201,6 +206,7 @@ $result_elements{'chapter_before_part'} = [
             'unit_command' => {
               'cmdname' => 'part',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'associated_unit' => {}
               }

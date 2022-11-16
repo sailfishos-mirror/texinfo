@@ -12,7 +12,7 @@ $result_trees{'node_in_copying'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -37,7 +37,7 @@ $result_trees{'node_in_copying'} = {
               'text' => 'node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -64,7 +64,9 @@ $result_trees{'node_in_copying'} = {
             'normalized' => 'node'
           }
         ],
-        'normalized' => 'node',
+        'normalized' => 'node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -92,14 +94,16 @@ $result_nodes{'node_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'node_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'node'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'node_in_copying'} = [

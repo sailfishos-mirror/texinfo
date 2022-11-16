@@ -12,7 +12,7 @@ $result_trees{'at_commands_glued_in_example'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -97,7 +97,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                           'text' => 'aaa bb cc'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -158,7 +158,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                           'text' => 'mali'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -318,7 +318,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                           'text' => '4'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -329,7 +329,9 @@ $result_trees{'at_commands_glued_in_example'} = {
                   'extra' => {
                     'misc_args' => [
                       '4'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -380,7 +382,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                           'text' => 'index'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -399,7 +401,9 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -420,7 +424,7 @@ $result_trees{'at_commands_glued_in_example'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -429,8 +433,10 @@ $result_trees{'at_commands_glued_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

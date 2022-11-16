@@ -24,7 +24,7 @@ $result_trees{'double_seeentry_seealso'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'double_seeentry_seealso'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -61,7 +63,7 @@ $result_trees{'double_seeentry_seealso'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +78,8 @@ $result_trees{'double_seeentry_seealso'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +96,7 @@ $result_trees{'double_seeentry_seealso'} = {
               'text' => 'node index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -114,7 +117,9 @@ $result_trees{'double_seeentry_seealso'} = {
             'normalized' => 'node-index'
           }
         ],
-        'normalized' => 'node-index',
+        'normalized' => 'node-index'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -131,7 +136,7 @@ $result_trees{'double_seeentry_seealso'} = {
               'text' => 'Chapter Index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -197,7 +202,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -218,7 +223,9 @@ $result_trees{'double_seeentry_seealso'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seeentry' => {},
+            'seeentry' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -280,7 +287,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -301,7 +308,9 @@ $result_trees{'double_seeentry_seealso'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seealso' => {},
+            'seealso' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -363,7 +372,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -385,7 +394,9 @@ $result_trees{'double_seeentry_seealso'} = {
               'index_type_command' => 'cindex'
             },
             'seealso' => {},
-            'seeentry' => {},
+            'seeentry' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -418,7 +429,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -439,7 +450,6 @@ $result_trees{'double_seeentry_seealso'} = {
               'index_type_command' => 'cindex'
             },
             'seealso' => {},
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -470,7 +480,7 @@ $result_trees{'double_seeentry_seealso'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -480,7 +490,9 @@ $result_trees{'double_seeentry_seealso'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'seeentry' => {},
+                'seeentry' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -489,6 +501,9 @@ $result_trees{'double_seeentry_seealso'} = {
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -511,7 +526,7 @@ $result_trees{'double_seeentry_seealso'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -522,7 +537,9 @@ $result_trees{'double_seeentry_seealso'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -532,7 +549,8 @@ $result_trees{'double_seeentry_seealso'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -607,9 +625,11 @@ $result_sectioning{'double_seeentry_seealso'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -621,9 +641,11 @@ $result_sectioning{'double_seeentry_seealso'} = {
                     'isindex' => 1,
                     'normalized' => 'node-index'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -652,10 +674,12 @@ $result_nodes{'double_seeentry_seealso'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -663,6 +687,7 @@ $result_nodes{'double_seeentry_seealso'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -670,6 +695,7 @@ $result_nodes{'double_seeentry_seealso'} = {
         'isindex' => 1,
         'normalized' => 'node-index'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -685,6 +711,7 @@ $result_menus{'double_seeentry_seealso'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

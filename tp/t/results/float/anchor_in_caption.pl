@@ -24,7 +24,7 @@ $result_trees{'anchor_in_caption'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -46,7 +46,7 @@ $result_trees{'anchor_in_caption'} = {
                   'text' => 'fl'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -55,13 +55,15 @@ $result_trees{'anchor_in_caption'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'fl'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -90,7 +92,7 @@ $result_trees{'anchor_in_caption'} = {
                   'text' => 'label'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -171,7 +173,7 @@ $result_trees{'anchor_in_caption'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -180,8 +182,10 @@ $result_trees{'anchor_in_caption'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -196,13 +200,15 @@ $result_trees{'anchor_in_caption'} = {
               {}
             ],
             'normalized' => 'label',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'fl'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -223,7 +229,9 @@ $result_trees{'anchor_in_caption'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -266,14 +274,16 @@ $result_nodes{'anchor_in_caption'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'anchor_in_caption'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'anchor_in_caption'} = [];
@@ -300,6 +310,7 @@ $result_floats{'anchor_in_caption'} = {
           'normalized' => 'fl'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

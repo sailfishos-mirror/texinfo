@@ -22,7 +22,7 @@ $result_trees{'verbatiminclude'} = {
                   'text' => 'incl-incl.txi'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -32,8 +32,10 @@ $result_trees{'verbatiminclude'} = {
           'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_perl_encoding' => 'utf-8',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

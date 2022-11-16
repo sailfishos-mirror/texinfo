@@ -14,7 +14,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -68,7 +68,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
                           'text' => 'titlepage'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -77,8 +77,10 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -112,7 +114,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -120,7 +122,8 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -137,7 +140,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -164,7 +167,9 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -181,7 +186,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -189,7 +194,8 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -206,7 +212,7 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
               'text' => 'nchap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -269,7 +275,9 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
             'normalized' => 'nchap'
           }
         ],
-        'normalized' => 'nchap',
+        'normalized' => 'nchap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -321,6 +329,7 @@ $result_sectioning{'anchor_in_titlepage_titlepage'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -331,9 +340,11 @@ $result_sectioning{'anchor_in_titlepage_titlepage'} = {
                   'extra' => {
                     'normalized' => 'Top'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -362,18 +373,21 @@ $result_nodes{'anchor_in_titlepage_titlepage'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
+      'info' => {},
       'structure' => {
         'section_number' => 1
       }
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'nchap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -387,6 +401,7 @@ $result_menus{'anchor_in_titlepage_titlepage'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

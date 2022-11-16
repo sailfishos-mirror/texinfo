@@ -12,7 +12,7 @@ $result_trees{'empty_documentencoding'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '   
 '
               },

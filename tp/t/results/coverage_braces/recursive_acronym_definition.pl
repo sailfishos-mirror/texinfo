@@ -51,7 +51,7 @@ $result_trees{'recursive_acronym_definition'} = {
                                       'text' => 'is something'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_before_argument' => ' '
                                   },
                                   'type' => 'brace_command_arg'
@@ -68,7 +68,7 @@ $result_trees{'recursive_acronym_definition'} = {
                               'text' => '\'s Not Unix'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'type' => 'brace_command_arg'
@@ -85,7 +85,7 @@ $result_trees{'recursive_acronym_definition'} = {
                       'text' => '\'s Not Unix'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

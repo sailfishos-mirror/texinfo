@@ -19,7 +19,7 @@ $result_trees{'unnumbered_before_top_node'} = [
                 'text' => 'before nodes'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -34,7 +34,8 @@ $result_trees{'unnumbered_before_top_node'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -51,7 +52,7 @@ $result_trees{'unnumbered_before_top_node'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -109,7 +110,9 @@ $result_trees{'unnumbered_before_top_node'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -152,6 +155,7 @@ $result_sectioning{'unnumbered_before_top_node'} = {
       {
         'cmdname' => 'unnumbered',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -181,12 +185,14 @@ $result_nodes{'unnumbered_before_top_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'unnumbered',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'associated_unit' => {}
           }
@@ -209,12 +215,14 @@ $result_menus{'unnumbered_before_top_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'unnumbered',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'associated_unit' => {}
           }
@@ -244,6 +252,7 @@ $result_elements{'unnumbered_before_top_node'} = [
       'unit_command' => {
         'cmdname' => 'unnumbered',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }

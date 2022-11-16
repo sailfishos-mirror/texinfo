@@ -18,7 +18,7 @@ $result_trees{'omit_def_space'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -45,7 +45,9 @@ $result_trees{'omit_def_space'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -62,7 +64,7 @@ $result_trees{'omit_def_space'} = {
               'text' => 'first'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -315,7 +317,9 @@ $result_trees{'omit_def_space'} = {
                   'index_type_command' => 'defun'
                 },
                 'omit_def_name_space' => 1,
-                'original_def_cmdname' => 'defunx',
+                'original_def_cmdname' => 'defunx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -347,7 +351,7 @@ $result_trees{'omit_def_space'} = {
                       'text' => 'defun'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -356,8 +360,10 @@ $result_trees{'omit_def_space'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -366,7 +372,7 @@ $result_trees{'omit_def_space'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -388,7 +394,9 @@ $result_trees{'omit_def_space'} = {
             'normalized' => 'first'
           }
         ],
-        'normalized' => 'first',
+        'normalized' => 'first'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -443,12 +451,14 @@ $result_nodes{'omit_def_space'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'first'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -462,6 +472,7 @@ $result_menus{'omit_def_space'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

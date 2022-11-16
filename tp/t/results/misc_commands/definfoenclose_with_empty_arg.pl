@@ -22,7 +22,7 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
                   'text' => 'headword, , :'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -35,7 +35,9 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
               'headword',
               '',
               ':'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

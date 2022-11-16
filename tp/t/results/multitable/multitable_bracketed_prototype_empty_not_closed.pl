@@ -19,7 +19,7 @@ $result_trees{'multitable_bracketed_prototype_empty_not_closed'} = {
             {
               'contents' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => '
 '
                   },
@@ -39,7 +39,7 @@ $result_trees{'multitable_bracketed_prototype_empty_not_closed'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'multitable_bracketed_prototype_empty_not_closed'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -64,7 +66,9 @@ $result_trees{'multitable_bracketed_prototype_empty_not_closed'} = {
               {
                 'type' => 'bracketed_multitable_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

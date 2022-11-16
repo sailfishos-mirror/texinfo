@@ -18,7 +18,7 @@ $result_trees{'index_entry_in_preformatted'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'index_entry_in_preformatted'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'index_entry_in_preformatted'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -70,7 +72,8 @@ $result_trees{'index_entry_in_preformatted'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -87,7 +90,7 @@ $result_trees{'index_entry_in_preformatted'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -107,7 +110,9 @@ $result_trees{'index_entry_in_preformatted'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -124,7 +129,7 @@ $result_trees{'index_entry_in_preformatted'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -141,7 +146,7 @@ $result_trees{'index_entry_in_preformatted'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -160,7 +165,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                           'text' => 'first'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -180,7 +185,9 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -223,7 +230,9 @@ $result_trees{'index_entry_in_preformatted'} = {
 '
                             ]
                           }
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'line_arg'
@@ -242,7 +251,9 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -264,7 +275,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                           'text' => 'last'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -284,7 +295,9 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -305,7 +318,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -314,8 +327,10 @@ $result_trees{'index_entry_in_preformatted'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -331,7 +346,8 @@ $result_trees{'index_entry_in_preformatted'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -399,9 +415,11 @@ $result_sectioning{'index_entry_in_preformatted'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -412,9 +430,11 @@ $result_sectioning{'index_entry_in_preformatted'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -443,10 +463,12 @@ $result_nodes{'index_entry_in_preformatted'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -454,12 +476,14 @@ $result_nodes{'index_entry_in_preformatted'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -475,6 +499,7 @@ $result_menus{'index_entry_in_preformatted'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

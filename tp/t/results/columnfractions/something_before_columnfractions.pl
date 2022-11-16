@@ -24,7 +24,7 @@ $result_trees{'something_before_columnfractions'} = {
                           'text' => '0.3 0.7'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -36,7 +36,9 @@ $result_trees{'something_before_columnfractions'} = {
                     'misc_args' => [
                       '0.3',
                       '0.7'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -64,8 +66,10 @@ $result_trees{'something_before_columnfractions'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -76,7 +80,9 @@ $result_trees{'something_before_columnfractions'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 2,
+            'max_columns' => 2
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -35,7 +35,7 @@ $result_trees{'end_of_line_end_file'} = {
               'type' => 'def_line'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

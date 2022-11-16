@@ -403,9 +403,9 @@ handle_line_command (ELEMENT *current, char **line_inout,
           line_args = new_element (ET_line_arg);
           add_to_element_args (misc, line_args);
           add_extra_misc_args (misc, "misc_args", args);
-          add_extra_string_dup (misc, "spaces_before_argument", " ");
+          add_info_string_dup (misc, "spaces_before_argument", " ");
 
-          add_extra_string_dup (line_args, "spaces_after_argument", "\n");
+          add_info_string_dup (line_args, "spaces_after_argument", "\n");
 
           e = new_element (ET_NONE);
           text_append (&e->text, arg);

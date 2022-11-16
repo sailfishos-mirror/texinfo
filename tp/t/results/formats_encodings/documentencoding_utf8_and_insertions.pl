@@ -17,7 +17,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                   'text' => 'utf-8'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,8 +28,10 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'input_perl_encoding' => 'utf-8-strict',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'utf-8'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -101,7 +103,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -169,7 +171,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -178,8 +180,10 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

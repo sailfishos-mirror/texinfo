@@ -18,7 +18,7 @@ $result_trees{'contents_in_html_text'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -33,7 +33,7 @@ $result_trees{'contents_in_html_text'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -50,7 +50,7 @@ $result_trees{'contents_in_html_text'} = {
               'text' => 'Chap1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -65,7 +65,7 @@ $result_trees{'contents_in_html_text'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -82,7 +82,7 @@ $result_trees{'contents_in_html_text'} = {
               'text' => 'Sec 1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -97,7 +97,7 @@ $result_trees{'contents_in_html_text'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -114,7 +114,7 @@ $result_trees{'contents_in_html_text'} = {
               'text' => 'Chap2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -159,7 +159,7 @@ $result_trees{'contents_in_html_text'} = {
           }
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -204,17 +204,17 @@ $result_sectioning{'contents_in_html_text'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -231,7 +231,7 @@ $result_sectioning{'contents_in_html_text'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,

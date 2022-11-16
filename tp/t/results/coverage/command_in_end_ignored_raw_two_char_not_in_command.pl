@@ -12,7 +12,7 @@ $result_trees{'command_in_end_ignored_raw_two_char_not_in_command'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },

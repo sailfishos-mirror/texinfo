@@ -18,7 +18,7 @@ $result_trees{'comment_on_menu_line'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -115,7 +115,7 @@ $result_trees{'comment_on_menu_line'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -124,8 +124,10 @@ $result_trees{'comment_on_menu_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -134,7 +136,7 @@ $result_trees{'comment_on_menu_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => '  '
           },
           'source_info' => {
@@ -161,7 +163,9 @@ $result_trees{'comment_on_menu_line'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -178,7 +182,7 @@ $result_trees{'comment_on_menu_line'} = {
               'text' => 'first'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -186,7 +190,8 @@ $result_trees{'comment_on_menu_line'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -203,7 +208,7 @@ $result_trees{'comment_on_menu_line'} = {
               'text' => 'first'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -223,7 +228,9 @@ $result_trees{'comment_on_menu_line'} = {
             'normalized' => 'first'
           }
         ],
-        'normalized' => 'first',
+        'normalized' => 'first'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -271,9 +278,11 @@ $result_sectioning{'comment_on_menu_line'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -292,6 +301,7 @@ $result_nodes{'comment_on_menu_line'} = {
     'associated_section' => {
       'cmdname' => 'chapter',
       'extra' => {},
+      'info' => {},
       'structure' => {
         'section_number' => 1
       }
@@ -299,17 +309,19 @@ $result_nodes{'comment_on_menu_line'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {}
+        'info' => {}
       }
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'first'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -327,12 +339,14 @@ $result_menus{'comment_on_menu_line'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'first'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

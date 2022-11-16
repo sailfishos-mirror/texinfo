@@ -17,7 +17,7 @@ $result_trees{'item_tab_outside_of_table_lists'} = {
                   'text' => 'itemx outside.'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -25,7 +25,7 @@ $result_trees{'item_tab_outside_of_table_lists'} = {
             }
           ],
           'cmdname' => 'itemx',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -19,7 +19,7 @@ $result_trees{'titlepage_and_setchapternewpage_odd'} = {
                       'text' => 'odd'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,7 +30,9 @@ $result_trees{'titlepage_and_setchapternewpage_odd'} = {
               'extra' => {
                 'misc_args' => [
                   'odd'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -47,7 +49,7 @@ $result_trees{'titlepage_and_setchapternewpage_odd'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -73,7 +75,7 @@ $result_trees{'titlepage_and_setchapternewpage_odd'} = {
                           'text' => 'titlepage'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -82,8 +84,10 @@ $result_trees{'titlepage_and_setchapternewpage_odd'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',

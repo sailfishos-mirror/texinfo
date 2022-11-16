@@ -24,7 +24,7 @@ $result_trees{'same_seealso_seeentry'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'same_seealso_seeentry'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -61,7 +63,7 @@ $result_trees{'same_seealso_seeentry'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +78,8 @@ $result_trees{'same_seealso_seeentry'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +96,7 @@ $result_trees{'same_seealso_seeentry'} = {
               'text' => 'node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -114,7 +117,9 @@ $result_trees{'same_seealso_seeentry'} = {
             'normalized' => 'node'
           }
         ],
-        'normalized' => 'node',
+        'normalized' => 'node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -131,7 +136,7 @@ $result_trees{'same_seealso_seeentry'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -175,7 +180,7 @@ $result_trees{'same_seealso_seeentry'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -196,7 +201,9 @@ $result_trees{'same_seealso_seeentry'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seealso' => {},
+            'seealso' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -236,7 +243,7 @@ $result_trees{'same_seealso_seeentry'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -257,7 +264,9 @@ $result_trees{'same_seealso_seeentry'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seealso' => {},
+            'seealso' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -302,7 +311,7 @@ $result_trees{'same_seealso_seeentry'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -323,7 +332,9 @@ $result_trees{'same_seealso_seeentry'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seeentry' => {},
+            'seeentry' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -363,7 +374,7 @@ $result_trees{'same_seealso_seeentry'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -384,7 +395,9 @@ $result_trees{'same_seealso_seeentry'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seeentry' => {},
+            'seeentry' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -429,7 +442,7 @@ $result_trees{'same_seealso_seeentry'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -450,7 +463,9 @@ $result_trees{'same_seealso_seeentry'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seealso' => {},
+            'seealso' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -490,7 +505,7 @@ $result_trees{'same_seealso_seeentry'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -511,7 +526,9 @@ $result_trees{'same_seealso_seeentry'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'seeentry' => {},
+            'seeentry' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -534,7 +551,7 @@ $result_trees{'same_seealso_seeentry'} = {
                   'text' => 'entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -554,7 +571,9 @@ $result_trees{'same_seealso_seeentry'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -577,7 +596,7 @@ $result_trees{'same_seealso_seeentry'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -588,7 +607,9 @@ $result_trees{'same_seealso_seeentry'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -598,7 +619,8 @@ $result_trees{'same_seealso_seeentry'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -693,9 +715,11 @@ $result_sectioning{'same_seealso_seeentry'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -707,9 +731,11 @@ $result_sectioning{'same_seealso_seeentry'} = {
                     'isindex' => 1,
                     'normalized' => 'node'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -738,10 +764,12 @@ $result_nodes{'same_seealso_seeentry'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -749,6 +777,7 @@ $result_nodes{'same_seealso_seeentry'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -756,6 +785,7 @@ $result_nodes{'same_seealso_seeentry'} = {
         'isindex' => 1,
         'normalized' => 'node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -771,6 +801,7 @@ $result_menus{'same_seealso_seeentry'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

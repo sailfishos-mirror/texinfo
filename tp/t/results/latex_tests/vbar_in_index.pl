@@ -21,7 +21,7 @@ $result_trees{'vbar_in_index'} = {
                   'text' => 'A|B'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -40,7 +40,9 @@ $result_trees{'vbar_in_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -58,7 +60,7 @@ $result_trees{'vbar_in_index'} = {
                   'text' => 'C|D'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -77,7 +79,9 @@ $result_trees{'vbar_in_index'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

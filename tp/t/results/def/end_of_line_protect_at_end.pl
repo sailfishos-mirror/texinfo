@@ -95,7 +95,7 @@ $result_trees{'end_of_line_protect_at_end'} = {
               'type' => 'def_line'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

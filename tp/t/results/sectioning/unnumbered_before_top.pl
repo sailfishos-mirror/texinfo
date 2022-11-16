@@ -18,7 +18,7 @@ $result_trees{'unnumbered_before_top'} = {
               'text' => 'before top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -33,7 +33,7 @@ $result_trees{'unnumbered_before_top'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -50,7 +50,7 @@ $result_trees{'unnumbered_before_top'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -58,7 +58,7 @@ $result_trees{'unnumbered_before_top'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -89,7 +89,7 @@ $result_sectioning{'unnumbered_before_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_up' => {}
@@ -97,7 +97,7 @@ $result_sectioning{'unnumbered_before_top'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_prev' => {},

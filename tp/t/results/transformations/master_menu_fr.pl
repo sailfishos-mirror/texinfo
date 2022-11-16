@@ -34,7 +34,7 @@ $result_trees{'master_menu_fr'} = {
                       'text' => 'fr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'master_menu_fr'} = {
               ],
               'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'fr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'no_master_menu_fr.texi',
@@ -71,7 +73,7 @@ $result_trees{'master_menu_fr'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -91,7 +93,9 @@ $result_trees{'master_menu_fr'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -108,7 +112,7 @@ $result_trees{'master_menu_fr'} = {
               'text' => 'max'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -125,7 +129,7 @@ $result_trees{'master_menu_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -201,7 +205,7 @@ $result_trees{'master_menu_fr'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -297,7 +301,7 @@ $result_trees{'master_menu_fr'} = {
                           'text' => 'detailmenu'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -306,8 +310,10 @@ $result_trees{'master_menu_fr'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'detailmenu'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   }
                 }
               ]
@@ -320,7 +326,7 @@ $result_trees{'master_menu_fr'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -329,8 +335,10 @@ $result_trees{'master_menu_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'no_master_menu_fr.texi',
@@ -351,7 +359,8 @@ $result_trees{'master_menu_fr'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -368,7 +377,7 @@ $result_trees{'master_menu_fr'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -388,7 +397,9 @@ $result_trees{'master_menu_fr'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -405,7 +416,7 @@ $result_trees{'master_menu_fr'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -422,7 +433,7 @@ $result_trees{'master_menu_fr'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -488,7 +499,7 @@ $result_trees{'master_menu_fr'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -497,8 +508,10 @@ $result_trees{'master_menu_fr'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'no_master_menu_fr.texi',
@@ -519,7 +532,8 @@ $result_trees{'master_menu_fr'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -536,7 +550,7 @@ $result_trees{'master_menu_fr'} = {
               'text' => 'section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -556,7 +570,9 @@ $result_trees{'master_menu_fr'} = {
             'normalized' => 'section'
           }
         ],
-        'normalized' => 'section',
+        'normalized' => 'section'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -573,7 +589,7 @@ $result_trees{'master_menu_fr'} = {
               'text' => 'sec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -581,7 +597,8 @@ $result_trees{'master_menu_fr'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -669,9 +686,11 @@ $result_sectioning{'master_menu_fr'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -682,9 +701,11 @@ $result_sectioning{'master_menu_fr'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -695,9 +716,11 @@ $result_sectioning{'master_menu_fr'} = {
                         'extra' => {
                           'normalized' => 'section'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -733,6 +756,7 @@ $result_nodes{'master_menu_fr'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -742,6 +766,7 @@ $result_nodes{'master_menu_fr'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -749,6 +774,7 @@ $result_nodes{'master_menu_fr'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -760,6 +786,7 @@ $result_nodes{'master_menu_fr'} = {
         ],
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -767,12 +794,14 @@ $result_nodes{'master_menu_fr'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => '1.1'
               }
             },
             'normalized' => 'section'
           },
+          'info' => {},
           'structure' => {
             'node_up' => {}
           }
@@ -794,18 +823,21 @@ $result_menus{'master_menu_fr'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'section'
           },
+          'info' => {},
           'structure' => {
             'menu_up' => {},
             'menu_up_hash' => {

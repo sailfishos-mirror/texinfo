@@ -2397,12 +2397,12 @@ sub _abort_empty_line {
     } elsif ($spaces_element->{'type'} eq 'internal_spaces_after_command'
              or $spaces_element->{'type'} eq 'internal_spaces_before_argument') {
       # Remove element from main tree. It will still be referenced in
-      # the 'extra' hash as 'spaces_before_argument'.
+      # the 'info' hash as 'spaces_before_argument'.
       _pop_element_from_contents($current);
       my $owning_element
         = $spaces_element->{'extra'}->{'spaces_associated_command'};
-      #$owning_element->{'extra'} = {} if (! $owning_element->{'extra'});
-      $owning_element->{'extra'}->{'spaces_before_argument'}
+      #$owning_element->{'info'} = {} if (! $owning_element->{'info'});
+      $owning_element->{'info'}->{'spaces_before_argument'}
         = $spaces_element->{'text'};
     }
 
@@ -2458,14 +2458,14 @@ sub _isolate_last_space
     _isolate_trailing_space($current, 'space_at_end_menu_node');
   } else {
     # Store final spaces in 'spaces_after_argument'.
-    #$current->{'extra'} = {} if (!$current->{'extra'});
+    #$current->{'info'} = {} if (!$current->{'info'});
     if ($current->{'contents'}->[-1]->{'text'} !~ /\S/) {
-      $current->{'extra'}->{'spaces_after_argument'}
+      $current->{'info'}->{'spaces_after_argument'}
                  = $current->{'contents'}->[-1]->{'text'};
       _pop_element_from_contents($current);
     } else {
       $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
-      $current->{'extra'}->{'spaces_after_argument'} = $1;
+      $current->{'info'}->{'spaces_after_argument'} = $1;
     }
   }
 }
@@ -3200,6 +3200,9 @@ sub _end_line($$$)
               $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
               $current->{'cmdname'});
           delete $current->{'extra'}->{'command_as_argument'};
+          if (scalar(keys(%{$current->{'extra'}})) == 0) {
+            delete $current->{'extra'};
+          }
         }
       } elsif ($current->{'cmdname'} eq 'itemize'
                and $current->{'extra'}
@@ -3219,6 +3222,9 @@ sub _end_line($$$)
                 or (defined($arg->{'text'}) and $arg->{'text'} !~ /\S/))) {
             delete $current->{'extra'}->{'command_as_argument'}->{'type'};
             delete $current->{'extra'}->{'command_as_argument'};
+            if (scalar(keys(%{$current->{'extra'}})) == 0) {
+              delete $current->{'extra'};
+            }
             last;
           }
         }
@@ -3236,6 +3242,9 @@ sub _end_line($$$)
               $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
               $current->{'cmdname'});
         delete $current->{'extra'}->{'command_as_argument'};
+        if (scalar(keys(%{$current->{'extra'}})) == 0) {
+          delete $current->{'extra'};
+        }
       }
       if ($current->{'cmdname'} eq 'itemize') {
         if ((!$current->{'args'}
@@ -3594,7 +3603,8 @@ sub _end_line($$$)
         $self->_pop_context(['ct_line'], $source_info, $current, 'for multitable');
         $current = $current->{'parent'};
         $current->{'extra'}->{'max_columns'} = 0;
-        if (defined($misc_cmd->{'extra'}->{'misc_args'})) {
+        if ($misc_cmd->{'extra'}
+            and defined($misc_cmd->{'extra'}->{'misc_args'})) {
           $current->{'extra'}->{'max_columns'}
               = scalar(@{$misc_cmd->{'extra'}->{'misc_args'}});
           $current->{'extra'}->{'columnfractions'} = $misc_cmd;
@@ -4816,11 +4826,11 @@ sub _process_remaining_on_line($$$$)
           $misc = {'cmdname' => $command,
                    'parent' => $current,
                    'source_info' => $source_info,
-                   'extra' => {'misc_args' => [$arg],
-                               'spaces_before_argument' => ' '}};
+                   'extra' => {'misc_args' => [$arg],},
+                   'info' => {'spaces_before_argument' => ' '}};
           my $misc_line_args = {'type' => 'line_arg',
                  'parent' => $misc,
-                 'extra' => {'spaces_after_argument' => "\n"}};
+                 'info' => {'spaces_after_argument' => "\n"}};
           $misc->{'args'} = [$misc_line_args];
           $misc_line_args->{'contents'} = [
             { 'text' => $arg,
@@ -5297,7 +5307,7 @@ sub _process_remaining_on_line($$$$)
           $line =~ s/([^\S\f\n]*)//;
           $current->{'type'} = 'brace_command_context';
           # internal_spaces_before_argument is a transient internal type,
-          # which should end up in extra spaces_before_argument.
+          # which should end up in info spaces_before_argument.
           push @{$current->{'contents'}}, {
             'type' => 'internal_spaces_before_argument',
             'text' => $1,
@@ -5311,7 +5321,7 @@ sub _process_remaining_on_line($$$$)
               and ($brace_commands{$command} eq 'arguments'
                    or $brace_commands{$command} eq 'inline')) {
             # internal_spaces_before_argument is a transient internal type,
-            # which should end up in extra spaces_before_argument.
+            # which should end up in info spaces_before_argument.
             push @{$current->{'contents'}}, {
                         'type' => 'internal_spaces_before_argument',
                         'text' => '',
@@ -5340,7 +5350,7 @@ sub _process_remaining_on_line($$$$)
           if ($current->{'parent'}->{'parent'}->{'type'}
               and $current->{'parent'}->{'parent'}->{'type'} eq 'def_line');
         # internal_spaces_before_argument is a transient internal type,
-        # which should end up in extra spaces_before_argument.
+        # which should end up in info spaces_before_argument.
         push @{$current->{'contents'}},
             {'type' => 'internal_spaces_before_argument',
              'text' => '',
@@ -5728,7 +5738,7 @@ sub _process_remaining_on_line($$$$)
            { 'type' => $type, 'parent' => $current, 'contents' => [] };
       $current = $current->{'args'}->[-1];
       # internal_spaces_before_argument is a transient internal type,
-      # which should end up in extra spaces_before_argument.
+      # which should end up in info spaces_before_argument.
       push @{$current->{'contents'}},
              {'type' => 'internal_spaces_before_argument',
               'text' => '',
@@ -7348,6 +7358,25 @@ C<@value> tree element argument string is in I<flag>.  Only for a C<@value>
 command that is not expanded because there is no corresponding value set, as
 only those are present in the tree.
 
+=item spaces_after_argument
+
+A reference to spaces after @-command arguments before a comma, a closing
+brace or at end of line, for some @-commands and bracketed content type
+with opening brace, and line commands and block command lines taking Texinfo
+as argument and comma delimited arguments.  Depending on the @-command,
+the I<spaces_after_argument> is associated with the @-command element, or
+with each argument element.
+
+=item spaces_before_argument
+
+A reference to spaces following the opening brace of some @-commands with braces
+and bracketed content type, spaces following @-commands for line commands and
+block command taking Texinfo as argument, and spaces following comma delimited
+arguments.  For context brace commands, line commands and block commands,
+I<spaces_before_argument> is associated with the @-command element, for other
+brace commands and for spaces after comma, it is associated with each argument
+element.
+
 =back
 
 =head2 Information available in the C<extra> key
@@ -7390,25 +7419,6 @@ For accent commands with spaces following the @-command, like:
 
 there is a I<spaces> key which holds the spaces appearing after
 the command.
-
-=item spaces_after_argument
-
-A reference to spaces after @-command arguments before a comma, a closing
-brace or at end of line, for some @-commands and bracketed content type
-with opening brace, and line commands and block command lines taking Texinfo
-as argument and comma delimited arguments.  Depending on the @-command,
-the I<spaces_after_argument> is associated with the @-command element, or
-with each argument element.
-
-=item spaces_before_argument
-
-A reference to spaces following the opening brace of some @-commands with braces
-and bracketed content type, spaces following @-commands for line commands and
-block command taking Texinfo as argument, and spaces following comma delimited
-arguments.  For context brace commands, line commands and block commands,
-I<spaces_before_argument> is associated with the @-command element, for other
-brace commands and for spaces after comma, it is associated with each argument
-element.
 
 =item text_arg
 

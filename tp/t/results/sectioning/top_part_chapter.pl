@@ -19,7 +19,7 @@ $result_trees{'top_part_chapter'} = [
                 'text' => 'top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -34,7 +34,8 @@ $result_trees{'top_part_chapter'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -59,7 +60,7 @@ $result_trees{'top_part_chapter'} = [
                 'text' => 'part'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -74,7 +75,8 @@ $result_trees{'top_part_chapter'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -91,7 +93,7 @@ $result_trees{'top_part_chapter'} = [
                 'text' => 'chapter'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => ' 
 '
             },
@@ -100,7 +102,9 @@ $result_trees{'top_part_chapter'} = [
         ],
         'cmdname' => 'chapter',
         'extra' => {
-          'associated_part' => {},
+          'associated_part' => {}
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -144,6 +148,7 @@ $result_sectioning{'top_part_chapter'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -161,6 +166,7 @@ $result_sectioning{'top_part_chapter'} = {
                           'extra' => {
                             'part_associated_section' => {}
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_childs' => [
@@ -172,6 +178,7 @@ $result_sectioning{'top_part_chapter'} = {
                           }
                         }
                       },
+                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_level' => 1,
@@ -242,6 +249,7 @@ $result_elements{'top_part_chapter'} = [
       'unit_command' => {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -257,11 +265,13 @@ $result_elements{'top_part_chapter'} = [
                 'associated_part' => {
                   'cmdname' => 'part',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {
                     'associated_unit' => {}
                   }
                 }
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_number' => 1

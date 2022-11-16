@@ -19,7 +19,7 @@ $result_trees{'redirection_same_labels'} = [
                 'text' => 'Top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -39,7 +39,9 @@ $result_trees{'redirection_same_labels'} = [
               'normalized' => 'Top'
             }
           ],
-          'normalized' => 'Top',
+          'normalized' => 'Top'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -56,7 +58,7 @@ $result_trees{'redirection_same_labels'} = [
                 'text' => 'the top'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -73,7 +75,7 @@ $result_trees{'redirection_same_labels'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -246,7 +248,7 @@ $result_trees{'redirection_same_labels'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -255,8 +257,10 @@ $result_trees{'redirection_same_labels'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -277,7 +281,8 @@ $result_trees{'redirection_same_labels'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -302,7 +307,7 @@ $result_trees{'redirection_same_labels'} = [
                 'text' => 'umlaut'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -322,7 +327,9 @@ $result_trees{'redirection_same_labels'} = [
               'normalized' => 'umlaut'
             }
           ],
-          'normalized' => 'umlaut',
+          'normalized' => 'umlaut'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -339,7 +346,7 @@ $result_trees{'redirection_same_labels'} = [
                 'text' => 'umlaut'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -356,7 +363,7 @@ $result_trees{'redirection_same_labels'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -516,7 +523,7 @@ $result_trees{'redirection_same_labels'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -525,8 +532,10 @@ $result_trees{'redirection_same_labels'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -547,7 +556,8 @@ $result_trees{'redirection_same_labels'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -579,7 +589,7 @@ $result_trees{'redirection_same_labels'} = [
                 }
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -606,7 +616,9 @@ $result_trees{'redirection_same_labels'} = [
               'normalized' => '_00ef'
             }
           ],
-          'normalized' => '_00ef',
+          'normalized' => '_00ef'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -653,7 +665,7 @@ $result_trees{'redirection_same_labels'} = [
                 }
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -680,7 +692,9 @@ $result_trees{'redirection_same_labels'} = [
               'normalized' => '_0129'
             }
           ],
-          'normalized' => '_0129',
+          'normalized' => '_0129'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -705,7 +719,7 @@ $result_trees{'redirection_same_labels'} = [
                 'text' => 'circumflex'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -725,7 +739,9 @@ $result_trees{'redirection_same_labels'} = [
               'normalized' => 'circumflex'
             }
           ],
-          'normalized' => 'circumflex',
+          'normalized' => 'circumflex'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -742,7 +758,7 @@ $result_trees{'redirection_same_labels'} = [
                 'text' => 'circumflex'
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -759,7 +775,7 @@ $result_trees{'redirection_same_labels'} = [
           {
             'args' => [
               {
-                'extra' => {
+                'info' => {
                   'spaces_after_argument' => '
 '
                 },
@@ -840,7 +856,7 @@ $result_trees{'redirection_same_labels'} = [
                         'text' => 'menu'
                       }
                     ],
-                    'extra' => {
+                    'info' => {
                       'spaces_after_argument' => '
 '
                     },
@@ -849,8 +865,10 @@ $result_trees{'redirection_same_labels'} = [
                 ],
                 'cmdname' => 'end',
                 'extra' => {
-                  'spaces_before_argument' => ' ',
                   'text_arg' => 'menu'
+                },
+                'info' => {
+                  'spaces_before_argument' => ' '
                 },
                 'source_info' => {
                   'file_name' => '',
@@ -871,7 +889,8 @@ $result_trees{'redirection_same_labels'} = [
             'type' => 'empty_line'
           }
         ],
-        'extra' => {
+        'extra' => {},
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -903,7 +922,7 @@ $result_trees{'redirection_same_labels'} = [
                 }
               }
             ],
-            'extra' => {
+            'info' => {
               'spaces_after_argument' => '
 '
             },
@@ -923,7 +942,9 @@ $result_trees{'redirection_same_labels'} = [
               'normalized' => '_00ee'
             }
           ],
-          'normalized' => '_00ee',
+          'normalized' => '_00ee'
+        },
+        'info' => {
           'spaces_before_argument' => ' '
         },
         'source_info' => {
@@ -1031,6 +1052,7 @@ $result_sectioning{'redirection_same_labels'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {
               'associated_unit' => {
                 'extra' => {
@@ -1048,11 +1070,13 @@ $result_sectioning{'redirection_same_labels'} = {
                               'extra' => {
                                 'normalized' => 'umlaut'
                               },
+                              'info' => {},
                               'structure' => {
                                 'associated_unit' => {}
                               }
                             }
                           },
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_level' => 1,
@@ -1077,11 +1101,13 @@ $result_sectioning{'redirection_same_labels'} = {
                                     'extra' => {
                                       'normalized' => 'circumflex'
                                     },
+                                    'info' => {},
                                     'structure' => {
                                       'associated_unit' => {}
                                     }
                                   }
                                 },
+                                'info' => {},
                                 'structure' => {
                                   'associated_unit' => {},
                                   'section_level' => 1,
@@ -1136,6 +1162,7 @@ $result_sectioning{'redirection_same_labels'} = {
             }
           }
         },
+        'info' => {},
         'structure' => {
           'associated_unit' => {},
           'section_childs' => [
@@ -1201,6 +1228,7 @@ $result_nodes{'redirection_same_labels'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -1213,6 +1241,7 @@ $result_nodes{'redirection_same_labels'} = {
                   'unit_command' => {
                     'cmdname' => 'chapter',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => 1
@@ -1228,6 +1257,7 @@ $result_nodes{'redirection_same_labels'} = {
                         'unit_command' => {
                           'cmdname' => 'chapter',
                           'extra' => {},
+                          'info' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'section_number' => 2
@@ -1283,6 +1313,7 @@ $result_nodes{'redirection_same_labels'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {
@@ -1296,6 +1327,7 @@ $result_nodes{'redirection_same_labels'} = {
         ],
         'normalized' => 'umlaut'
       },
+      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_child' => {
@@ -1303,6 +1335,7 @@ $result_nodes{'redirection_same_labels'} = {
           'extra' => {
             'normalized' => '_00ef'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'node_next' => {
@@ -1310,6 +1343,7 @@ $result_nodes{'redirection_same_labels'} = {
               'extra' => {
                 'normalized' => '_0129'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'node_prev' => {},
@@ -1330,6 +1364,7 @@ $result_nodes{'redirection_same_labels'} = {
             ],
             'normalized' => 'circumflex'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_child' => {
@@ -1337,6 +1372,7 @@ $result_nodes{'redirection_same_labels'} = {
               'extra' => {
                 'normalized' => '_00ee'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'node_up' => {}
@@ -1407,12 +1443,14 @@ $result_menus{'redirection_same_labels'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'associated_unit' => {
       'extra' => {
         'unit_command' => {
           'cmdname' => 'top',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'associated_unit' => {}
           }
@@ -1425,6 +1463,7 @@ $result_menus{'redirection_same_labels'} = {
               'unit_command' => {
                 'cmdname' => 'chapter',
                 'extra' => {},
+                'info' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'section_number' => 1
@@ -1440,6 +1479,7 @@ $result_menus{'redirection_same_labels'} = {
                     'unit_command' => {
                       'cmdname' => 'chapter',
                       'extra' => {},
+                      'info' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'section_number' => 2
@@ -1491,6 +1531,7 @@ $result_menus{'redirection_same_labels'} = {
       'extra' => {
         'normalized' => 'umlaut'
       },
+      'info' => {},
       'structure' => {
         'associated_unit' => {},
         'menu_child' => {
@@ -1498,6 +1539,7 @@ $result_menus{'redirection_same_labels'} = {
           'extra' => {
             'normalized' => '_00ef'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_next' => {
@@ -1505,6 +1547,7 @@ $result_menus{'redirection_same_labels'} = {
               'extra' => {
                 'normalized' => '_0129'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'menu_prev' => {},
@@ -1525,6 +1568,7 @@ $result_menus{'redirection_same_labels'} = {
           'extra' => {
             'normalized' => 'circumflex'
           },
+          'info' => {},
           'structure' => {
             'associated_unit' => {},
             'menu_child' => {
@@ -1532,6 +1576,7 @@ $result_menus{'redirection_same_labels'} = {
               'extra' => {
                 'normalized' => '_00ee'
               },
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'menu_up' => {},
@@ -1611,6 +1656,7 @@ $result_elements{'redirection_same_labels'} = [
       'unit_command' => {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'associated_unit' => {}
         }
@@ -1623,6 +1669,7 @@ $result_elements{'redirection_same_labels'} = [
             'unit_command' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'associated_unit' => {},
                 'section_number' => 1
@@ -1638,6 +1685,7 @@ $result_elements{'redirection_same_labels'} = [
                   'unit_command' => {
                     'cmdname' => 'chapter',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'section_number' => 2

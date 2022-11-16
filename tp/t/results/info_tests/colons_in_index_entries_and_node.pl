@@ -18,7 +18,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -35,7 +35,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -191,7 +191,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -200,8 +200,10 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -234,7 +236,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -288,7 +292,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'text' => ' with entries.'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -310,7 +314,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                   'text' => ':'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -330,7 +334,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -348,7 +354,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                   'text' => ':a'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -368,7 +374,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -386,7 +394,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                   'text' => 'b:c'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -406,7 +414,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -424,7 +434,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -450,7 +460,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -459,8 +469,10 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -488,7 +500,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                   'text' => 'd::e'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -508,7 +520,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -526,7 +540,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                   'text' => 'f :d'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -546,7 +560,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -564,7 +580,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                   'text' => 'g: h'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -584,7 +600,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -634,7 +652,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
             'normalized' => 'One_003a_003anode_002c-with-entries_002e'
           }
         ],
-        'normalized' => 'One_003a_003anode_002c-with-entries_002e',
+        'normalized' => 'One_003a_003anode_002c-with-entries_002e'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -651,7 +671,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
               'text' => 'Concept Index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -673,7 +693,7 @@ $result_trees{'colons_in_index_entries_and_node'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -684,7 +704,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -712,7 +734,9 @@ $result_trees{'colons_in_index_entries_and_node'} = {
             'normalized' => 'Concept-Index'
           }
         ],
-        'normalized' => 'Concept-Index',
+        'normalized' => 'Concept-Index'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -826,12 +850,14 @@ $result_nodes{'colons_in_index_entries_and_node'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'One_003a_003anode_002c-with-entries_002e'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -839,6 +865,7 @@ $result_nodes{'colons_in_index_entries_and_node'} = {
             'isindex' => 1,
             'normalized' => 'Concept-Index'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -862,12 +889,14 @@ $result_menus{'colons_in_index_entries_and_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'One_003a_003anode_002c-with-entries_002e'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
@@ -875,6 +904,7 @@ $result_menus{'colons_in_index_entries_and_node'} = {
             'isindex' => 1,
             'normalized' => 'Concept-Index'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

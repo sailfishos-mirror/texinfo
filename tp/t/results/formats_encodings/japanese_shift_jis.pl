@@ -29,7 +29,7 @@ $result_trees{'japanese_shift_jis'} = {
                       'text' => 'shift_jis'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -40,8 +40,10 @@ $result_trees{'japanese_shift_jis'} = {
               'extra' => {
                 'input_encoding_name' => 'shift_jis',
                 'input_perl_encoding' => 'shiftjis',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'shift_jis'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -62,7 +64,7 @@ $result_trees{'japanese_shift_jis'} = {
                       'text' => 'japanese_shift_jis.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -71,8 +73,10 @@ $result_trees{'japanese_shift_jis'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'japanese_shift_jis.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -88,7 +92,7 @@ $result_trees{'japanese_shift_jis'} = {
                       'text' => 'GNU LilyPond -- Manuel d\'initiation japanese'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -96,7 +100,8 @@ $result_trees{'japanese_shift_jis'} = {
                 }
               ],
               'cmdname' => 'settitle',
-              'extra' => {
+              'extra' => {},
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -118,7 +123,7 @@ $result_trees{'japanese_shift_jis'} = {
                       'text' => 'ja'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -127,8 +132,10 @@ $result_trees{'japanese_shift_jis'} = {
               ],
               'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ja'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -155,7 +162,7 @@ $result_trees{'japanese_shift_jis'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -175,7 +182,9 @@ $result_trees{'japanese_shift_jis'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -192,7 +201,7 @@ $result_trees{'japanese_shift_jis'} = {
               'text' => "GNU LilyPond --- \x{5b66}\x{7fd2}\x{30de}\x{30cb}\x{30e5}\x{30a2}\x{30eb}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -209,7 +218,7 @@ $result_trees{'japanese_shift_jis'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -327,7 +336,7 @@ $result_trees{'japanese_shift_jis'} = {
                       'text' => 'copying'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -336,8 +345,10 @@ $result_trees{'japanese_shift_jis'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'copying'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -379,7 +390,7 @@ $result_trees{'japanese_shift_jis'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -494,7 +505,7 @@ $result_trees{'japanese_shift_jis'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -503,8 +514,10 @@ $result_trees{'japanese_shift_jis'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'japanese_shift_jis.texi',
@@ -525,7 +538,8 @@ $result_trees{'japanese_shift_jis'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -542,7 +556,7 @@ $result_trees{'japanese_shift_jis'} = {
               'text' => 'Preface'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -562,7 +576,9 @@ $result_trees{'japanese_shift_jis'} = {
             'normalized' => 'Preface'
           }
         ],
-        'normalized' => 'Preface',
+        'normalized' => 'Preface'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -579,7 +595,7 @@ $result_trees{'japanese_shift_jis'} = {
               'text' => 'Preface'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -613,7 +629,8 @@ $result_trees{'japanese_shift_jis'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -630,7 +647,7 @@ $result_trees{'japanese_shift_jis'} = {
               'text' => 'Introduction'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -650,7 +667,9 @@ $result_trees{'japanese_shift_jis'} = {
             'normalized' => 'Introduction'
           }
         ],
-        'normalized' => 'Introduction',
+        'normalized' => 'Introduction'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -667,7 +686,7 @@ $result_trees{'japanese_shift_jis'} = {
               'text' => 'Introduction'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -696,7 +715,8 @@ $result_trees{'japanese_shift_jis'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -809,9 +829,11 @@ $result_sectioning{'japanese_shift_jis'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -822,9 +844,11 @@ $result_sectioning{'japanese_shift_jis'} = {
                   'extra' => {
                     'normalized' => 'Preface'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -841,9 +865,11 @@ $result_sectioning{'japanese_shift_jis'} = {
                   'extra' => {
                     'normalized' => 'Introduction'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -877,6 +903,7 @@ $result_nodes{'japanese_shift_jis'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -886,6 +913,7 @@ $result_nodes{'japanese_shift_jis'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -893,12 +921,14 @@ $result_nodes{'japanese_shift_jis'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Preface'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -906,12 +936,14 @@ $result_nodes{'japanese_shift_jis'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Introduction'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -935,18 +967,21 @@ $result_menus{'japanese_shift_jis'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Preface'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Introduction'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

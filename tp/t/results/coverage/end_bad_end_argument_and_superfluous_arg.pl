@@ -12,7 +12,7 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -53,7 +53,7 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -62,8 +62,10 @@ $result_trees{'end_bad_end_argument_and_superfluous_arg'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => ': '
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',

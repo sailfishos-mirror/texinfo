@@ -26,7 +26,7 @@ $result_trees{'setfilename_in_paragraph'} = {
                   'text' => 'filename.info'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -35,8 +35,10 @@ $result_trees{'setfilename_in_paragraph'} = {
           ],
           'cmdname' => 'setfilename',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'filename.info'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

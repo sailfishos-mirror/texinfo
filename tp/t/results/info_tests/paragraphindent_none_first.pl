@@ -58,7 +58,7 @@ $result_trees{'paragraphindent_none_first'} = {
                   'text' => 'none'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -69,7 +69,9 @@ $result_trees{'paragraphindent_none_first'} = {
           'extra' => {
             'misc_args' => [
               'none'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

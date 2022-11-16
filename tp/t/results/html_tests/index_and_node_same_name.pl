@@ -18,7 +18,7 @@ $result_trees{'index_and_node_same_name'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -26,7 +26,8 @@ $result_trees{'index_and_node_same_name'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -43,7 +44,7 @@ $result_trees{'index_and_node_same_name'} = {
               'text' => 'index node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -65,7 +66,7 @@ $result_trees{'index_and_node_same_name'} = {
                   'text' => 'node'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -85,7 +86,9 @@ $result_trees{'index_and_node_same_name'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -103,7 +106,7 @@ $result_trees{'index_and_node_same_name'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -114,7 +117,9 @@ $result_trees{'index_and_node_same_name'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -142,7 +147,9 @@ $result_trees{'index_and_node_same_name'} = {
             'normalized' => 'index-node'
           }
         ],
-        'normalized' => 'index-node',
+        'normalized' => 'index-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -182,6 +189,7 @@ $result_sectioning{'index_and_node_same_name'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -198,7 +206,8 @@ $result_nodes{'index_and_node_same_name'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'index-node'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'index_and_node_same_name'} = {
@@ -206,7 +215,8 @@ $result_menus{'index_and_node_same_name'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'index-node'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'index_and_node_same_name'} = [];

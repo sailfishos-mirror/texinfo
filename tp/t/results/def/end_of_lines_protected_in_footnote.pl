@@ -242,7 +242,7 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                                   'text' => 'deffn'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -251,8 +251,10 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'deffn'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -261,7 +263,7 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -275,7 +277,7 @@ $result_trees{'end_of_lines_protected_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },

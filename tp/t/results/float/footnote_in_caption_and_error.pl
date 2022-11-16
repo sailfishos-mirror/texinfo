@@ -24,7 +24,7 @@ $result_trees{'footnote_in_caption_and_error'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -46,7 +46,7 @@ $result_trees{'footnote_in_caption_and_error'} = {
                   'text' => 'fl'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -55,13 +55,15 @@ $result_trees{'footnote_in_caption_and_error'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'fl'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -90,7 +92,7 @@ $result_trees{'footnote_in_caption_and_error'} = {
                   'text' => 'label'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -178,7 +180,7 @@ $result_trees{'footnote_in_caption_and_error'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -187,8 +189,10 @@ $result_trees{'footnote_in_caption_and_error'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -203,13 +207,15 @@ $result_trees{'footnote_in_caption_and_error'} = {
               {}
             ],
             'normalized' => 'label',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'fl'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -230,7 +236,9 @@ $result_trees{'footnote_in_caption_and_error'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -272,14 +280,16 @@ $result_nodes{'footnote_in_caption_and_error'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'footnote_in_caption_and_error'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'footnote_in_caption_and_error'} = [
@@ -316,6 +326,7 @@ $result_floats{'footnote_in_caption_and_error'} = {
           'normalized' => 'fl'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }

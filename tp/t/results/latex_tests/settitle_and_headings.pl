@@ -25,7 +25,7 @@ $result_trees{'settitle_and_headings'} = {
                       'text' => ' for a manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -33,7 +33,7 @@ $result_trees{'settitle_and_headings'} = {
                 }
               ],
               'cmdname' => 'settitle',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -55,7 +55,7 @@ $result_trees{'settitle_and_headings'} = {
                       'text' => 'double'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -66,7 +66,9 @@ $result_trees{'settitle_and_headings'} = {
               'extra' => {
                 'misc_args' => [
                   'double'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -94,7 +96,7 @@ $result_trees{'settitle_and_headings'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -162,7 +164,8 @@ $result_trees{'settitle_and_headings'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -211,6 +214,7 @@ $result_sectioning{'settitle_and_headings'} = {
       {
         'cmdname' => 'chapter',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,

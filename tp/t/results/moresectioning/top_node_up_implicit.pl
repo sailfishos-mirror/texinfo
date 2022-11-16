@@ -34,7 +34,7 @@ $result_trees{'top_node_up_implicit'} = {
                       'text' => 'top_node_up_implicit'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'top_node_up_implicit'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'top_node_up_implicit'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'top_node_up_implicit.texi',
@@ -92,7 +94,7 @@ $result_trees{'top_node_up_implicit'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -112,7 +114,9 @@ $result_trees{'top_node_up_implicit'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -129,7 +133,7 @@ $result_trees{'top_node_up_implicit'} = {
               'text' => 'The top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -160,7 +164,7 @@ $result_trees{'top_node_up_implicit'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -226,7 +230,7 @@ $result_trees{'top_node_up_implicit'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -235,8 +239,10 @@ $result_trees{'top_node_up_implicit'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'top_node_up_implicit.texi',
@@ -257,7 +263,8 @@ $result_trees{'top_node_up_implicit'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -274,7 +281,7 @@ $result_trees{'top_node_up_implicit'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -294,7 +301,9 @@ $result_trees{'top_node_up_implicit'} = {
             'normalized' => 'Chap'
           }
         ],
-        'normalized' => 'Chap',
+        'normalized' => 'Chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -311,7 +320,7 @@ $result_trees{'top_node_up_implicit'} = {
               'text' => 'A chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -340,7 +349,8 @@ $result_trees{'top_node_up_implicit'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -419,9 +429,11 @@ $result_sectioning{'top_node_up_implicit'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -432,9 +444,11 @@ $result_sectioning{'top_node_up_implicit'} = {
                   'extra' => {
                     'normalized' => 'Chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -463,6 +477,7 @@ $result_nodes{'top_node_up_implicit'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -472,6 +487,7 @@ $result_nodes{'top_node_up_implicit'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -479,12 +495,14 @@ $result_nodes{'top_node_up_implicit'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -502,12 +520,14 @@ $result_menus{'top_node_up_implicit'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Chap'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

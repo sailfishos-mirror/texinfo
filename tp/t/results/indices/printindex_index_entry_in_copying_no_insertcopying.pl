@@ -14,7 +14,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -36,7 +36,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'text' => 'Copying this document'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -56,7 +56,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'index_ignore_chars' => {},
                       'index_name' => 'fn',
                       'index_type_command' => 'findex'
-                    },
+                    }
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -234,7 +236,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'index_name' => 'fn',
                           'index_type_command' => 'defun'
                         },
-                        'original_def_cmdname' => 'defunx',
+                        'original_def_cmdname' => 'defunx'
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -266,7 +270,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'text' => 'defun'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -275,8 +279,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'defun'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -285,7 +291,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -313,7 +319,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'type' => 'command_as_argument'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -334,7 +340,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                       'text' => 'ftable item'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -354,7 +360,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                   'index_ignore_chars' => {},
                                   'index_name' => 'fn',
                                   'index_type_command' => 'ftable'
-                                },
+                                }
+                              },
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -371,7 +379,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                       'text' => 'xftable xitem'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -391,7 +399,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                                   'index_ignore_chars' => {},
                                   'index_name' => 'fn',
                                   'index_type_command' => 'ftable'
-                                },
+                                }
+                              },
+                              'info' => {
                                 'spaces_before_argument' => ' '
                               },
                               'source_info' => {
@@ -414,7 +424,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'text' => 'ftable'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -423,8 +433,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'ftable'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -434,7 +446,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     }
                   ],
                   'extra' => {
-                    'command_as_argument' => {},
+                    'command_as_argument' => {}
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -456,7 +470,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'text' => 'fn'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -467,7 +481,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'extra' => {
                     'misc_args' => [
                       'fn'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -489,7 +505,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -498,8 +514,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -533,7 +551,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -553,7 +571,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -570,7 +590,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -601,7 +621,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -667,7 +687,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -676,8 +696,10 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -698,7 +720,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -715,7 +738,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -736,7 +759,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -753,7 +778,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -780,7 +805,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'text' => 'fn'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -791,7 +816,9 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
           'extra' => {
             'misc_args' => [
               'fn'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -806,7 +833,8 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -912,9 +940,11 @@ $result_sectioning{'printindex_index_entry_in_copying_no_insertcopying'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -926,9 +956,11 @@ $result_sectioning{'printindex_index_entry_in_copying_no_insertcopying'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -957,6 +989,7 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -966,6 +999,7 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -973,6 +1007,7 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -980,6 +1015,7 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'isindex' => 1,
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -997,6 +1033,7 @@ $result_menus{'printindex_index_entry_in_copying_no_insertcopying'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1004,6 +1041,7 @@ $result_menus{'printindex_index_entry_in_copying_no_insertcopying'} = {
         'isindex' => 1,
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

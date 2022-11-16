@@ -34,7 +34,7 @@ $result_trees{'double_index_entry'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -56,7 +56,7 @@ $result_trees{'double_index_entry'} = {
                   'text' => 'aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -76,7 +76,9 @@ $result_trees{'double_index_entry'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -113,7 +115,7 @@ $result_trees{'double_index_entry'} = {
                   'text' => 'aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -133,7 +135,9 @@ $result_trees{'double_index_entry'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -151,7 +155,7 @@ $result_trees{'double_index_entry'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -217,7 +221,7 @@ $result_trees{'double_index_entry'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -226,8 +230,10 @@ $result_trees{'double_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'double_index_entry.texi',
@@ -260,7 +266,9 @@ $result_trees{'double_index_entry'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -291,7 +299,7 @@ $result_trees{'double_index_entry'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -313,7 +321,7 @@ $result_trees{'double_index_entry'} = {
                   'text' => 'aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -333,7 +341,9 @@ $result_trees{'double_index_entry'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -356,7 +366,7 @@ $result_trees{'double_index_entry'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -367,7 +377,9 @@ $result_trees{'double_index_entry'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -403,7 +415,9 @@ $result_trees{'double_index_entry'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'other-node',
+        'normalized' => 'other-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -479,6 +493,7 @@ $result_nodes{'double_index_entry'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -486,6 +501,7 @@ $result_nodes{'double_index_entry'} = {
         'isindex' => 1,
         'normalized' => 'other-node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -503,6 +519,7 @@ $result_menus{'double_index_entry'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -510,6 +527,7 @@ $result_menus{'double_index_entry'} = {
         'isindex' => 1,
         'normalized' => 'other-node'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

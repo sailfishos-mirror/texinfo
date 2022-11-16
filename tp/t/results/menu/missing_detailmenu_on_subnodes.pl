@@ -18,7 +18,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -72,7 +74,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -373,7 +375,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -382,8 +384,10 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -404,7 +408,8 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -421,7 +426,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -441,7 +446,9 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -458,7 +465,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -475,7 +482,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -541,7 +548,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -550,8 +557,10 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -572,7 +581,8 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -589,7 +599,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -609,7 +619,9 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
             'normalized' => 'section'
           }
         ],
-        'normalized' => 'section',
+        'normalized' => 'section'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -626,7 +638,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -641,7 +653,8 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -658,7 +671,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'chapter 2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -678,7 +691,9 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
             'normalized' => 'chapter-2'
           }
         ],
-        'normalized' => 'chapter-2',
+        'normalized' => 'chapter-2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -695,7 +710,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'chapter 2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -712,7 +727,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -827,7 +842,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -836,8 +851,10 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -858,7 +875,8 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -875,7 +893,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'section chap 2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -895,7 +913,9 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
             'normalized' => 'section-chap-2'
           }
         ],
-        'normalized' => 'section-chap-2',
+        'normalized' => 'section-chap-2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -912,7 +932,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'section chap 2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -927,7 +947,8 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -944,7 +965,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'unnumberedsec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -964,7 +985,9 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
             'normalized' => 'unnumberedsec'
           }
         ],
-        'normalized' => 'unnumberedsec',
+        'normalized' => 'unnumberedsec'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -981,7 +1004,7 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
               'text' => 'unnumberedsec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -989,7 +1012,8 @@ $result_trees{'missing_detailmenu_on_subnodes'} = {
         }
       ],
       'cmdname' => 'unnumberedsec',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1116,9 +1140,11 @@ $result_sectioning{'missing_detailmenu_on_subnodes'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1129,9 +1155,11 @@ $result_sectioning{'missing_detailmenu_on_subnodes'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -1142,9 +1170,11 @@ $result_sectioning{'missing_detailmenu_on_subnodes'} = {
                         'extra' => {
                           'normalized' => 'section'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '1.1',
@@ -1167,9 +1197,11 @@ $result_sectioning{'missing_detailmenu_on_subnodes'} = {
                   'extra' => {
                     'normalized' => 'chapter-2'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
@@ -1180,9 +1212,11 @@ $result_sectioning{'missing_detailmenu_on_subnodes'} = {
                         'extra' => {
                           'normalized' => 'section-chap-2'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.1',
@@ -1197,9 +1231,11 @@ $result_sectioning{'missing_detailmenu_on_subnodes'} = {
                         'extra' => {
                           'normalized' => 'unnumberedsec'
                         },
+                        'info' => {},
                         'structure' => {}
                       }
                     },
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_prev' => {},
@@ -1243,6 +1279,7 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1252,6 +1289,7 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1259,6 +1297,7 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1270,6 +1309,7 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
         ],
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1277,12 +1317,14 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => '1.1'
               }
             },
             'normalized' => 'section'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -1290,12 +1332,14 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
                 'associated_section' => {
                   'cmdname' => 'section',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {
                     'section_number' => '2.1'
                   }
                 },
                 'normalized' => 'section-chap-2'
               },
+              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
@@ -1303,10 +1347,12 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
                     'associated_section' => {
                       'cmdname' => 'unnumberedsec',
                       'extra' => {},
+                      'info' => {},
                       'structure' => {}
                     },
                     'normalized' => 'unnumberedsec'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_prev' => {},
                     'node_up' => {
@@ -1315,6 +1361,7 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {},
+                          'info' => {},
                           'structure' => {
                             'section_number' => 2
                           }
@@ -1326,6 +1373,7 @@ $result_nodes{'missing_detailmenu_on_subnodes'} = {
                         ],
                         'normalized' => 'chapter-2'
                       },
+                      'info' => {},
                       'structure' => {
                         'menu_child' => {},
                         'node_next' => {},
@@ -1370,30 +1418,35 @@ $result_menus{'missing_detailmenu_on_subnodes'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'section'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'section-chap-2'
               },
+              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'unnumberedsec'
                   },
+                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {
@@ -1401,6 +1454,7 @@ $result_menus{'missing_detailmenu_on_subnodes'} = {
                       'extra' => {
                         'normalized' => 'chapter-2'
                       },
+                      'info' => {},
                       'structure' => {
                         'menu_child' => {},
                         'menu_next' => {},

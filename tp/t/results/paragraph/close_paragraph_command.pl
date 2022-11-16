@@ -66,7 +66,7 @@ $result_trees{'close_paragraph_command'} = {
                   'text' => '4'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -77,7 +77,9 @@ $result_trees{'close_paragraph_command'} = {
           'extra' => {
             'misc_args' => [
               '4'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

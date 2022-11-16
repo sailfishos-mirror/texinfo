@@ -25,7 +25,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'one arg1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => ' 
 '
           },
@@ -45,7 +45,9 @@ $result_trees{'node_line_arguments'} = {
             'normalized' => 'one-arg1'
           }
         ],
-        'normalized' => 'one-arg1',
+        'normalized' => 'one-arg1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -70,7 +72,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'two arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -97,7 +99,9 @@ $result_trees{'node_line_arguments'} = {
             'normalized' => 'two-arg'
           }
         ],
-        'normalized' => 'one-arg2',
+        'normalized' => 'one-arg2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -122,7 +126,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'two arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -133,7 +137,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'three arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -166,7 +170,9 @@ $result_trees{'node_line_arguments'} = {
             'normalized' => 'three-arg'
           }
         ],
-        'normalized' => 'one-arg3',
+        'normalized' => 'one-arg3'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -191,7 +197,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'two arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -202,7 +208,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'three arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -213,7 +219,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'four arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -252,7 +258,9 @@ $result_trees{'node_line_arguments'} = {
             'normalized' => 'four-arg'
           }
         ],
-        'normalized' => 'one-arg4',
+        'normalized' => 'one-arg4'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -277,7 +285,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'two arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -288,7 +296,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'three arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -299,7 +307,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'four arg five arg'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -345,7 +353,9 @@ $result_trees{'node_line_arguments'} = {
             'normalized' => 'four-arg-five-arg'
           }
         ],
-        'normalized' => 'one-arg5',
+        'normalized' => 'one-arg5'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -378,7 +388,9 @@ $result_trees{'node_line_arguments'} = {
 '
                 ]
               }
-            },
+            }
+          },
+          'info' => {
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -404,7 +416,9 @@ $result_trees{'node_line_arguments'} = {
             'normalized' => 'comment'
           }
         ],
-        'normalized' => 'comment',
+        'normalized' => 'comment'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -463,7 +477,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'edilla'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -505,7 +519,9 @@ $result_trees{'node_line_arguments'} = {
 '
                 ]
               }
-            },
+            }
+          },
+          'info' => {
             'spaces_after_argument' => ' ',
             'spaces_before_argument' => ' '
           },
@@ -542,7 +558,9 @@ $result_trees{'node_line_arguments'} = {
             'normalized' => 'comma-in-strong_002c'
           }
         ],
-        'normalized' => 'arg1-_002c-arg2',
+        'normalized' => 'arg1-_002c-arg2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -607,14 +625,16 @@ $result_nodes{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'one-arg1'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'one-arg1'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'node_line_arguments'} = [

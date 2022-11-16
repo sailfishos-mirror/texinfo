@@ -39,7 +39,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
                       'text' => 'equivalent_nodes.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'equivalent_nodes_no_node'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'equivalent_nodes.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
@@ -99,7 +101,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -119,7 +121,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -158,7 +160,9 @@ $result_trees{'equivalent_nodes_no_node'} = {
             ]
           }
         ],
-        'normalized' => 'before-top',
+        'normalized' => 'before-top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -175,7 +179,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -206,7 +210,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -287,7 +291,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -296,8 +300,10 @@ $result_trees{'equivalent_nodes_no_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
@@ -330,7 +336,9 @@ $result_trees{'equivalent_nodes_no_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -347,7 +355,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
               'text' => 'node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -392,7 +400,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -419,7 +427,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -428,8 +436,10 @@ $result_trees{'equivalent_nodes_no_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'equivalent_nodes.texi',
@@ -439,13 +449,15 @@ $result_trees{'equivalent_nodes_no_node'} = {
             }
           ],
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Figure'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => 'equivalent_nodes.texi',
@@ -466,7 +478,7 @@ $result_trees{'equivalent_nodes_no_node'} = {
                   'text' => 'Figure'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -475,13 +487,15 @@ $result_trees{'equivalent_nodes_no_node'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'Figure'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => 'equivalent_nodes.texi',
@@ -628,7 +642,9 @@ $result_trees{'equivalent_nodes_no_node'} = {
             'normalized' => 'node'
           }
         ],
-        'normalized' => 'node',
+        'normalized' => 'node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -725,12 +741,14 @@ $result_nodes{'equivalent_nodes_no_node'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -748,12 +766,14 @@ $result_menus{'equivalent_nodes_no_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {
@@ -836,7 +856,8 @@ $result_floats{'equivalent_nodes_no_node'} = {
           ],
           'normalized' => 'Figure'
         }
-      }
+      },
+      'info' => {}
     }
   ]
 };

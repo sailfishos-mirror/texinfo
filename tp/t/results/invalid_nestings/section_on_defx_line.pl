@@ -117,7 +117,9 @@ $result_trees{'section_on_defx_line'} = {
               'cmdname' => 'deffnx',
               'extra' => {
                 'def_command' => 'deffn',
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -128,7 +130,7 @@ $result_trees{'section_on_defx_line'} = {
               'type' => 'def_line'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -148,7 +150,7 @@ $result_trees{'section_on_defx_line'} = {
               'text' => 's'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -177,7 +179,7 @@ $result_trees{'section_on_defx_line'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -216,7 +218,7 @@ $result_sectioning{'section_on_defx_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

@@ -19,7 +19,7 @@ $result_trees{'accentenc'} = {
                       'text' => 'ISO-8859-1'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -30,8 +30,10 @@ $result_trees{'accentenc'} = {
               'extra' => {
                 'input_encoding_name' => 'iso-8859-1',
                 'input_perl_encoding' => 'iso-8859-1',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ISO-8859-1'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -58,7 +60,7 @@ $result_trees{'accentenc'} = {
               'text' => 'Top node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -78,7 +80,9 @@ $result_trees{'accentenc'} = {
             'normalized' => 'Top-node'
           }
         ],
-        'normalized' => 'Top-node',
+        'normalized' => 'Top-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -95,7 +99,7 @@ $result_trees{'accentenc'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -2118,7 +2122,8 @@ $result_trees{'accentenc'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2305,9 +2310,11 @@ $result_sectioning{'accentenc'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top-node'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -2325,17 +2332,20 @@ $result_nodes{'accentenc'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top-node'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'accentenc'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top-node'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'accentenc'} = [];

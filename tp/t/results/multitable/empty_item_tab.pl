@@ -21,7 +21,7 @@ $result_trees{'empty_item_tab'} = {
                           'text' => '1.0'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -32,7 +32,9 @@ $result_trees{'empty_item_tab'} = {
                   'extra' => {
                     'misc_args' => [
                       '1.0'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -177,7 +179,7 @@ $result_trees{'empty_item_tab'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -186,8 +188,10 @@ $result_trees{'empty_item_tab'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -198,7 +202,9 @@ $result_trees{'empty_item_tab'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 1,
+            'max_columns' => 1
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -224,7 +230,7 @@ $result_trees{'empty_item_tab'} = {
                           'text' => '0.5 0.5'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -236,7 +242,9 @@ $result_trees{'empty_item_tab'} = {
                     'misc_args' => [
                       '0.5',
                       '0.5'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -619,7 +627,7 @@ $result_trees{'empty_item_tab'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -628,8 +636,10 @@ $result_trees{'empty_item_tab'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -640,7 +650,9 @@ $result_trees{'empty_item_tab'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 2,
+            'max_columns' => 2
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

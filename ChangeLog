@@ -1,3 +1,28 @@
+2022-11-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/Texinfo.pm,
+	tp/Texinfo/Convert/TexinfoMarkup.pm,
+	tp/Texinfo/Convert/TextContent.pm, tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/XS/misc.c (xs_abort_empty_line),
+	tp/Texinfo/XS/parsetexi/convert.c (expand_cmd_args_to_texi)
+	(convert_to_texinfo_internal),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command),
+	tp/Texinfo/XS/parsetexi/parser.c (abort_empty_line)
+	(isolate_last_space_internal): move spaces_before_argument and
+	spaces_after_argument from extra to info key element hash.
+
+	* tp/Texinfo/XS/parsetexi/extra.c (lookup_associated_info)
+	(lookup_extra, lookup_info): add lookup_associated_info to lookup in
+	an associated information structure.  Add wrappers for the info and
+	extra structures.
+
+	* tp/Texinfo/Convert/DocBook.pm (_convert): check 'args' and not
+	'extra' to determine if there is a @quotation argument.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line): remove extra element key if
+	empty after removing incorrect command_as_argument.  Avoid
+	autovivification.
+
 2022-11-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,

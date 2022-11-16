@@ -46,7 +46,7 @@ $result_trees{'value_in_misc_commands'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -66,7 +66,9 @@ $result_trees{'value_in_misc_commands'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -83,7 +85,7 @@ $result_trees{'value_in_misc_commands'} = {
               'text' => 'top atext'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -100,7 +102,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'Comment like: atext'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -108,7 +110,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'subheading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -222,7 +224,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => '200mm,150mm'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -230,7 +232,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'pagesizes',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -262,7 +264,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'on line following headings atext'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -270,7 +272,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'headings',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -287,7 +289,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'some text ignored atext'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -295,7 +297,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'oddfooting',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -312,7 +314,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'on line following everyheading atext'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -320,7 +322,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'everyheading',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -368,7 +370,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => '0.1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -379,7 +381,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               '0.1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -492,7 +496,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'phoo,//,\\\\'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -505,7 +509,9 @@ $result_trees{'value_in_misc_commands'} = {
                   'phoo',
                   '//',
                   '\\\\'
-                ],
+                ]
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -588,7 +594,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'phi,:,:'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -601,7 +607,9 @@ $result_trees{'value_in_misc_commands'} = {
               'phi',
               ':',
               ':'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -739,7 +747,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'strong,(strong:,:)'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -752,7 +760,9 @@ $result_trees{'value_in_misc_commands'} = {
               'strong',
               '(strong:',
               ':)'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -864,7 +874,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'code'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -875,7 +885,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'code'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -927,7 +939,7 @@ $result_trees{'value_in_misc_commands'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -974,7 +986,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -983,8 +995,10 @@ $result_trees{'value_in_misc_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1122,7 +1136,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'asis'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1133,7 +1147,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'asis'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1150,7 +1166,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => '0'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1161,7 +1177,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               '0'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1178,7 +1196,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'none'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1189,7 +1207,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'none'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1206,7 +1226,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => '4'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1217,7 +1237,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               '4'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1234,7 +1256,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'none'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1245,7 +1267,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'none'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1262,7 +1286,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => '6'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1273,7 +1297,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               '6'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1337,7 +1363,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'end'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1348,7 +1374,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'end'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1365,7 +1393,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'separate'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1376,7 +1404,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'separate'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1419,7 +1449,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'ISO-8859-1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1430,8 +1460,10 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'input_encoding_name' => 'iso-8859-1',
             'input_perl_encoding' => 'iso-8859-1',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'ISO-8859-1'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -1504,7 +1536,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'en'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1513,8 +1545,10 @@ $result_trees{'value_in_misc_commands'} = {
               ],
               'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_before_argument' => '  ',
                 'text_arg' => 'en'
+              },
+              'info' => {
+                'spaces_before_argument' => '  '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1544,7 +1578,7 @@ $result_trees{'value_in_misc_commands'} = {
                       'text' => 'en'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1553,8 +1587,10 @@ $result_trees{'value_in_misc_commands'} = {
               ],
               'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_before_argument' => '  ',
                 'text_arg' => 'en'
+              },
+              'info' => {
+                'spaces_before_argument' => '  '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1624,7 +1660,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'on'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1635,7 +1671,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'on'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1652,7 +1690,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'off'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1663,7 +1701,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'off'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1722,7 +1762,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => '10'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1733,7 +1773,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               '10'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1829,7 +1871,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'false'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1840,7 +1882,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'false'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1862,7 +1906,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'true'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1873,7 +1917,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               'true'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2192,7 +2238,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => 'line after exdent'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2200,7 +2246,7 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'exdent',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2243,7 +2289,7 @@ $result_trees{'value_in_misc_commands'} = {
                   'text' => '2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -2254,7 +2300,9 @@ $result_trees{'value_in_misc_commands'} = {
           'extra' => {
             'misc_args' => [
               '2'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -2408,7 +2456,8 @@ $result_trees{'value_in_misc_commands'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2657,9 +2706,11 @@ $result_sectioning{'value_in_misc_commands'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -2677,17 +2728,20 @@ $result_nodes{'value_in_misc_commands'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'value_in_misc_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'value_in_misc_commands'} = [

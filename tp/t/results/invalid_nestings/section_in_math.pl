@@ -70,7 +70,7 @@ $result_trees{'section_in_math'} = {
               'text' => 'sec1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -107,7 +107,7 @@ $result_trees{'section_in_math'} = {
                 }
               ],
               'cmdname' => 'math',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -120,7 +120,7 @@ $result_trees{'section_in_math'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -137,7 +137,7 @@ $result_trees{'section_in_math'} = {
               'text' => 'sec2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -145,7 +145,7 @@ $result_trees{'section_in_math'} = {
         }
       ],
       'cmdname' => 'section',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -186,7 +186,7 @@ $result_sectioning{'section_in_math'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -195,7 +195,7 @@ $result_sectioning{'section_in_math'} = {
       },
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 2,

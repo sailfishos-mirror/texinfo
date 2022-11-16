@@ -18,7 +18,7 @@ $result_trees{'shortcontents_no_top'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -33,7 +33,7 @@ $result_trees{'shortcontents_no_top'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -50,7 +50,7 @@ $result_trees{'shortcontents_no_top'} = {
               'text' => 'chap2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -65,7 +65,7 @@ $result_trees{'shortcontents_no_top'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -82,7 +82,7 @@ $result_trees{'shortcontents_no_top'} = {
               'text' => 'sec'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -112,7 +112,7 @@ $result_trees{'shortcontents_no_top'} = {
           }
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -151,7 +151,7 @@ $result_sectioning{'shortcontents_no_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -160,12 +160,12 @@ $result_sectioning{'shortcontents_no_top'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'section',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 2,
                 'section_number' => '2.1',

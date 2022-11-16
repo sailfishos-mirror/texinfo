@@ -49,7 +49,7 @@ $result_trees{'paragraphindent'} = {
                   'text' => 'asis'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -60,7 +60,9 @@ $result_trees{'paragraphindent'} = {
           'extra' => {
             'misc_args' => [
               'asis'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -100,7 +102,7 @@ $result_trees{'paragraphindent'} = {
                   'text' => '0'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -111,7 +113,9 @@ $result_trees{'paragraphindent'} = {
           'extra' => {
             'misc_args' => [
               '0'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -151,7 +155,7 @@ $result_trees{'paragraphindent'} = {
                   'text' => '7'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -162,7 +166,9 @@ $result_trees{'paragraphindent'} = {
           'extra' => {
             'misc_args' => [
               '7'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

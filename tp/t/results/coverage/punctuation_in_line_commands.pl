@@ -25,7 +25,7 @@ $result_trees{'punctuation_in_line_commands'} = {
               'text' => 'node! After punc'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -46,7 +46,9 @@ $result_trees{'punctuation_in_line_commands'} = {
             'normalized' => 'node_0021-After-punc'
           }
         ],
-        'normalized' => 'node_0021-After-punc',
+        'normalized' => 'node_0021-After-punc'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -63,7 +65,7 @@ $result_trees{'punctuation_in_line_commands'} = {
               'text' => 'top! After punc'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -91,7 +93,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -112,7 +114,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                               'text' => 'item! After punc'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -120,7 +122,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -143,7 +145,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -152,8 +154,10 @@ $result_trees{'punctuation_in_line_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -163,7 +167,9 @@ $result_trees{'punctuation_in_line_commands'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -185,7 +191,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'quotation arg! After punc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -211,7 +217,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                       'text' => 'exdent quotation! After punc'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -219,7 +225,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                 }
               ],
               'cmdname' => 'exdent',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -236,7 +242,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -245,8 +251,10 @@ $result_trees{'punctuation_in_line_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -255,7 +263,7 @@ $result_trees{'punctuation_in_line_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -285,7 +293,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'float label! After punc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -342,7 +350,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -351,8 +359,10 @@ $result_trees{'punctuation_in_line_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -368,13 +378,15 @@ $result_trees{'punctuation_in_line_commands'} = {
             ],
             'normalized' => 'float-label_0021-After-punc',
             'shortcaption' => {},
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'float type! After punc'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -403,7 +415,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'label with caption'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -460,7 +472,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -469,8 +481,10 @@ $result_trees{'punctuation_in_line_commands'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -486,13 +500,15 @@ $result_trees{'punctuation_in_line_commands'} = {
               {}
             ],
             'normalized' => 'label-with-caption',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'float type! After punc'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -513,7 +529,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'float type! After punc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -522,13 +538,15 @@ $result_trees{'punctuation_in_line_commands'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'float type! After punc'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -549,7 +567,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'index! After punc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -569,7 +587,9 @@ $result_trees{'punctuation_in_line_commands'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -592,7 +612,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'heading! After punc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -600,7 +620,8 @@ $result_trees{'punctuation_in_line_commands'} = {
             }
           ],
           'cmdname' => 'heading',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -649,7 +670,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'center! After punc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -657,7 +678,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             }
           ],
           'cmdname' => 'center',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -679,7 +700,7 @@ $result_trees{'punctuation_in_line_commands'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -690,7 +711,9 @@ $result_trees{'punctuation_in_line_commands'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -725,7 +748,8 @@ $result_trees{'punctuation_in_line_commands'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -838,9 +862,11 @@ $result_sectioning{'punctuation_in_line_commands'} = {
             'extra' => {
               'isindex' => 1,
               'normalized' => 'node_0021-After-punc'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -858,11 +884,13 @@ $result_nodes{'punctuation_in_line_commands'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'punctuation_in_line_commands'} = {
@@ -870,7 +898,8 @@ $result_menus{'punctuation_in_line_commands'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'punctuation_in_line_commands'} = [];
@@ -884,6 +913,7 @@ $result_floats{'punctuation_in_line_commands'} = {
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {},
+          'info' => {},
           'structure' => {}
         },
         'normalized' => 'float-label_0021-After-punc',
@@ -902,6 +932,7 @@ $result_floats{'punctuation_in_line_commands'} = {
           'normalized' => 'float type! After punc'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -926,6 +957,7 @@ $result_floats{'punctuation_in_line_commands'} = {
           'normalized' => 'float type! After punc'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 2
       }

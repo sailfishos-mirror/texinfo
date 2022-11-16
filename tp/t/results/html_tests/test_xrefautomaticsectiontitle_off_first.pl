@@ -22,7 +22,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                   'text' => 'off'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -33,7 +33,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
           'extra' => {
             'misc_args' => [
               'off'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -58,7 +60,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -78,7 +80,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -95,7 +99,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -112,7 +116,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -178,7 +182,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -187,8 +191,10 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -209,7 +215,8 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -226,7 +233,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -246,7 +253,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -263,7 +272,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -326,7 +335,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
                   'text' => 'on'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -337,7 +346,9 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
           'extra' => {
             'misc_args' => [
               'on'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -388,7 +399,8 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -459,9 +471,11 @@ $result_sectioning{'test_xrefautomaticsectiontitle_off_first'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -472,9 +486,11 @@ $result_sectioning{'test_xrefautomaticsectiontitle_off_first'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -503,6 +519,7 @@ $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -512,6 +529,7 @@ $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -519,12 +537,14 @@ $result_nodes{'test_xrefautomaticsectiontitle_off_first'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -542,12 +562,14 @@ $result_menus{'test_xrefautomaticsectiontitle_off_first'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

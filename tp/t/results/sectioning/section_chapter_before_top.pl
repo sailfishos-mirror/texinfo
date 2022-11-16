@@ -18,7 +18,7 @@ $result_trees{'section_chapter_before_top'} = {
               'text' => 'section'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => ' 
 '
           },
@@ -33,7 +33,7 @@ $result_trees{'section_chapter_before_top'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -50,7 +50,7 @@ $result_trees{'section_chapter_before_top'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -65,7 +65,7 @@ $result_trees{'section_chapter_before_top'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -82,7 +82,7 @@ $result_trees{'section_chapter_before_top'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -90,7 +90,7 @@ $result_trees{'section_chapter_before_top'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -126,7 +126,7 @@ $result_sectioning{'section_chapter_before_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,
@@ -135,7 +135,7 @@ $result_sectioning{'section_chapter_before_top'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 2,
@@ -146,7 +146,7 @@ $result_sectioning{'section_chapter_before_top'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_prev' => {},

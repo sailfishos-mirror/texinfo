@@ -18,7 +18,7 @@ $result_trees{'colon_in_index_entry'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -40,7 +40,7 @@ $result_trees{'colon_in_index_entry'} = {
                   'text' => 'vr cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -52,7 +52,9 @@ $result_trees{'colon_in_index_entry'} = {
             'misc_args' => [
               'vr',
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -74,7 +76,7 @@ $result_trees{'colon_in_index_entry'} = {
                   'text' => 'a:b'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -94,7 +96,9 @@ $result_trees{'colon_in_index_entry'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -123,7 +127,7 @@ $result_trees{'colon_in_index_entry'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -144,7 +148,7 @@ $result_trees{'colon_in_index_entry'} = {
                               'text' => '%main::value'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -164,7 +168,9 @@ $result_trees{'colon_in_index_entry'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -187,7 +193,7 @@ $result_trees{'colon_in_index_entry'} = {
                       'text' => 'vtable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -196,8 +202,10 @@ $result_trees{'colon_in_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -207,7 +215,9 @@ $result_trees{'colon_in_index_entry'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -453,7 +463,9 @@ $result_trees{'colon_in_index_entry'} = {
                   'index_name' => 'vr',
                   'index_type_command' => 'defvr'
                 },
-                'original_def_cmdname' => 'defvrx',
+                'original_def_cmdname' => 'defvrx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -471,7 +483,7 @@ $result_trees{'colon_in_index_entry'} = {
                       'text' => 'defvr'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -480,8 +492,10 @@ $result_trees{'colon_in_index_entry'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defvr'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -490,7 +504,7 @@ $result_trees{'colon_in_index_entry'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -512,7 +526,7 @@ $result_trees{'colon_in_index_entry'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -523,7 +537,9 @@ $result_trees{'colon_in_index_entry'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -546,7 +562,9 @@ $result_trees{'colon_in_index_entry'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -615,7 +633,8 @@ $result_nodes{'colon_in_index_entry'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'colon_in_index_entry'} = {
@@ -623,7 +642,8 @@ $result_menus{'colon_in_index_entry'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'colon_in_index_entry'} = [];

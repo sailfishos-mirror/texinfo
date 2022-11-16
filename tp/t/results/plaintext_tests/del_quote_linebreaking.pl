@@ -50,7 +50,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -117,7 +117,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -184,7 +184,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -265,7 +265,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -332,7 +332,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -399,7 +399,7 @@ $result_trees{'del_quote_linebreaking'} = {
                       'text' => 'manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

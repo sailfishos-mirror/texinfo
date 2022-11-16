@@ -26,7 +26,7 @@ $result_trees{'test_sp'} = {
                   'text' => '1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -37,7 +37,9 @@ $result_trees{'test_sp'} = {
           'extra' => {
             'misc_args' => [
               '1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -78,7 +80,7 @@ $result_trees{'test_sp'} = {
                   'text' => '1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -89,7 +91,9 @@ $result_trees{'test_sp'} = {
           'extra' => {
             'misc_args' => [
               '1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -111,7 +115,7 @@ $result_trees{'test_sp'} = {
                   'text' => '2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -122,7 +126,9 @@ $result_trees{'test_sp'} = {
           'extra' => {
             'misc_args' => [
               '2'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -162,7 +168,7 @@ $result_trees{'test_sp'} = {
                   'text' => '2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -173,7 +179,9 @@ $result_trees{'test_sp'} = {
           'extra' => {
             'misc_args' => [
               '2'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -213,7 +221,7 @@ $result_trees{'test_sp'} = {
                   'text' => '1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -224,7 +232,9 @@ $result_trees{'test_sp'} = {
           'extra' => {
             'misc_args' => [
               '1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

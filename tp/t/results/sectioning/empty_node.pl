@@ -13,7 +13,7 @@ $result_trees{'empty_node'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -50,7 +50,7 @@ $result_trees{'empty_node'} = {
               'text' => 'next'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -61,7 +61,7 @@ $result_trees{'empty_node'} = {
               'text' => 'prev'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -72,7 +72,7 @@ $result_trees{'empty_node'} = {
               'text' => 'up'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 ',
             'spaces_before_argument' => ' '
@@ -102,7 +102,9 @@ $result_trees{'empty_node'} = {
             ],
             'normalized' => 'up'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {

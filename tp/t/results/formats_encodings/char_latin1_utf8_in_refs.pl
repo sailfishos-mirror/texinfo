@@ -39,7 +39,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                       'text' => 'char_latin1_utf8_in_refs.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'char_latin1_utf8_in_refs.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'char_latin1_utf8_in_refs.texi',
@@ -70,7 +72,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                       'text' => 'utf-8'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -81,8 +83,10 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'input_perl_encoding' => 'utf-8-strict',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'utf-8'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'char_latin1_utf8_in_refs.texi',
@@ -109,7 +113,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -130,7 +134,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -147,7 +153,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -169,7 +175,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -180,7 +186,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -197,7 +205,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -459,7 +467,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -468,8 +476,10 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'char_latin1_utf8_in_refs.texi',
@@ -490,7 +500,8 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -507,7 +518,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff} \x{c4} \x{cb} \x{cf} \x{d6} \x{dc}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -527,7 +538,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
             'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
           }
         ],
-        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc',
+        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -544,7 +557,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff} \x{c4} \x{cb} \x{cf} \x{d6} \x{dc}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -559,7 +572,8 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -576,7 +590,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e9}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -596,7 +610,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
             'normalized' => '_00e9'
           }
         ],
-        'normalized' => '_00e9',
+        'normalized' => '_00e9'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -613,7 +629,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e9}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -628,7 +644,8 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -645,7 +662,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e0} \x{e8} \x{f9}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -665,7 +682,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
             'normalized' => '_00e0-_00e8-_00f9'
           }
         ],
-        'normalized' => '_00e0-_00e8-_00f9',
+        'normalized' => '_00e0-_00e8-_00f9'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -682,7 +701,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e0} \x{e8} \x{f9}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -697,7 +716,8 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -714,7 +734,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -734,7 +754,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
             'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
           }
         ],
-        'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db',
+        'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -751,7 +773,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -766,7 +788,8 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -783,7 +806,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e7}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -803,7 +826,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
             'normalized' => '_00e7'
           }
         ],
-        'normalized' => '_00e7',
+        'normalized' => '_00e7'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -820,7 +845,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'text' => "\x{e7}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1007,7 +1032,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                   'text' => "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff}"
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1027,7 +1052,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1045,7 +1072,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                   'text' => "\x{c4} \x{cb} \x{cf} \x{d6} \x{dc}"
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1065,7 +1092,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1083,7 +1112,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                   'text' => "\x{e9}"
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1103,7 +1132,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1121,7 +1152,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                   'text' => "\x{e8}"
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1141,7 +1172,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1159,7 +1192,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                   'text' => "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}"
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1179,7 +1212,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1197,7 +1232,7 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
                   'text' => "\x{e7}"
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1217,7 +1252,9 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1233,7 +1270,8 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1411,9 +1449,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
               'isindex' => 1,
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1424,9 +1464,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
                   'extra' => {
                     'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1443,9 +1485,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
                   'extra' => {
                     'normalized' => '_00e9'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1463,9 +1507,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
                   'extra' => {
                     'normalized' => '_00e0-_00e8-_00f9'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -1483,9 +1529,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
                   'extra' => {
                     'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 4,
@@ -1503,9 +1551,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
                   'extra' => {
                     'normalized' => '_00e7'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 5,
@@ -1551,6 +1601,7 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'isindex' => 1,
@@ -1561,6 +1612,7 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1568,12 +1620,14 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1581,12 +1635,14 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => '_00e9'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -1594,12 +1650,14 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
                 },
                 'normalized' => '_00e0-_00e8-_00f9'
               },
+              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
@@ -1607,12 +1665,14 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
                     'associated_section' => {
                       'cmdname' => 'chapter',
                       'extra' => {},
+                      'info' => {},
                       'structure' => {
                         'section_number' => 4
                       }
                     },
                     'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_next' => {
                       'cmdname' => 'node',
@@ -1620,12 +1680,14 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
                         'associated_section' => {
                           'cmdname' => 'chapter',
                           'extra' => {},
+                          'info' => {},
                           'structure' => {
                             'section_number' => 5
                           }
                         },
                         'normalized' => '_00e7'
                       },
+                      'info' => {},
                       'structure' => {
                         'node_prev' => {},
                         'node_up' => {}
@@ -1668,36 +1730,42 @@ $result_menus{'char_latin1_utf8_in_refs'} = {
     'isindex' => 1,
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => '_00e9'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => '_00e0-_00e8-_00f9'
               },
+              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                   },
+                  'info' => {},
                   'structure' => {
                     'menu_next' => {
                       'cmdname' => 'node',
                       'extra' => {
                         'normalized' => '_00e7'
                       },
+                      'info' => {},
                       'structure' => {
                         'menu_prev' => {},
                         'menu_up' => {},

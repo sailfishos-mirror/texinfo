@@ -18,7 +18,7 @@ $result_trees{'block_commands_in_table'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'block_commands_in_table'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'block_commands_in_table'} = {
               'text' => 'Element'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -83,7 +85,7 @@ $result_trees{'block_commands_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -104,7 +106,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'first item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -112,7 +114,7 @@ $result_trees{'block_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -129,7 +131,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'second itemx'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -137,7 +139,7 @@ $result_trees{'block_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'itemx',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -188,7 +190,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'example'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -196,7 +198,7 @@ $result_trees{'block_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -213,7 +215,7 @@ $result_trees{'block_commands_in_table'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -248,7 +250,7 @@ $result_trees{'block_commands_in_table'} = {
                                   'text' => 'example'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -257,8 +259,10 @@ $result_trees{'block_commands_in_table'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'example'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -291,7 +295,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'empty line'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -299,7 +303,7 @@ $result_trees{'block_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -345,7 +349,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'quotation'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -353,7 +357,7 @@ $result_trees{'block_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -370,7 +374,7 @@ $result_trees{'block_commands_in_table'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -396,7 +400,7 @@ $result_trees{'block_commands_in_table'} = {
                                   'text' => 'quotation'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -405,8 +409,10 @@ $result_trees{'block_commands_in_table'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'quotation'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -444,7 +450,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'quotation after a blank line'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -452,7 +458,7 @@ $result_trees{'block_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -474,7 +480,7 @@ $result_trees{'block_commands_in_table'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -500,7 +506,7 @@ $result_trees{'block_commands_in_table'} = {
                                   'text' => 'quotation'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -509,8 +515,10 @@ $result_trees{'block_commands_in_table'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'quotation'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -539,7 +547,7 @@ $result_trees{'block_commands_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -548,8 +556,10 @@ $result_trees{'block_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -559,7 +569,9 @@ $result_trees{'block_commands_in_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -587,7 +599,7 @@ $result_trees{'block_commands_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -608,7 +620,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'item before ignored lines'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -628,7 +640,9 @@ $result_trees{'block_commands_in_table'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -663,7 +677,7 @@ $result_trees{'block_commands_in_table'} = {
                                   'text' => 'vindex'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -683,7 +697,9 @@ $result_trees{'block_commands_in_table'} = {
                               'index_ignore_chars' => {},
                               'index_name' => 'vr',
                               'index_type_command' => 'vindex'
-                            },
+                            }
+                          },
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'source_info' => {
@@ -704,7 +720,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'itemx now'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -724,7 +740,9 @@ $result_trees{'block_commands_in_table'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -766,7 +784,7 @@ $result_trees{'block_commands_in_table'} = {
                       'text' => 'vtable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -775,8 +793,10 @@ $result_trees{'block_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -786,7 +806,9 @@ $result_trees{'block_commands_in_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -809,7 +831,7 @@ $result_trees{'block_commands_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -830,7 +852,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -850,7 +872,9 @@ $result_trees{'block_commands_in_table'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -877,7 +901,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'itemx after an empty line'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -897,7 +921,9 @@ $result_trees{'block_commands_in_table'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -944,7 +970,7 @@ $result_trees{'block_commands_in_table'} = {
                       'text' => 'vtable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -953,8 +979,10 @@ $result_trees{'block_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'vtable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -964,7 +992,9 @@ $result_trees{'block_commands_in_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1001,7 +1031,7 @@ $result_trees{'block_commands_in_table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1022,7 +1052,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'in item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -1030,7 +1060,7 @@ $result_trees{'block_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -1071,7 +1101,7 @@ $result_trees{'block_commands_in_table'} = {
                               'text' => 'second item'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -1079,7 +1109,7 @@ $result_trees{'block_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -1116,7 +1146,7 @@ $result_trees{'block_commands_in_table'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1125,8 +1155,10 @@ $result_trees{'block_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1136,7 +1168,9 @@ $result_trees{'block_commands_in_table'} = {
             }
           ],
           'extra' => {
-            'command_as_argument' => {},
+            'command_as_argument' => {}
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1155,7 +1189,8 @@ $result_trees{'block_commands_in_table'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1303,9 +1338,11 @@ $result_sectioning{'block_commands_in_table'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -1323,17 +1360,20 @@ $result_nodes{'block_commands_in_table'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'block_commands_in_table'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'block_commands_in_table'} = [];

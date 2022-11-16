@@ -50,7 +50,7 @@ $result_trees{'documentlanguage_set_unknown'} = {
                       'text' => 'documentlanguage_set.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -59,8 +59,10 @@ $result_trees{'documentlanguage_set_unknown'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'documentlanguage_set.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'documentlanguage_set.texi',
@@ -76,7 +78,7 @@ $result_trees{'documentlanguage_set_unknown'} = {
                       'text' => 'pt'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -85,8 +87,10 @@ $result_trees{'documentlanguage_set_unknown'} = {
               ],
               'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'pt'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'documentlanguage_set.texi',
@@ -108,7 +112,7 @@ $result_trees{'documentlanguage_set_unknown'} = {
                       'text' => 'documentlanguage set'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -116,7 +120,8 @@ $result_trees{'documentlanguage_set_unknown'} = {
                 }
               ],
               'cmdname' => 'settitle',
-              'extra' => {
+              'extra' => {},
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -144,7 +149,7 @@ $result_trees{'documentlanguage_set_unknown'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -164,7 +169,9 @@ $result_trees{'documentlanguage_set_unknown'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -184,7 +191,7 @@ $result_trees{'documentlanguage_set_unknown'} = {
               'text' => 'documentlanguage set'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -213,7 +220,8 @@ $result_trees{'documentlanguage_set_unknown'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -271,9 +279,11 @@ $result_sectioning{'documentlanguage_set_unknown'} = {
             'cmdname' => 'node',
             'extra' => {
               'normalized' => 'Top'
-            }
+            },
+            'info' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -291,17 +301,20 @@ $result_nodes{'documentlanguage_set_unknown'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'documentlanguage_set_unknown'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'documentlanguage_set_unknown'} = [];

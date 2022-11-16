@@ -18,7 +18,7 @@ $result_trees{'block_commands_in_menu_description'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'block_commands_in_menu_description'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'block_commands_in_menu_description'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -72,7 +74,7 @@ $result_trees{'block_commands_in_menu_description'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -125,7 +127,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                               'type' => 'command_as_argument_inserted'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -188,7 +190,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                                   'text' => 'itemize'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -197,8 +199,10 @@ $result_trees{'block_commands_in_menu_description'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'itemize'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -230,7 +234,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                               'type' => 'command_as_argument'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -266,7 +270,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                                           'text' => 'table item'
                                         }
                                       ],
-                                      'extra' => {
+                                      'info' => {
                                         'spaces_after_argument' => '
 '
                                       },
@@ -274,7 +278,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                                     }
                                   ],
                                   'cmdname' => 'item',
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_before_argument' => ' '
                                   },
                                   'source_info' => {
@@ -321,7 +325,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                                   'text' => 'table'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -330,8 +334,10 @@ $result_trees{'block_commands_in_menu_description'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'table'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -341,7 +347,9 @@ $result_trees{'block_commands_in_menu_description'} = {
                         }
                       ],
                       'extra' => {
-                        'command_as_argument' => {},
+                        'command_as_argument' => {}
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -355,7 +363,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                         {
                           'args' => [
                             {
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -391,7 +399,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                                       'text' => 'html'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -400,8 +408,10 @@ $result_trees{'block_commands_in_menu_description'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'html'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -422,7 +432,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -444,7 +454,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                                   'text' => 'verbatim'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -453,8 +463,10 @@ $result_trees{'block_commands_in_menu_description'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'verbatim'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -496,7 +508,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -505,8 +517,10 @@ $result_trees{'block_commands_in_menu_description'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -522,7 +536,8 @@ $result_trees{'block_commands_in_menu_description'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -596,9 +611,11 @@ $result_sectioning{'block_commands_in_menu_description'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -616,6 +633,7 @@ $result_nodes{'block_commands_in_menu_description'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -625,6 +643,7 @@ $result_nodes{'block_commands_in_menu_description'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -645,6 +664,7 @@ $result_menus{'block_commands_in_menu_description'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

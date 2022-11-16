@@ -39,7 +39,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                       'text' => 'direntry_dircategory.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -48,8 +48,10 @@ $result_trees{'direntry_dircategory_info_split'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry_dircategory.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
@@ -91,7 +93,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                       'text' => '?\'\''
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -99,7 +101,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                 }
               ],
               'cmdname' => 'dircategory',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -111,7 +113,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -216,7 +218,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                           'text' => 'direntry'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -225,8 +227,10 @@ $result_trees{'direntry_dircategory_info_split'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'direntry'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'direntry_dircategory.texi',
@@ -254,7 +258,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                       'text' => 'cat2'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -262,7 +266,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                 }
               ],
               'cmdname' => 'dircategory',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -274,7 +278,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -368,7 +372,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                           'text' => 'direntry'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -377,8 +381,10 @@ $result_trees{'direntry_dircategory_info_split'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'direntry'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'direntry_dircategory.texi',
@@ -417,7 +423,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -437,7 +443,9 @@ $result_trees{'direntry_dircategory_info_split'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -454,7 +462,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
               'text' => 'Test dircategory and direntry'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -485,7 +493,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                   'text' => 'in text'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -493,7 +501,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
             }
           ],
           'cmdname' => 'dircategory',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -505,7 +513,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -589,7 +597,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                       'text' => 'direntry'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -598,8 +606,10 @@ $result_trees{'direntry_dircategory_info_split'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'direntry'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
@@ -622,7 +632,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -688,7 +698,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -697,8 +707,10 @@ $result_trees{'direntry_dircategory_info_split'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'direntry_dircategory.texi',
@@ -719,7 +731,8 @@ $result_trees{'direntry_dircategory_info_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -736,7 +749,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -756,7 +769,9 @@ $result_trees{'direntry_dircategory_info_split'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -773,7 +788,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -802,7 +817,8 @@ $result_trees{'direntry_dircategory_info_split'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -915,9 +931,11 @@ $result_sectioning{'direntry_dircategory_info_split'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -928,9 +946,11 @@ $result_sectioning{'direntry_dircategory_info_split'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -959,6 +979,7 @@ $result_nodes{'direntry_dircategory_info_split'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -968,6 +989,7 @@ $result_nodes{'direntry_dircategory_info_split'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -975,12 +997,14 @@ $result_nodes{'direntry_dircategory_info_split'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -998,12 +1022,14 @@ $result_menus{'direntry_dircategory_info_split'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'menu_up' => {},
         'menu_up_hash' => {

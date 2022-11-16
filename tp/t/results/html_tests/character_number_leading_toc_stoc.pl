@@ -18,7 +18,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -26,7 +26,8 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -43,7 +44,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
               'text' => '0'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -51,7 +52,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -68,7 +69,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
               'text' => '_'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +77,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         }
       ],
       'cmdname' => 'unnumbered',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -93,7 +94,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
               'text' => '?'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -148,7 +149,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -192,11 +193,12 @@ $result_sectioning{'character_number_leading_toc_stoc'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -207,12 +209,12 @@ $result_sectioning{'character_number_leading_toc_stoc'} = {
             },
             {
               'cmdname' => 'unnumbered',
-              'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_up' => {}

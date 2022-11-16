@@ -12,7 +12,7 @@ $result_trees{'documentdescription'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -207,7 +207,7 @@ $result_trees{'documentdescription'} = {
                       'text' => 'documentdescription'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -216,8 +216,10 @@ $result_trees{'documentdescription'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'documentdescription'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -248,7 +250,7 @@ $result_trees{'documentdescription'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -256,7 +258,8 @@ $result_trees{'documentdescription'} = {
         }
       ],
       'cmdname' => 'top',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -288,6 +291,7 @@ $result_sectioning{'documentdescription'} = {
       {
         'cmdname' => 'top',
         'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}

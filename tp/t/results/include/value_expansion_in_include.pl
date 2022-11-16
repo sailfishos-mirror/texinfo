@@ -135,7 +135,7 @@ $result_trees{'value_expansion_in_include'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -200,7 +200,7 @@ $result_trees{'value_expansion_in_include'} = {
                   'text' => 'incl-incl.txi'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -210,8 +210,10 @@ $result_trees{'value_expansion_in_include'} = {
           'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_perl_encoding' => 'utf-8',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -280,7 +282,7 @@ $result_trees{'value_expansion_in_include'} = {
                   'text' => 'incl-incl.txi'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -290,8 +292,10 @@ $result_trees{'value_expansion_in_include'} = {
           'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_perl_encoding' => 'utf-8',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -360,7 +364,7 @@ $result_trees{'value_expansion_in_include'} = {
                   'text' => 'incl-incl.txi'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -370,8 +374,10 @@ $result_trees{'value_expansion_in_include'} = {
           'cmdname' => 'verbatiminclude',
           'extra' => {
             'input_perl_encoding' => 'utf-8',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'incl-incl.txi'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -392,7 +398,9 @@ $result_trees{'value_expansion_in_include'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -455,14 +463,16 @@ $result_nodes{'value_expansion_in_include'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'value_expansion_in_include'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'value_expansion_in_include'} = [

@@ -24,7 +24,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -45,7 +45,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -160,7 +160,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -169,8 +169,10 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -203,7 +205,9 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -228,7 +232,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               'text' => 'third node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'type' => 'line_arg'
@@ -247,7 +251,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -306,7 +310,9 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'second-node',
+        'normalized' => 'second-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -342,7 +348,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -375,7 +381,9 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'third-node',
+        'normalized' => 'third-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -392,7 +400,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -400,7 +408,8 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -466,9 +475,11 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directi
             'extra' => {
               'normalized' => 'third-node'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_level' => 1,
           'section_number' => 1,
@@ -491,12 +502,14 @@ $result_nodes{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -504,12 +517,14 @@ $result_nodes{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 1
               }
             },
             'normalized' => 'third-node'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -533,18 +548,21 @@ $result_menus{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'second-node'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'third-node'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

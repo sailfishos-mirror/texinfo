@@ -210,7 +210,7 @@ $result_trees{'commands'} = {
                       'text' => 'b'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -302,7 +302,7 @@ $result_trees{'commands'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -321,7 +321,9 @@ $result_trees{'commands'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -362,7 +364,7 @@ $result_trees{'commands'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -370,7 +372,8 @@ $result_trees{'commands'} = {
             }
           ],
           'cmdname' => 'majorheading',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

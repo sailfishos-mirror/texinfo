@@ -35,7 +35,7 @@ $result_trees{'section_on_def_line'} = {
               'type' => 'def_line'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -55,7 +55,7 @@ $result_trees{'section_on_def_line'} = {
               'text' => 's'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -84,7 +84,7 @@ $result_trees{'section_on_def_line'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -116,7 +116,7 @@ $result_sectioning{'section_on_def_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 2,
           'section_number' => 1,

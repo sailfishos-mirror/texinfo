@@ -286,7 +286,9 @@ $result_trees{'def_defx_mismatch'} = {
                   'index_type_command' => 'deffn'
                 },
                 'not_after_command' => 1,
-                'original_def_cmdname' => 'deffnx',
+                'original_def_cmdname' => 'deffnx'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -328,7 +330,7 @@ $result_trees{'def_defx_mismatch'} = {
                       'text' => 'defun'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -337,8 +339,10 @@ $result_trees{'def_defx_mismatch'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'defun'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -347,7 +351,7 @@ $result_trees{'def_defx_mismatch'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

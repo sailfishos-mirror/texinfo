@@ -12,7 +12,7 @@ $result_trees{'ignore_not_closed'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },

@@ -1669,7 +1669,7 @@ sub new_block_command($$$)
 
   my $new_block = {'cmdname' => $command_name, 'parent' => $parent};
   $new_block->{'args'} = [{'type' => 'block_line_arg', 'parent' => $new_block,
-                           'extra' => { 'spaces_after_argument' => "\n",}}];
+                           'info' => { 'spaces_after_argument' => "\n",}}];
 
   foreach my $content (@$block_contents) {
     confess("new_block_command: undef \$block_contents content")
@@ -1678,10 +1678,10 @@ sub new_block_command($$$)
   }
 
   my $end = {'cmdname' => 'end', 'parent' => $new_block,
-             'extra' => {'spaces_before_argument' => ' ',
-                         'text_arg' => $command_name}};
+             'info' => {'spaces_before_argument' => ' ',},
+             'extra' => {'text_arg' => $command_name}};
   $end->{'args'} = [{'type' => 'line_arg', 'parent' => $end,
-                     'extra' => {'spaces_after_argument' => "\n"}}];
+                     'info' => {'spaces_after_argument' => "\n"}}];
   push @{$end->{'args'}->[0]->{'contents'}},
          {'text' => $command_name, 'parent' => $end->{'args'}->[0]};
 

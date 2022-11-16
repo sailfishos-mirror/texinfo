@@ -18,7 +18,7 @@ $result_trees{'contain_plain_text_nestings'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'contain_plain_text_nestings'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -55,7 +57,7 @@ $result_trees{'contain_plain_text_nestings'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -70,7 +72,8 @@ $result_trees{'contain_plain_text_nestings'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -87,7 +90,7 @@ $result_trees{'contain_plain_text_nestings'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -108,7 +111,9 @@ $result_trees{'contain_plain_text_nestings'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -125,7 +130,7 @@ $result_trees{'contain_plain_text_nestings'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -313,7 +318,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -335,7 +340,9 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'index_type_command' => 'cindex',
                   'sortas' => ' text'
                 },
-                'sortas' => ' text',
+                'sortas' => ' text'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -394,7 +401,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => 'cross in w'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'type' => 'brace_command_arg'
@@ -454,7 +461,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => 'cross in hyphenation'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'type' => 'brace_command_arg'
@@ -515,7 +522,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                               'text' => 'cross in key'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_before_argument' => ' '
                           },
                           'type' => 'brace_command_arg'
@@ -586,7 +593,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                                       'text' => 'cross in sortas'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_before_argument' => ' '
                                   },
                                   'type' => 'brace_command_arg'
@@ -623,7 +630,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -645,7 +652,9 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'index_type_command' => 'cindex',
                   'sortas' => ' text'
                 },
-                'sortas' => ' text',
+                'sortas' => ' text'
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -671,7 +680,7 @@ $result_trees{'contain_plain_text_nestings'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -682,7 +691,9 @@ $result_trees{'contain_plain_text_nestings'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -692,7 +703,8 @@ $result_trees{'contain_plain_text_nestings'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -771,9 +783,11 @@ $result_sectioning{'contain_plain_text_nestings'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -785,9 +799,11 @@ $result_sectioning{'contain_plain_text_nestings'} = {
                     'isindex' => 1,
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -816,10 +832,12 @@ $result_nodes{'contain_plain_text_nestings'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -827,6 +845,7 @@ $result_nodes{'contain_plain_text_nestings'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -834,6 +853,7 @@ $result_nodes{'contain_plain_text_nestings'} = {
         'isindex' => 1,
         'normalized' => 'chap'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -849,6 +869,7 @@ $result_menus{'contain_plain_text_nestings'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

@@ -16,7 +16,7 @@ $result_trees{'nested_enumerate'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -82,7 +82,7 @@ $result_trees{'nested_enumerate'} = {
                 {
                   'args' => [
                     {
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -148,7 +148,7 @@ $result_trees{'nested_enumerate'} = {
                         {
                           'args' => [
                             {
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -214,7 +214,7 @@ $result_trees{'nested_enumerate'} = {
                                 {
                                   'args' => [
                                     {
-                                      'extra' => {
+                                      'info' => {
                                         'spaces_after_argument' => '
 '
                                       },
@@ -295,7 +295,7 @@ $result_trees{'nested_enumerate'} = {
                                               'text' => 'enumerate'
                                             }
                                           ],
-                                          'extra' => {
+                                          'info' => {
                                             'spaces_after_argument' => '
 '
                                           },
@@ -304,8 +304,10 @@ $result_trees{'nested_enumerate'} = {
                                       ],
                                       'cmdname' => 'end',
                                       'extra' => {
-                                        'spaces_before_argument' => ' ',
                                         'text_arg' => 'enumerate'
+                                      },
+                                      'info' => {
+                                        'spaces_before_argument' => ' '
                                       },
                                       'source_info' => {
                                         'file_name' => '',
@@ -341,7 +343,7 @@ $result_trees{'nested_enumerate'} = {
                                       'text' => 'enumerate'
                                     }
                                   ],
-                                  'extra' => {
+                                  'info' => {
                                     'spaces_after_argument' => '
 '
                                   },
@@ -350,8 +352,10 @@ $result_trees{'nested_enumerate'} = {
                               ],
                               'cmdname' => 'end',
                               'extra' => {
-                                'spaces_before_argument' => ' ',
                                 'text_arg' => 'enumerate'
+                              },
+                              'info' => {
+                                'spaces_before_argument' => ' '
                               },
                               'source_info' => {
                                 'file_name' => '',
@@ -387,7 +391,7 @@ $result_trees{'nested_enumerate'} = {
                               'text' => 'enumerate'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -396,8 +400,10 @@ $result_trees{'nested_enumerate'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'enumerate'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -433,7 +439,7 @@ $result_trees{'nested_enumerate'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -442,8 +448,10 @@ $result_trees{'nested_enumerate'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

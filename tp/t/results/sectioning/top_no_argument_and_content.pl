@@ -19,7 +19,7 @@ $result_trees{'top_no_argument_and_content'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },

@@ -17,7 +17,7 @@ $result_trees{'image_text_encoded'} = {
                   'text' => 'utf-8'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,8 +28,10 @@ $result_trees{'image_text_encoded'} = {
           'extra' => {
             'input_encoding_name' => 'utf-8',
             'input_perl_encoding' => 'utf-8-strict',
-            'spaces_before_argument' => ' ',
             'text_arg' => 'utf-8'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',

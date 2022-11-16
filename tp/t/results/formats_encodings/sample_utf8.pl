@@ -50,7 +50,7 @@ $result_trees{'sample_utf8'} = {
                       'text' => 'sample_utf8.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -59,8 +59,10 @@ $result_trees{'sample_utf8'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'sample_utf8.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
@@ -76,7 +78,7 @@ $result_trees{'sample_utf8'} = {
                       'text' => "Sample \x{793a}\x{4f8b} \x{104}\x{118} \x{f9}"
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -84,7 +86,8 @@ $result_trees{'sample_utf8'} = {
                 }
               ],
               'cmdname' => 'settitle',
-              'extra' => {
+              'extra' => {},
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -101,7 +104,7 @@ $result_trees{'sample_utf8'} = {
                       'text' => 'UTF-8'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -112,8 +115,10 @@ $result_trees{'sample_utf8'} = {
               'extra' => {
                 'input_encoding_name' => 'utf-8',
                 'input_perl_encoding' => 'utf-8-strict',
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'UTF-8'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
@@ -145,7 +150,7 @@ $result_trees{'sample_utf8'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -189,7 +194,7 @@ $result_trees{'sample_utf8'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -198,8 +203,10 @@ $result_trees{'sample_utf8'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'sample_utf8.texi',
@@ -222,7 +229,7 @@ $result_trees{'sample_utf8'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -239,7 +246,7 @@ $result_trees{'sample_utf8'} = {
                           'text' => "\x{6807}\x{9898}\x{793a}\x{4f8b} \x{104}\x{118} ae \x{105}\x{119} \x{c2} \x{f9}"
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -247,7 +254,7 @@ $result_trees{'sample_utf8'} = {
                     }
                   ],
                   'cmdname' => 'title',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -314,7 +321,7 @@ $result_trees{'sample_utf8'} = {
                           'text' => 'titlepage'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -323,8 +330,10 @@ $result_trees{'sample_utf8'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => 'sample_utf8.texi',
@@ -394,7 +403,7 @@ $result_trees{'sample_utf8'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -414,7 +423,9 @@ $result_trees{'sample_utf8'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -431,7 +442,7 @@ $result_trees{'sample_utf8'} = {
               'text' => "Texinfo\x{4e2d}\x{6587}\x{793a}\x{4f8b}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -468,7 +479,7 @@ $result_trees{'sample_utf8'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -636,7 +647,7 @@ $result_trees{'sample_utf8'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -645,8 +656,10 @@ $result_trees{'sample_utf8'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
@@ -672,7 +685,8 @@ $result_trees{'sample_utf8'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -689,7 +703,7 @@ $result_trees{'sample_utf8'} = {
               'text' => "\x{7b2c}\x{4e00}\x{7ae0}\x{ff08}First Chapter\x{ff09}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -709,7 +723,9 @@ $result_trees{'sample_utf8'} = {
             'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
           }
         ],
-        'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09',
+        'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -726,7 +742,7 @@ $result_trees{'sample_utf8'} = {
               'text' => "\x{7b2c}\x{4e00}\x{7ae0}\x{ff08}First Chapter\x{ff09}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -748,7 +764,7 @@ $result_trees{'sample_utf8'} = {
                   'text' => 'chapter, first'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -768,7 +784,9 @@ $result_trees{'sample_utf8'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -797,7 +815,7 @@ $result_trees{'sample_utf8'} = {
                       'text' => "\x{53e6}\x{4e00}\x{4e2a}\x{ff0c}index entry"
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -817,7 +835,9 @@ $result_trees{'sample_utf8'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -835,7 +855,7 @@ $result_trees{'sample_utf8'} = {
                       'text' => "\x{104}\x{118} ae \x{105}\x{119}"
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -855,7 +875,9 @@ $result_trees{'sample_utf8'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -873,7 +895,7 @@ $result_trees{'sample_utf8'} = {
                       'text' => "\x{e9} \x{c2}"
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -893,7 +915,9 @@ $result_trees{'sample_utf8'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -928,7 +952,7 @@ $result_trees{'sample_utf8'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1010,7 +1034,7 @@ $result_trees{'sample_utf8'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1019,8 +1043,10 @@ $result_trees{'sample_utf8'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'enumerate'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'sample_utf8.texi',
@@ -1044,7 +1070,8 @@ $result_trees{'sample_utf8'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1061,7 +1088,7 @@ $result_trees{'sample_utf8'} = {
               'text' => "Second Chapter AE \x{104}\x{118} ae \x{105}\x{119}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1081,7 +1108,9 @@ $result_trees{'sample_utf8'} = {
             'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
           }
         ],
-        'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119',
+        'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1098,7 +1127,7 @@ $result_trees{'sample_utf8'} = {
               'text' => "Chapter 2 AE \x{104}\x{118} ae \x{105}\x{119}"
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1127,7 +1156,8 @@ $result_trees{'sample_utf8'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1144,7 +1174,7 @@ $result_trees{'sample_utf8'} = {
               'text' => 'Index node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1165,7 +1195,9 @@ $result_trees{'sample_utf8'} = {
             'normalized' => 'Index-node'
           }
         ],
-        'normalized' => 'Index-node',
+        'normalized' => 'Index-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1182,7 +1214,7 @@ $result_trees{'sample_utf8'} = {
               'text' => 'Index'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1204,7 +1236,7 @@ $result_trees{'sample_utf8'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1215,7 +1247,9 @@ $result_trees{'sample_utf8'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -1230,7 +1264,8 @@ $result_trees{'sample_utf8'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1405,9 +1440,11 @@ $result_sectioning{'sample_utf8'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1418,9 +1455,11 @@ $result_sectioning{'sample_utf8'} = {
                   'extra' => {
                     'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1437,9 +1476,11 @@ $result_sectioning{'sample_utf8'} = {
                   'extra' => {
                     'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -1458,9 +1499,11 @@ $result_sectioning{'sample_utf8'} = {
                     'isindex' => 1,
                     'normalized' => 'Index-node'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_prev' => {},
@@ -1497,6 +1540,7 @@ $result_nodes{'sample_utf8'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -1506,6 +1550,7 @@ $result_nodes{'sample_utf8'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1513,12 +1558,14 @@ $result_nodes{'sample_utf8'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -1526,12 +1573,14 @@ $result_nodes{'sample_utf8'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -1539,11 +1588,13 @@ $result_nodes{'sample_utf8'} = {
                 'associated_section' => {
                   'cmdname' => 'unnumbered',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {}
                 },
                 'isindex' => 1,
                 'normalized' => 'Index-node'
               },
+              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -1573,18 +1624,21 @@ $result_menus{'sample_utf8'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
@@ -1592,6 +1646,7 @@ $result_menus{'sample_utf8'} = {
                 'isindex' => 1,
                 'normalized' => 'Index-node'
               },
+              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

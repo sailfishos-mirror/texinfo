@@ -12,7 +12,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -156,7 +156,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                           'type' => 'def_item'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -192,7 +192,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -201,8 +201,10 @@ $result_trees{'def_not_closed_in_menu_description'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

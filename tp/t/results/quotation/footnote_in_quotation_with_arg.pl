@@ -17,7 +17,7 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                   'text' => 'lean'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -69,7 +69,7 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -78,8 +78,10 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'quotation'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -88,7 +90,7 @@ $result_trees{'footnote_in_quotation_with_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

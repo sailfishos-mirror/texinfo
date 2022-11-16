@@ -27,7 +27,7 @@ $result_trees{'too_much_args'} = {
                       'text' => 'A truc Z b, E eep'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

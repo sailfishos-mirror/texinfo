@@ -12,7 +12,7 @@ $result_trees{'double_titlepage_not_closed'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -48,7 +48,7 @@ $result_trees{'double_titlepage_not_closed'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },

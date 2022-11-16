@@ -34,7 +34,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                       'text' => 'references_to_top_no_top_output.info'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -43,8 +43,10 @@ $result_trees{'references_to_top_no_top_output'} = {
               ],
               'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'references_to_top_no_top_output.info'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -60,7 +62,7 @@ $result_trees{'references_to_top_no_top_output'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -118,7 +120,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -127,8 +129,10 @@ $result_trees{'references_to_top_no_top_output'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -162,7 +166,7 @@ $result_trees{'references_to_top_no_top_output'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -182,7 +186,9 @@ $result_trees{'references_to_top_no_top_output'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -199,7 +205,7 @@ $result_trees{'references_to_top_no_top_output'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -399,7 +405,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                   'text' => 'My Flist'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -508,7 +514,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -517,8 +523,10 @@ $result_trees{'references_to_top_no_top_output'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -534,13 +542,15 @@ $result_trees{'references_to_top_no_top_output'} = {
               {}
             ],
             'normalized' => 'My-Flist',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'list'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -561,7 +571,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                   'text' => 'index in Top'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -581,7 +591,9 @@ $result_trees{'references_to_top_no_top_output'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -611,7 +623,8 @@ $result_trees{'references_to_top_no_top_output'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -628,7 +641,7 @@ $result_trees{'references_to_top_no_top_output'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -649,7 +662,9 @@ $result_trees{'references_to_top_no_top_output'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -666,7 +681,7 @@ $result_trees{'references_to_top_no_top_output'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -884,7 +899,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                   'text' => 'chap index'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -904,7 +919,9 @@ $result_trees{'references_to_top_no_top_output'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -927,7 +944,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -938,7 +955,9 @@ $result_trees{'references_to_top_no_top_output'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -968,7 +987,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                   'text' => 'Main Flist'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 ',
                 'spaces_before_argument' => ' '
@@ -1025,7 +1044,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1034,8 +1053,10 @@ $result_trees{'references_to_top_no_top_output'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'float'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1051,13 +1072,15 @@ $result_trees{'references_to_top_no_top_output'} = {
               {}
             ],
             'normalized' => 'Main-Flist',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'list'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -1078,7 +1101,7 @@ $result_trees{'references_to_top_no_top_output'} = {
                   'text' => 'list'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1087,13 +1110,15 @@ $result_trees{'references_to_top_no_top_output'} = {
           ],
           'cmdname' => 'listoffloats',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {}
               ],
               'normalized' => 'list'
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -1102,7 +1127,8 @@ $result_trees{'references_to_top_no_top_output'} = {
           }
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1261,9 +1287,11 @@ $result_sectioning{'references_to_top_no_top_output'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1275,9 +1303,11 @@ $result_sectioning{'references_to_top_no_top_output'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1306,10 +1336,12 @@ $result_nodes{'references_to_top_no_top_output'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1317,6 +1349,7 @@ $result_nodes{'references_to_top_no_top_output'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1324,6 +1357,7 @@ $result_nodes{'references_to_top_no_top_output'} = {
         'isindex' => 1,
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -1339,6 +1373,7 @@ $result_menus{'references_to_top_no_top_output'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 
@@ -1359,6 +1394,7 @@ $result_floats{'references_to_top_no_top_output'} = {
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {},
+          'info' => {},
           'structure' => {}
         },
         'normalized' => 'My-Flist',
@@ -1371,6 +1407,7 @@ $result_floats{'references_to_top_no_top_output'} = {
           'normalized' => 'list'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => 1
       }
@@ -1387,6 +1424,7 @@ $result_floats{'references_to_top_no_top_output'} = {
         'float_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1401,6 +1439,7 @@ $result_floats{'references_to_top_no_top_output'} = {
           'normalized' => 'list'
         }
       },
+      'info' => {},
       'structure' => {
         'float_number' => '1.1'
       }

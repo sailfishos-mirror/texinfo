@@ -18,7 +18,7 @@ $result_trees{'double_top_section'} = {
               'text' => 'First top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -47,7 +47,7 @@ $result_trees{'double_top_section'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -64,7 +64,7 @@ $result_trees{'double_top_section'} = {
               'text' => 'Second top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -88,7 +88,7 @@ $result_trees{'double_top_section'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -127,7 +127,7 @@ $result_sectioning{'double_top_section'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_up' => {}
@@ -135,7 +135,7 @@ $result_sectioning{'double_top_section'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {},
+        'info' => {},
         'structure' => {
           'section_level' => 0,
           'section_prev' => {},

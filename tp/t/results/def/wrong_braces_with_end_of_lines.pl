@@ -62,7 +62,9 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                         }
                       ],
                       'extra' => {
-                        'def_role' => 'arg',
+                        'def_role' => 'arg'
+                      },
+                      'info' => {
                         'spaces_after_argument' => '
 ',
                         'spaces_before_argument' => '   '
@@ -136,7 +138,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -145,8 +147,10 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -155,7 +159,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -304,7 +308,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
                       'text' => 'deffn'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' 
 '
                   },
@@ -313,8 +317,10 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'deffn'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -323,7 +329,7 @@ $result_trees{'wrong_braces_with_end_of_lines'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

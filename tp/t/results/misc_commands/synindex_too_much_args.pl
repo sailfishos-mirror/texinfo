@@ -17,7 +17,7 @@ $result_trees{'synindex_too_much_args'} = {
                   'text' => 'cp fn    truc'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -25,7 +25,7 @@ $result_trees{'synindex_too_much_args'} = {
             }
           ],
           'cmdname' => 'syncodeindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

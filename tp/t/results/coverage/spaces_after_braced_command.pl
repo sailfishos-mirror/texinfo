@@ -130,7 +130,7 @@ $result_trees{'spaces_after_braced_command'} = {
 '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },

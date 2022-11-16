@@ -25,7 +25,7 @@ $result_trees{'space_in_node'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -42,7 +42,7 @@ $result_trees{'space_in_node'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -224,7 +224,7 @@ $result_trees{'space_in_node'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -233,8 +233,10 @@ $result_trees{'space_in_node'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -267,7 +269,9 @@ $result_trees{'space_in_node'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -284,7 +288,7 @@ $result_trees{'space_in_node'} = {
               'text' => 'Chap first  here'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -311,7 +315,9 @@ $result_trees{'space_in_node'} = {
             'normalized' => 'Chap-first-here'
           }
         ],
-        'normalized' => 'Chap-first-here',
+        'normalized' => 'Chap-first-here'
+      },
+      'info' => {
         'spaces_before_argument' => '  '
       },
       'source_info' => {
@@ -328,7 +334,7 @@ $result_trees{'space_in_node'} = {
               'text' => 'Test               title'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -355,7 +361,9 @@ $result_trees{'space_in_node'} = {
             'normalized' => 'Test-title'
           }
         ],
-        'normalized' => 'Test-title',
+        'normalized' => 'Test-title'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -372,7 +380,7 @@ $result_trees{'space_in_node'} = {
               'text' => 'Last with spaces'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => ' 
 '
           },
@@ -392,7 +400,9 @@ $result_trees{'space_in_node'} = {
             'normalized' => 'Last-with-spaces'
           }
         ],
-        'normalized' => 'Last-with-spaces',
+        'normalized' => 'Last-with-spaces'
+      },
+      'info' => {
         'spaces_before_argument' => '   '
       },
       'source_info' => {
@@ -458,24 +468,28 @@ $result_nodes{'space_in_node'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Chap-first-here'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Test-title'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'Last-with-spaces'
               },
+              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -505,24 +519,28 @@ $result_menus{'space_in_node'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'Chap-first-here'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'Test-title'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'Last-with-spaces'
               },
+              'info' => {},
               'structure' => {
                 'menu_prev' => {},
                 'menu_up' => {},

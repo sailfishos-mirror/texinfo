@@ -67,7 +67,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
     }
 
   // TODO extra spaces
-  k = lookup_extra (e, "spaces_before_argument");
+  k = lookup_info (e, "spaces_before_argument");
   if (k)
     ADD((char *)k->value);
 
@@ -112,11 +112,11 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
                 ADD(",");
               arg_nr++;
             }
-          k = lookup_extra (e->args.list[i], "spaces_before_argument");
+          k = lookup_info (e->args.list[i], "spaces_before_argument");
           if (k)
             ADD((char *)k->value);
           convert_to_texinfo_internal (e->args.list[i], result);
-          k = lookup_extra (e->args.list[i], "spaces_after_argument");
+          k = lookup_info (e->args.list[i], "spaces_after_argument");
           if (k)
             ADD((char *)k->value);
         }
@@ -152,7 +152,7 @@ convert_to_texinfo_internal (ELEMENT *e, TEXT *result)
         {
           KEY_PAIR *k;
           ADD("{");
-          k = lookup_extra (e, "spaces_before_argument");
+          k = lookup_info (e, "spaces_before_argument");
           if (k)
             ADD((char *)k->value);
         }

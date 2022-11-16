@@ -33,7 +33,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "Top\x{2000}"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => " \n"
           },
           "type" => "line_arg"
@@ -52,7 +52,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "Top_2002"
           }
         ],
-        "normalized" => "Top_2002",
+        "normalized" => "Top_2002"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -69,7 +71,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "top"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -82,7 +84,8 @@ $result_trees{'special_spaces_in_nodes'} = {
           "type" => "empty_line"
         }
       ],
-      "extra" => {
+      "extra" => {},
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -99,7 +102,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "EN QUAD|\x{2000}| EM QUAD|\x{2001}| EN SPACE|\x{2002}|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -118,7 +121,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"
           }
         ],
-        "normalized" => "EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c",
+        "normalized" => "EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -135,7 +140,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "chap"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -154,7 +159,7 @@ $result_trees{'special_spaces_in_nodes'} = {
         {
           "args" => [
             {
-              "extra" => {
+              "info" => {
                 "spaces_after_argument" => "\n"
               },
               "type" => "block_line_arg"
@@ -554,7 +559,7 @@ $result_trees{'special_spaces_in_nodes'} = {
                       "text" => "menu"
                     }
                   ],
-                  "extra" => {
+                  "info" => {
                     "spaces_after_argument" => "\n"
                   },
                   "type" => "line_arg"
@@ -562,8 +567,10 @@ $result_trees{'special_spaces_in_nodes'} = {
               ],
               "cmdname" => "end",
               "extra" => {
-                "spaces_before_argument" => " ",
                 "text_arg" => "menu"
+              },
+              "info" => {
+                "spaces_before_argument" => " "
               },
               "source_info" => {
                 "file_name" => "special_spaces_in_nodes.texi",
@@ -583,7 +590,8 @@ $result_trees{'special_spaces_in_nodes'} = {
           "type" => "empty_line"
         }
       ],
-      "extra" => {
+      "extra" => {},
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -600,7 +608,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "CHARACTER TABULATION|\t| FORM FEED|\f| LINE TABULATION|\13|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -625,7 +633,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"
           }
         ],
-        "normalized" => "CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c",
+        "normalized" => "CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -642,7 +652,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "CARRIAGE RETURN|\r|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -667,7 +677,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "CARRIAGE-RETURN_007c-_007c"
           }
         ],
-        "normalized" => "CARRIAGE-RETURN_007c-_007c",
+        "normalized" => "CARRIAGE-RETURN_007c-_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -684,7 +696,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "NEXT LINE (NEL)|\x{85}| NO-BREAK SPACE|\x{a0}| OGHAM SPACE MARK|\x{1680}|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -709,7 +721,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
           }
         ],
-        "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c",
+        "normalized" => "NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -726,7 +740,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "MONGOLIAN VOWEL SEPARATOR|\x{180e}| EM SPACE|\x{2003}|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -751,7 +765,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"
           }
         ],
-        "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c",
+        "normalized" => "MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -768,7 +784,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "THREE-PER-EM SPACE|\x{2004}| FOUR-PER-EM SPACE|\x{2005}| SIX-PER-EM SPACE|\x{2006}|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -793,7 +809,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"
           }
         ],
-        "normalized" => "THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c",
+        "normalized" => "THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -810,7 +828,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "FIGURE SPACE|\x{2007}| PUNCTUATION SPACE|\x{2008}| THIN SPACE|\x{2009}|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -835,7 +853,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"
           }
         ],
-        "normalized" => "FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c",
+        "normalized" => "FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -852,7 +872,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "HAIR SPACE|\x{200a}| LINE SEPARATOR|\x{2028}| PARAGRAPH SEPARATOR|\x{2029}|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -877,7 +897,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"
           }
         ],
-        "normalized" => "HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c",
+        "normalized" => "HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -894,7 +916,7 @@ $result_trees{'special_spaces_in_nodes'} = {
               "text" => "NARROW NO-BREAK SPACE|\x{202f}| MEDIUM MATHEMATICAL SPACE|\x{205f}| IDEOGRAPHIC SPACE|\x{3000}|"
             }
           ],
-          "extra" => {
+          "info" => {
             "spaces_after_argument" => "\n"
           },
           "type" => "line_arg"
@@ -958,7 +980,9 @@ $result_trees{'special_spaces_in_nodes'} = {
             "normalized" => "NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"
           }
         ],
-        "normalized" => "NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c",
+        "normalized" => "NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"
+      },
+      "info" => {
         "spaces_before_argument" => " "
       },
       "source_info" => {
@@ -1098,9 +1122,11 @@ $result_sectioning{'special_spaces_in_nodes'} = {
             'extra' => {
               'normalized' => 'Top_2002'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1111,9 +1137,11 @@ $result_sectioning{'special_spaces_in_nodes'} = {
                   'extra' => {
                     'normalized' => 'EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1142,10 +1170,12 @@ $result_nodes{'special_spaces_in_nodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top_2002'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -1153,6 +1183,7 @@ $result_nodes{'special_spaces_in_nodes'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
@@ -1164,54 +1195,63 @@ $result_nodes{'special_spaces_in_nodes'} = {
         ],
         'normalized' => 'EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c'
       },
+      'info' => {},
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'CARRIAGE-RETURN_007c-_007c'
               },
+              'info' => {},
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c'
                   },
+                  'info' => {},
                   'structure' => {
                     'node_next' => {
                       'cmdname' => 'node',
                       'extra' => {
                         'normalized' => 'MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c'
                       },
+                      'info' => {},
                       'structure' => {
                         'node_next' => {
                           'cmdname' => 'node',
                           'extra' => {
                             'normalized' => 'THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c'
                           },
+                          'info' => {},
                           'structure' => {
                             'node_next' => {
                               'cmdname' => 'node',
                               'extra' => {
                                 'normalized' => 'FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c'
                               },
+                              'info' => {},
                               'structure' => {
                                 'node_next' => {
                                   'cmdname' => 'node',
                                   'extra' => {
                                     'normalized' => 'HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c'
                                   },
+                                  'info' => {},
                                   'structure' => {
                                     'node_next' => {
                                       'cmdname' => 'node',
                                       'extra' => {
                                         'normalized' => 'NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c'
                                       },
+                                      'info' => {},
                                       'structure' => {
                                         'node_prev' => {},
                                         'node_up' => {}
@@ -1271,6 +1311,7 @@ $result_menus{'special_spaces_in_nodes'} = {
   'extra' => {
     'normalized' => 'Top_2002'
   },
+  'info' => {},
   'structure' => {}
 };
 

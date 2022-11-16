@@ -18,7 +18,7 @@ $result_trees{'empty_menu_entry_name'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -35,7 +35,7 @@ $result_trees{'empty_menu_entry_name'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -171,7 +171,7 @@ $result_trees{'empty_menu_entry_name'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -180,8 +180,10 @@ $result_trees{'empty_menu_entry_name'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -214,7 +216,9 @@ $result_trees{'empty_menu_entry_name'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -231,7 +235,7 @@ $result_trees{'empty_menu_entry_name'} = {
               'text' => 'aaa'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -251,7 +255,9 @@ $result_trees{'empty_menu_entry_name'} = {
             'normalized' => 'aaa'
           }
         ],
-        'normalized' => 'aaa',
+        'normalized' => 'aaa'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -301,6 +307,7 @@ $result_nodes{'empty_menu_entry_name'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {
@@ -321,6 +328,7 @@ $result_menus{'empty_menu_entry_name'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'extra' => {

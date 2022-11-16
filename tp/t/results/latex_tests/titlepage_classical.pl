@@ -14,7 +14,7 @@ $result_trees{'titlepage_classical'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -40,7 +40,7 @@ $result_trees{'titlepage_classical'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -49,8 +49,10 @@ $result_trees{'titlepage_classical'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -73,7 +75,7 @@ $result_trees{'titlepage_classical'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -90,7 +92,7 @@ $result_trees{'titlepage_classical'} = {
                           'text' => 'Some manual tested'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -98,7 +100,7 @@ $result_trees{'titlepage_classical'} = {
                     }
                   ],
                   'cmdname' => 'title',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -115,7 +117,7 @@ $result_trees{'titlepage_classical'} = {
                           'text' => 'Subtitle manual tested'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -123,7 +125,7 @@ $result_trees{'titlepage_classical'} = {
                     }
                   ],
                   'cmdname' => 'subtitle',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -140,7 +142,7 @@ $result_trees{'titlepage_classical'} = {
                           'text' => 'Subtitle 2 manual tested'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -148,7 +150,7 @@ $result_trees{'titlepage_classical'} = {
                     }
                   ],
                   'cmdname' => 'subtitle',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -165,7 +167,7 @@ $result_trees{'titlepage_classical'} = {
                           'text' => 'First author'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -174,8 +176,10 @@ $result_trees{'titlepage_classical'} = {
                   ],
                   'cmdname' => 'author',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'titlepage' => {}
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -191,7 +195,7 @@ $result_trees{'titlepage_classical'} = {
                           'text' => 'Second author'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -200,8 +204,10 @@ $result_trees{'titlepage_classical'} = {
                   ],
                   'cmdname' => 'author',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'titlepage' => {}
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -289,7 +295,7 @@ $result_trees{'titlepage_classical'} = {
                           'text' => 'titlepage'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -298,8 +304,10 @@ $result_trees{'titlepage_classical'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -333,7 +341,7 @@ $result_trees{'titlepage_classical'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -353,7 +361,9 @@ $result_trees{'titlepage_classical'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -370,7 +380,7 @@ $result_trees{'titlepage_classical'} = {
               'text' => 'section top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -385,7 +395,8 @@ $result_trees{'titlepage_classical'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -402,7 +413,7 @@ $result_trees{'titlepage_classical'} = {
               'text' => 'chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -422,7 +433,9 @@ $result_trees{'titlepage_classical'} = {
             'normalized' => 'chapter'
           }
         ],
-        'normalized' => 'chapter',
+        'normalized' => 'chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -439,7 +452,7 @@ $result_trees{'titlepage_classical'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -468,7 +481,8 @@ $result_trees{'titlepage_classical'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -539,9 +553,11 @@ $result_sectioning{'titlepage_classical'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -552,9 +568,11 @@ $result_sectioning{'titlepage_classical'} = {
                   'extra' => {
                     'normalized' => 'chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -583,10 +601,12 @@ $result_nodes{'titlepage_classical'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -594,12 +614,14 @@ $result_nodes{'titlepage_classical'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -615,6 +637,7 @@ $result_menus{'titlepage_classical'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

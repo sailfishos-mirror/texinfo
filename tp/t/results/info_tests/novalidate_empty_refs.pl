@@ -45,7 +45,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -157,7 +157,9 @@ $result_trees{'novalidate_empty_refs'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -187,7 +189,9 @@ $result_trees{'novalidate_empty_refs'} = {
             ],
             'normalized' => '-'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -204,7 +208,7 @@ $result_trees{'novalidate_empty_refs'} = {
               'cmdname' => ':'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -220,7 +224,9 @@ $result_trees{'novalidate_empty_refs'} = {
             ],
             'normalized' => ''
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -252,7 +258,7 @@ $result_trees{'novalidate_empty_refs'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -268,7 +274,9 @@ $result_trees{'novalidate_empty_refs'} = {
             ],
             'normalized' => '-'
           }
-        ],
+        ]
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -314,14 +322,16 @@ $result_nodes{'novalidate_empty_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'novalidate_empty_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'novalidate_empty_refs'} = [

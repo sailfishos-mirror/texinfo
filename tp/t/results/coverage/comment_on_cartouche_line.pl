@@ -52,7 +52,7 @@ $result_trees{'comment_on_cartouche_line'} = {
                       'text' => 'cartouche'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -61,8 +61,10 @@ $result_trees{'comment_on_cartouche_line'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'cartouche'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -71,7 +73,7 @@ $result_trees{'comment_on_cartouche_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

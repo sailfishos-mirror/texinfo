@@ -58,7 +58,7 @@ $result_trees{'ref_empty_node'} = {
                   'type' => 'brace_command_arg'
                 },
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -69,7 +69,7 @@ $result_trees{'ref_empty_node'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -116,7 +116,7 @@ $result_trees{'ref_empty_node'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -127,7 +127,7 @@ $result_trees{'ref_empty_node'} = {
                       'text' => 'Bidule'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -138,7 +138,7 @@ $result_trees{'ref_empty_node'} = {
                       'text' => 'Truc'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -149,7 +149,7 @@ $result_trees{'ref_empty_node'} = {
                       'text' => 'file'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -160,7 +160,7 @@ $result_trees{'ref_empty_node'} = {
                       'text' => 'Printed'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

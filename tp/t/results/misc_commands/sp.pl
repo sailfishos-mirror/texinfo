@@ -30,7 +30,7 @@ $result_trees{'sp'} = {
                   'text' => '1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -41,7 +41,9 @@ $result_trees{'sp'} = {
           'extra' => {
             'misc_args' => [
               '1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -58,7 +60,7 @@ $result_trees{'sp'} = {
                   'text' => '2'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -69,7 +71,9 @@ $result_trees{'sp'} = {
           'extra' => {
             'misc_args' => [
               '2'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -94,7 +98,7 @@ $result_trees{'sp'} = {
                   'text' => '1'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -105,7 +109,9 @@ $result_trees{'sp'} = {
           'extra' => {
             'misc_args' => [
               '1'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -131,7 +137,7 @@ $result_trees{'sp'} = {
                   'text' => '2 a number after sp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -139,7 +145,7 @@ $result_trees{'sp'} = {
             }
           ],
           'cmdname' => 'sp',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -17,7 +17,7 @@ $result_trees{'not_letters_in_prototype'} = {
                   'text' => '1.3  5-6'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -98,7 +98,7 @@ $result_trees{'not_letters_in_prototype'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -107,8 +107,10 @@ $result_trees{'not_letters_in_prototype'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -128,7 +130,9 @@ $result_trees{'not_letters_in_prototype'} = {
                 'text' => '5-6',
                 'type' => 'row_prototype'
               }
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => '  '
           },
           'source_info' => {

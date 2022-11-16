@@ -28,7 +28,7 @@ $result_trees{'ignored_in_ifset'} = {
                       'text' => 'ifset'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -37,8 +37,10 @@ $result_trees{'ignored_in_ifset'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ifset'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -62,7 +64,7 @@ $result_trees{'ignored_in_ifset'} = {
                   'text' => 'ifset'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -71,8 +73,10 @@ $result_trees{'ignored_in_ifset'} = {
           ],
           'cmdname' => 'end',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'ifset'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -99,7 +103,7 @@ $result_trees{'ignored_in_ifset'} = {
                       'text' => 'ifset'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -108,8 +112,10 @@ $result_trees{'ignored_in_ifset'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'ifset'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

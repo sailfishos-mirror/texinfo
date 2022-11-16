@@ -35,7 +35,7 @@ $result_trees{'heading_in_footnote'} = {
                               'text' => 'H1'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -43,7 +43,8 @@ $result_trees{'heading_in_footnote'} = {
                         }
                       ],
                       'cmdname' => 'heading',
-                      'extra' => {
+                      'extra' => {},
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -60,7 +61,7 @@ $result_trees{'heading_in_footnote'} = {
                               'text' => 'ind e'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -79,7 +80,9 @@ $result_trees{'heading_in_footnote'} = {
                           'index_ignore_chars' => {},
                           'index_name' => 'cp',
                           'index_type_command' => 'cindex'
-                        },
+                        }
+                      },
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'source_info' => {
@@ -103,7 +106,7 @@ $result_trees{'heading_in_footnote'} = {
                 }
               ],
               'cmdname' => 'footnote',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => '
 '
               },

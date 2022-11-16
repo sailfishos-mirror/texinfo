@@ -21,7 +21,7 @@ $result_trees{'format_on_first_footnote_line'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -47,7 +47,7 @@ $result_trees{'format_on_first_footnote_line'} = {
                                   'text' => 'quotation'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -56,8 +56,10 @@ $result_trees{'format_on_first_footnote_line'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'quotation'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',
@@ -107,7 +109,7 @@ $result_trees{'format_on_first_footnote_line'} = {
                     {
                       'args' => [
                         {
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -133,7 +135,7 @@ $result_trees{'format_on_first_footnote_line'} = {
                                   'text' => 'example'
                                 }
                               ],
-                              'extra' => {
+                              'info' => {
                                 'spaces_after_argument' => '
 '
                               },
@@ -142,8 +144,10 @@ $result_trees{'format_on_first_footnote_line'} = {
                           ],
                           'cmdname' => 'end',
                           'extra' => {
-                            'spaces_before_argument' => ' ',
                             'text_arg' => 'example'
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
                           },
                           'source_info' => {
                             'file_name' => '',

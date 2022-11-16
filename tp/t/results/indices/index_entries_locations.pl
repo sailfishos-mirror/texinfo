@@ -34,7 +34,7 @@ $result_trees{'index_entries_locations'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -76,7 +76,7 @@ $result_trees{'index_entries_locations'} = {
                       'text' => 'entry in paragraph'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -96,7 +96,9 @@ $result_trees{'index_entries_locations'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -118,7 +120,7 @@ $result_trees{'index_entries_locations'} = {
                       'text' => 'entry at end of paragraph.'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -138,7 +140,9 @@ $result_trees{'index_entries_locations'} = {
                   'index_ignore_chars' => {},
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex'
-                },
+                }
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -178,7 +182,7 @@ $result_trees{'index_entries_locations'} = {
                   'text' => 'Entry before paragraph'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -198,7 +202,9 @@ $result_trees{'index_entries_locations'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -230,7 +236,7 @@ $result_trees{'index_entries_locations'} = {
                   'text' => 'lone entry'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -250,7 +256,9 @@ $result_trees{'index_entries_locations'} = {
               'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
-            },
+            }
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -287,7 +295,7 @@ $result_trees{'index_entries_locations'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -298,7 +306,9 @@ $result_trees{'index_entries_locations'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -321,7 +331,9 @@ $result_trees{'index_entries_locations'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -395,7 +407,8 @@ $result_nodes{'index_entries_locations'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'index_entries_locations'} = {
@@ -403,7 +416,8 @@ $result_menus{'index_entries_locations'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'index_entries_locations'} = [];

@@ -40,7 +40,7 @@ $result_trees{'documentation_examples'} = {
                           'text' => 'me'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'brace_command_arg'
@@ -107,7 +107,7 @@ $result_trees{'documentation_examples'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -115,7 +115,8 @@ $result_trees{'documentation_examples'} = {
             }
           ],
           'cmdname' => 'settitle',
-          'extra' => {
+          'extra' => {},
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -140,7 +141,7 @@ $result_trees{'documentation_examples'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -237,7 +238,7 @@ $result_trees{'documentation_examples'} = {
                           'text' => 'my node'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -259,7 +260,7 @@ $result_trees{'documentation_examples'} = {
                               'text' => 'de'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -268,8 +269,10 @@ $result_trees{'documentation_examples'} = {
                       ],
                       'cmdname' => 'documentlanguage',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'de'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -354,7 +357,9 @@ $result_trees{'documentation_examples'} = {
                         'normalized' => 'my-node'
                       }
                     ],
-                    'normalized' => 'my-node',
+                    'normalized' => 'my-node'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -452,7 +457,7 @@ $result_trees{'documentation_examples'} = {
                       'text' => 'someone'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -565,7 +570,7 @@ $result_trees{'documentation_examples'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -647,7 +652,7 @@ $result_trees{'documentation_examples'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -656,8 +661,10 @@ $result_trees{'documentation_examples'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -685,7 +692,7 @@ $result_trees{'documentation_examples'} = {
                   'text' => 'fr'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -694,8 +701,10 @@ $result_trees{'documentation_examples'} = {
           ],
           'cmdname' => 'documentlanguage',
           'extra' => {
-            'spaces_before_argument' => ' ',
             'text_arg' => 'fr'
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -775,7 +784,9 @@ $result_trees{'documentation_examples'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -860,12 +871,14 @@ $result_nodes{'documentation_examples'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'my-node'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {}
       }
@@ -879,6 +892,7 @@ $result_menus{'documentation_examples'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

@@ -24,7 +24,7 @@ $result_trees{'seealso_duplicate'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -61,7 +61,7 @@ $result_trees{'seealso_duplicate'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -81,7 +81,6 @@ $result_trees{'seealso_duplicate'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -90,7 +89,7 @@ $result_trees{'seealso_duplicate'} = {
                       'text' => 'POSIX and'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -99,7 +98,9 @@ $result_trees{'seealso_duplicate'} = {
               ],
               'cmdname' => 'subentry',
               'extra' => {
-                'level' => 1,
+                'level' => 1
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -108,6 +109,9 @@ $result_trees{'seealso_duplicate'} = {
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -140,7 +144,7 @@ $result_trees{'seealso_duplicate'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -160,7 +164,6 @@ $result_trees{'seealso_duplicate'} = {
               'index_name' => 'cp',
               'index_type_command' => 'cindex'
             },
-            'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
                 {
@@ -209,7 +212,7 @@ $result_trees{'seealso_duplicate'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -219,7 +222,9 @@ $result_trees{'seealso_duplicate'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'seealso' => {},
+                'seealso' => {}
+              },
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -228,6 +233,9 @@ $result_trees{'seealso_duplicate'} = {
                 'macro' => ''
               }
             }
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
           },
           'source_info' => {
             'file_name' => '',
@@ -250,7 +258,7 @@ $result_trees{'seealso_duplicate'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -261,7 +269,9 @@ $result_trees{'seealso_duplicate'} = {
           'extra' => {
             'misc_args' => [
               'cp'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -284,7 +294,9 @@ $result_trees{'seealso_duplicate'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -328,7 +340,8 @@ $result_nodes{'seealso_duplicate'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_menus{'seealso_duplicate'} = {
@@ -336,7 +349,8 @@ $result_menus{'seealso_duplicate'} = {
   'extra' => {
     'isindex' => 1,
     'normalized' => 'Top'
-  }
+  },
+  'info' => {}
 };
 
 $result_errors{'seealso_duplicate'} = [];

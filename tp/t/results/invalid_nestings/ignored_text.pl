@@ -22,7 +22,7 @@ $result_trees{'ignored_text'} = {
         }
       ],
       'cmdname' => 'node',
-      'extra' => {
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {

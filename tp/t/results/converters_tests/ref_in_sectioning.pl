@@ -40,7 +40,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -60,7 +60,9 @@ $result_trees{'ref_in_sectioning'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -97,7 +99,7 @@ $result_trees{'ref_in_sectioning'} = {
                           'text' => 'node'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -117,7 +119,9 @@ $result_trees{'ref_in_sectioning'} = {
                         'normalized' => 'node'
                       }
                     ],
-                    'normalized' => 'node',
+                    'normalized' => 'node'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -194,7 +198,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'file'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -205,7 +209,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -229,7 +233,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -246,7 +250,7 @@ $result_trees{'ref_in_sectioning'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -361,7 +365,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -370,8 +374,10 @@ $result_trees{'ref_in_sectioning'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -392,7 +398,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -433,7 +440,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -444,7 +451,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -468,7 +475,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => '.'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -483,7 +490,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -500,7 +508,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -520,7 +528,9 @@ $result_trees{'ref_in_sectioning'} = {
             'normalized' => 'chap'
           }
         ],
-        'normalized' => 'chap',
+        'normalized' => 'chap'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -564,7 +574,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ' just node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -579,7 +589,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -677,7 +688,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'file'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -688,7 +699,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -712,7 +723,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ')'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -727,7 +738,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -756,7 +768,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'cross ref name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -782,7 +794,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => '  node, crossref arg2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -797,7 +809,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -859,7 +872,7 @@ $result_trees{'ref_in_sectioning'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -885,7 +898,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => '  code node, samptitle arg3'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -900,7 +913,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -950,7 +964,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -974,7 +988,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ' code node, file name'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -989,7 +1003,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1027,7 +1042,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -1052,7 +1067,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ' node and manual'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1067,7 +1082,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1105,7 +1121,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -1130,7 +1146,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ' Top and manual'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1145,7 +1161,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1178,7 +1195,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'Manual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -1196,7 +1213,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ' no node just manual'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1211,7 +1228,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1241,7 +1259,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1258,7 +1276,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ' no node just file name'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1273,7 +1291,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1302,7 +1321,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'b'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1313,7 +1332,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'c'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1337,7 +1356,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ' inforef a b c'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => ' 
 '
           },
@@ -1352,7 +1371,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1376,7 +1396,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'Top'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -1394,7 +1414,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -1419,7 +1439,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ') pxref Top file name, spaces'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1434,7 +1454,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1467,7 +1488,7 @@ $result_trees{'ref_in_sectioning'} = {
                       'text' => 'file name'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => ' ',
                     'spaces_before_argument' => ' '
                   },
@@ -1485,7 +1506,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ') pxref file name only, spaces'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1500,7 +1521,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1556,7 +1578,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => ', xref Top filename only, no spaces'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1571,7 +1593,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1615,7 +1638,7 @@ $result_trees{'ref_in_sectioning'} = {
               'text' => '. xref filename only, no spaces'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1630,7 +1653,8 @@ $result_trees{'ref_in_sectioning'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1786,9 +1810,11 @@ $result_sectioning{'ref_in_sectioning'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -1799,9 +1825,11 @@ $result_sectioning{'ref_in_sectioning'} = {
                   'extra' => {
                     'normalized' => 'node'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -1818,14 +1846,17 @@ $result_sectioning{'ref_in_sectioning'} = {
                   'extra' => {
                     'normalized' => 'chap'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.1',
@@ -1835,6 +1866,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.2',
@@ -1845,6 +1877,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.3',
@@ -1855,6 +1888,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.4',
@@ -1865,6 +1899,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.5',
@@ -1875,6 +1910,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.6',
@@ -1885,6 +1921,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.7',
@@ -1895,6 +1932,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.8',
@@ -1905,6 +1943,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.9',
@@ -1915,6 +1954,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.10',
@@ -1925,6 +1965,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.11',
@@ -1935,6 +1976,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.12',
@@ -1945,6 +1987,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   {
                     'cmdname' => 'section',
                     'extra' => {},
+                    'info' => {},
                     'structure' => {
                       'section_level' => 2,
                       'section_number' => '2.13',
@@ -2010,6 +2053,7 @@ $result_nodes{'ref_in_sectioning'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'menus' => [
@@ -2019,6 +2063,7 @@ $result_nodes{'ref_in_sectioning'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2026,12 +2071,14 @@ $result_nodes{'ref_in_sectioning'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'node'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -2039,12 +2086,14 @@ $result_nodes{'ref_in_sectioning'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'chap'
           },
+          'info' => {},
           'structure' => {
             'node_prev' => {},
             'node_up' => {}
@@ -2068,18 +2117,21 @@ $result_menus{'ref_in_sectioning'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'node'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'chap'
           },
+          'info' => {},
           'structure' => {
             'menu_prev' => {},
             'menu_up' => {},

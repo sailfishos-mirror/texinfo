@@ -14,7 +14,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -70,7 +70,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                           'text' => 'copying'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -79,8 +79,10 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'copying'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -103,7 +105,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -120,7 +122,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                           'text' => 'Manual'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -128,7 +130,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                     }
                   ],
                   'cmdname' => 'title',
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -175,7 +177,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                           'text' => 'titlepage'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -184,8 +186,10 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'titlepage'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -219,7 +223,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -239,7 +243,9 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -256,7 +262,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
               'text' => 'top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -271,7 +277,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -288,7 +295,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
               'text' => 'Chapter'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -308,7 +315,9 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
             'normalized' => 'Chapter'
           }
         ],
-        'normalized' => 'Chapter',
+        'normalized' => 'Chapter'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -325,7 +334,7 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
               'text' => 'Chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -437,7 +446,8 @@ $result_trees{'anchor_in_copying_insertcopying_titlepage_chap'} = {
           'type' => 'paragraph'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -510,9 +520,11 @@ $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
+        'info' => {},
         'structure' => {
           'section_childs' => [
             {
@@ -523,9 +535,11 @@ $result_sectioning{'anchor_in_copying_insertcopying_titlepage_chap'} = {
                   'extra' => {
                     'normalized' => 'Chapter'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -554,10 +568,12 @@ $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
+      'info' => {},
       'structure' => {}
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -565,12 +581,14 @@ $result_nodes{'anchor_in_copying_insertcopying_titlepage_chap'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'Chapter'
       },
+      'info' => {},
       'structure' => {
         'node_prev' => {},
         'node_up' => {}
@@ -586,6 +604,7 @@ $result_menus{'anchor_in_copying_insertcopying_titlepage_chap'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

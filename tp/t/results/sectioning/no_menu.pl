@@ -18,7 +18,7 @@ $result_trees{'no_menu'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -38,7 +38,9 @@ $result_trees{'no_menu'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -50,7 +52,7 @@ $result_trees{'no_menu'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -80,7 +82,7 @@ $result_trees{'no_menu'} = {
               'text' => 'c1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -100,7 +102,9 @@ $result_trees{'no_menu'} = {
             'normalized' => 'c1'
           }
         ],
-        'normalized' => 'c1',
+        'normalized' => 'c1'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -117,7 +121,7 @@ $result_trees{'no_menu'} = {
               'text' => 'c1'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -132,7 +136,8 @@ $result_trees{'no_menu'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -149,7 +154,7 @@ $result_trees{'no_menu'} = {
               'text' => 'c2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -169,7 +174,9 @@ $result_trees{'no_menu'} = {
             'normalized' => 'c2'
           }
         ],
-        'normalized' => 'c2',
+        'normalized' => 'c2'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -186,7 +193,7 @@ $result_trees{'no_menu'} = {
               'text' => 'c2'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -201,7 +208,8 @@ $result_trees{'no_menu'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -218,7 +226,7 @@ $result_trees{'no_menu'} = {
               'text' => 'c3'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -238,7 +246,9 @@ $result_trees{'no_menu'} = {
             'normalized' => 'c3'
           }
         ],
-        'normalized' => 'c3',
+        'normalized' => 'c3'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -255,7 +265,7 @@ $result_trees{'no_menu'} = {
               'text' => 'c3'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -263,7 +273,8 @@ $result_trees{'no_menu'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -320,6 +331,7 @@ $result_sectioning{'no_menu'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -333,9 +345,11 @@ $result_sectioning{'no_menu'} = {
                   'extra' => {
                     'normalized' => 'c1'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -352,9 +366,11 @@ $result_sectioning{'no_menu'} = {
                   'extra' => {
                     'normalized' => 'c2'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -372,9 +388,11 @@ $result_sectioning{'no_menu'} = {
                   'extra' => {
                     'normalized' => 'c3'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -416,6 +434,7 @@ $result_nodes{'no_menu'} = {
     },
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
@@ -423,12 +442,14 @@ $result_nodes{'no_menu'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'c1'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -436,12 +457,14 @@ $result_nodes{'no_menu'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'c2'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -449,12 +472,14 @@ $result_nodes{'no_menu'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
                 },
                 'normalized' => 'c3'
               },
+              'info' => {},
               'structure' => {
                 'node_prev' => {},
                 'node_up' => {}
@@ -482,6 +507,7 @@ $result_menus{'no_menu'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {}
 };
 

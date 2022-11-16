@@ -280,7 +280,7 @@ $result_trees{'math'} = {
                 }
               ],
               'cmdname' => 'math',
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {

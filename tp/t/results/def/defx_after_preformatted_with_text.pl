@@ -12,7 +12,7 @@ $result_trees{'defx_after_preformatted_with_text'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -230,7 +230,9 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                       'index_type_command' => 'deffn'
                     },
                     'not_after_command' => 1,
-                    'original_def_cmdname' => 'deffnx',
+                    'original_def_cmdname' => 'deffnx'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -248,7 +250,7 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                           'text' => 'deffn'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -257,8 +259,10 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                   ],
                   'cmdname' => 'end',
                   'extra' => {
-                    'spaces_before_argument' => ' ',
                     'text_arg' => 'deffn'
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
                   },
                   'source_info' => {
                     'file_name' => '',
@@ -267,7 +271,7 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_before_argument' => ' '
               },
               'source_info' => {
@@ -284,7 +288,7 @@ $result_trees{'defx_after_preformatted_with_text'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -293,8 +297,10 @@ $result_trees{'defx_after_preformatted_with_text'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'example'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',

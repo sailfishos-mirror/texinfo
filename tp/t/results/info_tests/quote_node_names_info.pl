@@ -24,7 +24,7 @@ $result_trees{'quote_node_names_info'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -44,7 +44,9 @@ $result_trees{'quote_node_names_info'} = {
             'normalized' => 'Top'
           }
         ],
-        'normalized' => 'Top',
+        'normalized' => 'Top'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -56,7 +58,7 @@ $result_trees{'quote_node_names_info'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -88,7 +90,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'the::caption and a word'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -137,7 +139,7 @@ $result_trees{'quote_node_names_info'} = {
                           'text' => 'direction'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'line_arg'
@@ -173,7 +175,7 @@ $result_trees{'quote_node_names_info'} = {
                           'text' => 'ion'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_before_argument' => ' '
                       },
                       'type' => 'line_arg'
@@ -193,7 +195,7 @@ $result_trees{'quote_node_names_info'} = {
                           'text' => 'direct::i.on'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 ',
                         'spaces_before_argument' => ' '
@@ -245,7 +247,9 @@ $result_trees{'quote_node_names_info'} = {
                         'normalized' => 'direct_003a_003ai_002eon'
                       }
                     ],
-                    'normalized' => 'normal-node',
+                    'normalized' => 'normal-node'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -287,7 +291,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'the::caption'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -339,7 +343,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'the::caption and a word'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -355,7 +359,7 @@ $result_trees{'quote_node_names_info'} = {
                           'text' => 'blah:blah'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -375,7 +379,9 @@ $result_trees{'quote_node_names_info'} = {
                         'normalized' => 'blah_003ablah'
                       }
                     ],
-                    'normalized' => 'blah_003ablah',
+                    'normalized' => 'blah_003ablah'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -417,7 +423,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'the::caption'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -469,7 +475,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'the::caption and a word'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -485,7 +491,7 @@ $result_trees{'quote_node_names_info'} = {
                           'text' => 'blumpty.fump'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -505,7 +511,9 @@ $result_trees{'quote_node_names_info'} = {
                         'normalized' => 'blumpty_002efump'
                       }
                     ],
-                    'normalized' => 'blumpty_002efump',
+                    'normalized' => 'blumpty_002efump'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -547,7 +555,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'the::caption'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -675,7 +683,7 @@ $result_trees{'quote_node_names_info'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -695,7 +703,9 @@ $result_trees{'quote_node_names_info'} = {
                         'normalized' => 'secret_002cnode'
                       }
                     ],
-                    'normalized' => 'secret_002cnode',
+                    'normalized' => 'secret_002cnode'
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -916,7 +926,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'label'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -927,7 +937,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'man_ual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -988,7 +998,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'label'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -999,7 +1009,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'man_ual'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1060,7 +1070,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'label'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1071,7 +1081,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'man:u.al'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1082,7 +1092,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'Book Title'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1135,7 +1145,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'label'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1146,7 +1156,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'man:u.al'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1157,7 +1167,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'Book Title'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1210,7 +1220,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'la:bel'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1221,7 +1231,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'man:u.al'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1232,7 +1242,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'Book Title'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'
@@ -1267,7 +1277,7 @@ $result_trees{'quote_node_names_info'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -1656,7 +1666,7 @@ $result_trees{'quote_node_names_info'} = {
                       'text' => 'menu'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -1665,8 +1675,10 @@ $result_trees{'quote_node_names_info'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'menu'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => 'nodequote.texi',
@@ -1703,7 +1715,7 @@ $result_trees{'quote_node_names_info'} = {
               'text' => 'blah:blah'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1732,7 +1744,8 @@ $result_trees{'quote_node_names_info'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1750,7 +1763,7 @@ $result_trees{'quote_node_names_info'} = {
               'text' => 'blumpty.fump'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1765,7 +1778,8 @@ $result_trees{'quote_node_names_info'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1783,7 +1797,7 @@ $result_trees{'quote_node_names_info'} = {
               'text' => 'normal node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1798,7 +1812,8 @@ $result_trees{'quote_node_names_info'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1831,7 +1846,7 @@ $result_trees{'quote_node_names_info'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1846,7 +1861,8 @@ $result_trees{'quote_node_names_info'} = {
           'type' => 'empty_line'
         }
       ],
-      'extra' => {
+      'extra' => {},
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -1863,7 +1879,7 @@ $result_trees{'quote_node_names_info'} = {
               'text' => 'top secret node'
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_after_argument' => '
 '
           },
@@ -1899,7 +1915,9 @@ $result_trees{'quote_node_names_info'} = {
             'normalized' => 'top-secret-node'
           }
         ],
-        'normalized' => 'top-secret-node',
+        'normalized' => 'top-secret-node'
+      },
+      'info' => {
         'spaces_before_argument' => ' '
       },
       'source_info' => {
@@ -2104,6 +2122,7 @@ $result_sectioning{'quote_node_names_info'} = {
             'extra' => {
               'normalized' => 'Top'
             },
+            'info' => {},
             'structure' => {}
           }
         },
@@ -2117,9 +2136,11 @@ $result_sectioning{'quote_node_names_info'} = {
                   'extra' => {
                     'normalized' => 'blah_003ablah'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 1,
@@ -2136,9 +2157,11 @@ $result_sectioning{'quote_node_names_info'} = {
                   'extra' => {
                     'normalized' => 'blumpty_002efump'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 2,
@@ -2156,9 +2179,11 @@ $result_sectioning{'quote_node_names_info'} = {
                   'extra' => {
                     'normalized' => 'normal-node'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 3,
@@ -2176,9 +2201,11 @@ $result_sectioning{'quote_node_names_info'} = {
                   'extra' => {
                     'normalized' => 'secret_002cnode'
                   },
+                  'info' => {},
                   'structure' => {}
                 }
               },
+              'info' => {},
               'structure' => {
                 'section_level' => 1,
                 'section_number' => 4,
@@ -2229,6 +2256,7 @@ $result_nodes{'quote_node_names_info'} = {
     ],
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -2236,12 +2264,14 @@ $result_nodes{'quote_node_names_info'} = {
         'associated_section' => {
           'cmdname' => 'chapter',
           'extra' => {},
+          'info' => {},
           'structure' => {
             'section_number' => 1
           }
         },
         'normalized' => 'blah_003ablah'
       },
+      'info' => {},
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
@@ -2249,12 +2279,14 @@ $result_nodes{'quote_node_names_info'} = {
             'associated_section' => {
               'cmdname' => 'chapter',
               'extra' => {},
+              'info' => {},
               'structure' => {
                 'section_number' => 2
               }
             },
             'normalized' => 'blumpty_002efump'
           },
+          'info' => {},
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
@@ -2262,12 +2294,14 @@ $result_nodes{'quote_node_names_info'} = {
                 'associated_section' => {
                   'cmdname' => 'chapter',
                   'extra' => {},
+                  'info' => {},
                   'structure' => {
                     'section_number' => 3
                   }
                 },
                 'normalized' => 'normal-node'
               },
+              'info' => {},
               'structure' => {
                 'node_next' => {
                   'extra' => {
@@ -2329,30 +2363,35 @@ $result_menus{'quote_node_names_info'} = {
   'extra' => {
     'normalized' => 'Top'
   },
+  'info' => {},
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'normalized' => 'blah_003ablah'
       },
+      'info' => {},
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'normalized' => 'blumpty_002efump'
           },
+          'info' => {},
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'normal-node'
               },
+              'info' => {},
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'normalized' => 'secret_002cnode'
                   },
+                  'info' => {},
                   'structure' => {
                     'menu_prev' => {},
                     'menu_up' => {},

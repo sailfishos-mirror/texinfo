@@ -17,7 +17,7 @@ $result_trees{'wrong_synindex'} = {
                   'text' => 'aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -28,7 +28,9 @@ $result_trees{'wrong_synindex'} = {
           'extra' => {
             'misc_args' => [
               'aaa'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
@@ -49,7 +51,7 @@ $result_trees{'wrong_synindex'} = {
             }
           ],
           'cmdname' => 'synindex',
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

@@ -17,7 +17,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                   'text' => 'a--n itemize line'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'spaces_after_argument' => '
 '
               },
@@ -50,7 +50,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                 {
                   'args' => [
                     {
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -67,7 +67,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                               'text' => 'multitable'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'spaces_after_argument' => '
 '
                           },
@@ -76,8 +76,10 @@ $result_trees{'empty_multitable_in_itemize'} = {
                       ],
                       'cmdname' => 'end',
                       'extra' => {
-                        'spaces_before_argument' => ' ',
                         'text_arg' => 'multitable'
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
                       },
                       'source_info' => {
                         'file_name' => '',
@@ -119,7 +121,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
                       'text' => 'itemize'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -128,8 +130,10 @@ $result_trees{'empty_multitable_in_itemize'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'itemize'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -138,7 +142,7 @@ $result_trees{'empty_multitable_in_itemize'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

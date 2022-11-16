@@ -25,7 +25,9 @@ $result_trees{'out_of_multitable'} = {
             'misc_args' => [
               '0.6',
               '0.4'
-            ],
+            ]
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {

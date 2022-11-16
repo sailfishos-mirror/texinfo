@@ -86,7 +86,7 @@ $result_trees{'ref_in_multitable'} = {
                           'text' => '.35 .65'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'spaces_after_argument' => '
 '
                       },
@@ -98,7 +98,9 @@ $result_trees{'ref_in_multitable'} = {
                     'misc_args' => [
                       '.35',
                       '.65'
-                    ],
+                    ]
+                  },
+                  'info' => {
                     'spaces_before_argument' => ' '
                   },
                   'source_info' => {
@@ -418,7 +420,7 @@ $result_trees{'ref_in_multitable'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'spaces_after_argument' => '
 '
                   },
@@ -427,8 +429,10 @@ $result_trees{'ref_in_multitable'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' ',
                 'text_arg' => 'multitable'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -439,7 +443,9 @@ $result_trees{'ref_in_multitable'} = {
           ],
           'extra' => {
             'columnfractions' => {},
-            'max_columns' => 2,
+            'max_columns' => 2
+          },
+          'info' => {
             'spaces_before_argument' => ' '
           },
           'source_info' => {
