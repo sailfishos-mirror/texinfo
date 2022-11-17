@@ -1,5 +1,10 @@
 2022-11-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Texinfo.pm (_expand_cmd_args_to_texi): remove
+	redundant conditions.
+
+2022-11-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Texinfo.pm,
 	tp/Texinfo/Convert/TexinfoMarkup.pm, tp/Texinfo/ParserNonXS.pm
 	(_parse_macro_command_line, _close_brace_command)

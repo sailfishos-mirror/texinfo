@@ -177,9 +177,8 @@ sub _expand_cmd_args_to_texi($;$) {
      foreach my $arg (@{$cmd->{'args'}}) {
         $result .= convert_to_texinfo($arg, $expand_replaced);
     }
-  # arg_line set for line_commands with type special
-  } elsif (($cmd->{'info'} or $cmdname eq 'macro' or $cmdname eq 'rmacro')
-           and defined($cmd->{'info'}->{'arg_line'})) {
+  # arg_line set for line_commands with type special and @macro
+  } elsif ($cmd->{'info'} and defined($cmd->{'info'}->{'arg_line'})) {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
     $result .= $cmd->{'info'}->{'arg_line'};
