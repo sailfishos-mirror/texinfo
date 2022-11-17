@@ -354,6 +354,8 @@ js/build-aux/missing
 js/examples/hello-html
 js/examples/kawa-html
 js/node_modules
+js/package-lock.json
+js/info.min.js
 
 Pod-Simple-Texinfo/pod2texi
 Pod-Simple-Texinfo/*.log
