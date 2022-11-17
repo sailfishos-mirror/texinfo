@@ -52,7 +52,7 @@ $result_trees{'complete_macro_for_end'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' theend
 '
           },

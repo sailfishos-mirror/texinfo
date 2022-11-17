@@ -52,7 +52,7 @@ $result_trees{'macro_no_arg_bad_expansion'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' testone
 '
           },

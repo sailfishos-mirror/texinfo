@@ -52,7 +52,7 @@ $result_trees{'macro_name_with_digit'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macro1
 '
           },
@@ -114,7 +114,7 @@ $result_trees{'macro_name_with_digit'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macro11 {arg}
 '
           },

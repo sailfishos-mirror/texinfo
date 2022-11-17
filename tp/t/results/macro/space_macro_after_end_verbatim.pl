@@ -52,7 +52,7 @@ $result_trees{'space_macro_after_end_verbatim'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' spaces
 '
           },

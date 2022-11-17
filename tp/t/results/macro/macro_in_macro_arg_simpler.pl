@@ -52,7 +52,7 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrooneone
 '
           },
@@ -123,7 +123,7 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrothree{text, arg}
 '
           },

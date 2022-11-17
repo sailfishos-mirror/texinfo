@@ -62,7 +62,7 @@ $result_trees{'macro_in_value'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' ab
 '
           },
@@ -90,12 +90,14 @@ $result_trees{'macro_in_value'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' flagab @ab
-',
             'misc_args' => [
               'flagab',
               '@ab'
             ]
+          },
+          'info' => {
+            'arg_line' => ' flagab @ab
+'
           }
         },
         {

@@ -52,7 +52,7 @@ $result_trees{'macro_in_brace_command'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' foo
 '
           },
@@ -110,7 +110,7 @@ $result_trees{'macro_in_brace_command'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' abar
 '
           },

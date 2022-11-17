@@ -52,7 +52,7 @@ $result_trees{'macro_in_invalid_documentencoding'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' badmacro
 '
           },

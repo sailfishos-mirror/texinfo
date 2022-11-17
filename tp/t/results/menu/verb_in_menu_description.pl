@@ -134,7 +134,7 @@ $result_trees{'verb_in_menu_description'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {

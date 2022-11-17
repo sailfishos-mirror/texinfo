@@ -52,7 +52,7 @@ $result_trees{'zero_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' foo {}
 '
           },
@@ -106,7 +106,7 @@ $result_trees{'zero_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' abar
 '
           },

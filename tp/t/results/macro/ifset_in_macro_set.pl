@@ -66,7 +66,7 @@ $result_trees{'ifset_in_macro_set'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' note {arg}
 '
           },

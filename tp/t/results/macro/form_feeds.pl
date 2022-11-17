@@ -60,7 +60,7 @@ $result_trees{'form_feeds'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacro{a, b}
 '
           },
@@ -122,7 +122,7 @@ $result_trees{'form_feeds'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' oneargmacro{c}
 '
           },

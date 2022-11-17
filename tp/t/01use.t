@@ -63,7 +63,7 @@ $manual_tree = { 'cmdname' => 'multitable',
                                                                 ],
                                                                 'type' => 'brace_command_arg',
                                                             } ],
-                                                  'extra' => {
+                                                  'info' => {
                                                     'delimiter' => ':'
                                                   }
                                                 },

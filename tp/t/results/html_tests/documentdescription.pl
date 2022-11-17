@@ -92,7 +92,7 @@ $result_trees{'documentdescription'} = {
                     }
                   ],
                   'cmdname' => 'verb',
-                  'extra' => {
+                  'info' => {
                     'delimiter' => ':'
                   },
                   'source_info' => {

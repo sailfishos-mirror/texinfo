@@ -52,7 +52,7 @@ $result_trees{'macro_in_end_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' acartouche
 '
           },

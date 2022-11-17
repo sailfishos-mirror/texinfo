@@ -152,7 +152,7 @@ $result_trees{'table_nested'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' myvtable
 '
           },

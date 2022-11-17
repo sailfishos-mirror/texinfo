@@ -2614,14 +2614,14 @@ sub _convert($$)
       # whether we are in another LaTeX macro would probably be a pain.
       # It should be ok, though, as it is described as an error in the manual:
       #   It is not reliable to use @verb inside other Texinfo constructs
-      $result .= "\\verb" .$element->{'extra'}->{'delimiter'};
+      $result .= "\\verb" .$element->{'info'}->{'delimiter'};
       push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'ctx_raw';
       if ($element->{'args'}) {
         $result .= _convert($self, $element->{'args'}->[0]);
       }
       my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'ctx_raw');
-      $result .= $element->{'extra'}->{'delimiter'};
+      $result .= $element->{'info'}->{'delimiter'};
       return $result;
     } elsif ($cmdname eq 'image') {
       if (defined($element->{'args'}->[0])

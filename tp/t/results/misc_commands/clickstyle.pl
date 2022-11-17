@@ -18,11 +18,13 @@ $result_trees{'clickstyle'} = {
           ],
           'cmdname' => 'clickstyle',
           'extra' => {
-            'arg_line' => ' @result
-',
             'misc_args' => [
               '@result'
             ]
+          },
+          'info' => {
+            'arg_line' => ' @result
+'
           },
           'source_info' => {
             'file_name' => '',

@@ -357,7 +357,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
       else /* arg_spec == LINE_special */
         {
           args = parse_special_misc_command (line, cmd, &has_comment);
-          add_extra_string (misc, "arg_line", strdup (line));
+          add_info_string_dup (misc, "arg_line", line);
         }
 
       /* Handle @set txicodequoteundirected as an

@@ -52,7 +52,7 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' begin-file
 '
           },
@@ -109,7 +109,7 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' end-file-name {ext}
 '
           },
@@ -200,7 +200,7 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' latin1 
 '
           },
@@ -258,7 +258,7 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' documentencoding-command
 '
           },
@@ -356,7 +356,7 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' multiinclude
 '
           },
@@ -478,7 +478,7 @@ $result_trees{'macro_in_early_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' themacro
 '
           },

@@ -149,7 +149,7 @@ $result_trees{'empty_commands'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ';'
               },
               'source_info' => {

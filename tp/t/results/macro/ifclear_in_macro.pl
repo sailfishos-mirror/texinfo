@@ -66,7 +66,7 @@ $result_trees{'ifclear_in_macro'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' note {arg}
 '
           },

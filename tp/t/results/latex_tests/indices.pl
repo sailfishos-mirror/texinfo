@@ -34,12 +34,14 @@ $result_trees{'indices'} = {
               ],
               'cmdname' => 'set',
               'extra' => {
-                'arg_line' => ' txiindexbackslashignore
-',
                 'misc_args' => [
                   'txiindexbackslashignore',
                   ''
                 ]
+              },
+              'info' => {
+                'arg_line' => ' txiindexbackslashignore
+'
               }
             },
             {
@@ -641,11 +643,13 @@ $result_trees{'indices'} = {
           ],
           'cmdname' => 'clear',
           'extra' => {
-            'arg_line' => ' txiindexbackslashignore
-',
             'misc_args' => [
               'txiindexbackslashignore'
             ]
+          },
+          'info' => {
+            'arg_line' => ' txiindexbackslashignore
+'
           }
         },
         {

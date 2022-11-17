@@ -52,7 +52,7 @@ $result_trees{'macro_in_accent'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' aletter
 '
           },
@@ -110,7 +110,7 @@ $result_trees{'macro_in_accent'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' aspace
 '
           },

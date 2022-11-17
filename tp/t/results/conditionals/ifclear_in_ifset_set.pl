@@ -27,12 +27,14 @@ $result_trees{'ifclear_in_ifset_set'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' a
-',
             'misc_args' => [
               'a',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' a
+'
           }
         },
         {

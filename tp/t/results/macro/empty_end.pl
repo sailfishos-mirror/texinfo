@@ -52,7 +52,7 @@ $result_trees{'empty_end'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' foo {aaa, }
 '
           },

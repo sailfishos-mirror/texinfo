@@ -52,7 +52,7 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' cp
 '
           },
@@ -105,7 +105,7 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' fn 
 '
           },
@@ -158,7 +158,7 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' syncodeindexcommand 
 '
           },
@@ -283,7 +283,7 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' truc 
 '
           },
@@ -389,7 +389,7 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' trucindexcommand 
 '
           },
@@ -447,7 +447,7 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' codeidx 
 '
           },
@@ -540,7 +540,7 @@ $result_trees{'macro_in_index_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' defcodeindexentry 
 '
           },

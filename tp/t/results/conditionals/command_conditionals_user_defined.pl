@@ -52,7 +52,7 @@ $result_trees{'command_conditionals_user_defined'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' truc
 '
           },

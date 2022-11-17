@@ -2659,7 +2659,7 @@ $result_trees{'texi_bib_example'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' mybibsetrefnode{node}
 '
               },
@@ -2754,7 +2754,7 @@ $result_trees{'texi_bib_example'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' mybibnode{}
 '
               },
@@ -2873,7 +2873,7 @@ $result_trees{'texi_bib_example'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' mybibusetable{node}
 '
               },
@@ -2992,7 +2992,7 @@ $result_trees{'texi_bib_example'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' mybibuselist{node}
 '
               },
@@ -3115,7 +3115,7 @@ $result_trees{'texi_bib_example'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' mybibcite{ref}
 '
               },
@@ -3181,7 +3181,7 @@ $result_trees{'texi_bib_example'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' mybibmakeref{node, ref}
 '
               },
@@ -3329,7 +3329,7 @@ $result_trees{'texi_bib_example'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' mybibitem{ref}
 '
               },
@@ -3373,12 +3373,14 @@ $result_trees{'texi_bib_example'} = {
               ],
               'cmdname' => 'set',
               'extra' => {
-                'arg_line' => ' mybiblist true
-',
                 'misc_args' => [
                   'mybiblist',
                   'true'
                 ]
+              },
+              'info' => {
+                'arg_line' => ' mybiblist true
+'
               }
             },
             {
@@ -3394,12 +3396,14 @@ $result_trees{'texi_bib_example'} = {
               ],
               'cmdname' => 'set',
               'extra' => {
-                'arg_line' => ' mybibrefnode References
-',
                 'misc_args' => [
                   'mybibrefnode',
                   'References'
                 ]
+              },
+              'info' => {
+                'arg_line' => ' mybibrefnode References
+'
               }
             },
             {

@@ -114,7 +114,7 @@ $result_trees{'at_commands_in_raw'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' othermacro{}
 '
           },

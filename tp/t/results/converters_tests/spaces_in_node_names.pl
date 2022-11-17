@@ -125,7 +125,7 @@ $result_trees{'spaces_in_node_names'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => ':'
                       },
                       'source_info' => {
@@ -366,7 +366,7 @@ $result_trees{'spaces_in_node_names'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -527,7 +527,7 @@ $result_trees{'spaces_in_node_names'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => ':'
                       },
                       'source_info' => {

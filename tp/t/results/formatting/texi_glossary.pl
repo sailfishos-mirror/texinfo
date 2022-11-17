@@ -107,7 +107,7 @@ $result_trees{'texi_glossary'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' glossarytext
 '
               },
@@ -175,7 +175,7 @@ $result_trees{'texi_glossary'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' glossary
 '
               },
@@ -301,7 +301,7 @@ $result_trees{'texi_glossary'} = {
                           }
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'arg_line' => ' glossarytext
 '
                       }
@@ -335,7 +335,7 @@ $result_trees{'texi_glossary'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'arg_line' => ' expandglossary{glossary}
 '
                   }
@@ -379,7 +379,7 @@ $result_trees{'texi_glossary'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' gentry {id, name, text}
 '
               },
@@ -614,11 +614,13 @@ $result_trees{'texi_glossary'} = {
               ],
               'cmdname' => 'unmacro',
               'extra' => {
-                'arg_line' => ' expandglossary
-',
                 'misc_args' => [
                   'expandglossary'
                 ]
+              },
+              'info' => {
+                'arg_line' => ' expandglossary
+'
               }
             },
             {
@@ -686,7 +688,7 @@ $result_trees{'texi_glossary'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'arg_line' => ' glossarytext
 '
                   }
@@ -720,7 +722,7 @@ $result_trees{'texi_glossary'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' expandglossary{glossary}
 '
               },
@@ -739,11 +741,13 @@ $result_trees{'texi_glossary'} = {
               ],
               'cmdname' => 'unmacro',
               'extra' => {
-                'arg_line' => ' glossarytext
-',
                 'misc_args' => [
                   'glossarytext'
                 ]
+              },
+              'info' => {
+                'arg_line' => ' glossarytext
+'
               }
             },
             {
@@ -799,7 +803,7 @@ $result_trees{'texi_glossary'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' glossarytext
 '
               },
@@ -884,11 +888,13 @@ $result_trees{'texi_glossary'} = {
               ],
               'cmdname' => 'unmacro',
               'extra' => {
-                'arg_line' => ' expandglossary
-',
                 'misc_args' => [
                   'expandglossary'
                 ]
+              },
+              'info' => {
+                'arg_line' => ' expandglossary
+'
               }
             },
             {
@@ -956,7 +962,7 @@ $result_trees{'texi_glossary'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'arg_line' => ' glossarytext
 '
                   }
@@ -990,7 +996,7 @@ $result_trees{'texi_glossary'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' expandglossary{glossary}
 '
               },
@@ -1009,11 +1015,13 @@ $result_trees{'texi_glossary'} = {
               ],
               'cmdname' => 'unmacro',
               'extra' => {
-                'arg_line' => ' glossarytext
-',
                 'misc_args' => [
                   'glossarytext'
                 ]
+              },
+              'info' => {
+                'arg_line' => ' glossarytext
+'
               }
             },
             {
@@ -1069,7 +1077,7 @@ $result_trees{'texi_glossary'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' glossarytext
 '
               },

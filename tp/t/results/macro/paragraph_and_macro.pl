@@ -47,7 +47,7 @@ $result_trees{'paragraph_and_macro'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' aempty
 '
           },
@@ -105,7 +105,7 @@ $result_trees{'paragraph_and_macro'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' aspace
 '
           },
@@ -163,7 +163,7 @@ $result_trees{'paragraph_and_macro'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' word
 '
           },

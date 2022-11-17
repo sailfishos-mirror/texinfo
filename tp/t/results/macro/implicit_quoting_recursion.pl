@@ -60,7 +60,7 @@ $result_trees{'implicit_quoting_recursion'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' cat{a,b}
 '
           },

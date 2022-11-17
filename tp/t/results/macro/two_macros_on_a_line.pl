@@ -52,7 +52,7 @@ $result_trees{'two_macros_on_a_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacro
 '
           },
@@ -124,7 +124,7 @@ $result_trees{'two_macros_on_a_line'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacrowithargs{arg}
 '
           },

@@ -1,3 +1,17 @@
+2022-11-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Texinfo.pm,
+	tp/Texinfo/Convert/TexinfoMarkup.pm, tp/Texinfo/ParserNonXS.pm
+	(_parse_macro_command_line, _close_brace_command)
+	(_process_remaining_on_line), tp/Texinfo/XS/parsetexi/close.c
+	(close_brace_command), tp/Texinfo/XS/parsetexi/convert.c
+	(expand_cmd_args_to_texi), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_line_command), tp/Texinfo/XS/parsetexi/macro.c
+	(parse_macro_command_line), tp/Texinfo/XS/parsetexi/parser.c
+	(process_remaining_on_line), tp/Texinfo/XS/parsetexi/separator.c
+	(handle_open_brace): move arg_line and @verb delimiter from extra to
+	info in element.
+
 2022-11-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/t/recode-C-locale.sh: New test.

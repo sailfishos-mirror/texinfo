@@ -52,7 +52,7 @@ $result_trees{'macro_zero'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' zero
 '
           },

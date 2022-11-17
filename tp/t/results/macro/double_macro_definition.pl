@@ -47,7 +47,7 @@ $result_trees{'double_macro_definition'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' foo
 '
           },
@@ -100,7 +100,7 @@ $result_trees{'double_macro_definition'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' foo
 '
           },

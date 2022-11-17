@@ -22,12 +22,14 @@ $result_trees{'simple'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' a-_5b the value @b{b} @c comment
-',
             'misc_args' => [
               'a-_5b',
               'the value @b{b}'
             ]
+          },
+          'info' => {
+            'arg_line' => ' a-_5b the value @b{b} @c comment
+'
           }
         },
         {

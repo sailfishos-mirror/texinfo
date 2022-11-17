@@ -52,7 +52,7 @@ $result_trees{'ignored_macro_definition'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacro{}
 '
           },

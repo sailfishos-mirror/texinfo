@@ -27,12 +27,14 @@ $result_trees{'end_ifset_in_format'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' notset
-',
             'misc_args' => [
               'notset',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' notset
+'
           }
         },
         {
@@ -184,7 +186,7 @@ $result_trees{'end_ifset_in_format'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => '%'
               },
               'source_info' => {

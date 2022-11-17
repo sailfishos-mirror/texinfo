@@ -53,12 +53,14 @@ $result_trees{'set_on_item_line'} = {
                               ],
                               'cmdname' => 'set',
                               'extra' => {
-                                'arg_line' => ' a b@c
-',
                                 'misc_args' => [
                                   'a',
                                   'b'
                                 ]
+                              },
+                              'info' => {
+                                'arg_line' => ' a b@c
+'
                               }
                             },
                             {
@@ -126,12 +128,14 @@ $result_trees{'set_on_item_line'} = {
                               ],
                               'cmdname' => 'set',
                               'extra' => {
-                                'arg_line' => ' j@c
-',
                                 'misc_args' => [
                                   'j',
                                   ''
                                 ]
+                              },
+                              'info' => {
+                                'arg_line' => ' j@c
+'
                               }
                             },
                             {
@@ -185,12 +189,14 @@ $result_trees{'set_on_item_line'} = {
                               ],
                               'cmdname' => 'set',
                               'extra' => {
-                                'arg_line' => ' g@c
-',
                                 'misc_args' => [
                                   'g',
                                   ''
                                 ]
+                              },
+                              'info' => {
+                                'arg_line' => ' g@c
+'
                               }
                             }
                           ],
@@ -303,12 +309,14 @@ $result_trees{'set_on_item_line'} = {
                               ],
                               'cmdname' => 'set',
                               'extra' => {
-                                'arg_line' => ' a b
-',
                                 'misc_args' => [
                                   'a',
                                   'b'
                                 ]
+                              },
+                              'info' => {
+                                'arg_line' => ' a b
+'
                               }
                             }
                           ],
@@ -373,12 +381,14 @@ $result_trees{'set_on_item_line'} = {
                               ],
                               'cmdname' => 'set',
                               'extra' => {
-                                'arg_line' => ' j
-',
                                 'misc_args' => [
                                   'j',
                                   ''
                                 ]
+                              },
+                              'info' => {
+                                'arg_line' => ' j
+'
                               }
                             }
                           ],
@@ -439,12 +449,14 @@ $result_trees{'set_on_item_line'} = {
                               ],
                               'cmdname' => 'set',
                               'extra' => {
-                                'arg_line' => ' g
-',
                                 'misc_args' => [
                                   'g',
                                   ''
                                 ]
+                              },
+                              'info' => {
+                                'arg_line' => ' g
+'
                               }
                             }
                           ],

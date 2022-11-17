@@ -62,7 +62,7 @@ $result_trees{'test_image'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' files-char
 '
           },
@@ -142,7 +142,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -211,7 +211,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -298,7 +298,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -422,7 +422,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -483,7 +483,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -625,7 +625,7 @@ $result_trees{'test_image'} = {
                     }
                   ],
                   'cmdname' => 'verb',
-                  'extra' => {
+                  'info' => {
                     'delimiter' => ':'
                   },
                   'source_info' => {
@@ -694,7 +694,7 @@ $result_trees{'test_image'} = {
                     }
                   ],
                   'cmdname' => 'verb',
-                  'extra' => {
+                  'info' => {
                     'delimiter' => ':'
                   },
                   'source_info' => {
@@ -778,7 +778,7 @@ $result_trees{'test_image'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => ':'
                       },
                       'source_info' => {
@@ -902,7 +902,7 @@ $result_trees{'test_image'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => ':'
                       },
                       'source_info' => {
@@ -963,7 +963,7 @@ $result_trees{'test_image'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => ':'
                       },
                       'source_info' => {
@@ -1088,7 +1088,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -1157,7 +1157,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -1239,7 +1239,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -1363,7 +1363,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -1424,7 +1424,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -1567,7 +1567,7 @@ $result_trees{'test_image'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => ':'
                       },
                       'source_info' => {
@@ -1636,7 +1636,7 @@ $result_trees{'test_image'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => ':'
                       },
                       'source_info' => {
@@ -1720,7 +1720,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -1844,7 +1844,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -1905,7 +1905,7 @@ $result_trees{'test_image'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => ':'
                           },
                           'source_info' => {
@@ -1991,7 +1991,7 @@ $result_trees{'test_image'} = {
                                 }
                               ],
                               'cmdname' => 'verb',
-                              'extra' => {
+                              'info' => {
                                 'delimiter' => ':'
                               },
                               'source_info' => {
@@ -2060,7 +2060,7 @@ $result_trees{'test_image'} = {
                                 }
                               ],
                               'cmdname' => 'verb',
-                              'extra' => {
+                              'info' => {
                                 'delimiter' => ':'
                               },
                               'source_info' => {
@@ -2144,7 +2144,7 @@ $result_trees{'test_image'} = {
                                     }
                                   ],
                                   'cmdname' => 'verb',
-                                  'extra' => {
+                                  'info' => {
                                     'delimiter' => ':'
                                   },
                                   'source_info' => {
@@ -2268,7 +2268,7 @@ $result_trees{'test_image'} = {
                                     }
                                   ],
                                   'cmdname' => 'verb',
-                                  'extra' => {
+                                  'info' => {
                                     'delimiter' => ':'
                                   },
                                   'source_info' => {
@@ -2329,7 +2329,7 @@ $result_trees{'test_image'} = {
                                     }
                                   ],
                                   'cmdname' => 'verb',
-                                  'extra' => {
+                                  'info' => {
                                     'delimiter' => ':'
                                   },
                                   'source_info' => {

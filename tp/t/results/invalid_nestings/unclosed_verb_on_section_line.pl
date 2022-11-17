@@ -41,7 +41,7 @@ $result_trees{'unclosed_verb_on_section_line'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => 'T'
               },
               'source_info' => {

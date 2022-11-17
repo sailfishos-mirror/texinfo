@@ -132,7 +132,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' codekbdmacro
 '
           },

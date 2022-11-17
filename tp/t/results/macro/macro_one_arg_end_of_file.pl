@@ -56,7 +56,7 @@ $result_trees{'macro_one_arg_end_of_file'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' onearg{arg}
 '
           },

@@ -52,7 +52,7 @@ $result_trees{'macro_for_ignored_line_command'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' pagemacro
 '
           },

@@ -110,7 +110,7 @@ $result_trees{'test_allowcodebreaks'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' testallowcodebreakspara {nr}
 '
           },
@@ -183,7 +183,7 @@ $result_trees{'test_allowcodebreaks'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' testallowcodebreaksexample{}
 '
           },

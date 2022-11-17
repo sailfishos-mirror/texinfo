@@ -52,7 +52,7 @@ $result_trees{'macro_definition_in_include'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' themacro
 '
           },

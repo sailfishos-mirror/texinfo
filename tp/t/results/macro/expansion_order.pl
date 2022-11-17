@@ -56,7 +56,7 @@ $result_trees{'expansion_order'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' bidule{arg}
 '
           },
@@ -119,7 +119,7 @@ $result_trees{'expansion_order'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' machin
 '
           },

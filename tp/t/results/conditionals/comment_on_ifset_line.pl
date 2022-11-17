@@ -22,12 +22,14 @@ $result_trees{'comment_on_ifset_line'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' x
-',
             'misc_args' => [
               'x',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' x
+'
           }
         },
         {

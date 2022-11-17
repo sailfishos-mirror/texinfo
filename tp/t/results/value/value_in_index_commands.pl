@@ -22,12 +22,14 @@ $result_trees{'value_in_index_commands'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' cp cp
-',
             'misc_args' => [
               'cp',
               'cp'
             ]
+          },
+          'info' => {
+            'arg_line' => ' cp cp
+'
           }
         },
         {
@@ -43,12 +45,14 @@ $result_trees{'value_in_index_commands'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' fn fn
-',
             'misc_args' => [
               'fn',
               'fn'
             ]
+          },
+          'info' => {
+            'arg_line' => ' fn fn
+'
           }
         },
         {
@@ -64,12 +68,14 @@ $result_trees{'value_in_index_commands'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' syncodeindex_command @syncodeindex
-',
             'misc_args' => [
               'syncodeindex_command',
               '@syncodeindex'
             ]
+          },
+          'info' => {
+            'arg_line' => ' syncodeindex_command @syncodeindex
+'
           }
         },
         {
@@ -157,12 +163,14 @@ $result_trees{'value_in_index_commands'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' truc truc
-',
             'misc_args' => [
               'truc',
               'truc'
             ]
+          },
+          'info' => {
+            'arg_line' => ' truc truc
+'
           }
         },
         {
@@ -231,12 +239,14 @@ $result_trees{'value_in_index_commands'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' trucindex_command @trucindex
-',
             'misc_args' => [
               'trucindex_command',
               '@trucindex'
             ]
+          },
+          'info' => {
+            'arg_line' => ' trucindex_command @trucindex
+'
           }
         },
         {
@@ -257,12 +267,14 @@ $result_trees{'value_in_index_commands'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' codeidx codeidx
-',
             'misc_args' => [
               'codeidx',
               'codeidx'
             ]
+          },
+          'info' => {
+            'arg_line' => ' codeidx codeidx
+'
           }
         },
         {
@@ -318,12 +330,14 @@ $result_trees{'value_in_index_commands'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' defcodeindex_entry a @var{index entry} t@\'e @^{@dotless{i}}
-',
             'misc_args' => [
               'defcodeindex_entry',
               'a @var{index entry} t@\'e @^{@dotless{i}}'
             ]
+          },
+          'info' => {
+            'arg_line' => ' defcodeindex_entry a @var{index entry} t@\'e @^{@dotless{i}}
+'
           }
         },
         {

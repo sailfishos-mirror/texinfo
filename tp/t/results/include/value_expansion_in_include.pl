@@ -22,12 +22,14 @@ $result_trees{'value_expansion_in_include'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' testvar incl-incl.txi
-',
             'misc_args' => [
               'testvar',
               'incl-incl.txi'
             ]
+          },
+          'info' => {
+            'arg_line' => ' testvar incl-incl.txi
+'
           }
         },
         {
@@ -64,12 +66,14 @@ $result_trees{'value_expansion_in_include'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' test-var incl-incl.tx
-',
             'misc_args' => [
               'test-var',
               'incl-incl.tx'
             ]
+          },
+          'info' => {
+            'arg_line' => ' test-var incl-incl.tx
+'
           }
         },
         {
@@ -106,12 +110,14 @@ $result_trees{'value_expansion_in_include'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' test_var ncl-incl.tx
-',
             'misc_args' => [
               'test_var',
               'ncl-incl.tx'
             ]
+          },
+          'info' => {
+            'arg_line' => ' test_var ncl-incl.tx
+'
           }
         },
         {

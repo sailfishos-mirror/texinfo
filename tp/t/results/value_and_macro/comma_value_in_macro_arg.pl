@@ -22,12 +22,14 @@ $result_trees{'comma_value_in_macro_arg'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' comma ,
-',
             'misc_args' => [
               'comma',
               ','
             ]
+          },
+          'info' => {
+            'arg_line' => ' comma ,
+'
           }
         },
         {
@@ -86,7 +88,7 @@ $result_trees{'comma_value_in_macro_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macro1 { arg1 , arg2 }
 '
           },

@@ -178,11 +178,11 @@ sub _expand_cmd_args_to_texi($;$) {
         $result .= convert_to_texinfo($arg, $expand_replaced);
     }
   # arg_line set for line_commands with type special
-  } elsif (($cmd->{'extra'} or $cmdname eq 'macro' or $cmdname eq 'rmacro')
-           and defined($cmd->{'extra'}->{'arg_line'})) {
+  } elsif (($cmd->{'info'} or $cmdname eq 'macro' or $cmdname eq 'rmacro')
+           and defined($cmd->{'info'}->{'arg_line'})) {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}
       if $cmd->{'info'} and $cmd->{'info'}->{'spaces_before_argument'};
-    $result .= $cmd->{'extra'}->{'arg_line'};
+    $result .= $cmd->{'info'}->{'arg_line'};
   } elsif (($block_commands{$cmdname} or $cmdname eq 'node')
             and defined($cmd->{'args'})) {
     $result .= $cmd->{'info'}->{'spaces_before_argument'}
@@ -203,7 +203,7 @@ sub _expand_cmd_args_to_texi($;$) {
                          or $cmd->{'args'}->[0]->{'type'} eq 'brace_command_context'));
     $result .= '{' if ($braces);
     if ($cmdname eq 'verb') {
-      $result .= $cmd->{'extra'}->{'delimiter'};
+      $result .= $cmd->{'info'}->{'delimiter'};
     }
     if ($cmd->{'info'}
         and $cmd->{'info'}->{'spaces_before_argument'}) {
@@ -222,7 +222,7 @@ sub _expand_cmd_args_to_texi($;$) {
       $result .= convert_to_texinfo($arg);
     }
     if ($cmdname eq 'verb') {
-      $result .= $cmd->{'extra'}->{'delimiter'};
+      $result .= $cmd->{'info'}->{'delimiter'};
     }
     $result .= '}' if ($braces);
   } else {

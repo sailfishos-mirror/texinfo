@@ -56,7 +56,7 @@ $result_trees{'macro_expands_to_empty'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' foo {arg}
 '
           },

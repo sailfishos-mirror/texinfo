@@ -51,7 +51,7 @@ $result_trees{'no_macrobody'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' nomacrobody {arg}
 '
           },

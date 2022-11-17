@@ -31,7 +31,7 @@ close_brace_command (ELEMENT *current,
 
   if (current->cmd != CM_verb)
     goto yes;
-  k = lookup_extra (current, "delimiter");
+  k = lookup_info (current, "delimiter");
   if (!k || !*(char *)k->value)
     goto yes;
   if (0)

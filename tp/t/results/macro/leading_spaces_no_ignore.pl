@@ -57,7 +57,7 @@ $result_trees{'leading_spaces_no_ignore'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacro
 '
           },

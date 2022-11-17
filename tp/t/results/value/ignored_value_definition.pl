@@ -22,12 +22,14 @@ $result_trees{'ignored_value_definition'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' aa outside
-',
             'misc_args' => [
               'aa',
               'outside'
             ]
+          },
+          'info' => {
+            'arg_line' => ' aa outside
+'
           }
         },
         {

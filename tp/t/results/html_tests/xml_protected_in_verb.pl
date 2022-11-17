@@ -81,7 +81,7 @@ $result_trees{'xml_protected_in_verb'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => '.'
               },
               'source_info' => {

@@ -247,7 +247,7 @@ $result_trees{'cpp_lines'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macr
 '
           },
@@ -388,7 +388,7 @@ $result_trees{'cpp_lines'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrtwo
 '
           },
@@ -580,7 +580,7 @@ $result_trees{'cpp_lines'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {

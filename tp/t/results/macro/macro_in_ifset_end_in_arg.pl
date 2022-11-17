@@ -56,7 +56,7 @@ $result_trees{'macro_in_ifset_end_in_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macroone {arg}
 '
           },

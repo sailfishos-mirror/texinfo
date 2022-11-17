@@ -79,7 +79,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' quotes
 '
               },
@@ -217,7 +217,7 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' allquotes
 '
               },

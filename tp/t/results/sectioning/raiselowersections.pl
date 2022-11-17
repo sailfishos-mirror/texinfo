@@ -425,12 +425,14 @@ $result_trees{'raiselowersections'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' do-top
-',
             'misc_args' => [
               'do-top',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' do-top
+'
           }
         },
         {
@@ -938,11 +940,13 @@ $result_trees{'raiselowersections'} = {
           ],
           'cmdname' => 'clear',
           'extra' => {
-            'arg_line' => ' do-top
-',
             'misc_args' => [
               'do-top'
             ]
+          },
+          'info' => {
+            'arg_line' => ' do-top
+'
           }
         },
         {

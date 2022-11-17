@@ -24,12 +24,14 @@ $result_trees{'transparent_sort_chars'} = {
               ],
               'cmdname' => 'set',
               'extra' => {
-                'arg_line' => ' txiindexhyphenignore
-',
                 'misc_args' => [
                   'txiindexhyphenignore',
                   ''
                 ]
+              },
+              'info' => {
+                'arg_line' => ' txiindexhyphenignore
+'
               }
             },
             {

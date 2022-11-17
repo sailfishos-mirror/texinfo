@@ -57,7 +57,7 @@ $result_trees{'text_before_after'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' mymacro
 '
               },

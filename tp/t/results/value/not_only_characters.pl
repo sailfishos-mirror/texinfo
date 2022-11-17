@@ -22,12 +22,14 @@ $result_trees{'not_only_characters'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' -e_\'::; hh
-',
             'misc_args' => [
               '-e_\'::;',
               'hh'
             ]
+          },
+          'info' => {
+            'arg_line' => ' -e_\'::; hh
+'
           }
         },
         {

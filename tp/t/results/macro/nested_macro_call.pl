@@ -52,7 +52,7 @@ $result_trees{'nested_macro_call'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' machin{}
 '
           },
@@ -115,7 +115,7 @@ $result_trees{'nested_macro_call'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' truc{}
 '
           },

@@ -22,12 +22,14 @@ $result_trees{'empty_set_in_ifclear'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' a
-',
             'misc_args' => [
               'a',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' a
+'
           }
         },
         {

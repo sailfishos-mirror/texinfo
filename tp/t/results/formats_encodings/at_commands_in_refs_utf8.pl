@@ -2960,7 +2960,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => '.'
                       },
                       'source_info' => {
@@ -9101,7 +9101,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => '.'
               },
               'source_info' => {
@@ -9159,7 +9159,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => '.'
               },
               'source_info' => {
@@ -13550,7 +13550,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => '.'
                       },
                       'source_info' => {

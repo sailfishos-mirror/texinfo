@@ -23,11 +23,13 @@ $result_trees{'invalid_clickstyle'} = {
           ],
           'cmdname' => 'clickstyle',
           'extra' => {
-            'arg_line' => ' @result on the same line
-',
             'misc_args' => [
               '@result'
             ]
+          },
+          'info' => {
+            'arg_line' => ' @result on the same line
+'
           },
           'source_info' => {
             'file_name' => '',
@@ -82,11 +84,13 @@ $result_trees{'invalid_clickstyle'} = {
           ],
           'cmdname' => 'clickstyle',
           'extra' => {
-            'arg_line' => ' @nocmd
-',
             'misc_args' => [
               '@nocmd'
             ]
+          },
+          'info' => {
+            'arg_line' => ' @nocmd
+'
           },
           'source_info' => {
             'file_name' => '',
@@ -134,7 +138,7 @@ $result_trees{'invalid_clickstyle'} = {
         },
         {
           'cmdname' => 'clickstyle',
-          'extra' => {
+          'info' => {
             'arg_line' => ' something
 '
           },

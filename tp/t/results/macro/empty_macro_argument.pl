@@ -52,7 +52,7 @@ $result_trees{'empty_macro_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacro{}
 '
           },
@@ -128,7 +128,7 @@ $result_trees{'empty_macro_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mytwo{arg}
 '
           },

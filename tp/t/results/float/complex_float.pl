@@ -841,7 +841,7 @@ $result_trees{'complex_float'} = {
                     }
                   ],
                   'cmdname' => 'verb',
-                  'extra' => {
+                  'info' => {
                     'delimiter' => '!'
                   },
                   'source_info' => {
@@ -1777,7 +1777,7 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => '!'
                           },
                           'source_info' => {
@@ -2017,7 +2017,7 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => '!'
                           },
                           'source_info' => {
@@ -3145,7 +3145,7 @@ $result_trees{'complex_float'} = {
                             }
                           ],
                           'cmdname' => 'verb',
-                          'extra' => {
+                          'info' => {
                             'delimiter' => '!'
                           },
                           'source_info' => {

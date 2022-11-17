@@ -47,7 +47,7 @@ $result_trees{'empty_macro_no_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' foo
 '
           },

@@ -91,12 +91,14 @@ $result_trees{'omit_def_space'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' txidefnamenospace
-',
             'misc_args' => [
               'txidefnamenospace',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' txidefnamenospace
+'
           }
         },
         {

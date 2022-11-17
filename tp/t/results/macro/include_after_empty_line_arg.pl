@@ -56,7 +56,7 @@ $result_trees{'include_after_empty_line_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacro{body}
 '
           },

@@ -57,7 +57,7 @@ $result_trees{'macro_in_macro_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macroone
 '
           },
@@ -119,7 +119,7 @@ $result_trees{'macro_in_macro_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrotwo{arg}
 '
           },
@@ -190,7 +190,7 @@ $result_trees{'macro_in_macro_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrothree{text, arg}
 '
           },

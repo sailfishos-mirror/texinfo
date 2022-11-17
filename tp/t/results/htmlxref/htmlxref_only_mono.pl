@@ -272,7 +272,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -420,7 +420,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ';'
               },
               'source_info' => {
@@ -558,7 +558,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -706,7 +706,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -872,7 +872,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -1046,7 +1046,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -1318,7 +1318,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -1587,7 +1587,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -1712,7 +1712,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {
@@ -2152,7 +2152,7 @@ $result_trees{'htmlxref_only_mono'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {

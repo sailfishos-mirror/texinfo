@@ -52,7 +52,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' text 
 '
           },
@@ -110,7 +110,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' Top
 '
           },
@@ -302,7 +302,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' en 
 '
           },
@@ -355,7 +355,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' documentlanguagecommand 
 '
           },
@@ -500,7 +500,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' pagesizesarg
 '
           },
@@ -558,7 +558,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' afourpapermacro 
 '
           },
@@ -736,7 +736,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' needarg
 '
           },
@@ -829,7 +829,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' raisesectionsmacro 
 '
           },
@@ -892,7 +892,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' lowersectionsmacro 
 '
           },
@@ -1045,7 +1045,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' definfoenclosename 
 '
           },
@@ -1172,7 +1172,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' strongmacro 
 '
           },
@@ -1225,7 +1225,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' strongname 
 '
           },
@@ -1421,7 +1421,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' kbdinputstylearg 
 '
           },
@@ -1626,7 +1626,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' asisarg 
 '
           },
@@ -1679,7 +1679,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' zero 
 '
           },
@@ -1732,7 +1732,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' nonearg 
 '
           },
@@ -1785,7 +1785,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' four 
 '
           },
@@ -1838,7 +1838,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' six 
 '
           },
@@ -2081,7 +2081,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' endarg 
 '
           },
@@ -2134,7 +2134,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' separatearg 
 '
           },
@@ -2252,7 +2252,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' onarg 
 '
           },
@@ -2305,7 +2305,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' offarg 
 '
           },
@@ -2439,7 +2439,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' ten 
 '
           },
@@ -2538,7 +2538,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' falsearg 
 '
           },
@@ -2591,7 +2591,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' truearg
 '
           },
@@ -2714,7 +2714,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' pagemacro 
 '
           },
@@ -2767,7 +2767,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' noindentmacro 
 '
           },
@@ -2820,7 +2820,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' refillmacro 
 '
           },
@@ -3099,7 +3099,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' contentsmacro 
 '
           },
@@ -3193,7 +3193,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' exdentmacro 
 '
           },
@@ -3276,7 +3276,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' two 
 '
           },
@@ -3364,7 +3364,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' resultmacro 
 '
           },
@@ -3388,11 +3388,13 @@ $result_trees{'macro_in_misc_commands'} = {
           ],
           'cmdname' => 'clickstyle',
           'extra' => {
-            'arg_line' => ' @resultmacro{}
-',
             'misc_args' => [
               '@resultmacro'
             ]
+          },
+          'info' => {
+            'arg_line' => ' @resultmacro{}
+'
           },
           'source_info' => {
             'file_name' => '',
@@ -3641,7 +3643,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' shortcontentsmacro 
 '
           },
@@ -3714,7 +3716,7 @@ $result_trees{'macro_in_misc_commands'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' byemacro
 '
           },

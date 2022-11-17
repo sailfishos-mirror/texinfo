@@ -56,7 +56,7 @@ $result_trees{'complex_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrotwo{arg}
 '
           },
@@ -129,7 +129,7 @@ $result_trees{'complex_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrofour {}
 '
           },
@@ -200,7 +200,7 @@ $result_trees{'complex_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrothree{text, arg}
 '
           },
@@ -230,7 +230,7 @@ $result_trees{'complex_argument'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => '%'
               },
               'source_info' => {
@@ -487,7 +487,7 @@ $result_trees{'complex_argument'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macroseven {truc}
 '
           },

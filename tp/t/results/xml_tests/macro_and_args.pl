@@ -55,7 +55,7 @@ $result_trees{'macro_and_args'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' good { aaa, 2b-bb}
 '
           },
@@ -121,9 +121,11 @@ $result_trees{'macro_and_args'} = {
             }
           ],
           'extra' => {
-            'arg_line' => ' bad { ggg"@@^_ ff, nnn_b, ccc v}
-',
             'invalid_syntax' => 1
+          },
+          'info' => {
+            'arg_line' => ' bad { ggg"@@^_ ff, nnn_b, ccc v}
+'
           },
           'source_info' => {
             'file_name' => '',

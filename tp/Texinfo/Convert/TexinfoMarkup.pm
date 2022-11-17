@@ -488,8 +488,8 @@ sub _arg_line($)
 {
   my $self = shift;
   my $element = shift;
-  if ($element->{'extra'} and defined($element->{'extra'}->{'arg_line'})) {
-    my $line = $element->{'extra'}->{'arg_line'};
+  if ($element->{'info'} and defined($element->{'info'}->{'arg_line'})) {
+    my $line = $element->{'info'}->{'arg_line'};
     chomp($line);
     if ($line ne '') {
       return ['line', $line];
@@ -1008,7 +1008,7 @@ sub _convert($$;$)
       # first argument
       my $attribute = [];
       if ($element->{'cmdname'} eq 'verb') {
-        push @$attribute, ['delimiter', $element->{'extra'}->{'delimiter'}];
+        push @$attribute, ['delimiter', $element->{'info'}->{'delimiter'}];
       } elsif ($element->{'cmdname'} eq 'anchor') {
         my $anchor_name;
         if (defined($element->{'extra'}->{'normalized'})) {

@@ -51,14 +51,14 @@ handle_open_brace (ELEMENT *current, char **line_inout)
           if (!*line || *line == '\n')
             {
               line_error ("@verb without associated character");
-              add_extra_string_dup (current->parent, "delimiter", "");
+              add_info_string_dup (current->parent, "delimiter", "");
               current->parent->type = 0;
             }
           else
             {
               static char c[2];
               c[0] = *line++;
-              add_extra_string_dup (current->parent, "delimiter", c);
+              add_info_string_dup (current->parent, "delimiter", c);
             }
         }
       else if (command_data(command).data == BRACE_context)

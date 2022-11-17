@@ -61,7 +61,7 @@ $result_trees{'expand_two_same'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macrotwo { arg }
 '
           },

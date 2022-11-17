@@ -47,7 +47,7 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' texnl{}
 '
           },
@@ -118,7 +118,7 @@ $result_trees{'empty_macro_in_text_no_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' texnltwo
 '
           },

@@ -22,12 +22,14 @@ $result_trees{'value_in_macro_formal_arg'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' argument arg 
-',
             'misc_args' => [
               'argument',
               'arg'
             ]
+          },
+          'info' => {
+            'arg_line' => ' argument arg 
+'
           }
         },
         {
@@ -87,9 +89,11 @@ $result_trees{'value_in_macro_formal_arg'} = {
             }
           ],
           'extra' => {
-            'arg_line' => ' testvalue { arg , the@value{argument} }
-',
             'invalid_syntax' => 1
+          },
+          'info' => {
+            'arg_line' => ' testvalue { arg , the@value{argument} }
+'
           },
           'source_info' => {
             'file_name' => '',

@@ -56,7 +56,7 @@ $result_trees{'macro_with_error_at_end_line_after_macro'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' witherror{string}
 '
           },

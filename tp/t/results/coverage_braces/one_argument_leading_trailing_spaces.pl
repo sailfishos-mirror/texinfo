@@ -203,7 +203,7 @@ $result_trees{'one_argument_leading_trailing_spaces'} = {
                 }
               ],
               'cmdname' => 'verb',
-              'extra' => {
+              'info' => {
                 'delimiter' => ':'
               },
               'source_info' => {

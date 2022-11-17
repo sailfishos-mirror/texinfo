@@ -66,9 +66,11 @@ $result_trees{'bad_formal_arg'} = {
             }
           ],
           'extra' => {
-            'arg_line' => ' bad  { , not_empty}
-',
             'invalid_syntax' => 1
+          },
+          'info' => {
+            'arg_line' => ' bad  { , not_empty}
+'
           },
           'source_info' => {
             'file_name' => '',
@@ -133,9 +135,11 @@ $result_trees{'bad_formal_arg'} = {
             }
           ],
           'extra' => {
-            'arg_line' => ' badspace{first, in 2arg}
-',
             'invalid_syntax' => 1
+          },
+          'info' => {
+            'arg_line' => ' badspace{first, in 2arg}
+'
           },
           'source_info' => {
             'file_name' => '',
@@ -203,7 +207,7 @@ $result_trees{'bad_formal_arg'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' foo {? aaa}
 '
               }
@@ -238,9 +242,11 @@ $result_trees{'bad_formal_arg'} = {
             }
           ],
           'extra' => {
-            'arg_line' => ' abar {:::}
-',
             'invalid_syntax' => 1
+          },
+          'info' => {
+            'arg_line' => ' abar {:::}
+'
           },
           'source_info' => {
             'file_name' => '',

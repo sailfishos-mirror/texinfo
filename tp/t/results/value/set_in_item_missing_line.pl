@@ -56,12 +56,14 @@ $result_trees{'set_in_item_missing_line'} = {
                               ],
                               'cmdname' => 'set',
                               'extra' => {
-                                'arg_line' => ' n
-',
                                 'misc_args' => [
                                   'n',
                                   ''
                                 ]
+                              },
+                              'info' => {
+                                'arg_line' => ' n
+'
                               }
                             }
                           ],
@@ -212,12 +214,14 @@ $result_trees{'set_in_item_missing_line'} = {
                               ],
                               'cmdname' => 'set',
                               'extra' => {
-                                'arg_line' => ' n@c
-',
                                 'misc_args' => [
                                   'n',
                                   ''
                                 ]
+                              },
+                              'info' => {
+                                'arg_line' => ' n@c
+'
                               }
                             },
                             {

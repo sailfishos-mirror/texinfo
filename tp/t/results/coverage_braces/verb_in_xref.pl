@@ -74,7 +74,7 @@ $result_trees{'verb_in_xref'} = {
                         }
                       ],
                       'cmdname' => 'verb',
-                      'extra' => {
+                      'info' => {
                         'delimiter' => '*'
                       },
                       'source_info' => {

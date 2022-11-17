@@ -68,7 +68,7 @@ $result_trees{'nested_macros'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' othermacro 
 '
               }
@@ -105,7 +105,7 @@ $result_trees{'nested_macros'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => '
 '
               }
@@ -139,7 +139,7 @@ $result_trees{'nested_macros'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' truc   { arg,  ex}
 '
           },

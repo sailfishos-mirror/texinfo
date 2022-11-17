@@ -60,7 +60,7 @@ $result_trees{'simple_imbricated_macro'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' bidule {}
 '
               }
@@ -94,7 +94,7 @@ $result_trees{'simple_imbricated_macro'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' truc {}
 '
           },
@@ -158,7 +158,7 @@ $result_trees{'simple_imbricated_macro'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' bidule {}
 '
               },

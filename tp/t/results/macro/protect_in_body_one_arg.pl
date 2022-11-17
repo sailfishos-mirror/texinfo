@@ -60,7 +60,7 @@ $result_trees{'protect_in_body_one_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' macroone { arg1 , arg2 }
 '
           },

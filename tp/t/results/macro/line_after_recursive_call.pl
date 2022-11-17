@@ -62,7 +62,7 @@ $result_trees{'line_after_recursive_call'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mac
 '
           },

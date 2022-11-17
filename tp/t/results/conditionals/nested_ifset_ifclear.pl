@@ -92,7 +92,7 @@ $result_trees{'nested_ifset_ifclear'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' conditionals{}
 '
           },
@@ -120,12 +120,14 @@ $result_trees{'nested_ifset_ifclear'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' somevar
-',
             'misc_args' => [
               'somevar',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' somevar
+'
           }
         },
         {
@@ -141,12 +143,14 @@ $result_trees{'nested_ifset_ifclear'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' anothervar
-',
             'misc_args' => [
               'anothervar',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' anothervar
+'
           }
         },
         {
@@ -176,12 +180,14 @@ $result_trees{'nested_ifset_ifclear'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' somevar
-',
             'misc_args' => [
               'somevar',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' somevar
+'
           }
         },
         {
@@ -193,11 +199,13 @@ $result_trees{'nested_ifset_ifclear'} = {
           ],
           'cmdname' => 'clear',
           'extra' => {
-            'arg_line' => ' anothervar
-',
             'misc_args' => [
               'anothervar'
             ]
+          },
+          'info' => {
+            'arg_line' => ' anothervar
+'
           }
         },
         {
@@ -223,11 +231,13 @@ $result_trees{'nested_ifset_ifclear'} = {
           ],
           'cmdname' => 'clear',
           'extra' => {
-            'arg_line' => ' somevar
-',
             'misc_args' => [
               'somevar'
             ]
+          },
+          'info' => {
+            'arg_line' => ' somevar
+'
           }
         },
         {
@@ -243,12 +253,14 @@ $result_trees{'nested_ifset_ifclear'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' anothervar
-',
             'misc_args' => [
               'anothervar',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' anothervar
+'
           }
         },
         {
@@ -265,11 +277,13 @@ $result_trees{'nested_ifset_ifclear'} = {
           ],
           'cmdname' => 'clear',
           'extra' => {
-            'arg_line' => ' somevar
-',
             'misc_args' => [
               'somevar'
             ]
+          },
+          'info' => {
+            'arg_line' => ' somevar
+'
           }
         },
         {
@@ -281,11 +295,13 @@ $result_trees{'nested_ifset_ifclear'} = {
           ],
           'cmdname' => 'clear',
           'extra' => {
-            'arg_line' => ' anothervar
-',
             'misc_args' => [
               'anothervar'
             ]
+          },
+          'info' => {
+            'arg_line' => ' anothervar
+'
           }
         }
       ],

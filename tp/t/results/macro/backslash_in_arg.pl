@@ -79,7 +79,7 @@ $result_trees{'backslash_in_arg'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' funindex {TEXT}
 '
           },

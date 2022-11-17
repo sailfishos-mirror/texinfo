@@ -178,7 +178,7 @@ $result_trees{'nested_in_sc'} = {
                                 }
                               ],
                               'cmdname' => 'verb',
-                              'extra' => {
+                              'info' => {
                                 'delimiter' => ':'
                               },
                               'source_info' => {

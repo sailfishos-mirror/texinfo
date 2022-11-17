@@ -107,7 +107,7 @@ $result_trees{'star_at_command_formatting'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacro
 '
           },

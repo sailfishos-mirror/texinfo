@@ -1250,7 +1250,7 @@ sub _parse_macro_command_line($$$$$;$)
   my ($self, $command, $line, $parent, $source_info) = @_;
 
   my $macro = { 'cmdname' => $command, 'parent' => $parent,
-               'extra' => {'arg_line' => $line}, 'source_info' => $source_info };
+               'info' => {'arg_line' => $line}, 'source_info' => $source_info };
   # REMACRO
   if ($line =~ /^\s+([[:alnum:]][[:alnum:]_-]*)\s*(.*)/) {
     my $macro_name = $1;
@@ -1273,7 +1273,7 @@ sub _parse_macro_command_line($$$$$;$)
       if ($formal_arg !~ /^[\w\-]+$/) {
         $self->_line_error(sprintf(__("bad or empty \@%s formal argument: %s"),
                                            $command, $formal_arg), $source_info);
-        $macro->{'extra'}->{'invalid_syntax'} = 1;
+        $macro->{'extra'} = {'invalid_syntax' => 1};
       }
     }
     # accept an @-command after the arguments in case there is a @c or
@@ -1282,16 +1282,16 @@ sub _parse_macro_command_line($$$$$;$)
       $self->_line_error(sprintf(__("bad syntax for \@%s argument: %s"),
                                  $command, $args_def),
                          $source_info);
-      $macro->{'extra'}->{'invalid_syntax'} = 1;
+      $macro->{'extra'} = {'invalid_syntax' => 1};
     }
   } elsif ($line !~ /\S/) {
     $self->_line_error(sprintf(
                __("%c%s requires a name"), ord('@'), $command), $source_info);
-    $macro->{'extra'}->{'invalid_syntax'} = 1;
+    $macro->{'extra'} = {'invalid_syntax' => 1};
   } else {
     $self->_line_error(sprintf(
                     __("bad name for \@%s"), $command), $source_info);
-    $macro->{'extra'}->{'invalid_syntax'} = 1;
+    $macro->{'extra'} = {'invalid_syntax' => 1};
   }
   return $macro;
 }
@@ -1398,7 +1398,7 @@ sub _close_brace_command($$$;$$)
       $interrupting_command) = @_;
 
   if ($current->{'cmdname'} ne 'verb'
-      or $current->{'extra'}->{'delimiter'} eq '') {
+      or $current->{'info'}->{'delimiter'} eq '') {
     if (defined($closed_block_command)) {
       $self->_command_error($current, $source_info,
         __("\@end %s seen before \@%s closing brace"),
@@ -1414,7 +1414,7 @@ sub _close_brace_command($$$;$$)
   } else {
     $self->_command_error($current, $source_info,
        __("\@%s missing closing delimiter sequence: %s}"),
-       $current->{'cmdname'}, $current->{'extra'}->{'delimiter'});
+       $current->{'cmdname'}, $current->{'info'}->{'delimiter'});
   }
   $current = $current->{'parent'};
   return $current;
@@ -3978,7 +3978,7 @@ sub _process_remaining_on_line($$$$)
       push @{$current->{'contents'}}, { 'cmdname' => $1,
                                         'parent' => $current,
                                         'contents' => [],
-                                        'extra' => {'arg_line' => $line }};
+                                        'info' => {'arg_line' => $line }};
       $current = $current->{'contents'}->[-1];
       $retval = $GET_A_NEW_LINE;
       goto funexit;
@@ -4017,7 +4017,8 @@ sub _process_remaining_on_line($$$$)
                               "redefining Texinfo language command: \@%s"),
                                       $name), $current->{'source_info'});
           }
-          if (!$current->{'extra'}->{'invalid_syntax'}) {
+          if (!($current->{'extra'}
+                and $current->{'extra'}->{'invalid_syntax'})) {
             $self->{'macros'}->{$name} = {
               'element' => $current,
               'macrobody' => $macrobody
@@ -4095,19 +4096,19 @@ sub _process_remaining_on_line($$$$)
   # in @verb. type should be 'brace_command_arg'
   } elsif ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
          and $current->{'parent'}->{'cmdname'} eq 'verb') {
-    #$current->{'parent'}->{'extra'} = {} if (!$current->{'parent'}->{'extra'});
+    #$current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
     # collect the first character if not already done
-    if (!defined($current->{'parent'}->{'extra'}->{'delimiter'})) {
+    if (!defined($current->{'parent'}->{'info'}->{'delimiter'})) {
       if ($line =~ /^$/) {
-        $current->{'parent'}->{'extra'}->{'delimiter'} = '';
+        $current->{'parent'}->{'info'}->{'delimiter'} = '';
         $self->_line_error(sprintf(
             __("\@%s without associated character"), 'verb'), $source_info);
       } else {
         $line =~ s/^(.)//;
-        $current->{'parent'}->{'extra'}->{'delimiter'} = $1;
+        $current->{'parent'}->{'info'}->{'delimiter'} = $1;
       }
     }
-    my $char = quotemeta($current->{'parent'}->{'extra'}->{'delimiter'});
+    my $char = quotemeta($current->{'parent'}->{'info'}->{'delimiter'});
     if ($line =~ s/^(.*?)$char\}/\}/) {
       push @{$current->{'contents'}},
           { 'text' => $1, 'type' => 'raw', 'parent' => $current }
@@ -4805,7 +4806,7 @@ sub _process_remaining_on_line($$$$)
         } elsif ($arg_spec eq 'special') {
           ($args, $has_comment)
            = _parse_special_misc_command($self, $line, $command, $source_info);
-          $misc->{'extra'} = {'arg_line' => $line};
+          $misc->{'info'} = {'arg_line' => $line};
         }
 
         # if using the @set txi* instead of a proper @-command, replace
@@ -6855,7 +6856,7 @@ Is associated to a macro definition element
    'args' => [{'text' => 'mymacro', 'type' => 'macro_name'},
               {'text' => 'arg', 'type' => 'macro_arg}],
    'contents' => [{'text' => "coucou \arg\ after arg\n", 'type' => 'raw'}],
-   'extra' => {'arg_line' => " mymacro{arg}\n", }}
+   'info' => {'arg_line' => " mymacro{arg}\n", }}
 
 =item merged_indices
 
@@ -7352,6 +7353,16 @@ and C<@itemx>, in a I<table_term>.
 
 =over
 
+=item arg_line
+
+The string correspond to the line after the @-command
+for @-commands that have special arguments on their line,
+and for C<@macro> line.
+
+=item delimiter
+
+C<@verb> delimiter is in I<delimiter>.
+
 =item flag
 
 C<@value> tree element argument string is in I<flag>.  Only for a C<@value>
@@ -7385,12 +7396,6 @@ X<Texinfo tree element extra key>
 =head3 Extra keys available for more than one @-command
 
 =over
-
-=item arg_line
-
-The string correspond to the line after the @-command
-for @-commands that have special arguments on their line,
-and for C<@macro> line.
 
 =item index_entry
 
@@ -7567,7 +7572,7 @@ I<code> is set depending on the context and C<@kbdinputstyle>.
 =item C<@macro>
 
 I<invalid_syntax> is set if there was an error on the C<@macro>
-line.  I<arg_line> holds the line after C<@macro>.
+line.  C<info> key hash I<arg_line> holds the line after C<@macro>.
 
 =item C<menu_entry>
 
@@ -7638,10 +7643,6 @@ The node preceding the command is in I<associated_node>.
 The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<sections_level>.
-
-=item C<@verb>
-
-The delimiter is in I<delimiter>.
 
 =back
 

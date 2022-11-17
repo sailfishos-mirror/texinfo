@@ -57,7 +57,7 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' astar
 '
           },
@@ -115,7 +115,7 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' starspaces
 '
           },
@@ -173,7 +173,7 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' spaces
 '
           },
@@ -231,7 +231,7 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' aspace
 '
           },
@@ -289,7 +289,7 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' twocolon
 '
           },
@@ -347,7 +347,7 @@ $result_trees{'macro_in_menu'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' acolon
 '
           },

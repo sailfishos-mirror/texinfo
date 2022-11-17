@@ -77,7 +77,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
     {
       KEY_PAIR *k;
       char *s = 0;
-      k = lookup_extra (e, "arg_line");
+      k = lookup_info (e, "arg_line");
       if (k)
         s = (char *)k->value;
       if (s)
@@ -99,7 +99,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 
       if (e->cmd == CM_verb)
         {
-          k = lookup_extra (e, "delimiter");
+          k = lookup_info (e, "delimiter");
           ADD((char *)k->value);
         }
 
@@ -123,7 +123,7 @@ expand_cmd_args_to_texi (ELEMENT *e, TEXT *result)
 
       if (e->cmd == CM_verb)
         {
-          k = lookup_extra (e, "delimiter");
+          k = lookup_info (e, "delimiter");
           ADD((char *)k->value);
         }
 

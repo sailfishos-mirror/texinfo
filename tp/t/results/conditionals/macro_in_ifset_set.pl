@@ -27,12 +27,14 @@ $result_trees{'macro_in_ifset_set'} = {
           ],
           'cmdname' => 'set',
           'extra' => {
-            'arg_line' => ' a
-',
             'misc_args' => [
               'a',
               ''
             ]
+          },
+          'info' => {
+            'arg_line' => ' a
+'
           }
         },
         {
@@ -83,7 +85,7 @@ $result_trees{'macro_in_ifset_set'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' truc {}
 '
           },
@@ -107,11 +109,13 @@ $result_trees{'macro_in_ifset_set'} = {
           ],
           'cmdname' => 'unmacro',
           'extra' => {
-            'arg_line' => ' truc
-',
             'misc_args' => [
               'truc'
             ]
+          },
+          'info' => {
+            'arg_line' => ' truc
+'
           }
         },
         {
@@ -157,7 +161,7 @@ $result_trees{'macro_in_ifset_set'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' truc{}
 '
           },

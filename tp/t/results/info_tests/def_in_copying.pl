@@ -67,7 +67,7 @@ $result_trees{'def_in_copying'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' mymacro
 '
           },

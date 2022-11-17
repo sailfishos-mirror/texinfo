@@ -65,7 +65,7 @@ $result_trees{'too_much_args'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' twoargs {first, second}
 '
           },

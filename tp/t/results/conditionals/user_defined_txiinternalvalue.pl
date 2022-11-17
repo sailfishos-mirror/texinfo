@@ -52,7 +52,7 @@ $result_trees{'user_defined_txiinternalvalue'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' txiinternalvalue
 '
           },

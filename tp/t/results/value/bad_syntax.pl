@@ -16,49 +16,49 @@ $result_trees{'bad_syntax'} = {
         },
         {
           'cmdname' => 'set',
-          'extra' => {
+          'info' => {
             'arg_line' => '
 '
           }
         },
         {
           'cmdname' => 'set',
-          'extra' => {
+          'info' => {
             'arg_line' => ' 
 '
           }
         },
         {
           'cmdname' => 'set',
-          'extra' => {
+          'info' => {
             'arg_line' => ' ?
 '
           }
         },
         {
           'cmdname' => 'set',
-          'extra' => {
+          'info' => {
             'arg_line' => ' :-/ hey!
 '
           }
         },
         {
           'cmdname' => 'set',
-          'extra' => {
+          'info' => {
             'arg_line' => ' a@b
 '
           }
         },
         {
           'cmdname' => 'set',
-          'extra' => {
+          'info' => {
             'arg_line' => ' :-" bad
 '
           }
         },
         {
           'cmdname' => 'set',
-          'extra' => {
+          'info' => {
             'arg_line' => ' } no
 '
           }
@@ -70,14 +70,14 @@ $result_trees{'bad_syntax'} = {
         },
         {
           'cmdname' => 'clear',
-          'extra' => {
+          'info' => {
             'arg_line' => ' aaa ggg
 '
           }
         },
         {
           'cmdname' => 'clear',
-          'extra' => {
+          'info' => {
             'arg_line' => ' and{other
 '
           }

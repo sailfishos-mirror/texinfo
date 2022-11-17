@@ -1118,7 +1118,7 @@ process_remaining_on_line (ELEMENT **current_inout, char **line_inout)
               e->cmd = cmd;
               line = p;
               add_to_element_contents (current, e);
-              add_extra_string (e, "arg_line", strdup (line));
+              add_info_string_dup (e, "arg_line", line);
               current = e;
               retval = GET_A_NEW_LINE;
               goto funexit;
@@ -1293,7 +1293,7 @@ superfluous_arg:
       char *q;
       KEY_PAIR *k;
 
-      k = lookup_extra (current->parent, "delimiter");
+      k = lookup_info (current->parent, "delimiter");
 
       c = *(char *)k->value;
       if (c)

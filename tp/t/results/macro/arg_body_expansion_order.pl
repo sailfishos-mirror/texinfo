@@ -57,7 +57,7 @@ $result_trees{'arg_body_expansion_order'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' othermacro
 '
           },
@@ -127,7 +127,7 @@ $result_trees{'arg_body_expansion_order'} = {
                   }
                 }
               ],
-              'extra' => {
+              'info' => {
                 'arg_line' => ' othermacro
 '
               }
@@ -166,7 +166,7 @@ $result_trees{'arg_body_expansion_order'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' redefineothermacro {arg}
 '
           },
@@ -190,11 +190,13 @@ $result_trees{'arg_body_expansion_order'} = {
           ],
           'cmdname' => 'unmacro',
           'extra' => {
-            'arg_line' => ' othermacro
-',
             'misc_args' => [
               'othermacro'
             ]
+          },
+          'info' => {
+            'arg_line' => ' othermacro
+'
           }
         },
         {
@@ -240,7 +242,7 @@ $result_trees{'arg_body_expansion_order'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' othermacro
 '
           },

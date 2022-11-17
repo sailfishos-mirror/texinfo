@@ -56,7 +56,7 @@ $result_trees{'arg_not_closed'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'arg_line' => ' foo {arg}
 '
           },
