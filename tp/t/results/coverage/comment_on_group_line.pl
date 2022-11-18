@@ -12,7 +12,7 @@ $result_trees{'comment_on_group_line'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {

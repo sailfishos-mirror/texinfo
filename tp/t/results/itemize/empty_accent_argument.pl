@@ -23,7 +23,7 @@ $result_trees{'empty_accent_argument'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {

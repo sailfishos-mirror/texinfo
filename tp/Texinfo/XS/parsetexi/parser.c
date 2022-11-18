@@ -764,7 +764,7 @@ isolate_last_space (ELEMENT *current)
   if (last_contents_child(current)->cmd == CM_c
       || last_contents_child(current)->cmd == CM_comment)
     {
-      add_extra_element_oot (current, "comment_at_end",
+      add_info_element_oot (current, "comment_at_end",
                              pop_element_from_contents (current));
     }
 

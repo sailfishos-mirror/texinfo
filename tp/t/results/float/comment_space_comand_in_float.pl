@@ -60,7 +60,7 @@ $result_trees{'comment_space_comand_in_float'} = {
                   'cmdname' => ' '
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -76,9 +76,7 @@ $result_trees{'comment_space_comand_in_float'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_before_argument' => ' '
               },
               'type' => 'block_line_arg'
@@ -163,7 +161,7 @@ $result_trees{'comment_space_comand_in_float'} = {
                   'cmdname' => ' '
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {

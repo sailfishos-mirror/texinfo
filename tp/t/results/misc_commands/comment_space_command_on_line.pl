@@ -20,7 +20,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'cmdname' => ' '
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -68,7 +68,7 @@ $result_trees{'comment_space_command_on_line'} = {
               'text' => 'Top'
             }
           ],
-          'extra' => {
+          'info' => {
             'comment_at_end' => {
               'args' => [
                 {
@@ -84,9 +84,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                 ]
               }
-            }
-          },
-          'info' => {
+            },
             'spaces_after_argument' => '  '
           },
           'type' => 'line_arg'
@@ -127,7 +125,7 @@ $result_trees{'comment_space_command_on_line'} = {
               'cmdname' => ' '
             }
           ],
-          'extra' => {
+          'info' => {
             'comment_at_end' => {
               'args' => [
                 {
@@ -143,9 +141,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                 ]
               }
-            }
-          },
-          'info' => {
+            },
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -177,7 +173,7 @@ $result_trees{'comment_space_command_on_line'} = {
               'text' => 'chap'
             }
           ],
-          'extra' => {
+          'info' => {
             'comment_at_end' => {
               'args' => [
                 {
@@ -193,9 +189,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                 ]
               }
-            }
-          },
-          'info' => {
+            },
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -237,7 +231,7 @@ $result_trees{'comment_space_command_on_line'} = {
               'cmdname' => ' '
             }
           ],
-          'extra' => {
+          'info' => {
             'comment_at_end' => {
               'args' => [
                 {
@@ -253,9 +247,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                 ]
               }
-            }
-          },
-          'info' => {
+            },
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -276,7 +268,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'text' => 'on'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -292,9 +284,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -328,7 +318,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'text' => 'off'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -380,7 +370,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'cmdname' => ' '
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -396,9 +386,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -445,7 +433,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'cmdname' => ' '
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -461,9 +449,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => '    '
               },
               'type' => 'line_arg'
@@ -493,7 +479,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'text' => 'cp'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -509,9 +495,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -580,7 +564,7 @@ $result_trees{'comment_space_command_on_line'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -596,9 +580,7 @@ $result_trees{'comment_space_command_on_line'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -656,7 +638,7 @@ $result_trees{'comment_space_command_on_line'} = {
                   'cmdname' => ' '
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {

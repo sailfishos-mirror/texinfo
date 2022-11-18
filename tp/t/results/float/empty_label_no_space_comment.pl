@@ -24,7 +24,7 @@ $result_trees{'empty_label_no_space_comment'} = {
               'type' => 'block_line_arg'
             },
             {
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {

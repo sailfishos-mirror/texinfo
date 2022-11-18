@@ -262,7 +262,7 @@ sub _new_node($$$$)
              'info' => {'spaces_before_argument' => ' '}};
     my $node_line_arg = $node->{'args'}->[0];
     $node_line_arg->{'parent'} = $node;
-    $node_line_arg->{'extra'}->{'comment_at_end'} = $comment_at_end
+    $node_line_arg->{'info'}->{'comment_at_end'} = $comment_at_end
       if (defined($comment_at_end));
     @{$node_line_arg->{'contents'}} = (@{$node_tree->{'contents'}});
     if ($appended_number) {

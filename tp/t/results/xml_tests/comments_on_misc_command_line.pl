@@ -17,7 +17,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                   'text' => 'comments_on_misc_command_line.info'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -33,9 +33,7 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => '  '
               },
               'type' => 'line_arg'
@@ -62,7 +60,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                   'text' => 'phoo,;,:'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -78,9 +76,7 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => '  '
               },
               'type' => 'line_arg'
@@ -111,7 +107,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                   'text' => 'none'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -127,9 +123,7 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -183,7 +177,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                   'text' => '200mm'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -199,9 +193,7 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'
@@ -234,7 +226,7 @@ $result_trees{'comments_on_misc_command_line'} = {
                   'text' => ' aaa'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -250,9 +242,7 @@ $result_trees{'comments_on_misc_command_line'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'

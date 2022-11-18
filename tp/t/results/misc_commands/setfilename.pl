@@ -19,7 +19,7 @@ $result_trees{'setfilename'} = {
                       'text' => 'file_comment'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -89,7 +89,7 @@ $result_trees{'setfilename'} = {
                       'text' => 'file_space_comment'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -105,9 +105,7 @@ $result_trees{'setfilename'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'

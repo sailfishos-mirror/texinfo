@@ -212,7 +212,7 @@ $result_trees{'empty_ref_arg'} = {
                       'cmdname' => ' '
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -228,9 +228,7 @@ $result_trees{'empty_ref_arg'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => '
 ',
                     'spaces_before_argument' => ' '
@@ -256,7 +254,7 @@ $result_trees{'empty_ref_arg'} = {
                       }
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -272,9 +270,7 @@ $result_trees{'empty_ref_arg'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_before_argument' => ' '
                   },
                   'type' => 'brace_command_arg'

@@ -61,6 +61,12 @@ add_extra_element_oot (ELEMENT *e, char *key, ELEMENT *value)
   add_associated_info_key (e->extra_info, key, value, extra_element_oot);
 }
 
+void
+add_info_element_oot (ELEMENT *e, char *key, ELEMENT *value)
+{
+  add_associated_info_key (e->info_info, key, value, extra_element_oot);
+}
+
 /* Add an extra key that is a reference to the contents array of another
    element (for example, 'node_content' on a node command element). */
 void

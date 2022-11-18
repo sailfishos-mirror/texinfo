@@ -61,7 +61,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'itemize'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -77,9 +77,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => '  '
                   },
                   'type' => 'line_arg'
@@ -133,7 +131,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'enumerate'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -149,9 +147,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -251,7 +247,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'table'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -267,9 +263,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -335,7 +329,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'quotation'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -351,9 +345,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -413,7 +405,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'group'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -429,9 +421,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -491,7 +481,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'example'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -507,9 +497,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -653,7 +641,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -669,9 +657,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -751,7 +737,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'float'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -767,9 +753,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => '  '
                   },
                   'type' => 'line_arg'
@@ -844,7 +828,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'flushright'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -860,9 +844,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'
@@ -922,7 +904,7 @@ $result_trees{'comments_end_lines'} = {
                       'text' => 'raggedright'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -938,9 +920,7 @@ $result_trees{'comments_end_lines'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => ' '
                   },
                   'type' => 'line_arg'

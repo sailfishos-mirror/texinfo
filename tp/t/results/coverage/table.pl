@@ -176,7 +176,7 @@ $result_trees{'table'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -374,7 +374,7 @@ $result_trees{'table'} = {
                               'text' => 'itemx vtable'
                             }
                           ],
-                          'extra' => {
+                          'info' => {
                             'comment_at_end' => {
                               'args' => [
                                 {
@@ -390,9 +390,7 @@ $result_trees{'table'} = {
 '
                                 ]
                               }
-                            }
-                          },
-                          'info' => {
+                            },
                             'spaces_after_argument' => ' '
                           },
                           'type' => 'line_arg'

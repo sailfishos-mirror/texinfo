@@ -24,7 +24,7 @@ $result_trees{'empty_label_with_space_comment'} = {
               'type' => 'block_line_arg'
             },
             {
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -40,9 +40,7 @@ $result_trees{'empty_label_with_space_comment'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_before_argument' => ' '
               },
               'type' => 'block_line_arg'

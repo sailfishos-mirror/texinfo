@@ -1341,7 +1341,7 @@ sub _convert($$;$)
                     } elsif ($content->{'cmdname'} eq 'c'
                              or $content->{'cmdname'} eq 'comment') {
                       # NOTE it does not happen right now, because a comment
-                      # will be in extra comment_at_end.  If comments are back
+                      # will be in info comment_at_end.  If comments are back
                       # in the tree, they should be ignored here, as they would
                       # better be handled in format_comment_or_return_end_line
                     } else { # a command

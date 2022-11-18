@@ -103,7 +103,7 @@ $result_trees{'formats_only_title_comments'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -315,7 +315,7 @@ $result_trees{'formats_only_title_comments'} = {
                   'type' => 'command_as_argument'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -331,9 +331,7 @@ $result_trees{'formats_only_title_comments'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'block_line_arg'

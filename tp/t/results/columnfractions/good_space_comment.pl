@@ -21,7 +21,7 @@ $result_trees{'good_space_comment'} = {
                           'text' => '0 1'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'comment_at_end' => {
                           'args' => [
                             {
@@ -37,9 +37,7 @@ $result_trees{'good_space_comment'} = {
 '
                             ]
                           }
-                        }
-                      },
-                      'info' => {
+                        },
                         'spaces_after_argument' => '  '
                       },
                       'type' => 'line_arg'

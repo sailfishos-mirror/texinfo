@@ -20,7 +20,7 @@ $result_trees{'empty_nodes_with_commands'} = {
     {
       'args' => [
         {
-          'extra' => {
+          'info' => {
             'comment_at_end' => {
               'args' => [
                 {

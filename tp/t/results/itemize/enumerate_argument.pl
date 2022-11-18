@@ -80,7 +80,7 @@ $result_trees{'enumerate_argument'} = {
                   'text' => 'A'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -157,7 +157,7 @@ $result_trees{'enumerate_argument'} = {
                   'text' => 'z'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -173,9 +173,7 @@ $result_trees{'enumerate_argument'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'block_line_arg'

@@ -17,7 +17,7 @@ $result_trees{'misc_raw_comments'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -56,7 +56,7 @@ $result_trees{'misc_raw_comments'} = {
                       'text' => 'html'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -130,7 +130,7 @@ $result_trees{'misc_raw_comments'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -146,9 +146,7 @@ $result_trees{'misc_raw_comments'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => '    '
                   },
                   'type' => 'line_arg'

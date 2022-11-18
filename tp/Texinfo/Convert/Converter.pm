@@ -1306,8 +1306,8 @@ sub format_comment_or_return_end_line($$)
 
   my $end_line;
 
-  my $comment = $element->{'args'}->[-1]->{'extra'}->{'comment_at_end'}
-    if $element->{'args'} and $element->{'args'}->[-1]->{'extra'};
+  my $comment = $element->{'args'}->[-1]->{'info'}->{'comment_at_end'}
+    if $element->{'args'} and $element->{'args'}->[-1]->{'info'};
 
   if ($comment) {
     $end_line = $self->convert_tree($comment);

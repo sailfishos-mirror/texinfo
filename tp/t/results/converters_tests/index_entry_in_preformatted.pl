@@ -214,7 +214,7 @@ $result_trees{'index_entry_in_preformatted'} = {
                           'text' => 'other'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'comment_at_end' => {
                           'args' => [
                             {
@@ -230,9 +230,7 @@ $result_trees{'index_entry_in_preformatted'} = {
 '
                             ]
                           }
-                        }
-                      },
-                      'info' => {
+                        },
                         'spaces_after_argument' => ' '
                       },
                       'type' => 'line_arg'

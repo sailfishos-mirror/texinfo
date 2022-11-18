@@ -132,7 +132,7 @@ $result_trees{'enumerate_argument_item'} = {
                   'text' => 'A'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -261,7 +261,7 @@ $result_trees{'enumerate_argument_item'} = {
                   'text' => 'z'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -277,9 +277,7 @@ $result_trees{'enumerate_argument_item'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'block_line_arg'

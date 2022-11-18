@@ -21,7 +21,7 @@ $result_trees{'good_comment'} = {
                           'text' => '0.4 .6 5.'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'comment_at_end' => {
                           'args' => [
                             {

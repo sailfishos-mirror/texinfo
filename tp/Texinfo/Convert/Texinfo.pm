@@ -141,8 +141,8 @@ sub convert_to_texinfo($;$)
     if ($element->{'info'} and $element->{'info'}->{'spaces_after_argument'}) {
       $result .= $element->{'info'}->{'spaces_after_argument'};
     }
-    if ($element->{'extra'} and $element->{'extra'}->{'comment_at_end'}) {
-      $result .= convert_to_texinfo($element->{'extra'}->{'comment_at_end'},
+    if ($element->{'info'} and $element->{'info'}->{'comment_at_end'}) {
+      $result .= convert_to_texinfo($element->{'info'}->{'comment_at_end'},
                          $expand_replaced);
     }
     $result .= '}' if ($element->{'type'}

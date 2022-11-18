@@ -372,7 +372,7 @@ $result_trees{'node_line_arguments'} = {
               'text' => 'comment'
             }
           ],
-          'extra' => {
+          'info' => {
             'comment_at_end' => {
               'args' => [
                 {
@@ -388,9 +388,7 @@ $result_trees{'node_line_arguments'} = {
 '
                 ]
               }
-            }
-          },
-          'info' => {
+            },
             'spaces_after_argument' => ' '
           },
           'type' => 'line_arg'
@@ -503,7 +501,7 @@ $result_trees{'node_line_arguments'} = {
               }
             }
           ],
-          'extra' => {
+          'info' => {
             'comment_at_end' => {
               'args' => [
                 {
@@ -519,9 +517,7 @@ $result_trees{'node_line_arguments'} = {
 '
                 ]
               }
-            }
-          },
-          'info' => {
+            },
             'spaces_after_argument' => ' ',
             'spaces_before_argument' => ' '
           },

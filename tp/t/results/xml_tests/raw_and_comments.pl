@@ -12,7 +12,7 @@ $result_trees{'raw_and_comments'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -52,7 +52,7 @@ $result_trees{'raw_and_comments'} = {
                       'text' => 'tex'
                     }
                   ],
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -68,9 +68,7 @@ $result_trees{'raw_and_comments'} = {
 '
                         ]
                       }
-                    }
-                  },
-                  'info' => {
+                    },
                     'spaces_after_argument' => '  '
                   },
                   'type' => 'line_arg'
@@ -113,7 +111,7 @@ $result_trees{'raw_and_comments'} = {
             {
               'args' => [
                 {
-                  'extra' => {
+                  'info' => {
                     'comment_at_end' => {
                       'args' => [
                         {
@@ -153,7 +151,7 @@ $result_trees{'raw_and_comments'} = {
                           'text' => 'xml'
                         }
                       ],
-                      'extra' => {
+                      'info' => {
                         'comment_at_end' => {
                           'args' => [
                             {
@@ -169,9 +167,7 @@ $result_trees{'raw_and_comments'} = {
 '
                             ]
                           }
-                        }
-                      },
-                      'info' => {
+                        },
                         'spaces_after_argument' => '  '
                       },
                       'type' => 'line_arg'

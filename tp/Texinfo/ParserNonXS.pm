@@ -2434,13 +2434,13 @@ sub _isolate_last_space
 
   return if (!$current->{'contents'});
 
-  # Store a final comment command in the 'extra' hash.
+  # Store a final comment command in the 'info' hash.
   if (scalar(@{$current->{'contents'}}) >= 1
       and $current->{'contents'}->[-1]->{'cmdname'}
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-    #$current->{'extra'} = {} if (!$current->{'extra'});
-    $current->{'extra'}->{'comment_at_end'}
+    #$current->{'info'} = {} if (!$current->{'info'});
+    $current->{'info'}->{'comment_at_end'}
                            = _pop_element_from_contents($current);
     # TODO: @c should probably not be allowed inside most brace commands
     # as this would be difficult to implement properly in TeX.
@@ -7521,12 +7521,6 @@ contents, I<normalized> holds the normalized float type.
 I<caption> and I<shortcaption> holds the corresponding
 tree elements for float.  The C<@caption> or C<@shortcaption>
 have the float tree element stored in I<float>.
-
-=item C<@ifclear>
-
-=item C<@ifset>
-
-The original line is in I<line>.
 
 =item C<@inlinefmt>
 

@@ -18,7 +18,7 @@ $result_trees{'comment_first_on_itemize_line'} = {
                   'type' => 'command_as_argument_inserted'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {

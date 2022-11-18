@@ -35,7 +35,7 @@ $result_trees{'comment_on_menu_line'} = {
         {
           'args' => [
             {
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {

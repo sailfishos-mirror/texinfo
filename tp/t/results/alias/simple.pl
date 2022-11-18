@@ -53,7 +53,7 @@ $result_trees{'simple'} = {
                   'text' => 'o-theralias=verb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
@@ -69,9 +69,7 @@ $result_trees{'simple'} = {
 '
                     ]
                   }
-                }
-              },
-              'info' => {
+                },
                 'spaces_after_argument' => ' '
               },
               'type' => 'line_arg'

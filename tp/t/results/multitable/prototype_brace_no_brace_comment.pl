@@ -25,7 +25,7 @@ $result_trees{'prototype_brace_no_brace_comment'} = {
                   'text' => ' bb'
                 }
               ],
-              'extra' => {
+              'info' => {
                 'comment_at_end' => {
                   'args' => [
                     {
