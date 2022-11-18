@@ -13,8 +13,8 @@ $result_trees{'no_brace'} = {
           'contents' => [
             {
               'cmdname' => 'TeX',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -27,8 +27,8 @@ $result_trees{'no_brace'} = {
             },
             {
               'cmdname' => 'code',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -41,8 +41,8 @@ $result_trees{'no_brace'} = {
             },
             {
               'cmdname' => 'footnote',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',

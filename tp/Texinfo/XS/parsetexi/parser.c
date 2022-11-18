@@ -1580,12 +1580,12 @@ superfluous_arg:
                  }
              }
 
-           k = lookup_extra (current, "spaces");
+           k = lookup_info (current, "spaces_after_cmd_before_arg");
            if (!k)
              {
                p = line + whitespaces_len;
                xasprintf (&s, "%.*s", (int) (p - line), line);
-               add_extra_string (current, "spaces", s);
+               add_info_string (current, "spaces_after_cmd_before_arg", s);
                line = p;
              }
            else

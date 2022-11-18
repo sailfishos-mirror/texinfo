@@ -15,7 +15,7 @@ char *element_type_names[] = {
 "text_before_beginning",
 "space_at_end_menu_node",
 "after_menu_description_line",
-"spaces",
+"spaces_after_cmd_before_arg",
 "spaces_inserted",
 "document_root",
 "root_line",
@@ -63,6 +63,7 @@ char *element_type_names[] = {
 "elided",
 "elided_block",
 "delimiter",
+"spaces",
 "untranslated",
 
 };

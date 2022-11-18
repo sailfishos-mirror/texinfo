@@ -139,8 +139,8 @@ $result_trees{'macro_in_accent'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -240,8 +240,8 @@ $result_trees{'macro_in_accent'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => '  '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '  '
               },
               'source_info' => {
                 'file_name' => '',

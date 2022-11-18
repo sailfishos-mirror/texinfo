@@ -788,8 +788,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'H',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -847,8 +847,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'dotaccent',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -906,8 +906,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1000,8 +1000,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'u',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1059,8 +1059,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ubaraccent',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1118,8 +1118,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'udotaccent',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1177,8 +1177,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'v',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1236,8 +1236,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ogonek',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -1295,8 +1295,8 @@ $result_trees{'accentenc'} = {
                 }
               ],
               'cmdname' => 'ogonek',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',

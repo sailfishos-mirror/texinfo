@@ -23,8 +23,8 @@ $result_trees{'spaces_after_braced_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -58,8 +58,8 @@ $result_trees{'spaces_after_braced_command'} = {
                 }
               ],
               'cmdname' => 'samp',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
 '
               },
               'source_info' => {
@@ -89,8 +89,8 @@ $result_trees{'spaces_after_braced_command'} = {
                 }
               ],
               'cmdname' => 'AA',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
  '
               },
               'source_info' => {
@@ -138,8 +138,8 @@ $result_trees{'spaces_after_braced_command'} = {
                 }
               ],
               'cmdname' => 'email',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
 '
               },
               'source_info' => {
@@ -164,8 +164,8 @@ $result_trees{'spaces_after_braced_command'} = {
           'contents' => [
             {
               'cmdname' => 'TeX',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
 '
               },
               'source_info' => {

@@ -145,6 +145,12 @@ add_extra_string (ELEMENT *e, char *key, char *value)
 }
 
 void
+add_info_string (ELEMENT *e, char *key, char *value)
+{
+  add_associated_info_key (e->info_info, key, (ELEMENT *) value, extra_string);
+}
+
+void
 add_extra_string_dup (ELEMENT *e, char *key, char *value)
 {
   add_associated_info_key (e->extra_info, key, (ELEMENT *) strdup (value),

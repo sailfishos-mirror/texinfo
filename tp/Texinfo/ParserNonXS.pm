@@ -4365,16 +4365,16 @@ sub _process_remaining_on_line($$$$)
            $current->{'cmdname'}), $source_info);
         $additional_newline = 1;
       }
-      #$current->{'extra'} = {} if (!$current->{'extra'});
-      if (!defined($current->{'extra'}->{'spaces'})) {
+      #$current->{'info'} = {} if (!$current->{'info'});
+      if (!defined($current->{'info'}->{'spaces_after_cmd_before_arg'})) {
         $line =~ s/^(\s+)//;
-        $current->{'extra'}->{'spaces'} = $added_space;
+        $current->{'info'}->{'spaces_after_cmd_before_arg'} = $added_space;
         print STDERR "BRACE CMD before brace init spaces '$added_space'\n"
           if $self->{'DEBUG'};
       # only ignore spaces and one newline, two newlines lead to
       # an empty line before the brace or argument which is incorrect.
       } elsif ($additional_newline
-               and $current->{'extra'}->{'spaces'} =~ /\n/) {
+               and $current->{'info'}->{'spaces_after_cmd_before_arg'} =~ /\n/) {
         print STDERR "BRACE CMD before brace second newline stops spaces\n"
           if $self->{'DEBUG'};
         $self->_line_error(sprintf(__("\@%s expected braces"),
@@ -4382,7 +4382,7 @@ sub _process_remaining_on_line($$$$)
         $current = $current->{'parent'};
       } else {
         $line =~ s/^(\s+)//;
-        $current->{'extra'}->{'spaces'} .= $added_space;
+        $current->{'info'}->{'spaces_after_cmd_before_arg'} .= $added_space;
         print STDERR "BRACE CMD before brace add spaces '$added_space'\n"
           if $self->{'DEBUG'};
       }
@@ -7378,6 +7378,20 @@ as argument and comma delimited arguments.  Depending on the @-command,
 the I<spaces_after_argument> is associated with the @-command element, or
 with each argument element.
 
+=item spaces_after_cmd_before_arg
+
+For accent commands with spaces following the @-command, like:
+
+ @ringaccent A
+ @^ u
+
+there is a I<spaces_after_cmd_before_arg> key which holds the
+spaces appearing after the command.
+
+Space between a brace @-command name and its opening brace also
+ends up in I<spaces_after_cmd_before_arg>.  It is not recommended
+to leave space between an @-command name and its opening brace.
+
 =item spaces_before_argument
 
 A reference to spaces following the opening brace of some @-commands with braces
@@ -7414,16 +7428,6 @@ arguments.
 =item missing_argument
 
 Set for some @-commands with line arguments and a missing argument.
-
-=item spaces
-
-For accent commands with spaces following the @-command, like:
-
- @ringaccent A
- @^ u
-
-there is a I<spaces> key which holds the spaces appearing after
-the command.
 
 =item text_arg
 

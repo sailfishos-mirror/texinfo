@@ -616,8 +616,10 @@ sub _convert($$;$)
           $arg = '';
         } else {
           $arg = $self->_convert($element->{'args'}->[0]);
-          if ($element->{'extra'} and $element->{'extra'}->{'spaces'}) {
-            push @$attributes, ['spaces', $element->{'extra'}->{'spaces'}];
+          if ($element->{'info'}
+              and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
+            push @$attributes, ['spaces',
+                      $element->{'info'}->{'spaces_after_cmd_before_arg'}];
           }
           if ($element->{'args'}->[0]->{'type'} eq 'following_arg') {
              push @$attributes, ['bracketed', 'off'];

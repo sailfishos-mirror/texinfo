@@ -74,8 +74,8 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -89,8 +89,8 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -114,8 +114,8 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => '^',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -129,8 +129,8 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => '^',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -154,8 +154,8 @@ $result_trees{'value_after_brace_command'} = {
                 }
               ],
               'cmdname' => 'code',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -169,8 +169,8 @@ $result_trees{'value_after_brace_command'} = {
             },
             {
               'cmdname' => 'code',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',

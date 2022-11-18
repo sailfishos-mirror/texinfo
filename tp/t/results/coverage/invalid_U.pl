@@ -13,8 +13,8 @@ $result_trees{'invalid_U'} = {
           'contents' => [
             {
               'cmdname' => 'U',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',

@@ -33,7 +33,7 @@ spaces_before_paragraph
 text_before_beginning
 space_at_end_menu_node
 after_menu_description_line
-spaces
+spaces_after_cmd_before_arg
 spaces_inserted
 
 # Other special types
@@ -90,6 +90,7 @@ elided_block
 
 # for def commands
 delimiter
+spaces
 
 # for inserted text in def commands
 untranslated

@@ -23,8 +23,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => '    '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '    '
               },
               'source_info' => {
                 'file_name' => '',
@@ -58,8 +58,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
 '
               },
               'source_info' => {
@@ -94,8 +94,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
 '
               },
               'source_info' => {
@@ -130,8 +130,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => 'ringaccent',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
   '
               },
               'source_info' => {
@@ -166,8 +166,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => '^',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',
@@ -201,8 +201,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => '^',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
 '
               },
               'source_info' => {
@@ -237,8 +237,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => '^',
-              'extra' => {
-                'spaces' => '
+              'info' => {
+                'spaces_after_cmd_before_arg' => '
  '
               },
               'source_info' => {
@@ -274,8 +274,8 @@ $result_trees{'lettered_accent_and_spaces'} = {
                 }
               ],
               'cmdname' => '^',
-              'extra' => {
-                'spaces' => ' '
+              'info' => {
+                'spaces_after_cmd_before_arg' => ' '
               },
               'source_info' => {
                 'file_name' => '',

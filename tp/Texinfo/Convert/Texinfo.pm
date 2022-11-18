@@ -164,8 +164,9 @@ sub _expand_cmd_args_to_texi($;$) {
 
   # this is done here otherwise for some constructs, there are
   # no 'args', and so the space is never readded.
-  if ($cmd->{'extra'} and exists ($cmd->{'extra'}->{'spaces'})) {
-    $result .= $cmd->{'extra'}->{'spaces'};
+  if ($cmd->{'info'}
+      and exists ($cmd->{'info'}->{'spaces_after_cmd_before_arg'})) {
+    $result .= $cmd->{'info'}->{'spaces_after_cmd_before_arg'};
   }
   # block line commands with arguments not separated by commas
   if ($block_commands{$cmdname}
