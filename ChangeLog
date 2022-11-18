@@ -1,3 +1,7 @@
+2022-11-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/Makefile.am (wwwdoc-build): Pass --quiet flag to pod2html.
+
 2022-11-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/gendocs.chapter/gendocs_template: New file.

@@ -156,7 +156,7 @@ wwwdoc-build:
 	                     -o $(manual3) $(manual3) $(manual3_title) \
 	&& $(gendocs_invoke_chap) $(manual4_flags) \
 	                     -o $(manual4) $(manual4) $(manual4_title) \
-	&& pod2html $(pod2texi_pl) >pod2texi.html \
+	&& pod2html --quiet $(pod2texi_pl) >pod2texi.html \
 	&& echo "Manuals ready for web distribution under: $(doctemp)/"
 #
 # At official release, we need to update:
