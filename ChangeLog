@@ -1,3 +1,7 @@
+2022-11-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* contrib/my-bib-macros.texi: Move here from web pages.
+
 2022-11-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (comma_index_subentries_tree),
