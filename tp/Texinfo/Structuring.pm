@@ -2,20 +2,20 @@
 #                 document tree.
 #
 # Copyright 2010-2022 Free Software Foundation, Inc.
-# 
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License,
 # or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl.
 
@@ -801,7 +801,8 @@ sub nodes_tree($$$$$)
               = _section_direction_associated_node($section, $direction);
             if ($direction_associated_node) {
               #$node->{'structure'} = {} if (! $node->{'structure'});
-              $node->{'structure'}->{'node_'.$direction} = $direction_associated_node;
+              $node->{'structure'}->{'node_'.$direction}
+                                                = $direction_associated_node;
             }
           }
         }
@@ -1225,7 +1226,8 @@ sub elements_directions($$$)
     } else {
       foreach my $direction(['Up', 'section_up'], ['Next', 'section_next'],
                             ['Prev', 'section_prev']) {
-        # in most cases $section->{$direction->[1]}->{'structure'}->{'associated_unit'} is defined
+        # in most cases $section->{$direction->[1]}
+        #              ->{'structure'}->{'associated_unit'} is defined
         # but it may not be the case for the up of @top.
         # The section may be its own up in cases like
         #  @part part
@@ -1237,7 +1239,9 @@ sub elements_directions($$$)
             if ($section->{'structure'}->{$direction->[1]}
                 and $section->{'structure'}->{$direction->[1]}
                                            ->{'structure'}->{'associated_unit'}
-                and $section->{'structure'}->{$direction->[1]}->{'structure'}->{'associated_unit'} ne $section->{'structure'}->{'associated_unit'});
+                and $section->{'structure'}->{$direction->[1]}
+                     ->{'structure'}->{'associated_unit'}
+                              ne $section->{'structure'}->{'associated_unit'});
       }
 
       my $up = $section;
@@ -1822,8 +1826,8 @@ sub sort_indices($$$;$)
     my $index_letter_hash = {};
     foreach my $entry (@{$index_entries->{$index_name}}) {
       my $entry_key = index_entry_sort_string($entry,
-                                 {'contents' => $entry->{'entry_content'}},
-                                              $entry->{'sortas'}, $options);
+                              {'contents' => $entry->{'entry_content'}},
+                                           $entry->{'sortas'}, $options);
       my @entry_keys;
       my $letter = '';
       if ($entry_key !~ /\S/) {
@@ -1844,8 +1848,8 @@ sub sort_indices($$$;$)
         $subentry_nr ++;
         $subentry = $subentry->{'extra'}->{'subentry'};
         my $subentry_key = index_entry_sort_string($entry,
-                     {'contents' => $subentry->{'args'}->[0]->{'contents'}},
-                                    $subentry->{'extra'}->{'sortas'}, $options);
+                 {'contents' => $subentry->{'args'}->[0]->{'contents'}},
+                              $subentry->{'extra'}->{'sortas'}, $options);
         if ($subentry_key !~ /\S/) {
           $registrar->line_warn($customization_information,
                      sprintf(__("empty index sub entry %d key in \@%s"),
@@ -1933,11 +1937,14 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   my $global_commands = $parser->global_commands_information();
   set_menus_node_directions($registrar, $config, $parser_information,
                             $global_commands, $nodes_list, $labels);
-  my $top_node = nodes_tree($registrar, $config, $parser_information, $nodes_list, $labels);
+  my $top_node = nodes_tree($registrar, $config, $parser_information,
+                            $nodes_list, $labels);
   complete_node_tree_with_menus($registrar, $config, $nodes_list, $top_node);
   my $refs = $parser->internal_references_information();
-  check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node, $labels, $refs);
-  associate_internal_references($registrar, $parser, $parser_information, $labels, $refs);
+  check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node,
+                             $labels, $refs);
+  associate_internal_references($registrar, $parser, $parser_information,
+                                $labels, $refs);
   number_floats($parser->floats_information());
   my $tree_units;
   if ($split_at_nodes) {
@@ -1955,7 +1962,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   my $index_entries_sorted;
   if ($sort_by_letter) {
     $index_entries_sorted = sort_indices($registrar, $config,
-                                       $merged_index_entries, 'by_letter');
+                             $merged_index_entries, 'by_letter');
   } else {
     $index_entries_sorted = sort_indices($registrar, $config,
                                          $merged_index_entries);
@@ -1969,27 +1976,28 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Structuring first allows to collect information on a Texinfo tree.
-In most case, it also requires information from a parser object to do that
-job.  Thanks to C<sectioning_structure> the hierarchy of sectioning commands is
-determined.  The directions implied by menus are determined with
-C<set_menus_node_directions>.  The node tree is analysed with C<nodes_tree>.
-Nodes directions are completed with menu directions with
-C<complete_node_tree_with_menus>.  Floats get their standard numbering with
-C<number_floats> and internal references are matched up with nodes, floats or
-anchors with C<associate_internal_references>.
+Texinfo::Structuring first allows to collect information on a Texinfo
+tree.  In most case, it also requires information from a parser object to
+do that job.  Thanks to C<sectioning_structure> the hierarchy of
+sectioning commands is determined.  The directions implied by menus are
+determined with C<set_menus_node_directions>.  The node tree is analysed
+with C<nodes_tree>.  Nodes directions are completed with menu directions
+with C<complete_node_tree_with_menus>.  Floats get their standard
+numbering with C<number_floats> and internal references are matched up
+with nodes, floats or anchors with C<associate_internal_references>.
 
 The following methods depend on the output format, so are usually called
 from converters.
 
-It is also possible to associate top-level contents of the tree, which consist
-in nodes and sectioning commands with tree unit elements that group together
-a node and the next sectioning element.  With C<split_by_node> nodes are considered
-to be the main sectioning elements, while with C<split_by_section> the
-sectioning command elements are the main elements.  The first mode is typical
-of Info format, while the second corresponds to a traditional book.
-The elements may be further split in I<pages>, which are not pages as
-in book pages, but more like web pages, and hold series of tree unit elements.
+It is also possible to associate top-level contents of the tree, which
+consist in nodes and sectioning commands with tree unit elements that
+group together a node and the next sectioning element.  With
+C<split_by_node> nodes are considered to be the main sectioning elements,
+while with C<split_by_section> the sectioning command elements are the
+main elements.  The first mode is typical of Info format, while the second
+corresponds to a traditional book.  The elements may be further split in
+I<pages>, which are not pages as in book pages, but more like web pages,
+and hold series of tree unit elements.
 
 The elements may have directions to other elements prepared
 by C<elements_directions>.  C<elements_file_directions> should also
@@ -2004,22 +2012,23 @@ with C<sort_indices>.
 
 No method is exported in the default case.
 
-Most methods takes a L<Texinfo::Report> C<$registrar> as argument for error
-reporting.  Most also require Texinfo customization variables information,
-which means an object implementing the C<get_conf> method, in practice the main
-program configuration or a converter (L<Texinfo::Convert::Converter/Getting and
-setting customization variables>).  Other common input arguments such as parser
-information, labels or refs are obtained from a parser, see L<Texinfo::Parser>.
+Most methods takes a L<Texinfo::Report> C<$registrar> as argument for
+error reporting.  Most also require Texinfo customization variables
+information, which means an object implementing the C<get_conf> method, in
+practice the main program configuration or a converter
+(L<Texinfo::Convert::Converter/Getting and setting customization
+variables>).  Other common input arguments such as parser information,
+labels or refs are obtained from a parser, see L<Texinfo::Parser>.
 
 =over
 
 =item associate_internal_references($registrar, $customization_information, $parser_information, $labels, $refs)
 X<C<associate_internal_references>>
 
-Verify that internal references (C<@ref> and similar without
-fourth of fifth argument and menu entries) have an associated node, anchor or
-float.  Set the C<normalized> key in the C<extra> hash C<menu_entry_node> hash
-for menu entries and in the C<extra> hash C<node_argument> hash for internal
+Verify that internal references (C<@ref> and similar without fourth of
+fifth argument and menu entries) have an associated node, anchor or float.
+Set the C<normalized> key in the C<extra> hash C<menu_entry_node> hash for
+menu entries and in the C<extra> hash C<node_argument> hash for internal
 references C<@ref> and similar @-commands.  Set the C<label> key in the
 C<extra> hash of the reference tree element to the associated labeled tree
 element.  Register errors in I<$registrar>.
@@ -2091,10 +2100,10 @@ The up, next and previous section elements.
 
 =item FastBack
 
-For top level elements, the previous top level element.  For other elements
-the up top level element.  For example, for a chapter element it is the
-previous chapter, for a subsection element it is the chapter element
-that contains the subsection.
+For top level elements, the previous top level element.  For other
+elements the up top level element.  For example, for a chapter element it
+is the previous chapter, for a subsection element it is the chapter
+element that contains the subsection.
 
 =item FastForward
 
@@ -2105,9 +2114,9 @@ The next top level section element.
 =item elements_file_directions($tree_units)
 X<C<elements_file_directions>>
 
-In the directions reference described above for C<elements_directions>, sets
-the I<PrevFile> and I<NextFile> directions to the elements in previous and
-following files.
+In the directions reference described above for C<elements_directions>,
+sets the I<PrevFile> and I<NextFile> directions to the elements in
+previous and following files.
 
 It also sets I<FirstInFile*> directions for all the elements by using
 the directions of the first element in file.  So, for example,
@@ -2204,10 +2213,10 @@ and lowered sections, when needed.
 =item $sections_root, $sections_list = sectioning_structure($registrar, $customization_information, $tree)
 X<C<sectioning_structure>>
 
-This function goes through the tree and gather information on
-the document structure for sectioning commands.  It returns I<$sections_root>
-the root of the sectioning commands tree and a reference on the sections
-elements list.  Errors are registered in I<$registrar>.
+This function goes through the tree and gather information on the document
+structure for sectioning commands.  It returns I<$sections_root> the root
+of the sectioning commands tree and a reference on the sections elements
+list.  Errors are registered in I<$registrar>.
 
 It sets section elements C<structure> hash values:
 
@@ -2303,10 +2312,10 @@ the following sectioning commands.  Sectioning commands without nodes
 are also with the previous node, while nodes without sectioning commands
 are alone in their tree units.
 
-Tree units are regular tree elements with type I<unit>, the
-associated nodes and sectioning tree elements are in the array associated
-with the C<contents> key.  The associated elements have a I<associated_unit>
-key set in the C<structure> hash that points to the associated tree unit.
+Tree units are regular tree elements with type I<unit>, the associated
+nodes and sectioning tree elements are in the array associated with the
+C<contents> key.  The associated elements have a I<associated_unit> key
+set in the C<structure> hash that points to the associated tree unit.
 
 Tree units have directions in the C<structure>
 hash reference, namely I<unit_next> and I<unit_prev> pointing to the
@@ -2325,12 +2334,12 @@ The node command associated with the element.
 =item $tree_units = split_by_section($tree)
 X<C<split_by_section>>
 
-Similarly with C<split_by_node>, returns an array of tree units.  This time,
-lone nodes are associated with the previous sections and lone sections
-makes up a tree unit.
+Similarly with C<split_by_node>, returns an array of tree units.  This
+time, lone nodes are associated with the previous sections and lone
+sections makes up a tree unit.
 
-The C<structure> and C<extra> hash keys set are the same, except that I<unit_command> is
-the sectioning command associated with the element.
+The C<structure> and C<extra> hash keys set are the same, except that
+I<unit_command> is the sectioning command associated with the element.
 
 =item $pages = split_pages($tree_units, $split)
 X<C<split_pages>>
