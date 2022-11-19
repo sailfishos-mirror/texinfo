@@ -338,6 +338,7 @@ sub _fix_texinfo_tree($$$$;$$)
       # note that that situation cannot happen with the code as it
       # is now.  When _fix_texinfo_tree is called from _do_top_node_menu
       # both $do_master_menu and $do_node_menus are set.
+      # _fix_texinfo_tree can also be called from _fix_texinfo_manual, but
       # _fix_texinfo_manual is never called with a $do_master_menu argument,
       # so when _fix_texinfo_tree is called from _fix_texinfo_manual,
       # $do_master_menu cannot be set.
