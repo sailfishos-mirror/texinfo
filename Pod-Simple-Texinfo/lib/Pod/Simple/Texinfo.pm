@@ -1087,7 +1087,7 @@ C<parse_file> (or a similar method) on it:
 
 If set (the default case), a sectioning command is added at the beginning
 of the output for the whole document, using the module name, at the level
-above the level set by L<texinfo_sectioning_base_level>.  So there will be
+above the level set by L</texinfo_sectioning_base_level>.  So there will be
 a C<@part> if the level is equal to 1, a C<@chapter> if the level is equal
 to 2 and so on and so forth.  If the base level is 0, a C<@top> command is
 output instead.
@@ -1101,13 +1101,13 @@ by including all those Pod documents.  References to those documents use
 the internal reference commands formatting in Texinfo.  The formatting commands
 should not be present in the short titles.
 
-Corresponds to L<texinfo_sectioning_base_level> set to anything else than 0.
+Corresponds to L</texinfo_sectioning_base_level> set to anything else than 0.
 
 =item texinfo_main_command_sectioning_style
 
 Sectioning style for the main command appearing at the beginning of the output
-file if L<texinfo_sectioning_base_level> is anything else than 0.  Unset in the
-default case.  If unset, use L<texinfo_sectioning_style>, except for style
+file if L</texinfo_sectioning_base_level> is anything else than 0.  Unset in the
+default case.  If unset, use L</texinfo_sectioning_style>, except for style
 C<heading>, for which the C<numbered> style is used in the default case.
 
 =item texinfo_man_url_prefix
