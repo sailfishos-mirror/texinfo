@@ -1,3 +1,13 @@
+2022-11-19  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/Makefile.am (po-check, po_document-check), README-hacking,
+	po_document/POTFILES.in, tp/Texinfo/ParserNonXS.pm: add __p to
+	po-check regexp, remove gdt.  Add po_document-check target similar
+	to po-check for po_document/POTFILES.in.  Update po_document/POTFILES.in
+	with the files found.
+	In ParserNonXS.pm, add a useless $self argument to gdt( in comment to
+	avoid getting caught in po_document-check.
+
 2022-11-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/Makefile.am (wwwdoc-build): Pass --quiet flag to pod2html.

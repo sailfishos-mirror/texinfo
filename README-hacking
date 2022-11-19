@@ -244,6 +244,7 @@ Not all compiler warnings have to be fixed, though.
 Have a look at the output of "git status -u" to check for files that
   should be tracked in git or ignored.
 make po-check             # update po/POTFILES.in as needed
+make po_document-check    # update po_document/POTFILES.in as needed
 
 check indices of Texinfo manuals and check for duplicates (with <1> in Info)
 

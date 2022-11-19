@@ -4541,7 +4541,7 @@ sub _process_remaining_on_line($$$$)
           if (not exists($self->{'values'}->{$value})) {
             _abort_empty_line($self, $current);
             # caller should expand something along
-            # gdt('@{No value for `{value}\'@}', {'value' => $value});
+            # gdt($self, '@{No value for `{value}\'@}', {'value' => $value});
             push @{$current->{'contents'}}, { 'cmdname' => $command,
                                               'info' => {'flag' => $value},
                                               'parent' => $current };
