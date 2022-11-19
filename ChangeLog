@@ -1,5 +1,11 @@
 2022-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_element_class_styles): use
+	padding-left instead of margin-left for index-entry-level-*, it
+	is more appropriate.  Report from Per Bothner.
+
+2022-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/Makevars (XGETTEXT_OPTIONS): add --from-code=UTF-8
 	for an non-ASCII encoded character in a comment in tp/ext/epub3.pm.
 	Update po files.
