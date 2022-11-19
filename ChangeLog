@@ -1,5 +1,14 @@
 2022-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	Add Pod/Simple/Texinfo.pm HTML output to wwwdoc
+
+	* doc/Makefile.am (wwwdoc-build, wwwdoc-install): add
+	Pod/Simple/Texinfo.pm HTML output, link Pod/Simple/Texinfo.pm and call
+	pod2html such that a relative link to Pod/Simple/Texinfo.html is
+	actually output.
+
+2022-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/Makefile.am (po-check, po_document-check), README-hacking,
 	po_document/POTFILES.in, tp/Texinfo/ParserNonXS.pm: add __p to
 	po-check regexp, remove gdt.  Add po_document-check target similar
