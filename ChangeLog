@@ -1,5 +1,11 @@
 2022-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	* po_document/Makevars (XGETTEXT_OPTIONS): add --from-code=UTF-8
+	for an non-ASCII encoded character in a comment in tp/ext/epub3.pm.
+	Update po files.
+
+2022-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	Add Pod/Simple/Texinfo.pm HTML output to wwwdoc
 
 	* doc/Makefile.am (wwwdoc-build, wwwdoc-install): add
