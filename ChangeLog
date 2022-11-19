@@ -1,5 +1,14 @@
 2022-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (comma_index_subentries_tree),
+	tp/Texinfo/Convert/HTML.pm (_prepare_index_entries): use subentries
+	to determine the identifier of an index entry.  Add an optional
+	separator argument to comma_index_subentries_tree() to be able to
+	use something else than a comma.  Use a space separator to determine
+	the identifier to keep it shorter.
+
+2022-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_element_class_styles): use
 	padding-left instead of margin-left for index-entry-level-*, it
 	is more appropriate.  Report from Per Bothner.

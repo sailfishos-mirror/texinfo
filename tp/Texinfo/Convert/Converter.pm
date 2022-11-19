@@ -1393,14 +1393,16 @@ sub convert_accents($$$;$)
   }
 }
 
-# index sub-entries specified with @subentry, separated by commas.
+# index sub-entries specified with @subentry, separated by commas, or by
+# $SEPARATOR, if set
 sub comma_index_subentries_tree {
-  my ($self, $current_entry) = @_;
+  my ($self, $current_entry, $separator) = @_;
 
+  $separator = ', ' if (!defined($separator));
   my @contents;
   while ($current_entry->{'extra'} and $current_entry->{'extra'}->{'subentry'}) {
     $current_entry = $current_entry->{'extra'}->{'subentry'};
-    push @contents, {'text' => ', '}, $current_entry->{'args'}->[0];
+    push @contents, {'text' => $separator}, $current_entry->{'args'}->[0];
   }
   if (scalar(@contents)) {
     return {'contents' => \@contents};
@@ -1964,13 +1966,14 @@ see L<Texinfo::Convert::Utils>.
 
 =over
 
-=item $contents_array = $converter->comma_index_subentries_tree($entry)
+=item $contents_element = $converter->comma_index_subentries_tree($entry, $separator)
 X<C<comma_index_subentries_tree>>
 
 I<$entry> is a Texinfo tree index entry element. The function sets up
-an array with the C<@subentry> contents, separated by commas.  The
-array reference is returned as I<$contents_array>, or C<undef> if there
-is no such content.
+an array with the C<@subentry> contents.  The result is returned as
+C<contents> in the I<$contents_element> element, or C<undef> if there is no
+such content.  I<$separator> is an optional separator argument used, if given,
+instead of the default: a comma followed by a space.
 
 =item $result = $converter->convert_accents($accent_command, \&format_accents, $in_upper_case)
 X<C<convert_accents>>

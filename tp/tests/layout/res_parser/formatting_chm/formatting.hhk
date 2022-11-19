@@ -58,7 +58,7 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="aaa">
-<param name="Local" value="chapter.html#index-aaa">
+<param name="Local" value="chapter.html#index-aaa-bbb">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="a--a">
@@ -98,7 +98,7 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="b--b">
-<param name="Local" value="chapter.html#index-b_002d_002d_002db">
+<param name="Local" value="chapter.html#index-b_002d_002d_002db-c_002d_002d_002dc">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="counting entry">
@@ -106,7 +106,7 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="d--dd">
-<param name="Local" value="chapter.html#index-d_002d_002d_002ddd">
+<param name="Local" value="chapter.html#index-d_002d_002d_002ddd-e_002d_002d_002dee-f_002d_002d_002dff">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="d--efcv_name">
@@ -334,7 +334,7 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="g--gg">
-<param name="Local" value="chapter.html#index-g_002d_002d_002dgg">
+<param name="Local" value="chapter.html#index-g_002d_002d_002dgg-h_002d_002d_002dhh-jjj-k_002d_002d_002dkk-l_002d_002d_002dll">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="index entry between item and itemx">
@@ -1070,15 +1070,15 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="f---bb">
-<param name="Local" value="chapter.html#index-f_002d_002d_002dbb">
+<param name="Local" value="chapter.html#index-f_002d_002d_002dbb-f_002d_002d_002dcc">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="f---ddd">
-<param name="Local" value="chapter.html#index-f_002d_002d_002dddd">
+<param name="Local" value="chapter.html#index-f_002d_002d_002dddd-f_002d_002d_002deee-ffff">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="f---ggg">
-<param name="Local" value="chapter.html#index-f_002d_002d_002dggg">
+<param name="Local" value="chapter.html#index-f_002d_002d_002dggg-f_002d_002d_002dhhh-fjjj-f_002d_002d_002dkkk-f_002d_002d_002dlll">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="followed">
@@ -1426,7 +1426,7 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="xxx">
-<param name="Local" value="chapter.html#index-xxx">
+<param name="Local" value="chapter.html#index-xxx-zzz">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="d--eftp_name">

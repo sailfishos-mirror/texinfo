@@ -403,8 +403,8 @@ $result_converted{'plaintext'}->{'seealso_duplicate'} = '* Menu:
 
 $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="Top">Top</h1>
 
-<a class="index-entry-id" id="index-awk"></a>
-<a class="index-entry-id" id="index-awk-1"></a>
+<a class="index-entry-id" id="index-awk-POSIX-and"></a>
+<a class="index-entry-id" id="index-awk-POSIX-and-1"></a>
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
@@ -412,8 +412,8 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="To
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><code class="command">awk</code></td><td>&nbsp;</td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-awk">POSIX and</a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-awk-1">POSIX and</a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-awk-POSIX-and-1">POSIX and</a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 </div>

@@ -8991,6 +8991,12 @@ sub _prepare_index_entries($)
         $region = "$index_entry->{'entry_region'}->{'cmdname'}-"
           if (defined($index_entry->{'entry_region'}));
         my @contents = @{$index_entry->{'content_normalized'}};
+        my $subentries_tree
+         = $self->comma_index_subentries_tree($index_entry->{'entry_element'},
+                                              ' ');
+        if (defined($subentries_tree)) {
+          push @contents, @{$subentries_tree->{'contents'}};
+        }
         my $trimmed_contents
           = Texinfo::Common::trim_spaces_comment_from_content(\@contents);
         my $normalized_index =

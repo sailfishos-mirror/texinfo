@@ -10,8 +10,7 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-Check in string documents, determine if a context is better or a comment
-using the -c option of xgettext.
+internal_links_formatting @subentry handling
 
 Bugs
 ====
