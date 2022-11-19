@@ -1823,20 +1823,20 @@ after
  &nbsp; 
 </td></tr></table>
 <table class="pg-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_pg_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-abc-index-entry">abc index entry</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_pg_letter-D">D</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-defg-index-entry">defg index entry</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_pg_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-pindex-codeidx"><code>pindex codeidx</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_pg_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-truc-kindex"><code>truc kindex</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_pg_letter-A">A</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-abc-index-entry">abc index entry</a>:</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_pg_letter-D">D</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-defg-index-entry">defg index entry</a>:</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_pg_letter-P">P</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-pindex-codeidx"><code>pindex codeidx</code></a>:</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_pg_letter-T">T</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-truc-kindex"><code>truc kindex</code></a>:</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="pg-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_pg_letter-A"><b>A</b></a>
  &nbsp; 
@@ -1871,14 +1871,14 @@ after
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_fn_letter-C">C</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-cindex-entry"><code>cindex entry</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_fn_letter-I">I</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-index-truc">index truc</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_fn_letter-C">C</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-cindex-entry"><code>cindex entry</code></a>:</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_fn_letter-I">I</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-index-truc">index truc</a>:</td><td class="printindex-index-section"><a href="#Chapter-index">Chapter index</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_letter-C"><b>C</b></a>
  &nbsp; 

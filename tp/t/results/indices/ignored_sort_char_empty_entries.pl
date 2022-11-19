@@ -633,14 +633,14 @@ $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_fn_symbol-1">-</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002d-1"><code>--</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_fn_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-A"><code>A</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_fn_symbol-1">-</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002d-1"><code>--</code></a>:</td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_fn_letter-A">A</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-A"><code>A</code></a>:</td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_fn_symbol-1"><b>-</b></a>
  &nbsp; 

@@ -487,9 +487,9 @@ a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 td.printindex-index-entry {vertical-align: top}
-td.printindex-index-section {vertical-align: top}
+td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.entries-header-printindex {text-align:left}
-th.sections-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left; padding-left: 1em}
 -->
 </style>
 
@@ -511,14 +511,14 @@ th.sections-header-printindex {text-align:left}
  &nbsp; 
 </td></tr></table>
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Top_fn_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-AAA2"><code>AAA2</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Top_fn_letter-N">N</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-name"><code>name</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Top_fn_letter-A">A</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-AAA2"><code>AAA2</code></a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Top_fn_letter-N">N</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-name"><code>name</code></a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>
  &nbsp; 

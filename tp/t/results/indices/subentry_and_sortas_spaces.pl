@@ -834,16 +834,16 @@ $result_converted{'html_text'}->{'subentry_and_sortas_spaces'} = '<div class="to
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry">aaa</td><td>&nbsp;</td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aaa-bbb-sort-as-c">bbb sort as c</a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aaa-"></a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1">bbb</span></td><td>&nbsp;</td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-aaa-bbb-ccc-1">ccc</a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-aaa-bbb-ccc">ccc</a></span>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_cp_letter-A">A</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry">aaa</td><td class="printindex-index-section"></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aaa-bbb-sort-as-c">bbb sort as c</a></span>:</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aaa-"></a></span>:</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1">bbb</span></td><td class="printindex-index-section"></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-aaa-bbb-ccc-1">ccc</a></span>:</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-aaa-bbb-ccc">ccc</a></span>:</td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
 </div>

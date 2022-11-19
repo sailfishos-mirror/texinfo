@@ -4,6 +4,13 @@
 
 2022-11-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): use
+	padding in CSS instead of non breaking space in a column to add
+	a space between index entry and section or node in printindex HTML
+	formatting.  Report from Per Bothner.
+
+2022-11-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (comma_index_subentries_tree),
 	tp/Texinfo/Convert/HTML.pm (_prepare_index_entries): use subentries
 	to determine the identifier of an index entry.  Add an optional

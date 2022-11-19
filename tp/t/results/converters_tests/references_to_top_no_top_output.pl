@@ -1487,11 +1487,11 @@ see <a class="pxref" href="#a-in-paragraph-in-top">a in paragraph in top</a>
 
 <div class="printindex cp-printindex">
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_cp_letter-C">C</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-chap-index">chap index</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#chapter">chapter</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_cp_letter-C">C</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-chap-index">chap index</a>:</td><td class="printindex-index-section"><a href="#chapter">chapter</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
 

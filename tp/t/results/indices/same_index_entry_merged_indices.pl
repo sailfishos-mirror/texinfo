@@ -673,12 +673,12 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 
 <div class="printindex fn-printindex">
 <table class="fn-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="t_i_fn_letter-M">M</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-mmm_002dmode"><code>mmm-mode</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-mmm_002dmode-1"><code>mmm-mode</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="t_i_fn_letter-M">M</th><td></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-mmm_002dmode"><code>mmm-mode</code></a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-mmm_002dmode-1"><code>mmm-mode</code></a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
 </div>

@@ -2357,11 +2357,12 @@ my %css_element_class_styles = (
      'div.center'         => 'text-align:center',
      'blockquote.indentedblock' => 'margin-right: 0em',
      'td.printindex-index-entry'     => 'vertical-align: top',
-     'td.printindex-index-section'   => 'vertical-align: top',
+     'td.printindex-index-section'   => 'vertical-align: top; padding-left: 1em',
+     'td.printindex-index-see-also'  => 'vertical-align: top; padding-left: 1em',
      'td.menu-entry-destination'     => 'vertical-align: top',
      'td.menu-entry-description'     => 'vertical-align: top',
      'th.entries-header-printindex'  => 'text-align:left',
-     'th.sections-header-printindex' => 'text-align:left',
+     'th.sections-header-printindex' => 'text-align:left; padding-left: 1em',
      'th.menu-comment'               => 'text-align:left',
      'td.category-def'               => 'text-align:right',
      'td.call-def'                   => 'text-align:left',
@@ -5529,8 +5530,7 @@ sub _convert_printindex_command($$$$)
         $entries_text .= '<tr><td></td>'
          .$self->html_attribute_class('td', [$entry_class]).'>'
          . $entry .
-          $delimiter .
-        '</td><td>'.$self->get_info('non_breaking_space').'</td>'
+          $delimiter . '</td>'
         .$self->html_attribute_class('td', [$section_class]).'>';
         $entries_text .= $reference;
         $entries_text .= "</td></tr>\n";
@@ -5622,9 +5622,8 @@ sub _convert_printindex_command($$$$)
            # FIXME same class used for leading element of the entry and
            # last element of the entry.  Could be different.
            .$self->html_attribute_class('td', ["$cmdname-index-entry"]).'>'
-           . $entry .
+           . $entry . '</td>'
            # following is empty, not sure if useful
-           '</td><td>'.$self->get_info('non_breaking_space').'</td>'
             .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
           $entries_text .= "</td></tr>\n";
 
@@ -5651,7 +5650,8 @@ sub _convert_printindex_command($$$$)
       my $formatted_entry = "<a href=\"$entry_href\">$entry</a>";
       # indent if it is a subentry
       if ($entry_level > 0) {
-        my $open = $self->html_attribute_class('span', ["index-entry-level-$entry_level"]);
+        my $open = $self->html_attribute_class('span',
+                                            ["index-entry-level-$entry_level"]);
         if ($open ne '') {
           $open .= '>';
           $formatted_entry = $open.$formatted_entry.'</span>';
@@ -5684,8 +5684,7 @@ sub _convert_printindex_command($$$$)
       
       $entries_text .= '<tr><td></td>'
         .$self->html_attribute_class('td', ["$cmdname-index-entry"]).'>'
-         . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') .
-        '</td><td>'.$self->get_info('non_breaking_space').'</td>'
+         . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>'
         .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
       $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
          if ($associated_command_href);
@@ -5696,8 +5695,8 @@ sub _convert_printindex_command($$$$)
       $result_index_entries .= '<tr>' .
         "<th id=\"$letter_id{$letter}\">".
         &{$self->formatting_function('format_protect_text')}($self, $letter)
-        . "</th><td></td><td></td></tr>\n" . $entries_text
-        . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
+        . "</th><td></td></tr>\n" . $entries_text
+        . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
       push @letter_entries, $letter_entry;
     }
   }
@@ -5760,12 +5759,11 @@ sub _convert_printindex_command($$$$)
     ." border=\"0\">\n" . '<tr><td></td>'
     . $self->html_attribute_class('th', ["entries-header-$cmdname"]).'>'
       # TRANSLATORS: index entries column header in index formatting
-    . $self->convert_tree($self->gdt('Index Entry'))
-    . "</th><td>$non_breaking_space</td>"
-    . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'> '
+    . $self->convert_tree($self->gdt('Index Entry')) .'</th>'
+    . $self->html_attribute_class('th', ["sections-header-$cmdname"]).'>'
       # TRANSLATORS: section of index entry column header in index formatting 
     . $self->convert_tree($self->gdt('Section')) . "</th></tr>\n"
-    . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')
+    . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')
     ."</td></tr>\n";
   $result .= $result_index_entries;
   $result .= "</table>\n";
