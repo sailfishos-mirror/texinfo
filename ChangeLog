@@ -1,5 +1,13 @@
 2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	info.js improvements
+
+	* js/info.css: No underlining for sidebar links.
+	* js/info.js: Remove "Hide sidebar" text as it takes up too much
+	space.
+
+2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* js/info.js (add_header): Check for h1.top after h1.settitle
 	for text to put at top of sidebar.
 
