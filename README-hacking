@@ -283,6 +283,7 @@ Update version number:
   (cd tp && ./maintain/change_perl_modules_version.sh auto)
     -- this updates all the version numbers in the Perl modules
   version number in txirefcard.tex (offical releases only) 
+  version number in js/info.js
 
 (cd tp ; maintain/regenerate_file_lists.pl) # list all test results
 
