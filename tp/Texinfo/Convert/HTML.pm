@@ -10265,8 +10265,14 @@ sub output_internal_links($)
           # Obtain term by converting to text
           my $converter_options = {%options};
           $converter_options->{'code'} = $index_entry->{'in_code'};
+          my @contents = @{$index_entry->{'entry_content'}};
+          my $subentries_tree
+            = $self->comma_index_subentries_tree($index_entry->{'entry_element'});
+          if (defined($subentries_tree)) {
+            push @contents, @{$subentries_tree->{'contents'}};
+          }
           my $index_term = Texinfo::Convert::Text::convert_to_text(
-               {'contents' => $index_entry->{'entry_content'}}, $converter_options);
+                               {'contents' => \@contents}, $converter_options);
           if (defined($index_term) and $index_term =~ /\S/) {
             $out_string .= $href if (defined($href));
             $out_string .= "\t$index_name\t";

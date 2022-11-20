@@ -17,7 +17,7 @@ formatting.html#index-_002d_002doption-1	cp	-option
 formatting.html#index-_002e	cp	.
 formatting.html#index-_003f	cp	?
 formatting.html#index-a	cp	a
-formatting.html#index-aaa-bbb	cp	aaa
+formatting.html#index-aaa-bbb	cp	aaa, bbb
 formatting.html#index-a_002d_002d_002da	cp	a--a
 formatting.html#index-copying-a_002d_002dasis	cp	a--asis
 formatting.html#index-titlepage-a_002d_002dasis	cp	a--asis
@@ -27,9 +27,9 @@ formatting.html#index-copying-b-2	cp	b
 formatting.html#index-titlepage-b-2	cp	b
 formatting.html#index-b-4	cp	b
 formatting.html#index-b-5	cp	b
-formatting.html#index-b_002d_002d_002db-c_002d_002d_002dc	cp	b--b
+formatting.html#index-b_002d_002d_002db-c_002d_002d_002dc	cp	b--b, c--c
 formatting.html#index-counting-entry	cp	counting entry
-formatting.html#index-d_002d_002d_002ddd-e_002d_002d_002dee-f_002d_002d_002dff	cp	d--dd
+formatting.html#index-d_002d_002d_002ddd-e_002d_002d_002dee-f_002d_002d_002dff	cp	d--dd, e--ee, f--ff
 formatting.html#index-copying-d_002d_002defcv_005fname	cp	d--efcv_name
 formatting.html#index-copying-d_002d_002defcv_005fname-1	cp	d--efcv_name
 formatting.html#index-titlepage-d_002d_002defcv_005fname	cp	d--efcv_name
@@ -86,7 +86,7 @@ formatting.html#index-copying-d_002d_002defvr_005fname	cp	d--efvr_name
 formatting.html#index-titlepage-d_002d_002defvr_005fname	cp	d--efvr_name
 formatting.html#index-d_002d_002defvr_005fname	cp	d--efvr_name
 formatting.html#index-d_002d_002defvr_005fname-1	cp	d--efvr_name
-formatting.html#index-g_002d_002d_002dgg-h_002d_002d_002dhh-jjj-k_002d_002d_002dkk-l_002d_002d_002dll	cp	g--gg
+formatting.html#index-g_002d_002d_002dgg-h_002d_002d_002dhh-jjj-k_002d_002d_002dkk-l_002d_002d_002dll	cp	g--gg, h--hh jjj, k--kk, l--ll
 formatting.html#index-copying-index-entry-between-item-and-itemx	cp	index entry between item and itemx
 formatting.html#index-copying-index-entry-between-item-and-itemx-1	cp	index entry between item and itemx
 formatting.html#index-titlepage-index-entry-between-item-and-itemx	cp	index entry between item and itemx
@@ -270,9 +270,9 @@ formatting.html#index-deffnx-1	fn	deffnx
 formatting.html#index-deffnx-2	fn	deffnx
 formatting.html#index-deffnx-3	fn	deffnx
 formatting.html#index-f_002d_002d_002daa	fn	f---aa
-formatting.html#index-f_002d_002d_002dbb-f_002d_002d_002dcc	fn	f---bb
-formatting.html#index-f_002d_002d_002dddd-f_002d_002d_002deee-ffff	fn	f---ddd
-formatting.html#index-f_002d_002d_002dggg-f_002d_002d_002dhhh-fjjj-f_002d_002d_002dkkk-f_002d_002d_002dlll	fn	f---ggg
+formatting.html#index-f_002d_002d_002dbb-f_002d_002d_002dcc	fn	f---bb, f---cc
+formatting.html#index-f_002d_002d_002dddd-f_002d_002d_002deee-ffff	fn	f---ddd, f---eee, ffff
+formatting.html#index-f_002d_002d_002dggg-f_002d_002d_002dhhh-fjjj-f_002d_002d_002dkkk-f_002d_002d_002dlll	fn	f---ggg, f---hhh fjjj, f---kkk, f---lll
 formatting.html#index-copying-followed	fn	followed
 formatting.html#index-copying-followed-1	fn	followed
 formatting.html#index-titlepage-followed	fn	followed
@@ -359,7 +359,7 @@ formatting.html#index-truc	fn	truc
 formatting.html#index-truc-1	fn	truc
 formatting.html#index-truc-2	fn	truc
 formatting.html#index-truc-3	fn	truc
-formatting.html#index-xxx-zzz	fn	xxx
+formatting.html#index-xxx-zzz	fn	xxx, zzz
 formatting.html#index-copying-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-titlepage-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-d_002d_002deftp_005fname	tp	d--eftp_name
