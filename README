@@ -93,8 +93,8 @@ Source directories:
   gnulib/                  Support files from Gnulib.
   info/                    Standalone Info reader.
   install-info/            Maintain the Info dir file.
-  tp/                      Texinfo Parser in Perl, includes texi2any.
   js/                      Enhanced browsing of HTML manuals with JavaScript.
+  tp/                      Texinfo Parser in Perl, includes texi2any.
   texindex/                The `texindex' program that generates
                            sorted indices used by TeX when
                            typesetting a file for printing.
