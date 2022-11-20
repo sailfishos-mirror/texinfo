@@ -1455,7 +1455,8 @@
       if (linkid_contains_index (linkid))
         {
           /* Scan links that should be added to the index.  */
-          var index_links = document.querySelectorAll ("td[valign=top] a");
+          var index_links = document.querySelectorAll
+            ("td.printindex-index-entry a");
           store.dispatch (actions.cache_index_links (index_links));
         }
 
