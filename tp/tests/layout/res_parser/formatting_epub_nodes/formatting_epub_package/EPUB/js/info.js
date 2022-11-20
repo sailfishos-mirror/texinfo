@@ -1356,6 +1356,8 @@
     add_header (elem)
     {
       var h1 = document.querySelector ("h1.settitle");
+      if (!h1)
+        h1 = document.querySelector ("h1.top");
       if (h1)
         {
           var a = document.createElement ("a");
@@ -1455,7 +1457,8 @@
       if (linkid_contains_index (linkid))
         {
           /* Scan links that should be added to the index.  */
-          var index_links = document.querySelectorAll ("td[valign=top] a");
+          var index_links = document.querySelectorAll
+            ("td.printindex-index-entry a");
           store.dispatch (actions.cache_index_links (index_links));
         }
 
