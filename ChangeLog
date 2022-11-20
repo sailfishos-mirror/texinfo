@@ -1,5 +1,10 @@
 2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/tests/layout/list-of-tests (formatting_epub_nodes):
+	Set INFO_JS_DIR in order to exercise code.  From Patrice.
+
+2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/HTML.pm (output) <INFO_JS_DIR>:
 	Do not copy js files for tests.
 
