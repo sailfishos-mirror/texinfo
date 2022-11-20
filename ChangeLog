@@ -1,5 +1,10 @@
 2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: say to test JS interface manually before a release
+	* README: list js/ directory here.
+
+2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/HTML.pm (%defaults): Change INDEX_ENTRY_COLON
 	from ':' to ''.  Suggestion from Patrice.
 

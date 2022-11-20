@@ -49,7 +49,7 @@ Additionally, make dist may not work until make has been run at least
 once, because of rules to create man pages under the man/ directory.
 
 "make dist" will fail if the use of Perl XS extension modules is 
-disabled and there is no Makefile in the XSParagraph subdirectory.
+disabled and there is no Makefile in the XS subdirectory.
 
 
 Using git
@@ -134,7 +134,6 @@ Subdirectories in repository
 In addition to the subdirectories listed in README, there is the 
 following directory in the source control repository:
 
-js/ - Work on enhanced browsing of HTML manuals with JavaScript
 infog/ - HTML-Info reader using WebKitGTK library
 
 Finally, the contrib/ directory contains additional files from users
@@ -195,21 +194,22 @@ Steps for making a release (pretest or official):
 
 - When close to official release:
 
-check at latest automake/autoconf/gettext version, and mention in NEWS
-(to upgrade gettext, run
-  gettextize -f --po-dir=po --po-dir=po_document
-after installing new version of gettext.
-check that this does not actually downgrade files due to files also
-being updated from gnulib --add-import)
+check at latest automake/autoconf/gettext version:
+  . to upgrade gettext, run
+      gettextize -f --po-dir=po --po-dir=po_document
+    after installing new version of gettext.
+    (check that this does not actually downgrade files due to files also
+    being updated from gnulib --add-import)
+  . After upgrading automake/autoconf/gettext, run ./autogen.sh
+    and/or "autoreconf --verbose --force --install" to update ancilliary
+    files in build-aux and elsewhere.  Check changes before committing.
+  . mention new versions in NEWS
 
-# Under the top level, and also under tp/Texinfo/XS, which uses
-# a separate gnulib import.
-gnulib-tool --add-import
-'git status -u' and add untracked files
-
-After upgrading automake/autoconf/gettext, run ./autogen.sh
-and/or "autoreconf --verbose --force --install" to update ancilliary
-files in build-aux and elsewhere.  Check changes before committing.
+Update gnulib:
+  # Under the top level, and also under tp/Texinfo/XS, which uses
+  # a separate gnulib import.
+  gnulib-tool --add-import
+  'git status -u' and add untracked files
 
 Use util/srclist-txi for checking files to be copied from gnulib
 
@@ -218,17 +218,12 @@ run all tests with valgrind:
   running test suite
 * edit install-info/tests/defs.in, uncomment valgrind line and run
   config.status to regenerate defs
-
-parsetexi memory leak checks with valgrind
+* XS modules memory leak check checking with valgrind
 
 NYTProf profiling for Perl code
 * e.g. 'perl -d:NYTProf ../tp/texi2any.pl FILE.texi'.  See Devel::NYTProf
   man page.
 
-
-try groff.texinfo from groff source repo.
-Check "make ccheck" and "make vcheck" work in "doc/refcard".
-process doc/texinfo-tex-test.texi with TeX and check that output is good.
 check for C compiler warnings by configuring with
 
   ./configure CFLAGS='-Wall -Wdeclaration-after-statement' \
@@ -241,12 +236,21 @@ don't support it are still widespread.
 
 Not all compiler warnings have to be fixed, though.
 
+Manual testing:
+. try groff.texinfo from groff source repo.
+. process doc/texinfo-tex-test.texi with TeX and check that output is good.
+. process some manuals with INFO_JS_DIR and check the JS interface is
+  not broken.
+
 Have a look at the output of "git status -u" to check for files that
   should be tracked in git or ignored.
+
 make po-check             # update po/POTFILES.in as needed
 make po_document-check    # update po_document/POTFILES.in as needed
 
 check indices of Texinfo manuals and check for duplicates (with <1> in Info)
+
+Check "make ccheck" and "make vcheck" work in "doc/refcard".
 
 - Official releases only:
 make V=1 pdf and fix underfull/overfull boxes.
