@@ -10,14 +10,13 @@
    </metadata>
    <manifest>
       <item id="nav" properties="nav" media-type="application/xhtml+xml" href="xhtml/nav_toc.xhtml"/>
-      <item id="unit1" media-type="application/xhtml+xml" href="xhtml/formatting.xhtml" properties="scripted"/>
-      <item id="unit2" media-type="application/xhtml+xml" href="xhtml/chapter.xhtml" properties="scripted"/>
-      <item id="unit3" media-type="application/xhtml+xml" href="xhtml/s_002d_002dect_002cion.xhtml" properties="scripted"/>
-      <item id="unit4" media-type="application/xhtml+xml" href="xhtml/subsection.xhtml" properties="scripted"/>
-      <item id="unit5" media-type="application/xhtml+xml" href="xhtml/subsubsection-_0060_0060simple_002ddouble_002d_002d.xhtml" properties="scripted"/>
-      <item id="unit6" media-type="application/xhtml+xml" href="xhtml/subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.xhtml" properties="scripted"/>
-      <item id="unit7" media-type="application/xhtml+xml" href="xhtml/chapter2.xhtml" properties="scripted"/>
-      <item id="jsweblabels" media-type="application/xhtml+xml" href="xhtml/js_licenses.xhtml"/>
+      <item id="unit1" media-type="application/xhtml+xml" href="xhtml/formatting.xhtml"/>
+      <item id="unit2" media-type="application/xhtml+xml" href="xhtml/chapter.xhtml"/>
+      <item id="unit3" media-type="application/xhtml+xml" href="xhtml/s_002d_002dect_002cion.xhtml"/>
+      <item id="unit4" media-type="application/xhtml+xml" href="xhtml/subsection.xhtml"/>
+      <item id="unit5" media-type="application/xhtml+xml" href="xhtml/subsubsection-_0060_0060simple_002ddouble_002d_002d.xhtml"/>
+      <item id="unit6" media-type="application/xhtml+xml" href="xhtml/subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.xhtml"/>
+      <item id="unit7" media-type="application/xhtml+xml" href="xhtml/chapter2.xhtml"/>
       <item id="image1" media-type="e--xt/image" href="images/11-f--ile.e--xt"/>
       <item id="image2" media-type="image/png" href="images/15-f--ile.png"/>
       <item id="image3" media-type="image/png" href="images/16-f--ile.png"/>
@@ -58,9 +57,6 @@
       <item id="image38" media-type="image/png" href="images/7-f--ile.png"/>
       <item id="image39" media-type="e--xt/image" href="images/8-f--ile.e--xt"/>
       <item id="image40" media-type="image/png" href="images/9-f--ile.png"/>
-      <item id="infojs1" media-type="text/css" href="js/info.css"/>
-      <item id="infojs2" media-type="text/javascript" href="js/info.js"/>
-      <item id="infojs3" media-type="text/javascript" href="js/modernizr.js"/>
    </manifest>
    <spine>
       <itemref idref="unit1"/>
@@ -70,6 +66,5 @@
       <itemref idref="unit5"/>
       <itemref idref="unit6"/>
       <itemref idref="unit7"/>
-      <itemref idref="jsweblabels" linear="no"/>
    </spine>
 </package>
