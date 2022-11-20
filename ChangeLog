@@ -1,5 +1,13 @@
 2022-11-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): remove
+	span element used for index-entry-level-*, instead add the class to
+	the td element.
+	Remove classes for empty sectioning cells.
+	Report from Per Bothner.
+
+2022-11-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (output): create empty js files for
 	tests.
 

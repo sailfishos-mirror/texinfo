@@ -2339,8 +2339,8 @@ my %css_element_class_styles = (
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.r'             => 'font-family: initial; font-weight: normal; font-style: normal',
      'span.w-nolinebreak-text'   => 'white-space: nowrap',
-     'span.index-entry-level-1'  => 'padding-left: 1.5em',
-     'span.index-entry-level-2'  => 'padding-left: 3.0em',
+     'td.index-entry-level-1'  => 'padding-left: 1.5em',
+     'td.index-entry-level-2'  => 'padding-left: 3.0em',
      'kbd.key'            => 'font-style: normal',
      'kbd.kbd'            => 'font-style: oblique',
      'strong.def-name'    => 'font-family: monospace; font-weight: bold; '
@@ -5610,22 +5610,18 @@ sub _convert_printindex_command($$$$)
                   "index $index_name l $letter index entry $entry_nr subentry $level");
           }
           $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
+          my @td_entry_classes = ("$cmdname-index-entry");
           # indent
           if ($level > 0) {
-            my $open = $self->html_attribute_class('span', ["index-entry-level-$level"]);
-            if ($open ne '') {
-              $open .= '>';
-              $entry = $open.$entry.'</span>';
-            }
+            push @td_entry_classes, "index-entry-level-$level";
           }
           $entries_text .= '<tr><td></td>'
            # FIXME same class used for leading element of the entry and
            # last element of the entry.  Could be different.
-           .$self->html_attribute_class('td', ["$cmdname-index-entry"]).'>'
+           .$self->html_attribute_class('td', \@td_entry_classes).'>'
            . $entry . '</td>'
-           # following is empty, not sure if useful
-            .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
-          $entries_text .= "</td></tr>\n";
+           # empty cell, no section for this line
+            . "<td></td></tr>\n";
 
           $entry_level = $level+1;
         }
@@ -5648,14 +5644,10 @@ sub _convert_printindex_command($$$$)
       $entry = '<code>' .$entry .'</code>' if ($index_entry_ref->{'in_code'});
       my $entry_href = $self->command_href($index_entry_ref->{'entry_element'});
       my $formatted_entry = "<a href=\"$entry_href\">$entry</a>";
-      # indent if it is a subentry
+      my @td_entry_classes = ("$cmdname-index-entry");
+      # subentry
       if ($entry_level > 0) {
-        my $open = $self->html_attribute_class('span',
-                                            ["index-entry-level-$entry_level"]);
-        if ($open ne '') {
-          $open .= '>';
-          $formatted_entry = $open.$formatted_entry.'</span>';
-        }
+        push @td_entry_classes, "index-entry-level-$entry_level";
       }
 
       my $associated_command;
@@ -5683,7 +5675,7 @@ sub _convert_printindex_command($$$$)
       }
       
       $entries_text .= '<tr><td></td>'
-        .$self->html_attribute_class('td', ["$cmdname-index-entry"]).'>'
+        .$self->html_attribute_class('td', \@td_entry_classes).'>'
          . $formatted_entry . $self->get_conf('INDEX_ENTRY_COLON') . '</td>'
         .$self->html_attribute_class('td', ["$cmdname-index-section"]).'>';
       $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>"
