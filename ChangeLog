@@ -1,3 +1,8 @@
+2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* js/info.js (init_iframe): Change selector for index entries
+	to match new HTML output.  From Per and Patrice.
+
 2022-11-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/util.c (text_buffer_iconv): Avoid infinite loop
