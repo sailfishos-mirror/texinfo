@@ -10849,22 +10849,39 @@ sub output($$)
           mkdir $jsdir;
         }
       }
-      # Copy JS files.  Do not copy them for tests to keep results stable.
-      if (-d $jsdir and !$self->get_conf('TEST')) {
-        my $jssrcdir;
-        if (!$Texinfo::ModulePath::texinfo_uninstalled) {
-          $jssrcdir = File::Spec->catdir(
-            $Texinfo::ModulePath::pkgdatadir, 'js');
-        } else {
-          $jssrcdir = File::Spec->catdir(
-            $Texinfo::ModulePath::top_srcdir, 'js');
-        }
-        for my $f ('info.js', 'modernizr.js', 'info.css') {
-          my $from = File::Spec->catfile($jssrcdir, $f);
+      # Copy JS files.
+      if (-d $jsdir) {
+        if (!$self->get_conf('TEST')) {
+          my $jssrcdir;
+          if (!$Texinfo::ModulePath::texinfo_uninstalled) {
+            $jssrcdir = File::Spec->catdir(
+              $Texinfo::ModulePath::pkgdatadir, 'js');
+          } else {
+            $jssrcdir = File::Spec->catdir(
+              $Texinfo::ModulePath::top_srcdir, 'js');
+          }
+          for my $f ('info.js', 'modernizr.js', 'info.css') {
+            my $from = File::Spec->catfile($jssrcdir, $f);
 
-          if (!copy($from, $jsdir)) {
-            $self->document_error($self,
-              sprintf(__("error on copying %s into %s"), $from, $jsdir));
+            if (!copy($from, $jsdir)) {
+              $self->document_error($self,
+                sprintf(__("error on copying %s into %s"), $from, $jsdir));
+            }
+          }
+        } else {
+        # create empty files for tests to keep results stable.
+          for my $f ('info.js', 'modernizr.js', 'info.css') {
+            my $filename = File::Spec->catfile($jsdir, $f);
+            if (!open (FH, '>', $filename)) {
+              $self->document_error($self,
+                sprintf(__("error on creating empty %s: %s"),
+                        $filename, $!));
+            }
+            if (!close(FH)) {
+              $self->document_error($self,
+                sprintf(__("error on closing empty %s: %s"),
+                        $filename, $!));
+            }
           }
         }
       }

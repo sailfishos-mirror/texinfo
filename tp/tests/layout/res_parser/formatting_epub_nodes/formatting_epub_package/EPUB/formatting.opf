@@ -58,6 +58,9 @@
       <item id="image38" media-type="image/png" href="images/7-f--ile.png"/>
       <item id="image39" media-type="e--xt/image" href="images/8-f--ile.e--xt"/>
       <item id="image40" media-type="image/png" href="images/9-f--ile.png"/>
+      <item id="infojs1" media-type="text/css" href="js/info.css"/>
+      <item id="infojs2" media-type="text/javascript" href="js/info.js"/>
+      <item id="infojs3" media-type="text/javascript" href="js/modernizr.js"/>
    </manifest>
    <spine>
       <itemref idref="unit1"/>
