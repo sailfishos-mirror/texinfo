@@ -514,10 +514,10 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Top_fn_letter-A">A</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-AAA2"><code>AAA2</code></a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-AAA2"><code>AAA2</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Top_fn_letter-N">N</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-name"><code>name</code></a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-name"><code>name</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="fn-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Top_fn_letter-A"><b>A</b></a>

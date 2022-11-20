@@ -2302,31 +2302,31 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td></tr>
 <tr><td></td><td class="printindex-index-entry">aa</td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aa-bb">bb</a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aa-dd">dd</a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aa-bb">bb</a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-aa-dd">dd</a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry">ab</td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-ab-cc">cc</a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-ab-cc">cc</a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-B">B</th><td></td></tr>
 <tr><td></td><td class="printindex-index-entry">bb</td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-bb-cc">cc</a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-bb-cc">cc</a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-H">H</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh">hhh</a>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-1">hhh</a>:</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-hhh-"></a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-hhh-jjj">jjj</a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-hhh-jjj-2">jjj</a></span>:</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-jjj-lll-2">lll</a></span>:</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-jjj-lll">lll</a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-jjj-lll-1">lll</a></span>:</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-jjj-lll-ppp">lll, ppp</a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-JJJ-jjj"><a class="email" href="mailto:jjj">mymail</a></a></span>:</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-hhh-k">k</a></span>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-k-nnn">nnn</a></span>:</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh">hhh</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-1">hhh</a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-hhh-"></a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-hhh-jjj">jjj</a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-hhh-jjj-2">jjj</a></span></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-jjj-lll-2">lll</a></span></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-jjj-lll">lll</a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-jjj-lll-1">lll</a></span></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-jjj-lll-ppp">lll, ppp</a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-JJJ-jjj"><a class="email" href="mailto:jjj">mymail</a></a></span></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-hhh-k">k</a></span></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-k-nnn">nnn</a></span></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1">l</span></td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-l-third">third</a></span>:</td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-jjj-1">hhh jjj</a>:</td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-2"><a href="#index-hhh-l-third">third</a></span></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-jjj-1">hhh jjj</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-A"><b>A</b></a>

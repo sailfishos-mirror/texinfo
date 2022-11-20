@@ -1304,11 +1304,11 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <tr><td></td><th class="entries-header-printindex">Stavka indeksa</th><th class="sections-header-printindex">Odlomak</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chap_vr_letter-A">A</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-copying-a-of-copying"><code>a de copying</code></a>:</td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-copying-a-of-copying"><code>a de copying</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="chap_vr_letter-B">B</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-BBB-of-fr"><code>BBB de fr</code></a>:</td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-BBB-of-hr"><code>BBB od hr</code></a>:</td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-BBB-of-fr"><code>BBB de fr</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-BBB-of-hr"><code>BBB od hr</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="vr-letters-footer-printindex"><tr><th>Preskoči na: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>

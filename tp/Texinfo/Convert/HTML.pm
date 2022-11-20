@@ -1840,7 +1840,7 @@ my %defaults = (
   'FOOTNOTE_SEPARATE_HEADER_LEVEL' => 4,
   'FORMAT_MENU'           => 'sectiontoc',
   'HEADERS'               => 1,
-  'INDEX_ENTRY_COLON'     => ':',
+  'INDEX_ENTRY_COLON'     => '',
 # if set style is added in attribute.
   'INLINE_CSS_STYLE'      => 0,
   'JS_WEBLABELS'          => 'generate',

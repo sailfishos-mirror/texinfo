@@ -601,10 +601,10 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-C">C</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-counting-entry">counting entry</a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-counting-entry">counting entry</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-I">I</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry-in-footnote">index entry in footnote</a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry-in-footnote">index entry in footnote</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#t_i_cp_letter-C"><b>C</b></a>

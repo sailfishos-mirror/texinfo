@@ -14,6 +14,8 @@ See the manual for detailed information.
     . format @subentry and index entry with @seealso or @seeentry more in line
       with printed output.
     . Change @point expansion to U+22C6 in HTML Cross-references.
+    . omit colons after index entries by default.  this can still be
+      configured with INDEX_ENTRY_COLON.
 
 * texi2dvi
  . macro expansion with texi2any requires at least version 5.0 (only

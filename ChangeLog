@@ -1,3 +1,8 @@
+2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Convert/HTML.pm (%defaults): Change INDEX_ENTRY_COLON
+	from ':' to ''.  Suggestion from Patrice.
+
 2022-11-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* contrib/my-bib-macros.texi: Move here from web pages.

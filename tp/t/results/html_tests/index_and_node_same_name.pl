@@ -272,7 +272,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="index-node_cp_letter-N">N</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-node-1">node</a>:</td><td class="printindex-index-section"><a href="#index-node">index node</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-node-1">node</a></td><td class="printindex-index-section"><a href="#index-node">index node</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>

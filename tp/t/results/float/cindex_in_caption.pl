@@ -495,7 +495,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Top_cp_letter-I">I</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry">index entry</a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry">index entry</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>

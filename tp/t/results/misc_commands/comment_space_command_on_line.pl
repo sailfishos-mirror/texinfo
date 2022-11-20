@@ -962,7 +962,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-I">I</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry-">index entry &nbsp;</a>:</td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-index-entry-">index entry &nbsp;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>

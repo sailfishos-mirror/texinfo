@@ -847,15 +847,15 @@ $result_converted{'html_text'}->{'same_only_seealso_seeentry'} = '<div class="to
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry">aaa:</td><td class="printindex-index-see-also"><em class="emph">See also</em> sss</td></tr>
-<tr><td></td><td class="printindex-index-entry">aaa:</td><td class="printindex-index-see-also"><em class="emph">See also</em> 123</td></tr>
+<tr><td></td><td class="printindex-index-entry">aaa</td><td class="printindex-index-see-also"><em class="emph">See also</em> sss</td></tr>
+<tr><td></td><td class="printindex-index-entry">aaa</td><td class="printindex-index-see-also"><em class="emph">See also</em> 123</td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-B">B</th><td></td></tr>
 <tr><td></td><td class="printindex-index-see-entry">bbb, <em class="emph">See</em> yyy</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td></td><td class="printindex-index-see-entry">bbb, <em class="emph">See</em> ttt</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-C">C</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry">ccc:</td><td class="printindex-index-see-also"><em class="emph">See also</em> also</td></tr>
+<tr><td></td><td class="printindex-index-entry">ccc</td><td class="printindex-index-see-also"><em class="emph">See also</em> also</td></tr>
 <tr><td></td><td class="printindex-index-see-entry">ccc, <em class="emph">See</em> entry</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

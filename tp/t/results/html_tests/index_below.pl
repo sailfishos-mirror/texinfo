@@ -524,7 +524,7 @@ th.sections-header-printindex {text-align:left; padding-left: 1em}
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="sec_cp_letter-E">E</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-entry">entry</a>:</td><td class="printindex-index-section"><a href="#sec">1.1 sec</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-entry">entry</a></td><td class="printindex-index-section"><a href="#sec">1.1 sec</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>

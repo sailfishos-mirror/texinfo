@@ -401,7 +401,7 @@ $result_converted{'html_text'}->{'w_lines_count'} = '<div class="top-level-exten
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_fn_letter-C">C</th><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-compilation_002dnext_002derror"><code>compilation-next-error</code></a>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-compilation_002dnext_002derror"><code>compilation-next-error</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>

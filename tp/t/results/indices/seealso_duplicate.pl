@@ -412,8 +412,8 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node" id="To
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="t_i_cp_letter-A">A</th><td></td></tr>
 <tr><td></td><td class="printindex-index-entry"><code class="command">awk</code></td><td class="printindex-index-section"></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></span>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-awk-POSIX-and-1">POSIX and</a></span>:</td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-awk-POSIX-and">POSIX and</a></span></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><span class="index-entry-level-1"><a href="#index-awk-POSIX-and-1">POSIX and</a></span></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
 </div>
