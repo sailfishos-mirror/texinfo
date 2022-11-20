@@ -10849,7 +10849,8 @@ sub output($$)
           mkdir $jsdir;
         }
       }
-      if (-d $jsdir) {
+      # Copy JS files.  Do not copy them for tests to keep results stable.
+      if (-d $jsdir and !$self->get_conf('TEST')) {
         my $jssrcdir;
         if (!$Texinfo::ModulePath::texinfo_uninstalled) {
           $jssrcdir = File::Spec->catdir(
