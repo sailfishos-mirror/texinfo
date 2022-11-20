@@ -1356,6 +1356,8 @@
     add_header (elem)
     {
       var h1 = document.querySelector ("h1.settitle");
+      if (!h1)
+        h1 = document.querySelector ("h1.top");
       if (h1)
         {
           var a = document.createElement ("a");

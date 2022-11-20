@@ -1,5 +1,10 @@
 2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* js/info.js (add_header): Check for h1.top after h1.settitle
+	for text to put at top of sidebar.
+
+2022-11-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* js/info.js (init_iframe): Change selector for index entries
 	to match new HTML output.  From Per and Patrice.
 
