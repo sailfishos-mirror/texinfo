@@ -1563,22 +1563,29 @@ sub _gather_previous_item($$;$$)
   } else {
     $type = 'table_item';
   }
-  my $table_after_terms = {'type' => $type,
-                           'contents' => []};
+
   # remove everything that is not an @item/@itemx or before_item to
-  # put it in the table_item/inter_item, starting from the end.
+  # put it in the table_item/inter_item
   my $contents_count = scalar(@{$current->{'contents'}});
-  for (my $i = 0; $i < $contents_count; $i++) {
-    if ($current->{'contents'}->[-1]->{'cmdname'}
+  my $item_idx;
+  for (my $i = $contents_count - 1; $i >= 0; $i--) {
+    if ($current->{'contents'}->[$i]->{'cmdname'}
         and ($current->{'contents'}->[-1]->{'cmdname'} eq 'item'
              or ($current->{'contents'}->[-1]->{'cmdname'} eq 'itemx'))) {
+      $itemx_idx = $i;
       last;
-    } else {
-      my $item_content = pop @{$current->{'contents'}};
-      $item_content->{'parent'} = $table_after_terms;
-      unshift @{$table_after_terms->{'contents'}}, $item_content;
     }
   }
+  $item_idx = -1 if !defined($item_idx);
+
+  my $new_contents = [];
+  @{$new_contents} = splice @{$current->{'contents'}}, $item_idx + 1;
+  my $table_after_terms = {'type' => $type,
+                           'contents' => $new_contents};
+  for my $child (@{$new_contents}) {
+    $child->{'parent'} = $table_after_terms;
+  }
+
   if ($type eq 'table_item') {
     # setup a table_entry
     my $table_entry = {'type' => 'table_entry',
