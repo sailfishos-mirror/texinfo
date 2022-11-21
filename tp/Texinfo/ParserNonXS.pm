@@ -1570,9 +1570,9 @@ sub _gather_previous_item($$;$$)
   my $item_idx;
   for (my $i = $contents_count - 1; $i >= 0; $i--) {
     if ($current->{'contents'}->[$i]->{'cmdname'}
-        and ($current->{'contents'}->[-1]->{'cmdname'} eq 'item'
-             or ($current->{'contents'}->[-1]->{'cmdname'} eq 'itemx'))) {
-      $itemx_idx = $i;
+        and ($current->{'contents'}->[$i]->{'cmdname'} eq 'item'
+             or ($current->{'contents'}->[$i]->{'cmdname'} eq 'itemx'))) {
+      $item_idx = $i;
       last;
     }
   }
