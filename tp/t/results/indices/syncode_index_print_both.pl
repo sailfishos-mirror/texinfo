@@ -713,10 +713,10 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-C">C</th><td></td></tr>
+<tr><th id="t_i_cp_letter-C">C</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-c_002d_002d_002doncept">c&mdash;oncept</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-F">F</th><td></td></tr>
+<tr><th id="t_i_cp_letter-F">F</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-f_002d_002d_002dun"><code>f---un</code></a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

@@ -1494,7 +1494,7 @@ the author abandon his copyright.
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Copying-and-floats_cp_letter-I">I</th><td></td></tr>
+<tr><th id="Copying-and-floats_cp_letter-I">I</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-copying-indexed-caption">indexed caption</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-copying-indexed-caption-copying-footnote">indexed caption copying footnote</a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
@@ -1509,10 +1509,10 @@ the author abandon his copyright.
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Copying-and-floats_fn_letter-I">I</th><td></td></tr>
+<tr><th id="Copying-and-floats_fn_letter-I">I</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-copying-indexed-caption-function"><code>indexed caption function</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="Copying-and-floats_fn_letter-P">P</th><td></td></tr>
+<tr><th id="Copying-and-floats_fn_letter-P">P</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-copying-public-domain-function"><code>public domain function</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

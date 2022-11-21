@@ -2300,18 +2300,18 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-A">A</th><td></td></tr>
+<tr><th id="t_i_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry">aa</td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-aa-bb">bb</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-aa-dd">dd</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry">ab</td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-ab-cc">cc</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-B">B</th><td></td></tr>
+<tr><th id="t_i_cp_letter-B">B</th></tr>
 <tr><td></td><td class="printindex-index-entry">bb</td><td></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-bb-cc">cc</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-H">H</th><td></td></tr>
+<tr><th id="t_i_cp_letter-H">H</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh">hhh</a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-hhh-1">hhh</a></td><td class="printindex-index-section"><a href="#chapter-second">chapter second</a></td></tr>
 <tr><td></td><td class="printindex-index-entry index-entry-level-1"><a href="#index-hhh-"></a></td><td class="printindex-index-section"><a href="#chapter-one">chapter one</a></td></tr>

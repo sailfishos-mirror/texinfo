@@ -695,13 +695,13 @@ $result_converted{'html_text'}->{'multiple_index_text_sortas_seeentry_seealso'} 
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-A">A</th><td></td></tr>
+<tr><th id="t_i_cp_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-see-entry">aaa continue aagain, <em class="emph">See</em> other second</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-B">B</th><td></td></tr>
+<tr><th id="t_i_cp_letter-B">B</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-other-second">other second</a></td><td class="printindex-index-section"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-E">E</th><td></td></tr>
+<tr><th id="t_i_cp_letter-E">E</th></tr>
 <tr><td></td><td class="printindex-index-see-entry">entry secret, <em class="emph">See</em> something else</td><td class="printindex-index-see-entry-section"></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

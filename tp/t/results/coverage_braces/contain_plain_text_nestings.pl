@@ -1000,7 +1000,7 @@ $result_converted{'html_text'}->{'contain_plain_text_nestings'} = '<div class="t
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_symbol-1"> </th><td></td></tr>
+<tr><th id="t_i_cp_symbol-1"> </th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-ii">ii</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-ii-1">ii</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>

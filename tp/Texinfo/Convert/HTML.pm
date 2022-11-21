@@ -5687,7 +5687,7 @@ sub _convert_printindex_command($$$$)
       $result_index_entries .= '<tr>' .
         "<th id=\"$letter_id{$letter}\">".
         &{$self->formatting_function('format_protect_text')}($self, $letter)
-        . "</th><td></td></tr>\n" . $entries_text
+        . "</th></tr>\n" . $entries_text
         . "<tr><td colspan=\"3\">".$self->get_conf('DEFAULT_RULE')."</td></tr>\n";
       push @letter_entries, $letter_entry;
     }

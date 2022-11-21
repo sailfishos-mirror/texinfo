@@ -367,7 +367,7 @@ $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'}
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_symbol-1">-</th><td></td></tr>
+<tr><th id="t_i_fn_symbol-1">-</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dcindex"><code>--cindex</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dcpindex"><code>--cpindex</code></a></td><td class="printindex-index-section"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>

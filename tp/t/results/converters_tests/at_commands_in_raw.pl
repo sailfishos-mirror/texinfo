@@ -1259,7 +1259,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_letter-F">F</th><td></td></tr>
+<tr><th id="t_i_fn_letter-F">F</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-fentry2"><code>fentry2</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

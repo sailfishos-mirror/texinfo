@@ -956,14 +956,14 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top-level-e
 <table class="SK-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_SK_symbol-1">0</th><td></td></tr>
+<tr><th id="t_i_SK_symbol-1">0</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-zero-sort-key">zero sort key</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_SK_letter-A">A</th><td></td></tr>
+<tr><th id="t_i_SK_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-bbbbbbb-_0028first_0029">bbbbbbb (first)</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-aaa-"><b class="b">aaa </b></a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_SK_letter-B">B</th><td></td></tr>
+<tr><th id="t_i_SK_letter-B">B</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-aaaaaaa-_0028second_0029">aaaaaaa (second)</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

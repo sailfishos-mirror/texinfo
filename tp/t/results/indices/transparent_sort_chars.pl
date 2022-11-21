@@ -538,11 +538,11 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <table class="cp-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-S">S</th><td></td></tr>
+<tr><th id="t_i_cp_letter-S">S</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-Semantic-markup">Semantic markup</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-Source-file-format">Source file format</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_cp_letter-V">V</th><td></td></tr>
+<tr><th id="t_i_cp_letter-V">V</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002dversion_002c-for-install_002dinfo"><code class="code">--version</code>, for <code class="command">install-info</code></a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

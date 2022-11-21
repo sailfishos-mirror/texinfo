@@ -635,10 +635,10 @@ $result_converted{'html_text'}->{'ignored_sort_char_empty_entries'} = '
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_symbol-1">-</th><td></td></tr>
+<tr><th id="t_i_fn_symbol-1">-</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-_002d_002d-1"><code>--</code></a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_letter-A">A</th><td></td></tr>
+<tr><th id="t_i_fn_letter-A">A</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-A"><code>A</code></a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>

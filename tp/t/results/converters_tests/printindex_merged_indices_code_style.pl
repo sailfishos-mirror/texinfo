@@ -950,17 +950,17 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div
 <table class="fn-entries-printindex" border="0">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_letter-C">C</th><td></td></tr>
+<tr><th id="t_i_fn_letter-C">C</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-c_0060_0060b">c&ldquo;b</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-cdi_0060_0060h">cdi&ldquo;h</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_letter-D">D</th><td></td></tr>
+<tr><th id="t_i_fn_letter-D">D</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-ddi_0060_0060g"><code>ddi``g</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_letter-F">F</th><td></td></tr>
+<tr><th id="t_i_fn_letter-F">F</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-f_0060_0060g"><code>f``g</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
-<tr><th id="t_i_fn_letter-V">V</th><td></td></tr>
+<tr><th id="t_i_fn_letter-V">V</th></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-v_0060_0060j">v&ldquo;j</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 </table>
