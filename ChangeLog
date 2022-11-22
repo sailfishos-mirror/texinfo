@@ -1,3 +1,15 @@
+2022-11-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (command_text, _convert_xref_commands)
+	(_initialize_output_state): add 'referred_command_stack' to put
+	commands that can be referred to being expanded, to catch if an @*ref
+	refers to that command during the expansion, leading to an infinite
+	recursion.  In that case, use the node instead of the section, as with
+	nodes only it is not possible to construct a an infinite recursion
+	as the node must both be a reference target and refer to a specific
+	target at the same time, which is not possible.  Report from David
+	Bacon.
+
 2022-11-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command): do not add
