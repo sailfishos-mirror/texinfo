@@ -1685,6 +1685,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/contents_with_only_top_node.pl \
   t/results/sectioning/double_node_anchor_float.pl \
   t/results/sectioning/double_part.pl \
+  t/results/sectioning/double_recursive_self_section_node_reference.pl \
+  t/results/sectioning/double_recursive_self_section_reference.pl \
   t/results/sectioning/double_top.pl \
   t/results/sectioning/double_top_in_menu.pl \
   t/results/sectioning/double_top_section.pl \
@@ -1771,6 +1773,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/protected_node_parentheses.pl \
   t/results/sectioning/raiselowersections.pl \
   t/results/sectioning/rec_nodes.pl \
+  t/results/sectioning/recursive_self_section_reference.pl \
   t/results/sectioning/ref_to_top.pl \
   t/results/sectioning/ref_to_unknown_node.pl \
   t/results/sectioning/reference_to_only_special_spaces_node.pl \

@@ -1108,7 +1108,9 @@ sub command_text($$;$)
         if (defined($target->{'tree_nonumber'}));
     }
     $self->{'ignore_notice'}++;
+    push @{$self->{'referred_command_stack'}}, $command;
     $target->{$type} = $self->_convert($tree, $explanation);
+    pop @{$self->{'referred_command_stack'}};
     $self->{'ignore_notice'}--;
 
     $self->_pop_document_context();
@@ -4903,7 +4905,15 @@ sub _convert_xref_commands($$$$)
 
     if (!defined($name)) {
       if ($self->get_conf('xrefautomaticsectiontitle') eq 'on'
-         and $node->{'extra'}->{'associated_section'}) {
+         and $node->{'extra'}->{'associated_section'}
+         # this condition avoids infinite recursions, indeed in that case
+         # the node will be used and not the section.  There should not be
+         # @*ref in nodes, and even if there are, it does not seems to be
+         # possible to construct an infinite recursion with nodes only
+         # as the node must both be a reference target and refer to a specific
+         # target at the same time, which is not possible.
+         and not grep {$_ eq $node->{'extra'}->{'associated_section'}}
+                     @{$self->{'referred_command_stack'}}) {
         $command = $node->{'extra'}->{'associated_section'};
         $name = $self->command_text($command, 'text_nonumber');
       } elsif ($node->{'cmdname'} eq 'float') {
@@ -7001,6 +7011,7 @@ sub _load_htmlxref_files {
 #  htmlxref_files
 #  htmlxref
 #  check_htmlxref_already_warned
+#  referred_command_stack
 #
 #    from Converter
 #  labels
@@ -9528,6 +9539,10 @@ sub _initialize_output_state($)
   # elements, contents elements...
   $self->{'targets'} = {};
   $self->{'seen_ids'} = {};
+
+  # to avoid infinite recursions when a section refers to itself, possibly
+  # indirectly
+  $self->{'referred_command_stack'} = [];
 
   # for directions to special elements, only filled if special
   # elements are actually used.
