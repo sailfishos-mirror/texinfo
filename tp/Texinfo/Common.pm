@@ -2204,15 +2204,22 @@ sub _relate_index_entry_to_table_entry($)
 
   return if !$table_term or !$table_item or !$item;
 
-  if ($table_item->{'contents'}
-    and $table_item->{'contents'}->[0]
-    and $table_item->{'contents'}->[0]->{'type'}
-    and $table_item->{'contents'}->[0]->{'type'} eq 'index_entry_command') {
-      my $index_command = shift @{$table_item->{'contents'}};
-      delete $index_command->{'parent'};
-      $item->{'extra'}->{'index_entry'}
-        = $index_command->{'extra'}->{'index_entry'};
-      $item->{'extra'}->{'index_entry'}->{'entry_element'} = $item;
+  my $index_command_offset;
+  my $contents_count = scalar(@{$table_term->{'contents'}});
+  for (my $i = 0; $i < $contents_count; $i++) {
+    my $element = $table_term->{'contents'}->[$i];
+    if ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
+      $index_command_offset = $i;
+      last;
+    }
+  }
+  if (defined($index_command_offset)) {
+    my $index_command = splice(@{$table_term->{'contents'}},
+                               $index_command_offset, 1);
+    delete $index_command->{'parent'};
+    $item->{'extra'}->{'index_entry'}
+      = $index_command->{'extra'}->{'index_entry'};
+    $item->{'extra'}->{'index_entry'}->{'entry_element'} = $item;
   }
 }
 
