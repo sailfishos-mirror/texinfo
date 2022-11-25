@@ -1,6 +1,13 @@
 2022-11-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item),
+	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item).
+	* tp/Texinfo/Common.pm (_relate_index_entry_to_table_entry):
+	Revert last change.
+
+2022-11-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item),
 	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item):
 	Include index entries in table_term element.
 	* tp/Texinfo/Common.pm (_relate_index_entry_to_table_entry):

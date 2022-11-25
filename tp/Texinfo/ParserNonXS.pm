@@ -1567,26 +1567,19 @@ sub _gather_previous_item($$;$$)
   # remove everything that is not an @item/@itemx or before_item to
   # put it in the table_item/inter_item
   my $contents_count = scalar(@{$current->{'contents'}});
-  my $splice_idx;
+  my $item_idx;
   for (my $i = $contents_count - 1; $i >= 0; $i--) {
     if ($current->{'contents'}->[$i]->{'cmdname'}
         and ($current->{'contents'}->[$i]->{'cmdname'} eq 'item'
              or ($current->{'contents'}->[$i]->{'cmdname'} eq 'itemx'))) {
-      $splice_idx = $i;
+      $item_idx = $i;
       last;
     }
   }
-  $splice_idx = -1 if !defined($splice_idx);
-
-  # move forward past any index entries
-  for ($splice_idx++; $splice_idx < $contents_count; $splice_idx++) {
-    my $child = $current->{'contents'}->[$splice_idx];
-    last if (!$child->{'type'} or $child->{'type'} ne 'index_entry_command');
-  }
+  $item_idx = -1 if !defined($item_idx);
 
   my $new_contents = [];
-  @{$new_contents} = splice @{$current->{'contents'}}, $splice_idx;
-
+  @{$new_contents} = splice @{$current->{'contents'}}, $item_idx + 1;
   my $table_after_terms = {'type' => $type,
                            'contents' => $new_contents};
   for my $child (@{$new_contents}) {
@@ -1616,12 +1609,11 @@ sub _gather_previous_item($$;$$)
         $item_content->{'parent'} = $table_term;
         unshift @{$table_term->{'contents'}}, $item_content;
         # debug
-        if (!(($item_content->{'cmdname'}
-               and ($item_content->{'cmdname'} eq 'itemx'
-                   or $item_content->{'cmdname'} eq 'item'))
-              or ($item_content->{'type'}
-                  and ($item_content->{'type'} eq 'inter_item'
-                   or $item_content->{'type'} eq 'index_entry_command')))) {
+        if (! (($item_content->{'cmdname'}
+                and ($item_content->{'cmdname'} eq 'itemx'
+                    or $item_content->{'cmdname'} eq 'item'))
+               or ($item_content->{'type'}
+                   and $item_content->{'type'} eq 'inter_item'))) {
           $self->_bug_message("wrong element in table term", $source_info,
                               $item_content);
         }

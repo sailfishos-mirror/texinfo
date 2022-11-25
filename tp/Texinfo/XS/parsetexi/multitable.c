@@ -1,4 +1,4 @@
-/* Copyright 2010-2022 Free Software Foundation, Inc.
+/* Copyright 2010-2019 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -62,10 +62,9 @@ item_multitable_parent (ELEMENT *current)
 void
 gather_previous_item (ELEMENT *current, enum command_id next_command)
 {
-  ELEMENT *table_after_terms;
+  ELEMENT *gathered;
   enum element_type type;
-  int i, splice_index = -1, contents_count;
-  ELEMENT *e;
+  int i, contents_count;
 
   if (last_contents_child(current)
       && last_contents_child(current)->type == ET_before_item)
@@ -76,35 +75,24 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
     }
 
   type = next_command != CM_itemx ? ET_table_item : ET_inter_item;
+  gathered = new_element (type);
 
+  /* Starting from the end, collect everything that is not a ET_item
+     or ET_itemx and put it into the ET_table_item. */
   contents_count = current->contents.number;
-  for (i = contents_count - 1; i >= 0; i--)
+  for (i = 0; i < contents_count; i++)
     {
-      e = contents_child_by_index (current, i);
-      if (e->cmd == CM_item || e->cmd == CM_itemx)
-        {
-          splice_index = i;
-          break;
-        }
-    }
-
-  /* move forward past any index entries */
-  for (splice_index++; splice_index < contents_count; splice_index++)
-    {
-      if (contents_child_by_index(current, splice_index)->type
-          != ET_index_entry_command)
+      ELEMENT *e;
+      if (last_contents_child(current)->cmd == CM_item
+          || last_contents_child(current)->cmd == CM_itemx)
         break;
+
+      e = pop_element_from_contents (current);
+      insert_into_contents (gathered, e, 0);
     }
-
-  table_after_terms = new_element (type);
-
-  /* Move everything from splice_index onwards to be children of
-     table_after_terms. */
-  insert_slice_into_contents (table_after_terms, 0,
-                              current, splice_index, current->contents.number);
-  current->contents.number = splice_index;
-  for (i = 0; i < table_after_terms->contents.number; i++)
-    contents_child_by_index(table_after_terms, i)->parent = table_after_terms;
+  /* TODO: A similar algorithm is is in gather_def_item in def.c.  If
+     speed is an issue then we could move all the elements at once instead
+     of calling insert_into_contents multiple times. */
 
   if (type == ET_table_item)
     {
@@ -128,21 +116,21 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
 
       add_to_element_contents (current, table_entry);
 
-      if (table_after_terms->contents.number > 0)
-        add_to_element_contents (table_entry, table_after_terms);
+      if (gathered->contents.number > 0)
+        add_to_element_contents (table_entry, gathered);
       else
-        destroy_element (table_after_terms);
+        destroy_element (gathered);
     }
   else /* Gathering ET_inter_item between @item and @itemx */
     {
       /* Text between @item and @itemx is only allowed in a few cases:
          comments, empty lines, or index entries. */
-      if (check_no_text (table_after_terms))
+      if (check_no_text (gathered))
         line_error ("@itemx must follow @item");
 
-      if (table_after_terms->contents.number > 0)
-        add_to_element_contents (current, table_after_terms);
+      if (gathered->contents.number > 0)
+        add_to_element_contents (current, gathered);
       else
-        destroy_element (table_after_terms);
+        destroy_element (gathered);
     }
 }
