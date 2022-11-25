@@ -181,7 +181,7 @@ $result_trees{'preformatted'} = {
                           'type' => 'preformatted'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'

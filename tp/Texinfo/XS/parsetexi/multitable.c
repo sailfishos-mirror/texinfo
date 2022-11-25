@@ -52,7 +52,7 @@ item_multitable_parent (ELEMENT *current)
 }
 
 /* Put the contents of a @table row in a ET_table_entry container, containing
-   a ET_table_term element and a ET_table_item element.  The elements of
+   a ET_table_term element and a ET_table_definition element.  The elements of
    this row currently occur the end of the contents of CURRENT as immediate
    children.
 
@@ -74,11 +74,11 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       return;
     }
 
-  type = next_command != CM_itemx ? ET_table_item : ET_inter_item;
+  type = next_command != CM_itemx ? ET_table_definition : ET_inter_item;
   gathered = new_element (type);
 
   /* Starting from the end, collect everything that is not a ET_item
-     or ET_itemx and put it into the ET_table_item. */
+     or ET_itemx and put it into the ET_table_definition. */
   contents_count = current->contents.number;
   for (i = 0; i < contents_count; i++)
     {
@@ -94,13 +94,13 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
      speed is an issue then we could move all the elements at once instead
      of calling insert_into_contents multiple times. */
 
-  if (type == ET_table_item)
+  if (type == ET_table_definition)
     {
       ELEMENT *table_entry = new_element (ET_table_entry);
       ELEMENT *table_term = new_element (ET_table_term);
       add_to_element_contents (table_entry, table_term);
 
-      /* We previously collected elements into a ET_table_item.  Now
+      /* We previously collected elements into a ET_table_definition.  Now
          do the same for ET_table_term. */
        contents_count = current->contents.number;
        for (i = 0; i < contents_count; i++)

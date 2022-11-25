@@ -196,7 +196,7 @@ $result_trees{'xref_quote_long_item'} = {
                       'type' => 'empty_line'
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'

@@ -147,7 +147,7 @@ $result_trees{'definfoenclose_on_table_line'} = {
                       'type' => 'paragraph'
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'

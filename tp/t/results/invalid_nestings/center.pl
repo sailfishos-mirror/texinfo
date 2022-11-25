@@ -651,7 +651,7 @@ $result_trees{'center'} = {
                       }
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'

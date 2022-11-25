@@ -117,7 +117,7 @@ $result_trees{'footnote_in_center'} = {
                                           'type' => 'preformatted'
                                         }
                                       ],
-                                      'type' => 'table_item'
+                                      'type' => 'table_definition'
                                     }
                                   ],
                                   'type' => 'table_entry'

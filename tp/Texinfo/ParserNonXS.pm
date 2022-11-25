@@ -1540,7 +1540,7 @@ sub _check_no_text($)
   return $after_paragraph;
 }
 
-# put everything after the last @item/@itemx in a table_item type container
+# put everything after the last @item/@itemx in a table_definition type container
 # and distinguish table_term and table_entry.
 sub _gather_previous_item($$;$$)
 {
@@ -1561,11 +1561,11 @@ sub _gather_previous_item($$;$$)
   if ($next_command and $next_command eq 'itemx') {
     $type = 'inter_item';
   } else {
-    $type = 'table_item';
+    $type = 'table_definition';
   }
 
   # remove everything that is not an @item/@itemx or before_item to
-  # put it in the table_item/inter_item
+  # put it in the table_definition/inter_item
   my $contents_count = scalar(@{$current->{'contents'}});
   my $item_idx;
   for (my $i = $contents_count - 1; $i >= 0; $i--) {
@@ -1586,7 +1586,7 @@ sub _gather_previous_item($$;$$)
     $child->{'parent'} = $table_after_terms;
   }
 
-  if ($type eq 'table_item') {
+  if ($type eq 'table_definition') {
     # setup a table_entry
     my $table_entry = {'type' => 'table_entry',
                     'parent' => $current,
@@ -7339,14 +7339,14 @@ or C<@html>.
 
 =item table_term
 
-=item table_item
+=item table_definition
 
 =item inter_item
 
 Those containers appear in C<@table>, C<@ftable> and C<@vtable>.
 A I<table_entry> container contains an entire row of the table.
 It contains a I<table_term> container, which holds all the C<@item> and
-C<@itemx> lines.  This is followed by a I<table_item> container, which
+C<@itemx> lines.  This is followed by a I<table_definition> container, which
 holds the content that is to go into the second column of the table.
 
 If there is any content before an C<@itemx> (normally only comments,

@@ -6721,7 +6721,7 @@ foreach my $command (keys(%def_commands)) {
   $default_commands_conversion{$command} = \&_convert_def_command;
 }
 
-sub _convert_table_item_type($$$$)
+sub _convert_table_definition_type($$$$)
 {
   my $self = shift;
   my $type = shift;
@@ -6734,8 +6734,10 @@ sub _convert_table_item_type($$$$)
   }
 }
 
-$default_types_conversion{'table_item'} = \&_convert_table_item_type;
-$default_types_conversion{'inter_item'} = \&_convert_table_item_type;
+$default_types_conversion{'table_definition'}
+                                  = \&_convert_table_definition_type;
+$default_types_conversion{'inter_item'}
+                                  = \&_convert_table_definition_type;
 
 sub _contents_shortcontents_in_title($)
 {

@@ -82,7 +82,7 @@ $result_trees{'email_table_command_as_argument'} = {
                       'type' => 'paragraph'
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'

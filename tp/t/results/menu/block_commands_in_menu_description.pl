@@ -312,7 +312,7 @@ $result_trees{'block_commands_in_menu_description'} = {
                                   'type' => 'preformatted'
                                 }
                               ],
-                              'type' => 'table_item'
+                              'type' => 'table_definition'
                             }
                           ],
                           'type' => 'table_entry'

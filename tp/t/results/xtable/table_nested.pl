@@ -316,7 +316,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'empty_line'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'
@@ -388,7 +388,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'empty_line'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'
@@ -563,7 +563,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'paragraph'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'
@@ -612,7 +612,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'paragraph'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'
@@ -856,7 +856,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'preformatted'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'
@@ -928,7 +928,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'preformatted'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'
@@ -1103,7 +1103,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'preformatted'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'
@@ -1152,7 +1152,7 @@ $result_trees{'table_nested'} = {
                           'type' => 'preformatted'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'
@@ -1408,7 +1408,7 @@ $result_trees{'table_nested'} = {
                               'type' => 'empty_line'
                             }
                           ],
-                          'type' => 'table_item'
+                          'type' => 'table_definition'
                         }
                       ],
                       'type' => 'table_entry'
@@ -1480,7 +1480,7 @@ $result_trees{'table_nested'} = {
                               'type' => 'empty_line'
                             }
                           ],
-                          'type' => 'table_item'
+                          'type' => 'table_definition'
                         }
                       ],
                       'type' => 'table_entry'
@@ -1655,7 +1655,7 @@ $result_trees{'table_nested'} = {
                               'type' => 'paragraph'
                             }
                           ],
-                          'type' => 'table_item'
+                          'type' => 'table_definition'
                         }
                       ],
                       'type' => 'table_entry'
@@ -1704,7 +1704,7 @@ $result_trees{'table_nested'} = {
                               'type' => 'paragraph'
                             }
                           ],
-                          'type' => 'table_item'
+                          'type' => 'table_definition'
                         }
                       ],
                       'type' => 'table_entry'

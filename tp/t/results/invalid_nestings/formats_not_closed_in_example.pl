@@ -201,7 +201,7 @@ $result_trees{'formats_not_closed_in_example'} = {
                           }
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'

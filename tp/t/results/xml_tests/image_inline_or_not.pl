@@ -607,7 +607,7 @@ $result_trees{'image_inline_or_not'} = {
 '
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'

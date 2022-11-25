@@ -122,7 +122,7 @@ $result_trees{'table_not_closed_in_menu_description'} = {
                                   'type' => 'preformatted'
                                 }
                               ],
-                              'type' => 'table_item'
+                              'type' => 'table_definition'
                             }
                           ],
                           'type' => 'table_entry'

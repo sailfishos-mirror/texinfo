@@ -874,7 +874,7 @@ $result_trees{'complex_nestings'} = {
                                                   'type' => 'preformatted'
                                                 }
                                               ],
-                                              'type' => 'table_item'
+                                              'type' => 'table_definition'
                                             }
                                           ],
                                           'type' => 'table_entry'

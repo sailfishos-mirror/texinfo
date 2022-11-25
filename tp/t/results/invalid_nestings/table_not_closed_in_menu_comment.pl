@@ -158,7 +158,7 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
                               'type' => 'preformatted'
                             }
                           ],
-                          'type' => 'table_item'
+                          'type' => 'table_definition'
                         }
                       ],
                       'type' => 'table_entry'

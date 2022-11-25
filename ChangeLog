@@ -1,4 +1,10 @@
-2022-11-22  Gavin Smith  <gavinsmith0123@gmail.com>
+2022-11-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/ParserNonXS.pm (gather_previous_item),
+	* tp/Texindo/XS/parsetexi/element_types.txt:
+	Rename 'table_item' to 'table_definition'.
+
+2022-11-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (_gather_previous_item),
 	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item).

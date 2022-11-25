@@ -100,7 +100,7 @@ $result_trees{'table_in_display_in_example'} = {
                               'type' => 'preformatted'
                             }
                           ],
-                          'type' => 'table_item'
+                          'type' => 'table_definition'
                         }
                       ],
                       'type' => 'table_entry'

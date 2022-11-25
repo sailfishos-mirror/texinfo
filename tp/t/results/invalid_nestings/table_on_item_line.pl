@@ -106,7 +106,7 @@ $result_trees{'table_on_item_line'} = {
                       'type' => 'spaces_before_paragraph'
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'
@@ -162,7 +162,7 @@ $result_trees{'table_on_item_line'} = {
                       'type' => 'paragraph'
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'

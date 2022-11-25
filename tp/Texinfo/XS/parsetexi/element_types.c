@@ -46,7 +46,7 @@ char *element_type_names[] = {
 "before_item",
 "table_entry",
 "table_term",
-"table_item",
+"table_definition",
 "inter_item",
 "def_line",
 "def_item",

@@ -146,7 +146,7 @@ $result_trees{'formats_in_menu'} = {
                                   'type' => 'preformatted'
                                 }
                               ],
-                              'type' => 'table_item'
+                              'type' => 'table_definition'
                             }
                           ],
                           'type' => 'table_entry'

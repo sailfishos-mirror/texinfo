@@ -374,7 +374,7 @@ $result_trees{'commands_in_flushright'} = {
                           'type' => 'paragraph'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'

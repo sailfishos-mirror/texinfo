@@ -229,7 +229,7 @@ $result_trees{'block_not_matching'} = {
                       'type' => 'paragraph'
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'
@@ -338,7 +338,7 @@ $result_trees{'block_not_matching'} = {
                       }
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'

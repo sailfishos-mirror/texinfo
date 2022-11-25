@@ -236,7 +236,7 @@ foreach my $type (
 
 my %type_elements = (
   'paragraph' => 'para',
-  'table_item' => 'listitem',
+  'table_definition' => 'listitem',
   'table_entry' => 'varlistentry',
   'row' => 'row',
   'multitable_head' => 'thead',

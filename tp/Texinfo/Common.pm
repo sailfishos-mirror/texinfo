@@ -2181,7 +2181,7 @@ sub _relate_index_entry_to_table_entry($)
 {
   my $current = shift; # table_entry
 
-  my ($table_term, $table_item, $item);
+  my ($table_term, $table_definition, $item);
 
   if ($current->{'contents'}
         and $current->{'contents'}->[0]
@@ -2191,8 +2191,8 @@ sub _relate_index_entry_to_table_entry($)
 
   if ($current->{'contents'}
         and $current->{'contents'}->[1]
-        and $current->{'contents'}->[1]->{'type'} eq 'table_item') {
-    $table_item = $current->{'contents'}->[1];
+        and $current->{'contents'}->[1]->{'type'} eq 'table_definition') {
+    $table_definition = $current->{'contents'}->[1];
   }
 
   if ($table_term->{'contents'}
@@ -2202,13 +2202,13 @@ sub _relate_index_entry_to_table_entry($)
     $item = $table_term->{'contents'}->[0];
   }
 
-  return if !$table_term or !$table_item or !$item;
+  return if !$table_term or !$table_definition or !$item;
 
-  if ($table_item->{'contents'}
-    and $table_item->{'contents'}->[0]
-    and $table_item->{'contents'}->[0]->{'type'}
-    and $table_item->{'contents'}->[0]->{'type'} eq 'index_entry_command') {
-      my $index_command = shift @{$table_item->{'contents'}};
+  if ($table_definition->{'contents'}
+    and $table_definition->{'contents'}->[0]
+    and $table_definition->{'contents'}->[0]->{'type'}
+    and $table_definition->{'contents'}->[0]->{'type'} eq 'index_entry_command') {
+      my $index_command = shift @{$table_definition->{'contents'}};
       delete $index_command->{'parent'};
       $item->{'extra'}->{'index_entry'}
         = $index_command->{'extra'}->{'index_entry'};

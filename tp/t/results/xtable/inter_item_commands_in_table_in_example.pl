@@ -238,7 +238,7 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                           'type' => 'preformatted'
                         }
                       ],
-                      'type' => 'table_item'
+                      'type' => 'table_definition'
                     }
                   ],
                   'type' => 'table_entry'

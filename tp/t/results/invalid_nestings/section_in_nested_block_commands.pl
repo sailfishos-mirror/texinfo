@@ -119,7 +119,7 @@ $result_trees{'section_in_nested_block_commands'} = {
                       }
                     }
                   ],
-                  'type' => 'table_item'
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'
