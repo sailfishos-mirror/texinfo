@@ -83,6 +83,13 @@ l--ine
 @c comment at end
 @end ftable
 
+@ftable @emph
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
+
 @table @code
 @cindex cindex in table 
 @c comment in table

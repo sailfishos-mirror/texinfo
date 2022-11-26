@@ -643,14 +643,6 @@ chaptercross ref with uref href://http/myhost.com/index.htmluref1title with uref
 a--strong
 l--ine
 
-a--asis
-b
-l--ine
-
-a
-b
-l--ine
-
 Title
 a--code
 Value--table code
@@ -1476,14 +1468,6 @@ extcross ref with uref href://http/myhost.com/index.htmluref1title with uref2 hr
 chaptercross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2
 
 a--strong
-l--ine
-
-a--asis
-b
-l--ine
-
-a
-b
 l--ine
 
 Title
@@ -2335,14 +2319,6 @@ chaptercross ref with uref href://http/myhost.com/index.htmluref1title with uref
 a--strong
 l--ine
 
-a--asis
-b
-l--ine
-
-a
-b
-l--ine
-
 Title
 a--code
 Value--table code
@@ -3163,14 +3139,6 @@ extcross ref with uref href://http/myhost.com/index.htmluref1title with uref2 hr
 chaptercross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2
 
 a--strong
-l--ine
-
-a--asis
-b
-l--ine
-
-a
-b
 l--ine
 
 Title

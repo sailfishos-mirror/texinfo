@@ -19,14 +19,6 @@ formatting.html#index-_003f	cp	?
 formatting.html#index-a	cp	a
 formatting.html#index-aaa-bbb	cp	aaa, bbb
 formatting.html#index-a_002d_002d_002da	cp	a--a
-formatting.html#index-copying-a_002d_002dasis	cp	a--asis
-formatting.html#index-titlepage-a_002d_002dasis	cp	a--asis
-formatting.html#index-a_002d_002dasis	cp	a--asis
-formatting.html#index-a_002d_002dasis-1	cp	a--asis
-formatting.html#index-copying-b-2	cp	b
-formatting.html#index-titlepage-b-2	cp	b
-formatting.html#index-b-4	cp	b
-formatting.html#index-b-5	cp	b
 formatting.html#index-b_002d_002d_002db-c_002d_002d_002dc	cp	b--b, c--c
 formatting.html#index-counting-entry	cp	counting entry
 formatting.html#index-d_002d_002d_002ddd-e_002d_002d_002dee-f_002d_002d_002dff	cp	d--dd, e--ee, f--ff
@@ -88,13 +80,9 @@ formatting.html#index-d_002d_002defvr_005fname	cp	d--efvr_name
 formatting.html#index-d_002d_002defvr_005fname-1	cp	d--efvr_name
 formatting.html#index-g_002d_002d_002dgg-h_002d_002d_002dhh-jjj-k_002d_002d_002dkk-l_002d_002d_002dll	cp	g--gg, h--hh jjj, k--kk, l--ll
 formatting.html#index-copying-index-entry-between-item-and-itemx	cp	index entry between item and itemx
-formatting.html#index-copying-index-entry-between-item-and-itemx-1	cp	index entry between item and itemx
 formatting.html#index-titlepage-index-entry-between-item-and-itemx	cp	index entry between item and itemx
-formatting.html#index-titlepage-index-entry-between-item-and-itemx-1	cp	index entry between item and itemx
 formatting.html#index-index-entry-between-item-and-itemx	cp	index entry between item and itemx
 formatting.html#index-index-entry-between-item-and-itemx-1	cp	index entry between item and itemx
-formatting.html#index-index-entry-between-item-and-itemx-2	cp	index entry between item and itemx
-formatting.html#index-index-entry-between-item-and-itemx-3	cp	index entry between item and itemx
 formatting.html#index-index-entry-in-footnote	cp	index entry in footnote
 formatting.html#index-copying-index-entry-within-deffn	cp	index entry within deffn
 formatting.html#index-titlepage-index-entry-within-deffn	cp	index entry within deffn
@@ -154,17 +142,13 @@ formatting.html#index-_0060_0060-2	fn	``
 formatting.html#index-_0060_0060-3	fn	``
 formatting.html#index-copying-a	fn	a
 formatting.html#index-copying-a-1	fn	a
-formatting.html#index-copying-a-2	fn	a
 formatting.html#index-titlepage-a	fn	a
 formatting.html#index-titlepage-a-1	fn	a
-formatting.html#index-titlepage-a-2	fn	a
 formatting.html#index-a-1	fn	a
 formatting.html#index-a-2	fn	a
 formatting.html#index-a-3	fn	a
 formatting.html#index-a-4	fn	a
 formatting.html#index-a-5	fn	a
-formatting.html#index-a-6	fn	a
-formatting.html#index-a-7	fn	a
 formatting.html#index-copying-after	fn	after
 formatting.html#index-titlepage-after	fn	after
 formatting.html#index-after	fn	after
@@ -174,13 +158,9 @@ formatting.html#index-titlepage-arg2	fn	arg2
 formatting.html#index-arg2	fn	arg2
 formatting.html#index-arg2-1	fn	arg2
 formatting.html#index-copying-b	fn	b
-formatting.html#index-copying-b-1	fn	b
 formatting.html#index-titlepage-b	fn	b
-formatting.html#index-titlepage-b-1	fn	b
 formatting.html#index-b	fn	b
 formatting.html#index-b-1	fn	b
-formatting.html#index-b-2	fn	b
-formatting.html#index-b-3	fn	b
 formatting.html#index-copying-bidule-machin	fn	bidule machin
 formatting.html#index-titlepage-bidule-machin	fn	bidule machin
 formatting.html#index-bidule-machin	fn	bidule machin

@@ -892,7 +892,7 @@ $result_trees{'inter_item_commands_in_table'} = {
             {
               'contents' => [
                 {
-                  'cmdname' => 'code',
+                  'cmdname' => 'emph',
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 36,
@@ -908,69 +908,8 @@ $result_trees{'inter_item_commands_in_table'} = {
               'type' => 'block_line_arg'
             }
           ],
-          'cmdname' => 'table',
+          'cmdname' => 'ftable',
           'contents' => [
-            {
-              'contents' => [
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'cindex in table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => ' 
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'cindex',
-                  'extra' => {
-                    'index_entry' => {
-                      'content_normalized' => [],
-                      'entry_content' => [],
-                      'entry_element' => {},
-                      'entry_node' => {},
-                      'entry_number' => 2,
-                      'in_code' => 0,
-                      'index_at_command' => 'cindex',
-                      'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
-                    }
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 37,
-                    'macro' => ''
-                  },
-                  'type' => 'index_entry_command'
-                },
-                {
-                  'args' => [
-                    {
-                      'text' => ' comment in table
-',
-                      'type' => 'misc_arg'
-                    }
-                  ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment in table
-'
-                    ]
-                  }
-                }
-              ],
-              'type' => 'before_item'
-            },
             {
               'contents' => [
                 {
@@ -980,7 +919,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'abb'
+                              'text' => 'a'
                             }
                           ],
                           'info' => {
@@ -991,6 +930,104 @@ $result_trees{'inter_item_commands_in_table'} = {
                         }
                       ],
                       'cmdname' => 'item',
+                      'extra' => {
+                        'index_entry' => {
+                          'content_normalized' => [],
+                          'entry_content' => [],
+                          'entry_element' => {},
+                          'entry_node' => {},
+                          'entry_number' => 5,
+                          'in_code' => 1,
+                          'index_at_command' => 'item',
+                          'index_ignore_chars' => {},
+                          'index_name' => 'fn',
+                          'index_type_command' => 'ftable'
+                        }
+                      },
+                      'info' => {
+                        'spaces_before_argument' => ' '
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 37,
+                        'macro' => ''
+                      }
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'args' => [
+                            {
+                              'contents' => [
+                                {
+                                  'text' => 'index entry between item and itemx'
+                                }
+                              ],
+                              'info' => {
+                                'spaces_after_argument' => '
+'
+                              },
+                              'type' => 'line_arg'
+                            }
+                          ],
+                          'cmdname' => 'cindex',
+                          'extra' => {
+                            'index_entry' => {
+                              'content_normalized' => [],
+                              'entry_content' => [],
+                              'entry_element' => {},
+                              'entry_node' => {},
+                              'entry_number' => 2,
+                              'in_code' => 0,
+                              'index_at_command' => 'cindex',
+                              'index_ignore_chars' => {},
+                              'index_name' => 'cp',
+                              'index_type_command' => 'cindex'
+                            }
+                          },
+                          'info' => {
+                            'spaces_before_argument' => ' '
+                          },
+                          'source_info' => {
+                            'file_name' => '',
+                            'line_nr' => 38,
+                            'macro' => ''
+                          },
+                          'type' => 'index_entry_command'
+                        }
+                      ],
+                      'type' => 'inter_item'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'b'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'itemx',
+                      'extra' => {
+                        'index_entry' => {
+                          'content_normalized' => [],
+                          'entry_content' => [],
+                          'entry_element' => {},
+                          'entry_node' => {},
+                          'entry_number' => 6,
+                          'in_code' => 1,
+                          'index_at_command' => 'itemx',
+                          'index_ignore_chars' => {},
+                          'index_name' => 'fn',
+                          'index_type_command' => 'ftable'
+                        }
+                      },
                       'info' => {
                         'spaces_before_argument' => ' '
                       },
@@ -1025,7 +1062,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                 {
                   'contents' => [
                     {
-                      'text' => 'table'
+                      'text' => 'ftable'
                     }
                   ],
                   'info' => {
@@ -1037,7 +1074,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'text_arg' => 'table'
+                'text_arg' => 'ftable'
               },
               'info' => {
                 'spaces_before_argument' => ' '
@@ -1132,6 +1169,185 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'type' => 'index_entry_command'
                 },
                 {
+                  'args' => [
+                    {
+                      'text' => ' comment in table
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'c',
+                  'extra' => {
+                    'misc_args' => [
+                      ' comment in table
+'
+                    ]
+                  }
+                }
+              ],
+              'type' => 'before_item'
+            },
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'abb'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'item',
+                      'info' => {
+                        'spaces_before_argument' => ' '
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 46,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'type' => 'table_term'
+                },
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'l--ine
+'
+                        }
+                      ],
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'type' => 'table_definition'
+                }
+              ],
+              'type' => 'table_entry'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'table'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 48,
+                'macro' => ''
+              }
+            }
+          ],
+          'extra' => {
+            'command_as_argument' => {}
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 43,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'cmdname' => 'code',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 50,
+                    'macro' => ''
+                  },
+                  'type' => 'command_as_argument'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => '
+'
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'table',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'cindex in table'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => ' 
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'cindex',
+                  'extra' => {
+                    'index_entry' => {
+                      'content_normalized' => [],
+                      'entry_content' => [],
+                      'entry_element' => {},
+                      'entry_node' => {},
+                      'entry_number' => 4,
+                      'in_code' => 0,
+                      'index_at_command' => 'cindex',
+                      'index_ignore_chars' => {},
+                      'index_name' => 'cp',
+                      'index_type_command' => 'cindex'
+                    }
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 51,
+                    'macro' => ''
+                  },
+                  'type' => 'index_entry_command'
+                },
+                {
                   'contents' => [
                     {
                       'text' => 'Texte before first item.
@@ -1168,191 +1384,12 @@ $result_trees{'inter_item_commands_in_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 46,
+                        'line_nr' => 53,
                         'macro' => ''
                       }
                     }
                   ],
                   'type' => 'table_term'
-                }
-              ],
-              'type' => 'table_entry'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'text' => 'table'
-                    }
-                  ],
-                  'info' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'text_arg' => 'table'
-              },
-              'info' => {
-                'spaces_before_argument' => ' '
-              },
-              'source_info' => {
-                'file_name' => '',
-                'line_nr' => 47,
-                'macro' => ''
-              }
-            }
-          ],
-          'extra' => {
-            'command_as_argument' => {}
-          },
-          'info' => {
-            'spaces_before_argument' => ' '
-          },
-          'source_info' => {
-            'file_name' => '',
-            'line_nr' => 43,
-            'macro' => ''
-          }
-        },
-        {
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'cmdname' => 'samp',
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 49,
-                    'macro' => ''
-                  },
-                  'type' => 'command_as_argument'
-                }
-              ],
-              'info' => {
-                'spaces_after_argument' => '
-'
-              },
-              'type' => 'block_line_arg'
-            }
-          ],
-          'cmdname' => 'table',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'samp cindex in table'
-                        }
-                      ],
-                      'info' => {
-                        'spaces_after_argument' => ' 
-'
-                      },
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'cindex',
-                  'extra' => {
-                    'index_entry' => {
-                      'content_normalized' => [],
-                      'entry_content' => [],
-                      'entry_element' => {},
-                      'entry_node' => {},
-                      'entry_number' => 4,
-                      'in_code' => 0,
-                      'index_at_command' => 'cindex',
-                      'index_ignore_chars' => {},
-                      'index_name' => 'cp',
-                      'index_type_command' => 'cindex'
-                    }
-                  },
-                  'info' => {
-                    'spaces_before_argument' => ' '
-                  },
-                  'source_info' => {
-                    'file_name' => '',
-                    'line_nr' => 50,
-                    'macro' => ''
-                  },
-                  'type' => 'index_entry_command'
-                },
-                {
-                  'args' => [
-                    {
-                      'text' => ' samp comment in table
-',
-                      'type' => 'misc_arg'
-                    }
-                  ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' samp comment in table
-'
-                    ]
-                  }
-                }
-              ],
-              'type' => 'before_item'
-            },
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'args' => [
-                        {
-                          'contents' => [
-                            {
-                              'text' => 'asamp--bb'
-                            }
-                          ],
-                          'info' => {
-                            'spaces_after_argument' => '
-'
-                          },
-                          'type' => 'line_arg'
-                        }
-                      ],
-                      'cmdname' => 'item',
-                      'info' => {
-                        'spaces_before_argument' => ' '
-                      },
-                      'source_info' => {
-                        'file_name' => '',
-                        'line_nr' => 52,
-                        'macro' => ''
-                      }
-                    }
-                  ],
-                  'type' => 'table_term'
-                },
-                {
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'text' => 'l--ine samp
-'
-                        }
-                      ],
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'
@@ -1394,7 +1431,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 49,
+            'line_nr' => 50,
             'macro' => ''
           }
         },
@@ -1469,13 +1506,20 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'type' => 'index_entry_command'
                 },
                 {
-                  'contents' => [
+                  'args' => [
                     {
-                      'text' => 'Texte before first item samp.
-'
+                      'text' => ' samp comment in table
+',
+                      'type' => 'misc_arg'
                     }
                   ],
-                  'type' => 'paragraph'
+                  'cmdname' => 'c',
+                  'extra' => {
+                    'misc_args' => [
+                      ' samp comment in table
+'
+                    ]
+                  }
                 }
               ],
               'type' => 'before_item'
@@ -1511,6 +1555,20 @@ $result_trees{'inter_item_commands_in_table'} = {
                     }
                   ],
                   'type' => 'table_term'
+                },
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'l--ine samp
+'
+                        }
+                      ],
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'type' => 'table_definition'
                 }
               ],
               'type' => 'table_entry'
@@ -1539,7 +1597,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 60,
+                'line_nr' => 61,
                 'macro' => ''
               }
             }
@@ -1569,14 +1627,14 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 62,
+                    'line_nr' => 63,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
                 }
               ],
               'info' => {
-                'spaces_after_argument' => ' 
+                'spaces_after_argument' => '
 '
               },
               'type' => 'block_line_arg'
@@ -1587,20 +1645,15 @@ $result_trees{'inter_item_commands_in_table'} = {
             {
               'contents' => [
                 {
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                },
-                {
                   'args' => [
                     {
                       'contents' => [
                         {
-                          'text' => 'cindex between lines'
+                          'text' => 'samp cindex in table'
                         }
                       ],
                       'info' => {
-                        'spaces_after_argument' => '
+                        'spaces_after_argument' => ' 
 '
                       },
                       'type' => 'line_arg'
@@ -1632,9 +1685,13 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'type' => 'index_entry_command'
                 },
                 {
-                  'text' => '
-',
-                  'type' => 'empty_line'
+                  'contents' => [
+                    {
+                      'text' => 'Texte before first item samp.
+'
+                    }
+                  ],
+                  'type' => 'paragraph'
                 }
               ],
               'type' => 'before_item'
@@ -1648,7 +1705,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                         {
                           'contents' => [
                             {
-                              'text' => 'asamp--bb1'
+                              'text' => 'asamp--bb'
                             }
                           ],
                           'info' => {
@@ -1711,7 +1768,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 62,
+            'line_nr' => 63,
             'macro' => ''
           }
         },
@@ -1729,6 +1786,165 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'source_info' => {
                     'file_name' => '',
                     'line_nr' => 69,
+                    'macro' => ''
+                  },
+                  'type' => 'command_as_argument'
+                }
+              ],
+              'info' => {
+                'spaces_after_argument' => ' 
+'
+              },
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'table',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'text' => 'cindex between lines'
+                        }
+                      ],
+                      'info' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'cindex',
+                  'extra' => {
+                    'index_entry' => {
+                      'content_normalized' => [],
+                      'entry_content' => [],
+                      'entry_element' => {},
+                      'entry_node' => {},
+                      'entry_number' => 7,
+                      'in_code' => 0,
+                      'index_at_command' => 'cindex',
+                      'index_ignore_chars' => {},
+                      'index_name' => 'cp',
+                      'index_type_command' => 'cindex'
+                    }
+                  },
+                  'info' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 71,
+                    'macro' => ''
+                  },
+                  'type' => 'index_entry_command'
+                },
+                {
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                }
+              ],
+              'type' => 'before_item'
+            },
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'text' => 'asamp--bb1'
+                            }
+                          ],
+                          'info' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'item',
+                      'info' => {
+                        'spaces_before_argument' => ' '
+                      },
+                      'source_info' => {
+                        'file_name' => '',
+                        'line_nr' => 73,
+                        'macro' => ''
+                      }
+                    }
+                  ],
+                  'type' => 'table_term'
+                }
+              ],
+              'type' => 'table_entry'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'text' => 'table'
+                    }
+                  ],
+                  'info' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'text_arg' => 'table'
+              },
+              'info' => {
+                'spaces_before_argument' => ' '
+              },
+              'source_info' => {
+                'file_name' => '',
+                'line_nr' => 74,
+                'macro' => ''
+              }
+            }
+          ],
+          'extra' => {
+            'command_as_argument' => {}
+          },
+          'info' => {
+            'spaces_before_argument' => ' '
+          },
+          'source_info' => {
+            'file_name' => '',
+            'line_nr' => 69,
+            'macro' => ''
+          }
+        },
+        {
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'cmdname' => 'samp',
+                  'source_info' => {
+                    'file_name' => '',
+                    'line_nr' => 76,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -1767,7 +1983,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'entry_content' => [],
                       'entry_element' => {},
                       'entry_node' => {},
-                      'entry_number' => 7,
+                      'entry_number' => 8,
                       'in_code' => 0,
                       'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
@@ -1780,7 +1996,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 70,
+                    'line_nr' => 77,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1818,7 +2034,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 72,
+                        'line_nr' => 79,
                         'macro' => ''
                       }
                     }
@@ -1852,7 +2068,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 73,
+                'line_nr' => 80,
                 'macro' => ''
               }
             }
@@ -1865,7 +2081,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 69,
+            'line_nr' => 76,
             'macro' => ''
           }
         },
@@ -1882,7 +2098,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 75,
+                    'line_nr' => 82,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -1926,7 +2142,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'entry_content' => [],
                       'entry_element' => {},
                       'entry_node' => {},
-                      'entry_number' => 8,
+                      'entry_number' => 9,
                       'in_code' => 0,
                       'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
@@ -1939,7 +2155,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 77,
+                    'line_nr' => 84,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -1972,7 +2188,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 78,
+                        'line_nr' => 85,
                         'macro' => ''
                       }
                     }
@@ -2006,7 +2222,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 79,
+                'line_nr' => 86,
                 'macro' => ''
               }
             }
@@ -2019,7 +2235,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 75,
+            'line_nr' => 82,
             'macro' => ''
           }
         },
@@ -2036,7 +2252,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   'cmdname' => 'samp',
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 81,
+                    'line_nr' => 88,
                     'macro' => ''
                   },
                   'type' => 'command_as_argument'
@@ -2075,7 +2291,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'entry_content' => [],
                       'entry_element' => {},
                       'entry_node' => {},
-                      'entry_number' => 9,
+                      'entry_number' => 10,
                       'in_code' => 0,
                       'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
@@ -2088,7 +2304,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 82,
+                    'line_nr' => 89,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -2131,7 +2347,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'entry_content' => [],
                       'entry_element' => {},
                       'entry_node' => {},
-                      'entry_number' => 10,
+                      'entry_number' => 11,
                       'in_code' => 0,
                       'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
@@ -2144,7 +2360,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 84,
+                    'line_nr' => 91,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -2171,7 +2387,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'entry_content' => [],
                       'entry_element' => {},
                       'entry_node' => {},
-                      'entry_number' => 11,
+                      'entry_number' => 12,
                       'in_code' => 0,
                       'index_at_command' => 'cindex',
                       'index_ignore_chars' => {},
@@ -2184,7 +2400,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                   },
                   'source_info' => {
                     'file_name' => '',
-                    'line_nr' => 85,
+                    'line_nr' => 92,
                     'macro' => ''
                   },
                   'type' => 'index_entry_command'
@@ -2217,7 +2433,7 @@ $result_trees{'inter_item_commands_in_table'} = {
                       },
                       'source_info' => {
                         'file_name' => '',
-                        'line_nr' => 86,
+                        'line_nr' => 93,
                         'macro' => ''
                       }
                     }
@@ -2251,7 +2467,7 @@ $result_trees{'inter_item_commands_in_table'} = {
               },
               'source_info' => {
                 'file_name' => '',
-                'line_nr' => 87,
+                'line_nr' => 94,
                 'macro' => ''
               }
             }
@@ -2264,7 +2480,7 @@ $result_trees{'inter_item_commands_in_table'} = {
           },
           'source_info' => {
             'file_name' => '',
-            'line_nr' => 81,
+            'line_nr' => 88,
             'macro' => ''
           }
         },
@@ -2331,10 +2547,18 @@ $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[5]{'con
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[2];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[5]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[0];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[9]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
@@ -2351,34 +2575,39 @@ $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[13]{'co
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[13]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[13]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[13]{'args'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[15]{'args'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[1];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[17]{'args'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[1];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[19]{'args'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[2];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'};
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[3];
-$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[1];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'contents'}[0]{'contents'}[1]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
 $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[21]{'args'}[0]{'contents'}[0];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[0]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[2];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[2]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_content'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_element'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'contents'}[0]{'contents'}[3]{'extra'}{'index_entry'}{'entry_node'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[3];
+$result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'extra'}{'command_as_argument'} = $result_trees{'inter_item_commands_in_table'}{'contents'}[4]{'contents'}[23]{'args'}[0]{'contents'}[0];
 
 $result_texis{'inter_item_commands_in_table'} = '@node Top
 @top top
@@ -2413,6 +2642,13 @@ l--ine
 @itemx d
 
 @c comment at end
+@end ftable
+
+@ftable @emph
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
 @end ftable
 
 @table @code
@@ -2493,6 +2729,10 @@ c
 
 d
 
+
+a
+b
+l-ine
 
 abb
 l-ine
@@ -2635,13 +2875,16 @@ $result_indices_sort_strings{'inter_item_commands_in_table'} = {
     'cindex in table',
     'cindex in table',
     'index entry between item and itemx',
+    'index entry between item and itemx',
     'samp cindex in table',
     'samp cindex in table',
     'second',
     'third'
   ],
   'fn' => [
+    'a',
     'avar--b',
+    'b',
     'b',
     'c',
     'd'
@@ -2674,6 +2917,10 @@ B
 C
 
 D
+
+_a_
+_b_
+     l–ine
 
 ‘abb’
      l–ine
@@ -2724,7 +2971,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '<div class="
 
 <dl class="vtable">
 <dt><a id=\'index-aasis_002d_002db\'></a><span>aasis&ndash;b<a class="copiable-link" href=\'#index-aasis_002d_002db\'> &para;</a></span></dt>
-<dt><a id=\'index-b-1\'></a><span>b<a class="copiable-link" href=\'#index-b-1\'> &para;</a></span></dt>
+<dt><a id=\'index-b-2\'></a><span>b<a class="copiable-link" href=\'#index-b-2\'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -2738,6 +2985,15 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '<div class="
 </p></dd>
 <dt><a id=\'index-c\'></a><span><var class="var">c</var><a class="copiable-link" href=\'#index-c\'> &para;</a></span></dt>
 <dt><a id=\'index-d\'></a><span><var class="var">d</var><a class="copiable-link" href=\'#index-d\'> &para;</a></span></dt>
+</dl>
+
+<dl class="ftable">
+<dt><a id=\'index-a\'></a><span><em class="emph">a</em><a class="copiable-link" href=\'#index-a\'> &para;</a></span></dt>
+<dd><a class="index-entry-id" id="index-index-entry-between-item-and-itemx-1"></a>
+</dd>
+<dt><a id=\'index-b-1\'></a><span><em class="emph">b</em><a class="copiable-link" href=\'#index-b-1\'> &para;</a></span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
 </dl>
 
 <dl class="table">
@@ -2842,56 +3098,63 @@ $result_converted{'xml'}->{'inter_item_commands_in_table'} = '<node name="Top" s
 <!-- c comment at end -->
 </tableitem></tableentry></ftable>
 
+<ftable commandarg="emph" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="emph"><indexterm index="fn" number="5">a</indexterm>a</itemformat></item>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="2">index entry between item and itemx</indexterm></cindex>
+<itemx spaces=" "><itemformat command="emph"><indexterm index="fn" number="6">b</indexterm>b</itemformat></itemx>
+</tableterm><tableitem><para>l&textndash;ine
+</para></tableitem></tableentry></ftable>
+
 <table commandarg="code" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="2">cindex in table</indexterm></cindex> 
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="3">cindex in table</indexterm></cindex> 
 <!-- c comment in table -->
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">abb</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <table commandarg="code" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="3">cindex in table</indexterm></cindex> 
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="4">cindex in table</indexterm></cindex> 
 <para>Texte before first item.
 </para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">abb</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="4">samp cindex in table</indexterm></cindex> 
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="5">samp cindex in table</indexterm></cindex> 
 <!-- c samp comment in table -->
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine samp
 </para></tableitem></tableentry></table>
 
 <table commandarg="samp" spaces=" " endspaces=" ">
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="5">samp cindex in table</indexterm></cindex> 
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="6">samp cindex in table</indexterm></cindex> 
 <para>Texte before first item samp.
 </para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" spaces=" " endspaces=" "> 
 <beforefirstitem>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="6">cindex between lines</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="7">cindex between lines</indexterm></cindex>
 
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb1</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" spaces=" " endspaces=" "> 
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="7">cindex before line</indexterm></cindex>
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="8">cindex before line</indexterm></cindex>
 
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" spaces=" " endspaces=" "> 
 <beforefirstitem>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="8">cindex after line</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="9">cindex after line</indexterm></cindex>
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 
 <table commandarg="samp" spaces=" " endspaces=" "> 
-<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="9">cindex first</indexterm></cindex>
+<beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="10">cindex first</indexterm></cindex>
 <!-- c commant -->
-<cindex index="cp" spaces=" "><indexterm index="cp" number="10">second</indexterm></cindex>
-<cindex index="cp" spaces=" "><indexterm index="cp" number="11">third</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="11">second</indexterm></cindex>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="12">third</indexterm></cindex>
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">asamp--bb2</itemformat></item>
 </tableterm></tableentry></table>
 

@@ -663,16 +663,6 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 <varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
-</term><!-- comment between item and itemx -->
-<term><indexterm role="vr"><primary>b</primary></indexterm>b
-</term><listitem><para>l&#8211;ine
-</para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
-</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
-<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
-</term><listitem><para>l&#8211;ine
-</para></listitem></varlistentry></variablelist>
 <variablelist><para>Title
 </para><varlistentry><term><literal>a--code</literal>
 </term><listitem><para>Value&#8211;table code
@@ -1589,16 +1579,6 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 <varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
-</term><!-- comment between item and itemx -->
-<term><indexterm role="vr"><primary>b</primary></indexterm>b
-</term><listitem><para>l&#8211;ine
-</para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
-</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
-<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
-</term><listitem><para>l&#8211;ine
-</para></listitem></varlistentry></variablelist>
 <variablelist><para>Title
 </para><varlistentry><term><literal>a--code</literal>
 </term><listitem><para>Value&#8211;table code
@@ -2502,16 +2482,6 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 <varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
-</term><!-- comment between item and itemx -->
-<term><indexterm role="vr"><primary>b</primary></indexterm>b
-</term><listitem><para>l&#8211;ine
-</para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
-</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
-<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
-</term><listitem><para>l&#8211;ine
-</para></listitem></varlistentry></variablelist>
 <variablelist><para>Title
 </para><varlistentry><term><literal>a--code</literal>
 </term><listitem><para>Value&#8211;table code
@@ -3406,15 +3376,6 @@ section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2
 <!--  problem is that we are in environment @example. -->
 </screen><variablelist><screen><!-- comment in table -->
 </screen><varlistentry><term><emphasis role="bold">a--strong</emphasis>
-</term><listitem><screen>l--ine
-</screen></listitem></varlistentry></variablelist><screen>
-</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a--asis
-</term><screen><!-- comment between item and itemx -->
-</screen><term><indexterm role="vr"><primary>b</primary></indexterm>b
-</term><listitem><screen>l--ine
-</screen></listitem></varlistentry></variablelist><screen>
-</screen><variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
-</term><screen><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm></screen><term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><screen>l--ine
 </screen></listitem></varlistentry></variablelist><screen>
 </screen><variablelist><screen>Title

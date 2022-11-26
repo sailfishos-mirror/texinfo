@@ -1,5 +1,11 @@
 2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/t/22xtable.t (inter_item_commands_in_table): Move test
+	here of @cindex directly between @item and @itemx.
+	* tp/tests/coverage_macro.texi: Remove cases tested in t/22xtable.t.
+
+2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Output index anchors inside <dt>
 
 	* tp/Texinfo/ParserNonXS.pm (gather_previous_item),
