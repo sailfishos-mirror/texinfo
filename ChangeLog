@@ -1,5 +1,10 @@
 2022-11-26  Patrice Dumas  <pertusus@free.fr>
 
+	* util/texinfo.dtd, configure.ac (TEXINFO_DTD_VERSION): add the
+	index entries in tableterm before the @item.
+
+2022-11-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert): output <term> when
 	table_term container is seen and not for @item, to also enclose
 	index entries in table_term before the @item (same as in html).

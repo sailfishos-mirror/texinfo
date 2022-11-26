@@ -830,7 +830,7 @@
           %blocktablearg;>
 <!ELEMENT tableentry (tableterm, tableitem?)>
 <!-- tableterm contains directly pre if there is an index entry before @itemx -->
-<!ELEMENT tableterm (item,  (pre | itemx | %indexentry.cmds;)*)>
+<!ELEMENT tableterm ((%indexentry.cmds;)*, item,  (pre | itemx | %indexentry.cmds;)*)>
 <!ELEMENT item (#PCDATA | %Inline.line; | itemformat | indexterm)*>
 <!ATTLIST item
           %spacesattr;>
