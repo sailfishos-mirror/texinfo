@@ -588,15 +588,14 @@ my %formats_table = (
              'split' => 1,
              'internal_links' => 1,
              'simple_menu' => 1,
-  # move_index_entries_after_items + relate_index_entries_to_table_entries
-             'joint_transformation' => 1,
+             'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::HTML'
            },
   'latex' => {
              'floats' => 1,
              'internal_links' => 1,
-             'joint_transformation' => 1,
+             'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::LaTeX'
            },
@@ -1481,16 +1480,6 @@ while(@input_files) {
   if ($formats_table{$converted_format}->{'move_index_entries_after_items'}
       or $tree_transformations{'move_index_entries_after_items'}) {
     Texinfo::Common::move_index_entries_after_items_in_tree($tree);
-  }
-
-  if ($formats_table{$converted_format}->{'relate_index_entries_to_table_entries'}
-      or $tree_transformations{'relate_index_entries_to_table_entries'}) {
-    Texinfo::Common::relate_index_entries_to_table_entries_in_tree($tree);
-  }
-
-  # move_index_entries_after_items + relate_index_entries_to_table_entries
-  if ($formats_table{$converted_format}->{'joint_transformation'}) {
-    Texinfo::Common::texinfo_special_joint_transformation($tree);
   }
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {

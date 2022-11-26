@@ -58,7 +58,6 @@ protect_colon_in_tree
 protect_comma_in_tree
 protect_first_parenthesis
 protect_node_after_label_in_tree
-relate_index_entries_to_table_entries_in_tree
 valid_customization_option
 valid_tree_transformation
 ) ] );
@@ -2177,84 +2176,6 @@ sub move_index_entries_after_items_in_tree($)
   return modify_tree($tree, \&_move_index_entries_after_items);
 }
 
-sub _relate_index_entry_to_table_entry($)
-{
-  my $current = shift; # table_entry
-
-  my ($table_term, $table_definition, $item);
-
-  if ($current->{'contents'}
-        and $current->{'contents'}->[0]
-        and $current->{'contents'}->[0]->{'type'} eq 'table_term') {
-    $table_term = $current->{'contents'}->[0];
-  }
-
-  if ($current->{'contents'}
-        and $current->{'contents'}->[1]
-        and $current->{'contents'}->[1]->{'type'} eq 'table_definition') {
-    $table_definition = $current->{'contents'}->[1];
-  }
-
-  if ($table_term->{'contents'}
-    and $table_term->{'contents'}->[0]
-    and (!$table_term->{'contents'}->[0]->{'extra'}
-          or !$table_term->{'contents'}->[0]->{'extra'}->{'index_entry'})) {
-    $item = $table_term->{'contents'}->[0];
-  }
-
-  return if !$table_term or !$table_definition or !$item;
-
-  if ($table_definition->{'contents'}
-    and $table_definition->{'contents'}->[0]
-    and $table_definition->{'contents'}->[0]->{'type'}
-    and $table_definition->{'contents'}->[0]->{'type'} eq 'index_entry_command') {
-      my $index_command = shift @{$table_definition->{'contents'}};
-      delete $index_command->{'parent'};
-      $item->{'extra'}->{'index_entry'}
-        = $index_command->{'extra'}->{'index_entry'};
-      $item->{'extra'}->{'index_entry'}->{'entry_element'} = $item;
-  }
-}
-
-sub _relate_index_entries_to_table_entries_in_tree($$)
-{
-  my ($type, $current) = @_;
-
-  if ($current->{'type'} and ($current->{'type'} eq 'table_entry')) {
-    _relate_index_entry_to_table_entry($current);
-  }
-  return ($current);
-}
-
-sub relate_index_entries_to_table_entries_in_tree($)
-{
-  my $tree = shift;
-  return modify_tree($tree,
-                     \&_relate_index_entries_to_table_entries_in_tree);
-}
-
-
-# Used in the main program, not meant to be used in user-defined code.
-sub _special_joint_transformation($)
-{
-  my $type = shift;
-  my $current = shift;
-
-  _move_index_entries_after_items($type, $current);
-  _relate_index_entries_to_table_entries_in_tree($type, $current);
-  return ($current);
-}
-
-# Peform both the 'move_index_entries_after_items' and the
-# 'relate_index_entries_to_table_entries_in_tree' transformations
-# together.  This is faster because the tree is only traversed once.
-sub texinfo_special_joint_transformation($)
-{
-  my $tree = shift;
-  return modify_tree($tree, \&_special_joint_transformation);
-}
-
-
 # Common to different module, but not meant to be used in user-defined
 # codes.
 #
@@ -2657,13 +2578,6 @@ X<C<protect_first_parenthesis>>
 Return a contents array reference with first parenthesis in the
 contents array reference protected.  If I<$contents> is undef
 a fatal error with a backtrace will be emitted.
-
-=item relate_index_entries_to_table_entries_in_tree($tree)
-X<C<relate_index_entries_to_table_entries_in_tree>>
-
-In @*table @-commands, reassociate the index entry information from an index
-@-command appearing right after an @item line to the @item first element.
-Remove the index @-command from the tree.
 
 =item $level = section_level($section)
 X<C<section_level>>
