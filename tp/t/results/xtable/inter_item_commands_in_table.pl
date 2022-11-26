@@ -3220,14 +3220,14 @@ $result_converted{'docbook'}->{'inter_item_commands_in_table'} = '<chapter label
 <varlistentry><term>&#8216;<literal>asamp--bb2</literal>&#8217;
 </term></varlistentry></variablelist>
 <variablelist>
-<varlistentry><indexterm role="cp"><primary>cindex after line</primary></indexterm>
-<term>&#8216;<literal>asamp--bb2</literal>&#8217;
+<varlistentry><term><indexterm role="cp"><primary>cindex after line</primary></indexterm>
+&#8216;<literal>asamp--bb2</literal>&#8217;
 </term></varlistentry></variablelist>
 <variablelist><indexterm role="cp"><primary>cindex first</primary></indexterm>
 <!-- commant -->
-<varlistentry><indexterm role="cp"><primary>second</primary></indexterm>
+<varlistentry><term><indexterm role="cp"><primary>second</primary></indexterm>
 <indexterm role="cp"><primary>third</primary></indexterm>
-<term>&#8216;<literal>asamp--bb2</literal>&#8217;
+&#8216;<literal>asamp--bb2</literal>&#8217;
 </term></varlistentry></variablelist>
 
 </chapter>

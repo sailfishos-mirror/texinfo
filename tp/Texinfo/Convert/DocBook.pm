@@ -748,7 +748,7 @@ sub _convert($$;$)
                and $element->{'parent'}->{'type'}
                and $element->{'parent'}->{'type'} eq 'table_term') {
 
-        $result .= "<term>";
+        $result .= "<term>" if ($element->{'cmdname'} eq 'itemx');
         $result .= $self->_index_entry($element);
         if ($element->{'args'}->[0]
             and $element->{'args'}->[0]->{'contents'}) {
@@ -1616,6 +1616,10 @@ sub _convert($$;$)
       pop @{$self->{'document_context'}};
       $result .= "</synopsis>";
       $result .= "\n";
+    } elsif ($element->{'type'} eq 'table_term') {
+      # should be closed by the @item.  Allows to have the index entries in
+      # term, which is better than out.
+      $result .= "<term>";
     }
   }
 
