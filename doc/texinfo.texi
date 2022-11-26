@@ -870,8 +870,8 @@ standards, GNU Coding Standards}), and follow the existing coding style.
 Here is an overview of the output formats currently supported by Texinfo.
 
 @table @asis
-@item Info
 @cindex Info output, overview
+@item Info
 (Generated via @command{texi2any}.)  Info format is mostly a plain
 text transliteration of the Texinfo source.  It adds a few control
 characters to provide navigational information for cross-references, 
@@ -880,14 +880,14 @@ Info}), and the standalone @command{info} program (@pxref{Top,,,
 info-stnd, GNU Info}), among others, can read these files.  @xref{Info 
 Files}, and @ref{Creating and Installing Info Files}.
 
-@item Plain text
 @cindex Plain text output, overview
+@item Plain text
 (Generated via @command{texi2any --plaintext}.)  This is almost the
 same as Info output with the navigational control characters are
 omitted.
 
-@item HTML
 @cindex HTML output, overview
+@item HTML
 @c @cindex Mozilla
 @c @cindex Lynx
 @c @cindex Emacs-W3
@@ -903,8 +903,8 @@ intentionally not using many newer or less widely-supported tags.
 Although the native output is thus rather plain, it can be customized
 at various levels, if desired.   @xref{Generating HTML}.
 
-@item EPUB 3
 @cindex EPUB 3 output, overview
+@item EPUB 3
 (Generated via @command{texi2any --epub3}.)
 EPUB is a format designed for reading electronic books on
 portable devices.  It is a derivative of HTML@.  The format was
@@ -913,10 +913,10 @@ which is now part of the World Wide Web Consortium (W3C)@.  The
 latest major revision, EPUB 3, dates from 2011.
 
 
-@item DVI
 @cindex DVI output, overview
 @pindex dvips @r{(program)}
 @pindex xdvi
+@item DVI
 (Generated via @command{texi2dvi}.)  The DeVIce Independent binary
 format is output by the @TeX{} typesetting program
 (@uref{http://tug.org}).  This is then read by a DVI `driver', which
@@ -928,8 +928,8 @@ with @TeX{}}.  (Be aware that the Texinfo language is very different
 from @TeX{}'s usual languages: plain @TeX{}, @LaTeX{}, Con@TeX{}t,
 etc.)
 
-@item PostScript
 @cindex PostScript output, overview
+@item PostScript
 (Generated via @command{texi2dvi --ps}.)  PostScript is a page
 description language that became widely used around 1985 and is still
 used today.  @uref{https://en.wikipedia.org/wiki/PostScript} gives a
@@ -937,9 +937,9 @@ basic description and more preferences.  By default, Texinfo uses the
 @command{dvips} program to convert @TeX{}'s DVI output to PostScript.
 @xref{Top,,, dvips, Dvips}.
 
-@item PDF
 @cindex PDF output, overview
 @cindex Beebe, Nelson
+@item PDF
 (Generated via @command{texi2dvi --pdf} or @command{texi2pdf}.)  This
 format was developed by Adobe Systems for portable document
 interchange, based on their previous PostScript language.  It can
@@ -952,8 +952,8 @@ background.  By default, Texinfo uses the @command{pdftex} program, an
 extension of @TeX{}, to output PDF; see
 @uref{http://tug.org/applications/pdftex}.  @xref{PDF Output}.
 
-@item @LaTeX{}
 @cindex LaTeX output, overview
+@item @LaTeX{}
 (Generated via @command{texi2any --latex}.)  This is a typesetting
 system built on top of @TeX{}.  It was originally released by
 Leslie Lamport in 1984.  @LaTeX{} adds more definitions to those
@@ -968,9 +968,9 @@ customizability of the output than would be possible with the plain
 @TeX{} implementation of Texinfo.
 
 
-@item DocBook
 @cindex DocBook output, overview
 @cindex XML DocBook output, overview
+@item DocBook
 (Generated via @command{texi2any --docbook}.)  This is an XML-based
 format, primarily for technical
 documentation.  It therefore bears some resemblance, in broad
@@ -978,12 +978,12 @@ outline, to Texinfo.  See @uref{http://www.docbook.org}.  Various
 converters from DocBook @emph{to} Texinfo have also been developed;
 see the Texinfo web pages.
 
-@item XML
 @cindex XML Texinfo output, overview
 @cindex Texinfo XML output, overview
 @cindex DTD, for Texinfo XML
 @pindex texinfo.dtd
 @pindex txixml2texi
+@item XML
 (Generated via @command{texi2any --xml}.)
 The @command{texi2any} XML output, unlike all the other output
 formats, is a transliteration of the Texinfo source, rather than
@@ -4016,9 +4016,9 @@ The @code{@@unnumberedsec} command may be used within an unnumbered
 chapter or within a regular chapter or appendix to produce an
 unnumbered section.
 
+@findex appendixsection
 @item @@appendixsec
 @itemx @@appendixsection
-@findex appendixsection
 @code{@@appendixsection} is a longer spelling of the
 @code{@@appendixsec} command; the two are synonymous.
 
@@ -6290,44 +6290,43 @@ output.  They have no effect in Info.  All the commands apply to a following
 argument surrounded by braces.
 
 @table @code
-@item @@b
 @findex b @r{(bold font)}
 @ifset commandlookup
 @findex b
 @end ifset
 @cindex Bold font
+@item @@b
 selects @b{bold} face;
 
-@item @@i
 @findex i @r{(italic font)}
 @ifset commandlookup
 @findex i
 @end ifset
 @cindex Italic font
+@item @@i
 selects an @i{italic} font;
 
-@item @@r
 @findex r @r{(roman font)}
 @ifset commandlookup
 @findex r
 @end ifset
 @cindex Roman font
 @cindex Default font
+@item @@r
 selects a @r{roman} font, which is the usual font in which text is
 printed.  It may or may not be seriffed.
 
-@item @@sansserif
 @findex sansserif
 @cindex Sans serif font
+@item @@sansserif
 selects a @sansserif{sans serif} font;
 
-@item @@slanted
 @findex slanted
 @cindex Slanted font
 @cindex Oblique font
+@item @@slanted
 selects a @slanted{slanted} font;
 
-@item @@t
 @findex t @r{(typewriter font)}
 @ifset commandlookup
 @findex t
@@ -6335,6 +6334,7 @@ selects a @slanted{slanted} font;
 @cindex Monospace font
 @cindex Fixed-width font
 @cindex Typewriter font
+@item @@t
 selects the @t{fixed-width}, typewriter-style font used by @code{@@code};
 
 @end table
@@ -8264,32 +8264,32 @@ The @var{width} and @var{height} may be specified using any valid @TeX{}
 dimension, namely:
 
 @table @asis
-@item pt
 @cindex Points (dimension)
+@item pt
 point (72.27pt = 1in)
-@item pc
 @cindex Picas
+@item pc
 pica (1pc = 12pt)
-@item bp
 @cindex Big points
+@item bp
 big point (72bp = 1in)
-@item in
 @cindex Inches
+@item in
 inch
-@item cm
 @cindex Centimeters
+@item cm
 centimeter (2.54cm = 1in)
-@item mm
 @cindex Millimeters
+@item mm
 millimeter (10mm = 1cm)
-@item dd
 @cindex Did@^ot points
+@item dd
 did@^ot point (1157dd = 1238pt)
-@item cc
 @cindex Ciceros
+@item cc
 cicero (1cc = 12dd)
-@item sp
 @cindex Scaled points
+@item sp
 scaled point (65536sp = 1pt)
 @end table
 
@@ -8525,37 +8525,37 @@ Texinfo provides six predefined indices.  Here are their nominal
 meanings, abbreviations, and the corresponding index entry commands:
 
 @table @samp
-@item cp
 @cindex @code{cp} (concept) index
 @findex cindex
 @findex cpindex
+@item cp
 (@code{@@cindex}) Concept index, for general concepts.
-@item fn
 @cindex @code{fn} (function) index
 @findex findex
 @findex fnindex
+@item fn
 (@code{@@findex}) Function index, for function and function-like
 names (such as entry points of libraries).
-@item ky
 @cindex @code{ky} (keystroke) index
 @findex kindex
 @findex kyindex
+@item ky
 (@code{@@kindex}) Keystroke index, for keyboard commands.
-@item pg
 @cindex @code{pg} (program) index
 @findex pindex
 @findex pgindex
+@item pg
 (@code{@@pindex}) Program index, for names of programs.
-@item tp
 @cindex @code{tp} (data type) index
 @findex tindex
 @findex tpindex
+@item tp
 (@code{@@tindex}) Data type index, for type names (such as structures
 defined in header files).
-@item vr
 @cindex @code{vr} (variable) index
 @findex vindex
 @findex vrvindex
+@item vr
 (@code{@@vindex}) Variable index, for variable names (such as library global
 variables).
 @end table
@@ -9385,19 +9385,19 @@ PDF readers, both free and nonfree, have problems.)
 If this is a concern for you, Texinfo provides these two commands:
 
 @table @code
-@item @@codequoteundirected @var{on-off}
 @findex codequoteundirected
 @cindex undirected single quote
+@item @@codequoteundirected @var{on-off}
 causes the output for the @code{'} character in code environments to
 be the undirected single quote, like this:
 @set txicodequoteundirected on
 @code{'}.
 @set txicodequoteundirected off
 
-@item @@codequotebacktick @var{on-off}
 @findex codequotebacktick
 @cindex Backtick
 @cindex Grave accent @subentry standalone
+@item @@codequotebacktick @var{on-off}
 causes the output for the @code{`} character in code environments to
 be the backtick character (standalone grave accent), like this:
 @set txicodequotebacktick on
@@ -11687,8 +11687,8 @@ to get output like
 @code{@@deftypefn} creates an entry in the index of functions for
 @var{name}.
 
-@item @@deftypefun @var{data-type} @var{name} @var{arguments}@dots{}
 @findex deftypefun
+@item @@deftypefun @var{data-type} @var{name} @var{arguments}@dots{}
 The @code{@@deftypefun} command is the specialized definition command
 for functions.  The command is equivalent to @samp{@@deftypefn Function
 @dots{}}.
@@ -11773,8 +11773,8 @@ For example:
 @var{name}.
 
 @findex defopt
-@item @@defopt @var{name}
 @cindex User options, marking
+@item @@defopt @var{name}
 The @code{@@defopt} command is the definition command for @dfn{user
 options}, i.e., variables intended for users to change according to
 taste; Emacs has many such (@pxref{Variables,,, emacs, The GNU Emacs
@@ -11902,8 +11902,8 @@ These commands allow you to define different sorts of variables in
 object-oriented programming languages.
 
 @table @code
-@item @@defcv @var{category} @var{class} @var{name}
 @findex defcv
+@item @@defcv @var{category} @var{class} @var{name}
 The @code{@@defcv} command is the general definition command for
 variables associated with classes in object-oriented programming.  The
 @code{@@defcv} command is followed by three arguments: the category of
@@ -11925,8 +11925,8 @@ name.  For instance:
 
 @code{@@defcv} creates an entry in the index of variables.
 
-@item @@deftypecv @var{category} @var{class} @var{data-type} @var{name}
 @findex deftypecv
+@item @@deftypecv @var{category} @var{class} @var{data-type} @var{name}
 The @code{@@deftypecv} command is the definition command for typed
 class variables in object-oriented programming.  It is analogous to
 @code{@@defcv} with the addition of the @var{data-type} parameter to
@@ -11948,8 +11948,8 @@ specify the type of the instance variable.
 
 @code{@@deftypecv} creates an entry in the index of variables.
 
-@item @@defivar @var{class} @var{name}
 @findex defivar
+@item @@defivar @var{class} @var{name}
 The @code{@@defivar} command is the definition command for instance
 variables in object-oriented programming.  @code{@@defivar} is
 equivalent to @samp{@@defcv @{Instance Variable@} @dots{}}.  For
@@ -11971,8 +11971,8 @@ instance:
 
 @code{@@defivar} creates an entry in the index of variables.
 
-@item @@deftypeivar @var{class} @var{data-type} @var{name}
 @findex deftypeivar
+@item @@deftypeivar @var{class} @var{data-type} @var{name}
 The @code{@@deftypeivar} command is the definition command for typed
 instance variables in object-oriented programming.  It is analogous to
 @code{@@defivar} with the addition of the @var{data-type} parameter to
@@ -12056,8 +12056,8 @@ for typed object-oriented languages. It is similar to
 specify information on the return value of the method, for example the
 return type.
 
-@item @@defmethod @var{class} @var{name} @var{arguments}@dots{}
 @findex defmethod
+@item @@defmethod @var{class} @var{name} @var{arguments}@dots{}
 The @code{@@defmethod} command is the definition command for methods
 in object-oriented programming.  A method is a kind of function that
 implements an operation for a particular class of objects and its
@@ -12090,8 +12090,8 @@ the class @code{bar-class}.  The method takes an argument.
 
 @code{@@defmethod} creates an entry in the index of functions.
 
-@item @@deftypemethod @var{class} @var{data-type} @var{name} @var{arguments}@dots{}
 @findex deftypemethod
+@item @@deftypemethod @var{class} @var{data-type} @var{name} @var{arguments}@dots{}
 The @code{@@deftypemethod} command is the definition command for methods
 in object-oriented languages, in particular for typed languages
 such as C++ and Java.  It is similar to the @code{@@defmethod} command
@@ -12417,10 +12417,10 @@ older manuals:
 @item US-ASCII
 Character encoding based on the English alphabet.
 
+@cindex Euro symbol, and encodings
 @item ISO-8859-1
 @itemx ISO-8859-15
 @itemx ISO-8859-2
-@cindex Euro symbol, and encodings
 These specify the pre-UTF-8 standard encodings for Western European
 (the first two) and Eastern European languages (the third), respectively.
 ISO 8859-15 replaces some little-used characters from 8859-1 (e.g.,
@@ -16174,9 +16174,9 @@ These correspond to the command-line options (and
 @code{TEXINFO_OUTPUT_FORMAT} environment variable values) of the same
 name.  @xref{Invoking @command{texi2any}}.
 
-@item debugtree
 @cindex tree representation, for debugging
 @cindex debugging document, with tree representation
+@item debugtree
 Instead of generating a regular output format, output a text representation
 of the tree obtained by parsing the input texinfo document.
 
@@ -16189,8 +16189,8 @@ Output the Texinfo source with all the macros, @code{@@include} and
 @option{--macro-expand}, but instead of being output in addition to
 the normal conversion, output of Texinfo is the main output.
 
-@item rawtext
 @cindex raw text output
+@item rawtext
 Output raw text, with minimal formatting.  For example, footnotes are
 ignored and there is no paragraph filling.  This is used by the parser
 for file names and copyright text in HTML comments, for example.
@@ -16199,17 +16199,17 @@ for file names and copyright text in HTML comments, for example.
 Do only Texinfo source parsing and determination of the document
 structure; there is no output.
 
-@item texinfosxml
 @cindex SXML output
 @cindex S-expressions, output format
+@item texinfosxml
 Output the document in TexinfoSXML representation, a syntax for
 writing XML data using Lisp S-expressions.
 
-@item textcontent
 @cindex spell checking
 @cindex word counting
 @pindex detexinfo
 @cindex stripping Texinfo commands
+@item textcontent
 Output the text content only, stripped of commands; this is useful for
 spell checking or word counting, for example.  The trivial
 @code{detexinfo} script setting this is in the @file{util} directory
@@ -16270,9 +16270,9 @@ Rule used after and before the top element and before
 special elements, but not for footers and headers; default
 @code{<hr>}.
 
-@item BODYTEXT
 @cindex @code{<body>} text, customizing
 @opindex lang@r{, HTML attribute}
+@item BODYTEXT
 The text appearing in @code{<body>}.  By default, sets the
 HTML @code{lang} attribute to the document language
 (@pxref{@code{@@documentlanguage}}).
@@ -16548,8 +16548,8 @@ overriding the Up pointer name in case @code{TOP_NODE_UP_URL} is set
 and for other formats, see @code{TOP_NODE_UP} in 
 @ref{Other Customization Variables}.
 
-@item USE_ACCESSKEY
 @cindex @code{accesskey} @subentry customization variable for
+@item USE_ACCESSKEY
 Use @code{accesskey} in cross-references; default true.
 
 @item USE_ISO
@@ -16557,9 +16557,9 @@ Use entities for doubled single-quote characters
 (@pxref{Inserting Quotation Marks}), and @samp{---} and @samp{--}
 (@pxref{Conventions}); default true.
 
-@item USE_LINKS
 @cindex @code{<link>} HTML tag, in @code{<head>}
 @cindex @code{<head>} HTML tag, and @code{<link>}
+@item USE_LINKS
 Generate @code{<link>} elements in the HTML @code{<head>}
 output; default true.
 
@@ -16585,9 +16585,9 @@ Use XML/XHTML compatible syntax.
 @item VERTICAL_HEAD_NAVIGATION
 If set, a vertical navigation panel is used; default false.
 
-@item WORDS_IN_PAGE
 @cindex Navigation panel, bottom of page
 @cindex Navigation footer
+@item WORDS_IN_PAGE
 When output is split by nodes, specifies the approximate
 minimum page length at which a navigation panel is placed at the
 bottom of a page.  To avoid ever having the navigation buttons at the
@@ -16786,8 +16786,8 @@ is used for the encoding of file content.
 
 The @code{OUTPUT_FILE_NAME_ENCODING} variable overrides this variable.
 
-@item DOCTYPE
 @vindex SystemLiteral
+@item DOCTYPE
 For DocBook, HTML, XML@.  Specifies the @code{SystemLiteral}, the
 entity's system identifier.  This is a URI which may be used to
 retrieve the entity, and identifies the canonical DTD for the
@@ -16860,8 +16860,8 @@ If not defined, set unless @code{INFO_SPECIAL_CHARS_QUOTE} is set.
 Default is set for Info and not defined for plaintext. Similar warnings in
 index entries are covered by @code{INDEX_SPECIAL_CHARS_WARNING}.
 
-@item INPUT_FILE_NAME_ENCODING
 @cindex Encoding @subentry input file names
+@item INPUT_FILE_NAME_ENCODING
 Encoding used for input file names.  This variable overrides
 any encoding from the document or current locale.  Normally, you do
 not need to set this variable, but it can be used if file names are
@@ -16942,8 +16942,8 @@ names.  By default, if an input encoding is set (typically through
 encoding name, otherwise the output encoding is based on the
 default encoding.  @xref{@code{@@documentencoding}}.
 
-@item OUTPUT_FILE_NAME_ENCODING
 @cindex Encoding @subentry output file names
+@item OUTPUT_FILE_NAME_ENCODING
 Encoding used for output file names.  This variable overrides
 any encoding from the document or current locale.
 
@@ -16972,10 +16972,10 @@ as whether the output is split.  The default is unset.
 Name of the program used.  By default, it is set to the name of the
 program launched, with a trailing @samp{.pl} removed.
 
-@item SORT_ELEMENT_COUNT
 @pindex texi-elements-by-size
 @cindex Longest nodes, finding
 @cindex Sorting nodes by size
+@item SORT_ELEMENT_COUNT
 If set, the name of a file to which a list of elements (nodes or
 sections, depending on the output format) is dumped, sorted by the
 number of lines they contain after removal of @@-commands; default
@@ -16997,8 +16997,8 @@ reference file, as is done for the tests.  The default is false.
 Name of the command used to produce PostScript, PDF, and DVI; default
 @samp{texi2dvi}.  @xref{@command{texi2any} Printed Output}.
 
-@item TEXI2HTML
 @cindex compatibility, with @command{texi2html}
+@item TEXI2HTML
 Generate HTML and try to be as compatible as possible with
 @command{texi2html}; default false.
 
@@ -17106,8 +17106,8 @@ Default is on for Info, off for other output.  If set, use exactly
 what @code{@@setfilename} gives for the output file name, including
 the extension.  You should not need to explicitly set this variable.
 
-@item USE_UNIDECODE
 @pindex Text::Unidecode
+@item USE_UNIDECODE
 If set to false, do not use the @code{Text::Unidecode} Perl module to
 transliterate more characters; default true.
 
@@ -18973,8 +18973,8 @@ or @code{@@cindex}.  If no argument is needed, the word is followed by
 the end of the line.  If there is an argument, it is separated from
 the command name by a space.  Braces are not used.
 
-@item 3. Block commands
 @findex end
+@item 3. Block commands
 These commands are written at the start of a line, with general text on
 following lines, terminated by a matching @code{@@end} command on a
 line of its own.  For example, @code{@@example}, then the lines of a
@@ -20390,9 +20390,9 @@ other processing has been done.  It is no longer needed, since all
 formatters now automatically refill as needed, but you may still see
 it in the source to some manuals, as it does no harm.
 
-@item @@setcontentsaftertitlepage
 @cindex Contents, after title page
 @cindex Table of contents, after title page
+@item @@setcontentsaftertitlepage
 In the past, the contents commands were sometimes placed at the end of
 the file, after any indices and just before the @code{@@bye}, but we
 no longer recommend this.
@@ -21170,55 +21170,55 @@ The insert commands are invoked by typing @kbd{C-c} twice and then the
 first letter of the @@-command:
 
 @table @kbd
+@findex texinfo-insert-@@code
 @item  C-c C-c c
 @itemx M-x texinfo-insert-@@code
-@findex texinfo-insert-@@code
 Insert @code{@@code@{@}} and put the
 cursor between the braces.
 
+@findex texinfo-insert-@@dfn
 @item  C-c C-c d
 @itemx M-x texinfo-insert-@@dfn
-@findex texinfo-insert-@@dfn
 Insert @code{@@dfn@{@}} and put the
 cursor between the braces.
 
+@findex texinfo-insert-@@end
 @item  C-c C-c e
 @itemx M-x texinfo-insert-@@end
-@findex texinfo-insert-@@end
 Insert @code{@@end} and attempt to insert the correct following word,
 such as @samp{example} or @samp{table}.  (This command does not handle
 nested lists correctly, but inserts the word appropriate to the
 immediately preceding list.)
 
+@findex texinfo-insert-@@item
 @item  C-c C-c i
 @itemx M-x texinfo-insert-@@item
-@findex texinfo-insert-@@item
 Insert @code{@@item} and put the
 cursor at the beginning of the next line.
 
+@findex texinfo-insert-@@kbd
 @item  C-c C-c k
 @itemx M-x texinfo-insert-@@kbd
-@findex texinfo-insert-@@kbd
 Insert @code{@@kbd@{@}} and put the
 cursor between the braces.
 
+@findex texinfo-insert-@@node
 @item  C-c C-c n
 @itemx M-x texinfo-insert-@@node
-@findex texinfo-insert-@@node
 Insert @code{@@node} and a comment line
 listing the sequence for the `Next',
 `Previous', and `Up' nodes.
 Leave point after the @code{@@node}.
 
+@findex texinfo-insert-@@noindent
 @item  C-c C-c o
 @itemx M-x texinfo-insert-@@noindent
-@findex texinfo-insert-@@noindent
 Insert @code{@@noindent} and put the
 cursor at the beginning of the next line.
 
+@findex texinfo-insert-dwim-@@ref
 @item  C-c C-c r
 @itemx M-x texinfo-insert-dwim-@@ref
-@findex texinfo-insert-dwim-@@ref
 This function and binding were added in Emacs 27.1.
 Inserts one of @code{@@pxref@{@}}, @code{@@xref@{@}}, or
 @code{@@ref@{@}} based on the text around point; calling it near an
@@ -21228,41 +21228,41 @@ the beginning of a sentence or at @code{(point-min)} yields
 result in @code{@@ref@{@}}.  A numeric argument says how many words
 the braces should surround.  Puts the cursor between the braces.
 
+@findex texinfo-insert-@@samp
 @item  C-c C-c s
 @itemx M-x texinfo-insert-@@samp
-@findex texinfo-insert-@@samp
 Insert @code{@@samp@{@}} and put the
 cursor between the braces.
 
+@findex texinfo-insert-@@table
 @item  C-c C-c t
 @itemx M-x texinfo-insert-@@table
-@findex texinfo-insert-@@table
 Insert @code{@@table} followed by a @key{SPC}
 and leave the cursor after the @key{SPC}.
 
+@findex texinfo-insert-@@var
 @item  C-c C-c v
 @itemx M-x texinfo-insert-@@var
-@findex texinfo-insert-@@var
 Insert @code{@@var@{@}} and put the
 cursor between the braces.
 
+@findex texinfo-insert-@@example
 @item  C-c C-c x
 @itemx M-x texinfo-insert-@@example
-@findex texinfo-insert-@@example
 Insert @code{@@example} and put the
 cursor at the beginning of the next line.
 
 @c M-@{  was the binding for texinfo-insert-braces;
 @c in Emacs 19, backward-paragraph will take this binding.
+@findex texinfo-insert-braces
 @item C-c C-c @{
 @itemx M-x texinfo-insert-braces
-@findex texinfo-insert-braces
 Insert @code{@{@}} and put the cursor between the braces.
 
+@findex up-list
 @item C-c @}
 @itemx C-c  ]
 @itemx M-x up-list
-@findex up-list
 Move from between a pair of braces forward past the closing brace.
 Typing @kbd{C-c ]} is easier than typing @kbd{C-c @}}, which
 is, however, more mnemonic; hence the two keybindings.  (Also, you can
@@ -21331,15 +21331,15 @@ over one of the lines and use the @kbd{C-c C-c} command
 in the Texinfo file.
 
 @table @kbd
+@findex texinfo-show-structure
 @item  C-c C-s
 @itemx M-x texinfo-show-structure
-@findex texinfo-show-structure
 Show the @code{@@chapter}, @code{@@section}, and such lines of a
 Texinfo file.
 
+@findex occur-mode-goto-occurrence
 @item  C-c C-c
 @itemx M-x occur-mode-goto-occurrence
-@findex occur-mode-goto-occurrence
 Go to the line in the Texinfo file corresponding to the line under the
 cursor in the @file{*Occur*} buffer.
 @end table
@@ -21583,9 +21583,9 @@ node and menu in the whole Texinfo file.
 The @code{texinfo-master-menu} command is the primary command:
 
 @table @kbd
+@findex texinfo-master-menu
 @item C-c C-u m
 @itemx M-x texinfo-master-menu
-@findex texinfo-master-menu
 Create or update a master menu that includes all the other menus
 (incorporating the descriptions from pre-existing menus, if
 any).
@@ -21618,9 +21618,9 @@ file.
 The commands are:
 
 @table @kbd
+@findex texinfo-update-node
 @item C-c C-u C-n
 @itemx M-x texinfo-update-node
-@findex texinfo-update-node
 Insert the `Next', `Previous', and `Up' pointers for the node that point is
 within (i.e., for the @code{@@node} line preceding point).  If the
 @code{@@node} line has pre-existing `Next', `Previous', or `Up'
@@ -21629,9 +21629,9 @@ With an argument (prefix argument, @kbd{C-u}, if interactive), this command
 updates all @code{@@node} lines in the region (which is the text
 between point and mark).
 
+@findex texinfo-make-menu
 @item C-c C-u C-m
 @itemx M-x texinfo-make-menu
-@findex texinfo-make-menu
 Create or update the menu in the node that point is within.
 With an argument (@kbd{C-u} as prefix argument, if
 interactive), the command makes or updates menus for the
@@ -21644,15 +21644,15 @@ is done by copying descriptions from the existing menu to the entries
 in the new menu that have the same node names.  If the node names are
 different, the descriptions are not copied to the new menu.
 
+@findex texinfo-every-node-update
 @item C-c C-u C-e
 @itemx M-x texinfo-every-node-update
-@findex texinfo-every-node-update
 Insert or update the `Next', `Previous', and `Up' pointers for every
 node in the buffer.
 
+@findex texinfo-all-menus-update
 @item C-c C-u C-a
 @itemx M-x texinfo-all-menus-update
-@findex texinfo-all-menus-update
 Create or update all the menus in the buffer.  With an argument
 (@kbd{C-u} as prefix argument, if interactive), first insert
 or update all the node
@@ -21881,8 +21881,8 @@ In addition to the major updating commands, Texinfo mode possesses several
 less frequently used updating commands:
 
 @table @kbd
-@item M-x texinfo-insert-node-lines
 @findex texinfo-insert-node-lines
+@item M-x texinfo-insert-node-lines
 Insert @code{@@node} lines before the @code{@@chapter},
 @code{@@section}, and other sectioning commands wherever they are
 missing throughout a region in a Texinfo file.
@@ -21908,8 +21908,8 @@ Inserting Frequently Used Commands}) inserts titles as descriptions in
 menu entries, a different action.  However, in both cases, you need to
 edit the inserted text.
 
-@item M-x texinfo-indent-menu-description
 @findex texinfo-indent-menu-description
+@item M-x texinfo-indent-menu-description
 Indent every description in the menu following point to the specified
 column.  You can use this command to give yourself more space for
 descriptions.  With an argument (@kbd{C-u} as prefix argument, if
@@ -21918,8 +21918,8 @@ every description in every menu in the region.  However, this command
 does not indent the second and subsequent lines of a multi-line
 description.
 
-@item M-x texinfo-sequential-node-update
 @findex texinfo-sequential-node-update
+@item M-x texinfo-sequential-node-update
 Insert the names of the nodes immediately following and preceding the
 current node as the `Next' or `Previous' pointers regardless of those
 nodes' hierarchical level.  This means that the `Next' node of a
@@ -22009,15 +22009,15 @@ command is running or make the shell buffer display its most recent
 output.
 
 @table @kbd
+@findex makeinfo-kill-job
 @item C-c C-m C-k
 @itemx M-x makeinfo-kill-job
-@findex makeinfo-kill-job
 Kill the current running @command{texi2any} (or @command{makeinfo}) job
 (from @code{makeinfo-region} or @code{makeinfo-buffer}).
 
+@findex makeinfo-recenter-output-buffer
 @item C-c C-m C-l
 @itemx M-x makeinfo-recenter-output-buffer
-@findex makeinfo-recenter-output-buffer
 Redisplay the @command{texi2any} shell buffer to display its most recent
 output.
 @end table
@@ -22077,14 +22077,14 @@ save the Info file under the name specified by the
 Texinfo file.
 
 @table @kbd
+@findex texinfo-format-region
 @item C-c C-e C-r
 @itemx @code{texinfo-format-region}
-@findex texinfo-format-region
 Format the current region for Info.
 
+@findex texinfo-format-buffer
 @item C-c C-e C-b
 @itemx @code{texinfo-format-buffer}
-@findex texinfo-format-buffer
 Format the current buffer for Info.
 @end table
 
@@ -22124,16 +22124,16 @@ the @code{texinfo-tex-buffer} command to format all of a
 buffer.
 
 @table @kbd
+@findex texinfo-tex-buffer
 @item  C-c C-t C-b
 @itemx M-x texinfo-tex-buffer
-@findex texinfo-tex-buffer
 Run @command{texi2dvi} on the buffer.  In addition to running @TeX{} on the
 buffer, this command automatically creates or updates indices as
 needed.
 
+@findex texinfo-tex-region
 @item  C-c C-t C-r
 @itemx M-x texinfo-tex-region
-@findex texinfo-tex-region
 Run @TeX{} on the region.
 
 @item C-c C-t C-i
@@ -22147,9 +22147,9 @@ command.  (Usually, you do not format an index when you format a region,
 only when you format a buffer.  Now that the @command{texi2dvi} command
 exists, there is little or no need for this command.)
 
+@findex texinfo-tex-print
 @item C-c C-t C-p
 @itemx M-x texinfo-tex-print
-@findex texinfo-tex-print
 Print the file (or the part of the file) previously formatted with
 @code{texinfo-tex-buffer} or @code{texinfo-tex-region}.
 @end table
@@ -23239,23 +23239,23 @@ name, or whatever.
 Here are the six heading and footing commands:
 
 @table @code
-@item @@everyheading @var{left} @@| @var{center} @@| @var{right}
-@itemx @@everyfooting @var{left} @@| @var{center} @@| @var{right}
 @findex everyheading
 @findex everyfooting
+@item @@everyheading @var{left} @@| @var{center} @@| @var{right}
+@itemx @@everyfooting @var{left} @@| @var{center} @@| @var{right}
 The `every' commands specify the format for both even- and odd-numbered
 pages.  These commands are for documents that are printed on one side
 of each sheet of paper, or for documents in which you want symmetrical
 headers or footers.
 
-@item @@evenheading @var{left} @@| @var{center} @@| @var{right}
-@itemx @@oddheading  @var{left} @@| @var{center} @@| @var{right}
-@itemx @@evenfooting @var{left} @@| @var{center} @@| @var{right}
-@itemx @@oddfooting  @var{left} @@| @var{center} @@| @var{right}
 @findex evenheading
 @findex evenfooting
 @findex oddheading
 @findex oddfooting
+@item @@evenheading @var{left} @@| @var{center} @@| @var{right}
+@itemx @@oddheading  @var{left} @@| @var{center} @@| @var{right}
+@itemx @@evenfooting @var{left} @@| @var{center} @@| @var{right}
+@itemx @@oddfooting  @var{left} @@| @var{center} @@| @var{right}
 The `even' and `odd' commands specify the format for even-numbered
 pages and odd-numbered pages.  These commands are for books and
 manuals that are printed on both sides of each sheet of paper.
@@ -23271,44 +23271,44 @@ of headers and footers.
 Here are the @samp{@@this@dots{}} commands:
 
 @table @code
-@item @@thispage
 @findex thispage
+@item @@thispage
 Expands to the current page number.
 
-@item @@thissectionname
 @findex thissectionname
+@item @@thissectionname
 Expands to the name of the current section.
 
-@item @@thissectionnum
 @findex thissectionnum
+@item @@thissectionnum
 Expands to the number of the current section.
 
-@item @@thissection
 @findex thissection
+@item @@thissection
 Expands to the number and name of the current section, in the format
 `Section 1: Title'.
 
-@item @@thischaptername
 @findex thischaptername
+@item @@thischaptername
 Expands to the name of the current chapter.
 
-@item @@thischapternum
 @findex thischapternum
+@item @@thischapternum
 Expands to the number of the current chapter, or letter of the current
 appendix.
 
-@item @@thischapter
 @findex thischapter
+@item @@thischapter
 Expands to the number and name of the current
 chapter, in the format `Chapter 1: Title'.
 
-@item @@thistitle
 @findex thistitle
+@item @@thistitle
 Expands to the name of the document, as specified by the
 @code{@@settitle} command.
 
-@item @@thisfile
 @findex thisfile
+@item @@thisfile
 For @code{@@include} files only: expands to the name of the current
 @code{@@include} file.  If the current Texinfo source file is not an
 @code{@@include} file, this command has no effect.  This command does
@@ -23343,24 +23343,24 @@ you want @code{@@thischapter}, @code{@@thissection} and other such
 macros to refer to on such pages as follows:
 
 @table @code
-@item @@everyheadingmarks @var{ref}
-@itemx @@everyfootingmarks @var{ref}
 @findex everyheadingmarks
 @findex everyfootingmarks
+@item @@everyheadingmarks @var{ref}
+@itemx @@everyfootingmarks @var{ref}
 The @var{ref} argument can be either @code{top} (the @code{@@this...}
 commands will refer to the chapter/section at the top of a page) or
 @code{bottom} (the commands will reflect the situation at the bottom
 of a page).  These @samp{@@every...} commands specify what to do on
 both even- and odd-numbered pages.
 
-@item @@evenheadingmarks @var{ref}
-@itemx @@oddheadingmarks @var{ref}
-@itemx @@evenfootingmarks @var{ref}
-@itemx @@oddfootingmarks @var{ref}
 @findex evenheadingmarks
 @findex oddheadingmarks
 @findex evenfootingmarks
 @findex oddfootingmarks
+@item @@evenheadingmarks @var{ref}
+@itemx @@oddheadingmarks @var{ref}
+@itemx @@evenfootingmarks @var{ref}
+@itemx @@oddfootingmarks @var{ref}
 These @samp{@@even...} and @samp{@@odd...} commands specify what to do
 on only even- or odd-numbered pages, respectively.  The @var{ref}
 argument is the same as with the @samp{@@every...} commands.

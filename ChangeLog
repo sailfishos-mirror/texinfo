@@ -1,5 +1,10 @@
 2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi: Movee index commands before @item in @table
+	throughout.
+
+2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ParserNonXS.pm (gather_previous_item),
 	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item):
 	Reparent trailing index commands from before_item to table_term.
