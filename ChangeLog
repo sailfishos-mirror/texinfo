@@ -1,3 +1,9 @@
+2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/ParserNonXS.pm (gather_previous_item):
+	Use splice operation instead of moving items one by one when
+	creating table_term element.  No functional changes intended.
+
 2022-11-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (gather_previous_item),

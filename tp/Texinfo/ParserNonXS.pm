@@ -1567,19 +1567,23 @@ sub _gather_previous_item($$;$$)
   # remove everything that is not an @item/@itemx or before_item to
   # put it in the table_definition/inter_item
   my $contents_count = scalar(@{$current->{'contents'}});
-  my $item_idx;
+  my $splice_idx;
   for (my $i = $contents_count - 1; $i >= 0; $i--) {
     if ($current->{'contents'}->[$i]->{'cmdname'}
         and ($current->{'contents'}->[$i]->{'cmdname'} eq 'item'
              or ($current->{'contents'}->[$i]->{'cmdname'} eq 'itemx'))) {
-      $item_idx = $i;
+      $splice_idx = $i + 1;
       last;
     }
   }
-  $item_idx = -1 if !defined($item_idx);
+  $splice_idx = 0 if !defined($splice_idx);
+
+  my $splice_idx2;
+  $splice_idx2 = $contents_count;
 
   my $new_contents = [];
-  @{$new_contents} = splice @{$current->{'contents'}}, $item_idx + 1;
+  @{$new_contents} = splice @{$current->{'contents'}},
+                            $splice_idx, $splice_idx2 - $splice_idx;
   my $table_after_terms = {'type' => $type,
                            'contents' => $new_contents};
   for my $child (@{$new_contents}) {
@@ -1594,30 +1598,29 @@ sub _gather_previous_item($$;$$)
     my $table_term = {'type' => 'table_term',
                     'parent' => $table_entry, };
     push @{$table_entry->{'contents'}}, $table_term;
+
     # put everything starting from the end until reaching the previous
-    # table entry or beginning of the table in table term.
+    # table entry or beginning of the table in table_term.
     my $contents_count = scalar(@{$current->{'contents'}});
-    for (my $i = 0; $i < $contents_count; $i++) {
-      if ($current->{'contents'}->[-1]->{'type'}
+    my $splice_idx3;
+    for (my $i = $splice_idx - 1; $i >= 0; $i--) {
+      if ($current->{'contents'}->[$i]->{'type'}
            # reached the beginning of the table
-           and ($current->{'contents'}->[-1]->{'type'} eq 'before_item'
+           and ($current->{'contents'}->[$i]->{'type'} eq 'before_item'
                 # reached the previous table entry
-                or $current->{'contents'}->[-1]->{'type'} eq 'table_entry')) {
+                or $current->{'contents'}->[$i]->{'type'} eq 'table_entry')) {
+        $splice_idx3 = $i + 1;
         last;
-      } else {
-        my $item_content = pop @{$current->{'contents'}};
-        $item_content->{'parent'} = $table_term;
-        unshift @{$table_term->{'contents'}}, $item_content;
-        # debug
-        if (! (($item_content->{'cmdname'}
-                and ($item_content->{'cmdname'} eq 'itemx'
-                    or $item_content->{'cmdname'} eq 'item'))
-               or ($item_content->{'type'}
-                   and $item_content->{'type'} eq 'inter_item'))) {
-          $self->_bug_message("wrong element in table term", $source_info,
-                              $item_content);
-        }
       }
+    }
+    $splice_idx3 = 0 if !defined($splice_idx3);
+
+    $new_contents = [];
+    @{$new_contents} = splice @{$current->{'contents'}},
+                              $splice_idx3, $splice_idx - $splice_idx3;
+    $table_term->{'contents'} = $new_contents;
+    for my $child (@{$new_contents}) {
+      $child->{'parent'} = $table_term;
     }
     push @{$current->{'contents'}}, $table_entry;
     if (scalar(@{$table_after_terms->{'contents'}})) {
