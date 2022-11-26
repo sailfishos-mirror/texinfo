@@ -13,8 +13,9 @@
 AM_MAKEINFOFLAGS = -c INFO_SPECIAL_CHARS_WARNING=0
 
 # Use the programs built in our distribution, taking account of possible
-# cross-compiling.
-MAKEINFO = $(PERL) -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
+# cross-compiling.  The first -I is there to find Texinfo::ModulePath in
+# out-of-source builds.
+MAKEINFO = $(PERL) -I $(top_builddir)/tp/ -I $(top_srcdir)/tp/ $(top_srcdir)/tp/texi2any.pl
 
 # the pod files are formatted like man pages.  If HTML is split at node
 # or section, this results in some very short sections at the beginning
