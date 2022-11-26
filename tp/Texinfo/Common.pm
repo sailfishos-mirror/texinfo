@@ -327,7 +327,7 @@ our %default_converter_customization = (
   # in converter tests.  Does not need to be updated every time a DTD
   # is released, but it should be good to update from time to time
   # to avoid test results that are not valid against their reported DTD.
-  'TEXINFO_DTD_VERSION'   => '6.8',  # this is not the value documented,
+  'TEXINFO_DTD_VERSION'   => '7.1',  # this is not the value documented,
                                      # but it is better for the tests to
                                      # have a fixed value.
                                      # The main program sets the

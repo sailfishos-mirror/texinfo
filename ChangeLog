@@ -1,5 +1,11 @@
 2022-11-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%default_converter_customization): update
+	TEXINFO_DTD_VERSION to 7.1 to check more easily that tests are
+	valid.
+
+2022-11-26  Patrice Dumas  <pertusus@free.fr>
+
 	* util/texinfo.dtd, configure.ac (TEXINFO_DTD_VERSION): add the
 	index entries in tableterm before the @item.
 
