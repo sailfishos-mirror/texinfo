@@ -325,6 +325,18 @@ remove_from_contents (ELEMENT *parent, int where)
   return removed;
 }
 
+/* Remove elements from START inclusive to END exclusive.  Do not
+   free any of them. */
+void
+remove_slice_from_contents (ELEMENT *parent, int start, int end)
+{
+  memmove (&parent->contents.list[start],
+           &parent->contents.list[end],
+           (parent->contents.number - end) * sizeof (ELEMENT *));
+
+  parent->contents.number -= (end - start);
+}
+
 
 ELEMENT *
 pop_element_from_args (ELEMENT *parent)

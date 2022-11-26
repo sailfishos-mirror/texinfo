@@ -1540,8 +1540,8 @@ sub _check_no_text($)
   return $after_paragraph;
 }
 
-# put everything after the last @item/@itemx in a table_definition type container
-# and distinguish table_term and table_entry.
+# put everything after the last @item/@itemx in a table_entry type
+# container and distinguish table_term and table_definition.
 sub _gather_previous_item($$;$$)
 {
   my ($self, $current, $next_command, $source_info) = @_;
@@ -1579,7 +1579,17 @@ sub _gather_previous_item($$;$$)
   $splice_idx = 0 if !defined($splice_idx);
 
   my $splice_idx2;
-  $splice_idx2 = $contents_count;
+  # don't absorb trailing index entries as they are included with following
+  # @item.
+  # fixme - what to do with index entries immediately before '@end table'
+  for (my $i = $contents_count - 1; $i >= $splice_idx; $i--) {
+    if (!$current->{'contents'}->[$i]->{'type'}
+          or $current->{'contents'}->[$i]->{'type'} ne 'index_entry_command') {
+      $splice_idx2 = $i + 1;
+      last;
+    }
+  }
+  $splice_idx2 = $contents_count if !defined($splice_idx2);
 
   my $new_contents = [];
   @{$new_contents} = splice @{$current->{'contents'}},
@@ -1622,18 +1632,18 @@ sub _gather_previous_item($$;$$)
     for my $child (@{$new_contents}) {
       $child->{'parent'} = $table_term;
     }
-    push @{$current->{'contents'}}, $table_entry;
     if (scalar(@{$table_after_terms->{'contents'}})) {
       push @{$table_entry->{'contents'}}, $table_after_terms;
       $table_after_terms->{'parent'} = $table_entry;
     }
+    splice @{$current->{'contents'}}, $splice_idx3, 0, $table_entry;
   } else {
     my $after_paragraph = _check_no_text($table_after_terms);
     if ($after_paragraph) {
       $self->_line_error(__("\@itemx must follow \@item"), $source_info);
     }
     if (scalar(@{$table_after_terms->{'contents'}})) {
-      push @{$current->{'contents'}}, $table_after_terms;
+      splice @{$current->{'contents'}}, $splice_idx, 0, $table_after_terms;
       $table_after_terms->{'parent'} = $current;
     }
   }

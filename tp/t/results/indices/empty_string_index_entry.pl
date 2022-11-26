@@ -883,7 +883,7 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<a class="node-i
 <a class="index-entry-id" id="index-"></a>
 
 <dl class="ftable">
-<dt id=\'index--1\'><span><code class="code"><!-- /@w --></code><a class="copiable-link" href=\'#index--1\'> &para;</a></span></dt>
+<dt><a id=\'index--1\'></a><span><code class="code"><!-- /@w --></code><a class="copiable-link" href=\'#index--1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="first-deffn first-defun-alias-first-deffn">

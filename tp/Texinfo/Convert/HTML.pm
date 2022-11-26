@@ -5021,13 +5021,14 @@ sub _convert_item_command($$$$$)
           }
         }
       }
+      my $open_tag = ($cmdname eq 'item') ? '' : '<dt>';
       my $index_id = $self->command_id($command);
       my $anchor;
       my $anchor_span_open = '';
       my $anchor_span_close = '';
       if (defined($index_id)) {
         $anchor = $self->_get_copiable_anchor($index_id);
-        $index_id = " id='$index_id'";
+        $index_id = "<a id='$index_id'></a>";
         if ($anchor ne '') {
           $anchor_span_open = '<span>';
           $anchor_span_close = '</span>';
@@ -5036,7 +5037,7 @@ sub _convert_item_command($$$$$)
         $anchor = '';
         $index_id = '';
       }
-      return "<dt${index_id}>$anchor_span_open$result$anchor$anchor_span_close</dt>\n";
+      return "$open_tag$index_id$anchor_span_open$result$anchor$anchor_span_close</dt>\n";
     } else {
       return '';
     }
@@ -6004,6 +6005,19 @@ sub _open_inline_container_type($$$)
 $default_types_open{'paragraph'} = \&_open_inline_container_type;
 $default_types_open{'preformatted'} = \&_open_inline_container_type;
 
+sub _open_table_term_type($$$)
+{
+  my $self = shift;
+  my $type = shift;
+  my $element = shift;
+
+  # will be closed by first @item in table_term.
+  return '<dt>';
+}
+$default_types_open{'table_term'} = \&_open_table_term_type;
+
+
+
 
 sub _preformatted_class()
 {
@@ -6479,6 +6493,18 @@ sub _convert_before_item_type($$$$)
 }
 
 $default_types_conversion{'before_item'} = \&_convert_before_item_type;
+
+sub _convert_table_term_type($$$$)
+{
+  my $self = shift;
+  my $type = shift;
+  my $element = shift;
+  my $content = shift;
+
+  return $content;
+}
+
+$default_types_conversion{'table_term'} = \&_convert_table_term_type;
 
 sub _convert_def_line_type($$$$)
 {
@@ -11336,12 +11362,12 @@ sub _convert($$;$)
     }
 
     if (exists($self->{'types_conversion'}->{$type_name})) {
-      $result = &{$self->{'types_conversion'}->{$type_name}} ($self,
+      $result .= &{$self->{'types_conversion'}->{$type_name}} ($self,
                                                  $type_name,
                                                  $element,
                                                  $content_formatted);
     } elsif (defined($content_formatted)) {
-      $result = $content_formatted;
+      $result .= $content_formatted;
     }
     if ($self->{'code_types'}->{$type_name}) {
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};

@@ -169,7 +169,7 @@ $result_converted{'plaintext'}->{'comment_and_itemx_before_item'} = '‘in itemx
 
 
 $result_converted{'html_text'}->{'comment_and_itemx_before_item'} = '<dl class="table">
-<dt><code class="code">in itemx</code></dt>
+<dt><dt><code class="code">in itemx</code></dt>
 </dl>
 ';
 

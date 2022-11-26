@@ -1,5 +1,25 @@
 2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Output index anchors inside <dt>
+
+	* tp/Texinfo/ParserNonXS.pm (gather_previous_item),
+	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item):
+	Do not absorb trailing index entries into a table_definition element.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_open_table_term_type): New function simply to output <dt>.  Add
+	it to %default_types_open for 'table_term'.
+	(_convert_table_term_type): Dummy function to enable
+	_open_table_term_type.
+	(_convert) <open type>: Concatenate any result from an "open type"
+	handler rather than overwriting it.
+	(_convert_item_command): Do not output '<dt>' for @item, as
+	_open_table_term_type did this.  Output any index anchor immediately
+	after the <dt> as an <a> element rather than setting an 'id' attribute
+	on the <dt> tag.
+
+2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/ParserNonXS.pm (gather_previous_item):
 	Use splice operation instead of moving items one by one when
 	creating table_term element.  No functional changes intended.

@@ -2717,27 +2717,27 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '<div class="
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <dl class="vtable">
-<dt id=\'index-acode_002d_002db\'><span><code class="code">acode--b</code><a class="copiable-link" href=\'#index-acode_002d_002db\'> &para;</a></span></dt>
+<dt><a id=\'index-acode_002d_002db\'></a><span><code class="code">acode--b</code><a class="copiable-link" href=\'#index-acode_002d_002db\'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl class="vtable">
-<dt id=\'index-aasis_002d_002db\'><span>aasis&ndash;b<a class="copiable-link" href=\'#index-aasis_002d_002db\'> &para;</a></span></dt>
-<dt id=\'index-b-1\'><span>b<a class="copiable-link" href=\'#index-b-1\'> &para;</a></span></dt>
+<dt><a id=\'index-aasis_002d_002db\'></a><span>aasis&ndash;b<a class="copiable-link" href=\'#index-aasis_002d_002db\'> &para;</a></span></dt>
+<dt><a id=\'index-b-1\'></a><span>b<a class="copiable-link" href=\'#index-b-1\'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl class="ftable">
-<dt id=\'index-avar_002d_002db\'><span><var class="var">avar&ndash;b</var><a class="copiable-link" href=\'#index-avar_002d_002db\'> &para;</a></span></dt>
+<dt><a id=\'index-avar_002d_002db\'></a><span><var class="var">avar&ndash;b</var><a class="copiable-link" href=\'#index-avar_002d_002db\'> &para;</a></span></dt>
 <dd><a class="index-entry-id" id="index-index-entry-between-item-and-itemx"></a>
 </dd>
-<dt id=\'index-b\'><span><var class="var">b</var><a class="copiable-link" href=\'#index-b\'> &para;</a></span></dt>
+<dt><a id=\'index-b\'></a><span><var class="var">b</var><a class="copiable-link" href=\'#index-b\'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
-<dt id=\'index-c\'><span><var class="var">c</var><a class="copiable-link" href=\'#index-c\'> &para;</a></span></dt>
-<dt id=\'index-d\'><span><var class="var">d</var><a class="copiable-link" href=\'#index-d\'> &para;</a></span></dt>
+<dt><a id=\'index-c\'></a><span><var class="var">c</var><a class="copiable-link" href=\'#index-c\'> &para;</a></span></dt>
+<dt><a id=\'index-d\'></a><span><var class="var">d</var><a class="copiable-link" href=\'#index-d\'> &para;</a></span></dt>
 </dl>
 
 <dl class="table">

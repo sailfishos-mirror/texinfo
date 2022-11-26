@@ -1254,8 +1254,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 </p></dd></dl>
 
 <dl class="ftable">
-<dt id=\'index-copying-ftable-item\'><span>ftable item<a class="copiable-link" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
-<dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a class="copiable-link" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
+<dt><a id=\'index-copying-ftable-item\'></a><span>ftable item<a class="copiable-link" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
+<dt><a id=\'index-copying-xftable-xitem\'></a><span>xftable xitem<a class="copiable-link" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
 </dl>
 
 <div class="printindex fn-printindex">
@@ -1313,8 +1313,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 </p></dd></dl>
 
 <dl class="ftable">
-<dt id=\'index-copying-ftable-item\'><span>ftable item<a class="copiable-link" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
-<dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a class="copiable-link" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
+<dt><a id=\'index-copying-ftable-item\'></a><span>ftable item<a class="copiable-link" href=\'#index-copying-ftable-item\'> &para;</a></span></dt>
+<dt><a id=\'index-copying-xftable-xitem\'></a><span>xftable xitem<a class="copiable-link" href=\'#index-copying-xftable-xitem\'> &para;</a></span></dt>
 </dl>
 
 <div class="printindex fn-printindex">
