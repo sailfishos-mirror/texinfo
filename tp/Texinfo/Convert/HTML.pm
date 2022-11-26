@@ -6005,19 +6005,6 @@ sub _open_inline_container_type($$$)
 $default_types_open{'paragraph'} = \&_open_inline_container_type;
 $default_types_open{'preformatted'} = \&_open_inline_container_type;
 
-sub _open_table_term_type($$$)
-{
-  my $self = shift;
-  my $type = shift;
-  my $element = shift;
-
-  # will be closed by first @item in table_term.
-  return '<dt>';
-}
-$default_types_open{'table_term'} = \&_open_table_term_type;
-
-
-
 
 sub _preformatted_class()
 {
@@ -6501,7 +6488,7 @@ sub _convert_table_term_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  return $content;
+  return '<dt>'.$content;
 }
 
 $default_types_conversion{'table_term'} = \&_convert_table_term_type;
