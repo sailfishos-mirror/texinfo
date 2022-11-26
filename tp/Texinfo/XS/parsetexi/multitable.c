@@ -92,16 +92,18 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
   if (splice_idx == -1)
     splice_idx = 0;
 
-  /* don't absorb trailing index entries as they are included with following
-     @item. */
-  /* fixme - what to do with index entries immediately before '@end table' */
-  for (i = contents_count - 1; i >= splice_idx; i--)
+  if (next_command)
     {
-      e = contents_child_by_index (current, i);
-      if (e->type != ET_index_entry_command)
+      /* Don't absorb trailing index entries as they are included with a
+         following @item. */
+      for (i = contents_count - 1; i >= splice_idx; i--)
         {
-          splice_idx2 = i + 1;
-          break;
+          e = contents_child_by_index (current, i);
+          if (e->type != ET_index_entry_command)
+            {
+              splice_idx2 = i + 1;
+              break;
+            }
         }
     }
   if (splice_idx2 == -1)

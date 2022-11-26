@@ -1,5 +1,12 @@
 2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (gather_previous_item),
+	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item):
+	Leave trailing index entries if no command follows.
+	* tp/t/22xtable.t (index_command_before_end_table): New test.
+
+2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/t/22xtable.t (inter_item_commands_in_table): Move test
 	here of @cindex directly between @item and @itemx.
 	* tp/tests/coverage_macro.texi: Remove cases tested in t/22xtable.t.

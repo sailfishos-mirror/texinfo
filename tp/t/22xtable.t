@@ -160,6 +160,16 @@ l--ine
 @end table
 @end example
 '],
+['index_command_before_end_table',
+'
+@table @code
+@item in item
+@itemx in itemx
+aaaaa
+
+@vindex var
+@end table
+'],
 ['block_commands_in_table',
 '@node Top
 @top Element

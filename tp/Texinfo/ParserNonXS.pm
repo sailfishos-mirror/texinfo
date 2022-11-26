@@ -1579,14 +1579,16 @@ sub _gather_previous_item($$;$$)
   $splice_idx = 0 if !defined($splice_idx);
 
   my $splice_idx2;
-  # don't absorb trailing index entries as they are included with following
-  # @item.
-  # fixme - what to do with index entries immediately before '@end table'
-  for (my $i = $contents_count - 1; $i >= $splice_idx; $i--) {
-    if (!$current->{'contents'}->[$i]->{'type'}
-          or $current->{'contents'}->[$i]->{'type'} ne 'index_entry_command') {
-      $splice_idx2 = $i + 1;
-      last;
+
+  if (defined($next_command)) {
+    # Don't absorb trailing index entries as they are included with a
+    # following @item.
+    for (my $i = $contents_count - 1; $i >= $splice_idx; $i--) {
+      if (!$current->{'contents'}->[$i]->{'type'}
+        or $current->{'contents'}->[$i]->{'type'} ne 'index_entry_command') {
+        $splice_idx2 = $i + 1;
+        last;
+      }
     }
   }
   $splice_idx2 = $contents_count if !defined($splice_idx2);
