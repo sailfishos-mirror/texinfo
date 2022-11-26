@@ -1603,6 +1603,7 @@ sub _gather_previous_item($$;$$)
   }
 
   if ($type eq 'table_definition') {
+    my $before_item;
     # setup a table_entry
     my $table_entry = {'type' => 'table_entry',
                     'parent' => $current,
@@ -1621,6 +1622,9 @@ sub _gather_previous_item($$;$$)
            and ($current->{'contents'}->[$i]->{'type'} eq 'before_item'
                 # reached the previous table entry
                 or $current->{'contents'}->[$i]->{'type'} eq 'table_entry')) {
+        if ($current->{'contents'}->[$i]->{'type'} eq 'before_item') {
+          $before_item = $current->{'contents'}->[$i];
+        }
         $splice_idx3 = $i + 1;
         last;
       }
@@ -1633,6 +1637,20 @@ sub _gather_previous_item($$;$$)
     $table_term->{'contents'} = $new_contents;
     for my $child (@{$new_contents}) {
       $child->{'parent'} = $table_term;
+    }
+    if (defined($before_item)) {
+      # reparent any trailing index entries in the before_item to the
+      # beginning of table term
+      while ($before_item->{'contents'}->[-1]
+               and $before_item->{'contents'}->[-1]->{'type'}
+               and $before_item->{'contents'}->[-1]->{'type'}
+                 eq 'index_entry_command') {
+        my $element = pop @{$before_item->{'contents'}};
+        unshift @{$table_term->{'contents'}}, $element;
+      }
+      if (scalar(@{$before_item->{'contents'}}) == 0) {
+        delete $before_item->{'contents'};
+      }
     }
     if (scalar(@{$table_after_terms->{'contents'}})) {
       push @{$table_entry->{'contents'}}, $table_after_terms;

@@ -121,6 +121,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
 
   if (type == ET_table_definition)
     {
+      ELEMENT *before_item = 0;
       ELEMENT *table_entry = new_element (ET_table_entry);
       ELEMENT *table_term = new_element (ET_table_term);
       add_to_element_contents (table_entry, table_term);
@@ -133,6 +134,8 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
            if (e->type == ET_before_item
                || e->type == ET_table_entry)
              {
+               if (e->type == ET_before_item)
+                 before_item = e;
                splice_idx3 = i + 1;
                break;
              }
@@ -145,6 +148,18 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       for (i = 0; i < table_term->contents.number; i++)
         contents_child_by_index(table_term, i)->parent = table_term;
       remove_slice_from_contents (current, splice_idx3, splice_idx);
+      if (before_item)
+        {
+          /* Reparent any trailing index entries in the before_item to the
+             beginning of table term. */
+          while (before_item->contents.number > 0
+                   && last_contents_child(before_item)->type
+                       == ET_index_entry_command)
+            {
+              ELEMENT *e = pop_element_from_contents (before_item);
+              insert_into_contents (table_term, e, 0);
+            }
+        }
 
       if (table_after_terms->contents.number > 0)
         add_to_element_contents (table_entry, table_after_terms);

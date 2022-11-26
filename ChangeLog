@@ -1,5 +1,11 @@
 2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (gather_previous_item),
+	* tp/Texinfo/XS/parsetexi/multitable.c (gather_previous_item):
+	Reparent trailing index commands from before_item to table_term.
+
+2022-11-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Remove relate_index_entries_to_table_entries_in_tree
 
 	* tp/Texinfo/Common.pm (texinfo_special_joint_transformation)
