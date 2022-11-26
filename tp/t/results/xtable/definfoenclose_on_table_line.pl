@@ -273,4 +273,12 @@ $result_converted{'xml'}->{'definfoenclose_on_table_line'} = '<definfoenclose sp
 </para></tableitem></tableentry></table>
 ';
 
+
+$result_converted{'docbook'}->{'definfoenclose_on_table_line'} = '
+<variablelist><varlistentry><term>item
+</term><term>item x
+</term><listitem>
+<para>table content.
+</para></listitem></varlistentry></variablelist>';
+
 1;

@@ -336,6 +336,7 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'xml';
+  push @{$test->[2]->{'test_formats'}}, 'docbook';
   if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests) {
     push @{$test->[2]->{'test_formats'}}, 'file_latex';
     $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';

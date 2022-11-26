@@ -180,4 +180,9 @@ $result_converted{'xml'}->{'comment_and_itemx_before_item'} = '<table commandarg
 </tableterm></tableentry></table>
 ';
 
+
+$result_converted{'docbook'}->{'comment_and_itemx_before_item'} = '<variablelist><!-- comment -->
+<varlistentry><term><literal>in itemx</literal>
+</term></varlistentry></variablelist>';
+
 1;

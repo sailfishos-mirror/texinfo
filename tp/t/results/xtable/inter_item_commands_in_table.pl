@@ -3160,4 +3160,77 @@ $result_converted{'xml'}->{'inter_item_commands_in_table'} = '<node name="Top" s
 </chapter>
 ';
 
+
+$result_converted{'docbook'}->{'inter_item_commands_in_table'} = '<chapter label="1" id="chapter">
+<title>chap</title>
+
+<variablelist><!-- comment in table -->
+<varlistentry><term><indexterm role="vr"><primary>acode--b</primary></indexterm><literal>acode--b</literal>
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><varlistentry><term><indexterm role="vr"><primary>aasis--b</primary></indexterm>aasis&#8211;b
+</term><!-- comment between item and itemx -->
+<term><indexterm role="vr"><primary>b</primary></indexterm>b
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><varlistentry><term><indexterm role="fn"><primary>avar--b</primary></indexterm><replaceable>avar&#8211;b</replaceable>
+</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
+<!-- and a comment -->
+<!-- and another comment -->
+<term><indexterm role="fn"><primary>b</primary></indexterm><replaceable>b</replaceable>
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry><varlistentry><term><indexterm role="fn"><primary>c</primary></indexterm><replaceable>c</replaceable>
+</term>
+<!-- comment between lines -->
+
+<term><indexterm role="fn"><primary>d</primary></indexterm><replaceable>d</replaceable>
+</term><listitem>
+<!-- comment at end -->
+</listitem></varlistentry></variablelist>
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
+</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
+<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><indexterm role="cp"><primary>cindex in table</primary></indexterm>
+<!-- comment in table -->
+<varlistentry><term><literal>abb</literal>
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><indexterm role="cp"><primary>cindex in table</primary></indexterm>
+<para>Texte before first item.
+</para><varlistentry><term><literal>abb</literal>
+</term></varlistentry></variablelist>
+<variablelist><indexterm role="cp"><primary>samp cindex in table</primary></indexterm>
+<!-- samp comment in table -->
+<varlistentry><term>&#8216;<literal>asamp--bb</literal>&#8217;
+</term><listitem><para>l&#8211;ine samp
+</para></listitem></varlistentry></variablelist>
+<variablelist><indexterm role="cp"><primary>samp cindex in table</primary></indexterm>
+<para>Texte before first item samp.
+</para><varlistentry><term>&#8216;<literal>asamp--bb</literal>&#8217;
+</term></varlistentry></variablelist>
+<variablelist>
+<indexterm role="cp"><primary>cindex between lines</primary></indexterm>
+
+<varlistentry><term>&#8216;<literal>asamp--bb1</literal>&#8217;
+</term></varlistentry></variablelist>
+<variablelist><indexterm role="cp"><primary>cindex before line</primary></indexterm>
+
+<varlistentry><term>&#8216;<literal>asamp--bb2</literal>&#8217;
+</term></varlistentry></variablelist>
+<variablelist>
+<varlistentry><indexterm role="cp"><primary>cindex after line</primary></indexterm>
+<term>&#8216;<literal>asamp--bb2</literal>&#8217;
+</term></varlistentry></variablelist>
+<variablelist><indexterm role="cp"><primary>cindex first</primary></indexterm>
+<!-- commant -->
+<varlistentry><indexterm role="cp"><primary>second</primary></indexterm>
+<indexterm role="cp"><primary>third</primary></indexterm>
+<term>&#8216;<literal>asamp--bb2</literal>&#8217;
+</term></varlistentry></variablelist>
+
+</chapter>
+';
+
 1;

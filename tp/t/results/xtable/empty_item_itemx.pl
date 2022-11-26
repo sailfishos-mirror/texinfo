@@ -415,4 +415,15 @@ $result_converted{'xml'}->{'empty_item_itemx'} = '<vtable commandarg="asis" spac
 </tableterm></tableentry></vtable>
 ';
 
+
+$result_converted{'docbook'}->{'empty_item_itemx'} = '<variablelist>
+<para>VTable
+</para>
+<varlistentry><term><indexterm role="vr"><primary>first item</primary></indexterm>first item
+</term><term>
+</term><term><indexterm role="vr"><primary>after an empty itemx, before an empty item</primary></indexterm>after an empty itemx, before an empty item
+</term></varlistentry><varlistentry><term>
+</term></varlistentry><varlistentry><term><indexterm role="vr"><primary>in item before end table</primary></indexterm>in item before end table
+</term></varlistentry></variablelist>';
+
 1;

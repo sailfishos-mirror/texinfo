@@ -416,4 +416,12 @@ $result_converted{'xml'}->{'accent_on_table_line'} = '<table commandarg="asis" s
 </tableterm></tableentry></table>
 ';
 
+
+$result_converted{'docbook'}->{'accent_on_table_line'} = '<variablelist><varlistentry><term>first item
+</term></varlistentry><varlistentry><term>no at-command <literal>code</literal>
+</term></varlistentry></variablelist>
+<variablelist><varlistentry><term>acc brace first item
+</term></varlistentry><varlistentry><term>no at-command <literal>code acc brace</literal>
+</term></varlistentry></variablelist>';
+
 1;

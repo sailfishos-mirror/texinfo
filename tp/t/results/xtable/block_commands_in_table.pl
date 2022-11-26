@@ -1559,4 +1559,7 @@ end example.
 </para></top>
 ';
 
+
+$result_converted{'docbook'}->{'block_commands_in_table'} = '';
+
 1;

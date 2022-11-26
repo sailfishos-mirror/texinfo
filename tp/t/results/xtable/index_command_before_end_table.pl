@@ -278,4 +278,13 @@ $result_converted{'xml'}->{'index_command_before_end_table'} = '
 </tableitem></tableentry></table>
 ';
 
+
+$result_converted{'docbook'}->{'index_command_before_end_table'} = '
+<variablelist><varlistentry><term><literal>in item</literal>
+</term><term><literal>in itemx</literal>
+</term><listitem><para>aaaaa
+</para>
+<indexterm role="vr"><primary>var</primary></indexterm>
+</listitem></varlistentry></variablelist>';
+
 1;

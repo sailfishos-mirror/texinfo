@@ -207,4 +207,11 @@ $result_converted{'xml'}->{'long_item'} = '<table commandarg="emph" spaces=" " e
 </para></tableitem></tableentry></table>
 ';
 
+
+$result_converted{'docbook'}->{'long_item'} = '<variablelist><varlistentry><term><emphasis>first item      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa</emphasis>
+</term><term><emphasis>second itemx bbbbbbbbbbbbbbbbbbbbbbbbbbbbb b b b b b b b b b b b b b</emphasis>
+</term><listitem>
+<para>Text.
+</para></listitem></varlistentry></variablelist>';
+
 1;

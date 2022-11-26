@@ -454,4 +454,15 @@ $result_converted{'xml'}->{'inter_item_commands_in_table_in_example'} = '<exampl
 </example>
 ';
 
+
+$result_converted{'docbook'}->{'inter_item_commands_in_table_in_example'} = '<variablelist><varlistentry><term><replaceable>a--b</replaceable>
+</term><screen><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm><!-- and a comment -->
+<!-- and another comment -->
+</screen><term><replaceable>b</replaceable>
+</term><screen>
+</screen><term><replaceable>c</replaceable>
+</term><listitem><screen>l--ine
+</screen></listitem></varlistentry><varlistentry><term><replaceable>d</replaceable>
+</term></varlistentry></variablelist>';
+
 1;

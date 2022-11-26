@@ -2429,4 +2429,64 @@ Something.
 </quotation>
 ';
 
+
+$result_converted{'docbook'}->{'table_nested'} = '
+<para>Quotation
+</para><blockquote><variablelist><varlistentry><term><indexterm role="vr"><primary>first item</primary></indexterm>first item
+</term><term><indexterm role="vr"><primary>second itemx</primary></indexterm>second itemx
+</term><listitem>
+<para>Text.
+</para>
+</listitem></varlistentry><varlistentry><term><indexterm role="vr"><primary>second item</primary></indexterm>second item
+</term><listitem>
+<para>Text 2
+</para>
+</listitem></varlistentry><varlistentry><term><indexterm role="vr"><primary>last</primary></indexterm>last
+</term></varlistentry></variablelist>
+<para>Something.
+</para><variablelist><varlistentry><term><emphasis>in item</emphasis>
+</term><listitem><para>Text without blank line
+</para></listitem></varlistentry><varlistentry><term><emphasis>second item</emphasis>
+</term><listitem><para>Text without blank line 2
+</para></listitem></varlistentry></variablelist><para>After table.
+</para></blockquote>
+<para>Example
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>first item</primary></indexterm>first item
+</term><term><indexterm role="vr"><primary>second itemx</primary></indexterm>second itemx
+</term><listitem><screen>
+Text.
+
+</screen></listitem></varlistentry><varlistentry><term><indexterm role="vr"><primary>second item</primary></indexterm>second item
+</term><listitem><screen>
+Text 2
+
+</screen></listitem></varlistentry><varlistentry><term><indexterm role="vr"><primary>last</primary></indexterm>last
+</term></varlistentry></variablelist><screen>
+Something.
+</screen><variablelist><varlistentry><term><emphasis>in item</emphasis>
+</term><listitem><screen>Text without blank line
+</screen></listitem></varlistentry><varlistentry><term><emphasis>second item</emphasis>
+</term><listitem><screen>Text without blank line 2
+</screen></listitem></varlistentry></variablelist><screen>After table.
+</screen>
+<para>Double quotation
+</para><blockquote><blockquote><variablelist><varlistentry><term><indexterm role="vr"><primary>first item</primary></indexterm>first item
+</term><term><indexterm role="vr"><primary>second itemx</primary></indexterm>second itemx
+</term><listitem>
+<para>Text.
+</para>
+</listitem></varlistentry><varlistentry><term><indexterm role="vr"><primary>second item</primary></indexterm>second item
+</term><listitem>
+<para>Text 2
+</para>
+</listitem></varlistentry><varlistentry><term><indexterm role="vr"><primary>last</primary></indexterm>last
+</term></varlistentry></variablelist>
+<para>Something.
+</para><variablelist><varlistentry><term><emphasis>in item</emphasis>
+</term><listitem><para>Text without blank line
+</para></listitem></varlistentry><varlistentry><term><emphasis>second item</emphasis>
+</term><listitem><para>Text without blank line 2
+</para></listitem></varlistentry></variablelist><para>After table.
+</para></blockquote></blockquote>';
+
 1;
