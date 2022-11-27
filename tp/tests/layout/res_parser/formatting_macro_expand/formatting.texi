@@ -908,6 +908,20 @@ ref, a comma@comma{} in file}
 l--ine
 @end table
 
+@vtable @asis
+@item a--asis
+@c comment between item and itemx
+@itemx b
+l--ine
+@end vtable
+
+@ftable @emph
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
+
 @table @code
 Title
 @item a--code
@@ -2060,6 +2074,20 @@ ref, a comma@comma{} in file}
 l--ine
 @end table
 
+@vtable @asis
+@item a--asis
+@c comment between item and itemx
+@itemx b
+l--ine
+@end vtable
+
+@ftable @emph
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
+
 @table @code
 Title
 @item a--code
@@ -3204,6 +3232,20 @@ ref, a comma@comma{} in file}
 @item a--strong
 l--ine
 @end table
+
+@vtable @asis
+@item a--asis
+@c comment between item and itemx
+@itemx b
+l--ine
+@end vtable
+
+@ftable @emph
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
 
 @table @code
 Title
@@ -4379,6 +4421,20 @@ ref, a comma@comma{} in file}
 l--ine
 @end table
 
+@vtable @asis
+@item a--asis
+@c comment between item and itemx
+@itemx b
+l--ine
+@end vtable
+
+@ftable @emph
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
+
 @table @code
 Title
 @item a--code
@@ -5529,6 +5585,20 @@ ref, a comma@comma{} in file}
 @item a--strong
 l--ine
 @end table
+
+@vtable @asis
+@item a--asis
+@c comment between item and itemx
+@itemx b
+l--ine
+@end vtable
+
+@ftable @emph
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
 
 @table @code
 Title

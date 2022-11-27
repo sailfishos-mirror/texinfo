@@ -1,5 +1,10 @@
 2022-11-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/tests/coverage_macro.texi: Readd removed content.  From
+	Patrice.
+
+2022-11-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@itemx at beginning of table is an error
 
 	* tp/Texinfo/ParserNonXS.pm (gather_previous_item),

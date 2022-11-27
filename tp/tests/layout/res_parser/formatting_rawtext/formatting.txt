@@ -663,6 +663,14 @@ chapter
 a-strong
 l-ine
 
+a-asis
+b
+l-ine
+
+a
+b
+l-ine
+
 Title
 a-code
 Value-table code
@@ -1494,6 +1502,14 @@ ext
 chapter
 
 a--strong
+l--ine
+
+a--asis
+b
+l--ine
+
+a
+b
 l--ine
 
 Title
