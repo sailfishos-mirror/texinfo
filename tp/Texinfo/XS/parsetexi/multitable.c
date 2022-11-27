@@ -71,7 +71,7 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       && last_contents_child(current)->type == ET_before_item)
     {
       if (next_command == CM_itemx)
-        line_warn ("@itemx should not begin @%s", command_name(current->cmd));
+        line_error ("@itemx should not begin @%s", command_name(current->cmd));
       return;
     }
 

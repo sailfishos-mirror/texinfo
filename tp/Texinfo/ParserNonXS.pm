@@ -1550,7 +1550,7 @@ sub _gather_previous_item($$;$$)
   if ($current->{'contents'}->[-1]->{'type'}
       and $current->{'contents'}->[-1]->{'type'} eq 'before_item') {
     if ($next_command and $next_command eq 'itemx') {
-      $self->_line_warn(sprintf(__("\@itemx should not begin \@%s"),
+      $self->_line_error(sprintf(__("\@itemx should not begin \@%s"),
                                 $current->{'cmdname'}), $source_info);
     }
     return;
