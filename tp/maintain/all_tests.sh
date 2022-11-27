@@ -63,6 +63,7 @@ else
     done
   elif [ "$command" = 'texis' ]; then
     for file in t/*.t; do
+      echo "$file"
       $PERL -w $file -c
     done
   else

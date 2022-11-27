@@ -1625,8 +1625,10 @@ sub output_texi_file($)
   mkdir $dir or die
      unless (-d $dir);
   my $file = "${dir}$test_name.texi";
+  print STDERR "texi: $test_name\n" if ($arg_debug);
   open (OUTFILE, ">$file") or die ("Open $file: $!\n");
 
+  my $encode = 1;
   my $first_line = "\\input texinfo \@c -*-texinfo-*-";
   if (!defined($test_text)) {
     # We do not decode to character strings in internal perl encoding,
@@ -1634,6 +1636,7 @@ sub output_texi_file($)
     # character strings containing ascii characters only.
     my $test_file;
     if ($test_options and $test_options->{'test_file'}) {
+      $encode = 0;
       $test_file = $input_files_dir . $test_options->{'test_file'};
       if (open (INFILE, $test_file)) {
         my $holdTerminator = $/;
@@ -1673,11 +1676,10 @@ sub output_texi_file($)
     print OUTFILE "$output\n"
       if ($output ne '');
   }
-  # NOTE $test_text is already encoded if read from a file, but if it is
-  # a test string from a *.t file code, it is a perl character string.
-  # Therefore there should not be non ascii characters, or alternatively,
-  # there should be a way to get the encoding, maybe a regexp on the
-  # test string, or a key in $test_options in order to encode $test_text.
+  # $test_text is already encoded if read from a file, but if it is
+  # a test string from a *.t file code, it is a perl character string
+  # and is encoded here, to UTF-8 as it is the default Texinfo encoding.
+  $test_text = Encode::encode('UTF-8', $test_text) if ($encode);
   print OUTFILE $test_text;
   print OUTFILE "$bye\n" if ($bye ne '');
   close (OUTFILE) or die "Close $file: $!\n";
