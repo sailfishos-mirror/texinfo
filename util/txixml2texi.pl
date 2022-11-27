@@ -222,6 +222,7 @@ sub skip_until_end($$)
 }
 
 my $eat_space = 0;
+my $skip_comment = 0;
 my @commands_with_args_stack;
 
 while ($reader->read) {
@@ -230,7 +231,7 @@ while ($reader->read) {
   if ($debug) {
     my $args_stack_str = join('|', map {'['.$_->[0].','.$_->[1].']'}
                                         @commands_with_args_stack);
-    printf STDERR "(args: $args_stack_str) (eat_space $eat_space) %d %d %s %d", (
+    printf STDERR "(args: $args_stack_str) (eat_space $eat_space) (skip_comment $skip_comment) %d %d %s %d", (
           $reader->depth, $reader->nodeType, $reader->name, $reader->isEmptyElement);
     my $value = '';
     if ($reader->hasValue()) {
@@ -353,8 +354,17 @@ while ($reader->read) {
         $line =~ s/\x{1F}/\\/g;
         print $line;
       }
-      if ($name eq 'set' or $name eq 'clickstyle') {
+      if ($name eq 'set' or $name eq 'clickstyle' or $name eq 'columnfractions') {
         skip_until_end($reader, $name);
+        if ($name eq 'columnfractions') {
+          # A comment should already appear in the line attribute, so we skip
+          # a redundant XML comment following the columnfractions closing
+          # element.
+          # start at 2 as there is a -1 right after at the end of
+          # the loop, and another -1 for the next element (possibly
+          # an ignored comment).
+          $skip_comment = 2;
+        }
       }
     } elsif ($arg_elements{$name}) {
       if ($reader->hasAttributes()
@@ -514,11 +524,12 @@ while ($reader->read) {
       $comment =~ s/^ (comment|c)//;
       my $command = $1;
       $comment =~ s/ $//;
-      print "\@${command}$comment";
+      print "\@${command}$comment" unless ($skip_comment);
     }
   } elsif ($reader->nodeType() eq XML_READER_TYPE_DOCUMENT_TYPE) {
     $eat_space = 1;
   }
+  $skip_comment-- if ($skip_comment);
 }
 
 1;
