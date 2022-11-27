@@ -1309,12 +1309,11 @@ sub _convert($$;$)
             }
             $result .= $end_line;
           } else {
-
             # in that case the end of line is in the columnfractions line
             # or in the columnprototypes.
             if ($element->{'cmdname'} eq 'multitable') {
               my @prototype_line;
-              if (not $element->{'extra'}->{'columnfractions'}) {
+              if ($element->{'extra'}->{'prototypes'}) {
                 # Like 'prototypes' extra value, but keeping spaces information
                 if (defined $element->{'args'}->[0]
                     and defined $element->{'args'}->[0]->{'type'}
@@ -1379,9 +1378,16 @@ sub _convert($$;$)
                 }
                 $result .= $self->txi_markup_close_element('columnprototypes');
                 $result .= $self->format_comment_or_return_end_line($element);
-              } elsif ($element->{'extra'}
-                       and $element->{'extra'}->{'columnfractions'}
-                       and $element->{'args'}->[0]->{'contents'}) {
+              } elsif ($element->{'args'} and $element->{'args'}->[0]
+                       and $element->{'args'}->[0]->{'contents'}
+                       and (($element->{'extra'}
+                             and $element->{'extra'}->{'columnfractions'})
+                            # case of bogus/empty @columnfractions
+                            or ($element->{'args'}->[0]->{'contents'}->[0]
+                                and $element->{'args'}->[0]->{'contents'}
+                                                           ->[0]->{'cmdname'}
+                                and $element->{'args'}->[0]->{'contents'}
+                                   ->[0]->{'cmdname'} eq 'columnfractions'))) {
                 my $cmd;
                 foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
                   if ($content->{'cmdname'}
@@ -1393,11 +1399,16 @@ sub _convert($$;$)
                 my $attribute = [_leading_spaces_arg($cmd),
                                  $self->_texinfo_line($cmd)];
                 $result .= $self->txi_markup_open_element('columnfractions', $attribute);
-                foreach my $fraction (@{$element->{'extra'}->{'columnfractions'}
-                                             ->{'extra'}->{'misc_args'}}) {
-                  $result .= $self->txi_markup_open_element('columnfraction',
-                                                [['value', $fraction]])
-                             .$self->txi_markup_close_element('columnfraction');
+                if ($element->{'extra'}->{'columnfractions'}
+                    and $element->{'extra'}->{'columnfractions'}->{'extra'}
+                    and $element->{'extra'}->{'columnfractions'}
+                                                ->{'extra'}->{'misc_args'}) {
+                  foreach my $fraction (@{$element->{'extra'}->{'columnfractions'}
+                                               ->{'extra'}->{'misc_args'}}) {
+                    $result .= $self->txi_markup_open_element('columnfraction',
+                                                  [['value', $fraction]])
+                               .$self->txi_markup_close_element('columnfraction');
+                  }
                 }
                 $result .= $self->txi_markup_close_element('columnfractions');
                 $result .= $self->format_comment_or_return_end_line($cmd);

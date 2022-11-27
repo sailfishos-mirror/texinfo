@@ -105,4 +105,13 @@ $result_errors{'empty'} = [
 $result_floats{'empty'} = {};
 
 
+
+$result_converted{'xml'}->{'empty'} = '<multitable spaces=" " endspaces=" "><columnfractions line=" "></columnfractions>
+</multitable>';
+
+
+$result_converted{'latex_text'}->{'empty'} = '\\begin{tabular}{}%
+\\end{tabular}%
+';
+
 1;

@@ -134,4 +134,13 @@ $result_errors{'wrong_command'} = [
 $result_floats{'wrong_command'} = {};
 
 
+
+$result_converted{'xml'}->{'wrong_command'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="@b{3.4} "></columnfractions>
+</multitable>';
+
+
+$result_converted{'latex_text'}->{'wrong_command'} = '\\begin{tabular}{}%
+\\end{tabular}%
+';
+
 1;

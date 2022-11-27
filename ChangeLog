@@ -1,5 +1,13 @@
 2022-11-27  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): do not have
+	an empty columnprototypes when there is an empty columnfraction,
+	but only have a columnfraction.
+	Avoid autovivification of extra columnfraction in case of empty
+	columnfraction.
+
+2022-11-27  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoMarkup.pm (_convert): correctly use
 	_leading_spaces_arg return in case there is no space after @end
 	command line and something else on the line.

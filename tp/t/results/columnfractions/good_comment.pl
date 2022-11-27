@@ -123,4 +123,13 @@ $result_errors{'good_comment'} = [];
 $result_floats{'good_comment'} = {};
 
 
+
+$result_converted{'xml'}->{'good_comment'} = '<multitable spaces=" " endspaces=" "><columnfractions spaces=" " line="0.4 .6 5.@c comment"><columnfraction value="0.4"></columnfraction><columnfraction value=".6"></columnfraction><columnfraction value="5."></columnfraction></columnfractions><!-- c comment -->
+</multitable>';
+
+
+$result_converted{'latex_text'}->{'good_comment'} = '\\begin{tabular}{m{0.4\\textwidth} m{.6\\textwidth} m{5.\\textwidth}}%
+\\end{tabular}%
+';
+
 1;
