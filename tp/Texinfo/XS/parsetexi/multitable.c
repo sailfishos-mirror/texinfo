@@ -153,8 +153,11 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
           /* Reparent any trailing index entries in the before_item to the
              beginning of table term. */
           while (before_item->contents.number > 0
-                   && last_contents_child(before_item)->type
-                       == ET_index_entry_command)
+                   && (last_contents_child(before_item)->type
+                         == ET_index_entry_command
+                       || last_contents_child(before_item)->cmd == CM_c
+                       || last_contents_child(before_item)->cmd
+                         == CM_comment))
             {
               ELEMENT *e = pop_element_from_contents (before_item);
               insert_into_contents (table_term, e, 0);

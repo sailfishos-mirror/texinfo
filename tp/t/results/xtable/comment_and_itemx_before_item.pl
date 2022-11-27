@@ -35,28 +35,23 @@ $result_trees{'comment_and_itemx_before_item'} = {
             {
               'contents' => [
                 {
-                  'args' => [
-                    {
-                      'text' => ' comment
-',
-                      'type' => 'misc_arg'
-                    }
-                  ],
-                  'cmdname' => 'c',
-                  'extra' => {
-                    'misc_args' => [
-                      ' comment
-'
-                    ]
-                  }
-                }
-              ],
-              'type' => 'before_item'
-            },
-            {
-              'contents' => [
-                {
                   'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'text' => ' comment
+',
+                          'type' => 'misc_arg'
+                        }
+                      ],
+                      'cmdname' => 'c',
+                      'extra' => {
+                        'misc_args' => [
+                          ' comment
+'
+                        ]
+                      }
+                    },
                     {
                       'args' => [
                         {
@@ -175,14 +170,14 @@ $result_converted{'html_text'}->{'comment_and_itemx_before_item'} = '<dl class="
 
 
 $result_converted{'xml'}->{'comment_and_itemx_before_item'} = '<table commandarg="code" spaces=" " endspaces=" ">
-<beforefirstitem><!-- c comment -->
-</beforefirstitem><tableentry><tableterm><itemx spaces=" "><itemformat command="code">in itemx</itemformat></itemx>
+<tableentry><tableterm><!-- c comment -->
+<itemx spaces=" "><itemformat command="code">in itemx</itemformat></itemx>
 </tableterm></tableentry></table>
 ';
 
 
-$result_converted{'docbook'}->{'comment_and_itemx_before_item'} = '<variablelist><!-- comment -->
-<varlistentry><term><term><literal>in itemx</literal>
+$result_converted{'docbook'}->{'comment_and_itemx_before_item'} = '<variablelist><varlistentry><term><!-- comment -->
+<term><literal>in itemx</literal>
 </term></varlistentry></variablelist>';
 
 1;

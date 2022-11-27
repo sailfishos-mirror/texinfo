@@ -659,8 +659,8 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 <!-- as documented The @table command is not supported inside @display -->
 <!--  This command won't work in this context; perhaps the  -->
 <!--  problem is that we are in environment @example. -->
-<variablelist><!-- comment in table -->
-<varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
+<variablelist><varlistentry><term><!-- comment in table -->
+<emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
@@ -850,13 +850,13 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <!-- not style formatting -->
-<variablelist><!-- comment in table -->
-<varlistentry><term>a
+<variablelist><varlistentry><term><!-- comment in table -->
+a
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- missing style formatting -->
-<variablelist><!-- comment in table -->
-<varlistentry><term>a&#8211;missing style formatting
+<variablelist><varlistentry><term><!-- comment in table -->
+a&#8211;missing style formatting
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- not style formatting -->
@@ -1585,8 +1585,8 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 <!-- as documented The @table command is not supported inside @display -->
 <!--  This command won't work in this context; perhaps the  -->
 <!--  problem is that we are in environment @example. -->
-<variablelist><!-- comment in table -->
-<varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
+<variablelist><varlistentry><term><!-- comment in table -->
+<emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
@@ -1776,13 +1776,13 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <!-- not style formatting -->
-<variablelist><!-- comment in table -->
-<varlistentry><term>a
+<variablelist><varlistentry><term><!-- comment in table -->
+a
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- missing style formatting -->
-<variablelist><!-- comment in table -->
-<varlistentry><term>a&#8211;missing style formatting
+<variablelist><varlistentry><term><!-- comment in table -->
+a&#8211;missing style formatting
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- not style formatting -->
@@ -2498,8 +2498,8 @@ ref&#8221; in <filename>a comma&#44; in file</filename>
 <!-- as documented The @table command is not supported inside @display -->
 <!--  This command won't work in this context; perhaps the  -->
 <!--  problem is that we are in environment @example. -->
-<variablelist><!-- comment in table -->
-<varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
+<variablelist><varlistentry><term><!-- comment in table -->
+<emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
@@ -2689,13 +2689,13 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
 </para></listitem></itemizedlist>
 <!-- not style formatting -->
-<variablelist><!-- comment in table -->
-<varlistentry><term>a
+<variablelist><varlistentry><term><!-- comment in table -->
+a
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- missing style formatting -->
-<variablelist><!-- comment in table -->
-<varlistentry><term>a&#8211;missing style formatting
+<variablelist><varlistentry><term><!-- comment in table -->
+a&#8211;missing style formatting
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- not style formatting -->

@@ -1642,9 +1642,14 @@ sub _gather_previous_item($$;$$)
       # reparent any trailing index entries in the before_item to the
       # beginning of table term
       while ($before_item->{'contents'}->[-1]
-               and $before_item->{'contents'}->[-1]->{'type'}
-               and $before_item->{'contents'}->[-1]->{'type'}
-                 eq 'index_entry_command') {
+               and (($before_item->{'contents'}->[-1]->{'type'}
+                     and $before_item->{'contents'}->[-1]->{'type'}
+                       eq 'index_entry_command')
+                    or ($before_item->{'contents'}->[-1]->{'cmdname'}
+                     and ($before_item->{'contents'}->[-1]->{'cmdname'}
+                             eq 'c'
+                          or $before_item->{'contents'}->[-1]->{'cmdname'}
+                             eq 'comment')))) {
         my $element = pop @{$before_item->{'contents'}};
         unshift @{$table_term->{'contents'}}, $element;
       }

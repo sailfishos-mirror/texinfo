@@ -2067,8 +2067,8 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <!-- c  This command won't work in this context; perhaps the  -->
 <!-- c  problem is that we are in environment @example. -->
 <table commandarg="strong" spaces=" " endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
@@ -2280,15 +2280,15 @@ in verbatim ''
 
 <!-- c not style formatting -->
 <table commandarg="asis" spaces=" " endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
 <table commandarg="asis" endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
@@ -3216,8 +3216,8 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <!-- c  This command won't work in this context; perhaps the  -->
 <!-- c  problem is that we are in environment @example. -->
 <table commandarg="strong" spaces=" " endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
@@ -3429,15 +3429,15 @@ in verbatim ''
 
 <!-- c not style formatting -->
 <table commandarg="asis" spaces=" " endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
 <table commandarg="asis" endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
@@ -4395,8 +4395,8 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <!-- c  This command won't work in this context; perhaps the  -->
 <!-- c  problem is that we are in environment @example. -->
 <table commandarg="strong" spaces=" " endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
@@ -4608,15 +4608,15 @@ in verbatim ''
 
 <!-- c not style formatting -->
 <table commandarg="asis" spaces=" " endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="asis">a</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <!-- c missing style formatting -->
 <table commandarg="asis" endspaces=" ">
-<beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
+<tableentry><tableterm><!-- c comment in table -->
+<item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
