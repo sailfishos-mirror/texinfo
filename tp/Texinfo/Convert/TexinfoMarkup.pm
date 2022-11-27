@@ -1224,13 +1224,14 @@ sub _convert($$;$)
             and $element->{'contents'}->[-1]->{'cmdname'} eq 'end') {
           $end_command = $element->{'contents'}->[-1];
         }
-        my $end_command_space = _leading_spaces_arg($end_command);
-        if (scalar(@$end_command_space)) {
-          $end_command_space->[0] = 'endspaces';
+        my @end_command_spaces;
+        push @end_command_spaces, _leading_spaces_arg($end_command);
+        if (scalar(@end_command_spaces)) {
+          $end_command_spaces[0]->[0] = 'endspaces';
         }
         $result .= $self->txi_markup_open_element($element->{'cmdname'},
                                    [@$attribute, _leading_spaces_arg($element),
-                                    $end_command_space])
+                                    @end_command_spaces])
                    .${prepended_elements};
         if ($element->{'args'}) {
           my $variadic_element = undef;

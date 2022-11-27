@@ -646,6 +646,12 @@ In float with caption.
 @guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
 @end displaymath
 '],
+# also tests no space after @end cartouche before @bye
+['bye_on_end_command_line',
+'@cartouche
+in cartouche.
+@end cartouche@bye
+'],
 );
 
 my @test_tree = (
