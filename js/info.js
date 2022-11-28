@@ -1458,7 +1458,7 @@
         {
           /* Scan links that should be added to the index.  */
           var index_links = document.querySelectorAll
-            ("td.printindex-index-entry a");
+            ("td.printindex-index-section a");
           store.dispatch (actions.cache_index_links (index_links));
         }
 

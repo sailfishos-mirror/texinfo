@@ -1,5 +1,11 @@
 2022-11-27  Per Bothner  <per@bothner.com>
 
+	* js/info.js (on_link): Change query pattern for links.
+	Use class printindex-index-section instead of printindex-index-entry
+	to get the correct node URL.
+
+2022-11-27  Per Bothner  <per@bothner.com>
+
 	* js/info.js (set_current)url): Don't set parameter default.
 	It's not needed, and it triggers an eslint complaint,
 	because parameter default values were new in EcmaScript 6 (2015).
