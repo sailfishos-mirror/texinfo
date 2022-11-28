@@ -1,3 +1,9 @@
+2022-11-27  Per Bothner  <per@bothner.com>
+
+	* js/info.js (set_current)url): Don't set parameter default.
+	It's not needed, and it triggers an eslint complaint,
+	because parameter default values were new in EcmaScript 6 (2015).
+
 2022-11-29  Per Bothner  <per@bothner.com>
 
 	* js/info.css (cache_index_links): Fix index entry processing.

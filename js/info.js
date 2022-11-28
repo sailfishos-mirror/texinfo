@@ -120,7 +120,7 @@
         @arg {string} linkid - link identifier
         @arg {string|false} [history] - method name that will be applied on
         the 'window.history' object.  */
-    set_current_url: function (linkid, history, clicked = false) {
+    set_current_url: function (linkid, history, clicked) {
       if (undef_or_null (history))
         history = "pushState";
       return { type: "current-url", url: linkid,
