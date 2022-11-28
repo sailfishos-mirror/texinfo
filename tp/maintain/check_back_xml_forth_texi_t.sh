@@ -27,9 +27,25 @@ mdir=check_back_xml_forth_texi
 mkdir -p $mdir
 
 echo "generate t directory Texinfo files"
-./maintain/all_tests.sh texis > $mdir/all_tests_texis.log
+one_directory=no
+one_test=no
+if test -n "$1"; then
+  one_directory=yes
+  the_directory=$1
+  if test -n "$2" ; then
+    one_test=yes
+    the_test=$2
+    perl -w t/??$the_directory.t -c $the_test
+  else
+    rm -rf $mdir/backforth_xmltexi/$the_directory $mdir/backforth_checktexi/$the_directory $mdir/backforth_plaintexi/$the_directory $mdir/backforth_logs/$the_directory.log
+    perl -w t/??$the_directory.t -c
+  fi
+else
+  rm -rf $mdir/backforth_xmltexi $mdir/backforth_checktexi $mdir/backforth_plaintexi $mdir/backforth_logs
+  ./maintain/all_tests.sh texis > $mdir/all_tests_texis.log
+fi
+
 export XML_CATALOG_FILES=./maintain/catalog.xml
-rm -rf $mdir/backforth_xmltexi $mdir/backforth_checktexi $mdir/backforth_plaintexi $mdir/backforth_logs
 mkdir -p $mdir/backforth_logs
 for dir in `find t_texis/ -type d` ; do
   bdir=`echo $dir | sed 's;t_texis/;;'`
@@ -37,12 +53,24 @@ for dir in `find t_texis/ -type d` ; do
     # for the t_texis/ directory
     continue
   fi
+  if test $one_directory = 'yes' -a z"$the_directory" != z"$bdir" ; then
+    continue
+  fi
   echo "doing $bdir"
   mkdir -p $mdir/backforth_plaintexi/$bdir $mdir/backforth_xmltexi/$bdir $mdir/backforth_checktexi/$bdir
+  if test $one_test = 'yes' ; then
+    mkdir -p $mdir/onetest_logs
+    logfile=$mdir/onetest_logs/$the_test.log
+  else
+    logfile=$mdir/backforth_logs/$bdir.log
+  fi
   (
   for file in $dir/*.texi; do
-    echo "    -> $file: plaintexinfo"
     bfile=`basename $file .texi`
+    if test $one_test = 'yes' -a z"$the_test" != z"$bfile" ; then
+      continue
+    fi
+    echo "    -> $file: plaintexinfo"
     # Either the output file or the output directory can be specified.
     # The conversion to Texinfo XML below uses the directory.
     # Specifying the file allows, as a side effect, to check the consistency
@@ -58,7 +86,7 @@ for dir in `find t_texis/ -type d` ; do
     echo "              Back"
     ../util/txixml2texi.pl $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/backforth_checktexi/$bdir/$bfile.texi
   done
-  ) > $mdir/backforth_logs/$bdir.log 2>&1 
+  ) > $logfile 2>&1
 done
 
 diff -u -r t_texis/ $mdir/backforth_checktexi/ > $mdir/orig_texi.diff
